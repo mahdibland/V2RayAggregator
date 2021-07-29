@@ -5,4 +5,4 @@
 
 ## 使用方法
 
-仓库中`Eternity`文件随缘更新，每一次更新将抹除之前的记录，同时产生以`$YY$MM$DD`为格式的文件，作为当日更新订阅记录。如此可以客户端导入[订阅路径](https://github.com/alanbobs999/TopProxies/blob/main/Eternity)，省去了在客户端改订阅链接的步骤。
+仓库中`Eternity`文件随缘更新，每一次更新将抹除之前的记录，同时产生以`$YY$MM$DD`为格式的文件，作为当日更新订阅记录。如此可以客户端导入[订阅路径](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/main/Eternity)，省去了在客户端改订阅链接的步骤。
