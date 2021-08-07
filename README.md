@@ -2,7 +2,7 @@
 
 ## 仓库介绍
 
-使用[nodesCatch](https://buliang0.tk/archives/40.html)对网络上各免费节点池中节点进行测速，筛选出较为稳定高速的节点，再导入到`GitHub`中进行分享记录。
+使用[nodesCatch](https://buliang0.tk/archives/40.html)软件对网络上各免费节点池中节点进行测速，筛选出较为稳定高速的节点，再导入到`GitHub`中进行分享记录。
 
 ## 使用方法
 
