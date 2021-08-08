@@ -6,7 +6,7 @@
 
 ## 使用方法
 
-仓库中`Eternity`文件随缘更新（Ps:当前节点用的舒服干嘛要折腾呢），每一次更新将抹除之前订阅内容，同时在update产生以`$YY$MM$DD`为格式的文件，作为更新记录。如此可以客户端导入[订阅路径](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/main/Eternity)，省去了在客户端改订阅链接的步骤。
+仓库中`Eternity`文件不定期更新（Ps:避免对节点造成过多负担，还有就是当前节点用的舒服干嘛要折腾呢），每一次更新将抹除之前订阅内容，同时在update产生以`$YY$MM$DD`为格式的文件，作为更新记录。如此可以客户端导入[订阅路径](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/main/Eternity)，省去了在客户端改订阅链接的步骤。
 
 ## 注意
 
