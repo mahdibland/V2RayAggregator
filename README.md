@@ -13,7 +13,7 @@
 - [Clash](https://suo.yt/CbVWL86)
 - [V2Ray](https://suo.yt/LhgZbbf)
 
-[1]:订阅链接使用[边缘@订阅转换API](https://bianyuan.xyz/)转换而来。
+[^1]:订阅链接使用[边缘@订阅转换API](https://bianyuan.xyz/)转换而来。
 
 ## 声明
 
