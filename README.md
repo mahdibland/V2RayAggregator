@@ -8,12 +8,12 @@
 
 ## 使用方法
 
-将以下订阅链接[^1]各自导入对应客户端即可。
+将以下订阅链接各自导入对应客户端即可。
 
 - [Clash](https://suo.yt/CbVWL86)
 - [V2Ray](https://suo.yt/LhgZbbf)
 
-[^1]:订阅链接使用[边缘@订阅转换API](https://bianyuan.xyz/)转换而来。
+>订阅链接使用[边缘@订阅转换API](https://bianyuan.xyz/)转换而来。
 
 ## 声明
 
