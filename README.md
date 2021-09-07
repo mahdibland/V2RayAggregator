@@ -10,10 +10,10 @@
 
 将以下订阅链接各自导入对应客户端即可。
 
-- [Clash](https://suo.yt/CbVWL86)
-- [V2Ray](https://suo.yt/LhgZbbf)
+- [Clash](https://sub.cm/E8tjmmZ)
+- [V2Ray](https://sub.cm/UOdS5ew)
 
->订阅链接使用[边缘@订阅转换API](https://bianyuan.xyz/)由原链接转换而来。
+>订阅链接使用[品云订阅转换](https://id9.cc/)由原链接转换而来。
 
 ## 声明
 
