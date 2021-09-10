@@ -10,10 +10,10 @@
 
 将以下订阅链接各自导入对应客户端即可。
 
-- [Clash](https://sub.cm/E8tjmmZ)
-- [V2Ray](https://sub.cm/UOdS5ew)
+- [Clash](https://v1.mk/peXBsrJ)
+- [V2Ray](https://v1.mk/O0HyJ4M)
 
->订阅链接使用[品云订阅转换](https://id9.cc/)由原链接转换而来。
+>订阅链接使用[在线订阅转换工具](https://sub.mcwy.cloud/)由原链接转换而来。
 
 ## 声明
 
