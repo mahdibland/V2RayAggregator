@@ -4,7 +4,7 @@
 
 对网络上各免费节点池及博主分享的节点进行测速筛选出较为稳定高速的节点，再导入到仓库中进行分享记录。
 
-仓库中订阅链接不定期更新（Ps:避免对节点造成不必要的负担，还有就是当前节点用的舒服干嘛要折腾呢），每一次更新将抹除之前`Eternity`文件中的订阅内容，同时在`update`产生以`$YY$MM$DD`为格式的文本文件作为更新记录。如此可以客户端导入[订阅链接（V2Ray）](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/main/Eternity)，省去了在客户端更改订阅链接的麻烦。
+仓库中订阅链接不定期更新（Ps:避免对节点造成不必要的负担，还有就是当前节点用的舒服干嘛要折腾呢），每一次更新将抹除之前`Eternity`文件中的订阅内容，同时在`update`产生以`$YY$MM$DD`为格式的文本文件作为更新记录。如此可以客户端导入[订阅链接（Base64编码）](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/main/Eternity)，省去了在客户端更改订阅链接的麻烦。
 
 ## 使用方法
 
@@ -12,6 +12,7 @@
 
 - [Clash](https://suo.yt/aNGBoYv)
 - [V2Ray](https://suo.yt/EWpyBmx)
+- [多协议](https://suo.yt/VCEaenj)
 
 >订阅链接使用[在线订阅转换工具](https://sub.mcwy.cloud/)由原链接转换而来。
 
