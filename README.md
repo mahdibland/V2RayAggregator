@@ -11,10 +11,9 @@
 将以下订阅链接各自导入对应客户端即可。
 
 - [Clash](https://suo.yt/aNGBoYv)
-- [V2Ray](https://suo.yt/EWpyBmx)
 - [多协议Base64编码](https://suo.yt/VCEaenj)
 
->订阅链接使用[在线订阅转换工具](https://sub.mcwy.cloud/)由原链接转换而来。
+>订阅链接使用[在线订阅转换工具](https://sub.mcwy.cloud/)由原链接转换而来，可以自行将原链接导入转换。
 
 ## 声明
 
