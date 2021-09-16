@@ -12,10 +12,15 @@
 
 将以下订阅链接各自导入客户端即可。
 
+- [多协议Base64编码](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/main/Eternity)
 - [Clash](https://suo.yt/aNGBoYv)
-- [多协议Base64编码](https://suo.yt/VCEaenj)
 
->订阅链接使用[在线订阅转换工具](https://sub.mcwy.cloud/)由原链接转换而来，不同客户端需求可自行将原链接导入转换。
+另有CDN加速订阅链接（会有延迟）：
+
+- [多协议Base64编码](https://cdn.jsdelivr.net/gh/alanbobs999/TopFreeProxies@main/Eternity)
+- [Clash](https://suo.yt/dCzqvOM)
+
+>短链接使用[在线订阅转换工具](https://sub.mcwy.cloud/)由原链接转换而来，不同客户端需求可自行将原链接导入转换。
 
 ## 声明
 
