@@ -20,7 +20,7 @@
 - [多协议Base64编码](https://cdn.jsdelivr.net/gh/alanbobs999/TopFreeProxies@main/Eternity)
 - [Clash](https://suo.yt/dCzqvOM)
 
->短链接使用[在线订阅转换工具](https://sub.mcwy.cloud/)由原链接转换而来，不同客户端需求可自行将原链接导入转换。
+>短链接使用订阅转换工具[sub-web-modify](https://sub.v1.mk/)由原链接转换而来，不同客户端需求可自行将原链接导入转换。
 
 ## 声明
 
