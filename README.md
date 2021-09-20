@@ -15,7 +15,7 @@
 - [多协议Base64编码](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/main/Eternity)
 - [Clash](https://suo.yt/uUCeAUB)
 
-另有国内加速订阅链接：
+另有国内加速链接：
 
 - [多协议Base64编码](https://raw.fastgit.org/alanbobs999/TopFreeProxies/main/Eternity)
 - [Clash](https://suo.yt/ZwIg2Sg)
