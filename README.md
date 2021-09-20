@@ -15,10 +15,10 @@
 - [多协议Base64编码](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/main/Eternity)
 - [Clash](https://suo.yt/uUCeAUB)
 
-另有国内加速订阅链接（更新会有延迟）：
+另有国内加速订阅链接：
 
-- [多协议Base64编码](https://cdn.jsdelivr.net/gh/alanbobs999/TopFreeProxies@main/Eternity)
-- [Clash](https://suo.yt/dCzqvOM)
+- [多协议Base64编码](https://raw.fastgit.org/alanbobs999/TopFreeProxies/main/Eternity)
+- [Clash](https://suo.yt/ZwIg2Sg)
 
 >短链接使用订阅转换工具[sub-web-modify](https://sub.v1.mk/)由原链接转换而来，不同客户端需求可自行将原链接导入转换。
 
