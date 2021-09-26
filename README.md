@@ -30,7 +30,7 @@
 
 |                          iOS/iPadOS                          |                           Android                            | 简易描述                                                     |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | ------------------------------------------------------------ |
-| [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118) | [Shadowrocket](https://play.google.com/store/apps/details?id=com.v2cross.proxy) | SS, SSR, Trojan, Vmess, VLESS协议支持，需在非国区AppStore购买，美区售价$2.99；安卓端非与iOS端同一作者，不支持SSR协议。 |
+| [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118) | [Shadowrocket](https://play.google.com/store/apps/details?id=com.v2cross.proxy) | SS, SSR, Trojan, Vmess, VLESS协议支持，iOS端需在非国区AppStore购买，美区售价$2.99；安卓端非与iOS端同一作者，不支持SSR协议。 |
 |                [Surge](https://nssurge.com/)                 |                              ×                               | SS, Trojan, Vmess协议支持，                                  |
 | [Quantumult X](https://apps.apple.com/us/app/quantumult-x/id1443988620) |                              ×                               | SS, SSR, Trojan, Vmess协议支持，需在非国区AppStore购买，美区售价$4.99。 |
 | [Potatso Lite](https://apps.apple.com/us/app/potatso-lite/id1239860606) |                              ×                               | SS, SSR协议支持，需在非国区AppStore购买，免费。              |
