@@ -10,7 +10,38 @@
 
 ## 使用方法
 
-将以下订阅链接各自导入客户端即可。
+首先，根据操作系统选择符合需求的客户端。
+
+### 桌面客户端推荐
+
+|                            MacOS                             |                            Linux                             |                           Windows                            | 简易描述                                           |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :------------------------------------------------- |
+| [CFW](https://github.com/Fndroid/clash_for_windows_pkg/releases) | [CFW](https://github.com/Fndroid/clash_for_windows_pkg/releases) | [CFW(Clash For Windows)](https://github.com/Fndroid/clash_for_windows_pkg/releases) | SS, SSR, Trojan, Vmess, VLESS协议支持，            |
+|     [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)      |     [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)      |     [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)      | SS, SSR, Trojan, Vmess, VLESS, Trojan-Go协议支持， |
+|                              ×                               |                              ×                               |      [V2rayN](https://github.com/2dust/v2rayN/releases)      | SS, Trojan, Vmess, VLESS协议支持，                 |
+|                              ×                               |                              ×                               |    [WinXray](https://github.com/TheMRLL/winxray/releases)    | SS, SSR, Trojan, Vmess, VLESS协议支持，            |
+|                              ×                               |                              ×                               | [Shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases) | SS协议支持，                                       |
+|                              ×                               |                              ×                               | [ShadowsocksR-windows](https://github.com/HMBSbige/ShadowsocksR-Windows/releases) | SSR协议支持，                                      |
+|                [Surge](https://nssurge.com/)                 |                              ×                               |                              ×                               | SS, Trojan, Vmess协议支持，                        |
+|   [ClashX](https://github.com/yichengchen/clashX/releases)   |                              ×                               |                              ×                               | SS, SSR, Trojan, Vmess协议支持，                   |
+|      [V2rayU](https://github.com/yanue/V2rayU/releases)      |                              ×                               |                              ×                               | SS, Trojan, Vmess协议支持，                        |
+
+### 移动客户端推荐
+
+|                          iOS/iPadOS                          |                           Android                            | 支持协议                                                     |
+| :----------------------------------------------------------: | :----------------------------------------------------------: | ------------------------------------------------------------ |
+| [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118) | [Shadowrocket](https://play.google.com/store/apps/details?id=com.v2cross.proxy) | SS, SSR, Trojan, Vmess, VLESS协议支持，需在非国区AppStore购买，美区售价$2.99。 |
+|                [Surge](https://nssurge.com/)                 |                              ×                               | SS, Trojan, Vmess协议支持，                                  |
+| [Quantumult X](https://apps.apple.com/us/app/quantumult-x/id1443988620) |                              ×                               | SS, SSR, Trojan, Vmess协议支持，需在非国区AppStore购买，美区售价$4.99。 |
+| [Potatso Lite](https://apps.apple.com/us/app/potatso-lite/id1239860606) |                              ×                               | SS, SSR协议支持，需在非国区AppStore购买，免费。              |
+|                              ×                               | [Surfboard](https://play.google.com/store/apps/details?id=com.getsurfboard) | SS, SSR, Vmess协议支持，安卓端网络调试软件，兼容 Surge 2 配置。 |
+|                              ×                               | [CFA(Clash For Android)]((https://github.com/Kr328/ClashForAndroid/releases)) | SS, SSR, Trojan, Vmess协议支持，                             |
+|                              ×                               |  [SagerNet](https://github.com/SagerNet/SagerNet/releases)   | SS, SSR, Trojan, Vmess, VLESS协议支持，                      |
+|                              ×                               | [Shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases) | SS协议支持，                                                 |
+|                              ×                               | [ShadowsocksR-android](https://github.com/HMBSbige/ShadowsocksR-Android/releases) | SSR协议支持，                                                |
+|                              ×                               |     [V2rayNG](https://github.com/2dust/v2rayNG/releases)     | SS, Trojan, Vmess, VLESS协议支持，                           |
+
+将以下订阅链接各自导入相应客户端即可。链接中同时有 SS, Torjan, Vmess 等协议，选择不同客户端会造成可用节点数量不同。
 
 - [多协议Base64编码](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/main/Eternity)
 - [Clash](https://suo.yt/uUCeAUB)
@@ -24,7 +55,7 @@
 
 ## 声明
 
-订阅节点仅作学习交流用，只是对网络上节点的优选排序，用于查找资料，学习知识，不要做任何违法行为。所有资源均来自互联网，非盈利目的，仅供大家交流学习使用，出现违法问题概不负责。
+订阅节点仅作学习交流使用，只是对网络上节点的优选排序，用于查找资料，学习知识，不做任何违法行为。所有资源均来自互联网，仅供大家交流学习使用，出现违法问题概不负责。
 
 ## Stargazers over time
 
