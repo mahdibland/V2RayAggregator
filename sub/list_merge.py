@@ -50,7 +50,7 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
                     print('Url 订阅内容无法解析')
                     return 'Url 订阅内容无法解析'
 
-        except requests.exceptions.RequestException as err:
+        except Exception as err:
             print(err)
             return 'Url 解析错误'
 
