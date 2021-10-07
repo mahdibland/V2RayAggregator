@@ -100,7 +100,7 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
                 print('Writing content of ' + sub_list[index]['remarks'] + ' to ' + sub_list[index]['id'] + '.txt\n')
         
         print('Merging nodes...\n')
-        content = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
+        content = '\n'.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
         content_base64 = sub_convert.base64_encode(content)
         content_yaml = sub_convert.yaml_encode(content)
 
