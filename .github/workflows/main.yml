@@ -1,0 +1,54 @@
+name: sub_merge
+
+# 触发条件
+on:
+  # push的时候触发
+  # push:
+  #   branches: main
+  workflow_dispatch:
+  # 定时触发
+  schedule:
+    # - cron: '*/5 * * * *'
+    # 表达式生成  https://crontab.guru/
+    # 此处是UTC时间 即北京时间 -8小时
+    - cron: '11 3,15 * * *'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 迁出代码
+      uses: actions/checkout@v2
+    - name: 安装Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: 加载缓存
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/run_in_Actions/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    - name: 设置时区
+      run: sudo timedatectl set-timezone 'Asia/Shanghai'
+    - name: 安装依赖
+      run: |
+        pip install -r requirements.txt
+    - name: 执行任务
+      # env:
+      #   CONFIG: ${{ secrets.CONFIG }}
+      run: |
+        python ./sub/list_merge.py
+      
+    - name: 提交更改
+      run: |                 
+         git config --local user.email "alan999@foxmail.com"
+         git config --local user.name "alanbobs999"
+         git add ./sub
+         git commit -m "合并订阅链接"
+    - name: 推送更改
+      uses:  ad-m/github-push-action@master
+      with:
+         # github_token: ${{ secrets.TOKEN }}
+         branch: master
