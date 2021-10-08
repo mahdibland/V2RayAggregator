@@ -19,7 +19,7 @@ class update_url():
         raw_url = raw_list[0]['url']
         yesterday = (datetime.today() + timedelta(-1)).strftime('%m%d')# 得到当前日期前一天 https://blog.csdn.net/wanghuafengc/article/details/42458721
         url_update = raw_url[:-8] + yesterday + raw_url[-4:]# 修改字符串中的某一位字符 https://www.zhihu.com/question/31800070/answer/53345749
-        print(f'Change id 0 url to : {url_update}')
+        print(f'Change id 0 url to : {url_update}\n')
         raw_list[0]['url'] = url_update
 
 
