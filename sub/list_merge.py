@@ -11,6 +11,10 @@ from requests.adapters import HTTPAdapter
 # 分析当前项目依赖 https://blog.csdn.net/lovedingd/article/details/102522094
 
 
+sub_list_json = './sub/sub_list.json'
+sub_metge_path = './sub'
+sub_list_path = './sub/list/'
+
 
 class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链接内容
     
@@ -87,18 +91,18 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
             remarks = sub_list[index]['remarks']
             #try:
             if content == 'Url 解析错误':
-                file = open(f'./sub/list/{ids:0>2d}.txt', 'w', encoding = 'utf-8')
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding = 'utf-8')
                 file.write('Url 解析错误')
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
             elif content == 'Url 订阅内容无法解析':
-                file = open(f'./sub/list/{ids:0>2d}.txt', 'w', encoding = 'utf-8')
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding = 'utf-8')
                 file.write('Url 订阅内容无法解析')
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
             else:
                 content_list.append(content)
-                file = open(f'./sub/list/{ids:0>2d}.txt', 'w', encoding = 'utf-8')
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding = 'utf-8')
                 file.write(content)
                 file.close()
                 print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
@@ -112,14 +116,14 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
             file = open(file, 'w', encoding = 'utf-8')
             file.write(output_type)
             file.close
-        write_list = ['./sub/sub_merge.txt', './sub/sub_merge_base64.txt', './sub/sub_merge_yaml.txt']
+        write_list = [f'{sub_metge_path}/sub_merge.txt', f'{sub_metge_path}/sub_merge_base64.txt', f'{sub_metge_path}/sub_merge_yaml.txt']
         content_type = (content, content_base64, content_yaml)
         for index in range(len(write_list)):
             content_write(write_list[index], content_type[index])
         print('Done!')
 
 
-with open('./sub/sub_list.json', 'r', encoding='utf-8') as f:
+with open(sub_list_json, 'r', encoding='utf-8') as f:
     raw_list = json.load(f)
 sub_list = []
 for index in range(len(raw_list)): # 将 sub_list.json Url 内容读取为列表
