@@ -83,23 +83,25 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
         content_list = []
         for index in range(len(self.url_list)):
             content = sub_convert(self.url_list[index],'').url_encode()
+            ids = sub_list[index]['id']
+            remarks = sub_list[index]['remarks']
             #try:
             if content == 'Url 解析错误':
-                file = open('./sub/list/' + sub_list[index]['id'] + '.txt', 'w', encoding = 'utf-8')
+                file = open(f'./sub/list/{ids:0>2d}.txt', 'w', encoding = 'utf-8')
                 file.write('Url 解析错误')
                 file.close()
-                print('Writing error of ' + sub_list[index]['remarks'] + ' to ' + sub_list[index]['id'] + '.txt\n')
+                print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
             elif content == 'Url 订阅内容无法解析':
-                file = open('./sub/list/' + sub_list[index]['id'] + '.txt', 'w', encoding = 'utf-8')
+                file = open(f'./sub/list/{ids:0>2d}.txt', 'w', encoding = 'utf-8')
                 file.write('Url 订阅内容无法解析')
                 file.close()
-                print('Writing error of ' + sub_list[index]['remarks'] + ' to ' + sub_list[index]['id'] + '.txt\n')
+                print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
             else:
                 content_list.append(content)
-                file = open('./sub/list/' + sub_list[index]['id'] + '.txt', 'w', encoding = 'utf-8')
+                file = open(f'./sub/list/{ids:0>2d}.txt', 'w', encoding = 'utf-8')
                 file.write(content)
                 file.close()
-                print('Writing content of ' + sub_list[index]['remarks'] + ' to ' + sub_list[index]['id'] + '.txt\n')
+                print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
         
         print('Merging nodes...\n')
         content = '\n'.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
