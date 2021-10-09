@@ -105,10 +105,10 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
                 # 生成 yaml 节点字典
                 yaml_url.setdefault('name', vmess_raw_config['ps'])
                 yaml_url.setdefault('server', vmess_raw_config['add'])
-                yaml_url.setdefault('port', vmess_raw_config['port'])
+                yaml_url.setdefault('port', int(vmess_raw_config['port']))
                 yaml_url.setdefault('type', 'vmess')
                 yaml_url.setdefault('uuid', vmess_raw_config['id'])
-                yaml_url.setdefault('alterId', vmess_raw_config['aid'])
+                yaml_url.setdefault('alterId', int(vmess_raw_config['aid']))
                 try :
                     yaml_url.setdefault('cipher', vmess_raw_config['scy'])
                 except Exception:
@@ -119,7 +119,10 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
                     yaml_url.setdefault('tls', True)
                 yaml_url.setdefault('skip-cert-vertify', False)
                 yaml_url.setdefault('network', vmess_raw_config['net'])
-                yaml_url.setdefault('ws-path', vmess_raw_config['path'])
+                try:
+                    yaml_url.setdefault('ws-path', vmess_raw_config['path'])
+                except Exception:
+                    yaml_url.setdefault('ws-path', '/')
                 yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['add']})
 
                 url_list.append(yaml_url)
