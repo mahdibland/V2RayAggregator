@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from sub_convert import sub_convert # Python 之间互相调用文件https://blog.csdn.net/winycg/article/details/78512300
-from list_update import url_update
 
 import json
 
@@ -10,9 +9,9 @@ import json
 
 
 # 文件路径定义
-sub_list_json = './sub/sub_list.json'
-sub_merge_path = './sub'
-sub_list_path = './sub/list/'
+sub_list_json = './sub_list.json'
+sub_metge_path = './'
+sub_list_path = './list/'
 
 
 class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or Base64, ，并输出文件，输入订阅列表。
@@ -55,7 +54,7 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
             file = open(file, 'w', encoding = 'utf-8')
             file.write(output_type)
             file.close
-        write_list = [f'{sub_merge_path}/sub_merge.txt', f'{sub_merge_path}/sub_merge_base64.txt', f'{sub_merge_path}/sub_merge_yaml.txt']
+        write_list = [f'{sub_metge_path}/sub_merge.txt', f'{sub_metge_path}/sub_merge_base64.txt', f'{sub_metge_path}/sub_merge_yaml.yml']
         content_type = (content, content_base64, content_yaml)
         for index in range(len(write_list)):
             content_write(write_list[index], content_type[index])
@@ -72,5 +71,5 @@ input_list = []
 for index in range(len(sub_list)):
         input_list.append(sub_list[index]['url'])
 
-update = url_update([0,]).run_update()
-merge = sub_merge(input_list).merge()
+
+run = sub_merge(input_list).merge()
