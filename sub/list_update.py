@@ -3,8 +3,11 @@
 from datetime import timedelta, datetime
 import json
 
+# 文件路径定义
+sub_list_json = './sub/sub_list.json'
 
-with open('./sub/sub_list.json', 'r', encoding='utf-8') as f: # 载入订阅链接
+
+with open(sub_list_json, 'r', encoding='utf-8') as f: # 载入订阅链接
     raw_list = json.load(f)
     f.close()
 
@@ -26,7 +29,7 @@ class update_url():
 def update_allow_list(update_id_list=[]):
     update_url.update(update_id_list)
     updated_list = json.dumps(raw_list, sort_keys=False, indent=2, ensure_ascii=False)
-    file = open('./sub/sub_list.json', 'w', encoding='utf-8')
+    file = open(sub_list_json, 'w', encoding='utf-8')
     file.write(updated_list)
     file.close()
 
