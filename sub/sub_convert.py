@@ -51,7 +51,7 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
         protocol_list = []
         for index in range(len(proxies_list)):
             proxy = proxies_list[index]
-            if proxy['type'] == 'vmess': # Vmess 节点提取
+            if proxy['type'] == 'vmess': # Vmess 节点提取 , 由 Vmess 所有参数 dump JSON 后 base64 得来。
                 raw_config_value = []
                 raw_config_str = ['v~', 'name', 'server', 'port', 'uuid', 'alterId', 'cipher', 'network', 'type~', 'server', 'ws-path', 'tls~', 'sni~']
                 
@@ -73,17 +73,15 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
                 vmess_proxy = str('vmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
                 protocol_list.append(vmess_proxy)
 
-            if proxy['type'] == 'ss': # SS 节点提取
+            if proxy['type'] == 'ss' or proxy['type'] == 'ssr': # SS 节点提取 ， 由 ss_base64_decoded 部分(参数：'cipher', 'password', 'server', 'port') Base64 编码后 加 # 加注释(URL_encode) 
                 ss_base64_decoded = str(proxy['cipher']) + ':' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port'])
                 ss_base64 = sub_convert.base64_encode(ss_base64_decoded)
                 ss_proxy = str('ss://' + ss_base64 + '#' + str(quote(proxy['name'])) + '\n')
                 protocol_list.append(ss_proxy)
 
-            if proxy['type'] == 'trojan': # Trojan 节点提取
+            if proxy['type'] == 'trojan': # Trojan 节点提取 ， 最简单 ， 由 trojan_proxy 中参数再加上 # 加注释(URL_encode)
                 trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + '#' + str(quote(proxy['name'])) + '\n')
                 protocol_list.append(trojan_proxy)
-
-            #if proxy['type'] == 'ssr':
 
 
         yaml_content = ''.join(protocol_list)
