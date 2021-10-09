@@ -1,73 +1,18 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
+from sub_convert import sub_convert # Python 之间互相调用文件https://blog.csdn.net/winycg/article/details/78512300
+from list_update import url_update
+
 import json
-import yaml
-import base64
-from urllib.parse import quote
-import requests
-from requests.adapters import HTTPAdapter
+
 
 # 分析当前项目依赖 https://blog.csdn.net/lovedingd/article/details/102522094
 
 
 # 文件路径定义
 sub_list_json = './sub/sub_list.json'
-sub_metge_path = './sub'
+sub_merge_path = './sub'
 sub_list_path = './sub/list/'
-
-
-class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链接内容
-    
-    def url_decode(sub_url):# 读取订阅内容，并转化为 Url 链接内容
-
-        s = requests.Session()
-        s.mount('http://', HTTPAdapter(max_retries=3))
-        s.mount('https://', HTTPAdapter(max_retries=3))
-        try:
-            print('Downloading from:' + sub_url)
-            resp = s.get(sub_url, timeout=5)
-            sub_content = resp.content.decode('utf-8') 
-
-            if 'proxies:' in sub_content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
-                url_content = sub_convert.yaml_decode(sub_content)
-                return url_content.replace('\r','')
-                #return self.url_content.replace('\r','') # 去除‘回车\r符’ https://blog.csdn.net/jerrygaoling/article/details/81051447
-            elif '://'  in sub_content: # 同上，是，判断为 Url 链接内容。
-                url_content = sub_content
-                return url_content.replace('\r','')
-            else: # 判断 Base64.
-                try:
-                    url_content = sub_convert.base64_decode(sub_content)
-                    url_content = base64.b64decode(sub_content.encode('utf-8')).decode('ascii')
-                    return url_content.replace('\r','')
-                except Exception: # 万能异常 https://blog.csdn.net/Candance_star/article/details/94135515
-                    print('Url 订阅内容无法解析')
-                    return 'Url 订阅内容无法解析'
-
-        except Exception as err:
-            print(err)
-            return 'Url 解析错误'
-
-    def yaml_decode(url_content): # YAML 转换为 Url 链接内容
-        yaml_content = yaml.dump(url_content)
-        return yaml_content
-    def base64_decode(url_content): # Base64 转换为 Url 链接内容
-        base64_content = base64.b64decode(url_content.encode('utf-8')).decode('ascii')
-        return base64_content
-
-    def yaml_encode(url_content): # 将 Url 内容转换为 YAML 
-        yaml_content = url_content
-        return yaml_content
-    def base64_encode(url_content): # 将 Url 内容转换为 Base64
-        base64_content = base64.b64encode(url_content.encode('utf-8')).decode('ascii')
-        return base64_content
-    def convert(url_content,output_type): # convert Url to YAML or Base64
-
-        if output_type == 'YAML':
-            return sub_convert.yaml_encode(url_content)
-        elif output_type == 'Base64':
-            return sub_convert.base64_encode(url_content)
 
 
 class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or Base64, ，并输出文件，输入订阅列表。
@@ -110,7 +55,7 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
             file = open(file, 'w', encoding = 'utf-8')
             file.write(output_type)
             file.close
-        write_list = [f'{sub_metge_path}/sub_merge.txt', f'{sub_metge_path}/sub_merge_base64.txt', f'{sub_metge_path}/sub_merge_yaml.txt']
+        write_list = [f'{sub_merge_path}/sub_merge.txt', f'{sub_merge_path}/sub_merge_base64.txt', f'{sub_merge_path}/sub_merge_yaml.txt']
         content_type = (content, content_base64, content_yaml)
         for index in range(len(write_list)):
             content_write(write_list[index], content_type[index])
@@ -127,5 +72,5 @@ input_list = []
 for index in range(len(sub_list)):
         input_list.append(sub_list[index]['url'])
 
-
-run = sub_merge(input_list).merge()
+update = url_update([0,]).run_update()
+merge = sub_merge(input_list).merge()
