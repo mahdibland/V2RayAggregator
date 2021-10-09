@@ -109,7 +109,10 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
                 yaml_url.setdefault('type', 'vmess')
                 yaml_url.setdefault('uuid', vmess_raw_config['id'])
                 yaml_url.setdefault('alterId', vmess_raw_config['aid'])
-                yaml_url.setdefault('cipher', vmess_raw_config['scy'])
+                try :
+                    yaml_url.setdefault('cipher', vmess_raw_config['scy'])
+                except Exception:
+                    yaml_url.setdefault('cipher', 'auto')
                 if vmess_raw_config['tls'] == '':
                     yaml_url.setdefault('tls', False)
                 else:
