@@ -19,13 +19,6 @@ sub_list_path = './sub/list/'
 
 class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链接内容
     
-    def yaml_decode(url_content): # YAML 转换为 Url 链接内容
-        yaml_content = yaml.dump(url_content)
-        return yaml_content
-    def base64_decode(url_content): # Base64 转换为 Url 链接内容
-        base64_content = base64.b64decode(url_content.encode('utf-8')).decode('ascii')
-        return base64_content
-
     def url_decode(sub_url):# 读取订阅内容，并转化为 Url 链接内容
 
         s = requests.Session()
@@ -55,6 +48,13 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
         except Exception as err:
             print(err)
             return 'Url 解析错误'
+
+    def yaml_decode(url_content): # YAML 转换为 Url 链接内容
+        yaml_content = yaml.dump(url_content)
+        return yaml_content
+    def base64_decode(url_content): # Base64 转换为 Url 链接内容
+        base64_content = base64.b64decode(url_content.encode('utf-8')).decode('ascii')
+        return base64_content
 
     def yaml_encode(url_content): # 将 Url 内容转换为 YAML 
         yaml_content = url_content
@@ -117,14 +117,15 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
         print('Done!')
 
 
-with open(sub_list_json, 'r', encoding='utf-8') as f:
+with open(sub_list_json, 'r', encoding='utf-8') as f: # 将 sub_list.json Url 内容读取为列表
     raw_list = json.load(f)
 sub_list = []
-for index in range(len(raw_list)): # 将 sub_list.json Url 内容读取为列表
+for index in range(len(raw_list)):
     if raw_list[index]['enabled']:
         sub_list.append(raw_list[index])
-
 input_list = []
-for index in range(len(sub_list)): # 将 sub_list.json Url 内容读取为列表
+for index in range(len(sub_list)):
         input_list.append(sub_list[index]['url'])
+
+
 run = sub_merge(input_list).merge()
