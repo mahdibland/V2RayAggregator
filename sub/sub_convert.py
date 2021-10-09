@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 
+import os
 import yaml
 import json
 import base64
@@ -83,31 +84,66 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
                 trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + '#' + str(quote(proxy['name'])) + '\n')
                 protocol_list.append(trojan_proxy)
 
-
         yaml_content = ''.join(protocol_list)
         return yaml_content
     def base64_decode(url_content): # Base64 转换为 Url 链接内容
-        base64_content = base64.b64decode(url_content.encode('utf-8')).decode('ascii')
+        base64_content = base64.b64decode(url_content.encode('utf-8')).decode('utf-8')
         return base64_content
 
-    def yaml_encode(url_content): # 将 Url 内容转换为 YAML 
-        yaml_content = url_content
+    def yaml_encode(content): # 将 Url 内容转换为 YAML 
+        url_list = []
+        
+        lines = content.split('\n')
+        for line in lines:
+            if 'vmess://' in line:
+                vmess_raw_config_str = sub_convert.base64_decode(line.replace('vmess://', ''))
+                vmess_raw_config = json.loads(vmess_raw_config_str)
+
+                yaml_url = {}
+                #yaml_config_str = ['name', 'server', 'port', 'type', 'uuid', 'alterId', 'cipher', 'tls', 'skip-cert-verify', 'network', 'ws-path', 'ws-headers']
+                #vmess_config_str = ['ps', 'add', 'port', 'id', 'aid', 'scy', 'tls', 'net', 'host', 'path']
+                # 生成 yaml 节点字典
+                yaml_url.setdefault('name', vmess_raw_config['ps'])
+                yaml_url.setdefault('server', vmess_raw_config['add'])
+                yaml_url.setdefault('port', vmess_raw_config['port'])
+                yaml_url.setdefault('type', 'vmess')
+                yaml_url.setdefault('uuid', vmess_raw_config['id'])
+                yaml_url.setdefault('alterId', vmess_raw_config['aid'])
+                yaml_url.setdefault('cipher', vmess_raw_config['scy'])
+                if vmess_raw_config['tls'] == '':
+                    yaml_url.setdefault('tls', False)
+                else:
+                    yaml_url.setdefault('tls', True)
+                yaml_url.setdefault('skip-cert-vertify', False)
+                yaml_url.setdefault('network', vmess_raw_config['net'])
+                yaml_url.setdefault('ws-path', vmess_raw_config['path'])
+                yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['add']})
+
+                url_list.append(yaml_url)
+
+            #if 'ss://' in line or 'ssr://' in line:
+            #if 'trojan://' in line:
+
+        yaml_content_dic = {'proxies': url_list}
+        yaml_content = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464
+        
+        # yaml.dump 返回格式不理想，正在参考 https://mrchi.cc/posts/444aa/ 改善。
+        
         return yaml_content
-    def base64_encode(url_content): # 将 Url 内容转换为 Base64
-        base64_content = base64.b64encode(url_content.encode('utf-8')).decode('ascii')
+    def base64_encode(content): # 将 Url 内容转换为 Base64
+        base64_content = base64.b64encode(content.encode('utf-8')).decode('ascii')
         return base64_content
-    def convert(url_content,output_type): # convert Url to YAML or Base64
+    def convert(content,output_type): # convert Url to YAML or Base64
 
         if output_type == 'YAML':
-            return sub_convert.yaml_encode(url_content)
+            return sub_convert.yaml_encode(content)
         elif output_type == 'Base64':
-            return sub_convert.base64_encode(url_content)
+            return sub_convert.base64_encode(content)
  
-""" 
-Debug
-with open('test.yml', 'r', encoding='utf-8') as f: # 将 sub_list.json Url 内容读取为列表
-    yaml_content = f.read()
 
-a = sub_convert.yaml_decode(yaml_content)
-print(a)
-"""
+#Debug
+""" with open('./list/00.txt', 'r', encoding='utf-8') as f: # 将 sub_list.json Url 内容读取为列表
+    content = f.read()
+
+a = sub_convert.convert(content,'YAML')
+print(a) """
