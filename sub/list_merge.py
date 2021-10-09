@@ -9,9 +9,9 @@ import json
 
 
 # 文件路径定义
-sub_list_json = './sub_list.json'
-sub_metge_path = './'
-sub_list_path = './list/'
+sub_list_json = './sub/sub_list.json'
+sub_merge_path = './sub/'
+sub_list_path = './sub/list/'
 
 
 class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or Base64, ，并输出文件，输入订阅列表。
@@ -54,7 +54,7 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
             file = open(file, 'w', encoding = 'utf-8')
             file.write(output_type)
             file.close
-        write_list = [f'{sub_metge_path}/sub_merge.txt', f'{sub_metge_path}/sub_merge_base64.txt', f'{sub_metge_path}/sub_merge_yaml.yml']
+        write_list = [f'{sub_merge_path}/sub_merge.txt', f'{sub_merge_path}/sub_merge_base64.txt', f'{sub_merge_path}/sub_merge_yaml.yml']
         content_type = (content, content_base64, content_yaml)
         for index in range(len(write_list)):
             content_write(write_list[index], content_type[index])
