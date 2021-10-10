@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+from requests.sessions import merge_cookies
 from sub_convert import sub_convert # Python 之间互相调用文件https://blog.csdn.net/winycg/article/details/78512300
+from list_update import update_url
 
 import json
 
@@ -72,4 +74,5 @@ for index in range(len(sub_list)):
         input_list.append(sub_list[index]['url'])
 
 
-run = sub_merge(input_list).merge()
+update = update_url.update_allow_list([0,])
+merge = sub_merge(input_list).merge()

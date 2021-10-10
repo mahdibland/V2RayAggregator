@@ -26,11 +26,9 @@ class update_url():
         raw_list[0]['url'] = url_update
 
 
-def update_allow_list(update_id_list=[]):
-    update_url.update(update_id_list)
-    updated_list = json.dumps(raw_list, sort_keys=False, indent=2, ensure_ascii=False)
-    file = open(sub_list_json, 'w', encoding='utf-8')
-    file.write(updated_list)
-    file.close()
-
-update_allow_list([0,])
+    def update_allow_list(update_id_list=[]):
+        update_url.update(update_id_list)
+        updated_list = json.dumps(raw_list, sort_keys=False, indent=2, ensure_ascii=False)
+        file = open(sub_list_json, 'w', encoding='utf-8')
+        file.write(updated_list)
+        file.close()

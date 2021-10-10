@@ -125,7 +125,9 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
                     yaml_url.setdefault('ws-path', '/')
                 yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['add']})
 
-                url_list.append(yaml_url)
+                yaml_url_str = str(yaml_url)
+
+                url_list.append(yaml_url_str)
 
             #if 'ss://' in line or 'ssr://' in line:
             #if 'trojan://' in line:
