@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
+from requests.sessions import merge_cookies
 from sub_convert import sub_convert # Python 之间互相调用文件https://blog.csdn.net/winycg/article/details/78512300
 from list_update import update_url
 
 import json
+import os
 
 
 # 分析当前项目依赖 https://blog.csdn.net/lovedingd/article/details/102522094
@@ -30,18 +32,18 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
             remarks = sub_list[index]['remarks']
             #try:
             if content == 'Url 解析错误':
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding = 'utf-8')
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding= 'utf-8')
                 file.write('Url 解析错误')
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
             elif content == 'Url 订阅内容无法解析':
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding = 'utf-8')
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding= 'utf-8')
                 file.write('Url 订阅内容无法解析')
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
             else:
                 content_list.append(content)
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding = 'utf-8')
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding= 'utf-8')
                 file.write(content)
                 file.close()
                 print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
