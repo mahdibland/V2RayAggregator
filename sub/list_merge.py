@@ -73,5 +73,5 @@ for index in range(len(sub_list)):
         input_list.append(sub_list[index]['url'])
 
 
-update = update_url.update_allow_list([0,])
+update = update_url.update([0,])
 merge = sub_merge(input_list).merge()
