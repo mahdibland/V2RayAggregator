@@ -10,9 +10,9 @@ from requests.adapters import HTTPAdapter
 from urllib.parse import quote
 
 
-class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链接内容
+class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链接内容
     
-    def url_decode(sub_url):# 读取订阅内容，并转化为 Url 链接内容
+    def url_decode(sub_url): # 读取订阅内容，并转化为 Url 链接内容
 
         s = requests.Session()
         s.mount('http://', HTTPAdapter(max_retries=3))
@@ -43,7 +43,7 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
 
     def yaml_decode(url_content): # YAML 转换为 Url 链接内容
         
-        """yaml_tmp = TemporaryFile('w+t', encoding='utf-8', errors='ignore') # 生成临时文件https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p19_make_temporary_files_and_directories.html
+        """yaml_tmp = TemporaryFile('w+t', encoding='utf-8', errors='ignore') # 生成临时文件 https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p19_make_temporary_files_and_directories.html
         yaml_tmp.write(url_content)
         yaml_data = yaml_tmp.read() """
         raw_yaml_content = yaml.safe_load(url_content) # 将 YAML 内容生成 Python 字典
@@ -133,7 +133,7 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
             #if 'trojan://' in line:
 
         yaml_content_dic = {'proxies': url_list}
-        yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464
+        yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=500) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
         yaml_content = yaml_content_raw.replace('\'', '')
 
         # yaml.dump 返回格式不理想，正在参考 https://mrchi.cc/posts/444aa/ 改善。
