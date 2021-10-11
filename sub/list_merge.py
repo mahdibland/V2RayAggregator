@@ -5,6 +5,7 @@ from sub_convert import sub_convert # Python 之间互相调用文件https://blo
 from list_update import update_url
 
 import json
+import os
 
 
 # 分析当前项目依赖 https://blog.csdn.net/lovedingd/article/details/102522094
