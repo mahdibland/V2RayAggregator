@@ -133,8 +133,9 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
             #if 'trojan://' in line:
 
         yaml_content_dic = {'proxies': url_list}
-        yaml_content = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464
-        
+        yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464
+        yaml_content = yaml_content_raw.replace('\'', '')
+
         # yaml.dump 返回格式不理想，正在参考 https://mrchi.cc/posts/444aa/ 改善。
         
         return yaml_content
