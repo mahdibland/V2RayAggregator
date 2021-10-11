@@ -15,11 +15,11 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
     def url_decode(sub_url):# 读取订阅内容，并转化为 Url 链接内容
 
         s = requests.Session()
-        s.mount('http://', HTTPAdapter(max_retries=3))
-        s.mount('https://', HTTPAdapter(max_retries=3))
+        s.mount('http://', HTTPAdapter(max_retries=5))
+        s.mount('https://', HTTPAdapter(max_retries=5))
         try:
             print('Downloading from:' + sub_url)
-            resp = s.get(sub_url, timeout=5)
+            resp = s.get(sub_url, timeout=10)
             sub_content = resp.content.decode('utf-8') 
 
             if 'proxies:' in sub_content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
@@ -133,7 +133,7 @@ class sub_convert():# 将订阅链接中YAML，Base64等内容转换为 Url 链�
             #if 'trojan://' in line:
 
         yaml_content_dic = {'proxies': url_list}
-        yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464
+        yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=500) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464
         yaml_content = yaml_content_raw.replace('\'', '')
 
         # yaml.dump 返回格式不理想，正在参考 https://mrchi.cc/posts/444aa/ 改善。
