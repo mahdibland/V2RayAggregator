@@ -12,34 +12,69 @@ from urllib.parse import quote
 
 class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链接内容
     
-    def url_decode(sub_url): # 读取订阅内容，并转化为 Url 链接内容
+    def convert(content, input_type='url', output_type='url'): # convert Url to YAML or Base64
 
-        s = requests.Session()
-        s.mount('http://', HTTPAdapter(max_retries=5))
-        s.mount('https://', HTTPAdapter(max_retries=5))
-        try:
-            print('Downloading from:' + sub_url)
-            resp = s.get(sub_url, timeout=10)
-            sub_content = resp.content.decode('utf-8') 
+        if input_type == 'url':
+            s = requests.Session()
+            s.mount('http://', HTTPAdapter(max_retries=5))
+            s.mount('https://', HTTPAdapter(max_retries=5))
+            try:
+                print('Downloading from:' + content)
+                resp = s.get(content, timeout=5)
+                sub_content = resp.content.decode('utf-8') 
 
-            if 'proxies:' in sub_content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
-                url_content = sub_convert.yaml_decode(sub_content)
-                return url_content
-                #return self.url_content.replace('\r','') # 去除‘回车\r符’ https://blog.csdn.net/jerrygaoling/article/details/81051447
-            elif '://'  in sub_content: # 同上，是，判断为 Url 链接内容。
-                url_content = sub_content
-                return url_content.replace('\r','')
-            else: # 判断 Base64.
-                try:
-                    url_content = sub_convert.base64_decode(sub_content)
-                    return url_content.replace('\r','')
-                except Exception: # 万能异常 https://blog.csdn.net/Candance_star/article/details/94135515
-                    print('Url 订阅内容无法解析')
+                if 'proxies:' in sub_content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
+                    url_content = sub_convert.yaml_decode(sub_content)
+                    #return self.url_content.replace('\r','') # 去除‘回车\r符’ https://blog.csdn.net/jerrygaoling/article/details/81051447
+                elif '://'  in sub_content: # 同上，是，判断为 Url 链接内容。
+                    url_content = sub_content.replace('\r','')
+                else: # 判断 Base64.
+                    try:
+                        url_content = sub_convert.base64_decode(sub_content).replace('\r','')
+                    except Exception: # 万能异常 https://blog.csdn.net/Candance_star/article/details/94135515
+                        url_content = 'Url 订阅内容无法解析'
+                        print('Url 订阅内容无法解析')
+                
+                if output_type == 'url' and url_content != 'Url 订阅内容无法解析':
+                    return url_content
+                elif output_type == 'Base64' and url_content != 'Url 订阅内容无法解析':
+                    return sub_convert.base64_encode(url_content)
+                elif output_type == 'YAML' and url_content != 'Url 订阅内容无法解析':
+                    return sub_convert.yaml_encode(url_content)
+                else:
+                    print('Pleae define your output type.')
                     return 'Url 订阅内容无法解析'
 
-        except Exception as err:
-            print(err)
-            return 'Url 解析错误'
+            except Exception as err:
+                print(err)
+                return 'Url 解析错误'
+
+        elif input_type == 'content':
+            if 'proxies:' in content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
+                url_content = sub_convert.yaml_decode(content)
+                #return self.url_content.replace('\r','') # 去除‘回车\r符’ https://blog.csdn.net/jerrygaoling/article/details/81051447
+            elif '://'  in content: # 同上，是，判断为 Url 链接内容。
+                url_content = content.replace('\r','')
+            else: # 判断 Base64.
+                try:
+                    url_content = sub_convert.base64_decode(content).replace('\r','')
+                except Exception: # 万能异常 https://blog.csdn.net/Candance_star/article/details/94135515
+                    url_content = 'Url 订阅内容无法解析'
+                    print('Url 订阅内容无法解析')
+            if output_type == 'YAML':
+                return sub_convert.yaml_encode(url_content)
+            elif output_type == 'Base64':
+                return sub_convert.base64_encode(url_content)
+            elif output_type == 'url':
+                url_content = content.replace('\r','')
+                return url_content
+            else:
+                print('Please define your output type.')
+                return 'Url 订阅内容无法解析'
+                
+        else:
+            print('Please define your input type')
+
 
     def yaml_decode(url_content): # YAML 转换为 Url 链接内容
         
@@ -142,13 +177,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
     def base64_encode(content): # 将 Url 内容转换为 Base64
         base64_content = base64.b64encode(content.encode('utf-8')).decode('ascii')
         return base64_content
-    def convert(content,output_type): # convert Url to YAML or Base64
-
-        if output_type == 'YAML':
-            return sub_convert.yaml_encode(content)
-        elif output_type == 'Base64':
-            return sub_convert.base64_encode(content)
- 
+    
 
 #Debug
 """ with open('./list/00.txt', 'r', encoding='utf-8') as f: # 将 sub_list.json Url 内容读取为列表

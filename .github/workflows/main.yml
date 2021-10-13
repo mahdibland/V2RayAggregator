@@ -34,19 +34,21 @@ jobs:
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
     - name: 安装依赖
       run: |
-        pip install -r requirements.txt
+        pip install -r ./utils/requirements.txt
     - name: 执行任务
       # env:
       #   CONFIG: ${{ secrets.CONFIG }}
       run: |
-        python ./sub/list_merge.py
+        python ./utils/list_merge.py
       
     - name: 提交更改
       run: |                 
          git config --local user.email "alan999@foxmail.com"
          git config --local user.name "alanbobs999"
          git add ./sub
-         git commit -m "合并订阅链接"
+         git commit -m "Merge sub lists"
+         git add Eternity.yml
+         git commit -m "Update Clash provider"
     - name: 推送更改
       uses:  ad-m/github-push-action@master
       with:
