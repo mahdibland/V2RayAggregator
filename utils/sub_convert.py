@@ -183,9 +183,9 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 except Exception:
                     yaml_url.setdefault('ws-path', '/')
                 if vmess_raw_config['host'] == '':
-                    yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['host']})
-                else:
                     yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['add']})
+                else:
+                    yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['host']})
 
                 if '|' in yaml_url['name']:
                     yaml_url['name'] = '"' + yaml_url['name'] + '"'
