@@ -153,6 +153,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             if 'vmess://' in line:
                 vmess_raw_config_str = sub_convert.base64_decode(line.replace('vmess://', ''))
                 vmess_raw_config = json.loads(vmess_raw_config_str)
+                vmess_raw_config.setdefault('host','')
 
                 yaml_url = {}
                 #yaml_config_str = ['name', 'server', 'port', 'type', 'uuid', 'alterId', 'cipher', 'tls', 'skip-cert-verify', 'network', 'ws-path', 'ws-headers']
@@ -181,8 +182,13 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     yaml_url.setdefault('ws-path', vmess_raw_config['path'])
                 except Exception:
                     yaml_url.setdefault('ws-path', '/')
-                yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['add']})
+                if vmess_raw_config['host'] == '':
+                    yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['host']})
+                else:
+                    yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['add']})
 
+                if '|' in yaml_url['name']:
+                    yaml_url['name'] = '"' + yaml_url['name'] + '"'
                 yaml_url_str = str(yaml_url)
 
                 url_list.append(yaml_url_str)
@@ -207,6 +213,8 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 yaml_url.setdefault('cipher', server_part_list[0])
                 yaml_url.setdefault('password', server_part_list[1])
 
+                if '|' in yaml_url['name']:
+                    yaml_url['name'] = '"' + yaml_url['name'] + '"'
                 yaml_url_str = str(yaml_url)
 
                 url_list.append(yaml_url_str)
@@ -245,6 +253,8 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 yaml_url.setdefault('cipher', server_part_list[3])
                 yaml_url.setdefault('password', server_part_list[5])
 
+                if '|' in yaml_url['name']:
+                    yaml_url['name'] = '"' + yaml_url['name'] + '"'
                 yaml_url_str = str(yaml_url)
 
                 url_list.append(yaml_url_str)
@@ -266,13 +276,16 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     yaml_url.setdefault('sni', server_part_list[3])
                 yaml_url.setdefault('skip-cert-verify', 'false')
 
+                if '|' in yaml_url['name']:
+                    yaml_url['name'] = '"' + yaml_url['name'] + '"'
                 yaml_url_str = str(yaml_url)
 
                 url_list.append(yaml_url_str)
 
         yaml_content_dic = {'proxies': url_list}
-        yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
+        yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
         yaml_content = yaml_content_raw.replace('\'', '')
+        yaml_content = yaml_content.replace('False', 'false')
         # yaml.dump 返回格式不理想，正在参考 https://mrchi.cc/posts/444aa/ 改善。
         return yaml_content
     def base64_encode(content): # 将 Url 内容转换为 Base64
