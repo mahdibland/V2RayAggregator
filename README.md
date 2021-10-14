@@ -4,25 +4,29 @@
 
 对网络上各免费节点池及博主分享的节点进行测速筛选出较为稳定高速的节点，再导入到仓库中进行分享记录。
 
-所筛选的节点来源链接在仓库`./sub/sub_list.json`文件中，其中大部分为其他`GitHub`仓库链接。这些链接包含的所有节点会合并在仓库`./sub/sub_merge.txt`中，并有转换的`Base64`用于测速筛选。
+所筛选的节点来源链接在仓库`./sub/sub_list.json`文件中，其中大部分为其他`GitHub`仓库链接。这些链接包含的所有节点会合并在仓库`./sub/sub_merge.txt`中，并转换成了`Base64`和`YAML`格式，可用于导入不同的客户端。
+
+测速筛选后的节点转换成了`Base64`和`YAML`格式，分别在仓库根目录`Eterniy`和`Eternity.yml`中。同时，在仓库的`./update`中原始节点链接的的记录。
 
 虽然是测速筛选过后的节点，但仍然会出现部分节点不可用的情况，遇到这种情况建议选择`Clash For Windows`, `WinXray`之类能自动切换低延迟节点的客户端。
 
-仓库中订阅链接不定期更新（Ps:避免对节点造成不必要的负担，还有就是当前节点用的舒服干嘛要折腾呢），每一次更新抹除之前`Eternity`文件中的订阅内容，同时在`update`文件夹创建包含原链接URL的文本文件作为更新记录。
+
 
 ## 使用方法
 
-将以下订阅链接导入相应客户端即可。链接中大部分为 SS 协议节点，少量 Vmess, Trojan 协议节点，建议还是选择协议支持完整的客户端。
+将以下订阅链接导入相应客户端即可。链接中大部分为 SS 协议节点，少量 Vmess, Trojan ,SSR 协议节点，建议选择协议支持完整的客户端。
 
 - [多协议Base64编码](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/main/Eternity)
-- [Clash](https://suo.yt/uUCeAUB)
+- [Clash Proxy Provider](https://github.com/alanbobs999/TopFreeProxies/raw/master/Eternity.yml)
 
 另有国内加速链接：
 
 - [多协议Base64编码](https://raw.fastgit.org/alanbobs999/TopFreeProxies/main/Eternity)
-- [Clash](https://suo.yt/ZwIg2Sg)
+- [Clash Proxy Provider](https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/Eternity.yml)
 
->短链接使用订阅转换工具[sub-web-modify](https://sub.v1.mk/)由原链接转换而来，不同客户端需求可自行将原链接导入转换。
+>`Clash Proxy Provider`只包含节点内容，需要自己选择配置文件，也可使用订阅转换工具自行转换。
+>
+>自用在线订阅转换网址：[sub-web-modify](https://sub.v1.mk/)
 
 ## 客户端选择
 
