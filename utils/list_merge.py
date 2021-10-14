@@ -5,6 +5,7 @@ from list_update import update_url
 
 import json
 import os
+import re
 
 
 # 分析当前项目依赖 https://blog.csdn.net/lovedingd/article/details/102522094
@@ -55,7 +56,7 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
         
         print('Merging nodes...\n')
-        content = '\n'.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
+        content = sub_convert.rm_dup(''.join(content_list)) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
         content_base64 = sub_convert.convert(content,'content','Base64')
         content_yaml = sub_convert.convert(content,'content','YAML')
 
@@ -75,6 +76,12 @@ def read_list():
     input_list = []
     for index in range(len(raw_list)):
         if raw_list[index]['enabled']:
+            urls = re.split('\|',raw_list[index]['url'])
+            if len(urls) > 1:
+                for url in urls:
+                    single_raw_list = raw_list[index]
+                    single_raw_list['url'] = url
+                    input_list.append(single_raw_list)
             input_list.append(raw_list[index])
     return input_list
 
@@ -84,7 +91,7 @@ def eternity_convert():
     eternity_convert = sub_convert.convert(sub_content,'content','YAML')
     file_eternity.close()
 
-    eternity_yml = open('eternity.yml', 'w', encoding= 'utf-8')
+    eternity_yml = open('Eternity.yml', 'w', encoding= 'utf-8')
     eternity_yml.write(eternity_convert)
     eternity_yml.close()
 

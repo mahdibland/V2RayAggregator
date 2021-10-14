@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 
 
-import os
+import re
 import yaml
 import json
 import base64
 import requests
+import urllib.parse
 from requests.adapters import HTTPAdapter
-from urllib.parse import quote
 
 
 class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链接内容
-    
+
     def convert(content, input_type='url', output_type='url'): # convert Url to YAML or Base64
 
         if input_type == 'url':
@@ -26,8 +26,10 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 if 'proxies:' in sub_content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
                     url_content = sub_convert.yaml_decode(sub_content)
                     #return self.url_content.replace('\r','') # 去除‘回车\r符’ https://blog.csdn.net/jerrygaoling/article/details/81051447
-                elif '://'  in sub_content: # 同上，是，判断为 Url 链接内容。
+                elif '://'  in sub_content and '</html>' not in sub_content: # 同上，是，判断为 Url 链接内容。
                     url_content = sub_content.replace('\r','')
+                elif '</html>' in sub_content:
+                    url_content = 'Url 解析错误'
                 else: # 判断 Base64.
                     try:
                         url_content = sub_convert.base64_decode(sub_content).replace('\r','')
@@ -42,7 +44,8 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 elif output_type == 'YAML' and url_content != 'Url 订阅内容无法解析':
                     return sub_convert.yaml_encode(url_content)
                 else:
-                    print('Pleae define your output type.')
+                    if output_type == '':
+                        print('Pleae define your output type.')
                     return 'Url 订阅内容无法解析'
 
             except Exception as err:
@@ -85,8 +88,11 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         proxies_list = raw_yaml_content['proxies'] # YAML 节点列表
 
         protocol_list = []
-        for index in range(len(proxies_list)):
+        for index in range(len(proxies_list)): # 不同节点订阅链接内容 https://github.com/hoochanlon/fq-book/blob/master/docs/append/srvurl.md
             proxy = proxies_list[index]
+            proxy.setdefault('network', 'tcp')# 字典默认值 https://blog.csdn.net/mantoureganmian/article/details/97918236
+            proxy.setdefault('ws-path', '/')
+
             if proxy['type'] == 'vmess': # Vmess 节点提取 , 由 Vmess 所有参数 dump JSON 后 base64 得来。
                 raw_config_value = []
                 raw_config_str = ['v~', 'name', 'server', 'port', 'uuid', 'alterId', 'cipher', 'network', 'type~', 'server', 'ws-path', 'tls~', 'sni~']
@@ -112,20 +118,34 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             if proxy['type'] == 'ss' or proxy['type'] == 'ssr': # SS 节点提取 ， 由 ss_base64_decoded 部分(参数：'cipher', 'password', 'server', 'port') Base64 编码后 加 # 加注释(URL_encode) 
                 ss_base64_decoded = str(proxy['cipher']) + ':' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port'])
                 ss_base64 = sub_convert.base64_encode(ss_base64_decoded)
-                ss_proxy = str('ss://' + ss_base64 + '#' + str(quote(proxy['name'])) + '\n')
+                ss_proxy = str('ss://' + ss_base64 + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                 protocol_list.append(ss_proxy)
 
             if proxy['type'] == 'trojan': # Trojan 节点提取 ， 最简单 ， 由 trojan_proxy 中参数再加上 # 加注释(URL_encode)
-                trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + '#' + str(quote(proxy['name'])) + '\n')
+                trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                 protocol_list.append(trojan_proxy)
 
         yaml_content = ''.join(protocol_list)
         return yaml_content
     def base64_decode(url_content): # Base64 转换为 Url 链接内容
+        if '-' in url_content:
+            url_content = url_content.replace('-', '+')
+        elif '_' in url_content:
+            url_content = url_content.replace('_', '/')
+        #print(len(url_content))
+        missing_padding = len(url_content) % 4
+        if missing_padding != 0:
+            url_content += '='*(4 - missing_padding) # 不是4的倍数后加= https://www.cnblogs.com/wswang/p/7717997.html
+        """ elif(len(url_content)%3 == 1):
+            url_content += '=='
+        elif(len(url_content)%3 == 2): 
+            url_content += '=' """
+        #print(url_content)
+        #print(len(url_content))
         base64_content = base64.b64decode(url_content.encode('utf-8')).decode('utf-8')
         return base64_content
 
-    def yaml_encode(content): # 将 Url 内容转换为 YAML 
+    def yaml_encode(content): # 将 Url 内容转换为 YAML URLencode&decode https://blog.csdn.net/wf592523813/article/details/79141463
         url_list = []
         
         lines = content.split('\n')
@@ -138,7 +158,10 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 #yaml_config_str = ['name', 'server', 'port', 'type', 'uuid', 'alterId', 'cipher', 'tls', 'skip-cert-verify', 'network', 'ws-path', 'ws-headers']
                 #vmess_config_str = ['ps', 'add', 'port', 'id', 'aid', 'scy', 'tls', 'net', 'host', 'path']
                 # 生成 yaml 节点字典
-                yaml_url.setdefault('name', vmess_raw_config['ps'])
+                try:
+                    yaml_url.setdefault('name', urllib.parse.unquote(vmess_raw_config['ps']))
+                except Exception:
+                    yaml_url.setdefault('name', 'vmess node')
                 yaml_url.setdefault('server', vmess_raw_config['add'])
                 yaml_url.setdefault('port', int(vmess_raw_config['port']))
                 yaml_url.setdefault('type', 'vmess')
@@ -164,24 +187,109 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
 
                 url_list.append(yaml_url_str)
 
-            #if 'ss://' in line or 'ssr://' in line:
-            #if 'trojan://' in line:
+            if 'ss://' in line and '#' in line:
+                yaml_url = {}
+
+                ss_content =  line.replace('ss://', '')
+                part_list = re.split('#', ss_content, maxsplit=1) # https://www.runoob.com/python/att-string-split.html
+                yaml_url.setdefault('name', urllib.parse.unquote(part_list[1]))
+                if '@' in part_list[0]:
+                    mix_part = re.split('@', part_list[0], maxsplit=1)
+                    method_part = sub_convert.base64_decode(mix_part[0])
+                    server_part = f'{method_part}@{mix_part[1]}'
+                else:
+                    server_part = sub_convert.base64_decode(part_list[0])
+
+                server_part_list = re.split(':|@', server_part) # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
+                yaml_url.setdefault('server', server_part_list[2])
+                yaml_url.setdefault('port', server_part_list[3])
+                yaml_url.setdefault('type', 'ss')
+                yaml_url.setdefault('cipher', server_part_list[0])
+                yaml_url.setdefault('password', server_part_list[1])
+
+                yaml_url_str = str(yaml_url)
+
+                url_list.append(yaml_url_str)
+            
+            if 'ssr://' in line:
+                yaml_url = {}
+
+                try:
+                    ssr_content = sub_convert.base64_decode(line.replace('ssr://', ''))
+                except Exception as err:
+                    print(err)
+                    quit()
+                part_list = re.split('/\?', ssr_content)
+                if '&' in part_list[1]:
+                    ssr_part = re.split('&', part_list[1]) # 将 SSR content /？后部分参数分割
+                    for item in ssr_part:
+                        if 'remarks=' in item:
+                            remarks_part = item.replace('remarks=', '')
+                            missing_padding = len(remarks_part) % 4
+                            if missing_padding != 0:
+                                remarks_part += '='*(4 - missing_padding)
+                    remarks = sub_convert.base64_decode(remarks_part)
+                else:
+                    remarks_part = part_list[1].replace('remarks=', '')
+                    try:
+                        remarks = sub_convert.base64_decode(remarks_part)
+                    except Exception:
+                        remarks = 'none'
+                        print(f'SSR format error, content:{remarks_part}')
+                yaml_url.setdefault('name', urllib.parse.unquote(remarks))
+
+                server_part_list = re.split(':', part_list[0])
+                yaml_url.setdefault('server', server_part_list[0])
+                yaml_url.setdefault('port', server_part_list[1])
+                yaml_url.setdefault('type', 'ss')
+                yaml_url.setdefault('cipher', server_part_list[3])
+                yaml_url.setdefault('password', server_part_list[5])
+
+                yaml_url_str = str(yaml_url)
+
+                url_list.append(yaml_url_str)
+
+            if 'trojan://' in line:
+                yaml_url = {}
+
+                url_content = line.replace('trojan://', '')
+                part_list = re.split('#', url_content, maxsplit=1) # https://www.runoob.com/python/att-string-split.html
+                yaml_url.setdefault('name', urllib.parse.unquote(part_list[1]))
+
+                server_part = part_list[0]
+                server_part_list = re.split(':|@|\?sni=', server_part) # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
+                yaml_url.setdefault('server', server_part_list[1])
+                yaml_url.setdefault('port', server_part_list[2])
+                yaml_url.setdefault('type', 'trojan')
+                yaml_url.setdefault('password', server_part_list[0])
+                if '?sni=' in server_part:
+                    yaml_url.setdefault('sni', server_part_list[3])
+                yaml_url.setdefault('skip-cert-verify', 'false')
+
+                yaml_url_str = str(yaml_url)
+
+                url_list.append(yaml_url_str)
 
         yaml_content_dic = {'proxies': url_list}
-        yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=500) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
+        yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
         yaml_content = yaml_content_raw.replace('\'', '')
-
         # yaml.dump 返回格式不理想，正在参考 https://mrchi.cc/posts/444aa/ 改善。
-        
         return yaml_content
     def base64_encode(content): # 将 Url 内容转换为 Base64
         base64_content = base64.b64encode(content.encode('utf-8')).decode('ascii')
         return base64_content
+
+    def rm_dup(urls):
+        urls = urls.split('\n')
+        urls_rm_dup = list(set(urls))
+        content = '\n'.join(urls_rm_dup)
+        return content
     
 
 #Debug
-""" with open('./list/00.txt', 'r', encoding='utf-8') as f: # 将 sub_list.json Url 内容读取为列表
+""" with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f: # 将 sub_list.json Url 内容读取为列表
     content = f.read()
-
-a = sub_convert.convert(content,'YAML')
-print(a) """
+a = sub_convert.convert(content, 'content', 'YAML')
+file = open('out.yml', 'w', encoding = 'utf-8')
+file.write(a)
+file.close() """
