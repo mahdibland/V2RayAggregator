@@ -44,19 +44,19 @@ proxy-groups:
       - 狮城节点
       - 香港节点
       - 其他国家
-  - name: 负载均衡
-    type: load-balance
-    use:
-      - all
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-  - name: 失败切换
-    type: fallback
-    use:
-      - all
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
+  - name: 社交服务
+    type: select
+    proxies:
+      - 节点选择
+      - 国家选择
+      - DIRECT
   - name: 苹果服务
+    type: select
+    proxies:
+      - 节点选择
+      - 国家选择
+      - DIRECT
+  - name: 微软服务
     type: select
     proxies:
       - 节点选择
@@ -74,6 +74,18 @@ proxy-groups:
       - 节点选择
       - 国家选择
       - DIRECT
+  - name: 负载均衡
+    type: load-balance
+    use:
+      - all
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+  - name: 失败切换
+    type: fallback
+    use:
+      - all
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
   - name: 美国节点
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
@@ -148,49 +160,42 @@ rule-providers: # rule-providers frome Logyalsoldier/clash-rules
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
     path: ./TopFreeProxies/ruleset/reject.yaml
     interval: 86400
-
   iCloud:
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
     path: ./TopFreeProxies/ruleset/icloud.yaml
     interval: 86400
-
   Apple:
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
     path: ./TopFreeProxies/ruleset/apple.yaml
     interval: 86400
-
   Google:
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
     path: ./TopFreeProxies/ruleset/google.yaml
     interval: 86400
-
   Proxy:
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
     path: ./TopFreeProxies/ruleset/proxy.yaml
     interval: 86400
-
   Direct:
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
     path: ./TopFreeProxies/ruleset/direct.yaml
     interval: 86400
-
   Private:
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
     path: ./TopFreeProxies/ruleset/private.yaml
     interval: 86400
-
   Telegram:
     type: http
     behavior: ipcidr
@@ -246,7 +251,6 @@ rules:
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT
 
-# - RULE-SET,Direct,DIRECT
   - RULE-SET,Proxy,节点选择
   - RULE-SET,Reject,REJECT
   - RULE-SET,Private,REJECT
@@ -255,9 +259,128 @@ rules:
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Telegram,节点选择
 
+  - DOMAIN-SUFFIX,www.gstatic.com,节点选择
   - DOMAIN-SUFFIX,emby.wtf,Emby视频,no-resolve
   - DOMAIN-SUFFIX,bitwarden.net,DIRECT,no-resolve
   - DOMAIN-SUFFIX,bitwarden.com,DIRECT,no-resolve
 
+  - PROCESS-NAME,OneDrive,微软服务
+  - PROCESS-NAME,OneDriveUpdater,微软服务
+  - DOMAIN-KEYWORD,1drv,微软服务
+  - DOMAIN-KEYWORD,onedrive,微软服务
+  - DOMAIN-KEYWORD,skydrive,微软服务
+  - DOMAIN-SUFFIX,livefilestore.com,微软服务
+  - DOMAIN-SUFFIX,oneclient.sfx.ms,微软服务
+  - DOMAIN-SUFFIX,onedrive.com,微软服务
+  - DOMAIN-SUFFIX,onedrive.live.com,微软服务
+  - DOMAIN-SUFFIX,photos.live.com,微软服务
+  - DOMAIN-SUFFIX,sharepoint.com,微软服务
+  - DOMAIN-SUFFIX,sharepointonline.com,微软服务
+  - DOMAIN-SUFFIX,skydrive.wns.windows.com,微软服务
+  - DOMAIN-SUFFIX,spoprod-a.akamaihd.net,微软服务
+  - DOMAIN-SUFFIX,storage.live.com,微软服务
+  - DOMAIN-SUFFIX,storage.msn.com,微软服务
+  - DOMAIN-KEYWORD,1drv,微软服务
+  - DOMAIN-KEYWORD,microsoft,微软服务
+  - DOMAIN-SUFFIX,aadrm.com,微软服务
+  - DOMAIN-SUFFIX,acompli.com,微软服务
+  - DOMAIN-SUFFIX,acompli.net,微软服务
+  - DOMAIN-SUFFIX,aka.ms,微软服务
+  - DOMAIN-SUFFIX,akadns.net,微软服务
+  - DOMAIN-SUFFIX,aspnetcdn.com,微软服务
+  - DOMAIN-SUFFIX,assets-yammer.com,微软服务
+  - DOMAIN-SUFFIX,azure.com,微软服务
+  - DOMAIN-SUFFIX,azure.net,微软服务
+  - DOMAIN-SUFFIX,azureedge.net,微软服务
+  - DOMAIN-SUFFIX,azurerms.com,微软服务
+  - DOMAIN-SUFFIX,bing.com,微软服务
+  - DOMAIN-SUFFIX,cloudapp.net,微软服务
+  - DOMAIN-SUFFIX,cloudappsecurity.com,微软服务
+  - DOMAIN-SUFFIX,edgesuite.net,微软服务
+  - DOMAIN-SUFFIX,gfx.ms,微软服务
+  - DOMAIN-SUFFIX,hotmail.com,微软服务
+  - DOMAIN-SUFFIX,live.com,微软服务
+  - DOMAIN-SUFFIX,live.net,微软服务
+  - DOMAIN-SUFFIX,lync.com,微软服务
+  - DOMAIN-SUFFIX,msappproxy.net,微软服务
+  - DOMAIN-SUFFIX,msauth.net,微软服务
+  - DOMAIN-SUFFIX,msauthimages.net,微软服务
+  - DOMAIN-SUFFIX,msecnd.net,微软服务
+  - DOMAIN-SUFFIX,msedge.net,微软服务
+  - DOMAIN-SUFFIX,msft.net,微软服务
+  - DOMAIN-SUFFIX,msftauth.net,微软服务
+  - DOMAIN-SUFFIX,msftauthimages.net,微软服务
+  - DOMAIN-SUFFIX,msftidentity.com,微软服务
+  - DOMAIN-SUFFIX,msidentity.com,微软服务
+  - DOMAIN-SUFFIX,msn.com,微软服务
+  - DOMAIN-SUFFIX,msocdn.com,微软服务
+  - DOMAIN-SUFFIX,msocsp.com,微软服务
+  - DOMAIN-SUFFIX,mstea.ms,微软服务
+  - DOMAIN-SUFFIX,o365weve.com,微软服务
+  - DOMAIN-SUFFIX,oaspapps.com,微软服务
+  - DOMAIN-SUFFIX,office.com,微软服务
+  - DOMAIN-SUFFIX,office.net,微软服务
+  - DOMAIN-SUFFIX,office365.com,微软服务
+  - DOMAIN-SUFFIX,officeppe.net,微软服务
+  - DOMAIN-SUFFIX,omniroot.com,微软服务
+  - DOMAIN-SUFFIX,onedrive.com,微软服务
+  - DOMAIN-SUFFIX,onenote.com,微软服务
+  - DOMAIN-SUFFIX,onenote.net,微软服务
+  - DOMAIN-SUFFIX,onestore.ms,微软服务
+  - DOMAIN-SUFFIX,outlook.com,微软服务
+  - DOMAIN-SUFFIX,outlookmobile.com,微软服务
+  - DOMAIN-SUFFIX,phonefactor.net,微软服务
+  - DOMAIN-SUFFIX,public-trust.com,微软服务
+  - DOMAIN-SUFFIX,sfbassets.com,微软服务
+  - DOMAIN-SUFFIX,sfx.ms,微软服务
+  - DOMAIN-SUFFIX,sharepoint.com,微软服务
+  - DOMAIN-SUFFIX,sharepointonline.com,微软服务
+  - DOMAIN-SUFFIX,skype.com,微软服务
+  - DOMAIN-SUFFIX,skypeassets.com,微软服务
+  - DOMAIN-SUFFIX,skypeforbusiness.com,微软服务
+  - DOMAIN-SUFFIX,staffhub.ms,微软服务
+  - DOMAIN-SUFFIX,svc.ms,微软服务
+  - DOMAIN-SUFFIX,sway-cdn.com,微软服务
+  - DOMAIN-SUFFIX,sway-extensions.com,微软服务
+  - DOMAIN-SUFFIX,sway.com,微软服务
+  - DOMAIN-SUFFIX,trafficmanager.net,微软服务
+  - DOMAIN-SUFFIX,uservoice.com,微软服务
+  - DOMAIN-SUFFIX,virtualearth.net,微软服务
+  - DOMAIN-SUFFIX,visualstudio.com,微软服务
+  - DOMAIN-SUFFIX,windows-ppe.net,微软服务
+  - DOMAIN-SUFFIX,windows.com,微软服务
+  - DOMAIN-SUFFIX,windows.net,微软服务
+  - DOMAIN-SUFFIX,windowsazure.com,微软服务
+  - DOMAIN-SUFFIX,windowsupdate.com,微软服务
+  - DOMAIN-SUFFIX,wunderlist.com,微软服务
+  - DOMAIN-SUFFIX,yammer.com,微软服务
+  - DOMAIN-SUFFIX,yammerusercontent.com,微软服务
+
+  - DOMAIN-KEYWORD,youtube,谷歌服务
+  - DOMAIN,youtubei.googleapis.com,谷歌服务
+  - DOMAIN,yt3.ggpht.com,谷歌服务
+  - DOMAIN-SUFFIX,googlevideo.com,谷歌服务
+  - DOMAIN-SUFFIX,gvt2.com,谷歌服务
+  - DOMAIN-SUFFIX,youtu.be,谷歌服务
+  - DOMAIN-SUFFIX,youtube.com,谷歌服务
+  - DOMAIN-SUFFIX,ytimg.com,谷歌服务
+
+  - DOMAIN-KEYWORD,twitter,社交服务
+  - DOMAIN-SUFFIX,ads-twitter.com,社交服务
+  - DOMAIN-SUFFIX,berlintwitterwall.com,社交服务
+  - DOMAIN-SUFFIX,financetwitter.com,社交服务
+  - DOMAIN-SUFFIX,simbolostwitter.com,社交服务
+  - DOMAIN-SUFFIX,turbotwitter.com,社交服务
+  - DOMAIN-SUFFIX,twitter.com,社交服务
+  - DOMAIN-SUFFIX,twitter.jp,社交服务
+  - DOMAIN-SUFFIX,twitter4j.org,社交服务
+  - DOMAIN-SUFFIX,twittercounter.com,社交服务
+  - DOMAIN-SUFFIX,twitterfeed.com,社交服务
+  - DOMAIN-SUFFIX,twittergadget.com,社交服务
+  - DOMAIN-SUFFIX,twitterkr.com,社交服务
+  - DOMAIN-SUFFIX,twittermail.com,社交服务
+  - DOMAIN-SUFFIX,twitterrific.com,社交服务
+  - DOMAIN-SUFFIX,twittertim.es,社交服务
+  
   - GEOIP,CN,DIRECT
   - MATCH,节点选择
