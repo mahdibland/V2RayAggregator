@@ -10,8 +10,6 @@
 
 虽然是测速筛选过后的节点，但仍然会出现部分节点不可用的情况，遇到这种情况建议选择`Clash For Windows`, `WinXray`之类能自动切换低延迟节点的客户端。
 
-
-
 ## 使用方法
 
 将以下订阅链接导入相应客户端即可。链接中大部分为 SS 协议节点，少量 Vmess, Trojan ,SSR 协议节点，建议选择协议支持完整的客户端。
@@ -24,7 +22,7 @@
 - [多协议Base64编码](https://raw.fastgit.org/alanbobs999/TopFreeProxies/main/Eternity)
 - [Clash Proxy Provider](https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/Eternity.yml)
 
->`Clash Proxy Provider`只包含节点内容，需要自己选择配置文件，仓库`./update/provider/`中是我使用的配置文件和相应`proxy-provider`，当然也可使用订阅转换工具自行转换。
+>`Clash Proxy Provider`只包含节点内容，需要自己选择配置文件，仓库`./update/provider/`中是我使用的配置文件和相应`proxy-provider`。当然也可使用订阅转换工具自行转换。
 >
 >自用在线订阅转换网址：[sub-web-modify](https://sub.v1.mk/)
 
@@ -60,10 +58,10 @@
 |                              ×                               |     [V2rayNG](https://github.com/2dust/v2rayNG/releases)     | SS, Trojan, Vmess, VLESS协议支持，                           |
 
 
-## 声明
+## 仓库声明
 
 订阅节点仅作学习交流使用，只是对网络上节点的优选排序，用于查找资料，学习知识，不做任何违法行为。所有资源均来自互联网，仅供大家交流学习使用，出现违法问题概不负责。
 
-## 统计
+## 星标统计
 
 [![Stargazers over time](https://starchart.cc/alanbobs999/TopFreeProxies.svg)](https://starchart.cc/alanbobs999/TopFreeProxies)
