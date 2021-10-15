@@ -142,8 +142,12 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             url_content += '=' """
         #print(url_content)
         #print(len(url_content))
-        base64_content = base64.b64decode(url_content.encode('utf-8')).decode('utf-8')
-        return base64_content
+        try:
+            base64_content = base64.b64decode(url_content.encode('utf-8')).decode('utf-8','ignore') # https://www.codenong.com/42339876/
+            return base64_content
+        except UnicodeDecodeError:
+            base64_content = base64.b64decode(url_content)
+            return base64_content
 
     def yaml_encode(content): # 将 Url 内容转换为 YAML URLencode&decode https://blog.csdn.net/wf592523813/article/details/79141463
         url_list = []
@@ -187,13 +191,13 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 else:
                     yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['host']})
 
-                if '|' in yaml_url['name']:
+                if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
                     yaml_url['name'] = '"' + yaml_url['name'] + '"'
                 yaml_url_str = str(yaml_url)
 
                 url_list.append(yaml_url_str)
 
-            if 'ss://' in line and '#' in line:
+            if 'ss://' in line and '#' in line and 'trojan://' not in line:
                 yaml_url = {}
 
                 ss_content =  line.replace('ss://', '')
@@ -207,13 +211,14 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     server_part = sub_convert.base64_decode(part_list[0])
 
                 server_part_list = re.split(':|@', server_part) # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
+                #print(server_part_list)
                 yaml_url.setdefault('server', server_part_list[2])
                 yaml_url.setdefault('port', server_part_list[3])
                 yaml_url.setdefault('type', 'ss')
                 yaml_url.setdefault('cipher', server_part_list[0])
                 yaml_url.setdefault('password', server_part_list[1])
 
-                if '|' in yaml_url['name']:
+                if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
                     yaml_url['name'] = '"' + yaml_url['name'] + '"'
                 yaml_url_str = str(yaml_url)
 
@@ -253,7 +258,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 yaml_url.setdefault('cipher', server_part_list[3])
                 yaml_url.setdefault('password', server_part_list[5])
 
-                if '|' in yaml_url['name']:
+                if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
                     yaml_url['name'] = '"' + yaml_url['name'] + '"'
                 yaml_url_str = str(yaml_url)
 
@@ -266,7 +271,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 part_list = re.split('#', url_content, maxsplit=1) # https://www.runoob.com/python/att-string-split.html
                 yaml_url.setdefault('name', urllib.parse.unquote(part_list[1]))
 
-                server_part = part_list[0]
+                server_part = part_list[0].replace('trojan://', '')
                 server_part_list = re.split(':|@|\?sni=', server_part) # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
                 yaml_url.setdefault('server', server_part_list[1])
                 yaml_url.setdefault('port', server_part_list[2])
@@ -276,7 +281,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     yaml_url.setdefault('sni', server_part_list[3])
                 yaml_url.setdefault('skip-cert-verify', 'false')
 
-                if '|' in yaml_url['name']:
+                if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
                     yaml_url['name'] = '"' + yaml_url['name'] + '"'
                 yaml_url_str = str(yaml_url)
 
