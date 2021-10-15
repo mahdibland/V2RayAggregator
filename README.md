@@ -24,7 +24,7 @@
 - [多协议Base64编码](https://raw.fastgit.org/alanbobs999/TopFreeProxies/main/Eternity)
 - [Clash Proxy Provider](https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/Eternity.yml)
 
->`Clash Proxy Provider`只包含节点内容，需要自己选择配置文件，仓库`./update/provider/`中是我使用的配置文件和相应`proxy-provider`，当然也可使用订阅转换工具自行转换。
+>`Clash Proxy Provider`只包含节点内容，需要自己选择配置文件，仓库`./update/provider/`中是我使用的[配置文件](https://github.com/alanbobs999/TopFreeProxies/blob/master/update/provider/config.yml)和相应`proxy-provider`，当然也可使用订阅转换工具自行转换。
 >
 >自用在线订阅转换网址：[sub-web-modify](https://sub.v1.mk/)
 
