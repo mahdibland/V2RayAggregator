@@ -185,6 +185,12 @@ proxy-groups:
       - 狮城节点
       - 香港节点
       - 其他国家
+  - name: 漏网之鱼
+    type: select
+    proxies:
+      - 节点选择
+      - REJECT
+      - DIRECT
   - name: 社交服务
     type: select
     proxies:
@@ -597,4 +603,4 @@ rules:
   - RULE-SET,Telegram,社交服务
 
   - GEOIP,CN,DIRECT
-  - MATCH,节点选择
+  - MATCH,漏网之鱼
