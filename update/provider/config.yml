@@ -326,9 +326,14 @@ proxy-providers:
 rule-providers: # rule-providers from Logyalsoldier/clash-rules and LM-Firefly/Rules
   Apple:
     type: http
-    behavior: classical # https://github.com/Dreamacro/clash/issues/1165
-    url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/Apple.yaml"
+    behavior: domain # https://github.com/Dreamacro/clash/issues/1165
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
     path: ./TopFreeProxies/ruleset/apple.yaml
+  iCloud:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+    path: ./TopFreeProxies/ruleset/icloud.yaml
     interval: 86400
   Microsoft:
     type: http
@@ -338,8 +343,8 @@ rule-providers: # rule-providers from Logyalsoldier/clash-rules and LM-Firefly/R
     interval: 86400
   Google:
     type: http
-    behavior: classical
-    url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/PROXY/Google.yaml"
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
     path: ./TopFreeProxies/ruleset/google.yaml
     interval: 86400
   GlobalMedia:
@@ -445,6 +450,7 @@ rules:
 
   - RULE-SET,Local-LAN,DIRECT
   - RULE-SET,Apple,苹果服务
+  - RULE-SET,iCloud,苹果服务
   - RULE-SET,Microsoft,微软服务
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Twitter,社交服务
