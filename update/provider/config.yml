@@ -326,25 +326,25 @@ proxy-providers:
 rule-providers: # rule-providers from Logyalsoldier/clash-rules and LM-Firefly/Rules
   Apple:
     type: http
-    behavior: domain
+    behavior: classical # https://github.com/Dreamacro/clash/issues/1165
     url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/Apple.yaml"
     path: ./TopFreeProxies/ruleset/apple.yaml
     interval: 86400
   Microsoft:
     type: http
-    behavior: domain
+    behavior: classical
     url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/Microsoft.yaml"
     path: ./TopFreeProxies/ruleset/microsoft.yaml
     interval: 86400
   Google:
     type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+    behavior: classical
+    url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/PROXY/Google.yaml"
     path: ./TopFreeProxies/ruleset/google.yaml
     interval: 86400
   GlobalMedia:
     type: http
-    behavior: domain
+    behavior: classical
     url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/GlobalMedia.yaml"
     path: ./TopFreeProxies/ruleset/globalmedia.yaml
     interval: 86400
@@ -356,7 +356,7 @@ rule-providers: # rule-providers from Logyalsoldier/clash-rules and LM-Firefly/R
     interval: 86400
   Twitter:
     type: http
-    behavior: domain
+    behavior: classical
     url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/PROXY/Twitter.yaml"
     path: ./TopFreeProxies/ruleset/twitter.yaml
     interval: 86400
@@ -368,7 +368,7 @@ rule-providers: # rule-providers from Logyalsoldier/clash-rules and LM-Firefly/R
     interval: 86400
   Local-LAN:
     type: http
-    behavior: domain
+    behavior: classical
     url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/Special/Local-LAN.yaml"
     path: ./TopFreeProxies/ruleset/local-lan.yaml
     interval: 86400
@@ -447,9 +447,9 @@ rules:
   - RULE-SET,Apple,苹果服务
   - RULE-SET,Microsoft,微软服务
   - RULE-SET,Google,谷歌服务
-  - RULE-SET,GlobalMedia,全球媒体
   - RULE-SET,Twitter,社交服务
   - RULE-SET,Telegram,社交服务
+  - RULE-SET,GlobalMedia,全球媒体
   - RULE-SET,Proxy,节点选择
   - RULE-SET,Reject,REJECT
   - RULE-SET,Private,DIRECT
