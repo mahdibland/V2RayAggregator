@@ -223,6 +223,14 @@ proxy-groups:
       - 香港节点
       - 狮城节点
       - DIRECT
+  - name: 全球媒体
+    type: select
+    proxies:
+      - 节点选择
+      - 美国节点
+      - 香港节点
+      - 狮城节点
+      - DIRECT
   - name: Emby视频
     type: select
     proxies:
@@ -272,7 +280,7 @@ proxy-providers:
   us:
     type: http
     url: "https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/update/provider/eternity-us.yml"
-    path: TopFreeProxies/provider-us.yaml
+    path: ./TopFreeProxies/provider-us.yaml
     health-check:
       enable: true
       interval: 600
@@ -280,7 +288,7 @@ proxy-providers:
   hk:
     type: http
     url: "https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/update/provider/eternity-hk.yml"
-    path: TopFreeProxies/provider-jp.yaml
+    path: ./TopFreeProxies/provider-hk.yaml
     health-check:
       enable: true
       interval: 600
@@ -288,7 +296,7 @@ proxy-providers:
   sg:
     type: http
     url: "https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/update/provider/eternity-sg.yml"
-    path: TopFreeProxies/provider-sg.yaml
+    path: ./TopFreeProxies/provider-sg.yaml
     health-check:
       enable: true
       interval: 600
@@ -296,7 +304,7 @@ proxy-providers:
   others:
     type: http
     url: "https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/update/provider/eternity-others.yml"
-    path: TopFreeProxies/provider-others.yaml
+    path: ./TopFreeProxies/provider-others.yaml
     health-check:
       enable: true
       interval: 600
@@ -304,36 +312,58 @@ proxy-providers:
   all:
     type: http
     url: "https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/update/provider/eternity-all.yml"
-    path: TopFreeProxies/provider.yaml
+    path: ./TopFreeProxies/provider.yaml
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
 
-rule-providers: # rule-providers frome Logyalsoldier/clash-rules
-  Reject:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
-    path: ./TopFreeProxies/ruleset/reject.yaml
-    interval: 86400
-  iCloud:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
-    path: ./TopFreeProxies/ruleset/icloud.yaml
-    interval: 86400
+rule-providers: # rule-providers frome Logyalsoldier/clash-rules and LM-Firefly/Rules
   Apple:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+    url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/Apple.yaml"
     path: ./TopFreeProxies/ruleset/apple.yaml
     interval: 86400
+  Microsoft:
+    type: http
+    behavior: domain
+    url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/Microsoft.yaml"
   Google:
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
     path: ./TopFreeProxies/ruleset/google.yaml
+    interval: 86400
+  GlobalMedia:
+    type: http
+    behavior: domain
+    url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/GlobalMedia.yaml"
+    path: ./TopFreeProxies/ruleset/globalmedia.yaml
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./TopFreeProxies/ruleset/telegramcidr.yaml
+    interval: 86400
+  Twitter:
+    type: http
+    behavior: ipcidr
+    url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/PROXY/Twitter.yaml"
+    path: ./TopFreeProxies/ruleset/twitter.yaml
+    interval: 86400
+  Private:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./TopFreeProxies/ruleset/private.yaml
+    interval: 86400
+  Local-LAN:
+    type: http
+    behavior: domain
+    url: "https://raw.fastgit.org/LM-Firefly/Rules/master/Clash-RuleSet-Classical/Special/Local-LAN.yaml"
+    path: ./TopFreeProxies/ruleset/local-lan.yaml
     interval: 86400
   Proxy:
     type: http
@@ -347,17 +377,11 @@ rule-providers: # rule-providers frome Logyalsoldier/clash-rules
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
     path: ./TopFreeProxies/ruleset/direct.yaml
     interval: 86400
-  Private:
+  Reject:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
-    path: ./TopFreeProxies/ruleset/private.yaml
-    interval: 86400
-  Telegram:
-    type: http
-    behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
-    path: ./TopFreeProxies/ruleset/telegramcidr.yaml
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./TopFreeProxies/ruleset/reject.yaml
     interval: 86400
 
 rules:
@@ -408,525 +432,19 @@ rules:
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT
 
-  - DOMAIN-SUFFIX,www.gstatic.com,节点选择
   - DOMAIN-SUFFIX,emby.wtf,Emby视频,no-resolve
   - DOMAIN-SUFFIX,bitwarden.net,DIRECT,no-resolve
   - DOMAIN-SUFFIX,bitwarden.com,DIRECT,no-resolve
 
-  - PROCESS-NAME,OneDrive,微软服务
-  - PROCESS-NAME,OneDriveUpdater,微软服务
-  - DOMAIN-KEYWORD,1drv,微软服务
-  - DOMAIN-KEYWORD,onedrive,微软服务
-  - DOMAIN-KEYWORD,skydrive,微软服务
-  - DOMAIN-SUFFIX,livefilestore.com,微软服务
-  - DOMAIN-SUFFIX,oneclient.sfx.ms,微软服务
-  - DOMAIN-SUFFIX,onedrive.com,微软服务
-  - DOMAIN-SUFFIX,onedrive.live.com,微软服务
-  - DOMAIN-SUFFIX,photos.live.com,微软服务
-  - DOMAIN-SUFFIX,sharepoint.com,微软服务
-  - DOMAIN-SUFFIX,sharepointonline.com,微软服务
-  - DOMAIN-SUFFIX,skydrive.wns.windows.com,微软服务
-  - DOMAIN-SUFFIX,spoprod-a.akamaihd.net,微软服务
-  - DOMAIN-SUFFIX,storage.live.com,微软服务
-  - DOMAIN-SUFFIX,storage.msn.com,微软服务
-  - DOMAIN-KEYWORD,1drv,微软服务
-  - DOMAIN-KEYWORD,microsoft,微软服务
-  - DOMAIN-SUFFIX,aadrm.com,微软服务
-  - DOMAIN-SUFFIX,acompli.com,微软服务
-  - DOMAIN-SUFFIX,acompli.net,微软服务
-  - DOMAIN-SUFFIX,aka.ms,微软服务
-  - DOMAIN-SUFFIX,akadns.net,微软服务
-  - DOMAIN-SUFFIX,aspnetcdn.com,微软服务
-  - DOMAIN-SUFFIX,assets-yammer.com,微软服务
-  - DOMAIN-SUFFIX,azure.com,微软服务
-  - DOMAIN-SUFFIX,azure.net,微软服务
-  - DOMAIN-SUFFIX,azureedge.net,微软服务
-  - DOMAIN-SUFFIX,azurerms.com,微软服务
-  - DOMAIN-SUFFIX,bing.com,微软服务
-  - DOMAIN-SUFFIX,cloudapp.net,微软服务
-  - DOMAIN-SUFFIX,cloudappsecurity.com,微软服务
-  - DOMAIN-SUFFIX,edgesuite.net,微软服务
-  - DOMAIN-SUFFIX,gfx.ms,微软服务
-  - DOMAIN-SUFFIX,hotmail.com,微软服务
-  - DOMAIN-SUFFIX,live.com,微软服务
-  - DOMAIN-SUFFIX,live.net,微软服务
-  - DOMAIN-SUFFIX,lync.com,微软服务
-  - DOMAIN-SUFFIX,msappproxy.net,微软服务
-  - DOMAIN-SUFFIX,msauth.net,微软服务
-  - DOMAIN-SUFFIX,msauthimages.net,微软服务
-  - DOMAIN-SUFFIX,msecnd.net,微软服务
-  - DOMAIN-SUFFIX,msedge.net,微软服务
-  - DOMAIN-SUFFIX,msft.net,微软服务
-  - DOMAIN-SUFFIX,msftauth.net,微软服务
-  - DOMAIN-SUFFIX,msftauthimages.net,微软服务
-  - DOMAIN-SUFFIX,msftidentity.com,微软服务
-  - DOMAIN-SUFFIX,msidentity.com,微软服务
-  - DOMAIN-SUFFIX,msn.com,微软服务
-  - DOMAIN-SUFFIX,msocdn.com,微软服务
-  - DOMAIN-SUFFIX,msocsp.com,微软服务
-  - DOMAIN-SUFFIX,mstea.ms,微软服务
-  - DOMAIN-SUFFIX,o365weve.com,微软服务
-  - DOMAIN-SUFFIX,oaspapps.com,微软服务
-  - DOMAIN-SUFFIX,office.com,微软服务
-  - DOMAIN-SUFFIX,office.net,微软服务
-  - DOMAIN-SUFFIX,office365.com,微软服务
-  - DOMAIN-SUFFIX,officeppe.net,微软服务
-  - DOMAIN-SUFFIX,omniroot.com,微软服务
-  - DOMAIN-SUFFIX,onedrive.com,微软服务
-  - DOMAIN-SUFFIX,onenote.com,微软服务
-  - DOMAIN-SUFFIX,onenote.net,微软服务
-  - DOMAIN-SUFFIX,onestore.ms,微软服务
-  - DOMAIN-SUFFIX,outlook.com,微软服务
-  - DOMAIN-SUFFIX,outlookmobile.com,微软服务
-  - DOMAIN-SUFFIX,phonefactor.net,微软服务
-  - DOMAIN-SUFFIX,public-trust.com,微软服务
-  - DOMAIN-SUFFIX,sfbassets.com,微软服务
-  - DOMAIN-SUFFIX,sfx.ms,微软服务
-  - DOMAIN-SUFFIX,sharepoint.com,微软服务
-  - DOMAIN-SUFFIX,sharepointonline.com,微软服务
-  - DOMAIN-SUFFIX,skype.com,微软服务
-  - DOMAIN-SUFFIX,skypeassets.com,微软服务
-  - DOMAIN-SUFFIX,skypeforbusiness.com,微软服务
-  - DOMAIN-SUFFIX,staffhub.ms,微软服务
-  - DOMAIN-SUFFIX,svc.ms,微软服务
-  - DOMAIN-SUFFIX,sway-cdn.com,微软服务
-  - DOMAIN-SUFFIX,sway-extensions.com,微软服务
-  - DOMAIN-SUFFIX,sway.com,微软服务
-  - DOMAIN-SUFFIX,trafficmanager.net,微软服务
-  - DOMAIN-SUFFIX,uservoice.com,微软服务
-  - DOMAIN-SUFFIX,virtualearth.net,微软服务
-  - DOMAIN-SUFFIX,visualstudio.com,微软服务
-  - DOMAIN-SUFFIX,windows-ppe.net,微软服务
-  - DOMAIN-SUFFIX,windows.com,微软服务
-  - DOMAIN-SUFFIX,windows.net,微软服务
-  - DOMAIN-SUFFIX,windowsazure.com,微软服务
-  - DOMAIN-SUFFIX,windowsupdate.com,微软服务
-  - DOMAIN-SUFFIX,wunderlist.com,微软服务
-  - DOMAIN-SUFFIX,yammer.com,微软服务
-  - DOMAIN-SUFFIX,yammerusercontent.com,微软服务
-
-  - DOMAIN-KEYWORD,google,谷歌服务
-  - DOMAIN-SUFFIX,about.google,谷歌服务
-  - DOMAIN-SUFFIX,agoogleaday.com,谷歌服务
-  - DOMAIN-SUFFIX,ai.google,谷歌服务
-  - DOMAIN-SUFFIX,blog.google,谷歌服务
-  - DOMAIN-SUFFIX,com.google,谷歌服务
-  - DOMAIN-SUFFIX,crisisresponse.google,谷歌服务
-  - DOMAIN-SUFFIX,design.google,谷歌服务
-  - DOMAIN-SUFFIX,dns.google,谷歌服务
-  - DOMAIN-SUFFIX,domains.google,谷歌服务
-  - DOMAIN-SUFFIX,environment.google,谷歌服务
-  - DOMAIN-SUFFIX,google.ac,谷歌服务
-  - DOMAIN-SUFFIX,google.ad,谷歌服务
-  - DOMAIN-SUFFIX,google.ae,谷歌服务
-  - DOMAIN-SUFFIX,google.af,谷歌服务
-  - DOMAIN-SUFFIX,google.al,谷歌服务
-  - DOMAIN-SUFFIX,google.am,谷歌服务
-  - DOMAIN-SUFFIX,google.as,谷歌服务
-  - DOMAIN-SUFFIX,google.at,谷歌服务
-  - DOMAIN-SUFFIX,google.az,谷歌服务
-  - DOMAIN-SUFFIX,google.ba,谷歌服务
-  - DOMAIN-SUFFIX,google.be,谷歌服务
-  - DOMAIN-SUFFIX,google.bf,谷歌服务
-  - DOMAIN-SUFFIX,google.bg,谷歌服务
-  - DOMAIN-SUFFIX,google.bi,谷歌服务
-  - DOMAIN-SUFFIX,google.bj,谷歌服务
-  - DOMAIN-SUFFIX,google.bs,谷歌服务
-  - DOMAIN-SUFFIX,google.bt,谷歌服务
-  - DOMAIN-SUFFIX,google.by,谷歌服务
-  - DOMAIN-SUFFIX,google.ca,谷歌服务
-  - DOMAIN-SUFFIX,google.cat,谷歌服务
-  - DOMAIN-SUFFIX,google.cd,谷歌服务
-  - DOMAIN-SUFFIX,google.cf,谷歌服务
-  - DOMAIN-SUFFIX,google.cg,谷歌服务
-  - DOMAIN-SUFFIX,google.ch,谷歌服务
-  - DOMAIN-SUFFIX,google.ci,谷歌服务
-  - DOMAIN-SUFFIX,google.cl,谷歌服务
-  - DOMAIN-SUFFIX,google.cm,谷歌服务
-  - DOMAIN-SUFFIX,google.cn,谷歌服务
-  - DOMAIN-SUFFIX,google.co.ao,谷歌服务
-  - DOMAIN-SUFFIX,google.co.bw,谷歌服务
-  - DOMAIN-SUFFIX,google.co.ck,谷歌服务
-  - DOMAIN-SUFFIX,google.co.cr,谷歌服务
-  - DOMAIN-SUFFIX,google.co.id,谷歌服务
-  - DOMAIN-SUFFIX,google.co.il,谷歌服务
-  - DOMAIN-SUFFIX,google.co.in,谷歌服务
-  - DOMAIN-SUFFIX,google.co.jp,谷歌服务
-  - DOMAIN-SUFFIX,google.co.ke,谷歌服务
-  - DOMAIN-SUFFIX,google.co.kr,谷歌服务
-  - DOMAIN-SUFFIX,google.co.ls,谷歌服务
-  - DOMAIN-SUFFIX,google.co.ma,谷歌服务
-  - DOMAIN-SUFFIX,google.co.mz,谷歌服务
-  - DOMAIN-SUFFIX,google.co.nz,谷歌服务
-  - DOMAIN-SUFFIX,google.co.th,谷歌服务
-  - DOMAIN-SUFFIX,google.co.tz,谷歌服务
-  - DOMAIN-SUFFIX,google.co.ug,谷歌服务
-  - DOMAIN-SUFFIX,google.co.uk,谷歌服务
-  - DOMAIN-SUFFIX,google.co.uz,谷歌服务
-  - DOMAIN-SUFFIX,google.co.ve,谷歌服务
-  - DOMAIN-SUFFIX,google.co.vi,谷歌服务
-  - DOMAIN-SUFFIX,google.co.za,谷歌服务
-  - DOMAIN-SUFFIX,google.co.zm,谷歌服务
-  - DOMAIN-SUFFIX,google.co.zw,谷歌服务
-  - DOMAIN-SUFFIX,google.com,谷歌服务
-  - DOMAIN-SUFFIX,google.com.af,谷歌服务
-  - DOMAIN-SUFFIX,google.com.ag,谷歌服务
-  - DOMAIN-SUFFIX,google.com.ai,谷歌服务
-  - DOMAIN-SUFFIX,google.com.ar,谷歌服务
-  - DOMAIN-SUFFIX,google.com.au,谷歌服务
-  - DOMAIN-SUFFIX,google.com.bd,谷歌服务
-  - DOMAIN-SUFFIX,google.com.bh,谷歌服务
-  - DOMAIN-SUFFIX,google.com.bn,谷歌服务
-  - DOMAIN-SUFFIX,google.com.bo,谷歌服务
-  - DOMAIN-SUFFIX,google.com.br,谷歌服务
-  - DOMAIN-SUFFIX,google.com.bz,谷歌服务
-  - DOMAIN-SUFFIX,google.com.co,谷歌服务
-  - DOMAIN-SUFFIX,google.com.cu,谷歌服务
-  - DOMAIN-SUFFIX,google.com.cy,谷歌服务
-  - DOMAIN-SUFFIX,google.com.do,谷歌服务
-  - DOMAIN-SUFFIX,google.com.ec,谷歌服务
-  - DOMAIN-SUFFIX,google.com.eg,谷歌服务
-  - DOMAIN-SUFFIX,google.com.et,谷歌服务
-  - DOMAIN-SUFFIX,google.com.fj,谷歌服务
-  - DOMAIN-SUFFIX,google.com.gh,谷歌服务
-  - DOMAIN-SUFFIX,google.com.gi,谷歌服务
-  - DOMAIN-SUFFIX,google.com.gt,谷歌服务
-  - DOMAIN-SUFFIX,google.com.hk,谷歌服务
-  - DOMAIN-SUFFIX,google.com.jm,谷歌服务
-  - DOMAIN-SUFFIX,google.com.kh,谷歌服务
-  - DOMAIN-SUFFIX,google.com.kw,谷歌服务
-  - DOMAIN-SUFFIX,google.com.lb,谷歌服务
-  - DOMAIN-SUFFIX,google.com.ly,谷歌服务
-  - DOMAIN-SUFFIX,google.com.mm,谷歌服务
-  - DOMAIN-SUFFIX,google.com.mt,谷歌服务
-  - DOMAIN-SUFFIX,google.com.mx,谷歌服务
-  - DOMAIN-SUFFIX,google.com.my,谷歌服务
-  - DOMAIN-SUFFIX,google.com.na,谷歌服务
-  - DOMAIN-SUFFIX,google.com.nf,谷歌服务
-  - DOMAIN-SUFFIX,google.com.ng,谷歌服务
-  - DOMAIN-SUFFIX,google.com.ni,谷歌服务
-  - DOMAIN-SUFFIX,google.com.np,谷歌服务
-  - DOMAIN-SUFFIX,google.com.om,谷歌服务
-  - DOMAIN-SUFFIX,google.com.pa,谷歌服务
-  - DOMAIN-SUFFIX,google.com.pe,谷歌服务
-  - DOMAIN-SUFFIX,google.com.pg,谷歌服务
-  - DOMAIN-SUFFIX,google.com.ph,谷歌服务
-  - DOMAIN-SUFFIX,google.com.pk,谷歌服务
-  - DOMAIN-SUFFIX,google.com.pr,谷歌服务
-  - DOMAIN-SUFFIX,google.com.py,谷歌服务
-  - DOMAIN-SUFFIX,google.com.qa,谷歌服务
-  - DOMAIN-SUFFIX,google.com.sa,谷歌服务
-  - DOMAIN-SUFFIX,google.com.sb,谷歌服务
-  - DOMAIN-SUFFIX,google.com.sg,谷歌服务
-  - DOMAIN-SUFFIX,google.com.sl,谷歌服务
-  - DOMAIN-SUFFIX,google.com.sv,谷歌服务
-  - DOMAIN-SUFFIX,google.com.tj,谷歌服务
-  - DOMAIN-SUFFIX,google.com.tr,谷歌服务
-  - DOMAIN-SUFFIX,google.com.tw,谷歌服务
-  - DOMAIN-SUFFIX,google.com.ua,谷歌服务
-  - DOMAIN-SUFFIX,google.com.uy,谷歌服务
-  - DOMAIN-SUFFIX,google.com.vc,谷歌服务
-  - DOMAIN-SUFFIX,google.com.vn,谷歌服务
-  - DOMAIN-SUFFIX,google.cv,谷歌服务
-  - DOMAIN-SUFFIX,google.cz,谷歌服务
-  - DOMAIN-SUFFIX,google.de,谷歌服务
-  - DOMAIN-SUFFIX,google.dev,谷歌服务
-  - DOMAIN-SUFFIX,google.dj,谷歌服务
-  - DOMAIN-SUFFIX,google.dk,谷歌服务
-  - DOMAIN-SUFFIX,google.dm,谷歌服务
-  - DOMAIN-SUFFIX,google.dz,谷歌服务
-  - DOMAIN-SUFFIX,google.ee,谷歌服务
-  - DOMAIN-SUFFIX,google.es,谷歌服务
-  - DOMAIN-SUFFIX,google.eu,谷歌服务
-  - DOMAIN-SUFFIX,google.fi,谷歌服务
-  - DOMAIN-SUFFIX,google.fm,谷歌服务
-  - DOMAIN-SUFFIX,google.fr,谷歌服务
-  - DOMAIN-SUFFIX,google.ga,谷歌服务
-  - DOMAIN-SUFFIX,google.ge,谷歌服务
-  - DOMAIN-SUFFIX,google.gg,谷歌服务
-  - DOMAIN-SUFFIX,google.gl,谷歌服务
-  - DOMAIN-SUFFIX,google.gm,谷歌服务
-  - DOMAIN-SUFFIX,google.gp,谷歌服务
-  - DOMAIN-SUFFIX,google.gr,谷歌服务
-  - DOMAIN-SUFFIX,google.gy,谷歌服务
-  - DOMAIN-SUFFIX,google.hk,谷歌服务
-  - DOMAIN-SUFFIX,google.hn,谷歌服务
-  - DOMAIN-SUFFIX,google.hr,谷歌服务
-  - DOMAIN-SUFFIX,google.ht,谷歌服务
-  - DOMAIN-SUFFIX,google.hu,谷歌服务
-  - DOMAIN-SUFFIX,google.ie,谷歌服务
-  - DOMAIN-SUFFIX,google.im,谷歌服务
-  - DOMAIN-SUFFIX,google.iq,谷歌服务
-  - DOMAIN-SUFFIX,google.is,谷歌服务
-  - DOMAIN-SUFFIX,google.it,谷歌服务
-  - DOMAIN-SUFFIX,google.it.ao,谷歌服务
-  - DOMAIN-SUFFIX,google.je,谷歌服务
-  - DOMAIN-SUFFIX,google.jo,谷歌服务
-  - DOMAIN-SUFFIX,google.kg,谷歌服务
-  - DOMAIN-SUFFIX,google.ki,谷歌服务
-  - DOMAIN-SUFFIX,google.kz,谷歌服务
-  - DOMAIN-SUFFIX,google.la,谷歌服务
-  - DOMAIN-SUFFIX,google.li,谷歌服务
-  - DOMAIN-SUFFIX,google.lk,谷歌服务
-  - DOMAIN-SUFFIX,google.lt,谷歌服务
-  - DOMAIN-SUFFIX,google.lu,谷歌服务
-  - DOMAIN-SUFFIX,google.lv,谷歌服务
-  - DOMAIN-SUFFIX,google.md,谷歌服务
-  - DOMAIN-SUFFIX,google.me,谷歌服务
-  - DOMAIN-SUFFIX,google.mg,谷歌服务
-  - DOMAIN-SUFFIX,google.mk,谷歌服务
-  - DOMAIN-SUFFIX,google.ml,谷歌服务
-  - DOMAIN-SUFFIX,google.mn,谷歌服务
-  - DOMAIN-SUFFIX,google.ms,谷歌服务
-  - DOMAIN-SUFFIX,google.mu,谷歌服务
-  - DOMAIN-SUFFIX,google.mv,谷歌服务
-  - DOMAIN-SUFFIX,google.mw,谷歌服务
-  - DOMAIN-SUFFIX,google.mx,谷歌服务
-  - DOMAIN-SUFFIX,google.ne,谷歌服务
-  - DOMAIN-SUFFIX,google.nl,谷歌服务
-  - DOMAIN-SUFFIX,google.no,谷歌服务
-  - DOMAIN-SUFFIX,google.nr,谷歌服务
-  - DOMAIN-SUFFIX,google.nu,谷歌服务
-  - DOMAIN-SUFFIX,google.org,谷歌服务
-  - DOMAIN-SUFFIX,google.pl,谷歌服务
-  - DOMAIN-SUFFIX,google.pn,谷歌服务
-  - DOMAIN-SUFFIX,google.ps,谷歌服务
-  - DOMAIN-SUFFIX,google.pt,谷歌服务
-  - DOMAIN-SUFFIX,google.ro,谷歌服务
-  - DOMAIN-SUFFIX,google.rs,谷歌服务
-  - DOMAIN-SUFFIX,google.ru,谷歌服务
-  - DOMAIN-SUFFIX,google.rw,谷歌服务
-  - DOMAIN-SUFFIX,google.sc,谷歌服务
-  - DOMAIN-SUFFIX,google.se,谷歌服务
-  - DOMAIN-SUFFIX,google.sh,谷歌服务
-  - DOMAIN-SUFFIX,google.si,谷歌服务
-  - DOMAIN-SUFFIX,google.sk,谷歌服务
-  - DOMAIN-SUFFIX,google.sm,谷歌服务
-  - DOMAIN-SUFFIX,google.sn,谷歌服务
-  - DOMAIN-SUFFIX,google.so,谷歌服务
-  - DOMAIN-SUFFIX,google.sr,谷歌服务
-  - DOMAIN-SUFFIX,google.st,谷歌服务
-  - DOMAIN-SUFFIX,google.td,谷歌服务
-  - DOMAIN-SUFFIX,google.tg,谷歌服务
-  - DOMAIN-SUFFIX,google.tk,谷歌服务
-  - DOMAIN-SUFFIX,google.tl,谷歌服务
-  - DOMAIN-SUFFIX,google.tm,谷歌服务
-  - DOMAIN-SUFFIX,google.tn,谷歌服务
-  - DOMAIN-SUFFIX,google.to,谷歌服务
-  - DOMAIN-SUFFIX,google.tt,谷歌服务
-  - DOMAIN-SUFFIX,google.us,谷歌服务
-  - DOMAIN-SUFFIX,google.vg,谷歌服务
-  - DOMAIN-SUFFIX,google.vn,谷歌服务
-  - DOMAIN-SUFFIX,google.vu,谷歌服务
-  - DOMAIN-SUFFIX,google.ws,谷歌服务
-  - DOMAIN-SUFFIX,googleapis.cn,谷歌服务
-  - DOMAIN-SUFFIX,googleapis.com,谷歌服务
-  - DOMAIN-SUFFIX,googleapps.com,谷歌服务
-  - DOMAIN-SUFFIX,googlearth.com,谷歌服务
-  - DOMAIN-SUFFIX,googleartproject.com,谷歌服务
-  - DOMAIN-SUFFIX,googleblog.com,谷歌服务
-  - DOMAIN-SUFFIX,googlebot.com,谷歌服务
-  - DOMAIN-SUFFIX,googlechinawebmaster.com,谷歌服务
-  - DOMAIN-SUFFIX,googlecode.com,谷歌服务
-  - DOMAIN-SUFFIX,googlecommerce.com,谷歌服务
-  - DOMAIN-SUFFIX,googledomains.com,谷歌服务
-  - DOMAIN-SUFFIX,googledrive.com,谷歌服务
-  - DOMAIN-SUFFIX,googleearth.com,谷歌服务
-  - DOMAIN-SUFFIX,googlegroups.com,谷歌服务
-  - DOMAIN-SUFFIX,googlehosted.com,谷歌服务
-  - DOMAIN-SUFFIX,googleideas.com,谷歌服务
-  - DOMAIN-SUFFIX,googleinsidesearch.com,谷歌服务
-  - DOMAIN-SUFFIX,googlelabs.com,谷歌服务
-  - DOMAIN-SUFFIX,googlemail.com,谷歌服务
-  - DOMAIN-SUFFIX,googlemashups.com,谷歌服务
-  - DOMAIN-SUFFIX,googlepagecreator.com,谷歌服务
-  - DOMAIN-SUFFIX,googleplay.com,谷歌服务
-  - DOMAIN-SUFFIX,googleplus.com,谷歌服务
-  - DOMAIN-SUFFIX,googlescholar.com,谷歌服务
-  - DOMAIN-SUFFIX,googlesile.com,谷歌服务
-  - DOMAIN-SUFFIX,googlesource.com,谷歌服务
-  - DOMAIN-SUFFIX,googleusercontent.com,谷歌服务
-  - DOMAIN-SUFFIX,googlevideo.com,谷歌服务
-  - DOMAIN-SUFFIX,googleweblight.com,谷歌服务
-  - DOMAIN-SUFFIX,googlezip.net,谷歌服务
-  - DOMAIN-SUFFIX,grow.google,谷歌服务
-  - DOMAIN-SUFFIX,igoogle.com,谷歌服务
-  - DOMAIN-SUFFIX,lers.google,谷歌服务
-  - DOMAIN-SUFFIX,nic.google,谷歌服务
-  - DOMAIN-SUFFIX,opensource.google,谷歌服务
-  - DOMAIN-SUFFIX,pride.google,谷歌服务
-  - DOMAIN-SUFFIX,registry.google,谷歌服务
-  - DOMAIN-SUFFIX,safety.google,谷歌服务
-  - DOMAIN-SUFFIX,stories.google,谷歌服务
-  - DOMAIN-SUFFIX,sustainability.google,谷歌服务
-  - DOMAIN-SUFFIX,thinkwithgoogle.com,谷歌服务
-  - DOMAIN-SUFFIX,withgoogle.com,谷歌服务
-  - DOMAIN-SUFFIX,googleapis.cn,谷歌服务
-  - DOMAIN-SUFFIX,googleapis.com,谷歌服务
-  - DOMAIN,alt1-mtalk.google.com,谷歌服务
-  - DOMAIN,alt2-mtalk.google.com,谷歌服务
-  - DOMAIN,alt3-mtalk.google.com,谷歌服务
-  - DOMAIN,alt4-mtalk.google.com,谷歌服务
-  - DOMAIN,alt5-mtalk.google.com,谷歌服务
-  - DOMAIN,alt6-mtalk.google.com,谷歌服务
-  - DOMAIN,alt7-mtalk.google.com,谷歌服务
-  - DOMAIN,alt8-mtalk.google.com,谷歌服务
-  - DOMAIN,mtalk.google.com,谷歌服务
-  - DOMAIN-SUFFIX,alt1-mtalk.google.com,DIRECT
-  - DOMAIN-SUFFIX,alt2-mtalk.google.com,DIRECT
-  - DOMAIN-SUFFIX,alt3-mtalk.google.com,DIRECT
-  - DOMAIN-SUFFIX,alt4-mtalk.google.com,DIRECT
-  - DOMAIN-SUFFIX,alt5-mtalk.google.com,DIRECT
-  - DOMAIN-SUFFIX,alt6-mtalk.google.com,DIRECT
-  - DOMAIN-SUFFIX,alt7-mtalk.google.com,DIRECT
-  - DOMAIN-SUFFIX,alt8-mtalk.google.com,DIRECT
-  - DOMAIN-SUFFIX,c.android.clients.google.com,DIRECT
-  - DOMAIN-SUFFIX,cache.pack.google.com,DIRECT
-  - DOMAIN-SUFFIX,clientservices.googleapis.com,DIRECT
-  - DOMAIN-SUFFIX,dl.google.com,DIRECT
-  - DOMAIN-SUFFIX,dl.l.google.com,DIRECT
-  - DOMAIN-SUFFIX,fonts.googleapis.com,DIRECT
-  - DOMAIN-SUFFIX,googletagmanager.com,DIRECT
-  - DOMAIN-SUFFIX,googletagservices.com,DIRECT
-  - DOMAIN-SUFFIX,imasdk.googleapis.com,DIRECT
-  - DOMAIN-SUFFIX,mtalk.google.com,DIRECT
-  - DOMAIN-SUFFIX,safebrowsing-cache.google.com,DIRECT
-  - DOMAIN-SUFFIX,safebrowsing.googleapis.com,DIRECT
-  - DOMAIN-SUFFIX,ssl-google-analytics.l.google.com,DIRECT
-  - DOMAIN-SUFFIX,toolbarqueries.google.com,DIRECT
-  - DOMAIN-SUFFIX,tools.google.com,DIRECT
-  - DOMAIN-SUFFIX,tools.l.google.com,DIRECT
-  - DOMAIN-SUFFIX,update.googleapis.com,DIRECT
-  - DOMAIN-SUFFIX,www-googletagmanager.l.google.com,DIRECT
-  - DOMAIN-KEYWORD,youtube,谷歌服务
-  - DOMAIN,youtubei.googleapis.com,谷歌服务
-  - DOMAIN,yt3.ggpht.com,谷歌服务
-  - DOMAIN-SUFFIX,googlevideo.com,谷歌服务
-  - DOMAIN-SUFFIX,gvt2.com,谷歌服务
-  - DOMAIN-SUFFIX,youtu.be,谷歌服务
-  - DOMAIN-SUFFIX,youtube.com,谷歌服务
-  - DOMAIN-SUFFIX,ytimg.com,谷歌服务
-  - DOMAIN,youtubei.googleapis.com,谷歌服务
-  - DOMAIN-SUFFIX,googlevideo.com,谷歌服务
-  - DOMAIN,youtubei.googleapis.com,谷歌服务
-  - DOMAIN-SUFFIX,googlevideo.com,谷歌服务
-  - PROCESS-NAME,com.google.android.apps.youtube.music,谷歌服务
-  - PROCESS-NAME,com.google.android.youtube.tvmusicroot,谷歌服务
-  - DOMAIN,dl.google.com,DIRECT
-  - DOMAIN-SUFFIX,googletraveladservices.com,DIRECT
-  - DOMAIN-SUFFIX,ads.google.com,REJECT
-  - DOMAIN-SUFFIX,adservice.google.com,REJECT
-  - DOMAIN-SUFFIX,afd.l.google.com,REJECT
-  - DOMAIN-SUFFIX,badad.googleplex.com,REJECT
-  - DOMAIN-SUFFIX,google-analytics.com,REJECT
-  - DOMAIN-SUFFIX,googleadservices.com,REJECT
-  - DOMAIN-SUFFIX,googleadsserving.cn,REJECT
-  - DOMAIN-SUFFIX,googlecommerce.com,REJECT
-  - DOMAIN-SUFFIX,googlesyndication.com,REJECT
-  - DOMAIN-SUFFIX,mobileads.google.com,REJECT
-  - DOMAIN-SUFFIX,pagead-tpc.l.google.com,REJECT
-  - DOMAIN-SUFFIX,pagead.google.com,REJECT
-  - DOMAIN-SUFFIX,pagead.l.google.com,REJECT
-  - DOMAIN-SUFFIX,ads.google.com,REJECT
-  - DOMAIN-SUFFIX,adservice.google.com,REJECT
-  - DOMAIN-SUFFIX,afd.l.google.com,REJECT
-  - DOMAIN-SUFFIX,badad.googleplex.com,REJECT
-  - DOMAIN-SUFFIX,google-analytics.com,REJECT
-  - DOMAIN-SUFFIX,googleadservices.com,REJECT
-  - DOMAIN-SUFFIX,googleadsserving.cn,REJECT
-  - DOMAIN-SUFFIX,googlecommerce.com,REJECT
-  - DOMAIN-SUFFIX,googlesyndication.com,REJECT
-  - DOMAIN-SUFFIX,mobileads.google.com,REJECT
-  - DOMAIN-SUFFIX,pagead-tpc.l.google.com,REJECT
-  - DOMAIN-SUFFIX,pagead.google.com,REJECT
-  - DOMAIN-SUFFIX,pagead.l.google.com,REJECT
-
-  - DOMAIN-KEYWORD,twitter,社交服务
-  - DOMAIN-SUFFIX,ads-twitter.com,社交服务
-  - DOMAIN-SUFFIX,berlintwitterwall.com,社交服务
-  - DOMAIN-SUFFIX,financetwitter.com,社交服务
-  - DOMAIN-SUFFIX,simbolostwitter.com,社交服务
-  - DOMAIN-SUFFIX,turbotwitter.com,社交服务
-  - DOMAIN-SUFFIX,twitter.com,社交服务
-  - DOMAIN-SUFFIX,twitter.jp,社交服务
-  - DOMAIN-SUFFIX,tweetbackup.com,社交服务
-  - DOMAIN-SUFFIX,tweetboard.com,社交服务
-  - DOMAIN-SUFFIX,tweetboner.biz,社交服务
-  - DOMAIN-SUFFIX,tweetcs.com,社交服务
-  - DOMAIN-SUFFIX,tweetdeck.com,社交服务
-  - DOMAIN-SUFFIX,tweetedtimes.com,社交服务
-  - DOMAIN-SUFFIX,tweetmylast.fm,社交服务
-  - DOMAIN-SUFFIX,tweetphoto.com,社交服务
-  - DOMAIN-SUFFIX,tweetrans.com,社交服务
-  - DOMAIN-SUFFIX,tweetree.com,社交服务
-  - DOMAIN-SUFFIX,tweettunnel.com,社交服务
-  - DOMAIN-SUFFIX,tweetwally.com,社交服务
-  - DOMAIN-SUFFIX,tweetymail.com,社交服务
-  - DOMAIN-SUFFIX,tweez.net,社交服务
-  - DOMAIN-SUFFIX,twelve.today,社交服务
-  - DOMAIN-SUFFIX,twerkingbutt.com,社交服务
-  - DOMAIN-SUFFIX,twftp.org,社交服务
-  - DOMAIN-SUFFIX,twgreatdaily.com,社交服务
-  - DOMAIN-SUFFIX,twibase.com,社交服务
-  - DOMAIN-SUFFIX,twibble.de,社交服务
-  - DOMAIN-SUFFIX,twibbon.com,社交服务
-  - DOMAIN-SUFFIX,twibs.com,社交服务
-  - DOMAIN-SUFFIX,twicountry.org,社交服务
-  - DOMAIN-SUFFIX,twicsy.com,社交服务
-  - DOMAIN-SUFFIX,twiends.com,社交服务
-  - DOMAIN-SUFFIX,twifan.com,社交服务
-  - DOMAIN-SUFFIX,twiffo.com,社交服务
-  - DOMAIN-SUFFIX,twiggit.org,社交服务
-  - DOMAIN-SUFFIX,twilightsex.com,社交服务
-  - DOMAIN-SUFFIX,twilio.com,社交服务
-  - DOMAIN-SUFFIX,twilog.org,社交服务
-  - DOMAIN-SUFFIX,twimbow.com,社交服务
-  - DOMAIN-SUFFIX,twimg.com,社交服务
-  - DOMAIN-SUFFIX,twindexx.com,社交服务
-  - DOMAIN-SUFFIX,twip.me,社交服务
-  - DOMAIN-SUFFIX,twipple.jp,社交服务
-  - DOMAIN-SUFFIX,twishort.com,社交服务
-  - DOMAIN-SUFFIX,twistar.cc,社交服务
-  - DOMAIN-SUFFIX,twister.net.co,社交服务
-  - DOMAIN-SUFFIX,twisterio.com,社交服务
-  - DOMAIN-SUFFIX,twisternow.com,社交服务
-  - DOMAIN-SUFFIX,twistory.net,社交服务
-  - DOMAIN-SUFFIX,twit2d.com,社交服务
-  - DOMAIN-SUFFIX,twitbrowser.net,社交服务
-  - DOMAIN-SUFFIX,twitcause.com,社交服务
-  - DOMAIN-SUFFIX,twitch.tv,社交服务
-  - DOMAIN-SUFFIX,twitchcdn.net,社交服务
-  - DOMAIN-SUFFIX,twitgether.com,社交服务
-  - DOMAIN-SUFFIX,twitgoo.com,社交服务
-  - DOMAIN-SUFFIX,twitiq.com,社交服务
-  - DOMAIN-SUFFIX,twitlonger.com,社交服务
-  - DOMAIN-SUFFIX,twitmania.com,社交服务
-  - DOMAIN-SUFFIX,twitoaster.com,社交服务
-  - DOMAIN-SUFFIX,twitonmsn.com,社交服务
-  - DOMAIN-SUFFIX,twitpic.com,社交服务
-  - DOMAIN-SUFFIX,twitstat.com,社交服务
-  - DOMAIN-SUFFIX,twittbot.net,社交服务
-  - DOMAIN-SUFFIX,twitter4j.org,社交服务
-  - DOMAIN-SUFFIX,twittercounter.com,社交服务
-  - DOMAIN-SUFFIX,twitterfeed.com,社交服务
-  - DOMAIN-SUFFIX,twittergadget.com,社交服务
-  - DOMAIN-SUFFIX,twitterkr.com,社交服务
-  - DOMAIN-SUFFIX,twittermail.com,社交服务
-  - DOMAIN-SUFFIX,twitterrific.com,社交服务
-  - DOMAIN-SUFFIX,twittertim.es,社交服务
-  - DOMAIN-SUFFIX,twitthat.com,社交服务
-  - DOMAIN-SUFFIX,twitturk.com,社交服务
-  - DOMAIN-SUFFIX,twitturly.com,社交服务
-  - DOMAIN-SUFFIX,twitvid.com,社交服务
-  - DOMAIN-SUFFIX,twitzap.com,社交服务
-  - DOMAIN-SUFFIX,twiyia.com,社交服务
-
   - RULE-SET,Proxy,节点选择
   - RULE-SET,Reject,REJECT
   - RULE-SET,Private,DIRECT
-  - RULE-SET,iCloud,苹果服务,no-resolve
-  - RULE-SET,Apple,苹果服务,no-resolve
+  - RULE-SET,Local-LAN,DIRECT
+  - RULE-SET,Apple,苹果服务
+  - RULE-SET,Microsoft,微软服务
   - RULE-SET,Google,谷歌服务
+  - RULE-SET,GlobalMedia,全球媒体
+  - RULE-SET,Twitter,社交服务
   - RULE-SET,Telegram,社交服务
 
   - IP-CIDR,10.240.0.0/24,DIRECT,no-resolve
