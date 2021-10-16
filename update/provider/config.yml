@@ -280,6 +280,7 @@ proxy-providers:
   us:
     type: http
     url: "https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/update/provider/eternity-us.yml"
+    interval: 86400
     path: ./TopFreeProxies/provider-us.yaml
     health-check:
       enable: true
@@ -288,6 +289,7 @@ proxy-providers:
   hk:
     type: http
     url: "https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/update/provider/eternity-hk.yml"
+    interval: 86400
     path: ./TopFreeProxies/provider-hk.yaml
     health-check:
       enable: true
@@ -296,6 +298,7 @@ proxy-providers:
   sg:
     type: http
     url: "https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/update/provider/eternity-sg.yml"
+    interval: 86400
     path: ./TopFreeProxies/provider-sg.yaml
     health-check:
       enable: true
@@ -304,6 +307,7 @@ proxy-providers:
   others:
     type: http
     url: "https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/update/provider/eternity-others.yml"
+    interval: 86400
     path: ./TopFreeProxies/provider-others.yaml
     health-check:
       enable: true
@@ -312,13 +316,14 @@ proxy-providers:
   all:
     type: http
     url: "https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/update/provider/eternity-all.yml"
+    interval: 86400
     path: ./TopFreeProxies/provider.yaml
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
 
-rule-providers: # rule-providers frome Logyalsoldier/clash-rules and LM-Firefly/Rules
+rule-providers: # rule-providers from Logyalsoldier/clash-rules and LM-Firefly/Rules
   Apple:
     type: http
     behavior: domain
@@ -438,9 +443,6 @@ rules:
   - DOMAIN-SUFFIX,bitwarden.net,DIRECT,no-resolve
   - DOMAIN-SUFFIX,bitwarden.com,DIRECT,no-resolve
 
-  - RULE-SET,Proxy,节点选择
-  - RULE-SET,Reject,REJECT
-  - RULE-SET,Private,DIRECT
   - RULE-SET,Local-LAN,DIRECT
   - RULE-SET,Apple,苹果服务
   - RULE-SET,Microsoft,微软服务
@@ -448,8 +450,11 @@ rules:
   - RULE-SET,GlobalMedia,全球媒体
   - RULE-SET,Twitter,社交服务
   - RULE-SET,Telegram,社交服务
+  - RULE-SET,Proxy,节点选择
+  - RULE-SET,Reject,REJECT
+  - RULE-SET,Private,DIRECT
 
   - IP-CIDR,10.240.0.0/24,DIRECT,no-resolve
 
-  - GEOIP,CN,DIRECT
+  - GEOIP,CN,DIRECT # GeoIP2 数据库 from Hackl0us/GeoIP2-CN
   - MATCH,漏网之鱼
