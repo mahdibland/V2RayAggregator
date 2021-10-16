@@ -317,7 +317,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         begin = 0
         length = len(proxies_list)
         while begin < length:
-            print(f'当前对比{begin + 1}')
+            print(f'当前基准{begin + 1}')
             print(f'当前数量{length}')
             proxy_compared = proxies_list[begin]
             begin += 1
@@ -325,8 +325,6 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             begin_2 = begin
             while begin_2 <= (length - 1):
 
-                print(f'当前数量{length}')
-                print(f'正在对比{begin_2 + 1}\n')
                 if proxy_compared['server'] == proxies_list[begin_2]['server'] and proxy_compared['port'] == proxies_list[begin_2]['port']:
                     proxies_list.pop(begin_2)
                     length -= 1
