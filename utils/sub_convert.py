@@ -24,13 +24,13 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             try:
                 print('Downloading from:' + content)
                 resp = s.get(content, timeout=5)
-                sub_content = resp.content.decode('utf-8') 
+                sub_content = resp.content.decode('utf-8')
 
                 if 'proxies:' in sub_content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
                     url_content = sub_convert.yaml_decode(sub_content)
                     #return self.url_content.replace('\r','') # 去除‘回车\r符’ https://blog.csdn.net/jerrygaoling/article/details/81051447
                 elif '://'  in sub_content and '</html>' not in sub_content: # 同上，是，判断为 Url 链接内容。
-                    url_content = sub_content.replace('\r','')
+                    url_content = sub_content
                 elif '</html>' in sub_content:
                     url_content = 'Url 解析错误'
                 else: # 判断 Base64.
@@ -46,9 +46,8 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     return sub_convert.base64_encode(url_content)
                 elif output_type == 'YAML' and url_content != 'Url 订阅内容无法解析':
                     return sub_convert.yaml_encode(url_content)
-                else:
-                    if output_type == '':
-                        print('Pleae define your output type.')
+                elif output_type == '':
+                    print('Pleae define your output type.')
                     return 'Url 订阅内容无法解析'
 
             except Exception as err:
@@ -92,40 +91,57 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         protocol_list = []
         for index in range(len(proxies_list)): # 不同节点订阅链接内容 https://github.com/hoochanlon/fq-book/blob/master/docs/append/srvurl.md
             proxy = proxies_list[index]
-            proxy.setdefault('network', 'tcp')# 字典默认值 https://blog.csdn.net/mantoureganmian/article/details/97918236
-            proxy.setdefault('ws-path', '/')
 
             if proxy['type'] == 'vmess': # Vmess 节点提取 , 由 Vmess 所有参数 dump JSON 后 base64 得来。
+                yaml_default_config = {
+                    'name': 'Vmess Node', 'server': '0.0.0.0', 'port': 0, 'uuid': '', 'alterId': 0,
+                    'cipher': 'auto', 'network': 'tcp', 'ws-headers': {'Host': proxy['server']},
+                    'ws-path': '/', 'tls': ''
+                }
+                config_value_dic = {}
+                """ proxy.setdefault('network', 'tcp') # 字典默认值 https://blog.csdn.net/mantoureganmian/article/details/97918236
+                proxy.setdefault('tls', '')
+                proxy.setdefault('ws-headers', {'Host': proxy['server']})
+                proxy.setdefault('ws-path', '/') """
+                yaml_default_config.update(proxy)
+                proxy_config = yaml_default_config
                 raw_config_value = []
-                raw_config_str = ['v~', 'name', 'server', 'port', 'uuid', 'alterId', 'cipher', 'network', 'type~', 'server', 'ws-path', 'tls~', 'sni~']
-                
+                raw_config_str = ['v~', 'name', 'server', 'port', 'uuid', 'alterId', 'cipher', 'network', 'type~', 'ws-headers', 'ws-path', 'tls', 'sni~']
+
                 # 生成 Vmess 参数值列表
                 raw_config_value.append(2)
-                for num in range(2,9):
-                    raw_config_value.append(proxies_list[index][raw_config_str[num - 1]])
+                for num in range(2,8):
+                    raw_config_value.append(proxy_config[raw_config_str[num - 1]])
                 raw_config_value.append('')
-                for num in range(10,12):
-                    raw_config_value.append(proxies_list[index][raw_config_str[num - 1]])
                 raw_config_value.append('')
+                raw_config_value.append(proxy_config['ws-headers']['Host'])
+                raw_config_value.append(proxy_config['ws-path'])
+                raw_config_value.append(proxy_config['tls'])
                 raw_config_value.append(None)
                 
                 config_str = ['v', 'ps', 'add', 'port', 'id', 'aid', 'scy', 'net', 'type', 'host', 'path', 'tls', 'sni']
-                config_value_dic = {}
-                for num in range(1, len(config_str) + 1):
-                    config_value_dic.setdefault(config_str[num - 1],raw_config_value[num - 1])
+                for num in range(1, 13):
+                    config_value_dic.setdefault(config_str[num - 1], raw_config_value[num - 1])
+
                 vmess_raw_proxy = json.dumps(config_value_dic, sort_keys=False, indent=2, ensure_ascii=False)
                 vmess_proxy = str('vmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
                 protocol_list.append(vmess_proxy)
 
-            if proxy['type'] == 'ss' or proxy['type'] == 'ssr': # SS 节点提取 ， 由 ss_base64_decoded 部分(参数：'cipher', 'password', 'server', 'port') Base64 编码后 加 # 加注释(URL_encode) 
+            elif proxy['type'] == 'ss': # SS 节点提取 ， 由 ss_base64_decoded 部分(参数：'cipher', 'password', 'server', 'port') Base64 编码后 加 # 加注释(URL_encode) 
                 ss_base64_decoded = str(proxy['cipher']) + ':' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port'])
                 ss_base64 = sub_convert.base64_encode(ss_base64_decoded)
                 ss_proxy = str('ss://' + ss_base64 + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                 protocol_list.append(ss_proxy)
 
-            if proxy['type'] == 'trojan': # Trojan 节点提取 ， 最简单 ， 由 trojan_proxy 中参数再加上 # 加注释(URL_encode)
+            elif proxy['type'] == 'trojan': # Trojan 节点提取 ， 最简单 ， 由 trojan_proxy 中参数再加上 # 加注释(URL_encode)
                 trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                 protocol_list.append(trojan_proxy)
+            
+            elif proxy['type'] == 'ssr':
+                ssr_base64_decoded = str(proxy['server']) + ':' + str(proxy['port']) + ':' + str(proxy['protocol']) 
+                ssr_base64_decoded = ssr_base64_decoded + ':' + str(proxy['cipher']) + ':' + str(proxy['obfs']) + ':' + str(sub_convert.base64_encode(proxy['password'])) + '/?'
+
+                
 
         yaml_content = ''.join(protocol_list)
         yaml_content = yaml_content.replace('\question', '?')
@@ -158,41 +174,37 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         lines = content.split('\n')
         for line in lines:
             if 'vmess://' in line:
-                vmess_raw_config_str = sub_convert.base64_decode(line.replace('vmess://', ''))
-                vmess_raw_config = json.loads(vmess_raw_config_str)
-                vmess_raw_config.setdefault('host','')
+                print(line)
+                vmess_json_config = json.loads(sub_convert.base64_decode(line.replace('vmess://', '')))
+                vmess_default_config = {
+                    'v': 2, 'ps': 'Vmess Node', 'add': '0.0.0.0', 'port': 0, 'id': '',
+                    'aid': 0,'scy': 'auto', 'net': '', 'type': '', 'host': vmess_json_config['add'], 'path': '/', 'tls': ''
+                }
+                vmess_default_config.update(vmess_json_config)
+                vmess_config = vmess_default_config
 
                 yaml_url = {}
                 #yaml_config_str = ['name', 'server', 'port', 'type', 'uuid', 'alterId', 'cipher', 'tls', 'skip-cert-verify', 'network', 'ws-path', 'ws-headers']
                 #vmess_config_str = ['ps', 'add', 'port', 'id', 'aid', 'scy', 'tls', 'net', 'host', 'path']
                 # 生成 yaml 节点字典
-                try:
-                    yaml_url.setdefault('name', urllib.parse.unquote(vmess_raw_config['ps']))
-                except Exception:
-                    yaml_url.setdefault('name', 'vmess node')
-                yaml_url.setdefault('server', vmess_raw_config['add'])
-                yaml_url.setdefault('port', int(vmess_raw_config['port']))
+                yaml_url.setdefault('name', urllib.parse.unquote(vmess_config['ps']))
+                yaml_url.setdefault('server', vmess_config['add'])
+                yaml_url.setdefault('port', int(vmess_config['port']))
                 yaml_url.setdefault('type', 'vmess')
-                yaml_url.setdefault('uuid', vmess_raw_config['id'])
-                yaml_url.setdefault('alterId', int(vmess_raw_config['aid']))
-                try :
-                    yaml_url.setdefault('cipher', vmess_raw_config['scy'])
-                except Exception:
-                    yaml_url.setdefault('cipher', 'auto')
-                if vmess_raw_config['tls'] == '':
+                yaml_url.setdefault('uuid', vmess_config['id'])
+                yaml_url.setdefault('alterId', int(vmess_config['aid']))
+                yaml_url.setdefault('cipher', vmess_config['scy'])
+                if vmess_config['tls'] == '':
                     yaml_url.setdefault('tls', False)
                 else:
                     yaml_url.setdefault('tls', True)
                 yaml_url.setdefault('skip-cert-vertify', False)
-                yaml_url.setdefault('network', vmess_raw_config['net'])
-                try:
-                    yaml_url.setdefault('ws-path', vmess_raw_config['path'])
-                except Exception:
-                    yaml_url.setdefault('ws-path', '/')
-                if vmess_raw_config['host'] == '':
-                    yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['add']})
+                yaml_url.setdefault('network', vmess_config['net'])
+                yaml_url.setdefault('ws-path', vmess_config['path'])
+                if vmess_config['host'] == '':
+                    yaml_url.setdefault('ws-headers', {'Host': vmess_config['add']})
                 else:
-                    yaml_url.setdefault('ws-headers', {'Host': vmess_raw_config['host']})
+                    yaml_url.setdefault('ws-headers', {'Host': vmess_config['host']})
 
                 if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
                     yaml_url['name'] = '"' + yaml_url['name'] + '"'
@@ -258,7 +270,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 server_part_list = re.split(':', part_list[0])
                 yaml_url.setdefault('server', server_part_list[0])
                 yaml_url.setdefault('port', server_part_list[1])
-                yaml_url.setdefault('type', 'ss')
+                yaml_url.setdefault('type', 'ssr')
                 yaml_url.setdefault('cipher', server_part_list[3])
                 yaml_url.setdefault('password', server_part_list[5])
 
@@ -390,12 +402,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         yaml_content = yaml_content.replace('\question', '?')
         return yaml_content
 
-
-#Debug
-
-""" with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f: # 将 sub_list.json Url 内容读取为列表
-    content = f.read()
-a = sub_convert.convert(content, 'content', 'YAML')
-file = open('out.yml', 'w', encoding = 'utf-8')
-file.write(a)
-file.close() """
+"""     def url_split(url_content):
+        sub_content = url_content.replace('\r', '').replace('\n','')
+        ss_pattern = re.compile(r'^ss://*.(?=://)')
+        sentence =  """

@@ -98,7 +98,6 @@ def eternity_convert():
     eternity_yml.close()
 
 
-input_list = read_list()
 update = update_url.update([0,])
-merge = sub_merge(input_list).merge()
+merge = sub_merge(read_list()).merge()
 convert = eternity_convert()
