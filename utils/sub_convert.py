@@ -300,7 +300,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         base64_content = base64.b64encode(content.encode('utf-8')).decode('ascii')
         return base64_content
 
-    def proxies_filter(urls): # 对节点进行区域的筛选和重命名，区域判断(Clash YAML)：https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
+    def proxies_filter(urls, dup_rm_enabled=True, format_name_enabled=True): # 对节点进行区域的筛选和重命名，区域判断(Clash YAML)：https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
         if 'proxies:' in urls:
             yaml_content = urls
         else:
@@ -314,56 +314,57 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         proxies_list = raw_yaml_content['proxies']
 
         # 去重
-        begin = 0
-        length = len(proxies_list)
-        while begin < length:
-            print(f'当前基准{begin + 1}')
-            print(f'当前数量{length}')
-            proxy_compared = proxies_list[begin]
-            begin += 1
+        if dup_rm_enabled == True:
+            begin = 0
+            length = len(proxies_list)
+            while begin < length:
+                print(f'当前基准{begin + 1}-----当前数量{length}')
+                proxy_compared = proxies_list[begin]
+                begin += 1
 
-            begin_2 = begin
-            while begin_2 <= (length - 1):
+                begin_2 = begin
+                while begin_2 <= (length - 1):
 
-                if proxy_compared['server'] == proxies_list[begin_2]['server'] and proxy_compared['port'] == proxies_list[begin_2]['port']:
-                    proxies_list.pop(begin_2)
-                    length -= 1
-                begin_2 += 1
+                    if proxy_compared['server'] == proxies_list[begin_2]['server'] and proxy_compared['port'] == proxies_list[begin_2]['port']:
+                        proxies_list.pop(begin_2)
+                        length -= 1
+                    begin_2 += 1
 
         # 改名
-        for proxy in proxies_list:
-            server = proxy['server']
-            query_add = 'https://ip.taobao.com/outGetIpInfo?ip='+server+'&accessKey=alibaba-inc' # 请求地址 ip sever from http://ip-api.com/ https://www.shuzhiduo.com/A/MyJxgqwAzn/
-            #try:
-                #发送get请求
-            query_data = requests.get(query_add)
-            query_json_raw = json.dumps(query_data.text) # https://blog.csdn.net/zengNLP/article/details/105446885
-            query_json = json.loads(json.loads(query_json_raw)) # 解决 json.loads 返回 str https://blog.csdn.net/qq_38604355/article/details/97239369
-            #except Exception as err:
-            #    print(f'{err} when get from {query_add}')
+        if format_name_enabled == True:
+            for proxy in proxies_list:
+                server = proxy['server']
+                query_add = 'https://ip.taobao.com/outGetIpInfo?ip='+server+'&accessKey=alibaba-inc' # 请求地址 ip sever from http://ip-api.com/ https://www.shuzhiduo.com/A/MyJxgqwAzn/
+                #try:
+                    #发送get请求
+                query_data = requests.get(query_add)
+                query_json_raw = json.dumps(query_data.text) # https://blog.csdn.net/zengNLP/article/details/105446885
+                query_json = json.loads(json.loads(query_json_raw)) # 解决 json.loads 返回 str https://blog.csdn.net/qq_38604355/article/details/97239369
+                #except Exception as err:
+                #    print(f'{err} when get from {query_add}')
 
-            query_status = query_json['msg']
-            if query_status == 'query success':
-                query_countryCode = query_json['data']['country_id']
-                query_city = query_json['data']['city']
-                if query_countryCode in emoji:
-                    country_emoji = emoji[query_countryCode]
-                else:
-                    country_emoji = emoji['earth']
+                query_status = query_json['msg']
+                if query_status == 'query success':
+                    query_countryCode = query_json['data']['country_id']
+                    query_city = query_json['data']['city']
+                    if query_countryCode in emoji:
+                        country_emoji = emoji[query_countryCode]
+                    else:
+                        country_emoji = emoji['earth']
+                    
+                    if query_city != 'XX':
+                        proxy['name'] = f'{country_emoji}-{query_city}-{server}'
+                    elif query_city == 'XX':
+                        proxy['name'] = f'{country_emoji}-{server}'
+                elif query_status != 'query success':
+                    print('Ip Invalid')
+
+
+                if '|' in proxy['name'] or '[' in proxy['name'] or '[' in proxy['name']:
+                    proxy['name'] = '"' + proxy['name'] + '"'
                 
-                if query_city != 'XX':
-                    proxy['name'] = f'{country_emoji}-{query_city}-{server}'
-                elif query_city == 'XX':
-                    proxy['name'] = f'{country_emoji}-{server}'
-            elif query_status != 'query success':
-                print('Ip Invalid')
-
-
-            if '|' in proxy['name'] or '[' in proxy['name'] or '[' in proxy['name']:
-                proxy['name'] = '"' + proxy['name'] + '"'
-            
-            proxy_str = str(proxy)
-            url_list.append(proxy_str)
+                proxy_str = str(proxy)
+                url_list.append(proxy_str)
 
         yaml_content_dic = {'proxies': url_list}
         yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
@@ -372,7 +373,9 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         yaml_content = yaml_content.replace('\question', '?')
         return yaml_content
 
+
 #Debug
+
 """ with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f: # 将 sub_list.json Url 内容读取为列表
     content = f.read()
 a = sub_convert.convert(content, 'content', 'YAML')
