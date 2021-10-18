@@ -86,7 +86,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         """yaml_tmp = TemporaryFile('w+t', encoding='utf-8', errors='ignore') # 生成临时文件 https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p19_make_temporary_files_and_directories.html
         yaml_tmp.write(url_content)
         yaml_data = yaml_tmp.read() """
-        raw_yaml_content = yaml.safe_load(url_content) # 将 YAML 内容生成 Python 字典
+        raw_yaml_content = yaml.safe_load(url_content.replace('?', '\question')) # 将 YAML 内容生成 Python 字典
         proxies_list = raw_yaml_content['proxies'] # YAML 节点列表
 
         protocol_list = []
@@ -128,6 +128,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 protocol_list.append(trojan_proxy)
 
         yaml_content = ''.join(protocol_list)
+        yaml_content = yaml_content.replace('\question', '?')
         return yaml_content
     def base64_decode(url_content): # Base64 转换为 Url 链接内容
         if '-' in url_content:
@@ -306,9 +307,6 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         else:
             yaml_content = sub_convert.convert(urls, 'content', 'YAML')
 
-
-        emoji = {'US': '🇺🇸','HK': '🇭🇰', 'SG': '🇸🇬', 'JP': '🇯🇵', 'TW': '🇹🇼', 'CA': '🇨🇦', 'earth': '🇦🇶'}
-
         raw_yaml_content = yaml.safe_load(yaml_content.replace('?', '\question')) # 将 YAML 内容生成 Python 字典, 除去 YAML 中 ？ 的错误
         url_list = []
         proxies_list = raw_yaml_content['proxies']
@@ -316,23 +314,38 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         # 去重
         if dup_rm_enabled == True:
             begin = 0
+            raw_length = len(proxies_list)
             length = len(proxies_list)
             while begin < length:
-                print(f'当前基准{begin + 1}-----当前数量{length}')
+                if (begin + 1) == 1:
+                    print(f'起始数量{length}')
+                elif (begin + 1) % 50 == 0:
+                    print(f'当前基准{begin + 1}-----当前数量{length}')
+                elif (begin + 1) == length and (begin + 1) % 50 != 0:
+                    repetition = raw_length - length
+                    print(f'当前基准{begin + 1}-----当前数量{length}\n重复数量{repetition}')
                 proxy_compared = proxies_list[begin]
-                begin += 1
 
-                begin_2 = begin
+                begin_2 = begin + 1
                 while begin_2 <= (length - 1):
 
                     if proxy_compared['server'] == proxies_list[begin_2]['server'] and proxy_compared['port'] == proxies_list[begin_2]['port']:
                         proxies_list.pop(begin_2)
                         length -= 1
                     begin_2 += 1
+                begin += 1
 
         # 改名
-        if format_name_enabled == True:
-            for proxy in proxies_list:
+        for proxy in proxies_list:
+
+            if format_name_enabled == True:
+
+                emoji = {
+                    'US': '🇺🇸','HK': '🇭🇰', 'SG': '🇸🇬',
+                    'JP': '🇯🇵', 'TW': '🇹🇼', 'CA': '🇨🇦',
+                    'nowhere_land': '🇦🇶'
+                }
+
                 server = proxy['server']
                 query_add = 'https://ip.taobao.com/outGetIpInfo?ip='+server+'&accessKey=alibaba-inc' # 请求地址 ip sever from http://ip-api.com/ https://www.shuzhiduo.com/A/MyJxgqwAzn/
                 #try:
@@ -350,7 +363,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     if query_countryCode in emoji:
                         country_emoji = emoji[query_countryCode]
                     else:
-                        country_emoji = emoji['earth']
+                        country_emoji = emoji['nowhere_land']
                     
                     if query_city != 'XX':
                         proxy['name'] = f'{country_emoji}-{query_city}-{server}'
@@ -358,13 +371,17 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                         proxy['name'] = f'{country_emoji}-{server}'
                 elif query_status != 'query success':
                     print('Ip Invalid')
+            
+            try:
+                if proxy['name'] != None: # NoneType 判定方法 https://blog.csdn.net/fu6543210/article/details/89462036
+                    if '|' in proxy['name'] or '[' in proxy['name'] or '[' in proxy['name']:
+                        proxy['name'] = '"' + proxy['name'] + '"'
+            except Exception as err:
+                print(err)
+                pass
 
-
-                if '|' in proxy['name'] or '[' in proxy['name'] or '[' in proxy['name']:
-                    proxy['name'] = '"' + proxy['name'] + '"'
-                
-                proxy_str = str(proxy)
-                url_list.append(proxy_str)
+            proxy_str = str(proxy)
+            url_list.append(proxy_str)
 
         yaml_content_dic = {'proxies': url_list}
         yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
