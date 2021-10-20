@@ -82,7 +82,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         """yaml_tmp = TemporaryFile('w+t', encoding='utf-8', errors='ignore') # 生成临时文件 https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p19_make_temporary_files_and_directories.html
         yaml_tmp.write(url_content)
         yaml_data = yaml_tmp.read() """
-        raw_yaml_content = yaml.safe_load(url_content.replace('?', '\question')) # 将 YAML 内容生成 Python 字典
+        raw_yaml_content = sub_convert.url_format(url_content)
         proxies_list = raw_yaml_content['proxies'] # YAML 节点列表
 
         protocol_url = []
@@ -142,8 +142,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 #ssr_base64_decoded = ssr_base64_decoded + ':' + str(proxy['cipher']) + ':' + str(proxy['obfs']) + ':' + str(sub_convert.base64_encode(proxy['password'])) + '/?'
                 #protocol_url.append(vmessr_proxy) 
 
-        yaml_content = ''.join(protocol_url)
-        yaml_content = yaml_content.replace('\question', '?')
+        yaml_content = ''.join(protocol_url).replace('/wenhao', '?')
         return yaml_content
     def base64_decode(url_content): # Base64 转换为 Url 链接内容
         if '-' in url_content:
@@ -162,9 +161,11 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         #print(len(url_content))
         try:
             base64_content = base64.b64decode(url_content.encode('utf-8')).decode('utf-8','ignore') # https://www.codenong.com/42339876/
-            return base64_content
+            base64_content_format = sub_convert.url_format(base64_content)
+            return base64_content_format
         except UnicodeDecodeError:
             base64_content = base64.b64decode(url_content)
+            base64_content_format = sub_convert.url_format(base64_content)
             return base64_content
 
     def yaml_encode(content): # 将 Url 内容转换为 YAML URLencode&decode https://blog.csdn.net/wf592523813/article/details/79141463
@@ -172,7 +173,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         
         url_list = []
         
-        lines = url_content.split('\n')
+        lines = url_content.splitlines()
         for line in lines:
             if 'vmess://' in line:
                 try:
@@ -207,8 +208,9 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     else:
                         yaml_url.setdefault('ws-headers', {'Host': vmess_config['host']})
 
-                    if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
-                        yaml_url['name'] = '"' + yaml_url['name'] + '"'
+                    if type(yaml_url['name']) == str:
+                        if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
+                            yaml_url['name'] = '"' + yaml_url['name'] + '"'
                     yaml_url_str = str(yaml_url)
 
                     url_list.append(yaml_url_str)
@@ -238,8 +240,9 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     yaml_url.setdefault('cipher', server_part_list[0])
                     yaml_url.setdefault('password', server_part_list[1])
 
-                    if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
-                        yaml_url['name'] = '"' + yaml_url['name'] + '"'
+                    if type(yaml_url['name']) == str:
+                        if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
+                            yaml_url['name'] = '"' + yaml_url['name'] + '"'
                     yaml_url_str = str(yaml_url)
 
                     url_list.append(yaml_url_str)
@@ -279,8 +282,9 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     yaml_url.setdefault('cipher', server_part_list[3])
                     yaml_url.setdefault('password', server_part_list[5])
 
-                    if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
-                        yaml_url['name'] = '"' + yaml_url['name'] + '"'
+                    if type(yaml_url['name']) == str:
+                        if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
+                            yaml_url['name'] = '"' + yaml_url['name'] + '"'
                     yaml_url_str = str(yaml_url)
 
                     url_list.append(yaml_url_str)
@@ -306,8 +310,9 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                         yaml_url.setdefault('sni', server_part_list[3])
                     yaml_url.setdefault('skip-cert-verify', 'false')
 
-                    if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
-                        yaml_url['name'] = '"' + yaml_url['name'] + '"'
+                    if type(yaml_url['name']) == str:
+                        if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
+                            yaml_url['name'] = '"' + yaml_url['name'] + '"'
                     yaml_url_str = str(yaml_url)
 
                     url_list.append(yaml_url_str)
@@ -322,7 +327,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         # yaml.dump 返回格式不理想，正在参考 https://mrchi.cc/posts/444aa/ 改善。
         return yaml_content
     def base64_encode(content): # 将 Url 内容转换为 Base64
-        base64_content = base64.b64encode(sub_convert.url_format(content).encode('utf-8')).decode('ascii')
+        base64_content = base64.b64encode(content.encode('utf-8')).decode('ascii')
         return base64_content
 
     def proxies_filter(urls, dup_rm_enabled=True, format_name_enabled=True): # 对节点进行区域的筛选和重命名，区域判断(Clash YAML)：https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
@@ -331,7 +336,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         else:
             yaml_content = sub_convert.convert(urls, 'content', 'YAML')
 
-        raw_yaml_content = yaml.safe_load(yaml_content.replace('?', '\question')) # 将 YAML 内容生成 Python 字典, 除去 YAML 中 ？ 的错误
+        raw_yaml_content = sub_convert.url_format(yaml_content) # 将 YAML 内容生成 Python 字典, 除去 YAML 中 ？ 的错误
         url_list = []
         proxies_list = raw_yaml_content['proxies']
 
@@ -342,12 +347,12 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             length = len(proxies_list)
             while begin < length:
                 if (begin + 1) == 1:
-                    print(f'起始数量{length}')
-                elif (begin + 1) % 50 == 0:
+                    print(f'\n-----去重开始-----\n起始数量{length}')
+                elif (begin + 1) % 100 == 0:
                     print(f'当前基准{begin + 1}-----当前数量{length}')
-                elif (begin + 1) == length and (begin + 1) % 50 != 0:
+                elif (begin + 1) == length and (begin + 1) % 100 != 0:
                     repetition = raw_length - length
-                    print(f'当前基准{begin + 1}-----当前数量{length}\n重复数量{repetition}')
+                    print(f'当前基准{begin + 1}-----当前数量{length}\n重复数量{repetition}\n-----去重完成-----\n')
                 proxy_compared = proxies_list[begin]
 
                 begin_2 = begin + 1
@@ -397,7 +402,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     print('Ip Invalid')
             
             try:
-                if proxy['name'] != None: # NoneType 判定方法 https://blog.csdn.net/fu6543210/article/details/89462036
+                if type(proxy['name']) == str and proxy['name'] != None: # NoneType 判定方法 https://blog.csdn.net/fu6543210/article/details/89462036
                     if '|' in proxy['name'] or '[' in proxy['name'] or '[' in proxy['name']:
                         proxy['name'] = '"' + proxy['name'] + '"'
             except Exception as err:
@@ -409,13 +414,13 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
 
         yaml_content_dic = {'proxies': url_list}
         yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
-        yaml_content = yaml_content_raw.replace('\'', '')
-        yaml_content = yaml_content.replace('False', 'false')
-        yaml_content = yaml_content.replace('\question', '?')
+        yaml_content = yaml_content_raw.replace('\'', '').replace('False', 'false')
+        
         return yaml_content
 
     def url_format(sub_content): # 对节点 Url 进行格式化处理
 
+        """     
         ss_pattern = re.compile(r'(?<!vme)ss://.*?(?=ss://|ssr://|vmess://|trojan://)')
         ss_urls = re.findall(ss_pattern, sub_content)
 
@@ -429,32 +434,37 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         trojan_urls = re.findall(trojan_pattern, sub_content)
 
         urls = ss_urls + ssr_urls + vmess_urls + trojan_urls
-        url_content = '\r'.join(urls)
-        return sub_content
+        """
+        print('格式化节点Url...')
+        if 'proxies' not in sub_content:
+            url_list = []
+            raw_url_list = sub_content.splitlines()
 
-#Debug
+            for url in raw_url_list:
+                while len(re.split('ss://|ssr://|vmess://|trojan://', url)) > 2:
+                    url_to_split = url[8:]
+                    if 'ss://' in url_to_split and 'vmess://' not in url_to_split:
+                        url_splited = url_to_split.replace('ss://', '\nss://', 1) # https://www.runoob.com/python/att-string-replace.html
+                    elif 'ssr://' in url_to_split:
+                        url_splited = url_to_split.replace('ssr://', '\nssr://', 1)
+                    elif 'vmess://' in url_to_split:
+                        url_splited = url_to_split.replace('vmess://', '\nvmess://', 1)
+                    elif 'trojan://' in url_to_split:
+                        url_splited = url_to_split.replace('trojan://', '\ntrojan://', 1)
+                    url_split = url_splited.split('\n')
 
-""" sub_list_json = './sub/sub_list.json'
+                    front_url = url[:8] + url_split[0]
+                    url_list.append(front_url)
+                    url = url_split[1]
 
-def read_list():
-    with open(sub_list_json, 'r', encoding='utf-8') as f: # 将 sub_list.json Url 内容读取为列表
-        raw_list = json.load(f)
-    input_list = []
-    for index in range(len(raw_list)):
-        if raw_list[index]['enabled']:
-            urls = re.split('\|',raw_list[index]['url'])
-            if len(urls) > 1:
-                for url in urls:
-                    single_raw_list = raw_list[index]
-                    single_raw_list['url'] = url
-                    input_list.append(single_raw_list)
-            input_list.append(raw_list[index])
-    return input_list
+                url_list.append(url)
 
-input_list = read_list()
-for index in range(len(input_list)):
-    a = sub_convert.convert(input_list[index]['url'], 'url', 'YAML')
-    b = sub_convert.proxies_filter(a, False, False)
-    file = open('out.yml', 'w', encoding = 'utf-8')
-    file.write(b)
-    file.close() """
+            url_content = '\r'.join(url_list)
+            return url_content
+
+        else:
+            if '?' in sub_content:
+                sub_content = sub_content.replace('?', '\wenhao')
+                
+            yaml_content = yaml.safe_load(sub_content)
+            return yaml_content
