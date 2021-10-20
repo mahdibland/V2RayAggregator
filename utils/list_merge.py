@@ -96,6 +96,21 @@ def eternity_convert():
     eternity_yml = open('Eternity.yml', 'w', encoding= 'utf-8')
     eternity_yml.write(eternity_convert)
     eternity_yml.close()
+    
+    providers_files = {
+        'all': './update/provider/eternity-all.yml',
+        'others': './update/provider/eternity-others.yml',
+        'us': './update/provider/eternity-us.yml',
+        'hk': './update/provider/eternity-hk.yml',
+        'sg': './update/provider/eternity-sg.yml'
+    }
+
+    
+    provider_all = open(providers_files['all'], 'w', encoding= 'utf-8')
+    provider_all.write(eternity_convert)
+    provider_all.close()
+
+
 
 
 update = update_url.update([0,])
