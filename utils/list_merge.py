@@ -60,7 +60,7 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
         content_yaml_raw = sub_convert.convert(content_raw,'content','YAML')
         content_yaml = sub_convert.proxies_filter(content_yaml_raw, True, False)
         content_base64 = sub_convert.convert(content_yaml,'content','Base64')
-        content = sub_convert.convert(content_yaml,'content','Base64')
+        content = sub_convert.convert(content_yaml,'content','url')
 
         def content_write(file, output_type):
             file = open(file, 'w', encoding = 'utf-8')
@@ -109,8 +109,6 @@ def eternity_convert():
     provider_all = open(providers_files['all'], 'w', encoding= 'utf-8')
     provider_all.write(eternity_convert)
     provider_all.close()
-
-
 
 
 update = update_url.update([0,])

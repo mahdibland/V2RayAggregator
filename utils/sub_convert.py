@@ -435,7 +435,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
 
         urls = ss_urls + ssr_urls + vmess_urls + trojan_urls
         """
-        print('格式化节点Url...')
+        
         if 'proxies' not in sub_content:
             url_list = []
             raw_url_list = sub_content.splitlines()
