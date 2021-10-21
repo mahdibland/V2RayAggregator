@@ -168,23 +168,10 @@ proxy-groups:
       - 负载均衡
       - 失败切换
       - DIRECT
-  - name: 自动选择
-    type: url-test
-    use:
-      - all
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
   - name: 手动选择
     type: select
     use:
       - all
-  - name: 国家选择
-    type: select
-    proxies:
-      - 美国节点
-      - 狮城节点
-      - 香港节点
-      - 其他国家
   - name: 漏网之鱼
     type: select
     proxies:
@@ -239,18 +226,13 @@ proxy-groups:
       - 香港节点
       - 狮城节点
       - DIRECT
-  - name: 负载均衡
-    type: load-balance
-    use:
-      - all
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-  - name: 失败切换
-    type: fallback
-    use:
-      - all
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
+  - name: 国家选择
+    type: select
+    proxies:
+      - 美国节点
+      - 狮城节点
+      - 香港节点
+      - 其他国家
   - name: 美国节点
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
@@ -275,6 +257,18 @@ proxy-groups:
     interval: 300
     use:
       - others
+  - name: 负载均衡
+    type: load-balance
+    use:
+      - all
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+  - name: 失败切换
+    type: fallback
+    use:
+      - all
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
 
 proxy-providers: # 加速服务来自 FastGit
   us:
