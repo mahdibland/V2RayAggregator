@@ -168,6 +168,12 @@ proxy-groups:
       - 负载均衡
       - 失败切换
       - DIRECT
+  - name: 自动选择
+    type: url-test
+    use:
+      - all
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
   - name: 手动选择
     type: select
     use:
