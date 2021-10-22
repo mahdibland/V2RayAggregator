@@ -57,8 +57,7 @@ class sub_merge(): # 将转换后的所有 Url 链接内容合并转换 YAML or 
 
         print('Merging nodes...\n')
         content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
-        content_yaml_raw = sub_convert.convert(content_raw,'content','YAML')
-        content_yaml = sub_convert.proxies_filter(content_yaml_raw, True, False)
+        content_yaml = sub_convert.convert(content_raw,'content','YAML', True)
         content_base64 = sub_convert.convert(content_yaml,'content','Base64')
         content = sub_convert.convert(content_yaml,'content','url')
 
@@ -90,7 +89,7 @@ def read_list():
 def eternity_convert():
     file_eternity = open(Eterniy, 'r', encoding='utf-8')
     sub_content = file_eternity.read()
-    eternity_convert = sub_convert.convert(sub_content,'content','YAML')
+    eternity_convert = sub_convert.convert(sub_content,'content','YAML', True)
     file_eternity.close()
 
     eternity_yml = open('Eternity.yml', 'w', encoding= 'utf-8')
