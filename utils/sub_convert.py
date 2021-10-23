@@ -419,6 +419,16 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         elif 'proxies:' in sub_content:
             url_list = []
 
+            pattern = re.compile(r'(?<=: ).{0,10}?\?{1}.*?(?=,)|(?<=: ).{0,10}?\[{1}.*?(?=,)|(?<=: ).{0,10}?\]{1}.*?(?=,)|(?<=: ).{0,10}?\{{1}.*?(?=,)|(?<=: ).{0,10}?\}{1}.*?(?=,)')
+            match_list = re.findall(pattern, sub_content)
+
+            for item in match_list:
+                match = item[1:]
+                changed_match = '"' + match + '"'
+                sub_content.replace(match, changed_match)
+
+            content_yaml = yaml.safe_load(sub_content)
+
             for item in content_yaml['proxies']:
                 # 对转换过程中出现的不标准配置格式转换
                 try:
