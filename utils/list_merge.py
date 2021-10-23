@@ -89,7 +89,7 @@ def read_list():
 def eternity_convert():
     file_eternity = open(Eterniy, 'r', encoding='utf-8')
     sub_content = file_eternity.read()
-    eternity_convert = sub_convert.convert(sub_content,'content','YAML', True)
+    eternity_convert = sub_convert.convert(sub_content,'content','YAML', False)
     file_eternity.close()
 
     eternity_yml = open('Eternity.yml', 'w', encoding= 'utf-8')

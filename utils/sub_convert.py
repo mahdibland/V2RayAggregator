@@ -28,10 +28,10 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
 
         elif input_type == 'content':
             sub_content = content
-        
+
         if '</b>' not in sub_content:
             if 'proxies:' in sub_content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
-                url_content = sub_content
+                url_content = sub_convert.url_format(sub_content)
                 #return self.url_content.replace('\r','') # 去除‘回车\r符’ https://blog.csdn.net/jerrygaoling/article/details/81051447
             elif '://'  in sub_content: # 同上，是，判断为 Url 链接内容。
                 url_content = sub_convert.yaml_encode(sub_convert.url_format(sub_content))
@@ -67,7 +67,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         """yaml_tmp = TemporaryFile('w+t', encoding='utf-8', errors='ignore') # 生成临时文件 https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p19_make_temporary_files_and_directories.html
         yaml_tmp.write(url_content)
         yaml_data = yaml_tmp.read() """
-        raw_yaml_content = sub_convert.url_format(url_content)
+        raw_yaml_content = url_content
         yaml_content = yaml.safe_load(raw_yaml_content)
         proxies_list = yaml_content['proxies'] # YAML 节点列表
 
@@ -86,10 +86,6 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 config_value_dic = {}
                 yaml_default_config.update(proxy)
                 proxy_config = yaml_default_config
-
-                # 转换过程中出现的不标准配置格式转换
-                if 'HOST' in proxy_config['ws-headers'].keys():
-                    proxy_config['ws-headers']['Host'] = proxy_config['ws-headers'].pop("HOST")
 
                 raw_config_value = []
                 raw_config_str = ['v~', 'name', 'server', 'port', 'uuid', 'alterId', 'cipher', 'network', 'type~', 'ws-headers', 'ws-path', 'tls', 'sni~']
@@ -127,7 +123,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 #ssr_base64_decoded = ssr_base64_decoded + ':' + str(proxy['cipher']) + ':' + str(proxy['obfs']) + ':' + str(sub_convert.base64_encode(proxy['password'])) + '/?'
                 #protocol_url.append(vmessr_proxy) 
 
-        yaml_content = ''.join(protocol_url).replace('/wenhao', '?')
+        yaml_content = ''.join(protocol_url)
         return yaml_content
     def base64_decode(url_content): # Base64 转换为 Url 链接内容
         if '-' in url_content:
@@ -153,11 +149,9 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             base64_content_format = base64_content
             return base64_content
 
-    def yaml_encode(content): # 将 Url 内容转换为 YAML URLencode&decode https://blog.csdn.net/wf592523813/article/details/79141463
-        url_content = content
-        
+    def yaml_encode(url_content): # 将 Url 内容转换为 YAML URLencode&decode https://blog.csdn.net/wf592523813/article/details/79141463
         url_list = []
-        
+
         lines = url_content.splitlines()
         for line in lines:
             if 'vmess://' in line:
@@ -193,17 +187,12 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     else:
                         yaml_url.setdefault('ws-headers', {'Host': vmess_config['host']})
 
-                    if type(yaml_url['name']) == str:
-                        if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
-                            yaml_url['name'] = '"' + yaml_url['name'] + '"'
-                    yaml_url_str = str(yaml_url)
-
-                    url_list.append(yaml_url_str)
+                    url_list.append(str(yaml_url))
                 except Exception as err:
                     print(f'yaml_encode 解析 vmess 节点发生错误：{err}')
                     pass
 
-            if 'ss://' in line and '#' in line and 'trojan://' not in line:
+            if 'ss://' in line and '#' in line:
                 try:
                     yaml_url = {}
 
@@ -229,16 +218,11 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     yaml_url.setdefault('cipher', method_part)
                     yaml_url.setdefault('password', password_part)
 
-                    if type(yaml_url['name']) == str:
-                        if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
-                            yaml_url['name'] = '"' + yaml_url['name'] + '"'
-                    yaml_url_str = str(yaml_url)
-
-                    url_list.append(yaml_url_str)
+                    url_list.append(str(yaml_url))
                 except Exception as err:
                     print(f'yaml_encode 解析 ss 节点发生错误：{err}')
                     pass
-            
+
             if 'ssr://' in line:
                 try:
                     yaml_url = {}
@@ -271,12 +255,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     yaml_url.setdefault('cipher', server_part_list[3])
                     yaml_url.setdefault('password', server_part_list[5])
 
-                    if type(yaml_url['name']) == str:
-                        if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
-                            yaml_url['name'] = '"' + yaml_url['name'] + '"'
-                    yaml_url_str = str(yaml_url)
-
-                    url_list.append(yaml_url_str)
+                    url_list.append(str(yaml_url))
                 except Exception as err:
                     print(f'yaml_encode 解析 ssr 节点发生错误：{err}')
                     pass
@@ -299,12 +278,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                         yaml_url.setdefault('sni', server_part_list[3])
                     yaml_url.setdefault('skip-cert-verify', 'false')
 
-                    if type(yaml_url['name']) == str:
-                        if '|' in yaml_url['name'] or '[' in yaml_url['name'] or '[' in yaml_url['name']:
-                            yaml_url['name'] = '"' + yaml_url['name'] + '"'
-                    yaml_url_str = str(yaml_url)
-
-                    url_list.append(yaml_url_str)
+                    url_list.append(str(yaml_url))
                 except Exception as err:
                     print(f'yaml_encode 解析 trojan 节点发生错误：{err}')
                     pass
@@ -349,7 +323,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 begin_2 = begin + 1
                 while begin_2 <= (length - 1):
 
-                    if proxy_compared['server'] == proxies_list[begin_2]['server']:
+                    if proxy_compared['server'] == proxies_list[begin_2]['server'] and proxy_compared['port'] == proxies_list[begin_2]['port']:
                         proxies_list.pop(begin_2)
                         length -= 1
                     begin_2 += 1
@@ -411,17 +385,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         return yaml_content
 
     def url_format(sub_content): # 对节点 Url 进行格式化处理
-        """     
-        ss_pattern = re.compile(r'(?<!vme)ss://.*?(?=ss://|ssr://|vmess://|trojan://)')
-        ss_urls = re.findall(ss_pattern, sub_content)
-        ssr_pattern = re.compile(r'ssr://.*?(?=ss://|ssr://|vmess://|trojan://)')
-        ssr_urls = re.findall(ssr_pattern, sub_content)
-        vmess_pattern = re.compile(r'vmess://.*?(?=ss://|ssr://|vmess://|trojan://)')
-        vmess_urls = re.findall(vmess_pattern, sub_content)
-        trojan_pattern = re.compile(r'trojan://.*?(?=ss://|ssr://|vmess://|trojan://)')
-        trojan_urls = re.findall(trojan_pattern, sub_content)
-        urls = ss_urls + ssr_urls + vmess_urls + trojan_urls
-        """
+
         if 'proxies:' not in sub_content:
             url_list = []
             
@@ -453,8 +417,19 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             return url_content
 
         elif 'proxies:' in sub_content:
-            if '?' in sub_content:
-                url_content = sub_content.replace('?', '\wenhao')
-            else:
-                url_content = sub_content
+            url_list = []
+
+            for item in content_yaml['proxies']:
+                # 对转换过程中出现的不标准配置格式转换
+                try:
+                    if item['type'] == 'vmess' and 'HOST' in item['ws-headers'].keys():
+                        item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
+                except KeyError:
+                    pass
+                
+                url_list.append(str(item))
+
+            yaml_proxies_dict = {'proxies': url_list}
+            url_content = yaml.dump(yaml_proxies_dict, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2).replace('\'', '').replace('False', 'false')
+
             return url_content
