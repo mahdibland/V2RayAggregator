@@ -371,6 +371,12 @@ rule-providers: # rule-providers from Logyalsoldier/clash-rules and LM-Firefly/R
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
     path: ./TopFreeProxies/ruleset/private.yaml
     interval: 86400
+  LAN-CIDR:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./TopFreeProxies/ruleset/lancidr.yaml
+    interval: 86400
   Local-LAN:
     type: http
     behavior: classical
@@ -446,13 +452,16 @@ rules:
 
   - GEOIP,CN,DIRECT # GeoIP2 数据库 from Hackl0us/GeoIP2-CN
 
+  - IP-CIDR,10.240.0.0/24,DIRECT,no-resolve
+  - RULE-SET,LAN-CIDR,DIRECT,no-resolve
+  - RULE-SET,Reject,REJECT,no-resolve
+  - RULE-SET,Private,DIRECT,no-resolve
+  - RULE-SET,Local-LAN,DIRECT,no-resolve
+
   - DOMAIN-SUFFIX,emby.wtf,Emby视频,no-resolve
   - DOMAIN-SUFFIX,bitwarden.net,DIRECT,no-resolve
   - DOMAIN-SUFFIX,bitwarden.com,DIRECT,no-resolve
 
-  - RULE-SET,Reject,REJECT
-  - RULE-SET,Private,DIRECT
-  - RULE-SET,Local-LAN,DIRECT
   - RULE-SET,Apple,苹果服务
   - RULE-SET,iCloud,苹果服务
   - RULE-SET,Microsoft,微软服务
@@ -461,7 +470,5 @@ rules:
   - RULE-SET,Telegram,社交服务
   - RULE-SET,GlobalMedia,全球媒体
   - RULE-SET,Proxy,节点选择
-
-  - IP-CIDR,10.240.0.0/24,DIRECT,no-resolve
 
   - MATCH,漏网之鱼
