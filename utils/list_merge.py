@@ -3,9 +3,8 @@
 from sub_convert import sub_convert # Python 之间互相调用文件https://blog.csdn.net/winycg/article/details/78512300
 from list_update import update_url
 
-import json
-import os
-import re
+import json, re
+from urllib import request
 
 
 # 分析当前项目依赖 https://blog.csdn.net/lovedingd/article/details/102522094
@@ -98,13 +97,50 @@ def eternity_convert():
         'sg': './update/provider/eternity-sg.yml'
     }
 
-    
-    provider_all = open(providers_files['all'], 'w', encoding= 'utf-8')
-    provider_all.write(eternity_convert)
-    provider_all.close()
+    lines = re.split(r'\n+', eternity_convert)
+    us_proxy = []
+    hk_proxy = []
+    sg_proxy = []
+    others_proxy = []
+    for line in lines:
+        if 'US' in line or '美国' in line:
+            us_proxy.append(line)
+        elif 'HK' in line or '香港' in line:
+            hk_proxy.append(line)
+        elif 'SG' in line or '新加坡' in line:
+            sg_proxy.append(line)
+        else:
+            others_proxy.append(line)
+    us_proxy = 'proxies:\n' + '\n'.join(us_proxy)
+    hk_proxy = 'proxies:\n' + '\n'.join(hk_proxy)
+    sg_proxy = 'proxies:\n' + '\n'.join(sg_proxy)
+    others_proxy = 'proxies:\n' + '\n'.join(others_proxy)
+
+    eternity_providers = {
+        'all': eternity_convert,
+        'others': others_proxy,
+        'us': us_proxy,
+        'hk': hk_proxy,
+        'sg': sg_proxy
+    }
+    for key in providers_files.keys():
+        provider_all = open(providers_files[key], 'w', encoding= 'utf-8')
+        provider_all.write(eternity_providers[key])
+        provider_all.close()
+
+def geoip_update(url):
+    print('Downloading Country.mmdb...')
+    try:
+        request.urlretrieve(url, './utils/Country.mmdb')
+        print('Success!')
+    except Exception:
+        print('Failed!')
+        pass
 
 sub_list = read_list()
 
-update = update_url.update([0,])
+update_url.update([0,])
+geoip_update('https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb')
+
 merge = sub_merge(sub_list)
 convert = eternity_convert()

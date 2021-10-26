@@ -148,7 +148,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     vmess_json_config = json.loads(sub_convert.base64_decode(line.replace('vmess://', '')))
                     vmess_default_config = {
                         'v': 'Vmess Node', 'ps': 'Vmess Node', 'add': '0.0.0.0', 'port': 0, 'id': '',
-                        'aid': 0,'scy': 'auto', 'net': '', 'type': '', 'host': vmess_json_config['add'], 'path': '/', 'tls': ''
+                        'aid': 0, 'scy': 'auto', 'net': '', 'type': '', 'host': vmess_json_config['add'], 'path': '/', 'tls': ''
                     }
                     vmess_default_config.update(vmess_json_config)
                     vmess_config = vmess_default_config
@@ -351,7 +351,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     except Exception:
                         ip = '0.0.0.0'
                         country_code = 'NOWHERE_LAND'
-                    
+
                 if country_code == 'CLOUDFLARE':
                     country_code = 'DELAY'
                 elif country_code == 'PRIVATE':
@@ -361,8 +361,8 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     name_emoji = emoji[country_code]
                 else:
                     name_emoji = emoji['NOWHERE_LAND']
-                proxy['name'] = name_emoji + '-' + country_code + '-' + ip
 
+                proxy['name'] = name_emoji + '-' + country_code + '-' + ip
             proxy_str = str(proxy)
             url_list.append(proxy_str)
 
