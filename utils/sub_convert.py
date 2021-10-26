@@ -326,7 +326,13 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 emoji = {
                     'US': '🇺🇸','HK': '🇭🇰', 'SG': '🇸🇬',
                     'JP': '🇯🇵', 'TW': '🇹🇼', 'CA': '🇨🇦',
-                    'NOWHERE_LAND': '🇦🇶', 'DELAY': '🏁'
+                    'GB': '🇬🇧', 'CN': '🇨🇳', 'NL': '🇳🇱',
+                    'TH': '🇹🇭', 'BE': '🇧🇪', 'IN': '🇮🇳',
+                    'IT': '🇮🇹', 'PE': '🇵🇪', 'RO': '🇷🇴',
+                    'AU': '🇦🇺', 'DE': '🇩🇪', 'RU': '🇷🇺',
+                    'KR': '🇰🇷', 'DK': '🇩🇰', 'PT': '🇵🇹',
+                    'CY': '🇨🇾', 'ES': '🇪🇸', 'DELAY': '🏁',
+                    'NOWHERE_LAND': '🇦🇶',
                 }
 
                 server = proxy['server']
@@ -356,13 +362,6 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 else:
                     name_emoji = emoji['NOWHERE_LAND']
                 proxy['name'] = name_emoji + '-' + country_code + '-' + ip
-            try:
-                if type(proxy['name']) == str and proxy['name'] != None: # NoneType 判定方法 https://blog.csdn.net/fu6543210/article/details/89462036
-                    if '|' in proxy['name'] or '[' in proxy['name'] or '[' in proxy['name']:
-                        proxy['name'] = '"' + proxy['name'] + '"'
-            except Exception as err:
-                print(err)
-                pass
 
             proxy_str = str(proxy)
             url_list.append(proxy_str)
