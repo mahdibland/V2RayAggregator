@@ -25,7 +25,6 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             except Exception as err:
                 print(err)
                 return 'Url 解析错误'
-
         elif input_type == 'content':
             sub_content = content
 
@@ -53,9 +52,9 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             if output_type == 'YAML':
                 return url_content
             elif output_type == 'Base64':
-                return sub_convert.base64_encode(sub_convert.yaml_decode(url_content))
+                return sub_convert.base64_encode(sub_convert.yaml_decode(sub_convert.url_format(url_content)))
             elif output_type == 'url':
-                return sub_convert.yaml_decode(url_content)
+                return sub_convert.yaml_decode(sub_convert.url_format(url_content))
             else:
                 print('Please define right output type.')
                 return 'Url 订阅内容无法解析'
@@ -68,6 +67,11 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         yaml_tmp.write(url_content)
         yaml_data = yaml_tmp.read() """
         raw_yaml_content = url_content
+
+        test = open('test.txt', 'w',encoding='utf-8')
+        test.write(url_content)
+        test.close()
+
         yaml_content = yaml.safe_load(raw_yaml_content)
         proxies_list = yaml_content['proxies'] # YAML 节点列表
 
@@ -152,7 +156,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
     def yaml_encode(url_content): # 将 Url 内容转换为 YAML URLencode&decode https://blog.csdn.net/wf592523813/article/details/79141463
         url_list = []
 
-        lines = url_content.splitlines()
+        lines = re.split(r'\n+', url_content)
         for line in lines:
             if 'vmess://' in line:
                 try:
@@ -392,7 +396,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             if '://' not in sub_content:
                 sub_content = sub_convert.base64_encode(sub_content)
 
-            raw_url_list = sub_content.splitlines()
+            raw_url_list = re.split(r'\n+', sub_content)
 
             for url in raw_url_list:
                 while len(re.split('ss://|ssr://|vmess://|trojan://', url)) > 2:
@@ -417,29 +421,50 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             return url_content
 
         elif 'proxies:' in sub_content:
+            sub_content = sub_content.replace('\'', '').replace('"', '')
             url_list = []
 
-            pattern = re.compile(r'(?<=: ).{0,10}?\?{1}.*?(?=,)|(?<=: ).{0,10}?\[{1}.*?(?=,)|(?<=: ).{0,10}?\]{1}.*?(?=,)|(?<=: ).{0,10}?\{{1}.*?(?=,)|(?<=: ).{0,10}?\}{1}.*?(?=,)')
-            match_list = re.findall(pattern, sub_content)
-
-            for item in match_list:
-                match = item[1:]
-                changed_match = '"' + match + '"'
-                sub_content.replace(match, changed_match)
-
+            lines = re.split(r'\n+', sub_content)
+            line_fix_list = []
+            
+            for line in lines:
+                value_list = re.split(r': |, ', line)
+                if len(value_list) > 6:
+                    value_list_fix = []
+                    for value in value_list:
+                        if '|' in value or '?' in value or '[' in value or ']' in value:
+                            value = '"' + value + '"'
+                        value_list_fix.append(value)
+                    line_fix = line
+                    for index in range(len(value_list_fix)-2):
+                        line_fix = line_fix.replace(value_list[index+1], value_list_fix[index+1])
+                    line_fix_list.append(line_fix)
+                elif len(value_list) == 2:
+                    value_list_fix = []
+                    for value in value_list:
+                        if '|' in value or '?' in value or '[' in value or ']' in value:
+                            value = '"' + value + '"'
+                        value_list_fix.append(value)
+                    line_fix = line
+                    for index in range(len(value_list_fix)):
+                        line_fix = line_fix.replace(value_list[index], value_list_fix[index])
+                    line_fix_list.append(line_fix)
+                elif len(value_list) == 1:
+                    if ':' in line:
+                        line_fix_list.append(line)
+                else:
+                    line_fix_list.append(line)
+            
+            sub_content = '\n'.join(line_fix_list)
             content_yaml = yaml.safe_load(sub_content)
 
-            for item in content_yaml['proxies']:
-                # 对转换过程中出现的不标准配置格式转换
+            for item in content_yaml['proxies']:# 对转换过程中出现的不标准配置格式转换
                 try:
                     if item['type'] == 'vmess' and 'HOST' in item['ws-headers'].keys():
                         item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
                 except KeyError:
                     pass
                 
-                url_list.append(str(item))
-
-            yaml_proxies_dict = {'proxies': url_list}
-            url_content = yaml.dump(yaml_proxies_dict, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2).replace('\'', '').replace('False', 'false')
+            url_content = yaml.dump(content_yaml, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
 
             return url_content
