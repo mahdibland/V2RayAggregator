@@ -47,14 +47,14 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
 
         if url_content != 'Url 订阅内容无法解析':
             if proxies_filter:
-                url_content = sub_convert.proxies_filter(url_content, True, True)
+                url_content = sub_convert.proxies_filter(sub_convert.url_format(url_content), True, True)
 
             if output_type == 'YAML':
                 return url_content
             elif output_type == 'Base64':
-                return sub_convert.base64_encode(sub_convert.yaml_decode(sub_convert.url_format(url_content)))
+                return sub_convert.base64_encode(sub_convert.yaml_decode(url_content))
             elif output_type == 'url':
-                return sub_convert.yaml_decode(sub_convert.url_format(url_content))
+                return sub_convert.yaml_decode(url_content)
             else:
                 print('Please define right output type.')
                 return 'Url 订阅内容无法解析'
@@ -66,11 +66,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         """yaml_tmp = TemporaryFile('w+t', encoding='utf-8', errors='ignore') # 生成临时文件 https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p19_make_temporary_files_and_directories.html
         yaml_tmp.write(url_content)
         yaml_data = yaml_tmp.read() """
-        raw_yaml_content = url_content
-
-        test = open('test.txt', 'w',encoding='utf-8')
-        test.write(url_content)
-        test.close()
+        raw_yaml_content = sub_convert.url_format(url_content)
 
         yaml_content = yaml.safe_load(raw_yaml_content)
         proxies_list = yaml_content['proxies'] # YAML 节点列表
@@ -87,28 +83,17 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     'ws-path': '/', 'tls': ''
                 }
 
-                config_value_dic = {}
                 yaml_default_config.update(proxy)
                 proxy_config = yaml_default_config
 
-                raw_config_value = []
-                raw_config_str = ['v~', 'name', 'server', 'port', 'uuid', 'alterId', 'cipher', 'network', 'type~', 'ws-headers', 'ws-path', 'tls', 'sni~']
+                vmess_value = {
+                    'v': 2, 'ps': proxy_config['name'], 'add': proxy_config['server'],
+                    'port': proxy_config['port'], 'id': proxy_config['uuid'], 'aid': proxy_config['alterId'],
+                    'scy': proxy_config['cipher'], 'net': proxy_config['network'], 'type': None, 'host': proxy_config['ws-headers']['Host'],
+                    'path': proxy_config['ws-path'], 'tls': proxy_config['tls'], 'sni': ''
+                    }
 
-                # 生成 Vmess 参数值列表
-                raw_config_value.append(2)
-                for num in range(2,8):
-                    raw_config_value.append(proxy_config[raw_config_str[num - 1]])
-                raw_config_value.append('')
-                raw_config_value.append(proxy_config['ws-headers']['Host']) # 字典模糊搜索 https://www.coder.work/article/2428703
-                raw_config_value.append(proxy_config['ws-path'])
-                raw_config_value.append(proxy_config['tls'])
-                raw_config_value.append('')
-                
-                config_str = ['v', 'ps', 'add', 'port', 'id', 'aid', 'scy', 'net', 'type', 'host', 'path', 'tls', 'sni']
-                for num in range(1, 13):
-                    config_value_dic.setdefault(config_str[num - 1], raw_config_value[num - 1])
-
-                vmess_raw_proxy = json.dumps(config_value_dic, sort_keys=False, indent=2, ensure_ascii=False)
+                vmess_raw_proxy = json.dumps(vmess_value, sort_keys=False, indent=2, ensure_ascii=False)
                 vmess_proxy = str('vmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
                 protocol_url.append(vmess_proxy)
 
@@ -432,12 +417,23 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 if len(value_list) > 6:
                     value_list_fix = []
                     for value in value_list:
-                        if '|' in value or '?' in value or '[' in value or ']' in value:
+                        if ('|' in value or '?' in value or '[' in value or ']' in value) and ('{' not in value and '}' not in value):
                             value = '"' + value + '"'
-                        value_list_fix.append(value)
-                    line_fix = line
-                    for index in range(len(value_list_fix)-2):
-                        line_fix = line_fix.replace(value_list[index+1], value_list_fix[index+1])
+                            value_list_fix.append(value)
+                        elif ('|' in value or '?' in value or '[' in value or ']' in value) and '}' in value:
+                            if '}}' in value:
+                                host_part = value.replace('}}','')
+                                host_value = '"'+host_part+'"}}'
+                                value_list_fix.append(host_value)
+                            elif '}}' not in value:
+                                host_part = value.replace('}','')
+                                host_value = '"'+host_part+'"}'
+                                value_list_fix.append(host_value)
+                        else:
+                            value_list_fix.append(value)
+                        line_fix = line
+                    for index in range(len(value_list_fix)):
+                        line_fix = line_fix.replace(value_list[index], value_list_fix[index])
                     line_fix_list.append(line_fix)
                 elif len(value_list) == 2:
                     value_list_fix = []
@@ -454,7 +450,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                         line_fix_list.append(line)
                 else:
                     line_fix_list.append(line)
-            
+
             sub_content = '\n'.join(line_fix_list)
             content_yaml = yaml.safe_load(sub_content)
 
