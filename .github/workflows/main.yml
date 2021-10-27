@@ -2,15 +2,15 @@ name: sub_merge
 
 # 触发条件
 on:
-  # push的时候触发
-  # push:
-  #   branches: main
+  push:
+    paths:
+      - 'Eternity'
+
   workflow_dispatch:
-  # 定时触发
+
   schedule:
     # - cron: '*/5 * * * *'
     # 表达式生成  https://crontab.guru/
-    # 此处是UTC时间 即北京时间 -8小时
     - cron: '11 3,15 * * *'
 
 jobs:
