@@ -2,11 +2,9 @@
 
 ## 仓库介绍
 
-对网络上各免费节点池及博主分享的节点进行测速筛选出较为稳定高速的节点，再导入到仓库中进行分享记录。
+对网络上各免费节点池及博主分享的节点进行测速筛选出较为稳定高速的节点，再导入到仓库中进行分享记录。所筛选的节点链接在仓库`./sub/sub_list.json`文件中，其中大部分为其他`GitHub`仓库链接，这些链接包含的所有节点合并在仓库`./sub/sub_merge.txt`中。
 
-所筛选的节点来源链接在仓库`./sub/sub_list.json`文件中，其中大部分为其他`GitHub`仓库链接。这些链接包含的所有节点会合并在仓库`./sub/sub_merge.txt`中，并转换成了`Base64`和`YAML`格式，可用于导入不同的客户端。
-
-测速筛选后的节点转换成了`Base64`和`YAML`格式，分别在仓库根目录`Eterniy`和`Eternity.yml`中。同时，在仓库的`./update`中保留了原始节点链接的的记录。
+测速筛选后的节点在仓库根目录`Eterniy`(Base64)和`Eternity.yml`(Clash Proxy Provider)中。同时，在仓库的`./update`中保留了原始节点链接的的记录。
 
 虽然是测速筛选过后的节点，但仍然会出现部分节点不可用的情况，遇到这种情况建议选择`Clash`, `Shadowrocket`之类能自动切换低延迟节点的客户端。
 
@@ -24,7 +22,7 @@
 
 >`Clash`链接所使用的配置在仓库`./update/provider/`中，有相应配置文件和以国家分类的`proxy-provider`。
 >
->需要其它配置可使用订阅转换工具自行转换，相应无配置节点链接[Base64](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity), [Clash Proxy Provider](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity.yml)。
+>需要其它配置可使用订阅转换工具自行转换，相应无配置节点链接：[Base64](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity), [Clash Proxy Provider](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity.yml) 。
 >自用在线订阅转换网址：[sub-web-modify](https://sub.v1.mk/)
 
 ## 客户端选择
