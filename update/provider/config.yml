@@ -168,16 +168,16 @@ proxy-groups:
       - 负载均衡
       - 失败切换
       - DIRECT
-  - name: 手动选择
-    type: select
-    use:
-      - all
   - name: 自动选择
     type: url-test
     use:
       - all
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+  - name: 手动选择
+    type: select
+    use:
+      - all
   - name: 漏网之鱼
     type: select
     proxies:
@@ -444,7 +444,7 @@ rules:
   - DOMAIN,clash.razord.top,DIRECT
   - DOMAIN,yacd.haishan.me,DIRECT
 
-  - GEOIP,CN,DIRECT # GeoIP2 数据库 from Hackl0us/GeoIP2-CN
+  - GEOIP,CN,DIRECT,no-resolve # GeoIP2 数据库 from Hackl0us/GeoIP2-CN
 
   - IP-CIDR,10.240.0.0/24,DIRECT,no-resolve
   - RULE-SET,LAN-CIDR,DIRECT,no-resolve
