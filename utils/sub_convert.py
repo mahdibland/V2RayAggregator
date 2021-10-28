@@ -376,90 +376,98 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
 
         if 'proxies:' not in sub_content:
             url_list = []
-            
-            if '://' not in sub_content:
-                sub_content = sub_convert.base64_encode(sub_content)
+            try:
+                if '://' not in sub_content:
+                    sub_content = sub_convert.base64_encode(sub_content)
 
-            raw_url_list = re.split(r'\n+', sub_content)
+                raw_url_list = re.split(r'\n+', sub_content)
 
-            for url in raw_url_list:
-                while len(re.split('ss://|ssr://|vmess://|trojan://', url)) > 2:
-                    url_to_split = url[8:]
-                    if 'ss://' in url_to_split and 'vmess://' not in url_to_split:
-                        url_splited = url_to_split.replace('ss://', '\nss://', 1) # https://www.runoob.com/python/att-string-replace.html
-                    elif 'ssr://' in url_to_split:
-                        url_splited = url_to_split.replace('ssr://', '\nssr://', 1)
-                    elif 'vmess://' in url_to_split:
-                        url_splited = url_to_split.replace('vmess://', '\nvmess://', 1)
-                    elif 'trojan://' in url_to_split:
-                        url_splited = url_to_split.replace('trojan://', '\ntrojan://', 1)
-                    url_split = url_splited.split('\n')
+                for url in raw_url_list:
+                    while len(re.split('ss://|ssr://|vmess://|trojan://', url)) > 2:
+                        url_to_split = url[8:]
+                        if 'ss://' in url_to_split and 'vmess://' not in url_to_split:
+                            url_splited = url_to_split.replace('ss://', '\nss://', 1) # https://www.runoob.com/python/att-string-replace.html
+                        elif 'ssr://' in url_to_split:
+                            url_splited = url_to_split.replace('ssr://', '\nssr://', 1)
+                        elif 'vmess://' in url_to_split:
+                            url_splited = url_to_split.replace('vmess://', '\nvmess://', 1)
+                        elif 'trojan://' in url_to_split:
+                            url_splited = url_to_split.replace('trojan://', '\ntrojan://', 1)
+                        url_split = url_splited.split('\n')
 
-                    front_url = url[:8] + url_split[0]
-                    url_list.append(front_url)
-                    url = url_split[1]
+                        front_url = url[:8] + url_split[0]
+                        url_list.append(front_url)
+                        url = url_split[1]
 
-                url_list.append(url)
+                    url_list.append(url)
 
-            url_content = '\n'.join(url_list)
-            return url_content
+                url_content = '\n'.join(url_list)
+                return url_content
+            except:
+                print('Sub_content 格式错误')
+                return ''
 
         elif 'proxies:' in sub_content:
             sub_content = sub_content.replace('\'', '').replace('"', '')
             url_list = []
+            try:
 
-            lines = re.split(r'\n+', sub_content)
-            line_fix_list = []
-            
-            for line in lines:
-                value_list = re.split(r': |, ', line)
-                if len(value_list) > 6:
-                    value_list_fix = []
-                    for value in value_list:
-                        if ('|' in value or '?' in value or '[' in value or ']' in value) and ('{' not in value and '}' not in value):
-                            value = '"' + value + '"'
-                            value_list_fix.append(value)
-                        elif ('|' in value or '?' in value or '[' in value or ']' in value) and '}' in value:
-                            if '}}' in value:
-                                host_part = value.replace('}}','')
-                                host_value = '"'+host_part+'"}}'
-                                value_list_fix.append(host_value)
-                            elif '}}' not in value:
-                                host_part = value.replace('}','')
-                                host_value = '"'+host_part+'"}'
-                                value_list_fix.append(host_value)
-                        else:
+                lines = re.split(r'\n+', sub_content)
+                line_fix_list = []
+                
+                for line in lines:
+                    value_list = re.split(r': |, ', line)
+                    if len(value_list) > 6:
+                        value_list_fix = []
+                        for value in value_list:
+                            if ('|' in value or '?' in value or '[' in value or ']' in value or '@' in value) and ('{' not in value and '}' not in value):
+                                value = '"' + value + '"'
+                                value_list_fix.append(value)
+                            elif ('|' in value or '?' in value or '[' in value or ']' in value or '@' in value) and '}' in value:
+                                if '}}' in value:
+                                    host_part = value.replace('}}','')
+                                    host_value = '"'+host_part+'"}}'
+                                    value_list_fix.append(host_value)
+                                elif '}}' not in value:
+                                    host_part = value.replace('}','')
+                                    host_value = '"'+host_part+'"}'
+                                    value_list_fix.append(host_value)
+                            else:
+                                value_list_fix.append(value)
+                            line_fix = line
+                        for index in range(len(value_list_fix)):
+                            line_fix = line_fix.replace(value_list[index], value_list_fix[index])
+                        line_fix_list.append(line_fix)
+                    elif len(value_list) == 2:
+                        value_list_fix = []
+                        for value in value_list:
+                            if '|' in value or '?' in value or '[' in value or ']' in value or '@' in value:
+                                value = '"' + value + '"'
                             value_list_fix.append(value)
                         line_fix = line
-                    for index in range(len(value_list_fix)):
-                        line_fix = line_fix.replace(value_list[index], value_list_fix[index])
-                    line_fix_list.append(line_fix)
-                elif len(value_list) == 2:
-                    value_list_fix = []
-                    for value in value_list:
-                        if '|' in value or '?' in value or '[' in value or ']' in value:
-                            value = '"' + value + '"'
-                        value_list_fix.append(value)
-                    line_fix = line
-                    for index in range(len(value_list_fix)):
-                        line_fix = line_fix.replace(value_list[index], value_list_fix[index])
-                    line_fix_list.append(line_fix)
-                elif len(value_list) == 1:
-                    if ':' in line:
+                        for index in range(len(value_list_fix)):
+                            line_fix = line_fix.replace(value_list[index], value_list_fix[index])
+                        line_fix_list.append(line_fix)
+                    elif len(value_list) == 1:
+                        if ':' in line:
+                            line_fix_list.append(line)
+                    else:
                         line_fix_list.append(line)
-                else:
-                    line_fix_list.append(line)
 
-            sub_content = '\n'.join(line_fix_list)
-            content_yaml = yaml.safe_load(sub_content)
+                sub_content = '\n'.join(line_fix_list)
+                content_yaml = yaml.safe_load(sub_content)
 
-            for item in content_yaml['proxies']:# 对转换过程中出现的不标准配置格式转换
-                try:
-                    if item['type'] == 'vmess' and 'HOST' in item['ws-headers'].keys():
-                        item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
-                except KeyError:
-                    pass
-                
-            url_content = yaml.dump(content_yaml, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
+                for item in content_yaml['proxies']:# 对转换过程中出现的不标准配置格式转换
+                    try:
+                        if item['type'] == 'vmess' and 'HOST' in item['ws-headers'].keys():
+                            item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
+                    except KeyError:
+                        pass
+                    
+                url_content = yaml.dump(content_yaml, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
 
-            return url_content
+                return url_content
+            except:
+                print('Sub_content 格式错误')
+                return ''
+
