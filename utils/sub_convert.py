@@ -181,7 +181,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     print(f'yaml_encode 解析 vmess 节点发生错误：{err}')
                     pass
 
-            if 'ss://' in line and '#' in line:
+            if 'ss://' in line and '#' in line and 'vless://' not in line:
                 try:
                     yaml_url = {}
 
@@ -383,9 +383,9 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 raw_url_list = re.split(r'\n+', sub_content)
 
                 for url in raw_url_list:
-                    while len(re.split('ss://|ssr://|vmess://|trojan://', url)) > 2:
+                    while len(re.split('ss://|ssr://|vmess://|trojan://|vless://', url)) > 2:
                         url_to_split = url[8:]
-                        if 'ss://' in url_to_split and 'vmess://' not in url_to_split:
+                        if 'ss://' in url_to_split and 'vmess://' not in url_to_split and 'vless://' not in url_to_split:
                             url_splited = url_to_split.replace('ss://', '\nss://', 1) # https://www.runoob.com/python/att-string-replace.html
                         elif 'ssr://' in url_to_split:
                             url_splited = url_to_split.replace('ssr://', '\nssr://', 1)
@@ -393,6 +393,8 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                             url_splited = url_to_split.replace('vmess://', '\nvmess://', 1)
                         elif 'trojan://' in url_to_split:
                             url_splited = url_to_split.replace('trojan://', '\ntrojan://', 1)
+                        elif 'vless://' in url_to_split:
+                            url_splited = url_to_split.replace('vless://', '\nvless://', 1)
                         url_split = url_splited.split('\n')
 
                         front_url = url[:8] + url_split[0]

@@ -83,9 +83,9 @@ def geoip_update(url):
     print('Downloading Country.mmdb...')
     try:
         request.urlretrieve(url, './utils/Country.mmdb')
-        print('Success!')
+        print('Success!\n')
     except Exception:
-        print('Failed!')
+        print('Failed!\n')
         pass
 
 sub_list = read_list()
