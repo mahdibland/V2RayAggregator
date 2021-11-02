@@ -315,7 +315,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 begin_2 = begin + 1
                 while begin_2 <= (length - 1):
 
-                    if proxy_compared['server'] == proxies_list[begin_2]['server'] and proxy_compared['port'] == proxies_list[begin_2]['port']:
+                    if proxy_compared['server'] == proxies_list[begin_2]['server']:
                         proxies_list.pop(begin_2)
                         length -= 1
                     begin_2 += 1
@@ -334,7 +334,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     'IT': '🇮🇹', 'PE': '🇵🇪', 'RO': '🇷🇴',
                     'AU': '🇦🇺', 'DE': '🇩🇪', 'RU': '🇷🇺',
                     'KR': '🇰🇷', 'DK': '🇩🇰', 'PT': '🇵🇹',
-                    'CY': '🇨🇾', 'ES': '🇪🇸', 'DELAY': '🏁',
+                    'CY': '🇨🇾', 'ES': '🇪🇸', 'RELAY': '🏁',
                     'NOWHERE_LAND': '🇦🇶',
                 }
 
@@ -356,16 +356,19 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                         country_code = 'NOWHERE_LAND'
 
                 if country_code == 'CLOUDFLARE':
-                    country_code = 'DELAY'
+                    country_code = 'RELAY'
                 elif country_code == 'PRIVATE':
-                    country_code = 'DELAY'
+                    country_code = 'RELAY'
 
                 if country_code in emoji:
                     name_emoji = emoji[country_code]
                 else:
                     name_emoji = emoji['NOWHERE_LAND']
 
-                proxy['name'] = name_emoji + '-' + country_code + '-' + ip
+                proxy['name'] = name_emoji + country_code
+
+            
+
             proxy_str = str(proxy)
             url_list.append(proxy_str)
 
