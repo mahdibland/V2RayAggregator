@@ -364,7 +364,8 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 else:
                     name_emoji = emoji['NOWHERE_LAND']
 
-                proxy['name'] = name_emoji + country_code + '-' + ip
+                proxy_index = proxies_list.index(proxy)
+                proxy['name'] = f'{name_emoji}{country_code}-{ip}-{proxy_index:0>4d}'
 
             
 
