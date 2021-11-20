@@ -170,7 +170,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     yaml_url.setdefault('skip-cert-vertify', False)
                     yaml_url.setdefault('network', vmess_config['net'])
                     yaml_url.setdefault('ws-path', vmess_config['path'])
-                    if vmess_config['tls'] == '':
+                    if vmess_config['tls'] == '' or vmess_config['tls'] is False or vmess_config['tls'] is None:
                         yaml_url.setdefault('tls', False)
                     else:
                         yaml_url.setdefault('tls', True)
