@@ -19,14 +19,13 @@ proxy-groups:
       - DIRECT
   - name: 自动选择
     type: url-test
-    use:
-      - all
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+    tolerance: 50
+    proxies:
   - name: 手动选择
     type: select
-    use:
-      - all
+    proxies:
   - name: 漏网之鱼
     type: select
     proxies:
@@ -92,85 +91,35 @@ proxy-groups:
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    use:
-      - us
+    proxies:
   - name: 香港节点
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    use:
-      - hk
+    proxies:
   - name: 狮城节点
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    use:
-      - sg
+    proxies:
   - name: 其他国家
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    use:
-      - others
+    proxies:
   - name: 负载均衡
     type: load-balance
-    use:
-      - all
-    url: 'http://www.gstatic.com/generate_204'
+    strategy: consistent-hashing
+    url: http://www.gstatic.com/generate_204
     interval: 300
+    tolerance: 50
+    proxies:
   - name: 失败切换
     type: fallback
-    use:
-      - all
-    url: 'http://www.gstatic.com/generate_204'
+    url: http://www.gstatic.com/generate_204
     interval: 300
-
-proxy-providers:
-  us:
-    type: http
-    url: "https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/update/provider/eternity-us.yml"
-    interval: 86400
-    path: ./TopFreeProxies/provider-us.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-  hk:
-    type: http
-    url: "https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/update/provider/eternity-hk.yml"
-    interval: 86400
-    path: ./TopFreeProxies/provider-hk.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-  sg:
-    type: http
-    url: "https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/update/provider/eternity-sg.yml"
-    interval: 86400
-    path: ./TopFreeProxies/provider-sg.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-  others:
-    type: http
-    url: "https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/update/provider/eternity-others.yml"
-    interval: 86400
-    path: ./TopFreeProxies/provider-others.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-  all:
-    type: http
-    url: "https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/update/provider/eternity-all.yml"
-    interval: 86400
-    path: ./TopFreeProxies/provider.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
+    tolerance: 50
+    proxies:
 
 rule-providers: # rule-providers from Logyalsoldier/clash-rules and LM-Firefly/Rules
   Apple:

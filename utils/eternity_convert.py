@@ -1,56 +1,149 @@
-import re
+import re, yaml
 
 from sub_convert import sub_convert
 
-Eterniy = './Eternity'
+Eterniy_file = './Eternity'
+Eternity_yml_file = './Eternity.yml'
 
-def eternity_convert():
-    file_eternity = open(Eterniy, 'r', encoding='utf-8')
-    sub_content = file_eternity.read()
-    eternity_convert = sub_convert.convert(sub_content,'content','YAML', False)
-    file_eternity.close()
+provider_path = './update/provider/'
 
-    eternity_yml = open('Eternity.yml', 'w', encoding= 'utf-8')
-    eternity_yml.write(eternity_convert)
-    eternity_yml.close()
-    
-    providers_files = {
-        'all': './update/provider/eternity-all.yml',
-        'others': './update/provider/eternity-others.yml',
-        'us': './update/provider/eternity-us.yml',
-        'hk': './update/provider/eternity-hk.yml',
-        'sg': './update/provider/eternity-sg.yml'
-    }
+config_file = './update/provider/config.yml'
+config_global_file = './update/provider/config-global.yml'
 
-    lines = re.split(r'\n+', eternity_convert)
+class NoAliasDumper(yaml.SafeDumper): # https://ttl255.com/yaml-anchors-and-aliases-and-how-to-disable-them/
+    def ignore_aliases(self, data):
+        return True
+
+def eternity_convert(content, config, output, provider_file_enabled=True):
+    try:
+        file_eternity = open(content, 'r', encoding='utf-8')
+        sub_content = file_eternity.read()
+        file_eternity.close()
+    except Exception as err:
+        print(err)
+        sub_content = content
+    all_provider = sub_convert.convert(sub_content,'content','YAML', False)
+
+    # 创建并写入 provider 
+    lines = re.split(r'\n+', all_provider)
+    proxy_all = []
     us_proxy = []
     hk_proxy = []
     sg_proxy = []
     others_proxy = []
     for line in lines:
-        if 'US' in line or '美国' in line:
-            us_proxy.append(line)
-        elif 'HK' in line or '香港' in line:
-            hk_proxy.append(line)
-        elif 'SG' in line or '新加坡' in line:
-            sg_proxy.append(line)
-        else:
-            others_proxy.append(line)
-    us_proxy = 'proxies:\n' + '\n'.join(us_proxy)
-    hk_proxy = 'proxies:\n' + '\n'.join(hk_proxy)
-    sg_proxy = 'proxies:\n' + '\n'.join(sg_proxy)
-    others_proxy = 'proxies:\n' + '\n'.join(others_proxy)
+        if line != 'proxies:':
+            line = '  ' + line
+            proxy_all.append(line)
 
-    eternity_providers = {
-        'all': eternity_convert,
-        'others': others_proxy,
-        'us': us_proxy,
-        'hk': hk_proxy,
-        'sg': sg_proxy
+            if 'US' in line or '美国' in line:
+                us_proxy.append(line)
+            elif 'HK' in line or '香港' in line:
+                hk_proxy.append(line)
+            elif 'SG' in line or '新加坡' in line:
+                 sg_proxy.append(line)
+            else:
+                others_proxy.append(line)
+    us_provider = 'proxies:\n' + '\n'.join(us_proxy)
+    hk_provider = 'proxies:\n' + '\n'.join(hk_proxy)
+    sg_provider = 'proxies:\n' + '\n'.join(sg_proxy)
+    others_provider = 'proxies:\n' + '\n'.join(others_proxy)
+    
+    if provider_file_enabled:
+        providers_files = {
+            'all': provider_path + 'eternity-all.yml',
+            'others': provider_path + 'eternity-others.yml',
+            'us': provider_path + 'eternity-us.yml',
+            'hk': provider_path + 'eternity-hk.yml',
+            'sg': provider_path + 'eternity-sg.yml'
+        }
+        eternity_providers = {
+            'all': all_provider,
+            'others': others_provider,
+            'us': us_provider,
+            'hk': hk_provider,
+            'sg': sg_provider
+        }
+        print('Writing content to provider')
+        for key in providers_files.keys():
+            provider_all = open(providers_files[key], 'w', encoding= 'utf-8')
+            provider_all.write(eternity_providers[key])
+            provider_all.close()
+        print('Done!')
+
+    # 创建完全配置的Eternity.yml
+    config_f = open(config_file, 'r', encoding='utf-8')
+    config_raw = config_f.read()
+    config_f.close()
+    
+    config = yaml.safe_load(config_raw)
+
+    all_provider_dic = {'proxies': []}
+    others_provider_dic = {'proxies': []}
+    us_provider_dic = {'proxies': []}
+    hk_provider_dic = {'proxies': []}
+    sg_provider_dic = {'proxies': []}
+    provider_dic = {
+        'all': all_provider_dic,
+        'others': others_provider_dic,
+        'us': us_provider_dic,
+        'hk': hk_provider_dic,
+        'sg': sg_provider_dic
     }
-    for key in providers_files.keys():
-        provider_all = open(providers_files[key], 'w', encoding= 'utf-8')
-        provider_all.write(eternity_providers[key])
-        provider_all.close()
+    for key in eternity_providers.keys(): # 将节点转换为字典形式
+        provider_load = yaml.safe_load(eternity_providers[key])
+        if provider_load['proxies'] == []:
+            provider_load['proxies'].append('DIRECT')
+        provider_dic[key].update(provider_load)
 
-convert = eternity_convert()
+    # 创建节点名列表
+    all_name = []
+    others_name = []
+    us_name = []
+    hk_name = []
+    sg_name = [] 
+    name_dict = {
+        'all': all_name,
+        'others': others_name,
+        'us': us_name,
+        'hk': hk_name,
+        'sg': sg_name
+    }
+    for key in provider_dic.keys():
+        for proxy in provider_dic[key]['proxies']:
+            name_dict[key].append(proxy['name'])
+    # 策略分组添加节点名
+    proxy_groups = config['proxy-groups']
+    proxy_group_fill = []
+    for rule in proxy_groups:
+        if not rule['proxies']:
+            proxy_group_fill.append(rule['name'])
+    for rule_name in proxy_group_fill:
+        for rule in proxy_groups:
+            if rule['name'] == rule_name:
+                if '美国' in rule_name:
+                    rule.update({'proxies': us_name})
+                elif '香港' in rule_name:
+                    rule.update({'proxies': hk_name})
+                elif '狮城' in rule_name or '新加坡' in rule_name:
+                    rule.update({'proxies': sg_name})
+                elif '其他' in rule_name:
+                    rule.update({'proxies': others_name})
+                else:
+                    rule.update({'proxies': all_name})
+    config.update(all_provider_dic)
+    config.update({'proxy-groups': proxy_groups})
+
+    """
+    yaml_format = ruamel.yaml.YAML() # https://www.coder.work/article/4975478
+    yaml_format.indent(mapping=2, sequence=4, offset=2)
+    config_yaml = yaml_format.dump(config, sys.stdout)
+    """
+    config_yaml = yaml.dump(config, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2, Dumper=NoAliasDumper)
+    
+    Eternity_yml = open(output, 'w', encoding='utf-8')
+    Eternity_yml.write(config_yaml)
+    Eternity_yml.close()
+
+convert = eternity_convert(Eterniy_file, config_file, output=Eternity_yml_file)
+convert = eternity_convert(Eterniy_file, config_global_file, output='./update/provider/eternity-global.yml')
