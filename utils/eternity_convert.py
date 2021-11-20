@@ -92,8 +92,6 @@ def eternity_convert(content, config, output, provider_file_enabled=True):
     }
     for key in eternity_providers.keys(): # 将节点转换为字典形式
         provider_load = yaml.safe_load(eternity_providers[key])
-        if provider_load['proxies'] == []:
-            provider_load['proxies'].append('DIRECT')
         provider_dic[key].update(provider_load)
 
     # 创建节点名列表
@@ -110,13 +108,16 @@ def eternity_convert(content, config, output, provider_file_enabled=True):
         'sg': sg_name
     }
     for key in provider_dic.keys():
-        for proxy in provider_dic[key]['proxies']:
-            name_dict[key].append(proxy['name'])
+        if not provider_dic[key]['proxies'] is None:
+            for proxy in provider_dic[key]['proxies']:
+                name_dict[key].append(proxy['name'])
+        if provider_dic[key]['proxies'] is None:
+            name_dict[key].append('DIRECT')
     # 策略分组添加节点名
     proxy_groups = config['proxy-groups']
     proxy_group_fill = []
     for rule in proxy_groups:
-        if not rule['proxies']:
+        if rule['proxies'] is None: # 不是空集加入待加入名称列表
             proxy_group_fill.append(rule['name'])
     for rule_name in proxy_group_fill:
         for rule in proxy_groups:
