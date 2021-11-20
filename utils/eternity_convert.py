@@ -51,11 +51,11 @@ def eternity_convert(content, config, output, provider_file_enabled=True):
     
     if provider_file_enabled:
         providers_files = {
-            'all': provider_path + 'eternity-all.yml',
-            'others': provider_path + 'eternity-others.yml',
-            'us': provider_path + 'eternity-us.yml',
-            'hk': provider_path + 'eternity-hk.yml',
-            'sg': provider_path + 'eternity-sg.yml'
+            'all': provider_path + 'provider-all.yml',
+            'others': provider_path + 'provider-others.yml',
+            'us': provider_path + 'provider-us.yml',
+            'hk': provider_path + 'provider-hk.yml',
+            'sg': provider_path + 'provider-sg.yml'
         }
         eternity_providers = {
             'all': all_provider,
