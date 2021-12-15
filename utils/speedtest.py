@@ -28,7 +28,7 @@ class ping:
             except (socket.timeout):
                 fac+=1
                 _list.append(0)
-                print("TCP Ping Timeout %d times." % fac)
+            #   print("TCP Ping Timeout %d times." % fac)
             except Exception:
                 _list.append(0)
                 fac+=1
