@@ -160,32 +160,35 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     #yaml_config_str = ['name', 'server', 'port', 'type', 'uuid', 'alterId', 'cipher', 'tls', 'skip-cert-verify', 'network', 'ws-path', 'ws-headers']
                     #vmess_config_str = ['ps', 'add', 'port', 'id', 'aid', 'scy', 'tls', 'net', 'host', 'path']
                     # 生成 yaml 节点字典
-                    yaml_url.setdefault('name', urllib.parse.unquote(str(vmess_config['ps'])))
-                    yaml_url.setdefault('server', vmess_config['add'])
-                    yaml_url.setdefault('port', int(vmess_config['port']))
-                    yaml_url.setdefault('type', 'vmess')
-                    yaml_url.setdefault('uuid', vmess_config['id'])
-                    yaml_url.setdefault('alterId', int(vmess_config['aid']))
-                    yaml_url.setdefault('cipher', vmess_config['scy'])
-                    yaml_url.setdefault('skip-cert-vertify', False)
-                    if vmess_config['net'] == '' or vmess_config['net'] is False or vmess_config['net'] is None:
-                        yaml_url.setdefault('network', 'tcp')
+                    if vmess_config('id') == '' or vmess_config['id'] is False or vmess_config['id'] is None:
+                        print('节点格式错误')
                     else:
-                        yaml_url.setdefault('network', vmess_config['net'])
-                    if vmess_config['net'] == '' or vmess_config['net'] is False or vmess_config['net'] is None:
-                        yaml_url.setdefault('network', '/')
-                    else:
-                        yaml_url.setdefault('ws-path', vmess_config['path'])
-                    if vmess_config['tls'] == '' or vmess_config['tls'] is False or vmess_config['tls'] is None:
-                        yaml_url.setdefault('tls', False)
-                    else:
-                        yaml_url.setdefault('tls', True)
-                    if vmess_config['host'] == '':
-                        yaml_url.setdefault('ws-headers', {'Host': vmess_config['add']})
-                    else:
-                        yaml_url.setdefault('ws-headers', {'Host': vmess_config['host']})
+                        yaml_url.setdefault('name', urllib.parse.unquote(str(vmess_config['ps'])))
+                        yaml_url.setdefault('server', vmess_config['add'])
+                        yaml_url.setdefault('port', int(vmess_config['port']))
+                        yaml_url.setdefault('type', 'vmess')
+                        yaml_url.setdefault('uuid', vmess_config['id'])
+                        yaml_url.setdefault('alterId', int(vmess_config['aid']))
+                        yaml_url.setdefault('cipher', vmess_config['scy'])
+                        yaml_url.setdefault('skip-cert-vertify', False)
+                        if vmess_config['net'] == '' or vmess_config['net'] is False or vmess_config['net'] is None:
+                            yaml_url.setdefault('network', 'tcp')
+                        else:
+                            yaml_url.setdefault('network', vmess_config['net'])
+                        if vmess_config['ws-path'] == '' or vmess_config['ws-path'] is False or vmess_config['ws-path'] is None:
+                            yaml_url.setdefault('ws-path', '/')
+                        else:
+                            yaml_url.setdefault('ws-path', vmess_config['path'])
+                        if vmess_config['tls'] == '' or vmess_config['tls'] is False or vmess_config['tls'] is None:
+                            yaml_url.setdefault('tls', False)
+                        else:
+                            yaml_url.setdefault('tls', True)
+                        if vmess_config['host'] == '':
+                            yaml_url.setdefault('ws-headers', {'Host': vmess_config['add']})
+                        else:
+                            yaml_url.setdefault('ws-headers', {'Host': vmess_config['host']})
 
-                    url_list.append(str(yaml_url))
+                        url_list.append(str(yaml_url))
                 except Exception as err:
                     print(f'yaml_encode 解析 vmess 节点发生错误：{err}')
                     pass
