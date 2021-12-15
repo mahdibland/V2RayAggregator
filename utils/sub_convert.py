@@ -496,17 +496,10 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                                 item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
                         except KeyError:
                             pass
-                    url_list = []
-                    for proxy in content_yaml['proxies']:
-                        proxy_str = str(proxy)
-                        url_list.append(proxy_str)
+                        
+                    url_content = yaml.dump(content_yaml, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
 
-                    yaml_content_dic = {'proxies': url_list}
-                    yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
-                    yaml_content = yaml_content_raw.replace('\'', '').replace('False', 'false')
-
-
-                    return yaml_content
+                    return url_content
                 else:
                     return sub_content
             except:
