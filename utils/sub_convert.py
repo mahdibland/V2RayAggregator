@@ -2,17 +2,19 @@
 
 import re, yaml, json, base64
 import requests, socket, urllib.parse
+import socket, time
 
 import geoip2.database
 
 from requests.adapters import HTTPAdapter
+from speedtest import ping
 
 
 class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链接内容
 
     # {'input_type': ['url', 'content'],'output_type': ['url', 'YAML', 'Base64']}
 
-    def convert(content, input_type='url', output_type='url', proxies_filter= False): # convert Url to YAML or Base64
+    def convert(content, input_type='url', output_type='url'): # convert Url to YAML or Base64
 
         if input_type == 'url':
             s = requests.Session()
@@ -46,9 +48,6 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             print('Url 订阅内容无法解析')
 
         if url_content != 'Url 订阅内容无法解析':
-            if proxies_filter:
-                url_content = sub_convert.proxies_filter(sub_convert.url_format(url_content), True, True)
-
             if output_type == 'YAML':
                 return url_content
             elif output_type == 'Base64':
@@ -293,7 +292,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         base64_content = base64.b64encode(content.encode('utf-8')).decode('ascii')
         return base64_content
 
-    def proxies_filter(urls, dup_rm_enabled=True, format_name_enabled=True): # 对节点进行区域的筛选和重命名，区域判断(Clash YAML)：https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
+    def proxies_filter(urls, dup_rm_enabled=True, format_name_enabled=True, speedtest=False): # 对节点进行区域的筛选和重命名，区域判断(Clash YAML)：https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
 
         if 'proxies:' in urls:
             yaml_content_raw = urls
@@ -328,6 +327,18 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                         length -= 1
                     begin_2 += 1
                 begin += 1
+
+        # 测速
+        if speedtest:
+            for proxy in proxies_list:
+                server = proxy['server']
+                port = proxy['port']
+                ping_result = ping.tcp_ping(server, port)
+                ping_result_g = ping.google_ping(server, port)
+                if ping_result[0] >= 0.3 and ping_result_g[0] >= 0.3:
+                    proxies_list.remove(proxy)
+                elif ping_result[0] == 0 or ping_result_g[0] == 0:
+                    proxies_list.remove(proxy)
 
         # 改名
         for proxy in proxies_list:
@@ -380,8 +391,6 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     proxy['name'] = f'{name_emoji}{country_code}-{ip}-{proxy_index:0>3d}'
                 elif len(proxies_list) < 99:
                     proxy['name'] = f'{name_emoji}{country_code}-{ip}-{proxy_index:0>2d}'
-
-            
 
             proxy_str = str(proxy)
             url_list.append(proxy_str)
