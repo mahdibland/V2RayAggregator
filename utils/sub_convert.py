@@ -447,44 +447,45 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 line_fix_list = []
                 
                 for line in lines:
-                    if line != 'proxies:':
-                        value_list = re.split(r': |, ', line)
-                        if len(value_list) > 6:
-                            value_list_fix = []
-                            for value in value_list:
-                                if ('|' in value or '?' in value or '[' in value or ']' in value or '@' in value) and ('{' not in value and '}' not in value):
-                                    value = '"' + value + '"'
-                                    value_list_fix.append(value)
-                                elif ('|' in value or '?' in value or '[' in value or ']' in value or '@' in value) and '}' in value:
-                                    if '}}' in value:
-                                        host_part = value.replace('}}','')
-                                        host_value = '"'+host_part+'"}}'
-                                        value_list_fix.append(host_value)
-                                    elif '}}' not in value:
-                                        host_part = value.replace('}','')
-                                        host_value = '"'+host_part+'"}'
-                                        value_list_fix.append(host_value)
-                                else:
-                                    value_list_fix.append(value)
-                                line_fix = line
-                            for index in range(len(value_list_fix)):
-                                line_fix = line_fix.replace(value_list[index], value_list_fix[index])
-                            line_fix_list.append(line_fix)
-                        elif len(value_list) == 2:
-                            value_list_fix = []
-                            for value in value_list:
-                                if '|' in value or '?' in value or '[' in value or ']' in value or '@' in value:
-                                    value = '"' + value + '"'
+                    value_list = re.split(r': |, ', line)
+                    if len(value_list) > 6:
+                        value_list_fix = []
+                        for value in value_list:
+                            if ('|' in value or '?' in value or '[' in value or ']' in value or '@' in value) and ('{' not in value and '}' not in value):
+                                value = '"' + value + '"'
+                                value_list_fix.append(value)
+                            elif ('|' in value or '?' in value or '[' in value or ']' in value or '@' in value) and '}' in value:
+                                if '}}' in value:
+                                    host_part = value.replace('}}','')
+                                    host_value = '"'+host_part+'"}}'
+                                    value_list_fix.append(host_value)
+                                elif '}}' not in value:
+                                    host_part = value.replace('}','')
+                                    host_value = '"'+host_part+'"}'
+                                    value_list_fix.append(host_value)
+                            else:
                                 value_list_fix.append(value)
                             line_fix = line
-                            for index in range(len(value_list_fix)):
-                                line_fix = line_fix.replace(value_list[index], value_list_fix[index])
-                            line_fix_list.append(line_fix)
-                        elif len(value_list) == 1:
-                            if ':' in line:
-                                line_fix_list.append(line)
-                        else:
+                        for index in range(len(value_list_fix)):
+                            line_fix = line_fix.replace(value_list[index], value_list_fix[index])
+                        line_fix_list.append(line_fix)
+                    elif len(value_list) == 2:
+                        value_list_fix = []
+                        for value in value_list:
+                            if '|' in value or '?' in value or '[' in value or ']' in value or '@' in value:
+                                value = '"' + value + '"'
+                            value_list_fix.append(value)
+                        line_fix = line
+                        for index in range(len(value_list_fix)):
+                            line_fix = line_fix.replace(value_list[index], value_list_fix[index])
+                        line_fix_list.append(line_fix)
+                    elif len(value_list) == 1:
+                        if ':' in line:
                             line_fix_list.append(line)
+                    else:
+                        line_fix_list.append(line)
+
+                sub_content = '\n'.join(line_fix_list).replace('False', 'false')
 
                 if yaml_load_enabled:
                     content_yaml = yaml.safe_load(sub_content)
@@ -495,10 +496,17 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                                 item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
                         except KeyError:
                             pass
-                    url_content_raw = {'proxies': line_fix_list}
-                    url_content = yaml.dump(url_content_raw, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
-                    sub_content = url_content.replace('False', 'false')
-                    return sub_content
+                    url_list = []
+                    for proxy in content_yaml['proxies']:
+                        proxy_str = str(proxy)
+                        url_list.append(proxy_str)
+
+                    yaml_content_dic = {'proxies': url_list}
+                    yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
+                    yaml_content = yaml_content_raw.replace('\'', '').replace('False', 'false')
+
+
+                    return yaml_content
                 else:
                     return sub_content
             except:
