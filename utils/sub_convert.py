@@ -333,7 +333,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             sum = len(proxies_list)
             print(f'节点总数：{sum}')
             for proxy in proxies_list:
-                pos = proxies_list.index(proxy)
+                pos = proxies_list.index(proxy) + 1
                 print(f'测试进度({sum}/{pos})')
                 server = proxy['server']
                 port = proxy['port']
