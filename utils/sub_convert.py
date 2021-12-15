@@ -333,8 +333,8 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             for proxy in proxies_list:
                 server = proxy['server']
                 port = proxy['port']
-                ping_result = ping.tcp_ping(server, port)
-                ping_result_g = ping.google_ping(server, port)
+                ping_result = ping(server, port).tcp_ping()
+                ping_result_g = ping(server, port).google_ping()
                 if ping_result[0] >= 0.3 and ping_result_g[0] >= 0.3:
                     proxies_list.remove(proxy)
                 elif ping_result[0] == 0 or ping_result_g[0] == 0:
