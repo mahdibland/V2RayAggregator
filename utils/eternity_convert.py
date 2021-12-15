@@ -22,7 +22,7 @@ def eternity_convert(content, config, output, provider_file_enabled=True):
     except Exception as err:
         print(err)
         sub_content = content
-    all_provider = sub_convert.convert(sub_content,'content','YAML', False)
+    all_provider = sub_convert.convert(sub_content,'content','YAML')
 
     # 创建并写入 provider 
     lines = re.split(r'\n+', all_provider)

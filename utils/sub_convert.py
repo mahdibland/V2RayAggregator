@@ -337,7 +337,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                 ping_result_g = ping(server, port).google_ping()
                 if ping_result[0] >= 0.3 and ping_result_g[0] >= 0.3:
                     proxies_list.remove(proxy)
-                elif ping_result[0] == 0 or ping_result_g[0] == 0:
+                elif ping_result[1] < 1 or ping_result_g[1] < 1:
                     proxies_list.remove(proxy)
 
         # 改名
