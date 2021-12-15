@@ -160,7 +160,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     #yaml_config_str = ['name', 'server', 'port', 'type', 'uuid', 'alterId', 'cipher', 'tls', 'skip-cert-verify', 'network', 'ws-path', 'ws-headers']
                     #vmess_config_str = ['ps', 'add', 'port', 'id', 'aid', 'scy', 'tls', 'net', 'host', 'path']
                     # 生成 yaml 节点字典
-                    if vmess_config('id') == '' or vmess_config['id'] is False or vmess_config['id'] is None:
+                    if vmess_config('id') == '' or vmess_config['id'] is None:
                         print('节点格式错误')
                     else:
                         yaml_url.setdefault('name', urllib.parse.unquote(str(vmess_config['ps'])))
