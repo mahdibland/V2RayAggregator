@@ -446,7 +446,6 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             sub_content = sub_content.replace('\'', '').replace('"', '')
             url_list = []
             try:
-
                 lines = re.split(r'\n+', sub_content)
                 line_fix_list = []
                 
@@ -500,7 +499,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                                 item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
                         except KeyError:
                             pass
-                        
+
                     url_content = yaml.dump(content_yaml, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
 
                     return url_content
@@ -509,4 +508,3 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             except:
                 print('Sub_content 格式错误')
                 return ''
-

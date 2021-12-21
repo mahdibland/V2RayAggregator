@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 from datetime import timedelta, datetime
-import json
+import json, re
+import requests
+from requests.adapters import HTTPAdapter
 
 # 文件路径定义
 sub_list_json = './sub/sub_list.json'
@@ -11,6 +13,17 @@ with open(sub_list_json, 'r', encoding='utf-8') as f: # 载入订阅链接
     raw_list = json.load(f)
     f.close()
 
+def url_test(url):
+    s = requests.Session()
+    s.mount('http://', HTTPAdapter(max_retries=5))
+    s.mount('https://', HTTPAdapter(max_retries=5))
+    try:
+        resp = s.get(url, timeout=3)
+        url_updated = True
+    except Exception:
+        url_updated = False
+    return url_updated
+
 class update_url():
 
     def update(id_allow_list=[]):
@@ -18,6 +31,8 @@ class update_url():
             for id in id_allow_list:
                 if id == 0:
                     update_url.update_id_0()
+                if id == 22:
+                    update_url.update_id_22()
 
             updated_list = json.dumps(raw_list, sort_keys=False, indent=2, ensure_ascii=False)
             file = open(sub_list_json, 'w', encoding='utf-8')
@@ -32,3 +47,14 @@ class update_url():
         url_update = raw_url[:-8] + yesterday + raw_url[-4:]# 修改字符串中的某一位字符 https://www.zhihu.com/question/31800070/answer/53345749
         print(f'Change id 0 url to : {url_update}\n')
         raw_list[0]['url'] = url_update
+    
+    def update_id_22():
+        date_inurl = datetime.today().strftime('%Y/%m/%Y-%m-%d')
+        url_update = f'https://www.mattkaydiary.com/{date_inurl}-free-v2ray-clash-nodes.html'
+        if url_test(url_update):
+            resp = requests.get('https://www.mattkaydiary.com/2021/12/2021-12-19-free-v2ray-clash-nodes.html', timeout=5)
+            raw_content = resp.text
+
+            pattern = re.compile(r'v2ray(请开启代理后再拉取)&#65306;https://drive.google.com/uc\?export=download&amp;id=\w*?')
+            url_update = re.findall(pattern, raw_content)[0][24:].replace('&amp;', '')
+        raw_list[22]['url'] = url_update

@@ -91,7 +91,7 @@ def geoip_update(url):
 
 sub_list = read_list()
 
-update_url.update([0,])
+update_url.update([0,22])
 geoip_update('https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb')
 
 merge = sub_merge(sub_list)
