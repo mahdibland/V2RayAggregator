@@ -50,11 +50,22 @@ class update_url():
     
     def update_id_22():
         date_inurl = datetime.today().strftime('%Y/%m/%Y-%m-%d')
+        #date_inurl = '2021/12/2021-12-08'
         url_update = f'https://www.mattkaydiary.com/{date_inurl}-free-v2ray-clash-nodes.html'
-        if url_test(url_update):
-            resp = requests.get('https://www.mattkaydiary.com/2021/12/2021-12-19-free-v2ray-clash-nodes.html', timeout=5)
+        try:
+            resp = requests.get(url_update, timeout=5)
             raw_content = resp.text
+            raw_content = raw_content.replace('amp;', '')
 
-            pattern = re.compile(r'v2ray(请开启代理后再拉取)&#65306;https://drive.google.com/uc\?export=download&amp;id=\w*?')
-            url_update = re.findall(pattern, raw_content)[0][24:].replace('&amp;', '')
-        raw_list[22]['url'] = url_update
+            #print(raw_content.find('v2ray(请开启代理后再拉取)&#65306;https://drive.google.com/uc'))
+            #print(raw_content[raw_content.find('v2ray(请开启代理后再拉取)&#65306;https://drive.google.com/uc'):raw_content.find('v2ray(请开启代理后再拉取)&#65306;https://drive.google.com/uc')+100])
+            pattern = re.compile(r'v2ray\(请开启代理后再拉取\)&#65306;https://drive\.google\.com/uc\?export=download&id=\w*-*\w*')
+            
+            url_update = re.findall(pattern, raw_content)[0][24:]
+            print(f'Change id 22 url to : {url_update}\n')
+            raw_list[22]['url'] = url_update
+        except Exception:
+            print('Id 22 url 无需更新')
+            pass
+
+update_url.update_id_22()
