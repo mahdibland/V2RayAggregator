@@ -67,5 +67,3 @@ class update_url():
         except Exception:
             print('Id 22 url 无需更新')
             pass
-
-update_url.update_id_22()
