@@ -5,43 +5,73 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: RELAY-104.21.85.37-1076
-  server: 7nw.top
-  port: 80
+- name: CN-101.67.8.251-845
+  server: hzcu.rymv2rayssl.xyz
+  port: 44605
   type: vmess
-  uuid: 416f2658-f1f0-491e-9b59-42f6ad02797f
+  uuid: 5002a71b-d203-3a1d-987f-99522eccdc25
   alterId: 0
   cipher: auto
   skip-cert-vertify: false
   network: ws
-  ws-path: /
+  ws-path: /v2ray
   tls: false
   ws-headers:
-    Host: 7nw.top
-- name: CN-101.67.8.247-1064
-  server: 101.67.8.247
-  port: 4011
+    Host: 185.172.115.80
+- name: CA-198.57.27.218-030
+  server: 198.57.27.218
+  port: 7306
   type: ss
   cipher: aes-256-gcm
-  password: fb757c2c25c4785f437464a4a6b7248c
+  password: FoOiGlkAA9yPEGP
+- name: CA-198.57.27.218-047
+  server: 198.57.27.218
+  port: 8091
+  type: ss
+  cipher: aes-256-gcm
+  password: PCnnH6SQSnfoS27
+- name: CA-198.57.27.218-1045
+  server: 198.57.27.218
+  port: 5003
+  type: ss
+  cipher: aes-256-gcm
+  password: g5MeD6Ft3CWlJId
+- name: CN-120.232.214.36-010
+  server: 120.232.214.36
+  port: 5002
+  type: ss
+  cipher: aes-256-gcm
+  password: 1f6aca3cebd21a4cd5a80718ed16b74c
+- name: FR-141.95.0.26-0043
+  server: 141.95.0.26
+  port: 826
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: sF43Xt2gONqcgFX563
 - name: FR-62.210.209.50-0012
   server: 62.210.209.50
   port: 9101
   type: ss
   cipher: aes-256-gcm
   password: e4FCWrgpkji3QY
-- name: FR-62.210.209.50-0461
-  server: 62.210.209.50
-  port: 8881
-  type: ss
-  cipher: aes-256-gcm
-  password: kDWvXYZoTBcGkC4
 - name: FR-62.210.209.50-0015
   server: 62.210.209.50
   port: 2375
   type: ss
   cipher: aes-256-gcm
   password: faBAoD54k87UJG7
+- name: FR-62.210.209.50-015
+  server: 62.210.209.50
+  port: 6697
+  type: ss
+  cipher: aes-256-gcm
+  password: TEzjfAYq2IjtuoS
+- name: FR-62.210.209.50-0461
+  server: 62.210.209.50
+  port: 8881
+  type: ss
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
 - name: FR-62.210.209.50-1026
   server: 62.210.209.50
   port: 8000
@@ -54,108 +84,90 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: cdBIDV42DCwnfIN
-- name: GB-172.99.190.87-0253
-  server: 172.99.190.87
-  port: 9101
-  type: ss
-  cipher: aes-256-gcm
-  password: e4FCWrgpkji3QY
-- name: FR-141.95.0.26-0043
-  server: 141.95.0.26
-  port: 826
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: sF43Xt2gONqcgFX563
-- name: GB-172.99.190.87-0030
-  server: 172.99.190.87
-  port: 2375
-  type: ss
-  cipher: aes-256-gcm
-  password: faBAoD54k87UJG7
 - name: GB-172.99.190.87-0029
   server: 172.99.190.87
   port: 2376
   type: ss
   cipher: aes-256-gcm
   password: faBAoD54k87UJG7
-- name: US-169.197.142.39-1094
-  server: 169.197.142.39
-  port: 7307
+- name: GB-172.99.190.87-0030
+  server: 172.99.190.87
+  port: 2375
   type: ss
   cipher: aes-256-gcm
-  password: FoOiGlkAA9yPEGP
-- name: CA-198.57.27.218-1045
-  server: 198.57.27.218
-  port: 5003
+  password: faBAoD54k87UJG7
+- name: GB-172.99.190.87-004
+  server: 172.99.190.87
+  port: 8080
   type: ss
   cipher: aes-256-gcm
-  password: g5MeD6Ft3CWlJId
-- name: US-38.143.66.71-0026
-  server: 38.143.66.71
-  port: 7001
+  password: KixLvKzwjekG00rm
+- name: GB-172.99.190.87-046
+  server: 172.99.190.87
+  port: 6679
   type: ss
   cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-- name: US-38.143.66.71-0024
-  server: 38.143.66.71
-  port: 7002
-  type: ss
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-- name: US-169.197.142.39-1089
-  server: 169.197.142.39
-  port: 3306
-  type: ss
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-- name: US-38.143.66.71-0003
-  server: 38.143.66.71
-  port: 8888
-  type: ss
-  cipher: aes-256-gcm
-  password: Y6R9pAtvxxzmGC
-- name: US-167.88.61.60-1088
-  server: 167.88.61.60
-  port: 8009
-  type: ss
-  cipher: aes-256-gcm
-  password: XKFKl2rULjIp74
-- name: NO-46.29.218.6-0015
-  server: 46.29.218.6
-  port: 443
-  type: ss
-  cipher: aes-256-gcm
-  password: pKEW8JPByTVTLtM
+  password: TEzjfAYq2IjtuoS
 - name: US-167.88.61.60-0022
   server: 167.88.61.60
   port: 9101
   type: ss
   cipher: aes-256-gcm
   password: e4FCWrgpkji3QY
-- name: NO-46.29.218.6-0034
-  server: 46.29.218.6
-  port: 5004
+- name: US-167.88.61.60-042
+  server: 167.88.61.60
+  port: 7001
   type: ss
   cipher: aes-256-gcm
-  password: g5MeD6Ft3CWlJId
-- name: CN-71.131.206.87-0557
-  server: s1.upyun.online
-  port: 12340
-  type: trojan
-  password: 4809af3e-b8f2-4f07-9cfb-79d0a7bb1219
-  skip-cert-verify: false
-- name: CN-71.131.206.87-1093
-  server: s3.upyun.online
-  port: 12340
-  type: trojan
-  password: 4809af3e-b8f2-4f07-9cfb-79d0a7bb1219
-  skip-cert-verify: false
-- name: CA-45.62.250.251-0585
-  server: t4.ssrsub.com
-  port: 156
-  type: trojan
-  password: e6c36d58-6070-4b55-a437-146e6b53ec57
-  skip-cert-verify: false
+  password: RexnBgU7EV5ADxG
+- name: US-167.88.61.60-1088
+  server: 167.88.61.60
+  port: 8009
+  type: ss
+  cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
+- name: US-169.197.142.39-026
+  server: 169.197.142.39
+  port: 8008
+  type: ss
+  cipher: aes-256-gcm
+  password: XKFKl2rULjIp74
+- name: US-169.197.142.39-045
+  server: 169.197.142.39
+  port: 2375
+  type: ss
+  cipher: aes-256-gcm
+  password: faBAoD54k87UJG7
+- name: US-169.197.142.39-1089
+  server: 169.197.142.39
+  port: 3306
+  type: ss
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+- name: US-169.197.142.39-1094
+  server: 169.197.142.39
+  port: 7307
+  type: ss
+  cipher: aes-256-gcm
+  password: FoOiGlkAA9yPEGP
+- name: US-38.143.66.71-028
+  server: 38.143.66.71
+  port: 2376
+  type: ss
+  cipher: aes-256-gcm
+  password: faBAoD54k87UJG7
+- name: US-38.143.66.71-041
+  server: 38.143.66.71
+  port: 443
+  type: ss
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
+- name: US-38.143.66.71-815
+  server: 38.143.66.71
+  port: 8882
+  type: ss
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
 proxy-groups:
 - name: 节点选择
   type: select
@@ -172,57 +184,61 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
-  - RELAY-104.21.85.37-1076
-  - CN-101.67.8.247-1064
+  - CN-101.67.8.251-845
+  - CA-198.57.27.218-030
+  - CA-198.57.27.218-047
+  - CA-198.57.27.218-1045
+  - CN-120.232.214.36-010
+  - FR-141.95.0.26-0043
   - FR-62.210.209.50-0012
-  - FR-62.210.209.50-0461
   - FR-62.210.209.50-0015
+  - FR-62.210.209.50-015
+  - FR-62.210.209.50-0461
   - FR-62.210.209.50-1026
   - FR-62.210.209.50-1030
-  - GB-172.99.190.87-0253
-  - FR-141.95.0.26-0043
-  - GB-172.99.190.87-0030
   - GB-172.99.190.87-0029
-  - US-169.197.142.39-1094
-  - CA-198.57.27.218-1045
-  - US-38.143.66.71-0026
-  - US-38.143.66.71-0024
-  - US-169.197.142.39-1089
-  - US-38.143.66.71-0003
-  - US-167.88.61.60-1088
-  - NO-46.29.218.6-0015
+  - GB-172.99.190.87-0030
+  - GB-172.99.190.87-004
+  - GB-172.99.190.87-046
   - US-167.88.61.60-0022
-  - NO-46.29.218.6-0034
-  - CN-71.131.206.87-0557
-  - CN-71.131.206.87-1093
-  - CA-45.62.250.251-0585
+  - US-167.88.61.60-042
+  - US-167.88.61.60-1088
+  - US-169.197.142.39-026
+  - US-169.197.142.39-045
+  - US-169.197.142.39-1089
+  - US-169.197.142.39-1094
+  - US-38.143.66.71-028
+  - US-38.143.66.71-041
+  - US-38.143.66.71-815
 - name: 手动选择
   type: select
   proxies:
-  - RELAY-104.21.85.37-1076
-  - CN-101.67.8.247-1064
+  - CN-101.67.8.251-845
+  - CA-198.57.27.218-030
+  - CA-198.57.27.218-047
+  - CA-198.57.27.218-1045
+  - CN-120.232.214.36-010
+  - FR-141.95.0.26-0043
   - FR-62.210.209.50-0012
-  - FR-62.210.209.50-0461
   - FR-62.210.209.50-0015
+  - FR-62.210.209.50-015
+  - FR-62.210.209.50-0461
   - FR-62.210.209.50-1026
   - FR-62.210.209.50-1030
-  - GB-172.99.190.87-0253
-  - FR-141.95.0.26-0043
-  - GB-172.99.190.87-0030
   - GB-172.99.190.87-0029
-  - US-169.197.142.39-1094
-  - CA-198.57.27.218-1045
-  - US-38.143.66.71-0026
-  - US-38.143.66.71-0024
-  - US-169.197.142.39-1089
-  - US-38.143.66.71-0003
-  - US-167.88.61.60-1088
-  - NO-46.29.218.6-0015
+  - GB-172.99.190.87-0030
+  - GB-172.99.190.87-004
+  - GB-172.99.190.87-046
   - US-167.88.61.60-0022
-  - NO-46.29.218.6-0034
-  - CN-71.131.206.87-0557
-  - CN-71.131.206.87-1093
-  - CA-45.62.250.251-0585
+  - US-167.88.61.60-042
+  - US-167.88.61.60-1088
+  - US-169.197.142.39-026
+  - US-169.197.142.39-045
+  - US-169.197.142.39-1089
+  - US-169.197.142.39-1094
+  - US-38.143.66.71-028
+  - US-38.143.66.71-041
+  - US-38.143.66.71-815
 - name: 漏网之鱼
   type: select
   proxies:
@@ -289,13 +305,16 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - US-169.197.142.39-1094
-  - US-38.143.66.71-0026
-  - US-38.143.66.71-0024
-  - US-169.197.142.39-1089
-  - US-38.143.66.71-0003
-  - US-167.88.61.60-1088
   - US-167.88.61.60-0022
+  - US-167.88.61.60-042
+  - US-167.88.61.60-1088
+  - US-169.197.142.39-026
+  - US-169.197.142.39-045
+  - US-169.197.142.39-1089
+  - US-169.197.142.39-1094
+  - US-38.143.66.71-028
+  - US-38.143.66.71-041
+  - US-38.143.66.71-815
 - name: 香港节点
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -313,23 +332,22 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - RELAY-104.21.85.37-1076
-  - CN-101.67.8.247-1064
+  - CN-101.67.8.251-845
+  - CA-198.57.27.218-030
+  - CA-198.57.27.218-047
+  - CA-198.57.27.218-1045
+  - CN-120.232.214.36-010
+  - FR-141.95.0.26-0043
   - FR-62.210.209.50-0012
-  - FR-62.210.209.50-0461
   - FR-62.210.209.50-0015
+  - FR-62.210.209.50-015
+  - FR-62.210.209.50-0461
   - FR-62.210.209.50-1026
   - FR-62.210.209.50-1030
-  - GB-172.99.190.87-0253
-  - FR-141.95.0.26-0043
-  - GB-172.99.190.87-0030
   - GB-172.99.190.87-0029
-  - CA-198.57.27.218-1045
-  - NO-46.29.218.6-0015
-  - NO-46.29.218.6-0034
-  - CN-71.131.206.87-0557
-  - CN-71.131.206.87-1093
-  - CA-45.62.250.251-0585
+  - GB-172.99.190.87-0030
+  - GB-172.99.190.87-004
+  - GB-172.99.190.87-046
 - name: 负载均衡
   type: load-balance
   strategy: consistent-hashing
@@ -337,60 +355,64 @@ proxy-groups:
   interval: 300
   tolerance: 50
   proxies:
-  - RELAY-104.21.85.37-1076
-  - CN-101.67.8.247-1064
+  - CN-101.67.8.251-845
+  - CA-198.57.27.218-030
+  - CA-198.57.27.218-047
+  - CA-198.57.27.218-1045
+  - CN-120.232.214.36-010
+  - FR-141.95.0.26-0043
   - FR-62.210.209.50-0012
-  - FR-62.210.209.50-0461
   - FR-62.210.209.50-0015
+  - FR-62.210.209.50-015
+  - FR-62.210.209.50-0461
   - FR-62.210.209.50-1026
   - FR-62.210.209.50-1030
-  - GB-172.99.190.87-0253
-  - FR-141.95.0.26-0043
-  - GB-172.99.190.87-0030
   - GB-172.99.190.87-0029
-  - US-169.197.142.39-1094
-  - CA-198.57.27.218-1045
-  - US-38.143.66.71-0026
-  - US-38.143.66.71-0024
-  - US-169.197.142.39-1089
-  - US-38.143.66.71-0003
-  - US-167.88.61.60-1088
-  - NO-46.29.218.6-0015
+  - GB-172.99.190.87-0030
+  - GB-172.99.190.87-004
+  - GB-172.99.190.87-046
   - US-167.88.61.60-0022
-  - NO-46.29.218.6-0034
-  - CN-71.131.206.87-0557
-  - CN-71.131.206.87-1093
-  - CA-45.62.250.251-0585
+  - US-167.88.61.60-042
+  - US-167.88.61.60-1088
+  - US-169.197.142.39-026
+  - US-169.197.142.39-045
+  - US-169.197.142.39-1089
+  - US-169.197.142.39-1094
+  - US-38.143.66.71-028
+  - US-38.143.66.71-041
+  - US-38.143.66.71-815
 - name: 失败切换
   type: fallback
   url: http://www.gstatic.com/generate_204
   interval: 300
   tolerance: 50
   proxies:
-  - RELAY-104.21.85.37-1076
-  - CN-101.67.8.247-1064
+  - CN-101.67.8.251-845
+  - CA-198.57.27.218-030
+  - CA-198.57.27.218-047
+  - CA-198.57.27.218-1045
+  - CN-120.232.214.36-010
+  - FR-141.95.0.26-0043
   - FR-62.210.209.50-0012
-  - FR-62.210.209.50-0461
   - FR-62.210.209.50-0015
+  - FR-62.210.209.50-015
+  - FR-62.210.209.50-0461
   - FR-62.210.209.50-1026
   - FR-62.210.209.50-1030
-  - GB-172.99.190.87-0253
-  - FR-141.95.0.26-0043
-  - GB-172.99.190.87-0030
   - GB-172.99.190.87-0029
-  - US-169.197.142.39-1094
-  - CA-198.57.27.218-1045
-  - US-38.143.66.71-0026
-  - US-38.143.66.71-0024
-  - US-169.197.142.39-1089
-  - US-38.143.66.71-0003
-  - US-167.88.61.60-1088
-  - NO-46.29.218.6-0015
+  - GB-172.99.190.87-0030
+  - GB-172.99.190.87-004
+  - GB-172.99.190.87-046
   - US-167.88.61.60-0022
-  - NO-46.29.218.6-0034
-  - CN-71.131.206.87-0557
-  - CN-71.131.206.87-1093
-  - CA-45.62.250.251-0585
+  - US-167.88.61.60-042
+  - US-167.88.61.60-1088
+  - US-169.197.142.39-026
+  - US-169.197.142.39-045
+  - US-169.197.142.39-1089
+  - US-169.197.142.39-1094
+  - US-38.143.66.71-028
+  - US-38.143.66.71-041
+  - US-38.143.66.71-815
 rule-providers:
   Apple:
     type: http
