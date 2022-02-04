@@ -180,12 +180,6 @@ rule-providers: # rule-providers from Logyalsoldier/clash-rules and LM-Firefly/R
     url: https://cdn.jsdelivr.net/gh/LM-Firefly/Rules@master/Clash-RuleSet-Classical/Special/Local-LAN.yaml
     path: ./ruleset/TopFreeProxies/local-lan.yaml
     interval: 86400
-  LAN-CIDR:
-    type: http
-    behavior: domain
-    url: https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
-    path: ./ruleset/TopFreeProxies/lancidr.yaml
-    interval: 86400
   Proxy:
     type: http
     behavior: domain
@@ -209,10 +203,9 @@ rules:
   - DOMAIN-SUFFIX,bitwarden.net,DIRECT,no-resolve
   - DOMAIN-SUFFIX,bitwarden.com,DIRECT,no-resolve
 
-  - RULE-SET,LAN-CIDR,DIRECT,no-resolve
+  - RULE-SET,Local-LAN,DIRECT,no-resolve
   - RULE-SET,Reject,REJECT,no-resolve
   - RULE-SET,Private,DIRECT,no-resolve
-  - RULE-SET,Local-LAN,DIRECT,no-resolve
   - RULE-SET,Apple,苹果服务
   - RULE-SET,iCloud,苹果服务
   - RULE-SET,Microsoft,微软服务
