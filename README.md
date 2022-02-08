@@ -65,9 +65,7 @@
 
 如果您觉得此项目对您有帮助，并且您愿意给予我一点小小的支持，您可以通过以下方式向我捐助，这样可以维持项目持续地发展，非常感谢！
 
-ETH: `0xA7736a92AcA8325c1F57664eE9453D465343eaBE`
-
-| Alipay | Wechat | Ethereum |
+| Alipay | Wechat | [Ethereum](https://etherscan.io/address/0xa7736a92aca8325c1f57664ee9453d465343eabe) |
 | :------: | :------: | :------: | 
 | <img width="150" src="./utils/donate/alipay.png"> | <img width="150" src="./utils/donate/wechat.png"> | <img width="150" src="./utils/donate/ethereum.png"> | 
 
