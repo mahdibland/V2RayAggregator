@@ -65,5 +65,5 @@ class update_url():
             print(f'Change id 22 url to : {url_update}\n')
             raw_list[22]['url'] = url_update
         except Exception:
-            print('Id 22 url 无需更新')
+            print('Id 22 url 无需更新\n')
             pass

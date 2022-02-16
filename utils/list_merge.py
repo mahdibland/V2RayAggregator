@@ -59,6 +59,7 @@ def sub_merge(url_list): # # 将转换后的所有 Url 链接内容合并转换 
         file = open(file, 'w', encoding = 'utf-8')
         file.write(output_type)
         file.close
+    
     write_list = [f'{sub_merge_path}/sub_merge.txt', f'{sub_merge_path}/sub_merge_base64.txt', f'{sub_merge_path}/sub_merge_yaml.yml']
     content_type = (content, content_base64, content_yaml)
     for index in range(len(write_list)):
@@ -72,11 +73,7 @@ def read_list():
     for index in range(len(raw_list)):
         if raw_list[index]['enabled']:
             urls = re.split('\|',raw_list[index]['url'])
-            if len(urls) > 1:
-                for url in urls:
-                    single_raw_list = raw_list[index]
-                    single_raw_list['url'] = url
-                    input_list.append(single_raw_list)
+            raw_list[index]['url'] = urls
             input_list.append(raw_list[index])
     return input_list
 
@@ -89,9 +86,13 @@ def geoip_update(url):
         print('Failed!\n')
         pass
 
-sub_list = read_list()
+def merge_action():
 
-update_url.update([0,22])
-geoip_update('https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb')
+    sub_list = read_list()
 
-merge = sub_merge(sub_list)
+    update_url.update([0,22])
+    geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
+
+    sub_merge(sub_list)
+
+merge_action()

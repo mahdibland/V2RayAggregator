@@ -14,50 +14,70 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
 
     # {'input_type': ['url', 'content'],'output_type': ['url', 'YAML', 'Base64']}
 
-    def convert(content, input_type='url', output_type='url'): # convert Url to YAML or Base64
+    def convert(raw_input, input_type='url', output_type='url'): # convert Url to YAML or Base64
 
         if input_type == 'url':
-            s = requests.Session()
-            s.mount('http://', HTTPAdapter(max_retries=5))
-            s.mount('https://', HTTPAdapter(max_retries=5))
-            try:
-                print('Downloading from:' + content)
-                resp = s.get(content, timeout=5)
-                sub_content = resp.content.decode('utf-8')
-            except Exception as err:
-                print(err)
-                return 'Url 解析错误'
-        elif input_type == 'content':
-            sub_content = content
-
-        if '</b>' not in sub_content:
-            if 'proxies:' in sub_content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
-                url_content = sub_convert.url_format(sub_content)
-                #return self.url_content.replace('\r','') # 去除‘回车\r符’ https://blog.csdn.net/jerrygaoling/article/details/81051447
-            elif '://'  in sub_content: # 同上，是，判断为 Url 链接内容。
-                url_content = sub_convert.yaml_encode(sub_convert.url_format(sub_content))
-            else: # 判断 Base64.
+            sub_content = ''
+            if isinstance(raw_input, list):
+                a_content = []
+                for url in raw_input:
+                    s = requests.Session()
+                    s.mount('http://', HTTPAdapter(max_retries=5))
+                    s.mount('https://', HTTPAdapter(max_retries=5))
+                    try:
+                        print('Downloading from:' + url)
+                        resp = s.get(url, timeout=5)
+                        s_content = sub_convert.yaml_decode(sub_convert.transfer(resp.content.decode('utf-8')))
+                        a_content.append(s_content)
+                    except Exception as err:
+                        print(err)
+                        return 'Url 解析错误'
+                sub_content = sub_convert.transfer(''.join(a_content))
+            else:
+                s = requests.Session()
+                s.mount('http://', HTTPAdapter(max_retries=5))
+                s.mount('https://', HTTPAdapter(max_retries=5))
                 try:
-                    url_content = sub_convert.base64_decode(sub_content)
-                    url_content = sub_convert.yaml_encode(sub_convert.url_format(url_content))
-                except Exception: # 万能异常 https://blog.csdn.net/Candance_star/article/details/94135515
-                    url_content = 'Url 订阅内容无法解析'
-                    print('Url 订阅内容无法解析')
-        else:
-            url_content = 'Url 订阅内容无法解析'
-            print('Url 订阅内容无法解析')
+                    print('Downloading from:' + raw_input)
+                    resp = s.get(raw_input, timeout=5)
+                    sub_content = sub_convert.transfer(resp.content.decode('utf-8'))
+                except Exception as err:
+                    print(err)
+                    return 'Url 解析错误'
+        elif input_type == 'content':
+            sub_content = sub_convert.transfer(raw_input)
 
-        if url_content != 'Url 订阅内容无法解析':
+        if sub_content != 'Url 订阅内容无法解析':
             if output_type == 'YAML':
-                return url_content
+                return sub_content
             elif output_type == 'Base64':
-                return sub_convert.base64_encode(sub_convert.yaml_decode(url_content))
+                return sub_convert.base64_encode(sub_convert.yaml_decode(sub_content))
             elif output_type == 'url':
-                return sub_convert.yaml_decode(url_content)
+                return sub_convert.yaml_decode(sub_content)
             else:
                 print('Please define right output type.')
                 return 'Url 订阅内容无法解析'
         else:
+            return 'Url 订阅内容无法解析'
+    def transfer(sub_content): # 将 URL 内容转换为 YAML 格式
+        if '</b>' not in sub_content:
+            if 'proxies:' in sub_content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
+                url_content = sub_convert.url_format(sub_content)
+                return url_content
+                #return self.url_content.replace('\r','') # 去除‘回车\r符’ https://blog.csdn.net/jerrygaoling/article/details/81051447
+            elif '://'  in sub_content: # 同上，是，判断为 Url 链接内容。
+                url_content = sub_convert.yaml_encode(sub_convert.url_format(sub_content))
+                return url_content
+            else: # 判断 Base64.
+                try:
+                    url_content = sub_convert.base64_decode(sub_content)
+                    url_content = sub_convert.yaml_encode(sub_convert.url_format(url_content))
+                    return url_content
+                except Exception: # 万能异常 https://blog.csdn.net/Candance_star/article/details/94135515
+                    print('Url 订阅内容无法解析')
+                    return 'Url 订阅内容无法解析'
+        else:
+            print('Url 订阅内容无法解析')
             return 'Url 订阅内容无法解析'
 
     def yaml_decode(url_content): # YAML 转换为 Url 链接内容
@@ -65,7 +85,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         """yaml_tmp = TemporaryFile('w+t', encoding='utf-8', errors='ignore') # 生成临时文件 https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p19_make_temporary_files_and_directories.html
         yaml_tmp.write(url_content)
         yaml_data = yaml_tmp.read() """
-        raw_yaml_content = sub_convert.url_format(url_content)
+        raw_yaml_content = url_content
         try:
             yaml_content = yaml.safe_load(raw_yaml_content)
             proxies_list = yaml_content['proxies'] # YAML 节点列表
@@ -192,7 +212,9 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     print(f'yaml_encode 解析 vmess 节点发生错误：{err}')
                     pass
 
-            if 'ss://' in line and '#' in line and 'vless://' not in line:
+            if 'ss://' in line and 'vless://' not in line and 'vmess://' not in line:
+                if '#' not in line:
+                    line = line + '#SS%20Node'
                 try:
                     yaml_url = {}
 
@@ -288,8 +310,8 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         yaml_content = sub_convert.url_format(yaml_content_raw, False)
         # yaml.dump 返回格式不理想，正在参考 https://mrchi.cc/posts/444aa/ 改善。
         return yaml_content
-    def base64_encode(content): # 将 Url 内容转换为 Base64
-        base64_content = base64.b64encode(content.encode('utf-8')).decode('ascii')
+    def base64_encode(url_content): # 将 Url 内容转换为 Base64
+        base64_content = base64.b64encode(url_content.encode('utf-8')).decode('ascii')
         return base64_content
 
     def proxies_filter(urls, dup_rm_enabled=True, format_name_enabled=True, speedtest=False): # 对节点进行区域的筛选和重命名，区域判断(Clash YAML)：https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
@@ -445,6 +467,7 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
         elif 'proxies:' in sub_content:
             sub_content = sub_content.replace('\'', '').replace('"', '')
             url_list = []
+            il_chars = ['|', '?', '[', ']', '@', '!', '%']
             try:
                 lines = re.split(r'\n+', sub_content)
                 line_fix_list = []
@@ -454,10 +477,15 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     if len(value_list) > 6:
                         value_list_fix = []
                         for value in value_list:
-                            if ('|' in value or '?' in value or '[' in value or ']' in value or '@' in value) and ('{' not in value and '}' not in value):
+                            for char in il_chars:
+                                value_il = False
+                                if char in value:
+                                    value_il = True
+                                    break
+                            if value_il == True and ('{' not in value and '}' not in value):
                                 value = '"' + value + '"'
                                 value_list_fix.append(value)
-                            elif ('|' in value or '?' in value or '[' in value or ']' in value or '@' in value) and '}' in value:
+                            elif value_il == True and '}' in value:
                                 if '}}' in value:
                                     host_part = value.replace('}}','')
                                     host_value = '"'+host_part+'"}}'
@@ -475,7 +503,12 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                     elif len(value_list) == 2:
                         value_list_fix = []
                         for value in value_list:
-                            if '|' in value or '?' in value or '[' in value or ']' in value or '@' in value:
+                            for char in il_chars:
+                                value_il = False
+                                if char in value:
+                                    value_il = True
+                                    break
+                            if value_il == True:
                                 value = '"' + value + '"'
                             value_list_fix.append(value)
                         line_fix = line
@@ -498,6 +531,8 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
                             if item['type'] == 'vmess' and 'HOST' in item['ws-headers'].keys():
                                 item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
                         except KeyError:
+                            if '.' not in item['server']:
+                                content_yaml['proxies'].remove(item)
                             pass
 
                     url_content = yaml.dump(content_yaml, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
@@ -508,3 +543,14 @@ class sub_convert(): # 将订阅链接中YAML，Base64等内容转换为 Url 链
             except:
                 print('Sub_content 格式错误')
                 return ''
+
+if __name__ == '__main__':
+    subscribe = ''
+    output_path = './output.txt'
+
+    content = sub_convert.convert(subscribe)
+
+    file = open(output_path, 'w', encoding= 'utf-8')
+    file.write(content)
+    file.close()
+    print(f'Writing content to output.txt\n')
