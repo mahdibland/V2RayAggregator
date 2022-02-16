@@ -90,7 +90,7 @@ def merge_action():
 
     sub_list = read_list()
 
-    update_url.update([0,22])
+    update_url.update_main([0,21,22])
     geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
     sub_merge(sub_list)
