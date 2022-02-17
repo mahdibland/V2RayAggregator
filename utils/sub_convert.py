@@ -149,7 +149,10 @@ class sub_convert():
 
         elif 'proxies:' in sub_content: # 对 Clash 内容进行格式化处理
             try:
-                sub_content_yaml = yaml.safe_load(sub_content)
+                if output == False:
+                    sub_content_yaml = yaml.safe_load(sub_content)
+                else:
+                    sub_content_yaml = sub_content
             except Exception:
                 try:
                     sub_content = sub_content.replace('\'', '').replace('"', '')

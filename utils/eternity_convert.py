@@ -22,7 +22,7 @@ def eternity_convert(content, config, output, provider_file_enabled=True):
     except Exception as err:
         print(err)
         sub_content = content
-    all_provider = sub_convert.convert(sub_content,'content','YAML')
+    all_provider = sub_convert.convert(sub_content,'content','YAML',custom_set={ 'dup_rm_enabled': False,'format_name_enabled': True})
 
     # 创建并写入 provider 
     lines = re.split(r'\n+', all_provider)
@@ -147,4 +147,3 @@ def eternity_convert(content, config, output, provider_file_enabled=True):
     Eternity_yml.close()
 
 convert = eternity_convert(Eterniy_file, config_file, output=Eternity_yml_file)
-convert = eternity_convert(Eterniy_file, config_global_file, output='./update/provider/eternity-global.yml')
