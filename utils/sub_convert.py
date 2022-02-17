@@ -2,10 +2,9 @@
 
 import re, yaml, json, base64
 import requests, socket, urllib.parse
+from requests.adapters import HTTPAdapter
 
 import geoip2.database
-
-from requests.adapters import HTTPAdapter
 
 class sub_convert():
 
@@ -16,11 +15,11 @@ class sub_convert():
             raw_yaml
             convert --> transfer --> format
             dict
-        URL To YAML:
+        URL To Dict:
             raw_url
             convert --> transfer --> format --> yaml_encode --> format
             dict
-        Base64 T0 YAML:
+        Base64 To Dict:
             raw_base64
             convert --> transfer --> base64_decode --> format --> yaml_encode --> format
             dict
@@ -43,7 +42,7 @@ class sub_convert():
             base64_final
     """
 
-    def convert(raw_input, input_type='url', output_type='url'): # {'input_type': ['url', 'content'],'output_type': ['url', 'YAML', 'Base64']}
+    def convert(raw_input, input_type='url', output_type='url', custom_set={'dup_rm_enabled': False, 'format_name_enabled': False}): # {'input_type': ['url', 'content'],'output_type': ['url', 'YAML', 'Base64']}
         # convert Url to YAML or Base64
         if input_type == 'url': # 获取 URL 订阅链接内容
             sub_content = ''
@@ -77,7 +76,9 @@ class sub_convert():
             sub_content = sub_convert.transfer(raw_input)
 
         if sub_content != '订阅内容解析错误': # 输出
-            final_content = sub_convert.makeup(sub_content)
+            dup_rm_enabled = custom_set['dup_rm_enabled']
+            format_name_enabled = custom_set['format_name_enabled']
+            final_content = sub_convert.makeup(sub_content,dup_rm_enabled,format_name_enabled)
             if output_type == 'YAML':
                 return final_content
             elif output_type == 'Base64':
@@ -109,7 +110,7 @@ class sub_convert():
         else:
             print('订阅内容解析错误')
             return '订阅内容解析错误'
-    def format(sub_content, output=False): # 对节点 Url 进行格式化处理, 输出节点的字典格式
+    def format(sub_content, output=False): # 对节点 Url 进行格式化处理, 输出节点的字典格式, output 为真时输出 YAML 文本
 
         if 'proxies:' not in sub_content: # 对 URL 内容进行格式化处理
             url_list = []
@@ -227,7 +228,8 @@ class sub_convert():
                         pass
 
             return sub_content_yaml # 返回字典, output 值为 True 时返回修饰过的 YAML 文本
-    def makeup(input, dup_rm_enabled=False, format_name_enabled=False): # 对节点进行区域的筛选和重命名，区域判断(Clash YAML)：https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
+    def makeup(input, dup_rm_enabled=False, format_name_enabled=False): # 对节点进行区域的筛选和重命名，输出 YAML 文本 
+        # 区域判断(Clash YAML)：https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
         if isinstance(input, dict):
             sub_content = input
         else:
@@ -326,7 +328,7 @@ class sub_convert():
         
         return yaml_content # 输出 YAML 格式文本
 
-    def yaml_encode(url_content): # 将 URL 内容转换为 YAML (输出默认 YAML 格式) https://blog.csdn.net/wf592523813/article/details/79141463
+    def yaml_encode(url_content): # 将 URL 内容转换为 YAML (输出默认 YAML 格式)
         url_list = []
 
         lines = re.split(r'\n+', url_content)
@@ -478,14 +480,18 @@ class sub_convert():
         base64_content = base64.b64encode(url_content.encode('utf-8')).decode('ascii')
         return base64_content
 
-    def yaml_decode(url_content): #字典转换为 URL 链接内容
+    def yaml_decode(url_content): # YAML 文本转换为 URL 链接内容
         
-        """yaml_tmp = TemporaryFile('w+t', encoding='utf-8', errors='ignore') # 生成临时文件 https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p19_make_temporary_files_and_directories.html
-        yaml_tmp.write(url_content)
-        yaml_data = yaml_tmp.read() """
         try:
-            sub_content_yaml = yaml.safe_load(url_content)
-            proxies_list = sub_content_yaml['proxies'] # YAML 节点列表
+            if isinstance(url_content, dict):
+                sub_content = url_content
+            else:
+                if 'proxies:' in url_content:
+                    sub_content = sub_convert.format(url_content)
+                else:
+                    yaml_content_raw = sub_convert.convert(url_content, 'content', 'YAML')
+                    sub_content = yaml.safe_load(yaml_content_raw)
+            proxies_list = sub_content['proxies']
 
             protocol_url = []
             for index in range(len(proxies_list)): # 不同节点订阅链接内容 https://github.com/hoochanlon/fq-book/blob/master/docs/append/srvurl.md
@@ -561,7 +567,7 @@ if __name__ == '__main__':
     subscribe = 'https://proxies.bihai.cf/clash/proxies'
     output_path = './output.txt'
 
-    content = sub_convert.convert(subscribe, 'url', 'url')
+    content = sub_convert.convert(subscribe, 'url', 'YAML')
 
     file = open(output_path, 'w', encoding= 'utf-8')
     file.write(content)
