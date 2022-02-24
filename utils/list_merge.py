@@ -50,7 +50,7 @@ def sub_merge(url_list): # # 将转换后的所有 Url 链接内容合并转换 
 
     print('Merging nodes...\n')
     content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
-    content_yaml = sub_convert.convert(content_raw,'content','YAML',{'dup_rm_enabled': True, 'format_name_enabled': True})
+    content_yaml = sub_convert.convert(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
     content_base64 = sub_convert.convert(content_yaml,'content','Base64')
     content = sub_convert.convert(content_yaml,'content','url')
 
