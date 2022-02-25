@@ -12,13 +12,14 @@ from urllib import request
 
 # 文件路径定义
 Eterniy = './Eternity'
+readme = './README.md'
 
 sub_list_json = './sub/sub_list.json'
 sub_merge_path = './sub/'
 sub_list_path = './sub/list/'
 
 
-def sub_merge(url_list): # # 将转换后的所有 Url 链接内容合并转换 YAML or Base64, ，并输出文件，输入订阅列表。
+def sub_merge(url_list): # 将转换后的所有 Url 链接内容合并转换 YAML or Base64, ，并输出文件，输入订阅列表。
 
     content_list = []
     for index in range(len(url_list)):
@@ -65,8 +66,8 @@ def sub_merge(url_list): # # 将转换后的所有 Url 链接内容合并转换 
         content_write(write_list[index], content_type[index])
     print('Done!')
 
-def read_list():
-    with open(sub_list_json, 'r', encoding='utf-8') as f: # 将 sub_list.json Url 内容读取为列表
+def read_list(json_file): # 将 sub_list.json Url 内容读取为列表
+    with open(json_file, 'r', encoding='utf-8') as f:
         raw_list = json.load(f)
     input_list = []
     for index in range(len(raw_list)):
@@ -85,11 +86,78 @@ def geoip_update(url):
         print('Failed!\n')
         pass
 
-def merge_action():
-    update_url.update_main([0,21,22])
-    geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
-    
-    sub_list = read_list()
-    sub_merge(sub_list)
+def readme_update(readme_file='./README.md', sub_list=[]): # 更新 README 节点信息
+    with open(readme_file, 'r', encoding='utf-8') as f:
+        lines = f.readlines()
 
-merge_action()
+    # 获得当前名单及各仓库节点数量
+    thanks = []
+    repo_amount_dic = {}
+    for repo in sub_list:
+        line = ''
+        if repo['enabled'] == True:
+            id = repo['id']
+            remarks = repo['remarks']
+
+            sub_file = f'./sub/list/{id:0>2d}.txt'
+            with open(sub_file, 'r', encoding='utf-8') as f:
+                proxies = f.readlines()
+                if proxies == ['Url 解析错误'] or proxies == ['订阅内容解析错误']:
+                    amount = 0
+                else:
+                    amount = len(proxies)
+            if 'raw.githubusercontent.com' in repo['url'][0]:
+                repo_url = 'https://github.com/'+remarks
+            else:
+                repo_url = repo['url'][0]
+
+            repo_amount_dic.setdefault(id, amount)
+            line = f'- [{remarks}]({repo_url}), 节点数量: `{amount}`\n'
+        if id != 12:
+            thanks.append(line)
+
+    # 鸣谢名单打印
+    for index in range(len(lines)):
+        if lines[index] == '### 鸣谢名单\n':
+            # 清除旧内容
+            i = index + 1
+            while lines[i] != '\n':
+                lines.pop(i)
+
+            for i in thanks:
+                index +=1
+                lines.insert(index, i)
+            break
+
+    # 当前节点打印
+    for index in range(len(lines)):
+        if lines[index] == '### 当前节点\n':
+            # 清除旧内容
+            i = index + 1
+            while lines[i] != '\n':
+                lines.pop(i)
+
+            top_amount = repo_amount_dic[12]
+            lines.insert(index+1, f'当前节点数量: `{top_amount}`\n')
+            lines.insert(index+2, '```\n')
+            with open('./sub/list/12.txt', 'r', encoding='utf-8') as f:
+                proxies = f.readlines()
+                proxies.append('```\n')
+            index += 2
+            for i in proxies:
+                index += 1
+                lines.insert(index, i)
+            break
+
+    # 写入 README 内容
+    with open(readme_file, 'w', encoding='utf-8') as f:
+        data = ''.join(lines)
+        f.write(data)
+
+if __name__ == '__main__':
+    #update_url.update_main([0,21,22])
+    #geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
+
+    sub_list = read_list(sub_list_json)
+    #sub_merge(sub_list)
+    readme_update(readme,sub_list)
