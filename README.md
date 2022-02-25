@@ -1,7 +1,9 @@
 # TopFreeProxies
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/alanbobs999/topfreeproxies/sub_merge?label=sub_merge)](https://github.com/alanbobs999/TopFreeProxies/actions/workflows/sub_merge.yml) 
+
+![GitHub watchers](https://img.shields.io/github/watchers/alanbobs999/topfreeproxies) ![Vistors](https://visitor-badge.laobi.icu/badge?page_id=alanbobs999.topfreeproxies) ![Stars](https://img.shields.io/github/stars/alanbobs999/topfreeproxies) ![GitHub forks](https://img.shields.io/github/forks/alanbobs999/topfreeproxies)
 
 ## 仓库介绍
-
 对网络上各免费节点池及博主分享的节点进行测速筛选出较为稳定高速的节点，再导入到仓库中进行分享记录。所筛选的节点链接在仓库`./sub/sub_list.json`文件中，其中大部分为其他`GitHub`仓库链接，如果大家有好的订阅链接欢迎提交 PR ，这些链接包含的所有节点合并在仓库`./sub/sub_merge.txt`中。
 
 测速筛选后的节点订阅文件在仓库根目录`Eterniy`(Base64)和`Eternity.yml`(Clash)。同时在仓库的`./update`中保留了原始节点链接的的记录。
@@ -9,7 +11,6 @@
 虽然是测速筛选过后的节点，但仍然会出现部分节点不可用的情况，遇到这种情况建议选择`Clash`, `Shadowrocket`之类能自动切换低延迟节点的客户端。
 
 ## 使用方法
-
 将以下订阅链接导入相应客户端即可。链接中大部分为 SS 协议节点，少量 Vmess, Trojan ,SSR 协议节点，建议选择协议支持完整的客户端。
 
 - [多协议Base64编码](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity)
@@ -26,9 +27,7 @@
 >自用在线订阅转换网址：[sub-web-modify](https://sub.v1.mk/)
 
 ## 客户端选择
-
 ### 主流桌面客户端
-
 |                            MacOS                             |                            Linux                             |                           Windows                            | 简易描述                                           |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :------------------------------------------------- |
 | [CFW](https://github.com/Fndroid/clash_for_windows_pkg/releases) | [CFW](https://github.com/Fndroid/clash_for_windows_pkg/releases) | [CFW(Clash For Windows)](https://github.com/Fndroid/clash_for_windows_pkg/releases) | SS, SSR, Trojan, Vmess, VLESS协议支持，策略分流能力强。            |
@@ -42,7 +41,6 @@
 |      [V2rayU](https://github.com/yanue/V2rayU/releases)      |                              ×                               |                              ×                               | SS, Trojan, Vmess协议支持，支持订阅，二维码，剪贴板导入，手动配置，二维码分享，与 V2RayN 类似。                        |
 
 ### 主流移动客户端
-
 |                          iOS/iPadOS                          |                           Android                            | 简易描述                                                     |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | ------------------------------------------------------------ |
 | [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118) | [Shadowrocket](https://play.google.com/store/apps/details?id=com.v2cross.proxy) | SS, SSR, Trojan, Vmess, VLESS协议支持，iOS端需在非国区 App Store 购买，美区售价 $2.99；安卓端非与 iOS 端同一作者，不支持 SSR 协议，免费且内置免费节点。 |
@@ -57,7 +55,6 @@
 |                              ×                               |     [V2rayNG](https://github.com/2dust/v2rayNG/releases)     | SS, Trojan, Vmess, VLESS协议支持，v2ray 内核。                           |
 
 ## 捐助作者
-
 如果您觉得此项目对您有帮助，并且您愿意给予我一点小小的支持，您可以通过以下方式向我捐助，这样可以维持项目持续地发展，非常感谢！
 
 | Alipay | Wechat | [Ethereum](https://etherscan.io/address/0xa7736a92aca8325c1f57664ee9453d465343eabe) |
@@ -65,9 +62,7 @@
 | <img width="150" src="./utils/donate/alipay.png"> | <img width="150" src="./utils/donate/wechat.png"> | <img width="150" src="./utils/donate/ethereum.png"> | 
 
 ## 仓库声明
-
 订阅节点仅作学习交流使用，只是对网络上节点的优选排序，用于查找资料，学习知识，不做任何违法行为。所有资源均来自互联网，仅供大家交流学习使用，出现违法问题概不负责。
 
 ## 星标统计
-
 [![Stargazers over time](https://starchart.cc/alanbobs999/TopFreeProxies.svg)](https://starchart.cc/alanbobs999/TopFreeProxies)
