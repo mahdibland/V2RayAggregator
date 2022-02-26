@@ -91,13 +91,17 @@ def readme_update(readme_file='./README.md', sub_list=[]): # 更新 README 节�
         lines = f.readlines()
 
     # 获得当前名单及各仓库节点数量
-    thanks = []
+    with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
+        total = len(f.readlines())
+        total = f'当前合并节点总数: `{total}`\n'
+    thanks = [total]
     repo_amount_dic = {}
     for repo in sub_list:
         line = ''
         if repo['enabled'] == True:
             id = repo['id']
             remarks = repo['remarks']
+            repo_site = repo['site']
 
             sub_file = f'./sub/list/{id:0>2d}.txt'
             with open(sub_file, 'r', encoding='utf-8') as f:
@@ -106,13 +110,9 @@ def readme_update(readme_file='./README.md', sub_list=[]): # 更新 README 节�
                     amount = 0
                 else:
                     amount = len(proxies)
-            if 'raw.githubusercontent.com' in repo['url'][0]:
-                repo_url = 'https://github.com/'+remarks
-            else:
-                repo_url = repo['url'][0]
-
+            
             repo_amount_dic.setdefault(id, amount)
-            line = f'- [{remarks}]({repo_url}), 节点数量: `{amount}`\n'
+            line = f'- [{remarks}]({repo_site}), 节点数量: `{amount}`\n'
         if id != 12:
             thanks.append(line)
 
@@ -120,9 +120,8 @@ def readme_update(readme_file='./README.md', sub_list=[]): # 更新 README 节�
     for index in range(len(lines)):
         if lines[index] == '### 鸣谢名单\n':
             # 清除旧内容
-            i = index + 1
-            while lines[i] != '\n':
-                lines.pop(i)
+            while lines[index+1] != '\n':
+                lines.pop(index+1)
 
             for i in thanks:
                 index +=1
@@ -131,18 +130,18 @@ def readme_update(readme_file='./README.md', sub_list=[]): # 更新 README 节�
 
     # 当前节点打印
     for index in range(len(lines)):
-        if lines[index] == '### 当前节点\n':
+        if lines[index] == '  <summary>展开复制节点</summary>\n': # 目标行内容
             # 清除旧内容
-            i = index + 1
-            while lines[i] != '\n':
-                lines.pop(i)
+            lines.pop(index-2) # 删除节点数量
+            index -= 1 # 使 index 所指内容不变
+            while lines[index+2] != '\n':
+                lines.pop(index+2)
 
             top_amount = repo_amount_dic[12]
-            lines.insert(index+1, f'当前节点数量: `{top_amount}`\n')
-            lines.insert(index+2, '```\n')
+            lines.insert(index-2, f'当前节点数量: `{top_amount}`\n')
             with open('./sub/list/12.txt', 'r', encoding='utf-8') as f:
                 proxies = f.readlines()
-                proxies.append('```\n')
+                proxies = ['    '+proxy for proxy in proxies ]
             index += 2
             for i in proxies:
                 index += 1
