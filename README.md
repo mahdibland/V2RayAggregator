@@ -88,28 +88,28 @@ trojan://b3d27d09-77fe-431d-9829-6eba7dce20b0@7.earths.team:443#%F0%9F%87%BA%F0%
 ```
 
 ### 鸣谢名单
-- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `110`
-- [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `44`
-- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `350`
-- [freefq/free](https://bulink.me/sub/ge5fgq/cl), 节点数量: `34`
-- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `225`
-- [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `27`
-- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `104`
+- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `49`
+- [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `45`
+- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `347`
+- [freefq/free](https://bulink.me/sub/ge5fgq/cl), 节点数量: `28`
+- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `186`
+- [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `5`
+- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `89`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), 节点数量: `67`
-- [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `101`
+- [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `91`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `1354`
 - [umelabs/node.umelabs.dev](https://github.com/umelabs/node.umelabs.dev), 节点数量: `2`
-- [git-yusteven/openit](https://github.com/git-yusteven/openit), 节点数量: `115`
+- [git-yusteven/openit](https://github.com/git-yusteven/openit), 节点数量: `91`
 - [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), 节点数量: `57`
-- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `158`
-- [电报 https://t.me/abc999222/392205](https://www.abrnya.com/ssr/ssr.txt), 节点数量: `233`
+- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `412`
+- [电报 https://t.me/abc999222/392205](https://www.abrnya.com/ssr/ssr.txt), 节点数量: `205`
 - [https://t.me/abc999222/392133](https://moons.team/api/v1/client/subscribe?token=f4a34eaaa048c37ea3b5df0d65473ad4), 节点数量: `18`
-- [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `164`
-- [wrfree/free](https://github.com/wrfree/free), 节点数量: `34`
-- [ThekingMX1998/free-v2ray-code](https://github.com/ThekingMX1998/free-v2ray-code), 节点数量: `56`
+- [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `165`
+- [wrfree/free](https://github.com/wrfree/free), 节点数量: `28`
+- [ThekingMX1998/free-v2ray-code](https://github.com/ThekingMX1998/free-v2ray-code), 节点数量: `77`
 - [Mattkaydiary](https://drive.google.com/uc?export=download&id=16xK3xEXrS8MHmSrErczi9vLU701mJFW4), 节点数量: `67`
 - [v2raydy/v2ray](https://github.com/v2raydy/v2ray), 节点数量: `125`
-- [ObcbO/auto-subscribe](https://github.com/ObcbO/auto-subscribe), 节点数量: `164`
+- [ObcbO/auto-subscribe](https://github.com/ObcbO/auto-subscribe), 节点数量: `165`
 
 ## 客户端选择
 ### 主流桌面客户端
