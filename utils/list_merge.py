@@ -154,9 +154,9 @@ def readme_update(readme_file='./README.md', sub_list=[]): # 更新 README 节�
         f.write(data)
 
 if __name__ == '__main__':
-    #update_url.update_main([0,21,22])
-    #geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
+    update_url.update_main([0,21,22])
+    geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
     sub_list = read_list(sub_list_json)
-    #sub_merge(sub_list)
+    sub_merge(sub_list)
     readme_update(readme,sub_list)
