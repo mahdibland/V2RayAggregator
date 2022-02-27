@@ -319,11 +319,13 @@ class sub_convert():
                 elif len(proxies_list) < 99:
                     proxy['name'] = f'{name_emoji}{country_code}-{ip}-{proxy_index:0>2d}'
 
-                proxy_str = str(proxy)
-                url_list.append(proxy_str)
+                if proxy['server'] != '127.0.0.1':
+                    proxy_str = str(proxy)
+                    url_list.append(proxy_str)
             elif format_name_enabled == False:
-                proxy_str = str(proxy)
-                url_list.append(proxy_str)
+                if proxy['server'] != '127.0.0.1':
+                    proxy_str = str(proxy)
+                    url_list.append(proxy_str)
 
         yaml_content_dic = {'proxies': url_list}
         yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
