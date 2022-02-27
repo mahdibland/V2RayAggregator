@@ -279,7 +279,7 @@ class sub_convert():
                     'AU': '🇦🇺', 'DE': '🇩🇪', 'RU': '🇷🇺',
                     'KR': '🇰🇷', 'DK': '🇩🇰', 'PT': '🇵🇹',
                     'CY': '🇨🇾', 'ES': '🇪🇸', 'RELAY': '🏁',
-                    'NOWHERE_LAND': '🇦🇶',
+                    'NOWHERE': '🇦🇶',
                 }
 
                 server = proxy['server']
@@ -297,17 +297,19 @@ class sub_convert():
                         country_code = response.country.iso_code
                     except Exception:
                         ip = '0.0.0.0'
-                        country_code = 'NOWHERE_LAND'
+                        country_code = 'NOWHERE'
 
                 if country_code == 'CLOUDFLARE':
                     country_code = 'RELAY'
                 elif country_code == 'PRIVATE':
                     country_code = 'RELAY'
+                elif country_code == 'CN':
+                    country_code = 'HK'
 
                 if country_code in emoji:
                     name_emoji = emoji[country_code]
                 else:
-                    name_emoji = emoji['NOWHERE_LAND']
+                    name_emoji = emoji['NOWHERE']
 
                 proxy_index = proxies_list.index(proxy)
                 if len(proxies_list) > 999:
