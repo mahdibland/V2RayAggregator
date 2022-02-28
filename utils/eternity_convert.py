@@ -1,11 +1,15 @@
 import re, yaml
 
 from sub_convert import sub_convert
+from list_merge import sub_merge
 
 Eterniy_file = './Eternity'
 Eternity_yml_file = './Eternity.yml'
+readme = './README.md'
 
 provider_path = './update/provider/'
+
+sub_list_json = './sub/sub_list.json'
 
 config_file = './update/provider/config.yml'
 config_global_file = './update/provider/config-global.yml'
@@ -146,4 +150,6 @@ def eternity_convert(content, config, output, provider_file_enabled=True):
     Eternity_yml.write(config_yaml)
     Eternity_yml.close()
 
-convert = eternity_convert(Eterniy_file, config_file, output=Eternity_yml_file)
+if __name__ == '__main__':
+    convert = eternity_convert(Eterniy_file, config_file, output=Eternity_yml_file)
+    sub_merge.readme_update(readme,sub_merge.read_list(sub_list_json))
