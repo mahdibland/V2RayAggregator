@@ -212,7 +212,7 @@ class sub_convert():
                         else:
                             line_fix_list.append(line)
 
-                    sub_content = '\n'.join(line_fix_list).replace('False', 'false')
+                    sub_content = '\n'.join(line_fix_list).replace('False', 'false').replace('True', 'true')
 
                     if output == False:
                         sub_content_yaml = yaml.safe_load(sub_content)
@@ -233,7 +233,7 @@ class sub_convert():
 
             return sub_content_yaml # 返回字典, output 值为 True 时返回修饰过的 YAML 文本
     def makeup(input, dup_rm_enabled=False, format_name_enabled=False): # 对节点进行区域的筛选和重命名，输出 YAML 文本 
-        # 区域判断(Clash YAML)：https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
+        # 区域判断(Clash YAML): https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
         if isinstance(input, dict):
             sub_content = input
         else:
@@ -330,7 +330,7 @@ class sub_convert():
 
         yaml_content_dic = {'proxies': url_list}
         yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
-        yaml_content = yaml_content_raw.replace('\'', '').replace('False', 'false')
+        yaml_content = yaml_content_raw.replace('\'', '').replace('False', 'false').replace('True', 'true')
 
         yaml_content = sub_convert.format(yaml_content,True)
         
@@ -340,7 +340,9 @@ class sub_convert():
         url_list = []
 
         lines = re.split(r'\n+', url_content)
+
         for line in lines:
+            yaml_url = {}
             if 'vmess://' in line:
                 try:
                     vmess_json_config = json.loads(sub_convert.base64_decode(line.replace('vmess://', '')))
@@ -365,7 +367,7 @@ class sub_convert():
                         yaml_url.setdefault('uuid', vmess_config['id'])
                         yaml_url.setdefault('alterId', int(vmess_config['aid']))
                         yaml_url.setdefault('cipher', vmess_config['scy'])
-                        yaml_url.setdefault('skip-cert-vertify', False)
+                        yaml_url.setdefault('skip-cert-vertify', True)
                         if vmess_config['net'] == '' or vmess_config['net'] is False or vmess_config['net'] is None:
                             yaml_url.setdefault('network', 'tcp')
                         else:
@@ -385,15 +387,13 @@ class sub_convert():
 
                         url_list.append(yaml_url)
                 except Exception as err:
-                    print(f'yaml_encode 解析 vmess 节点发生错误：{err}')
+                    print(f'yaml_encode 解析 vmess 节点发生错误: {err}')
                     pass
 
             if 'ss://' in line and 'vless://' not in line and 'vmess://' not in line:
                 if '#' not in line:
                     line = line + '#SS%20Node'
                 try:
-                    yaml_url = {}
-
                     ss_content =  line.replace('ss://', '')
                     part_list = ss_content.split('#', 1) # https://www.runoob.com/python/att-string-split.html
                     yaml_url.setdefault('name', urllib.parse.unquote(part_list[1]))
@@ -418,13 +418,11 @@ class sub_convert():
 
                     url_list.append(yaml_url)
                 except Exception as err:
-                    print(f'yaml_encode 解析 ss 节点发生错误：{err}')
+                    print(f'yaml_encode 解析 ss 节点发生错误: {err}')
                     pass
 
             if 'ssr://' in line:
                 try:
-                    yaml_url = {}
-
                     ssr_content = sub_convert.base64_decode(line.replace('ssr://', ''))
                 
                     part_list = re.split('/\?', ssr_content)
@@ -455,31 +453,45 @@ class sub_convert():
 
                     url_list.append(yaml_url)
                 except Exception as err:
-                    print(f'yaml_encode 解析 ssr 节点发生错误：{err}')
+                    print(f'yaml_encode 解析 ssr 节点发生错误: {err}')
                     pass
 
             if 'trojan://' in line:
                 try:
-                    yaml_url = {}
-
                     url_content = line.replace('trojan://', '')
                     part_list = re.split('#', url_content, maxsplit=1) # https://www.runoob.com/python/att-string-split.html
                     yaml_url.setdefault('name', urllib.parse.unquote(part_list[1]))
 
                     server_part = part_list[0].replace('trojan://', '')
-                    server_part_list = re.split(':|@|\?sni=', server_part) # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
+                    server_part_list = re.split(':|@|\?|&', server_part) # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
                     yaml_url.setdefault('server', server_part_list[1])
                     yaml_url.setdefault('port', server_part_list[2])
                     yaml_url.setdefault('type', 'trojan')
                     yaml_url.setdefault('password', server_part_list[0])
-                    if '?sni=' in server_part:
-                        yaml_url.setdefault('sni', server_part_list[3])
-                    yaml_url.setdefault('skip-cert-verify', 'false')
+                    server_part_list = server_part_list[3:]
+
+                    for config in server_part_list:
+                        if 'sni=' in config:
+                            yaml_url.setdefault('sni', config[4:])
+                        elif 'allowInsecure=' in config or 'tls=' in config:
+                            if config[-1] == 0:
+                                yaml_url.setdefault('tls', False)
+                        elif 'type=' in config:
+                            if config[5:] != 'tcp':
+                                yaml_url.setdefault('network', config[5:])
+                        elif 'path=' in config:
+                            yaml_url.setdefault('ws-path', config[5:])
+                        elif 'security=' in config:
+                            if config[9:] != 'tls':
+                                yaml_url.setdefault('tls', False)
+
+                    yaml_url.setdefault('skip-cert-verify', True)
 
                     url_list.append(yaml_url)
                 except Exception as err:
-                    print(f'yaml_encode 解析 trojan 节点发生错误：{err}')
+                    print(f'yaml_encode 解析 trojan 节点发生错误: {err}')
                     pass
+
         yaml_content_dic = {'proxies': url_list}
         yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
         yaml_content = sub_convert.format(yaml_content_raw)
@@ -505,12 +517,12 @@ class sub_convert():
             for index in range(len(proxies_list)): # 不同节点订阅链接内容 https://github.com/hoochanlon/fq-book/blob/master/docs/append/srvurl.md
                 proxy = proxies_list[index]
 
-                if proxy['type'] == 'vmess': # Vmess 节点提取 , 由 Vmess 所有参数 dump JSON 后 base64 得来。
+                if proxy['type'] == 'vmess': # Vmess 节点提取, 由 Vmess 所有参数 dump JSON 后 base64 得来。
 
                     yaml_default_config = {
                         'name': 'Vmess Node', 'server': '0.0.0.0', 'port': 0, 'uuid': '', 'alterId': 0,
                         'cipher': 'auto', 'network': 'ws', 'ws-headers': {'Host': proxy['server']},
-                        'ws-path': '/', 'tls': ''
+                        'ws-path': '/', 'tls': '', 'sni': ''
                     }
 
                     yaml_default_config.update(proxy)
@@ -520,27 +532,37 @@ class sub_convert():
                         'v': 2, 'ps': proxy_config['name'], 'add': proxy_config['server'],
                         'port': proxy_config['port'], 'id': proxy_config['uuid'], 'aid': proxy_config['alterId'],
                         'scy': proxy_config['cipher'], 'net': proxy_config['network'], 'type': None, 'host': proxy_config['ws-headers']['Host'],
-                        'path': proxy_config['ws-path'], 'tls': proxy_config['tls'], 'sni': ''
+                        'path': proxy_config['ws-path'], 'tls': proxy_config['tls'], 'sni': proxy_config['sni']
                         }
 
                     vmess_raw_proxy = json.dumps(vmess_value, sort_keys=False, indent=2, ensure_ascii=False)
                     vmess_proxy = str('vmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
                     protocol_url.append(vmess_proxy)
 
-                elif proxy['type'] == 'ss': # SS 节点提取 ， 由 ss_base64_decoded 部分(参数：'cipher', 'password', 'server', 'port') Base64 编码后 加 # 加注释(URL_encode) 
+                elif proxy['type'] == 'ss': # SS 节点提取, 由 ss_base64_decoded 部分(参数: 'cipher', 'password', 'server', 'port') Base64 编码后 加 # 加注释(URL_encode) 
                     ss_base64_decoded = str(proxy['cipher']) + ':' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port'])
                     ss_base64 = sub_convert.base64_encode(ss_base64_decoded)
                     ss_proxy = str('ss://' + ss_base64 + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                     protocol_url.append(ss_proxy)
 
-                elif proxy['type'] == 'trojan': # Trojan 节点提取 ， 最简单 ， 由 trojan_proxy 中参数再加上 # 加注释(URL_encode)
-                    trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
+                elif proxy['type'] == 'trojan': # Trojan 节点提取, 由 trojan_proxy 中参数再加上 # 加注释(URL_encode) # trojan Go https://p4gefau1t.github.io/trojan-go/developer/url/
+                    if 'tls' in proxy.keys() and 'network' in proxy.keys():
+                        if proxy['tls'] == True and proxy['network'] != 'tcp':
+                            network_type = proxy['network']
+                            trojan_go = f'?security=tls&type={network_type}&headerType=none'
+                        elif proxy['tls'] == False and proxy['network'] != 'tcp':
+                            trojan_go = f'??allowInsecure=0&type={network_type}&headerType=none'
+                    else:
+                        trojan_go = '?allowInsecure=1'
+                    if 'sni' in proxy.keys():
+                        trojan_go = trojan_go+'&sni='+proxy['sni']
+                    trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + trojan_go + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                     protocol_url.append(trojan_proxy)
                 
                 #elif proxy['type'] == 'ssr':
                     #ssr_base64_decoded = str(proxy['server']) + ':' + str(proxy['port']) + ':' + str(proxy['protocol']) 
                     #ssr_base64_decoded = ssr_base64_decoded + ':' + str(proxy['cipher']) + ':' + str(proxy['obfs']) + ':' + str(sub_convert.base64_encode(proxy['password'])) + '/?'
-                    #protocol_url.append(vmessr_proxy) 
+                    #protocol_url.append(vmessr_proxy)
 
             yaml_content = ''.join(protocol_url)
             return yaml_content
@@ -572,7 +594,7 @@ class sub_convert():
             return base64_content
 
 if __name__ == '__main__':
-    subscribe = 'https://proxies.bihai.cf/clash/proxies'
+    subscribe = 'https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg'
     output_path = './output.txt'
 
     content = sub_convert.convert(subscribe, 'url', 'YAML')
