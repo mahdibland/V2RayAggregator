@@ -34,13 +34,13 @@
 
     vmess://ewogICJ2IjogMiwKICAicHMiOiAiSEstMTEyLjMzLjM2LjEwOS0xNzI0IiwKICAiYWRkIjogIjExMi4zMy4zNi4xMDkiLAogICJwb3J0IjogMTAwMDIsCiAgImlkIjogIjY1Y2FjNTZkLTQxNTUtNDNjOC1iYWUwLWYzNjhjYjIxZjc3MSIsCiAgImFpZCI6IDAsCiAgInNjeSI6ICJhdXRvIiwKICAibmV0IjogInRjcCIsCiAgInR5cGUiOiBudWxsLAogICJob3N0IjogIjExMi4zMy4zNi4xMDkiLAogICJwYXRoIjogIi8iLAogICJ0bHMiOiBmYWxzZSwKICAic25pIjogIiIKfQ==
     trojan://JWOLs1gJ0X@s5.kaxff.com:20585?allowInsecure=1&sni=s5.kaxff.com#GOOGLE-34.126.74.24-3826%5Cr
-    trojan://MhPG7g9x2Etb4Hspsb@os2-3.sstr-api.xyz:443?allowInsecure=0&sni=os2-3.sstr-api.xyz#JP-45.142.165.23-2423%5Cr
+    trojan://MhPG7g9x2Etb4Hspsb@os2-3.sstr-api.xyz:443?allowInsecure=1&sni=os2-3.sstr-api.xyz#JP-45.142.165.23-2423%5Cr
     trojan://MhPG7g9x2Etb4Hspsb@os2-7.sstr-api.xyz:443?allowInsecure=1&sni=os2-7.sstr-api.xyz#JP-45.142.165.27-0152%5Cr
     vmess://ewogICJ2IjogMiwKICAicHMiOiAiSEstMTMuNzAuMC42Ni00MjkxIiwKICAiYWRkIjogImNoaW5hLWY0cy1hei1oay44OTg4NjgueHl6IiwKICAicG9ydCI6IDU0OTc1LAogICJpZCI6ICIzYjA3NDQ3ZS05NGNmLTRkNzItOTZjNi1kMGE1MzkwOTgwNDkiLAogICJhaWQiOiAwLAogICJzY3kiOiAiYXV0byIsCiAgIm5ldCI6ICJ3cyIsCiAgInR5cGUiOiBudWxsLAogICJob3N0IjogImNoaW5hLWY0cy1hei1oay44OTg4NjgueHl6IiwKICAicGF0aCI6ICIvIiwKICAidGxzIjogZmFsc2UsCiAgInNuaSI6ICIiCn0=
     trojan://OcABzr5wEG@s2.kaxff.com:32432?allowInsecure=1&sni=s2.kaxff.com#SG-168.138.162.186-3819%5Cr
     ss://YWVzLTI1Ni1nY206cEtFVzhKUEJ5VFZUTHRNQDE0NS4yMzkuNy4xNjQ6NDQz#GB-145.239.7.164-0606%5Cr
     trojan://MhPG7g9x2Etb4Hspsb@os2-6.sstr-api.xyz:443?allowInsecure=1&sni=os2-6.sstr-api.xyz#JP-45.142.165.26-3700%5Cr
-    trojan://MhPG7g9x2Etb4Hspsb@os2-5.sstr-api.xyz:443?allowInsecure=0&sni=os2-5.sstr-api.xyz#JP-45.142.165.25-2403%5Cr
+    trojan://MhPG7g9x2Etb4Hspsb@os2-5.sstr-api.xyz:443?allowInsecure=1&sni=os2-5.sstr-api.xyz#JP-45.142.165.25-2403%5Cr
     vmess://ewogICJ2IjogMiwKICAicHMiOiAiSEstNDkuMjM0LjE0LjQ1LTM4MzIiLAogICJhZGQiOiAidHcuZ3MxMDI0LmNvbSIsCiAgInBvcnQiOiAyMDc2MiwKICAiaWQiOiAiOTM5YjhjNzQtMzQ5OS0zZGFiLWIwOTItM2JiMDVmYjJmMjU5IiwKICAiYWlkIjogMCwKICAic2N5IjogImF1dG8iLAogICJuZXQiOiAidGNwIiwKICAidHlwZSI6IG51bGwsCiAgImhvc3QiOiAidHcuZ3MxMDI0LmNvbSIsCiAgInBhdGgiOiAiLyIsCiAgInRscyI6IGZhbHNlLAogICJzbmkiOiAiIgp9
     ss://YWVzLTI1Ni1nY206WTZSOXBBdHZ4eHptR0NAMzguOTEuMTAwLjEwMjozMzg5#US-38.91.100.102-0525%5Cr
     ss://YWVzLTI1Ni1nY206ZmFCQW9ENTRrODdVSkc3QDM4LjkxLjEwMC4xMDI6MjM3NQ==#US-38.91.100.102-0615%5Cr
@@ -69,29 +69,29 @@
     ss://YWVzLTI1Ni1nY206WTZSOXBBdHZ4eHptR0NAMTk4LjU3LjI3LjE3MjozMzA2#CA-198.57.27.172-0642%5Cr
     ss://YWVzLTI1Ni1nY206WTZSOXBBdHZ4eHptR0NAMTk4LjU3LjI3LjIxODozMzg5#CA-198.57.27.218-0628%5Cr
     trojan://6593b778-e45e-4f94-b5ae-641d4b7b02ae@26.earths.team:443?allowInsecure=1&sni=26.earths.team#HK-16.162.160.70-3884%5Cr
-    trojan://6593b778-e45e-4f94-b5ae-641d4b7b02ae@16.162.160.70:443?allowInsecure=1#US%2B%7C%2B84%0D
+    trojan://6593b778-e45e-4f94-b5ae-641d4b7b02ae@16.162.160.70:443?allowInsecure=1#US%2B%7C%2B84%5Cr
     trojan://b3d27d09-77fe-431d-9829-6eba7dce20b0@26.earths.team:443?allowInsecure=1&sni=26.earths.team#HK-16.162.160.70-3729%5Cr
     
 
 </details>
 
 ### 鸣谢名单
-当前合并节点总数: `4524`
-- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `123`
+当前合并节点总数: `4152`
+- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `120`
 - [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `68`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `339`
 - [freefq/free](https://github.com/freefq/free), 节点数量: `22`
-- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `439`
-- [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `202`
-- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `33`
+- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `370`
+- [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `7`
+- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `34`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), 节点数量: `67`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `91`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `1103`
 - [umelabs/node.umelabs.dev](https://github.com/umelabs/node.umelabs.dev), 节点数量: `2`
 - [git-yusteven/openit](https://github.com/git-yusteven/openit), 节点数量: `63`
 - [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), 节点数量: `57`
-- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `828`
-- [电报群分享:https://t.me/abc999222/392205](https://t.me/abc999222/392205), 节点数量: `124`
+- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `740`
+- [电报群分享:https://t.me/abc999222/392205](https://t.me/abc999222/392205), 节点数量: `122`
 - [电报群分享:https://t.me/abc999222/392133](https://t.me/abc999222/392133), 节点数量: `18`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `43`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `157`
@@ -100,7 +100,7 @@
 - [Mattkaydiary](https://www.mattkaydiary.com), 节点数量: `67`
 - [v2raydy/v2ray](https://github.com/v2raydy/v2ray), 节点数量: `125`
 - [ObcbO/auto-subscribe](https://github.com/ObcbO/auto-subscribe), 节点数量: `157`
-- [电报群分享(https://t.me/Jsnzk/4664)节点池](https://pool.jinxnet.xyz), 节点数量: `121`
+- [电报群分享(https://t.me/Jsnzk/4664)节点池](https://pool.jinxnet.xyz), 节点数量: `105`
 
 ## 客户端选择
 ### 主流桌面客户端
