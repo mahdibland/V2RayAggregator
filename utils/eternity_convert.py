@@ -73,7 +73,7 @@ def eternity_convert(content, config, output, provider_file_enabled=True):
             provider_all = open(providers_files[key], 'w', encoding= 'utf-8')
             provider_all.write(eternity_providers[key])
             provider_all.close()
-        print('Done!')
+        print('Done!\n')
 
     # 创建完全配置的Eternity.yml
     config_f = open(config_file, 'r', encoding='utf-8')
