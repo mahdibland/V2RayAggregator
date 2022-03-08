@@ -13,7 +13,10 @@ proxy-groups:
     proxies:
       - 自动选择
       - 手动选择
-      - 国家选择
+      - 美国节点
+      - 香港节点
+      - 狮城节点
+      - 其他国家
       - 负载均衡
       - 失败切换
       - DIRECT
@@ -80,13 +83,6 @@ proxy-groups:
       - 香港节点
       - 狮城节点
       - DIRECT
-  - name: 国家选择
-    type: select
-    proxies:
-      - 美国节点
-      - 狮城节点
-      - 香港节点
-      - 其他国家
   - name: 美国节点
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
@@ -206,11 +202,11 @@ rules:
   - RULE-SET,Apple,苹果服务
   - RULE-SET,iCloud,苹果服务
   - RULE-SET,Microsoft,微软服务
+  - RULE-SET,GlobalMedia,全球媒体
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Twitter,社交服务
   - RULE-SET,Telegram,社交服务
-  - RULE-SET,GlobalMedia,全球媒体
-  - RULE-SET,Proxy,节点选择
 
-  - GEOIP,CN,DIRECT # GeoIP2 数据库 from Hackl0us/GeoIP2-CN
+  - GEOIP,CN,DIRECT
+  - RULE-SET,Proxy,节点选择
   - MATCH,漏网之鱼
