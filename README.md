@@ -79,31 +79,31 @@
 </details>
 
 ### 鸣谢名单
-当前合并节点总数: `4952`
+当前合并节点总数: `4834`
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `61`
-- [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `22`
+- [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `42`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `330`
 - [freefq/free](https://github.com/freefq/free), 节点数量: `11`
-- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `170`
+- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `183`
 - [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `100`
-- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `75`
+- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `61`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), 节点数量: `67`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `53`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `1204`
 - [umelabs/node.umelabs.dev](https://github.com/umelabs/node.umelabs.dev), 节点数量: `2`
-- [git-yusteven/openit](https://github.com/git-yusteven/openit), 节点数量: `77`
+- [git-yusteven/openit](https://github.com/git-yusteven/openit), 节点数量: `107`
 - [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), 节点数量: `57`
-- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `1173`
+- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `1166`
 - [电报群分享:https://t.me/abc999222/392205](https://t.me/abc999222/392205), 节点数量: `132`
 - [电报群分享:https://t.me/abc999222/392133](https://t.me/abc999222/392133), 节点数量: `18`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `0`
-- [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `149`
+- [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `87`
 - [wrfree/free](https://github.com/wrfree/free), 节点数量: `11`
 - [ThekingMX1998/free-v2ray-code](https://github.com/ThekingMX1998/free-v2ray-code), 节点数量: `48`
 - [Mattkaydiary](https://www.mattkaydiary.com), 节点数量: `67`
 - [v2raydy/v2ray](https://github.com/v2raydy/v2ray), 节点数量: `125`
 - [ObcbO/auto-subscribe](https://github.com/ObcbO/auto-subscribe), 节点数量: `149`
-- [电报群分享(https://t.me/Jsnzk/4664)节点池](https://pool.jinxnet.xyz), 节点数量: `809`
+- [电报群分享(https://t.me/Jsnzk/4664)节点池](https://pool.jinxnet.xyz), 节点数量: `711`
 
 ## 客户端选择
 ### 主流桌面客户端
