@@ -20,12 +20,6 @@ proxy-groups:
       - 负载均衡
       - 失败切换
       - DIRECT
-  - name: 自动选择
-    type: url-test
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-    tolerance: 50
-    proxies:
   - name: 手动选择
     type: select
     proxies:
@@ -33,6 +27,10 @@ proxy-groups:
     type: select
     proxies:
       - 节点选择
+      - 美国节点
+      - 香港节点
+      - 狮城节点
+      - 其他国家
       - REJECT
       - DIRECT
   - name: 社交服务
@@ -102,6 +100,12 @@ proxy-groups:
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
+    proxies:
+  - name: 自动选择
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 50
     proxies:
   - name: 负载均衡
     type: load-balance
