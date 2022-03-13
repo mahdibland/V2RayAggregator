@@ -102,8 +102,8 @@ class sub_merge():
         # 获得当前名单及各仓库节点数量
         with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
             total = len(f.readlines())
-            total = f'当前合并节点总数: `{total}`\n'
-        thanks = [total]
+            total = f'合并节点总数: `{total}`\n'
+        thanks = []
         repo_amount_dic = {}
         for repo in sub_list:
             line = ''
@@ -127,7 +127,7 @@ class sub_merge():
 
         # 鸣谢名单打印
         for index in range(len(lines)):
-            if lines[index] == '### 鸣谢名单\n':
+            if lines[index] == '### 节点来源\n':
                 # 清除旧内容
                 while lines[index+1] != '\n':
                     lines.pop(index+1)
@@ -136,15 +136,34 @@ class sub_merge():
                     index +=1
                     lines.insert(index, i)
                 break
-
-        # 当前节点打印
+        # 合并节点打印
         for index in range(len(lines)):
-            if lines[index] == '  <summary>展开复制节点</summary>\n': # 目标行内容
+            if lines[index] == '### 所有节点\n': # 目标行内容
                 # 清除旧内容
-                lines.pop(index-3) # 删除节点数量
-                index -= 1 # 使 index 所指内容不变
-                while lines[index+2] != '\n':
-                    lines.pop(index+2)
+                lines.pop(index+1) # 删除节点数量
+                while lines[index+4] != '\n':
+                    lines.pop(index+4)
+
+                with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
+                    proxies = f.read()
+                    proxies = proxies.split('\n')
+                    proxies = ['    '+proxy for proxy in proxies]
+                    proxies = [proxy+'\n' for proxy in proxies]
+                top_amount = len(proxies) - 1
+                
+                lines.insert(index+1, f'合并节点数量: `{top_amount}`\n')
+                index += 4
+                for i in proxies:
+                    index += 1
+                    lines.insert(index, i)
+                break
+        # 高速节点打印
+        for index in range(len(lines)):
+            if lines[index] == '### 高速节点\n': # 目标行内容
+                # 清除旧内容
+                lines.pop(index+1) # 删除节点数量
+                while lines[index+4] != '\n':
+                    lines.pop(index+4)
 
                 with open('./Eternity', 'r', encoding='utf-8') as f:
                     proxies_base64 = f.read()
@@ -154,8 +173,8 @@ class sub_merge():
                     proxies = [proxy+'\n' for proxy in proxies]
                 top_amount = len(proxies) - 1
                 
-                lines.insert(index-2, f'当前节点数量: `{top_amount}`\n')
-                index += 2
+                lines.insert(index+1, f'高速节点数量: `{top_amount}`\n')
+                index += 4
                 for i in proxies:
                     index += 1
                     lines.insert(index, i)
@@ -168,10 +187,10 @@ class sub_merge():
             f.write(data)
 
 if __name__ == '__main__':
-    update_url.update_main([0,21,22])
-    sub_merge.geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
+    #update_url.update_main([0,21,22])
+    #sub_merge.geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
     sub_list = sub_merge.read_list(sub_list_json)
-    sub_list_remote = sub_merge.read_list(sub_list_json,True)
-    sub_merge.sub_merge(sub_list_remote)
+    #sub_list_remote = sub_merge.read_list(sub_list_json,True)
+    #sub_merge.sub_merge(sub_list_remote)
     sub_merge.readme_update(readme,sub_list)
