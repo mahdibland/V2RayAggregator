@@ -85,12 +85,12 @@
 </details>
 
 ### 鸣谢名单
-当前合并节点总数: `4239`
+当前合并节点总数: `3082`
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `60`
 - [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `11`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `314`
 - [freefq/free](https://github.com/freefq/free), 节点数量: `17`
-- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `209`
+- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `195`
 - [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `100`
 - [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `7`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), 节点数量: `59`
@@ -99,7 +99,7 @@
 - [umelabs/node.umelabs.dev](https://github.com/umelabs/node.umelabs.dev), 节点数量: `2`
 - [git-yusteven/openit](https://github.com/git-yusteven/openit), 节点数量: `57`
 - [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), 节点数量: `14`
-- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `1513`
+- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `370`
 - [电报群分享:https://t.me/abc999222/392205](https://t.me/abc999222/392205), 节点数量: `132`
 - [电报群分享:https://t.me/abc999222/392133](https://t.me/abc999222/392133), 节点数量: `18`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `0`
