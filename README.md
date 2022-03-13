@@ -58,14 +58,6 @@
 ### 所有节点
 合并节点数量: `4709`
 [节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
-<<<<<<< HEAD
-=======
-<details>
-  <summary>展开复制节点</summary>
-
-
-</details>
->>>>>>> 037db8382339c6f214e6868624e7d37ab263a047
 
 ### 节点来源
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `77`
