@@ -25,20 +25,20 @@ class sub_convert():
             dict
     第二步堆栈:
         dict
-        format --> convert --> makeup --> format
+        convert --> makeup --> format
         yaml_final
     第三步堆栈:
         YAML To YAML:
             yaml_final
-            format --> makeup --> convert
+            makeup --> convert
             yaml_final
         YAML To URL:
             yaml_final
-            format --> makeup --> yaml_decode --> convert
+            makeup --> yaml_decode --> convert
             url_final
         YAML To Base64:
             yaml_final
-            format --> makeup --> yaml_decode --> base64_encode --> convert
+            makeup --> yaml_decode --> base64_encode --> convert
             base64_final
     """
 
@@ -593,11 +593,52 @@ class sub_convert():
             base64_content_format = base64_content
             return base64_content
 
+    def convert_remote(url='', output_type='clash', host='https://api.v1.mk'): #{url='订阅链接', output_type={'clash': 输出 Clash 配置, 'base64': 输出 Base64 配置, 'url': 输出 url 配置}, host='远程订阅转化服务地址'}
+        # 使用远程订阅转换服务，输出相应配置。
+        sever_host = host
+        url = urllib.parse.quote(url, safe='') # https://docs.python.org/zh-cn/3/library/urllib.parse.html
+        if output_type == 'clash':
+            converted_url = sever_host+'/sub?target=clash&url='+url+'&insert=false&config=https%3A%2F%2Fraw.nameless13.com%2Fapi%2Fpublic%2Fdl%2FzKF9vFbb%2Feasy.ini'
+            try:
+                resp = requests.get(converted_url)
+            except Exception as err:
+                print(err)
+                return 'Url 解析错误'
+            if resp.text == 'No nodes were found!':
+                sub_content = 'Url 解析错误'
+            else:
+                sub_content = sub_convert.makeup(sub_convert.format(resp.text), dup_rm_enabled=False, format_name_enabled=True)
+        elif output_type == 'base64':
+            converted_url = sever_host+'/sub?target=mixed&url='+url+'&insert=false&config=https%3A%2F%2Fraw.nameless13.com%2Fapi%2Fpublic%2Fdl%2FzKF9vFbb%2Feasy.ini'
+            try:
+                resp = requests.get(converted_url)
+            except Exception as err:
+                print(err)
+                return 'Url 解析错误'
+            if resp.text == 'No nodes were found!':
+                sub_content = 'Url 解析错误'
+            else:
+                sub_content = resp.text
+        elif output_type == 'url':
+            converted_url = sever_host+'/sub?target=mixed&url='+url+'&insert=false&config=https%3A%2F%2Fraw.nameless13.com%2Fapi%2Fpublic%2Fdl%2FzKF9vFbb%2Feasy.ini'
+            try:
+                resp = requests.get(converted_url)
+            except Exception as err:
+                print(err)
+                return 'Url 解析错误'
+            if resp.text == 'No nodes were found!':
+                sub_content = 'Url 解析错误'
+            else:
+                sub_content = sub_convert.base64_decode(resp.text)
+
+        return sub_content
+
+
 if __name__ == '__main__':
-    subscribe = 'https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg'
+    subscribe = 'https://www.abrnya.com/ssr/ssr.txt'
     output_path = './output.txt'
 
-    content = sub_convert.convert(subscribe, 'url', 'YAML')
+    content = sub_convert.convert_remote(subscribe, 'url')
 
     file = open(output_path, 'w', encoding= 'utf-8')
     file.write(content)
