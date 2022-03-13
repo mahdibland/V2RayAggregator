@@ -28,10 +28,15 @@ class sub_merge():
             remarks = url_list[index]['remarks']
             #try:
             if content == 'Url 解析错误':
+                content = sub_convert.convert(sub_merge.read_list(sub_list_json)[index]['url'],'url','url')
+                if content != 'Url 解析错误':
+                    content_list.append(content)
+                    print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+                else:
+                    print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding= 'utf-8')
                 file.write('Url 解析错误')
                 file.close()
-                print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
             elif content == 'Url 订阅内容无法解析':
                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding= 'utf-8')
                 file.write('Url 订阅内容无法解析')

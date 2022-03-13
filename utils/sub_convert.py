@@ -635,7 +635,7 @@ class sub_convert():
 
 
 if __name__ == '__main__':
-    subscribe = 'https://www.abrnya.com/ssr/ssr.txt'
+    subscribe = 'https://drive.google.com/uc?export=download&id=13Ky0JMPNnisBkUOrl57VQ1ckrUWy4Nhi'
     output_path = './output.txt'
 
     content = sub_convert.convert_remote(subscribe, 'url')
