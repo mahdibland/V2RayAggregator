@@ -23,7 +23,7 @@ class sub_merge():
 
         content_list = []
         for index in range(len(url_list)):
-            content = sub_convert.convert(url_list[index]['url'],'url','url')
+            content = sub_convert.convert_remote(url_list[index]['url'],'url')
             ids = url_list[index]['id']
             remarks = url_list[index]['remarks']
             #try:
@@ -52,8 +52,8 @@ class sub_merge():
         print('Merging nodes...\n')
         content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
         content_yaml = sub_convert.convert(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
-        content_base64 = sub_convert.convert(content_yaml,'content','Base64')
-        content = sub_convert.convert(content_yaml,'content','url')
+        content_base64 = sub_convert.base64_encode(content_yaml)
+        content = content_raw
 
         def content_write(file, output_type):
             file = open(file, 'w', encoding = 'utf-8')
@@ -64,15 +64,18 @@ class sub_merge():
         content_type = (content, content_base64, content_yaml)
         for index in range(len(write_list)):
             content_write(write_list[index], content_type[index])
-        print('Done!')
+        print('Done!\n')
 
-    def read_list(json_file): # 将 sub_list.json Url 内容读取为列表
+    def read_list(json_file,remote=False): # 将 sub_list.json Url 内容读取为列表
         with open(json_file, 'r', encoding='utf-8') as f:
             raw_list = json.load(f)
         input_list = []
         for index in range(len(raw_list)):
             if raw_list[index]['enabled']:
-                urls = re.split('\|',raw_list[index]['url'])
+                if remote == False:
+                    urls = re.split('\|',raw_list[index]['url'])
+                else:
+                    urls = raw_list[index]['url']
                 raw_list[index]['url'] = urls
                 input_list.append(raw_list[index])
         return input_list
@@ -160,9 +163,10 @@ class sub_merge():
             f.write(data)
 
 if __name__ == '__main__':
-    update_url.update_main([0,21,22])
-    sub_merge.geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
+    #update_url.update_main([0,21,22])
+    #sub_merge.geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
     sub_list = sub_merge.read_list(sub_list_json)
-    sub_merge.sub_merge(sub_list)
+    sub_list_remote = sub_merge.read_list(sub_list_json,True)
+    sub_merge.sub_merge(sub_list_remote)
     sub_merge.readme_update(readme,sub_list)
