@@ -85,7 +85,7 @@
 </details>
 
 ### 鸣谢名单
-当前合并节点总数: `4653`
+当前合并节点总数: `4712`
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `77`
 - [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `11`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `320`
