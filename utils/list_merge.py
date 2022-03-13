@@ -126,6 +126,7 @@ class sub_merge():
                 thanks.append(line)
 
         # 鸣谢名单打印
+        
         for index in range(len(lines)):
             if lines[index] == '### 节点来源\n':
                 # 清除旧内容
@@ -152,10 +153,13 @@ class sub_merge():
                 top_amount = len(proxies) - 1
                 
                 lines.insert(index+1, f'合并节点数量: `{top_amount}`\n')
-                index += 4
+                lines.insert(index+2, '[节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)\n')
+                """
+                index += 5
                 for i in proxies:
                     index += 1
                     lines.insert(index, i)
+                """
                 break
         # 高速节点打印
         for index in range(len(lines)):
