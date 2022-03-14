@@ -52,7 +52,7 @@
 </details>
 
 ### 所有节点
-合并节点数量: `4140`
+合并节点数量: `3150`
 [节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### 节点来源
