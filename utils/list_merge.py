@@ -98,68 +98,34 @@ class sub_merge():
         print('更新 README.md 中')
         with open(readme_file, 'r', encoding='utf-8') as f:
             lines = f.readlines()
-
+            f.close()
         # 获得当前名单及各仓库节点数量
         with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
             total = len(f.readlines())
             total = f'合并节点总数: `{total}`\n'
-        thanks = []
-        repo_amount_dic = {}
-        for repo in sub_list:
-            line = ''
-            if repo['enabled'] == True:
-                id = repo['id']
-                remarks = repo['remarks']
-                repo_site = repo['site']
+            thanks = []
+            repo_amount_dic = {}
+            for repo in sub_list:
+                line = ''
+                if repo['enabled'] == True:
+                    id = repo['id']
+                    remarks = repo['remarks']
+                    repo_site = repo['site']
 
-                sub_file = f'./sub/list/{id:0>2d}.txt'
-                with open(sub_file, 'r', encoding='utf-8') as f:
-                    proxies = f.readlines()
-                    if proxies == ['Url 解析错误'] or proxies == ['订阅内容解析错误']:
-                        amount = 0
-                    else:
-                        amount = len(proxies)
-                
-                repo_amount_dic.setdefault(id, amount)
-                line = f'- [{remarks}]({repo_site}), 节点数量: `{amount}`\n'
-            if id != 12:
-                thanks.append(line)
-
-        # 鸣谢名单打印
+                    sub_file = f'./sub/list/{id:0>2d}.txt'
+                    with open(sub_file, 'r', encoding='utf-8') as f:
+                        proxies = f.readlines()
+                        if proxies == ['Url 解析错误'] or proxies == ['订阅内容解析错误']:
+                            amount = 0
+                        else:
+                            amount = len(proxies)
+                        f.close()
+                    repo_amount_dic.setdefault(id, amount)
+                    line = f'- [{remarks}]({repo_site}), 节点数量: `{amount}`\n'
+                if id != 12:
+                    thanks.append(line)
+            f.close()
         
-        for index in range(len(lines)):
-            if lines[index] == '### 节点来源\n':
-                # 清除旧内容
-                while lines[index+1] != '\n':
-                    lines.pop(index+1)
-
-                for i in thanks:
-                    index +=1
-                    lines.insert(index, i)
-                break
-        # 合并节点打印
-        for index in range(len(lines)):
-            if lines[index] == '### 所有节点\n': # 目标行内容
-                # 清除旧内容
-                lines.pop(index+1) # 删除节点数量
-                while lines[index+4] != '\n':
-                    lines.pop(index+4)
-
-                with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
-                    proxies = f.read()
-                    proxies = proxies.split('\n')
-                    proxies = ['    '+proxy for proxy in proxies]
-                    proxies = [proxy+'\n' for proxy in proxies]
-                top_amount = len(proxies) - 1
-                
-                lines.insert(index+1, f'合并节点数量: `{top_amount}`\n')
-                """
-                index += 5
-                for i in proxies:
-                    index += 1
-                    lines.insert(index, i)
-                """
-                break
         # 高速节点打印
         for index in range(len(lines)):
             if lines[index] == '### 高速节点\n': # 目标行内容
@@ -182,6 +148,46 @@ class sub_merge():
                     index += 1
                     lines.insert(index, i)
                 break
+        # 所有节点打印
+        for index in range(len(lines)):
+            if lines[index] == '### 所有节点\n': # 目标行内容
+                # 清除旧内容
+                lines.pop(index+1) # 删除节点数量
+
+                with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
+                    proxies = f.read()
+                    proxies = proxies.split('\n')
+                    top_amount = len(proxies) - 1
+                    f.close()
+                lines.insert(index+1, f'合并节点总数: `{top_amount}`\n')
+                """
+                with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
+                    proxies = f.read()
+                    proxies = proxies.split('\n')
+                    proxies = ['    '+proxy for proxy in proxies]
+                    proxies = [proxy+'\n' for proxy in proxies]
+                top_amount = len(proxies) - 1
+                
+                lines.insert(index+1, f'合并节点数量: `{top_amount}`\n')
+                
+                index += 5
+                for i in proxies:
+                    index += 1
+                    lines.insert(index, i)
+                """
+                break
+        # 节点来源打印
+        for index in range(len(lines)):
+            if lines[index] == '### 节点来源\n':
+                # 清除旧内容
+                while lines[index+1] != '\n':
+                    lines.pop(index+1)
+
+                for i in thanks:
+                    index +=1
+                    lines.insert(index, i)
+                break
+
 
         # 写入 README 内容
         with open(readme_file, 'w', encoding='utf-8') as f:

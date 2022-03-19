@@ -3,6 +3,8 @@
 
 ![Watchers](https://img.shields.io/github/watchers/alanbobs999/topfreeproxies) ![Stars](https://img.shields.io/github/stars/alanbobs999/topfreeproxies) ![Forks](https://img.shields.io/github/forks/alanbobs999/topfreeproxies) ![Vistors](https://visitor-badge.laobi.icu/badge?page_id=alanbobs999.topfreeproxies)
 
+[仓库介绍](https://github.com/alanbobs999/TopFreeProxies#仓库介绍) | [使用方法](https://github.com/alanbobs999/TopFreeProxies#使用方法) | [节点信息](https://github.com/alanbobs999/TopFreeProxies#节点信息) | [软件推荐](https://github.com/alanbobs999/TopFreeProxies#客户端选择) | [机场推荐](https://github.com/alanbobs999/TopFreeProxies#机场推荐) | [捐助作者](https://github.com/alanbobs999/TopFreeProxies#捐助作者) | [仓库声明](https://github.com/alanbobs999/TopFreeProxies#仓库声明)
+
 ## 仓库介绍
 对网络上各免费节点池及博主分享的节点进行测速筛选出较为稳定高速的节点，再导入到仓库中进行分享记录。所筛选的节点链接在仓库`./sub/sub_list.json`文件中，其中大部分为其他`GitHub`仓库链接，如果大家有好的订阅链接欢迎提交 PR ，这些链接包含的所有节点合并在仓库`./sub/sub_merge.txt`中。
 
@@ -85,10 +87,34 @@
 </details>
 
 ### 所有节点
-合并节点数量: `2900`
+合并节点总数: `2900`
 [节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### 节点来源
+- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `89`
+- [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `38`
+- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `256`
+- [freefq/free](https://github.com/freefq/free), 节点数量: `23`
+- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `191`
+- [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `100`
+- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `8`
+- [oslook/clash-freenode](https://github.com/oslook/clash-freenode), 节点数量: `59`
+- [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `51`
+- [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `933`
+- [umelabs/node.umelabs.dev](https://github.com/umelabs/node.umelabs.dev), 节点数量: `5`
+- [git-yusteven/openit](https://github.com/git-yusteven/openit), 节点数量: `0`
+- [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), 节点数量: `14`
+- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `4`
+- [电报群分享:https://t.me/abc999222/392205](https://t.me/abc999222/392205), 节点数量: `0`
+- [电报群分享:https://t.me/abc999222/392133](https://t.me/abc999222/392133), 节点数量: `17`
+- [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `179`
+- [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `136`
+- [wrfree/free](https://github.com/wrfree/free), 节点数量: `23`
+- [ThekingMX1998/free-v2ray-code](https://github.com/ThekingMX1998/free-v2ray-code), 节点数量: `239`
+- [Mattkaydiary](https://www.mattkaydiary.com), 节点数量: `0`
+- [v2raydy/v2ray](https://github.com/v2raydy/v2ray), 节点数量: `125`
+- [ObcbO/auto-subscribe](https://github.com/ObcbO/auto-subscribe), 节点数量: `139`
+- [电报群分享(https://t.me/Jsnzk/4664)节点池](https://pool.jinxnet.xyz), 节点数量: `136`
 
 ## 客户端选择
 ### 主流桌面客户端
@@ -118,12 +144,17 @@
 |                              ×                               | [ShadowsocksR-android](https://github.com/HMBSbige/ShadowsocksR-Android/releases) | SSR协议支持，安卓专用 SSR 客户端。                                                |
 |                              ×                               |     [V2rayNG](https://github.com/2dust/v2rayNG/releases)     | SS, Trojan, Vmess, VLESS协议支持，v2ray 内核。                           |
 
-## 捐助作者
-如果您觉得此项目对您有帮助，并且您愿意给予我一点小小的支持，您可以通过以下方式向我捐助，这样可以维持项目持续地发展，非常感谢！
-
-| Alipay | Wechat | [Ethereum](https://etherscan.io/address/0xa7736a92aca8325c1f57664ee9453d465343eabe) |
-| :------: | :------: | :------: | 
-| <img width="150" src="./utils/donate/alipay.png"> | <img width="150" src="./utils/donate/wechat.png"> | <img width="150" src="./utils/donate/ethereum.png"> | 
+## 机场推荐
+免费节点失效太快，推荐一些性价比高的机场应急使用。
+- [魔戒.net](https://www.mojie.cyou/#/register?code=sAbl0qtT)
+  - 按量计费机场，1元10G，10元130G
+  - 所有套餐均是一样的节点与一样的服务，所有套餐流量永不过期，用完为止，不限制客户端数量，最高可提供 2Gbps 峰值。
+- [大迅云](https://daxun.club/#/register?code=JPmAFPav)
+  - 最低月付 5元50G，购买 12 元及以上套餐免费领取奈飞 + 迪士尼 Plus 共享号
+  - 原生IP负载均衡，流媒体解锁晚高峰油管秒开，主打性价比，有试用
+- [PeaceCloud](https://peachcloud.cc/#/register?code=sVwFqpTT)
+  - 最低月付 3元30G中转流量，6元100G
+  - 全线广州移动中转，另有 0.1 倍率直连线路 Azure/AWS，不解锁流媒体
 
 ## 仓库声明
 订阅节点仅作学习交流使用，只是对网络上节点的优选排序，用于查找资料，学习知识，不做任何违法行为。所有资源均来自互联网，仅供大家交流学习使用，出现违法问题概不负责。
