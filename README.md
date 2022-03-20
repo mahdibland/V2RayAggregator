@@ -3,7 +3,7 @@
 
 ![Watchers](https://img.shields.io/github/watchers/alanbobs999/topfreeproxies) ![Stars](https://img.shields.io/github/stars/alanbobs999/topfreeproxies) ![Forks](https://img.shields.io/github/forks/alanbobs999/topfreeproxies) ![Vistors](https://visitor-badge.laobi.icu/badge?page_id=alanbobs999.topfreeproxies)
 
-[仓库介绍](https://github.com/alanbobs999/TopFreeProxies#仓库介绍) | [使用方法](https://github.com/alanbobs999/TopFreeProxies#使用方法) | [节点信息](https://github.com/alanbobs999/TopFreeProxies#节点信息) | [软件推荐](https://github.com/alanbobs999/TopFreeProxies#客户端选择) | [机场推荐](https://github.com/alanbobs999/TopFreeProxies#机场推荐) | [捐助作者](https://github.com/alanbobs999/TopFreeProxies#捐助作者) | [仓库声明](https://github.com/alanbobs999/TopFreeProxies#仓库声明)
+[仓库介绍](https://github.com/alanbobs999/TopFreeProxies#仓库介绍) | [使用方法](https://github.com/alanbobs999/TopFreeProxies#使用方法) | [节点信息](https://github.com/alanbobs999/TopFreeProxies#节点信息) | [软件推荐](https://github.com/alanbobs999/TopFreeProxies#客户端选择) | [机场推荐](https://github.com/alanbobs999/TopFreeProxies#机场推荐) | [仓库声明](https://github.com/alanbobs999/TopFreeProxies#仓库声明)
 
 ## 仓库介绍
 对网络上各免费节点池及博主分享的节点进行测速筛选出较为稳定高速的节点，再导入到仓库中进行分享记录。所筛选的节点链接在仓库`./sub/sub_list.json`文件中，其中大部分为其他`GitHub`仓库链接，如果大家有好的订阅链接欢迎提交 PR ，这些链接包含的所有节点合并在仓库`./sub/sub_merge.txt`中。
@@ -87,34 +87,34 @@
 </details>
 
 ### 所有节点
-合并节点总数: `2900`
+合并节点总数: `2799`
 [节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### 节点来源
-- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `89`
-- [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `38`
-- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `256`
-- [freefq/free](https://github.com/freefq/free), 节点数量: `23`
-- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `191`
+- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `75`
+- [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `40`
+- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `167`
+- [freefq/free](https://github.com/freefq/free), 节点数量: `20`
+- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `163`
 - [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `100`
-- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `8`
+- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `12`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), 节点数量: `59`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `51`
-- [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `933`
+- [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `931`
 - [umelabs/node.umelabs.dev](https://github.com/umelabs/node.umelabs.dev), 节点数量: `5`
 - [git-yusteven/openit](https://github.com/git-yusteven/openit), 节点数量: `0`
 - [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), 节点数量: `14`
-- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `4`
+- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `85`
 - [电报群分享:https://t.me/abc999222/392205](https://t.me/abc999222/392205), 节点数量: `0`
-- [电报群分享:https://t.me/abc999222/392133](https://t.me/abc999222/392133), 节点数量: `17`
-- [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `179`
-- [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `136`
-- [wrfree/free](https://github.com/wrfree/free), 节点数量: `23`
-- [ThekingMX1998/free-v2ray-code](https://github.com/ThekingMX1998/free-v2ray-code), 节点数量: `239`
+- [电报群分享:https://t.me/abc999222/392133](https://t.me/abc999222/392133), 节点数量: `0`
+- [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `177`
+- [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `146`
+- [wrfree/free](https://github.com/wrfree/free), 节点数量: `20`
+- [ThekingMX1998/free-v2ray-code](https://github.com/ThekingMX1998/free-v2ray-code), 节点数量: `155`
 - [Mattkaydiary](https://www.mattkaydiary.com), 节点数量: `0`
 - [v2raydy/v2ray](https://github.com/v2raydy/v2ray), 节点数量: `125`
-- [ObcbO/auto-subscribe](https://github.com/ObcbO/auto-subscribe), 节点数量: `139`
-- [电报群分享(https://t.me/Jsnzk/4664)节点池](https://pool.jinxnet.xyz), 节点数量: `136`
+- [ObcbO/auto-subscribe](https://github.com/ObcbO/auto-subscribe), 节点数量: `146`
+- [电报群分享(https://t.me/Jsnzk/4664)节点池](https://pool.jinxnet.xyz), 节点数量: `201`
 
 ## 客户端选择
 ### 主流桌面客户端
