@@ -136,7 +136,7 @@ class sub_merge():
 
                 with open('./Eternity', 'r', encoding='utf-8') as f:
                     proxies_base64 = f.read()
-                    proxies = sub_convert.convert(proxies_base64,'content','url')
+                    proxies = sub_convert.base64_decode(proxies_base64)
                     proxies = proxies.split('\n')
                     proxies = ['    '+proxy for proxy in proxies]
                     proxies = [proxy+'\n' for proxy in proxies]
