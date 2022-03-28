@@ -5,319 +5,355 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: US_140, server: us2.tcpbbr.net, port: 443, type: trojan, password: 5a3d9b78-cb5b-11ea-82ef-f23c9164ca5d, sni: us2.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: ZZ_225, server: 134.195.196.3, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
-  - {name: _12.94Mb, server: 183.232.56.161, port: 1612, type: vmess, uuid: 3a226645-c640-39a2-8177-000381e29f20, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: 183.232.56.161}, udp: true}
-  - {name: Relay_中国-香港_364, server: 183.232.56.161, port: 1615, type: vmess, uuid: 3a226645-c640-39a2-8177-000381e29f20, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: microsoft.com}, udp: true}
-  - {name: HK-183.232.56.161-15, server: 183.232.56.161, port: 1101, type: vmess, uuid: 3a226645-c640-39a2-8177-000381e29f20, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: 183.232.56.161}, udp: true}
-  - {name: 美国(绿头外网集团)(Public), server: 183.232.56.161, port: 1704, type: vmess, uuid: 3a226645-c640-39a2-8177-000381e29f20, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: 183.232.56.161}, udp: true}
-  - {name: CA_油管 TG 8度科技, server: 134.195.196.51, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, udp: true}
-  - {name: CA_油管 TG 8度科技 2, server: 134.195.196.51, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27, udp: true}
-  - {name: CA_油管 TG 8度科技 3, server: 134.195.196.51, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
-  - {name: HK_38, server: ssl.tcpbbr.net, port: 443, type: trojan, password: 5a3d9b78-cb5b-11ea-82ef-f23c9164ca5d, sni: ssl.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: RO_60, server: jp.tcpbbr.net, port: 443, type: trojan, password: 2e5f2a78-14d8-11eb-ad8c-f23c9164ca5d, sni: jp.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: RO_61, server: jp.tcpbbr.net, port: 443, type: trojan, password: 08d178d4-ec8b-11eb-a8bf-f23c91cfbbc9, sni: jp.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: RO_62, server: jp.tcpbbr.net, port: 443, type: trojan, password: 5a3d9b78-cb5b-11ea-82ef-f23c9164ca5d, sni: jp.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: RO_63, server: jp.tcpbbr.net, port: 443, type: trojan, password: 283695dc-fcc8-11ea-8684-f23c913c8d2b, sni: jp.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: US_84, server: 172.99.190.92, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v, udp: true}
-  - {name: US_101, server: 172.99.190.92, port: 8888, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
-  - {name: US_106, server: 38.75.137.66, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
-  - {name: US_139, server: us2.tcpbbr.net, port: 443, type: trojan, password: 2e5f2a78-14d8-11eb-ad8c-f23c9164ca5d, sni: us2.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: US_141, server: us2.tcpbbr.net, port: 443, type: trojan, password: 08d178d4-ec8b-11eb-a8bf-f23c91cfbbc9, sni: us2.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: ZZ_156, server: 134.195.196.3, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, udp: true}
-  - {name: ZZ_157, server: 134.195.196.81, port: 8881, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
-  - {name: ZZ_158, server: 134.195.196.81, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
-  - {name: ZZ_163, server: 169.197.142.99, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
-  - {name: ZZ_184, server: 134.195.196.81, port: 5000, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
-  - {name: ZZ_191, server: 169.197.142.99, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
-  - {name: ZZ_195, server: 169.197.142.99, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
-  - {name: ZZ_198, server: 169.197.142.99, port: 8091, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27, udp: true}
-  - {name: ZZ_200, server: 134.195.196.3, port: 8008, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74, udp: true}
-  - {name: ZZ_202, server: 134.195.196.81, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
-  - {name: ZZ_209, server: 134.195.196.187, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27, udp: true}
-  - {name: ZZ_213, server: 134.195.196.68, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
-  - {name: ZZ_218, server: 134.195.196.81, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
-  - {name: ZZ_230, server: 169.197.142.99, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
-  - {name: ZZ_237, server: 134.195.196.68, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
-  - {name: ZZ_239, server: 134.195.196.81, port: 8000, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
-  - {name: ZZ_243, server: 134.195.196.187, port: 5000, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
-  - {name: ZZ_247, server: 134.195.196.3, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v, udp: true}
-  - {name: :美国-ss-134.195.196.51:7001-可用-直连-仅支持加拿大地区NF自制剧, server: 134.195.196.51, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
-  - {name: :美国-ss-134.195.196.187:8882-可用-直连-仅支持加拿大地区NF自制剧, server: 134.195.196.187, port: 8882, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
-  - {name: :美国-ss-167.88.63.108:6697-可用-直连-仅支持美国地区NF自制剧, server: 167.88.63.108, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
-  - {name: 中国_1424, server: tw2505.cloudmatrix.xyz, port: 2505, type: vmess, uuid: 3b78a19f-20f8-34f5-a818-2a02e10446ac, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: tw2505.cloudmatrix.xyz}, udp: true}
-  - {name: CN_23, server: 113.56.187.196, port: 2504, type: vmess, uuid: 3b78a19f-20f8-34f5-a818-2a02e10446ac, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: 113.56.187.196}, udp: true}
-  - {name: V2-日本 PATHX 1-1x, server: speedtest-pathx.xtsmart.link, port: 20021, type: ss, cipher: chacha20-ietf, password: 43ZBWt, plugin: obfs, plugin-opts: {mode: http, host: 59e3b5f250.microsoft.com}, udp: true}
-  - {name: 0.59|Super 新加坡01   MIEPL  倍率2, server: oexu8yee.nodeinfo.icu, port: 1125, type: ssr, cipher: rc4-md5, password: di15PV, protocol: auth_aes128_md5, obfs: tls1.2_ticket_auth, protocol-param: 110309:FKaTFe, obfs-param: eaa58110309.www.gov.hk, udp: true}
-  - {name: V1-日本 IEPL 1-1x, server: speedtest-iepl.xtsmart.link, port: 20020, type: ss, cipher: chacha20-ietf, password: 43ZBWt, plugin: obfs, plugin-opts: {mode: http, host: 59e3b5f250.microsoft.com}, udp: true}
-  - {name: 4.37|Super 台湾01   MIEPL  倍率21, server: ohm9aizu.nodeinfo.icu, port: 1122, type: ssr, cipher: rc4-md5, password: di15PV, protocol: auth_aes128_md5, obfs: plain, protocol-param: 110309:FKaTFe, obfs-param: eaa58110309.www.gov.hk, udp: true}
   - {name: 台湾(绿头外网集团)(Public), server: 0322tw.fans8.xyz, port: 443, type: vmess, uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c, alterId: 2, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /nl, ws-headers: {Host: 0322tw.fans8.xyz}, udp: true}
-  - {name: V2-新加坡 PATHX 1-1x, server: speedtest-pathx.xtsmart.link, port: 20011, type: ss, cipher: chacha20-ietf, password: 43ZBWt, plugin: obfs, plugin-opts: {mode: http, host: 59e3b5f250.microsoft.com}, udp: true}
-  - {name: V2-台湾 PATHX 1-1x, server: speedtest-pathx.xtsmart.link, port: 20031, type: ss, cipher: chacha20-ietf, password: 43ZBWt, plugin: obfs, plugin-opts: {mode: http, host: 59e3b5f250.microsoft.com}, udp: true}
-  - {name: HK_45, server: 15.v2-ray.cyou, port: 15015, type: vmess, uuid: 047184b7-6da2-3d3f-ac27-6a1a8701daf8, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: microsoft.com}, udp: true}
-  - {name: AU_107 |31.63Mb, server: jgwdb4.gaox.ml, port: 443, type: trojan, password: d06a3f01-1ff0-4792-9b8e-a5a604bc74a2, sni: jgwdb4.gaox.ml, skip-cert-verify: true, udp: true}
-  - {name: V2-香港 PATHX 1-1x, server: speedtest-pathx.xtsmart.link, port: 20001, type: ss, cipher: chacha20-ietf, password: 43ZBWt, plugin: obfs, plugin-opts: {mode: http, host: 59e3b5f250.microsoft.com}, udp: true}
-  - {name: V1-台湾 IEPL 1-1x, server: speedtest-iepl.xtsmart.link, port: 20030, type: ss, cipher: chacha20-ietf, password: 43ZBWt, plugin: obfs, plugin-opts: {mode: http, host: 59e3b5f250.microsoft.com}, udp: true}
-  - {name: Hong Kong 10--TG@p2psharing, server: 119.236.128.198, port: 4087, type: vmess, uuid: bfd2cb06-5cd7-3203-b414-17a809396898, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: "%7B%22Host%22:%22telegram.channel.p2psharing%22%7D"}, udp: true}
-  - {name: V1-美国 IEPL 1-1x, server: speedtest.xtsmart.link, port: 20040, type: ss, cipher: chacha20-ietf, password: 43ZBWt, plugin: obfs, plugin-opts: {mode: http, host: 59e3b5f250.microsoft.com}, udp: true}
-  - {name: 美国US 4039 *hi-moon.pw, server: 167.88.63.108, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
-  - {name: Relay_中国-美国_363, server: 183.232.56.161, port: 1704, type: vmess, uuid: 3a226645-c640-39a2-8177-000381e29f20, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: microsoft.com}, udp: true}
-  - {name: 印度(绿头外网集团)(Public), server: jgwhdlb1.gaox.ml, port: 443, type: trojan, password: e05c749b-7c6b-41b8-9c71-9dcf685edf4a, sni: jgwhdlb1.gaox.ml, skip-cert-verify: true, udp: true}
+  - {name: CN_45, server: sg04.xiaocloud.icu, port: 20467, type: vmess, uuid: 64749822-654a-3050-9aac-ba94af918f47, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: CN_51, server: sg02.xiaocloud.icu, port: 20265, type: vmess, uuid: 64749822-654a-3050-9aac-ba94af918f47, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: "Trojan|台湾HiNet05|微信：ddly000]", server: cm-jm.okvpn.xyz, port: 20003, type: trojan, password: b34e13ec-3517-4216-be4a-1f2c28f8375c, sni: cm-jm.okvpn.xyz, skip-cert-verify: true, udp: true}
+  - {name: 日本(绿头外网集团)(Public), server: 8.wwwkkk.xyz, port: 443, type: vmess, uuid: cee6bef2-e7d9-43b4-96db-50b891ba30a1, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, udp: true}
+  - {name: IR_77, server: 185.148.14.58, port: 53514, type: trojan, password: 3r90JDGBYA, skip-cert-verify: true, udp: true}
+  - {name: HongKong 2, server: hk2.quoctai.xyz, port: 80, type: vmess, uuid: caf12d12-e017-44fe-b741-f8727e2fecd9, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /quoctai, ws-headers: {Host: Livestream2.tv360.vn}, udp: true}
+  - {name: 香港(绿头外网集团)(Public), server: tj-hk07.yiyodns.xyz, port: 443, type: trojan, password: 7dafe71e-2be6-302f-bdfc-e6319a3299bc, sni: tj-hk07.yiyodns.xyz, skip-cert-verify: true, udp: true}
+  - {name: Japan Eimi, server: eimi.quoctai.xyz, port: 80, type: vmess, uuid: caf12d12-e017-44fe-b741-f8727e2fecd9, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /quoctai, ws-headers: {Host: Livestream2.tv360.vn}, udp: true}
+  - {name: FR-52.47.106.88-61, server: fr-9.tjjjt.top, port: 443, type: trojan, password: iyinglong, sni: fr-9.tjjjt.top, skip-cert-verify: true, udp: true}
+  - {name: CN_52, server: 183.240.132.27, port: 21209, type: vmess, uuid: 1b693eb3-3241-362a-9001-5b503789cfbe, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: 法国(绿头外网集团)(Public), server: fr-6.tjjjt.top, port: 443, type: trojan, password: iyinglong, sni: fr-6.tjjjt.top, skip-cert-verify: true, udp: true}
+  - {name: _US_美国, server: 167.88.63.108, port: 8000, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: _US_美国 2, server: 38.114.114.69, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
+  - {name: 油管 TG 8度科技, server: 167.88.63.108, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, udp: true}
+  - {name: 油管 TG 8度科技 2, server: 134.195.196.51, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v, udp: true}
+  - {name: 油管 TG 8度科技 3, server: 167.88.63.108, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
+  - {name: 油管 TG 8度科技 4, server: 167.88.63.108, port: 8882, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
+  - {name: KR_84, server: jgw2.gaox.ml, port: 443, type: trojan, password: f2117e99-9b6e-47fd-b0a9-634a0b15b998, sni: jgw2.gaox.ml, skip-cert-verify: true, udp: true}
+  - {name: 油管 TG 8度科技 5, server: 134.195.198.211, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM, udp: true}
+  - {name: 美国(绿头外网集团)(Public), server: 167.88.63.108, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: US_133, server: 38.114.114.69, port: 8881, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
+  - {name: US_127, server: 38.114.114.69, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v, udp: true}
+  - {name: 油管 TG 8度科技 6, server: 167.88.63.108, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v, udp: true}
   - {name: 美国, server: 209.94.56.152, port: 443, type: vmess, uuid: 3033e157-fdc3-47c0-ae32-fc4fe65fc64d, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /9apQabyg9le, ws-headers: {Host: 209.94.56.152}, udp: true}
-  - {name: :美国-ss-134.195.198.211:443-可用-直连-仅支持加拿大地区NF自制剧, server: 134.195.198.211, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM, udp: true}
-  - {name: 俄罗斯(绿头外网集团)(Public), server: ru2.peakerselling.com, port: 443, type: vmess, uuid: d3435521-3d1f-37f7-ab48-f5302bc6a4fb, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /helloman, ws-headers: {Host: ru2.peakerselling.com}, udp: true}
-  - {name: _14.40Mb, server: 183.232.56.161, port: 1101, type: vmess, uuid: 3a226645-c640-39a2-8177-000381e29f20, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: 183.232.56.161}, udp: true}
-  - {name: Hong Kong--TG@p2psharing, server: 183.232.56.161, port: 1051, type: vmess, uuid: bfd2cb06-5cd7-3203-b414-17a809396898, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: "%7B%22Host%22:%22telegram.channel.p2psharing%22%7D"}, udp: true}
-  - {name: Hong Kong 8--TG@p2psharing, server: 183.232.56.161, port: 1052, type: vmess, uuid: bfd2cb06-5cd7-3203-b414-17a809396898, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: "%7B%22Host%22:%22telegram.channel.p2psharing%22%7D"}, udp: true}
-  - {name: HK_41, server: 72.v2-ray.cyou, port: 15072, type: vmess, uuid: 047184b7-6da2-3d3f-ac27-6a1a8701daf8, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: microsoft.com}, udp: true}
-  - {name: 法国(绿头外网集团)(Public), server: fr-9.tjjjt.top, port: 443, type: trojan, password: iyinglong, sni: fr-9.tjjjt.top, skip-cert-verify: true, udp: true}
-  - {name: V1-新加坡 IEPL-1x, server: speedtest-iepl.xtsmart.link, port: 20010, type: ss, cipher: chacha20-ietf, password: 43ZBWt, plugin: obfs, plugin-opts: {mode: http, host: 59e3b5f250.microsoft.com}, udp: true}
-  - {name: V1-香港 IEPL 1-1x, server: speedtest-iepl.xtsmart.link, port: 20000, type: ss, cipher: chacha20-ietf, password: 43ZBWt, plugin: obfs, plugin-opts: {mode: http, host: 59e3b5f250.microsoft.com}, udp: true}
+  - {name: 美国(绿头外网集团)(Public) 2, server: 167.88.63.108, port: 8881, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
+  - {name: US_145, server: 38.114.114.69, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
+  - {name: 新加坡(绿头外网集团)(Public), server: 116.162.14.228, port: 61765, type: vmess, uuid: 1b693eb3-3241-362a-9001-5b503789cfbe, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: 美国(绿头外网集团)(Public) 3, server: 167.88.63.108, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: Relay_🇨🇳CN-🇺🇸US_07, server: s1.upyun.online, port: 12340, type: trojan, password: 4809af3e-b8f2-4f07-9cfb-79d0a7bb1219, sni: s1.upyun.online, skip-cert-verify: true, udp: true}
+  - {name: 美国(绿头外网集团)(Public) 4, server: 167.88.63.108, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74, udp: true}
+  - {name: AU_14, server: 172.105.190.20, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId, udp: true}
+  - {name: US_150, server: 38.114.114.69, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: 油管 TG 8度科技 7, server: 167.88.63.108, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
+  - {name: AU_19, server: 172.105.190.20, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM, udp: true}
+  - {name: AU_10, server: 172.105.190.20, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
+  - {name: _US_美国 3, server: 38.114.114.69, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: AU_18, server: 172.105.190.20, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, udp: true}
+  - {name: AU_15, server: 172.105.190.20, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
+  - {name: _CA_加拿大, server: 134.195.196.51, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, udp: true}
+  - {name: _US_美国 4, server: 167.88.63.108, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: _CA_加拿大 2, server: 134.195.196.187, port: 8008, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74, udp: true}
+  - {name: ZZ_264, server: 134.195.196.51, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
+  - {name: 油管 TG 8度科技 8, server: 167.88.63.108, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
+  - {name: AU_22, server: 172.105.190.20, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: ZZ_263, server: 134.195.196.51, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
+  - {name: AU_08, server: 172.105.190.20, port: 8000, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: _CA_加拿大 3, server: 134.195.196.51, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
+  - {name: AU_01, server: 172.105.190.20, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v, udp: true}
+  - {name: AU_12, server: 172.105.190.20, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
+  - {name: AU_29, server: 172.105.190.20, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74, udp: true}
+  - {name: AU_21, server: 172.105.190.20, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: fkgfw-prod.i.sxl.cn:443, server: fkgfw-prod.i.sxl.cn, port: 443, type: ss, cipher: aes-256-cfb, password: E4DNMf73kHPrd8Qq7aqGPf7f, udp: true}
+  - {name: _CA_加拿大 4, server: 134.195.196.68, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: AU_17, server: 172.105.190.20, port: 8888, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: AU_33, server: 172.105.190.20, port: 5000, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: AU_26, server: 172.105.190.20, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId, udp: true}
+  - {name: AU_25, server: 172.105.190.20, port: 2375, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7, udp: true}
+  - {name: ZZ_244, server: 134.195.196.187, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: _CA_加拿大 5, server: 134.195.196.3, port: 8882, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
+  - {name: AU_11, server: 172.105.190.20, port: 8008, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74, udp: true}
+  - {name: AU_37, server: 172.105.190.20, port: 8881, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
+  - {name: _CA_加拿大 6, server: 134.195.196.68, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74, udp: true}
+  - {name: AU_07, server: 172.105.190.20, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
+  - {name: _CA_加拿大 7, server: 134.195.196.51, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: _GB_英国, server: 172.99.190.92, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
+  - {name: US_134, server: 38.114.114.69, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
+  - {name: AU_16, server: 172.105.190.20, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
+  - {name: _CA_加拿大 8, server: 134.195.196.51, port: 8008, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74, udp: true}
+  - {name: _CA_加拿大 9, server: 134.195.196.187, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: AU_28, server: 172.105.190.20, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, udp: true}
+  - {name: ZZ_197, server: 134.195.196.187, port: 5600, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: _CA_加拿大 10, server: 134.195.196.187, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
+  - {name: AU_34, server: 172.105.190.20, port: 5600, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: _CA_加拿大 11, server: 134.195.196.51, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: _CA_加拿大 12, server: 134.195.196.51, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
+  - {name: ZZ_248, server: 134.195.196.81, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
+  - {name: _CA_加拿大 13, server: 134.195.196.81, port: 5600, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: _CA_加拿大 14, server: 134.195.196.81, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27, udp: true}
+  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:), server: 134.195.196.81, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId, udp: true}
+  - {name: 油管 TG 8度科技 9, server: 169.197.142.99, port: 8091, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27, udp: true}
   - {name: CN_11, server: 101.91.121.247, port: 50004, type: ss, cipher: aes-256-cfb, password: !<str> 4415934295, udp: true}
-  - {name: 5.83|Super 香港07   IEPL  倍率23, server: jaibio5c.nodeinfo.icu, port: 7007, type: ssr, cipher: rc4-md5, password: di15PV, protocol: auth_aes128_md5, obfs: tls1.2_ticket_auth, protocol-param: 110309:FKaTFe, obfs-param: eaa58110309.www.gov.hk, udp: true}
-  - {name: HK_49, server: 71.v2-ray.cyou, port: 15071, type: vmess, uuid: 047184b7-6da2-3d3f-ac27-6a1a8701daf8, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: microsoft.com}, udp: true}
-  - {name: HK_46, server: 18.v2-ray.cyou, port: 15018, type: vmess, uuid: 047184b7-6da2-3d3f-ac27-6a1a8701daf8, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: microsoft.com}, udp: true}
-  - {name: 付费推荐:dlj.tf/ssrsub__05, server: 134.195.196.3, port: 8881, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
-  - {name: _CA_加拿大, server: 134.195.196.187, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId, udp: true}
+  - {name: azure-HongKong, server: 104.208.72.87, port: 18247, type: vmess, uuid: c76115e6-2ad7-4b4b-f544-1e3e337e71e9, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - US_140
-      - ZZ_225
-      - _12.94Mb
-      - Relay_中国-香港_364
-      - HK-183.232.56.161-15
-      - 美国(绿头外网集团)(Public)
-      - CA_油管 TG 8度科技
-      - CA_油管 TG 8度科技 2
-      - CA_油管 TG 8度科技 3
-      - HK_38
-      - RO_60
-      - RO_61
-      - RO_62
-      - RO_63
-      - US_84
-      - US_101
-      - US_106
-      - US_139
-      - US_141
-      - ZZ_156
-      - ZZ_157
-      - ZZ_158
-      - ZZ_163
-      - ZZ_184
-      - ZZ_191
-      - ZZ_195
-      - ZZ_198
-      - ZZ_200
-      - ZZ_202
-      - ZZ_209
-      - ZZ_213
-      - ZZ_218
-      - ZZ_230
-      - ZZ_237
-      - ZZ_239
-      - ZZ_243
-      - ZZ_247
-      - :美国-ss-134.195.196.51:7001-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-134.195.196.187:8882-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-167.88.63.108:6697-可用-直连-仅支持美国地区NF自制剧
-      - 中国_1424
-      - CN_23
-      - V2-日本 PATHX 1-1x
-      - 0.59|Super 新加坡01   MIEPL  倍率2
-      - V1-日本 IEPL 1-1x
-      - 4.37|Super 台湾01   MIEPL  倍率21
       - 台湾(绿头外网集团)(Public)
-      - V2-新加坡 PATHX 1-1x
-      - V2-台湾 PATHX 1-1x
-      - HK_45
-      - AU_107 |31.63Mb
-      - V2-香港 PATHX 1-1x
-      - V1-台湾 IEPL 1-1x
-      - Hong Kong 10--TG@p2psharing
-      - V1-美国 IEPL 1-1x
-      - 美国US 4039 *hi-moon.pw
-      - Relay_中国-美国_363
-      - 印度(绿头外网集团)(Public)
-      - 美国
-      - :美国-ss-134.195.198.211:443-可用-直连-仅支持加拿大地区NF自制剧
-      - 俄罗斯(绿头外网集团)(Public)
-      - _14.40Mb
-      - Hong Kong--TG@p2psharing
-      - Hong Kong 8--TG@p2psharing
-      - HK_41
+      - CN_45
+      - CN_51
+      - Trojan|台湾HiNet05|微信：ddly000]
+      - 日本(绿头外网集团)(Public)
+      - IR_77
+      - HongKong 2
+      - 香港(绿头外网集团)(Public)
+      - Japan Eimi
+      - FR-52.47.106.88-61
+      - CN_52
       - 法国(绿头外网集团)(Public)
-      - V1-新加坡 IEPL-1x
-      - V1-香港 IEPL 1-1x
-      - CN_11
-      - 5.83|Super 香港07   IEPL  倍率23
-      - HK_49
-      - HK_46
-      - 付费推荐:dlj.tf/ssrsub__05
+      - _US_美国
+      - _US_美国 2
+      - 油管 TG 8度科技
+      - 油管 TG 8度科技 2
+      - 油管 TG 8度科技 3
+      - 油管 TG 8度科技 4
+      - KR_84
+      - 油管 TG 8度科技 5
+      - 美国(绿头外网集团)(Public)
+      - US_133
+      - US_127
+      - 油管 TG 8度科技 6
+      - 美国
+      - 美国(绿头外网集团)(Public) 2
+      - US_145
+      - 新加坡(绿头外网集团)(Public)
+      - 美国(绿头外网集团)(Public) 3
+      - Relay_🇨🇳CN-🇺🇸US_07
+      - 美国(绿头外网集团)(Public) 4
+      - AU_14
+      - US_150
+      - 油管 TG 8度科技 7
+      - AU_19
+      - AU_10
+      - _US_美国 3
+      - AU_18
+      - AU_15
       - _CA_加拿大
+      - _US_美国 4
+      - _CA_加拿大 2
+      - ZZ_264
+      - 油管 TG 8度科技 8
+      - AU_22
+      - ZZ_263
+      - AU_08
+      - _CA_加拿大 3
+      - AU_01
+      - AU_12
+      - AU_29
+      - AU_21
+      - fkgfw-prod.i.sxl.cn:443
+      - _CA_加拿大 4
+      - AU_17
+      - AU_33
+      - AU_26
+      - AU_25
+      - ZZ_244
+      - _CA_加拿大 5
+      - AU_11
+      - AU_37
+      - _CA_加拿大 6
+      - AU_07
+      - _CA_加拿大 7
+      - _GB_英国
+      - US_134
+      - AU_16
+      - _CA_加拿大 8
+      - _CA_加拿大 9
+      - AU_28
+      - ZZ_197
+      - _CA_加拿大 10
+      - AU_34
+      - _CA_加拿大 11
+      - _CA_加拿大 12
+      - ZZ_248
+      - _CA_加拿大 13
+      - _CA_加拿大 14
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
+      - 油管 TG 8度科技 9
+      - CN_11
+      - azure-HongKong
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - US_140
-      - ZZ_225
-      - _12.94Mb
-      - Relay_中国-香港_364
-      - HK-183.232.56.161-15
-      - 美国(绿头外网集团)(Public)
-      - CA_油管 TG 8度科技
-      - CA_油管 TG 8度科技 2
-      - CA_油管 TG 8度科技 3
-      - HK_38
-      - RO_60
-      - RO_61
-      - RO_62
-      - RO_63
-      - US_84
-      - US_101
-      - US_106
-      - US_139
-      - US_141
-      - ZZ_156
-      - ZZ_157
-      - ZZ_158
-      - ZZ_163
-      - ZZ_184
-      - ZZ_191
-      - ZZ_195
-      - ZZ_198
-      - ZZ_200
-      - ZZ_202
-      - ZZ_209
-      - ZZ_213
-      - ZZ_218
-      - ZZ_230
-      - ZZ_237
-      - ZZ_239
-      - ZZ_243
-      - ZZ_247
-      - :美国-ss-134.195.196.51:7001-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-134.195.196.187:8882-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-167.88.63.108:6697-可用-直连-仅支持美国地区NF自制剧
-      - 中国_1424
-      - CN_23
-      - V2-日本 PATHX 1-1x
-      - 0.59|Super 新加坡01   MIEPL  倍率2
-      - V1-日本 IEPL 1-1x
-      - 4.37|Super 台湾01   MIEPL  倍率21
       - 台湾(绿头外网集团)(Public)
-      - V2-新加坡 PATHX 1-1x
-      - V2-台湾 PATHX 1-1x
-      - HK_45
-      - AU_107 |31.63Mb
-      - V2-香港 PATHX 1-1x
-      - V1-台湾 IEPL 1-1x
-      - Hong Kong 10--TG@p2psharing
-      - V1-美国 IEPL 1-1x
-      - 美国US 4039 *hi-moon.pw
-      - Relay_中国-美国_363
-      - 印度(绿头外网集团)(Public)
-      - 美国
-      - :美国-ss-134.195.198.211:443-可用-直连-仅支持加拿大地区NF自制剧
-      - 俄罗斯(绿头外网集团)(Public)
-      - _14.40Mb
-      - Hong Kong--TG@p2psharing
-      - Hong Kong 8--TG@p2psharing
-      - HK_41
+      - CN_45
+      - CN_51
+      - Trojan|台湾HiNet05|微信：ddly000]
+      - 日本(绿头外网集团)(Public)
+      - IR_77
+      - HongKong 2
+      - 香港(绿头外网集团)(Public)
+      - Japan Eimi
+      - FR-52.47.106.88-61
+      - CN_52
       - 法国(绿头外网集团)(Public)
-      - V1-新加坡 IEPL-1x
-      - V1-香港 IEPL 1-1x
-      - CN_11
-      - 5.83|Super 香港07   IEPL  倍率23
-      - HK_49
-      - HK_46
-      - 付费推荐:dlj.tf/ssrsub__05
+      - _US_美国
+      - _US_美国 2
+      - 油管 TG 8度科技
+      - 油管 TG 8度科技 2
+      - 油管 TG 8度科技 3
+      - 油管 TG 8度科技 4
+      - KR_84
+      - 油管 TG 8度科技 5
+      - 美国(绿头外网集团)(Public)
+      - US_133
+      - US_127
+      - 油管 TG 8度科技 6
+      - 美国
+      - 美国(绿头外网集团)(Public) 2
+      - US_145
+      - 新加坡(绿头外网集团)(Public)
+      - 美国(绿头外网集团)(Public) 3
+      - Relay_🇨🇳CN-🇺🇸US_07
+      - 美国(绿头外网集团)(Public) 4
+      - AU_14
+      - US_150
+      - 油管 TG 8度科技 7
+      - AU_19
+      - AU_10
+      - _US_美国 3
+      - AU_18
+      - AU_15
       - _CA_加拿大
+      - _US_美国 4
+      - _CA_加拿大 2
+      - ZZ_264
+      - 油管 TG 8度科技 8
+      - AU_22
+      - ZZ_263
+      - AU_08
+      - _CA_加拿大 3
+      - AU_01
+      - AU_12
+      - AU_29
+      - AU_21
+      - fkgfw-prod.i.sxl.cn:443
+      - _CA_加拿大 4
+      - AU_17
+      - AU_33
+      - AU_26
+      - AU_25
+      - ZZ_244
+      - _CA_加拿大 5
+      - AU_11
+      - AU_37
+      - _CA_加拿大 6
+      - AU_07
+      - _CA_加拿大 7
+      - _GB_英国
+      - US_134
+      - AU_16
+      - _CA_加拿大 8
+      - _CA_加拿大 9
+      - AU_28
+      - ZZ_197
+      - _CA_加拿大 10
+      - AU_34
+      - _CA_加拿大 11
+      - _CA_加拿大 12
+      - ZZ_248
+      - _CA_加拿大 13
+      - _CA_加拿大 14
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
+      - 油管 TG 8度科技 9
+      - CN_11
+      - azure-HongKong
   - name: 🎥 NETFLIX
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - US_140
-      - ZZ_225
-      - _12.94Mb
-      - Relay_中国-香港_364
-      - HK-183.232.56.161-15
-      - 美国(绿头外网集团)(Public)
-      - CA_油管 TG 8度科技
-      - CA_油管 TG 8度科技 2
-      - CA_油管 TG 8度科技 3
-      - HK_38
-      - RO_60
-      - RO_61
-      - RO_62
-      - RO_63
-      - US_84
-      - US_101
-      - US_106
-      - US_139
-      - US_141
-      - ZZ_156
-      - ZZ_157
-      - ZZ_158
-      - ZZ_163
-      - ZZ_184
-      - ZZ_191
-      - ZZ_195
-      - ZZ_198
-      - ZZ_200
-      - ZZ_202
-      - ZZ_209
-      - ZZ_213
-      - ZZ_218
-      - ZZ_230
-      - ZZ_237
-      - ZZ_239
-      - ZZ_243
-      - ZZ_247
-      - :美国-ss-134.195.196.51:7001-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-134.195.196.187:8882-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-167.88.63.108:6697-可用-直连-仅支持美国地区NF自制剧
-      - 中国_1424
-      - CN_23
-      - V2-日本 PATHX 1-1x
-      - 0.59|Super 新加坡01   MIEPL  倍率2
-      - V1-日本 IEPL 1-1x
-      - 4.37|Super 台湾01   MIEPL  倍率21
       - 台湾(绿头外网集团)(Public)
-      - V2-新加坡 PATHX 1-1x
-      - V2-台湾 PATHX 1-1x
-      - HK_45
-      - AU_107 |31.63Mb
-      - V2-香港 PATHX 1-1x
-      - V1-台湾 IEPL 1-1x
-      - Hong Kong 10--TG@p2psharing
-      - V1-美国 IEPL 1-1x
-      - 美国US 4039 *hi-moon.pw
-      - Relay_中国-美国_363
-      - 印度(绿头外网集团)(Public)
-      - 美国
-      - :美国-ss-134.195.198.211:443-可用-直连-仅支持加拿大地区NF自制剧
-      - 俄罗斯(绿头外网集团)(Public)
-      - _14.40Mb
-      - Hong Kong--TG@p2psharing
-      - Hong Kong 8--TG@p2psharing
-      - HK_41
+      - CN_45
+      - CN_51
+      - Trojan|台湾HiNet05|微信：ddly000]
+      - 日本(绿头外网集团)(Public)
+      - IR_77
+      - HongKong 2
+      - 香港(绿头外网集团)(Public)
+      - Japan Eimi
+      - FR-52.47.106.88-61
+      - CN_52
       - 法国(绿头外网集团)(Public)
-      - V1-新加坡 IEPL-1x
-      - V1-香港 IEPL 1-1x
-      - CN_11
-      - 5.83|Super 香港07   IEPL  倍率23
-      - HK_49
-      - HK_46
-      - 付费推荐:dlj.tf/ssrsub__05
+      - _US_美国
+      - _US_美国 2
+      - 油管 TG 8度科技
+      - 油管 TG 8度科技 2
+      - 油管 TG 8度科技 3
+      - 油管 TG 8度科技 4
+      - KR_84
+      - 油管 TG 8度科技 5
+      - 美国(绿头外网集团)(Public)
+      - US_133
+      - US_127
+      - 油管 TG 8度科技 6
+      - 美国
+      - 美国(绿头外网集团)(Public) 2
+      - US_145
+      - 新加坡(绿头外网集团)(Public)
+      - 美国(绿头外网集团)(Public) 3
+      - Relay_🇨🇳CN-🇺🇸US_07
+      - 美国(绿头外网集团)(Public) 4
+      - AU_14
+      - US_150
+      - 油管 TG 8度科技 7
+      - AU_19
+      - AU_10
+      - _US_美国 3
+      - AU_18
+      - AU_15
       - _CA_加拿大
+      - _US_美国 4
+      - _CA_加拿大 2
+      - ZZ_264
+      - 油管 TG 8度科技 8
+      - AU_22
+      - ZZ_263
+      - AU_08
+      - _CA_加拿大 3
+      - AU_01
+      - AU_12
+      - AU_29
+      - AU_21
+      - fkgfw-prod.i.sxl.cn:443
+      - _CA_加拿大 4
+      - AU_17
+      - AU_33
+      - AU_26
+      - AU_25
+      - ZZ_244
+      - _CA_加拿大 5
+      - AU_11
+      - AU_37
+      - _CA_加拿大 6
+      - AU_07
+      - _CA_加拿大 7
+      - _GB_英国
+      - US_134
+      - AU_16
+      - _CA_加拿大 8
+      - _CA_加拿大 9
+      - AU_28
+      - ZZ_197
+      - _CA_加拿大 10
+      - AU_34
+      - _CA_加拿大 11
+      - _CA_加拿大 12
+      - ZZ_248
+      - _CA_加拿大 13
+      - _CA_加拿大 14
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
+      - 油管 TG 8度科技 9
+      - CN_11
+      - azure-HongKong
   - name: ⛔️ 广告拦截
     type: select
     proxies:
@@ -336,331 +372,362 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - US_140
-      - ZZ_225
-      - _12.94Mb
-      - Relay_中国-香港_364
-      - HK-183.232.56.161-15
-      - 美国(绿头外网集团)(Public)
-      - CA_油管 TG 8度科技
-      - CA_油管 TG 8度科技 2
-      - CA_油管 TG 8度科技 3
-      - HK_38
-      - RO_60
-      - RO_61
-      - RO_62
-      - RO_63
-      - US_84
-      - US_101
-      - US_106
-      - US_139
-      - US_141
-      - ZZ_156
-      - ZZ_157
-      - ZZ_158
-      - ZZ_163
-      - ZZ_184
-      - ZZ_191
-      - ZZ_195
-      - ZZ_198
-      - ZZ_200
-      - ZZ_202
-      - ZZ_209
-      - ZZ_213
-      - ZZ_218
-      - ZZ_230
-      - ZZ_237
-      - ZZ_239
-      - ZZ_243
-      - ZZ_247
-      - :美国-ss-134.195.196.51:7001-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-134.195.196.187:8882-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-167.88.63.108:6697-可用-直连-仅支持美国地区NF自制剧
-      - 中国_1424
-      - CN_23
-      - V2-日本 PATHX 1-1x
-      - 0.59|Super 新加坡01   MIEPL  倍率2
-      - V1-日本 IEPL 1-1x
-      - 4.37|Super 台湾01   MIEPL  倍率21
       - 台湾(绿头外网集团)(Public)
-      - V2-新加坡 PATHX 1-1x
-      - V2-台湾 PATHX 1-1x
-      - HK_45
-      - AU_107 |31.63Mb
-      - V2-香港 PATHX 1-1x
-      - V1-台湾 IEPL 1-1x
-      - Hong Kong 10--TG@p2psharing
-      - V1-美国 IEPL 1-1x
-      - 美国US 4039 *hi-moon.pw
-      - Relay_中国-美国_363
-      - 印度(绿头外网集团)(Public)
-      - 美国
-      - :美国-ss-134.195.198.211:443-可用-直连-仅支持加拿大地区NF自制剧
-      - 俄罗斯(绿头外网集团)(Public)
-      - _14.40Mb
-      - Hong Kong--TG@p2psharing
-      - Hong Kong 8--TG@p2psharing
-      - HK_41
+      - CN_45
+      - CN_51
+      - Trojan|台湾HiNet05|微信：ddly000]
+      - 日本(绿头外网集团)(Public)
+      - IR_77
+      - HongKong 2
+      - 香港(绿头外网集团)(Public)
+      - Japan Eimi
+      - FR-52.47.106.88-61
+      - CN_52
       - 法国(绿头外网集团)(Public)
-      - V1-新加坡 IEPL-1x
-      - V1-香港 IEPL 1-1x
-      - CN_11
-      - 5.83|Super 香港07   IEPL  倍率23
-      - HK_49
-      - HK_46
-      - 付费推荐:dlj.tf/ssrsub__05
+      - _US_美国
+      - _US_美国 2
+      - 油管 TG 8度科技
+      - 油管 TG 8度科技 2
+      - 油管 TG 8度科技 3
+      - 油管 TG 8度科技 4
+      - KR_84
+      - 油管 TG 8度科技 5
+      - 美国(绿头外网集团)(Public)
+      - US_133
+      - US_127
+      - 油管 TG 8度科技 6
+      - 美国
+      - 美国(绿头外网集团)(Public) 2
+      - US_145
+      - 新加坡(绿头外网集团)(Public)
+      - 美国(绿头外网集团)(Public) 3
+      - Relay_🇨🇳CN-🇺🇸US_07
+      - 美国(绿头外网集团)(Public) 4
+      - AU_14
+      - US_150
+      - 油管 TG 8度科技 7
+      - AU_19
+      - AU_10
+      - _US_美国 3
+      - AU_18
+      - AU_15
       - _CA_加拿大
+      - _US_美国 4
+      - _CA_加拿大 2
+      - ZZ_264
+      - 油管 TG 8度科技 8
+      - AU_22
+      - ZZ_263
+      - AU_08
+      - _CA_加拿大 3
+      - AU_01
+      - AU_12
+      - AU_29
+      - AU_21
+      - fkgfw-prod.i.sxl.cn:443
+      - _CA_加拿大 4
+      - AU_17
+      - AU_33
+      - AU_26
+      - AU_25
+      - ZZ_244
+      - _CA_加拿大 5
+      - AU_11
+      - AU_37
+      - _CA_加拿大 6
+      - AU_07
+      - _CA_加拿大 7
+      - _GB_英国
+      - US_134
+      - AU_16
+      - _CA_加拿大 8
+      - _CA_加拿大 9
+      - AU_28
+      - ZZ_197
+      - _CA_加拿大 10
+      - AU_34
+      - _CA_加拿大 11
+      - _CA_加拿大 12
+      - ZZ_248
+      - _CA_加拿大 13
+      - _CA_加拿大 14
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
+      - 油管 TG 8度科技 9
+      - CN_11
+      - azure-HongKong
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
-      - Relay_中国-香港_364
-      - 4.37|Super 台湾01   MIEPL  倍率21
       - 台湾(绿头外网集团)(Public)
-      - V2-台湾 PATHX 1-1x
-      - V2-香港 PATHX 1-1x
-      - V1-台湾 IEPL 1-1x
-      - V1-香港 IEPL 1-1x
-      - 5.83|Super 香港07   IEPL  倍率23
+      - Trojan|台湾HiNet05|微信：ddly000]
+      - 香港(绿头外网集团)(Public)
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - US_140
-      - ZZ_225
-      - _12.94Mb
-      - Relay_中国-香港_364
-      - HK-183.232.56.161-15
-      - 美国(绿头外网集团)(Public)
-      - CA_油管 TG 8度科技
-      - CA_油管 TG 8度科技 2
-      - CA_油管 TG 8度科技 3
-      - HK_38
-      - RO_60
-      - RO_61
-      - RO_62
-      - RO_63
-      - US_84
-      - US_101
-      - US_106
-      - US_139
-      - US_141
-      - ZZ_156
-      - ZZ_157
-      - ZZ_158
-      - ZZ_163
-      - ZZ_184
-      - ZZ_191
-      - ZZ_195
-      - ZZ_198
-      - ZZ_200
-      - ZZ_202
-      - ZZ_209
-      - ZZ_213
-      - ZZ_218
-      - ZZ_230
-      - ZZ_237
-      - ZZ_239
-      - ZZ_243
-      - ZZ_247
-      - :美国-ss-134.195.196.51:7001-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-134.195.196.187:8882-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-167.88.63.108:6697-可用-直连-仅支持美国地区NF自制剧
-      - 中国_1424
-      - CN_23
-      - V2-日本 PATHX 1-1x
-      - 0.59|Super 新加坡01   MIEPL  倍率2
-      - V1-日本 IEPL 1-1x
-      - 4.37|Super 台湾01   MIEPL  倍率21
       - 台湾(绿头外网集团)(Public)
-      - V2-新加坡 PATHX 1-1x
-      - V2-台湾 PATHX 1-1x
-      - HK_45
-      - AU_107 |31.63Mb
-      - V2-香港 PATHX 1-1x
-      - V1-台湾 IEPL 1-1x
-      - Hong Kong 10--TG@p2psharing
-      - V1-美国 IEPL 1-1x
-      - 美国US 4039 *hi-moon.pw
-      - Relay_中国-美国_363
-      - 印度(绿头外网集团)(Public)
-      - 美国
-      - :美国-ss-134.195.198.211:443-可用-直连-仅支持加拿大地区NF自制剧
-      - 俄罗斯(绿头外网集团)(Public)
-      - _14.40Mb
-      - Hong Kong--TG@p2psharing
-      - Hong Kong 8--TG@p2psharing
-      - HK_41
+      - CN_45
+      - CN_51
+      - Trojan|台湾HiNet05|微信：ddly000]
+      - 日本(绿头外网集团)(Public)
+      - IR_77
+      - HongKong 2
+      - 香港(绿头外网集团)(Public)
+      - Japan Eimi
+      - FR-52.47.106.88-61
+      - CN_52
       - 法国(绿头外网集团)(Public)
-      - V1-新加坡 IEPL-1x
-      - V1-香港 IEPL 1-1x
-      - CN_11
-      - 5.83|Super 香港07   IEPL  倍率23
-      - HK_49
-      - HK_46
-      - 付费推荐:dlj.tf/ssrsub__05
+      - _US_美国
+      - _US_美国 2
+      - 油管 TG 8度科技
+      - 油管 TG 8度科技 2
+      - 油管 TG 8度科技 3
+      - 油管 TG 8度科技 4
+      - KR_84
+      - 油管 TG 8度科技 5
+      - 美国(绿头外网集团)(Public)
+      - US_133
+      - US_127
+      - 油管 TG 8度科技 6
+      - 美国
+      - 美国(绿头外网集团)(Public) 2
+      - US_145
+      - 新加坡(绿头外网集团)(Public)
+      - 美国(绿头外网集团)(Public) 3
+      - Relay_🇨🇳CN-🇺🇸US_07
+      - 美国(绿头外网集团)(Public) 4
+      - AU_14
+      - US_150
+      - 油管 TG 8度科技 7
+      - AU_19
+      - AU_10
+      - _US_美国 3
+      - AU_18
+      - AU_15
       - _CA_加拿大
+      - _US_美国 4
+      - _CA_加拿大 2
+      - ZZ_264
+      - 油管 TG 8度科技 8
+      - AU_22
+      - ZZ_263
+      - AU_08
+      - _CA_加拿大 3
+      - AU_01
+      - AU_12
+      - AU_29
+      - AU_21
+      - fkgfw-prod.i.sxl.cn:443
+      - _CA_加拿大 4
+      - AU_17
+      - AU_33
+      - AU_26
+      - AU_25
+      - ZZ_244
+      - _CA_加拿大 5
+      - AU_11
+      - AU_37
+      - _CA_加拿大 6
+      - AU_07
+      - _CA_加拿大 7
+      - _GB_英国
+      - US_134
+      - AU_16
+      - _CA_加拿大 8
+      - _CA_加拿大 9
+      - AU_28
+      - ZZ_197
+      - _CA_加拿大 10
+      - AU_34
+      - _CA_加拿大 11
+      - _CA_加拿大 12
+      - ZZ_248
+      - _CA_加拿大 13
+      - _CA_加拿大 14
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
+      - 油管 TG 8度科技 9
+      - CN_11
+      - azure-HongKong
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - US_140
-      - ZZ_225
-      - _12.94Mb
-      - Relay_中国-香港_364
-      - HK-183.232.56.161-15
-      - 美国(绿头外网集团)(Public)
-      - CA_油管 TG 8度科技
-      - CA_油管 TG 8度科技 2
-      - CA_油管 TG 8度科技 3
-      - HK_38
-      - RO_60
-      - RO_61
-      - RO_62
-      - RO_63
-      - US_84
-      - US_101
-      - US_106
-      - US_139
-      - US_141
-      - ZZ_156
-      - ZZ_157
-      - ZZ_158
-      - ZZ_163
-      - ZZ_184
-      - ZZ_191
-      - ZZ_195
-      - ZZ_198
-      - ZZ_200
-      - ZZ_202
-      - ZZ_209
-      - ZZ_213
-      - ZZ_218
-      - ZZ_230
-      - ZZ_237
-      - ZZ_239
-      - ZZ_243
-      - ZZ_247
-      - :美国-ss-134.195.196.51:7001-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-134.195.196.187:8882-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-167.88.63.108:6697-可用-直连-仅支持美国地区NF自制剧
-      - 中国_1424
-      - CN_23
-      - V2-日本 PATHX 1-1x
-      - 0.59|Super 新加坡01   MIEPL  倍率2
-      - V1-日本 IEPL 1-1x
-      - 4.37|Super 台湾01   MIEPL  倍率21
       - 台湾(绿头外网集团)(Public)
-      - V2-新加坡 PATHX 1-1x
-      - V2-台湾 PATHX 1-1x
-      - HK_45
-      - AU_107 |31.63Mb
-      - V2-香港 PATHX 1-1x
-      - V1-台湾 IEPL 1-1x
-      - Hong Kong 10--TG@p2psharing
-      - V1-美国 IEPL 1-1x
-      - 美国US 4039 *hi-moon.pw
-      - Relay_中国-美国_363
-      - 印度(绿头外网集团)(Public)
-      - 美国
-      - :美国-ss-134.195.198.211:443-可用-直连-仅支持加拿大地区NF自制剧
-      - 俄罗斯(绿头外网集团)(Public)
-      - _14.40Mb
-      - Hong Kong--TG@p2psharing
-      - Hong Kong 8--TG@p2psharing
-      - HK_41
+      - CN_45
+      - CN_51
+      - Trojan|台湾HiNet05|微信：ddly000]
+      - 日本(绿头外网集团)(Public)
+      - IR_77
+      - HongKong 2
+      - 香港(绿头外网集团)(Public)
+      - Japan Eimi
+      - FR-52.47.106.88-61
+      - CN_52
       - 法国(绿头外网集团)(Public)
-      - V1-新加坡 IEPL-1x
-      - V1-香港 IEPL 1-1x
-      - CN_11
-      - 5.83|Super 香港07   IEPL  倍率23
-      - HK_49
-      - HK_46
-      - 付费推荐:dlj.tf/ssrsub__05
+      - _US_美国
+      - _US_美国 2
+      - 油管 TG 8度科技
+      - 油管 TG 8度科技 2
+      - 油管 TG 8度科技 3
+      - 油管 TG 8度科技 4
+      - KR_84
+      - 油管 TG 8度科技 5
+      - 美国(绿头外网集团)(Public)
+      - US_133
+      - US_127
+      - 油管 TG 8度科技 6
+      - 美国
+      - 美国(绿头外网集团)(Public) 2
+      - US_145
+      - 新加坡(绿头外网集团)(Public)
+      - 美国(绿头外网集团)(Public) 3
+      - Relay_🇨🇳CN-🇺🇸US_07
+      - 美国(绿头外网集团)(Public) 4
+      - AU_14
+      - US_150
+      - 油管 TG 8度科技 7
+      - AU_19
+      - AU_10
+      - _US_美国 3
+      - AU_18
+      - AU_15
       - _CA_加拿大
+      - _US_美国 4
+      - _CA_加拿大 2
+      - ZZ_264
+      - 油管 TG 8度科技 8
+      - AU_22
+      - ZZ_263
+      - AU_08
+      - _CA_加拿大 3
+      - AU_01
+      - AU_12
+      - AU_29
+      - AU_21
+      - fkgfw-prod.i.sxl.cn:443
+      - _CA_加拿大 4
+      - AU_17
+      - AU_33
+      - AU_26
+      - AU_25
+      - ZZ_244
+      - _CA_加拿大 5
+      - AU_11
+      - AU_37
+      - _CA_加拿大 6
+      - AU_07
+      - _CA_加拿大 7
+      - _GB_英国
+      - US_134
+      - AU_16
+      - _CA_加拿大 8
+      - _CA_加拿大 9
+      - AU_28
+      - ZZ_197
+      - _CA_加拿大 10
+      - AU_34
+      - _CA_加拿大 11
+      - _CA_加拿大 12
+      - ZZ_248
+      - _CA_加拿大 13
+      - _CA_加拿大 14
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
+      - 油管 TG 8度科技 9
+      - CN_11
+      - azure-HongKong
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - US_140
-      - ZZ_225
-      - _12.94Mb
-      - Relay_中国-香港_364
-      - HK-183.232.56.161-15
-      - 美国(绿头外网集团)(Public)
-      - CA_油管 TG 8度科技
-      - CA_油管 TG 8度科技 2
-      - CA_油管 TG 8度科技 3
-      - HK_38
-      - RO_60
-      - RO_61
-      - RO_62
-      - RO_63
-      - US_84
-      - US_101
-      - US_106
-      - US_139
-      - US_141
-      - ZZ_156
-      - ZZ_157
-      - ZZ_158
-      - ZZ_163
-      - ZZ_184
-      - ZZ_191
-      - ZZ_195
-      - ZZ_198
-      - ZZ_200
-      - ZZ_202
-      - ZZ_209
-      - ZZ_213
-      - ZZ_218
-      - ZZ_230
-      - ZZ_237
-      - ZZ_239
-      - ZZ_243
-      - ZZ_247
-      - :美国-ss-134.195.196.51:7001-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-134.195.196.187:8882-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-167.88.63.108:6697-可用-直连-仅支持美国地区NF自制剧
-      - 中国_1424
-      - CN_23
-      - V2-日本 PATHX 1-1x
-      - 0.59|Super 新加坡01   MIEPL  倍率2
-      - V1-日本 IEPL 1-1x
-      - 4.37|Super 台湾01   MIEPL  倍率21
       - 台湾(绿头外网集团)(Public)
-      - V2-新加坡 PATHX 1-1x
-      - V2-台湾 PATHX 1-1x
-      - HK_45
-      - AU_107 |31.63Mb
-      - V2-香港 PATHX 1-1x
-      - V1-台湾 IEPL 1-1x
-      - Hong Kong 10--TG@p2psharing
-      - V1-美国 IEPL 1-1x
-      - 美国US 4039 *hi-moon.pw
-      - Relay_中国-美国_363
-      - 印度(绿头外网集团)(Public)
-      - 美国
-      - :美国-ss-134.195.198.211:443-可用-直连-仅支持加拿大地区NF自制剧
-      - 俄罗斯(绿头外网集团)(Public)
-      - _14.40Mb
-      - Hong Kong--TG@p2psharing
-      - Hong Kong 8--TG@p2psharing
-      - HK_41
+      - CN_45
+      - CN_51
+      - Trojan|台湾HiNet05|微信：ddly000]
+      - 日本(绿头外网集团)(Public)
+      - IR_77
+      - HongKong 2
+      - 香港(绿头外网集团)(Public)
+      - Japan Eimi
+      - FR-52.47.106.88-61
+      - CN_52
       - 法国(绿头外网集团)(Public)
-      - V1-新加坡 IEPL-1x
-      - V1-香港 IEPL 1-1x
-      - CN_11
-      - 5.83|Super 香港07   IEPL  倍率23
-      - HK_49
-      - HK_46
-      - 付费推荐:dlj.tf/ssrsub__05
+      - _US_美国
+      - _US_美国 2
+      - 油管 TG 8度科技
+      - 油管 TG 8度科技 2
+      - 油管 TG 8度科技 3
+      - 油管 TG 8度科技 4
+      - KR_84
+      - 油管 TG 8度科技 5
+      - 美国(绿头外网集团)(Public)
+      - US_133
+      - US_127
+      - 油管 TG 8度科技 6
+      - 美国
+      - 美国(绿头外网集团)(Public) 2
+      - US_145
+      - 新加坡(绿头外网集团)(Public)
+      - 美国(绿头外网集团)(Public) 3
+      - Relay_🇨🇳CN-🇺🇸US_07
+      - 美国(绿头外网集团)(Public) 4
+      - AU_14
+      - US_150
+      - 油管 TG 8度科技 7
+      - AU_19
+      - AU_10
+      - _US_美国 3
+      - AU_18
+      - AU_15
       - _CA_加拿大
+      - _US_美国 4
+      - _CA_加拿大 2
+      - ZZ_264
+      - 油管 TG 8度科技 8
+      - AU_22
+      - ZZ_263
+      - AU_08
+      - _CA_加拿大 3
+      - AU_01
+      - AU_12
+      - AU_29
+      - AU_21
+      - fkgfw-prod.i.sxl.cn:443
+      - _CA_加拿大 4
+      - AU_17
+      - AU_33
+      - AU_26
+      - AU_25
+      - ZZ_244
+      - _CA_加拿大 5
+      - AU_11
+      - AU_37
+      - _CA_加拿大 6
+      - AU_07
+      - _CA_加拿大 7
+      - _GB_英国
+      - US_134
+      - AU_16
+      - _CA_加拿大 8
+      - _CA_加拿大 9
+      - AU_28
+      - ZZ_197
+      - _CA_加拿大 10
+      - AU_34
+      - _CA_加拿大 11
+      - _CA_加拿大 12
+      - ZZ_248
+      - _CA_加拿大 13
+      - _CA_加拿大 14
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
+      - 油管 TG 8度科技 9
+      - CN_11
+      - azure-HongKong
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -676,80 +743,89 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - US_140
-      - ZZ_225
-      - _12.94Mb
-      - Relay_中国-香港_364
-      - HK-183.232.56.161-15
-      - 美国(绿头外网集团)(Public)
-      - CA_油管 TG 8度科技
-      - CA_油管 TG 8度科技 2
-      - CA_油管 TG 8度科技 3
-      - HK_38
-      - RO_60
-      - RO_61
-      - RO_62
-      - RO_63
-      - US_84
-      - US_101
-      - US_106
-      - US_139
-      - US_141
-      - ZZ_156
-      - ZZ_157
-      - ZZ_158
-      - ZZ_163
-      - ZZ_184
-      - ZZ_191
-      - ZZ_195
-      - ZZ_198
-      - ZZ_200
-      - ZZ_202
-      - ZZ_209
-      - ZZ_213
-      - ZZ_218
-      - ZZ_230
-      - ZZ_237
-      - ZZ_239
-      - ZZ_243
-      - ZZ_247
-      - :美国-ss-134.195.196.51:7001-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-134.195.196.187:8882-可用-直连-仅支持加拿大地区NF自制剧
-      - :美国-ss-167.88.63.108:6697-可用-直连-仅支持美国地区NF自制剧
-      - 中国_1424
-      - CN_23
-      - V2-日本 PATHX 1-1x
-      - 0.59|Super 新加坡01   MIEPL  倍率2
-      - V1-日本 IEPL 1-1x
-      - 4.37|Super 台湾01   MIEPL  倍率21
       - 台湾(绿头外网集团)(Public)
-      - V2-新加坡 PATHX 1-1x
-      - V2-台湾 PATHX 1-1x
-      - HK_45
-      - AU_107 |31.63Mb
-      - V2-香港 PATHX 1-1x
-      - V1-台湾 IEPL 1-1x
-      - Hong Kong 10--TG@p2psharing
-      - V1-美国 IEPL 1-1x
-      - 美国US 4039 *hi-moon.pw
-      - Relay_中国-美国_363
-      - 印度(绿头外网集团)(Public)
-      - 美国
-      - :美国-ss-134.195.198.211:443-可用-直连-仅支持加拿大地区NF自制剧
-      - 俄罗斯(绿头外网集团)(Public)
-      - _14.40Mb
-      - Hong Kong--TG@p2psharing
-      - Hong Kong 8--TG@p2psharing
-      - HK_41
+      - CN_45
+      - CN_51
+      - Trojan|台湾HiNet05|微信：ddly000]
+      - 日本(绿头外网集团)(Public)
+      - IR_77
+      - HongKong 2
+      - 香港(绿头外网集团)(Public)
+      - Japan Eimi
+      - FR-52.47.106.88-61
+      - CN_52
       - 法国(绿头外网集团)(Public)
-      - V1-新加坡 IEPL-1x
-      - V1-香港 IEPL 1-1x
-      - CN_11
-      - 5.83|Super 香港07   IEPL  倍率23
-      - HK_49
-      - HK_46
-      - 付费推荐:dlj.tf/ssrsub__05
+      - _US_美国
+      - _US_美国 2
+      - 油管 TG 8度科技
+      - 油管 TG 8度科技 2
+      - 油管 TG 8度科技 3
+      - 油管 TG 8度科技 4
+      - KR_84
+      - 油管 TG 8度科技 5
+      - 美国(绿头外网集团)(Public)
+      - US_133
+      - US_127
+      - 油管 TG 8度科技 6
+      - 美国
+      - 美国(绿头外网集团)(Public) 2
+      - US_145
+      - 新加坡(绿头外网集团)(Public)
+      - 美国(绿头外网集团)(Public) 3
+      - Relay_🇨🇳CN-🇺🇸US_07
+      - 美国(绿头外网集团)(Public) 4
+      - AU_14
+      - US_150
+      - 油管 TG 8度科技 7
+      - AU_19
+      - AU_10
+      - _US_美国 3
+      - AU_18
+      - AU_15
       - _CA_加拿大
+      - _US_美国 4
+      - _CA_加拿大 2
+      - ZZ_264
+      - 油管 TG 8度科技 8
+      - AU_22
+      - ZZ_263
+      - AU_08
+      - _CA_加拿大 3
+      - AU_01
+      - AU_12
+      - AU_29
+      - AU_21
+      - fkgfw-prod.i.sxl.cn:443
+      - _CA_加拿大 4
+      - AU_17
+      - AU_33
+      - AU_26
+      - AU_25
+      - ZZ_244
+      - _CA_加拿大 5
+      - AU_11
+      - AU_37
+      - _CA_加拿大 6
+      - AU_07
+      - _CA_加拿大 7
+      - _GB_英国
+      - US_134
+      - AU_16
+      - _CA_加拿大 8
+      - _CA_加拿大 9
+      - AU_28
+      - ZZ_197
+      - _CA_加拿大 10
+      - AU_34
+      - _CA_加拿大 11
+      - _CA_加拿大 12
+      - ZZ_248
+      - _CA_加拿大 13
+      - _CA_加拿大 14
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
+      - 油管 TG 8度科技 9
+      - CN_11
+      - azure-HongKong
 rules:
  - DOMAIN-SUFFIX,local,🎯 全球直连
  - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
