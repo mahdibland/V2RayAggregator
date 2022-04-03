@@ -5,423 +5,227 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: "[v1] 香港・13", server: cm08.paofuvip.xyz, port: 5952, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: JP_126, server: superjapan.dnsfree.top, port: 12353, type: vmess, uuid: 40ed2e01-e371-4ff0-8026-08676c40e37e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: tiebapic.baidu.com}, udp: true}
-  - {name: "[v1] 香港・16", server: cm08.paofuvip.xyz, port: 5955, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: "[v1] 香港・06", server: cm07.paofuvip.xyz, port: 5955, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: "[v1] 香港・02", server: cm07.paofuvip.xyz, port: 5951, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: "[v1] 香港・17", server: cm08.paofuvip.xyz, port: 5956, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: RO_145, server: jp.tcpbbr.net, port: 443, type: trojan, password: 08d178d4-ec8b-11eb-a8bf-f23c91cfbbc9, sni: jp.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: "[v1] 香港・08", server: cm07.paofuvip.xyz, port: 5957, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: "[v1] 香港・09", server: cm07.paofuvip.xyz, port: 5958, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: US_279, server: aead.tls.sksuper.dnsfree.top, port: 12325, type: vmess, uuid: 40ed2e01-e371-4ff0-8026-08676c40e37e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: tiebapic.baidu.com}, udp: true}
-  - {name: "[v1] 香港・04", server: cm07.paofuvip.xyz, port: 5953, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: US_318, server: aead.tls.hongkongazace.dnsfree.top, port: 12348, type: trojan, password: 40ed2e01-e371-4ff0-8026-08676c40e37e, sni: aead.tls.hongkongazace.dnsfree.top, skip-cert-verify: true, udp: true}
-  - {name: HK_103, server: aead.tls.hongkongazsuper.dnsfree.top, port: 50006, type: vmess, uuid: 40ed2e01-e371-4ff0-8026-08676c40e37e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: tiebapic.baidu.com}, udp: true}
-  - {name: "Lv1新加坡02[1_0]_6", server: lv1.vmser.myasns.com, port: 7016, type: vmess, uuid: 64b10007-de97-4225-8828-1f26fc887c29, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: ^🇭🇰香港HK 1156 *hi-moon.pw, server: relay1.sgdns.club, port: 11070, type: vmess, uuid: 2dc10784-c7fb-377d-a579-2b541eb16d7b, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /sgy, ws-headers: {Host: relay1.sgdns.club}, udp: true}
-  - {name: 台湾➤原生ip解锁Netflix动漫等流媒体➤x1_6, server: 1.v2yun.vip, port: 30335, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: 1.v2yun.vip}, udp: true}
-  - {name: "[v1] 香港・01", server: cm07.paofuvip.xyz, port: 5950, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: 油管 TG 8度科技, server: os2-6.nrojat.com, port: 443, type: trojan, password: 8vvY3btYPApRtf88QR, sni: os2-6.nrojat.com, skip-cert-verify: true, udp: true}
-  - {name: 韩国➤高速➤x1_13, server: krgs.v2yun.vip, port: 80, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: krgs.v2yun.vip}, udp: true}
-  - {name: 日本➤高速➤x1_9, server: jpgs.v2yun.vip, port: 80, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: jpgs.v2yun.vip}, udp: true}
-  - {name: 印度➤高速➤x1_5, server: 1.v2yun.vip, port: 22986, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: 1.v2yun.vip}, udp: true}
-  - {name: Relay_🇭🇰HK-🇬🇧GB_975, server: hk-azb1.uuuglass.co, port: 21222, type: vmess, uuid: 76763f2a-7c79-498d-b0d3-986ad0f294cf, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: AU_41, server: awv093.xiaohouzi.club, port: 10082, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: 香港05➤高速➤x1_3, server: hk05gs.v2yun.vip, port: 80, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: hk05gs.v2yun.vip}, udp: true}
-  - {name: 油管 TG 8度科技 2, server: 54.199.233.160, port: 153, type: vmess, uuid: f92834d1-64c0-3e72-bb02-d8e5f5694e4d, alterId: 64, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /api/v3/download.getFile, ws-headers: {Host: 8505782627.laowanxiang.com}, udp: true}
-  - {name: "Lv1美国03[1_0]_10", server: lv1.vmser.myasns.com, port: 7032, type: vmess, uuid: 64b10007-de97-4225-8828-1f26fc887c29, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: "Lv1台湾01[1_0]_5", server: lv1.vmser.myasns.com, port: 7010, type: vmess, uuid: 64b10007-de97-4225-8828-1f26fc887c29, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: 油管 TG 8度科技 3, server: shcn2.734ca9b6-7c28-4dac-b1b1-4d97d967dd21.acf64fcb-96b5-4af0-8a2a-2fb7b50074f4.ryzen.cyou, port: 32004, type: ss, cipher: chacha20-ietf-poly1305, password: 61967-Za7tlG5F-XFmHXfNzGhdAB5XtgxBmtycC945xasht, udp: true}
-  - {name: "Lv1美国02[1_0]_9", server: lv1.vmser.myasns.com, port: 7031, type: vmess, uuid: 64b10007-de97-4225-8828-1f26fc887c29, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: "[v1] 香港・07", server: cm07.paofuvip.xyz, port: 5956, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: "Lv1日本01[1_0]_7", server: lv1.vmser.myasns.com, port: 7021, type: vmess, uuid: 64b10007-de97-4225-8828-1f26fc887c29, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: CN_65, server: bgp.xiaohouzi.club, port: 28523, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: "[04-01]|oslook|俄罗斯(RU)Russia/SaintPetersburg_10", server: 45.131.68.163, port: 41299, type: vmess, uuid: 1f0e1886-7f53-496a-92d6-b55d2aafe12b, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: "Lv1美国01[1_0]_8", server: lv1.vmser.myasns.com, port: 7030, type: vmess, uuid: 64b10007-de97-4225-8828-1f26fc887c29, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: 油管 TG 8度科技 4, server: us.pr.xiaocai.ga, port: 443, type: trojan, password: cW3q2r8zly, sni: us.pr.xiaocai.ga, skip-cert-verify: true, udp: true}
-  - {name: 香港➤5GB带宽优质线路➤x1_14, server: hk5gb.v2yun.vip, port: 80, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: hk5gb.v2yun.vip}, udp: true}
-  - {name: CN_64, server: bgp.xiaohouzi.club, port: 28516, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: k6.xiaohouzi.club}, udp: true}
-  - {name: RU_21, server: 45.131.68.163, port: 41299, type: vmess, uuid: 1f0e1886-7f53-496a-92d6-b55d2aafe12b, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: 香港阿伟科技atTG/油管_193, server: h3.shopbuy.club, port: 443, type: vmess, uuid: 92261659-55a6-4b43-85d2-d3d3f30ca8eb, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /KoUJaiN8, ws-headers: {Host: h3.shopbuy.club}, udp: true}
-  - {name: 美国加拿大➤高速➤x1_10, server: 1.v2yun.vip, port: 12720, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: 1.v2yun.vip}, udp: true}
-  - {name: CN_66, server: bgp.xiaohouzi.club, port: 28518, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: _HK_wmt(4_1)_2, server: hk-ms1.checkmails.xyz, port: 31111, type: vmess, uuid: 76763f2a-7c79-498d-b0d3-986ad0f294cf, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: CN_71, server: mc.xiaohouzi.club, port: 28325, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: CN_60, server: bgp.xiaohouzi.club, port: 28529, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: CN_67, server: mc.xiaohouzi.club, port: 28118, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: CN_63, server: mc.xiaohouzi.club, port: 28324, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: 美国洛杉矶➤高速➤x1_12, server: 1.v2yun.vip, port: 13133, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: 1.v2yun.vip}, udp: true}
-  - {name: 香港➤独享➤x1_16, server: hkdx.v2yun.vip, port: 80, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: hkdx.v2yun.vip}, udp: true}
-  - {name: 香港➤三网优化专线➤x1_15, server: hk3wyhzx.v2yun.vip, port: 80, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: hk3wyhzx.v2yun.vip}, udp: true}
-  - {name: :美国-ss-155.94.235.108:64132-可用-直连-仅支持美国地区NF自制剧, server: 155.94.235.108, port: 64132, type: ss, cipher: aes-256-gcm, password: dfMsIC3vOiUhM9tP, udp: true}
-  - {name: 香港1➤独享➤x1_17, server: hk1dx.v2yun.vip, port: 80, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /TS/recharge/tzUrl.html, ws-headers: {Host: hk1dx.v2yun.vip}, udp: true}
-  - {name: CN_62, server: mc.xiaohouzi.club, port: 28323, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: CN_61, server: bgp.xiaohouzi.club, port: 28521, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: AU_47, server: nazhk03.xiaohouzi.club, port: 10030, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: CN_70, server: mc.xiaohouzi.club, port: 28321, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: LT_133, server: us06.xiaohouzi.club, port: 10082, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: LT_132, server: us04.xiaohouzi.club, port: 10083, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: 香港01➤高速➤x1_1, server: hk01gs.v2yun.vip, port: 80, type: vmess, uuid: 15e0b140-f96f-3eeb-b06b-801aa9c38c0e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /TS/recharge/tzUrl.html, ws-headers: {Host: hk01gs.v2yun.vip}, udp: true}
-  - {name: az香港_7, server: hk.guiqing.ml, port: 35970, type: vmess, uuid: c44b723d-38e3-4490-df95-40761563f6d6, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: hk.guiqing.ml}, udp: true}
-  - {name: CN_68, server: bgp.xiaohouzi.club, port: 28530, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: RU_156, server: vv01.xiaohouzi.club, port: 10083, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: 油管 TG 8度科技 5, server: yin1.qingyun123.xyz, port: 10000, type: trojan, password: 69f6d882-799e-4f08-a47a-2bfcbfb3271a, sni: yin1.qingyun123.xyz, skip-cert-verify: true, udp: true}
-  - {name: 油管 TG 8度科技 6, server: no1.qingyun123.xyz, port: 10050, type: trojan, password: 96afe210-7c3c-43f9-90dc-09e9c7ce188c, sni: no1.qingyun123.xyz, skip-cert-verify: true, udp: true}
-  - {name: RU_157, server: v2-r03.xiaohouzi.club, port: 10083, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: CN_69, server: bgp.xiaohouzi.club, port: 28522, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: RU_155, server: v2-r01.xiaohouzi.club, port: 10082, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: 油管 TG 8度科技 7, server: no1.qingyun123.xyz, port: 10050, type: trojan, password: a3a854c6-bef1-4257-a525-b259c6bcca39, sni: no1.qingyun123.xyz, skip-cert-verify: true, udp: true}
-  - {name: "Lv1台湾02[1_0]_4", server: lv1.vmser.myasns.com, port: 7011, type: vmess, uuid: 64b10007-de97-4225-8828-1f26fc887c29, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: github_com/freefq-香港腾讯云2_3, server: shk01.xiaohouzi.club, port: 10050, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: shk01.xiaohouzi.club}, udp: true}
-  - {name: ^🇭🇰香港HK 1846 *hi-moon.pw, server: awv094.xiaohouzi.club, port: 10082, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: "%7B%22Host%22:%22awv094.xiaohouzi.club%22%7D"}, udp: true}
-  - {name: CN_油管 TG 8度科技, server: 14.29.124.168, port: 31057, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_油管 TG 8度科技 2, server: 14.29.124.168, port: 31015, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: _548 | 8.62Mb, server: 14.29.124.168, port: 25293, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_油管 TG 8度科技 3, server: 14.29.124.168, port: 25287, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_油管 TG 8度科技 4, server: 14.29.124.168, port: 25210, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: 日本(绿头外网集团)(Public), server: jp01.internetsmartrouting.top, port: 20090, type: vmess, uuid: ab0cfee9-81df-456f-9acf-3d06588faa65, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /Patti$Freud$4Clubs$spendable$lamar7$mollie7, ws-headers: {Host: apple.com}, udp: true}
+  - {name: 日本(绿头外网集团)(Public) 2, server: 52.140.213.240, port: 1234, type: vmess, uuid: 828c1dbc-16ca-41dd-d078-53d23dbb4835, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: 新加坡(绿头外网集团)(Public), server: sgp-bgp.internetsmartrouting.top, port: 20021, type: vmess, uuid: ab0cfee9-81df-456f-9acf-3d06588faa65, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /Patti$Freud$4Clubs$spendable$lamar7$mollie7, ws-headers: {Host: apple.com}, udp: true}
+  - {name: 新加坡(绿头外网集团)(Public) 2, server: sgp01.internetsmartrouting.top, port: 26889, type: vmess, uuid: ab0cfee9-81df-456f-9acf-3d06588faa65, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /Patti$Freud$4Clubs$spendable$lamar7$mollie7, ws-headers: {Host: apple.com}, udp: true}
+  - {name: 新加坡(绿头外网集团)(Public) 3, server: 103.136.127.163, port: 56031, type: vmess, uuid: 783df988-4d45-467e-a1b5-83173c842660, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: 103.136.127.163}, udp: true}
+  - {name: 日本(绿头外网集团)(Public) 3, server: jp02.internetsmartrouting.top, port: 23621, type: vmess, uuid: ab0cfee9-81df-456f-9acf-3d06588faa65, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /Patti$Freud$4Clubs$spendable$lamar7$mollie7, ws-headers: {Host: apple.com}, udp: true}
+  - {name: 韩国(绿头外网集团)(Public), server: korea01.internetsmartrouting.top, port: 20562, type: vmess, uuid: ab0cfee9-81df-456f-9acf-3d06588faa65, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /Patti$Freud$4Clubs$spendable$lamar7$mollie7, ws-headers: {Host: apple.com}, udp: true}
+  - {name: 韩国(绿头外网集团)(Public) 2, server: 20.200.209.104, port: 1234, type: vmess, uuid: 4cbdfcc4-60ea-4479-a290-8e7389af8789, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: 油管 TG 8度科技, server: 8bb24b8.ga.gladns.com, port: 3383, type: trojan, password: 82409648721799c5, sni: 8bb24b8.ga.gladns.com, skip-cert-verify: true, udp: true}
+  - {name: 马来西亚(绿头外网集团)(Public), server: 183.232.56.161, port: 5019, type: vmess, uuid: 3a226645-c640-39a2-8177-000381e29f20, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: 183.232.56.161}, udp: true}
+  - {name: JP日本45_45, server: os2-1.nrojat.com, port: 443, type: trojan, password: 9zB9WZg2xaJz8pgcR2, sni: os2-1.nrojat.com, skip-cert-verify: true, udp: true}
+  - {name: 油管 TG 8度科技 2, server: 8bb24b8.gb.gladns.com, port: 3383, type: trojan, password: 82409648721799c5, sni: 8bb24b8.gb.gladns.com, skip-cert-verify: true, udp: true}
+  - {name: US_220, server: 20.200.209.104, port: 1234, type: vmess, uuid: 4cbdfcc4-60ea-4479-a290-8e7389af8789, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: 德国(绿头外网集团)(Public), server: top-cs.gov-ddns.cn, port: 10823, type: vmess, uuid: 29430b3d-f83f-3c74-94a2-e8c1a459219f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: v2ray, ws-headers: {Host: 45.63.127.159}, udp: true}
+  - {name: 403更新_HK_香港_8, server: hk2.qingyun123.xyz, port: 10050, type: trojan, password: 173ada09-6d94-4cae-96db-17da3b840a2d, sni: hk2.qingyun123.xyz, skip-cert-verify: true, udp: true}
+  - {name: US美国43_43, server: c39s2.jamjams.net, port: 32567, type: ss, cipher: aes-256-gcm, password: m35yfEjtbS, udp: true}
+  - {name: 美国(绿头外网集团)(Public), server: us02.internetsmartrouting.top, port: 20666, type: vmess, uuid: ab0cfee9-81df-456f-9acf-3d06588faa65, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /Patti$Freud$4Clubs$spendable$lamar7$mollie7, ws-headers: {Host: apple.com}, udp: true}
+  - {name: hostdare_1, server: 212.103.62.37, port: 443, type: vmess, uuid: 17beadf3-1878-4beb-9417-b47295aefc12, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /cNlbnKh, ws-headers: {Host: 212.103.62.37}, udp: true}
+  - {name: DE德国46_46, server: de1-4.nrojat.com, port: 443, type: trojan, password: 9zB9WZg2xaJz8pgcR2, sni: de1-4.nrojat.com, skip-cert-verify: true, udp: true}
+  - {name: SG_2, server: sgaws005.xmrth-node.xyz, port: 10574, type: vmess, uuid: 076c2562-492b-35c7-9b28-5053304cd0c7, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /index, ws-headers: {Host: sgaws005.xmrth-node.xyz}, udp: true}
+  - {name: Relay_🇨🇳CN-🇭🇰HK_408, server: iepl1.ggboynextdoor.best, port: 65115, type: ssr, cipher: rc4-md5, password: lGBMNO, protocol: auth_aes128_md5, obfs: tls1.2_ticket_auth, protocol-param: 4173:OrUbgB, obfs-param: 9f7c44173.download.windowsupdate.com, udp: true}
+  - {name: 法国(绿头外网集团)(Public), server: 107.191.47.91, port: 10110, type: vmess, uuid: 29430b3d-f83f-3c74-94a2-e8c1a459219f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: 107.191.47.91}, udp: true}
+  - {name: 日本(绿头外网集团)(Public) 4, server: 139.180.198.206, port: 10110, type: vmess, uuid: 29430b3d-f83f-3c74-94a2-e8c1a459219f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: 139.180.198.206}, udp: true}
+  - {name: github_com/freefq-美国21_59, server: 209.94.56.152, port: 443, type: vmess, uuid: 3033e157-fdc3-47c0-ae32-fc4fe65fc64d, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /9apQabyg9le, ws-headers: {Host: 209.94.56.152}, udp: true}
+  - {name: 油管 TG 8度科技 3, server: yin1.qingyun123.xyz, port: 10000, type: trojan, password: 173ada09-6d94-4cae-96db-17da3b840a2d, sni: yin1.qingyun123.xyz, skip-cert-verify: true, udp: true}
+  - {name: 新加坡(绿头外网集团)(Public) 4, server: 207.148.77.25, port: 10110, type: vmess, uuid: 29430b3d-f83f-3c74-94a2-e8c1a459219f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: 207.148.77.25}, udp: true}
+  - {name: CYL-科技（2022_04_02）_1132, server: 104.208.101.112, port: 34554, type: vmess, uuid: ec57dccf-467d-4785-99d5-7b57a65b2bac, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: Relay_日本-_217, server: scjp.scsevers.cf, port: 11312, type: vmess, uuid: 71f2e024-6b64-4f37-dba3-dc25614ccce8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: scjp.scsevers.cf}, udp: true}
+  - {name: newserver1_2, server: 159.203.73.153, port: 4396, type: vmess, uuid: 7ef93298-6931-4d0e-a9c1-98005ab374df, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /v2rayhunter0122, ws-headers: {Host: 159.203.73.153}, udp: true}
+  - {name: 香港(绿头外网集团)(Public), server: hk04.internetsmartrouting.top, port: 46889, type: vmess, uuid: ab0cfee9-81df-456f-9acf-3d06588faa65, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /Patti$Freud$4Clubs$spendable$lamar7$mollie7, ws-headers: {Host: apple.com}, udp: true}
+  - {name: _430 | 8.73Mb, server: 14.29.124.168, port: 25289, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: Relay_🇨🇳CN-🇭🇰HK_418, server: cnctfstohkt55.ggboynextdoor.best, port: 34000, type: ssr, cipher: rc4-md5, password: lGBMNO, protocol: auth_aes128_md5, obfs: tls1.2_ticket_auth, protocol-param: 4173:OrUbgB, obfs-param: 9f7c44173.download.windowsupdate.com, udp: true}
   - {name: _581 |10.36Mb, server: 14.29.124.168, port: 25270, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_油管 TG 8度科技 5, server: 14.29.124.168, port: 25230, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: _593 | 7.57Mb, server: 14.29.124.168, port: 25247, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_油管 TG 8度科技 6, server: 14.29.124.168, port: 25235, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_油管 TG 8度科技 7, server: 14.29.124.168, port: 25295, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 油管 TG 8度科技 8, server: 8bb24b8.ga.gladns.com, port: 3383, type: trojan, password: 82409648721799c5, sni: 8bb24b8.ga.gladns.com, skip-cert-verify: true, udp: true}
-  - {name: _香港(yudou66_com玉豆分享)_30, server: azhk097.xiaohouzi.club, port: 443, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: azhk097.xiaohouzi.club}, udp: true}
-  - {name: CN_油管 TG 8度科技 8, server: 14.29.124.168, port: 25218, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 油管 TG 8度科技 9, server: fr1.qingyun123.xyz, port: 10050, type: trojan, password: a3a854c6-bef1-4257-a525-b259c6bcca39, sni: fr1.qingyun123.xyz, skip-cert-verify: true, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:), server: 101.91.121.247, port: 50004, type: ss, cipher: aes-256-cfb, password: !<str> 4415934295, udp: true}
-  - {name: V2RAY-香港AWS06_28, server: aws-hk06.xiaohouzi.club, port: 443, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: aws-hk06.xiaohouzi.club}, udp: true}
-  - {name: _CA_加拿大, server: 134.195.196.51, port: 8888, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
-  - {name: :中国-ss-hk-zone.checkmails.xyz:22999-可用-中转:103.135.250.73-解锁香港地区NF非自制剧, server: hk-zone.checkmails.xyz, port: 22999, type: ss, cipher: chacha20-ietf-poly1305, password: 76763f2a-7c79-498d-b0d3-986ad0f294cf, udp: true}
-  - {name: CN_油管 TG 8度科技 9, server: 14.29.124.168, port: 25279, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 油管 TG 8度科技 10, server: ingress-i1.onebox6.org, port: 38501, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: www.ivpnpro.net}, udp: true}
-  - {name: _577 | 8.12Mb, server: 14.29.124.168, port: 25231, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 油管 TG 8度科技 11, server: 8bb24b8.gb.gladns.com, port: 3383, type: trojan, password: 82409648721799c5, sni: 8bb24b8.gb.gladns.com, skip-cert-verify: true, udp: true}
-  - {name: "[v1] 香港・12", server: cm08.paofuvip.xyz, port: 5951, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: 新加坡(绿头外网集团)(Public), server: sg1.qingyun123.xyz, port: 443, type: trojan, password: 32cbd76d-3b0a-4f44-b7ef-98d41db730f6, sni: sg1.qingyun123.xyz, skip-cert-verify: true, udp: true}
-  - {name: HK_112, server: api.tcpbbr.net, port: 443, type: trojan, password: 08d178d4-ec8b-11eb-a8bf-f23c91cfbbc9, sni: api.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: AU_42, server: aws-hk02.xiaohouzi.club, port: 10081, type: vmess, uuid: dbf20899-f0d8-33bd-bed0-ddc16105dfe3, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /v2ray, ws-headers: {Host: www.ibm.com}, udp: true}
-  - {name: "[v1] 香港・05", server: cm07.paofuvip.xyz, port: 5954, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: "[v1] 香港・15", server: cm08.paofuvip.xyz, port: 5954, type: ssr, cipher: chacha20-ietf, password: bxsnucrgk6hfish, protocol: auth_aes128_sha1, obfs: plain, protocol-param: 193061:KOAiCn, obfs-param: 0efd4193061.microsoft.com, udp: true}
-  - {name: 45.137.10.174, server: 45.137.10.174, port: 39043, type: vmess, uuid: 1b2f44e4-a810-48a8-b620-a4567b46c9b7, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: "%7B%22Host%22:%22v2ex.downk.cc%22%7D"}, udp: true}
-  - {name: CN_油管 TG 8度科技 10, server: 14.29.124.168, port: 25266, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: CN_油管 TG 8度科技, server: 14.29.124.168, port: 25218, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: 香港(绿头外网集团)(Public) 2, server: hk06.internetsmartrouting.top, port: 23685, type: vmess, uuid: ab0cfee9-81df-456f-9acf-3d06588faa65, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /Patti$Freud$4Clubs$spendable$lamar7$mollie7, ws-headers: {Host: apple.com}, udp: true}
+  - {name: RU_138, server: ussc.scsevers.cf, port: 443, type: trojan, password: sharecentre, sni: ussc.scsevers.cf, skip-cert-verify: true, udp: true}
+  - {name: _441 | 4.57Mb, server: 14.29.124.168, port: 25245, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: 28美国∞直连, server: 45.32.94.166, port: 31676, type: vmess, uuid: 6f3ec45c-5283-40e8-aea9-7749f4c75753, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: http, http-opts: {method: GET, path: [/], headers: {Host: [45.32.94.166]}}, udp: true}
+  - {name: 403更新_IN_印度_10, server: in.dadiangan.xyz, port: 34254, type: ss, cipher: chacha20-ietf-poly1305, password: 9de3e9ba-18ce-4cd8-81a3-e4ed47fc7d41, udp: true}
+  - {name: "", server: 152.70.80.195, port: 31703, type: vmess, uuid: 7f1c4dc9-be0d-4530-cab0-50220950fad5, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: 香港(绿头外网集团)(Public) 3, server: hk01.internetsmartrouting.top, port: 20569, type: vmess, uuid: ab0cfee9-81df-456f-9acf-3d06588faa65, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /Patti$Freud$4Clubs$spendable$lamar7$mollie7, ws-headers: {Host: apple.com}, udp: true}
+  - {name: 美国_3125, server: 45.32.94.166, port: 31676, type: vmess, uuid: 6f3ec45c-5283-40e8-aea9-7749f4c75753, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: http, http-opts: {method: GET, path: [/], headers: {Host: [45.32.94.166]}}, udp: true}
+  - {name: LT_1650, server: vpn-eu-node00e-bb.hi-l.eu, port: 30010, type: ss, cipher: chacha20-ietf-poly1305, password: p0gkMB4ZVukw, udp: true}
+  - {name: 油管 TG 8度科技 4, server: za02.holiganfan.com, port: 10088, type: trojan, password: 61729199-896f-4c15-bae3-e8780b22c70c, sni: za02.holiganfan.com, skip-cert-verify: true, udp: true}
+  - {name: ZZ_357, server: 134.195.196.51, port: 8000, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: :美国-ss-134.195.196.51:8080-可用-直连-仅支持加拿大地区NF自制剧, server: 134.195.196.51, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: 香港(绿头外网集团)(Public) 4, server: hk03.internetsmartrouting.top, port: 31690, type: vmess, uuid: ab0cfee9-81df-456f-9acf-3d06588faa65, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /Patti$Freud$4Clubs$spendable$lamar7$mollie7, ws-headers: {Host: apple.com}, udp: true}
+  - {name: 403更新_US_美国_17, server: fr.dadiangan.xyz, port: 24534, type: vmess, uuid: 9de3e9ba-18ce-4cd8-81a3-e4ed47fc7d41, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /dadiangan, ws-headers: {Host: fr.dadiangan.xyz}, udp: true}
+  - {name: CN_油管 TG 8度科技 2, server: 14.29.124.168, port: 25210, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: 美国(欢迎订阅Youtube破解资源君), server: cloudflare.xrenblog.com, port: 443, type: vmess, uuid: 6c175d1a-a57f-4881-a471-173eb139694b, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /xrenblog/, ws-headers: {Host: ipv6.xrenblog.com}, udp: true}
+  - {name: ZZ_237, server: 134.195.196.51, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - "[v1] 香港・13"
-      - JP_126
-      - "[v1] 香港・16"
-      - "[v1] 香港・06"
-      - "[v1] 香港・02"
-      - "[v1] 香港・17"
-      - RO_145
-      - "[v1] 香港・08"
-      - "[v1] 香港・09"
-      - US_279
-      - "[v1] 香港・04"
-      - US_318
-      - HK_103
-      - Lv1新加坡02[1_0]_6
-      - ^🇭🇰香港HK 1156 *hi-moon.pw
-      - 台湾➤原生ip解锁Netflix动漫等流媒体➤x1_6
-      - "[v1] 香港・01"
-      - 油管 TG 8度科技
-      - 韩国➤高速➤x1_13
-      - 日本➤高速➤x1_9
-      - 印度➤高速➤x1_5
-      - Relay_🇭🇰HK-🇬🇧GB_975
-      - AU_41
-      - 香港05➤高速➤x1_3
-      - 油管 TG 8度科技 2
-      - Lv1美国03[1_0]_10
-      - Lv1台湾01[1_0]_5
-      - 油管 TG 8度科技 3
-      - Lv1美国02[1_0]_9
-      - "[v1] 香港・07"
-      - Lv1日本01[1_0]_7
-      - CN_65
-      - "[04-01]|oslook|俄罗斯(RU)Russia/SaintPetersburg_10"
-      - Lv1美国01[1_0]_8
-      - 油管 TG 8度科技 4
-      - 香港➤5GB带宽优质线路➤x1_14
-      - CN_64
-      - RU_21
-      - 香港阿伟科技atTG/油管_193
-      - 美国加拿大➤高速➤x1_10
-      - CN_66
-      - _HK_wmt(4_1)_2
-      - CN_71
-      - CN_60
-      - CN_67
-      - CN_63
-      - 美国洛杉矶➤高速➤x1_12
-      - 香港➤独享➤x1_16
-      - 香港➤三网优化专线➤x1_15
-      - :美国-ss-155.94.235.108:64132-可用-直连-仅支持美国地区NF自制剧
-      - 香港1➤独享➤x1_17
-      - CN_62
-      - CN_61
-      - AU_47
-      - CN_70
-      - LT_133
-      - LT_132
-      - 香港01➤高速➤x1_1
-      - az香港_7
-      - CN_68
-      - RU_156
-      - 油管 TG 8度科技 5
-      - 油管 TG 8度科技 6
-      - RU_157
-      - CN_69
-      - RU_155
-      - 油管 TG 8度科技 7
-      - Lv1台湾02[1_0]_4
-      - github_com/freefq-香港腾讯云2_3
-      - ^🇭🇰香港HK 1846 *hi-moon.pw
-      - CN_油管 TG 8度科技
-      - CN_油管 TG 8度科技 2
-      - _548 | 8.62Mb
-      - CN_油管 TG 8度科技 3
-      - CN_油管 TG 8度科技 4
-      - _581 |10.36Mb
-      - CN_油管 TG 8度科技 5
-      - _593 | 7.57Mb
-      - CN_油管 TG 8度科技 6
-      - CN_油管 TG 8度科技 7
-      - 油管 TG 8度科技 8
-      - _香港(yudou66_com玉豆分享)_30
-      - CN_油管 TG 8度科技 8
-      - 油管 TG 8度科技 9
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - V2RAY-香港AWS06_28
-      - _CA_加拿大
-      - :中国-ss-hk-zone.checkmails.xyz:22999-可用-中转:103.135.250.73-解锁香港地区NF非自制剧
-      - CN_油管 TG 8度科技 9
-      - 油管 TG 8度科技 10
-      - _577 | 8.12Mb
-      - 油管 TG 8度科技 11
-      - "[v1] 香港・12"
+      - 日本(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 2
       - 新加坡(绿头外网集团)(Public)
-      - HK_112
-      - AU_42
-      - "[v1] 香港・05"
-      - "[v1] 香港・15"
-      - 45.137.10.174
-      - CN_油管 TG 8度科技 10
+      - 新加坡(绿头外网集团)(Public) 2
+      - 新加坡(绿头外网集团)(Public) 3
+      - 日本(绿头外网集团)(Public) 3
+      - 韩国(绿头外网集团)(Public)
+      - 韩国(绿头外网集团)(Public) 2
+      - 油管 TG 8度科技
+      - 马来西亚(绿头外网集团)(Public)
+      - JP日本45_45
+      - 油管 TG 8度科技 2
+      - US_220
+      - 德国(绿头外网集团)(Public)
+      - 403更新_HK_香港_8
+      - US美国43_43
+      - 美国(绿头外网集团)(Public)
+      - hostdare_1
+      - DE德国46_46
+      - SG_2
+      - Relay_🇨🇳CN-🇭🇰HK_408
+      - 法国(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 4
+      - github_com/freefq-美国21_59
+      - 油管 TG 8度科技 3
+      - 新加坡(绿头外网集团)(Public) 4
+      - CYL-科技（2022_04_02）_1132
+      - Relay_日本-_217
+      - newserver1_2
+      - 香港(绿头外网集团)(Public)
+      - _430 | 8.73Mb
+      - Relay_🇨🇳CN-🇭🇰HK_418
+      - _581 |10.36Mb
+      - CN_油管 TG 8度科技
+      - 香港(绿头外网集团)(Public) 2
+      - RU_138
+      - _441 | 4.57Mb
+      - 28美国∞直连
+      - 403更新_IN_印度_10
+      - ""
+      - 香港(绿头外网集团)(Public) 3
+      - 美国_3125
+      - LT_1650
+      - 油管 TG 8度科技 4
+      - ZZ_357
+      - :美国-ss-134.195.196.51:8080-可用-直连-仅支持加拿大地区NF自制剧
+      - 香港(绿头外网集团)(Public) 4
+      - 403更新_US_美国_17
+      - CN_油管 TG 8度科技 2
+      - 美国(欢迎订阅Youtube破解资源君)
+      - ZZ_237
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - "[v1] 香港・13"
-      - JP_126
-      - "[v1] 香港・16"
-      - "[v1] 香港・06"
-      - "[v1] 香港・02"
-      - "[v1] 香港・17"
-      - RO_145
-      - "[v1] 香港・08"
-      - "[v1] 香港・09"
-      - US_279
-      - "[v1] 香港・04"
-      - US_318
-      - HK_103
-      - Lv1新加坡02[1_0]_6
-      - ^🇭🇰香港HK 1156 *hi-moon.pw
-      - 台湾➤原生ip解锁Netflix动漫等流媒体➤x1_6
-      - "[v1] 香港・01"
-      - 油管 TG 8度科技
-      - 韩国➤高速➤x1_13
-      - 日本➤高速➤x1_9
-      - 印度➤高速➤x1_5
-      - Relay_🇭🇰HK-🇬🇧GB_975
-      - AU_41
-      - 香港05➤高速➤x1_3
-      - 油管 TG 8度科技 2
-      - Lv1美国03[1_0]_10
-      - Lv1台湾01[1_0]_5
-      - 油管 TG 8度科技 3
-      - Lv1美国02[1_0]_9
-      - "[v1] 香港・07"
-      - Lv1日本01[1_0]_7
-      - CN_65
-      - "[04-01]|oslook|俄罗斯(RU)Russia/SaintPetersburg_10"
-      - Lv1美国01[1_0]_8
-      - 油管 TG 8度科技 4
-      - 香港➤5GB带宽优质线路➤x1_14
-      - CN_64
-      - RU_21
-      - 香港阿伟科技atTG/油管_193
-      - 美国加拿大➤高速➤x1_10
-      - CN_66
-      - _HK_wmt(4_1)_2
-      - CN_71
-      - CN_60
-      - CN_67
-      - CN_63
-      - 美国洛杉矶➤高速➤x1_12
-      - 香港➤独享➤x1_16
-      - 香港➤三网优化专线➤x1_15
-      - :美国-ss-155.94.235.108:64132-可用-直连-仅支持美国地区NF自制剧
-      - 香港1➤独享➤x1_17
-      - CN_62
-      - CN_61
-      - AU_47
-      - CN_70
-      - LT_133
-      - LT_132
-      - 香港01➤高速➤x1_1
-      - az香港_7
-      - CN_68
-      - RU_156
-      - 油管 TG 8度科技 5
-      - 油管 TG 8度科技 6
-      - RU_157
-      - CN_69
-      - RU_155
-      - 油管 TG 8度科技 7
-      - Lv1台湾02[1_0]_4
-      - github_com/freefq-香港腾讯云2_3
-      - ^🇭🇰香港HK 1846 *hi-moon.pw
-      - CN_油管 TG 8度科技
-      - CN_油管 TG 8度科技 2
-      - _548 | 8.62Mb
-      - CN_油管 TG 8度科技 3
-      - CN_油管 TG 8度科技 4
-      - _581 |10.36Mb
-      - CN_油管 TG 8度科技 5
-      - _593 | 7.57Mb
-      - CN_油管 TG 8度科技 6
-      - CN_油管 TG 8度科技 7
-      - 油管 TG 8度科技 8
-      - _香港(yudou66_com玉豆分享)_30
-      - CN_油管 TG 8度科技 8
-      - 油管 TG 8度科技 9
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - V2RAY-香港AWS06_28
-      - _CA_加拿大
-      - :中国-ss-hk-zone.checkmails.xyz:22999-可用-中转:103.135.250.73-解锁香港地区NF非自制剧
-      - CN_油管 TG 8度科技 9
-      - 油管 TG 8度科技 10
-      - _577 | 8.12Mb
-      - 油管 TG 8度科技 11
-      - "[v1] 香港・12"
+      - 日本(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 2
       - 新加坡(绿头外网集团)(Public)
-      - HK_112
-      - AU_42
-      - "[v1] 香港・05"
-      - "[v1] 香港・15"
-      - 45.137.10.174
-      - CN_油管 TG 8度科技 10
+      - 新加坡(绿头外网集团)(Public) 2
+      - 新加坡(绿头外网集团)(Public) 3
+      - 日本(绿头外网集团)(Public) 3
+      - 韩国(绿头外网集团)(Public)
+      - 韩国(绿头外网集团)(Public) 2
+      - 油管 TG 8度科技
+      - 马来西亚(绿头外网集团)(Public)
+      - JP日本45_45
+      - 油管 TG 8度科技 2
+      - US_220
+      - 德国(绿头外网集团)(Public)
+      - 403更新_HK_香港_8
+      - US美国43_43
+      - 美国(绿头外网集团)(Public)
+      - hostdare_1
+      - DE德国46_46
+      - SG_2
+      - Relay_🇨🇳CN-🇭🇰HK_408
+      - 法国(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 4
+      - github_com/freefq-美国21_59
+      - 油管 TG 8度科技 3
+      - 新加坡(绿头外网集团)(Public) 4
+      - CYL-科技（2022_04_02）_1132
+      - Relay_日本-_217
+      - newserver1_2
+      - 香港(绿头外网集团)(Public)
+      - _430 | 8.73Mb
+      - Relay_🇨🇳CN-🇭🇰HK_418
+      - _581 |10.36Mb
+      - CN_油管 TG 8度科技
+      - 香港(绿头外网集团)(Public) 2
+      - RU_138
+      - _441 | 4.57Mb
+      - 28美国∞直连
+      - 403更新_IN_印度_10
+      - ""
+      - 香港(绿头外网集团)(Public) 3
+      - 美国_3125
+      - LT_1650
+      - 油管 TG 8度科技 4
+      - ZZ_357
+      - :美国-ss-134.195.196.51:8080-可用-直连-仅支持加拿大地区NF自制剧
+      - 香港(绿头外网集团)(Public) 4
+      - 403更新_US_美国_17
+      - CN_油管 TG 8度科技 2
+      - 美国(欢迎订阅Youtube破解资源君)
+      - ZZ_237
   - name: 🎥 NETFLIX
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - "[v1] 香港・13"
-      - JP_126
-      - "[v1] 香港・16"
-      - "[v1] 香港・06"
-      - "[v1] 香港・02"
-      - "[v1] 香港・17"
-      - RO_145
-      - "[v1] 香港・08"
-      - "[v1] 香港・09"
-      - US_279
-      - "[v1] 香港・04"
-      - US_318
-      - HK_103
-      - Lv1新加坡02[1_0]_6
-      - ^🇭🇰香港HK 1156 *hi-moon.pw
-      - 台湾➤原生ip解锁Netflix动漫等流媒体➤x1_6
-      - "[v1] 香港・01"
-      - 油管 TG 8度科技
-      - 韩国➤高速➤x1_13
-      - 日本➤高速➤x1_9
-      - 印度➤高速➤x1_5
-      - Relay_🇭🇰HK-🇬🇧GB_975
-      - AU_41
-      - 香港05➤高速➤x1_3
-      - 油管 TG 8度科技 2
-      - Lv1美国03[1_0]_10
-      - Lv1台湾01[1_0]_5
-      - 油管 TG 8度科技 3
-      - Lv1美国02[1_0]_9
-      - "[v1] 香港・07"
-      - Lv1日本01[1_0]_7
-      - CN_65
-      - "[04-01]|oslook|俄罗斯(RU)Russia/SaintPetersburg_10"
-      - Lv1美国01[1_0]_8
-      - 油管 TG 8度科技 4
-      - 香港➤5GB带宽优质线路➤x1_14
-      - CN_64
-      - RU_21
-      - 香港阿伟科技atTG/油管_193
-      - 美国加拿大➤高速➤x1_10
-      - CN_66
-      - _HK_wmt(4_1)_2
-      - CN_71
-      - CN_60
-      - CN_67
-      - CN_63
-      - 美国洛杉矶➤高速➤x1_12
-      - 香港➤独享➤x1_16
-      - 香港➤三网优化专线➤x1_15
-      - :美国-ss-155.94.235.108:64132-可用-直连-仅支持美国地区NF自制剧
-      - 香港1➤独享➤x1_17
-      - CN_62
-      - CN_61
-      - AU_47
-      - CN_70
-      - LT_133
-      - LT_132
-      - 香港01➤高速➤x1_1
-      - az香港_7
-      - CN_68
-      - RU_156
-      - 油管 TG 8度科技 5
-      - 油管 TG 8度科技 6
-      - RU_157
-      - CN_69
-      - RU_155
-      - 油管 TG 8度科技 7
-      - Lv1台湾02[1_0]_4
-      - github_com/freefq-香港腾讯云2_3
-      - ^🇭🇰香港HK 1846 *hi-moon.pw
-      - CN_油管 TG 8度科技
-      - CN_油管 TG 8度科技 2
-      - _548 | 8.62Mb
-      - CN_油管 TG 8度科技 3
-      - CN_油管 TG 8度科技 4
-      - _581 |10.36Mb
-      - CN_油管 TG 8度科技 5
-      - _593 | 7.57Mb
-      - CN_油管 TG 8度科技 6
-      - CN_油管 TG 8度科技 7
-      - 油管 TG 8度科技 8
-      - _香港(yudou66_com玉豆分享)_30
-      - CN_油管 TG 8度科技 8
-      - 油管 TG 8度科技 9
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - V2RAY-香港AWS06_28
-      - _CA_加拿大
-      - :中国-ss-hk-zone.checkmails.xyz:22999-可用-中转:103.135.250.73-解锁香港地区NF非自制剧
-      - CN_油管 TG 8度科技 9
-      - 油管 TG 8度科技 10
-      - _577 | 8.12Mb
-      - 油管 TG 8度科技 11
-      - "[v1] 香港・12"
+      - 日本(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 2
       - 新加坡(绿头外网集团)(Public)
-      - HK_112
-      - AU_42
-      - "[v1] 香港・05"
-      - "[v1] 香港・15"
-      - 45.137.10.174
-      - CN_油管 TG 8度科技 10
+      - 新加坡(绿头外网集团)(Public) 2
+      - 新加坡(绿头外网集团)(Public) 3
+      - 日本(绿头外网集团)(Public) 3
+      - 韩国(绿头外网集团)(Public)
+      - 韩国(绿头外网集团)(Public) 2
+      - 油管 TG 8度科技
+      - 马来西亚(绿头外网集团)(Public)
+      - JP日本45_45
+      - 油管 TG 8度科技 2
+      - US_220
+      - 德国(绿头外网集团)(Public)
+      - 403更新_HK_香港_8
+      - US美国43_43
+      - 美国(绿头外网集团)(Public)
+      - hostdare_1
+      - DE德国46_46
+      - SG_2
+      - Relay_🇨🇳CN-🇭🇰HK_408
+      - 法国(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 4
+      - github_com/freefq-美国21_59
+      - 油管 TG 8度科技 3
+      - 新加坡(绿头外网集团)(Public) 4
+      - CYL-科技（2022_04_02）_1132
+      - Relay_日本-_217
+      - newserver1_2
+      - 香港(绿头外网集团)(Public)
+      - _430 | 8.73Mb
+      - Relay_🇨🇳CN-🇭🇰HK_418
+      - _581 |10.36Mb
+      - CN_油管 TG 8度科技
+      - 香港(绿头外网集团)(Public) 2
+      - RU_138
+      - _441 | 4.57Mb
+      - 28美国∞直连
+      - 403更新_IN_印度_10
+      - ""
+      - 香港(绿头外网集团)(Public) 3
+      - 美国_3125
+      - LT_1650
+      - 油管 TG 8度科技 4
+      - ZZ_357
+      - :美国-ss-134.195.196.51:8080-可用-直连-仅支持加拿大地区NF自制剧
+      - 香港(绿头外网集团)(Public) 4
+      - 403更新_US_美国_17
+      - CN_油管 TG 8度科技 2
+      - 美国(欢迎订阅Youtube破解资源君)
+      - ZZ_237
   - name: ⛔️ 广告拦截
     type: select
     proxies:
@@ -440,457 +244,236 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - "[v1] 香港・13"
-      - JP_126
-      - "[v1] 香港・16"
-      - "[v1] 香港・06"
-      - "[v1] 香港・02"
-      - "[v1] 香港・17"
-      - RO_145
-      - "[v1] 香港・08"
-      - "[v1] 香港・09"
-      - US_279
-      - "[v1] 香港・04"
-      - US_318
-      - HK_103
-      - Lv1新加坡02[1_0]_6
-      - ^🇭🇰香港HK 1156 *hi-moon.pw
-      - 台湾➤原生ip解锁Netflix动漫等流媒体➤x1_6
-      - "[v1] 香港・01"
-      - 油管 TG 8度科技
-      - 韩国➤高速➤x1_13
-      - 日本➤高速➤x1_9
-      - 印度➤高速➤x1_5
-      - Relay_🇭🇰HK-🇬🇧GB_975
-      - AU_41
-      - 香港05➤高速➤x1_3
-      - 油管 TG 8度科技 2
-      - Lv1美国03[1_0]_10
-      - Lv1台湾01[1_0]_5
-      - 油管 TG 8度科技 3
-      - Lv1美国02[1_0]_9
-      - "[v1] 香港・07"
-      - Lv1日本01[1_0]_7
-      - CN_65
-      - "[04-01]|oslook|俄罗斯(RU)Russia/SaintPetersburg_10"
-      - Lv1美国01[1_0]_8
-      - 油管 TG 8度科技 4
-      - 香港➤5GB带宽优质线路➤x1_14
-      - CN_64
-      - RU_21
-      - 香港阿伟科技atTG/油管_193
-      - 美国加拿大➤高速➤x1_10
-      - CN_66
-      - _HK_wmt(4_1)_2
-      - CN_71
-      - CN_60
-      - CN_67
-      - CN_63
-      - 美国洛杉矶➤高速➤x1_12
-      - 香港➤独享➤x1_16
-      - 香港➤三网优化专线➤x1_15
-      - :美国-ss-155.94.235.108:64132-可用-直连-仅支持美国地区NF自制剧
-      - 香港1➤独享➤x1_17
-      - CN_62
-      - CN_61
-      - AU_47
-      - CN_70
-      - LT_133
-      - LT_132
-      - 香港01➤高速➤x1_1
-      - az香港_7
-      - CN_68
-      - RU_156
-      - 油管 TG 8度科技 5
-      - 油管 TG 8度科技 6
-      - RU_157
-      - CN_69
-      - RU_155
-      - 油管 TG 8度科技 7
-      - Lv1台湾02[1_0]_4
-      - github_com/freefq-香港腾讯云2_3
-      - ^🇭🇰香港HK 1846 *hi-moon.pw
-      - CN_油管 TG 8度科技
-      - CN_油管 TG 8度科技 2
-      - _548 | 8.62Mb
-      - CN_油管 TG 8度科技 3
-      - CN_油管 TG 8度科技 4
-      - _581 |10.36Mb
-      - CN_油管 TG 8度科技 5
-      - _593 | 7.57Mb
-      - CN_油管 TG 8度科技 6
-      - CN_油管 TG 8度科技 7
-      - 油管 TG 8度科技 8
-      - _香港(yudou66_com玉豆分享)_30
-      - CN_油管 TG 8度科技 8
-      - 油管 TG 8度科技 9
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - V2RAY-香港AWS06_28
-      - _CA_加拿大
-      - :中国-ss-hk-zone.checkmails.xyz:22999-可用-中转:103.135.250.73-解锁香港地区NF非自制剧
-      - CN_油管 TG 8度科技 9
-      - 油管 TG 8度科技 10
-      - _577 | 8.12Mb
-      - 油管 TG 8度科技 11
-      - "[v1] 香港・12"
+      - 日本(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 2
       - 新加坡(绿头外网集团)(Public)
-      - HK_112
-      - AU_42
-      - "[v1] 香港・05"
-      - "[v1] 香港・15"
-      - 45.137.10.174
-      - CN_油管 TG 8度科技 10
+      - 新加坡(绿头外网集团)(Public) 2
+      - 新加坡(绿头外网集团)(Public) 3
+      - 日本(绿头外网集团)(Public) 3
+      - 韩国(绿头外网集团)(Public)
+      - 韩国(绿头外网集团)(Public) 2
+      - 油管 TG 8度科技
+      - 马来西亚(绿头外网集团)(Public)
+      - JP日本45_45
+      - 油管 TG 8度科技 2
+      - US_220
+      - 德国(绿头外网集团)(Public)
+      - 403更新_HK_香港_8
+      - US美国43_43
+      - 美国(绿头外网集团)(Public)
+      - hostdare_1
+      - DE德国46_46
+      - SG_2
+      - Relay_🇨🇳CN-🇭🇰HK_408
+      - 法国(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 4
+      - github_com/freefq-美国21_59
+      - 油管 TG 8度科技 3
+      - 新加坡(绿头外网集团)(Public) 4
+      - CYL-科技（2022_04_02）_1132
+      - Relay_日本-_217
+      - newserver1_2
+      - 香港(绿头外网集团)(Public)
+      - _430 | 8.73Mb
+      - Relay_🇨🇳CN-🇭🇰HK_418
+      - _581 |10.36Mb
+      - CN_油管 TG 8度科技
+      - 香港(绿头外网集团)(Public) 2
+      - RU_138
+      - _441 | 4.57Mb
+      - 28美国∞直连
+      - 403更新_IN_印度_10
+      - ""
+      - 香港(绿头外网集团)(Public) 3
+      - 美国_3125
+      - LT_1650
+      - 油管 TG 8度科技 4
+      - ZZ_357
+      - :美国-ss-134.195.196.51:8080-可用-直连-仅支持加拿大地区NF自制剧
+      - 香港(绿头外网集团)(Public) 4
+      - 403更新_US_美国_17
+      - CN_油管 TG 8度科技 2
+      - 美国(欢迎订阅Youtube破解资源君)
+      - ZZ_237
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
-      - "[v1] 香港・13"
-      - "[v1] 香港・16"
-      - "[v1] 香港・06"
-      - "[v1] 香港・02"
-      - "[v1] 香港・17"
-      - "[v1] 香港・08"
-      - "[v1] 香港・09"
-      - "[v1] 香港・04"
-      - ^🇭🇰香港HK 1156 *hi-moon.pw
-      - 台湾➤原生ip解锁Netflix动漫等流媒体➤x1_6
-      - "[v1] 香港・01"
-      - 香港05➤高速➤x1_3
-      - Lv1台湾01[1_0]_5
-      - "[v1] 香港・07"
-      - 香港➤5GB带宽优质线路➤x1_14
-      - 香港阿伟科技atTG/油管_193
-      - 香港➤独享➤x1_16
-      - 香港➤三网优化专线➤x1_15
-      - 香港1➤独享➤x1_17
-      - 香港01➤高速➤x1_1
-      - az香港_7
-      - Lv1台湾02[1_0]_4
-      - github_com/freefq-香港腾讯云2_3
-      - ^🇭🇰香港HK 1846 *hi-moon.pw
-      - _香港(yudou66_com玉豆分享)_30
-      - V2RAY-香港AWS06_28
-      - :中国-ss-hk-zone.checkmails.xyz:22999-可用-中转:103.135.250.73-解锁香港地区NF非自制剧
-      - "[v1] 香港・12"
-      - "[v1] 香港・05"
-      - "[v1] 香港・15"
+      - 403更新_HK_香港_8
+      - 香港(绿头外网集团)(Public)
+      - 香港(绿头外网集团)(Public) 2
+      - 香港(绿头外网集团)(Public) 3
+      - 香港(绿头外网集团)(Public) 4
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - "[v1] 香港・13"
-      - JP_126
-      - "[v1] 香港・16"
-      - "[v1] 香港・06"
-      - "[v1] 香港・02"
-      - "[v1] 香港・17"
-      - RO_145
-      - "[v1] 香港・08"
-      - "[v1] 香港・09"
-      - US_279
-      - "[v1] 香港・04"
-      - US_318
-      - HK_103
-      - Lv1新加坡02[1_0]_6
-      - ^🇭🇰香港HK 1156 *hi-moon.pw
-      - 台湾➤原生ip解锁Netflix动漫等流媒体➤x1_6
-      - "[v1] 香港・01"
-      - 油管 TG 8度科技
-      - 韩国➤高速➤x1_13
-      - 日本➤高速➤x1_9
-      - 印度➤高速➤x1_5
-      - Relay_🇭🇰HK-🇬🇧GB_975
-      - AU_41
-      - 香港05➤高速➤x1_3
-      - 油管 TG 8度科技 2
-      - Lv1美国03[1_0]_10
-      - Lv1台湾01[1_0]_5
-      - 油管 TG 8度科技 3
-      - Lv1美国02[1_0]_9
-      - "[v1] 香港・07"
-      - Lv1日本01[1_0]_7
-      - CN_65
-      - "[04-01]|oslook|俄罗斯(RU)Russia/SaintPetersburg_10"
-      - Lv1美国01[1_0]_8
-      - 油管 TG 8度科技 4
-      - 香港➤5GB带宽优质线路➤x1_14
-      - CN_64
-      - RU_21
-      - 香港阿伟科技atTG/油管_193
-      - 美国加拿大➤高速➤x1_10
-      - CN_66
-      - _HK_wmt(4_1)_2
-      - CN_71
-      - CN_60
-      - CN_67
-      - CN_63
-      - 美国洛杉矶➤高速➤x1_12
-      - 香港➤独享➤x1_16
-      - 香港➤三网优化专线➤x1_15
-      - :美国-ss-155.94.235.108:64132-可用-直连-仅支持美国地区NF自制剧
-      - 香港1➤独享➤x1_17
-      - CN_62
-      - CN_61
-      - AU_47
-      - CN_70
-      - LT_133
-      - LT_132
-      - 香港01➤高速➤x1_1
-      - az香港_7
-      - CN_68
-      - RU_156
-      - 油管 TG 8度科技 5
-      - 油管 TG 8度科技 6
-      - RU_157
-      - CN_69
-      - RU_155
-      - 油管 TG 8度科技 7
-      - Lv1台湾02[1_0]_4
-      - github_com/freefq-香港腾讯云2_3
-      - ^🇭🇰香港HK 1846 *hi-moon.pw
-      - CN_油管 TG 8度科技
-      - CN_油管 TG 8度科技 2
-      - _548 | 8.62Mb
-      - CN_油管 TG 8度科技 3
-      - CN_油管 TG 8度科技 4
-      - _581 |10.36Mb
-      - CN_油管 TG 8度科技 5
-      - _593 | 7.57Mb
-      - CN_油管 TG 8度科技 6
-      - CN_油管 TG 8度科技 7
-      - 油管 TG 8度科技 8
-      - _香港(yudou66_com玉豆分享)_30
-      - CN_油管 TG 8度科技 8
-      - 油管 TG 8度科技 9
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - V2RAY-香港AWS06_28
-      - _CA_加拿大
-      - :中国-ss-hk-zone.checkmails.xyz:22999-可用-中转:103.135.250.73-解锁香港地区NF非自制剧
-      - CN_油管 TG 8度科技 9
-      - 油管 TG 8度科技 10
-      - _577 | 8.12Mb
-      - 油管 TG 8度科技 11
-      - "[v1] 香港・12"
+      - 日本(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 2
       - 新加坡(绿头外网集团)(Public)
-      - HK_112
-      - AU_42
-      - "[v1] 香港・05"
-      - "[v1] 香港・15"
-      - 45.137.10.174
-      - CN_油管 TG 8度科技 10
+      - 新加坡(绿头外网集团)(Public) 2
+      - 新加坡(绿头外网集团)(Public) 3
+      - 日本(绿头外网集团)(Public) 3
+      - 韩国(绿头外网集团)(Public)
+      - 韩国(绿头外网集团)(Public) 2
+      - 油管 TG 8度科技
+      - 马来西亚(绿头外网集团)(Public)
+      - JP日本45_45
+      - 油管 TG 8度科技 2
+      - US_220
+      - 德国(绿头外网集团)(Public)
+      - 403更新_HK_香港_8
+      - US美国43_43
+      - 美国(绿头外网集团)(Public)
+      - hostdare_1
+      - DE德国46_46
+      - SG_2
+      - Relay_🇨🇳CN-🇭🇰HK_408
+      - 法国(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 4
+      - github_com/freefq-美国21_59
+      - 油管 TG 8度科技 3
+      - 新加坡(绿头外网集团)(Public) 4
+      - CYL-科技（2022_04_02）_1132
+      - Relay_日本-_217
+      - newserver1_2
+      - 香港(绿头外网集团)(Public)
+      - _430 | 8.73Mb
+      - Relay_🇨🇳CN-🇭🇰HK_418
+      - _581 |10.36Mb
+      - CN_油管 TG 8度科技
+      - 香港(绿头外网集团)(Public) 2
+      - RU_138
+      - _441 | 4.57Mb
+      - 28美国∞直连
+      - 403更新_IN_印度_10
+      - ""
+      - 香港(绿头外网集团)(Public) 3
+      - 美国_3125
+      - LT_1650
+      - 油管 TG 8度科技 4
+      - ZZ_357
+      - :美国-ss-134.195.196.51:8080-可用-直连-仅支持加拿大地区NF自制剧
+      - 香港(绿头外网集团)(Public) 4
+      - 403更新_US_美国_17
+      - CN_油管 TG 8度科技 2
+      - 美国(欢迎订阅Youtube破解资源君)
+      - ZZ_237
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - "[v1] 香港・13"
-      - JP_126
-      - "[v1] 香港・16"
-      - "[v1] 香港・06"
-      - "[v1] 香港・02"
-      - "[v1] 香港・17"
-      - RO_145
-      - "[v1] 香港・08"
-      - "[v1] 香港・09"
-      - US_279
-      - "[v1] 香港・04"
-      - US_318
-      - HK_103
-      - Lv1新加坡02[1_0]_6
-      - ^🇭🇰香港HK 1156 *hi-moon.pw
-      - 台湾➤原生ip解锁Netflix动漫等流媒体➤x1_6
-      - "[v1] 香港・01"
-      - 油管 TG 8度科技
-      - 韩国➤高速➤x1_13
-      - 日本➤高速➤x1_9
-      - 印度➤高速➤x1_5
-      - Relay_🇭🇰HK-🇬🇧GB_975
-      - AU_41
-      - 香港05➤高速➤x1_3
-      - 油管 TG 8度科技 2
-      - Lv1美国03[1_0]_10
-      - Lv1台湾01[1_0]_5
-      - 油管 TG 8度科技 3
-      - Lv1美国02[1_0]_9
-      - "[v1] 香港・07"
-      - Lv1日本01[1_0]_7
-      - CN_65
-      - "[04-01]|oslook|俄罗斯(RU)Russia/SaintPetersburg_10"
-      - Lv1美国01[1_0]_8
-      - 油管 TG 8度科技 4
-      - 香港➤5GB带宽优质线路➤x1_14
-      - CN_64
-      - RU_21
-      - 香港阿伟科技atTG/油管_193
-      - 美国加拿大➤高速➤x1_10
-      - CN_66
-      - _HK_wmt(4_1)_2
-      - CN_71
-      - CN_60
-      - CN_67
-      - CN_63
-      - 美国洛杉矶➤高速➤x1_12
-      - 香港➤独享➤x1_16
-      - 香港➤三网优化专线➤x1_15
-      - :美国-ss-155.94.235.108:64132-可用-直连-仅支持美国地区NF自制剧
-      - 香港1➤独享➤x1_17
-      - CN_62
-      - CN_61
-      - AU_47
-      - CN_70
-      - LT_133
-      - LT_132
-      - 香港01➤高速➤x1_1
-      - az香港_7
-      - CN_68
-      - RU_156
-      - 油管 TG 8度科技 5
-      - 油管 TG 8度科技 6
-      - RU_157
-      - CN_69
-      - RU_155
-      - 油管 TG 8度科技 7
-      - Lv1台湾02[1_0]_4
-      - github_com/freefq-香港腾讯云2_3
-      - ^🇭🇰香港HK 1846 *hi-moon.pw
-      - CN_油管 TG 8度科技
-      - CN_油管 TG 8度科技 2
-      - _548 | 8.62Mb
-      - CN_油管 TG 8度科技 3
-      - CN_油管 TG 8度科技 4
-      - _581 |10.36Mb
-      - CN_油管 TG 8度科技 5
-      - _593 | 7.57Mb
-      - CN_油管 TG 8度科技 6
-      - CN_油管 TG 8度科技 7
-      - 油管 TG 8度科技 8
-      - _香港(yudou66_com玉豆分享)_30
-      - CN_油管 TG 8度科技 8
-      - 油管 TG 8度科技 9
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - V2RAY-香港AWS06_28
-      - _CA_加拿大
-      - :中国-ss-hk-zone.checkmails.xyz:22999-可用-中转:103.135.250.73-解锁香港地区NF非自制剧
-      - CN_油管 TG 8度科技 9
-      - 油管 TG 8度科技 10
-      - _577 | 8.12Mb
-      - 油管 TG 8度科技 11
-      - "[v1] 香港・12"
+      - 日本(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 2
       - 新加坡(绿头外网集团)(Public)
-      - HK_112
-      - AU_42
-      - "[v1] 香港・05"
-      - "[v1] 香港・15"
-      - 45.137.10.174
-      - CN_油管 TG 8度科技 10
+      - 新加坡(绿头外网集团)(Public) 2
+      - 新加坡(绿头外网集团)(Public) 3
+      - 日本(绿头外网集团)(Public) 3
+      - 韩国(绿头外网集团)(Public)
+      - 韩国(绿头外网集团)(Public) 2
+      - 油管 TG 8度科技
+      - 马来西亚(绿头外网集团)(Public)
+      - JP日本45_45
+      - 油管 TG 8度科技 2
+      - US_220
+      - 德国(绿头外网集团)(Public)
+      - 403更新_HK_香港_8
+      - US美国43_43
+      - 美国(绿头外网集团)(Public)
+      - hostdare_1
+      - DE德国46_46
+      - SG_2
+      - Relay_🇨🇳CN-🇭🇰HK_408
+      - 法国(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 4
+      - github_com/freefq-美国21_59
+      - 油管 TG 8度科技 3
+      - 新加坡(绿头外网集团)(Public) 4
+      - CYL-科技（2022_04_02）_1132
+      - Relay_日本-_217
+      - newserver1_2
+      - 香港(绿头外网集团)(Public)
+      - _430 | 8.73Mb
+      - Relay_🇨🇳CN-🇭🇰HK_418
+      - _581 |10.36Mb
+      - CN_油管 TG 8度科技
+      - 香港(绿头外网集团)(Public) 2
+      - RU_138
+      - _441 | 4.57Mb
+      - 28美国∞直连
+      - 403更新_IN_印度_10
+      - ""
+      - 香港(绿头外网集团)(Public) 3
+      - 美国_3125
+      - LT_1650
+      - 油管 TG 8度科技 4
+      - ZZ_357
+      - :美国-ss-134.195.196.51:8080-可用-直连-仅支持加拿大地区NF自制剧
+      - 香港(绿头外网集团)(Public) 4
+      - 403更新_US_美国_17
+      - CN_油管 TG 8度科技 2
+      - 美国(欢迎订阅Youtube破解资源君)
+      - ZZ_237
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - "[v1] 香港・13"
-      - JP_126
-      - "[v1] 香港・16"
-      - "[v1] 香港・06"
-      - "[v1] 香港・02"
-      - "[v1] 香港・17"
-      - RO_145
-      - "[v1] 香港・08"
-      - "[v1] 香港・09"
-      - US_279
-      - "[v1] 香港・04"
-      - US_318
-      - HK_103
-      - Lv1新加坡02[1_0]_6
-      - ^🇭🇰香港HK 1156 *hi-moon.pw
-      - 台湾➤原生ip解锁Netflix动漫等流媒体➤x1_6
-      - "[v1] 香港・01"
-      - 油管 TG 8度科技
-      - 韩国➤高速➤x1_13
-      - 日本➤高速➤x1_9
-      - 印度➤高速➤x1_5
-      - Relay_🇭🇰HK-🇬🇧GB_975
-      - AU_41
-      - 香港05➤高速➤x1_3
-      - 油管 TG 8度科技 2
-      - Lv1美国03[1_0]_10
-      - Lv1台湾01[1_0]_5
-      - 油管 TG 8度科技 3
-      - Lv1美国02[1_0]_9
-      - "[v1] 香港・07"
-      - Lv1日本01[1_0]_7
-      - CN_65
-      - "[04-01]|oslook|俄罗斯(RU)Russia/SaintPetersburg_10"
-      - Lv1美国01[1_0]_8
-      - 油管 TG 8度科技 4
-      - 香港➤5GB带宽优质线路➤x1_14
-      - CN_64
-      - RU_21
-      - 香港阿伟科技atTG/油管_193
-      - 美国加拿大➤高速➤x1_10
-      - CN_66
-      - _HK_wmt(4_1)_2
-      - CN_71
-      - CN_60
-      - CN_67
-      - CN_63
-      - 美国洛杉矶➤高速➤x1_12
-      - 香港➤独享➤x1_16
-      - 香港➤三网优化专线➤x1_15
-      - :美国-ss-155.94.235.108:64132-可用-直连-仅支持美国地区NF自制剧
-      - 香港1➤独享➤x1_17
-      - CN_62
-      - CN_61
-      - AU_47
-      - CN_70
-      - LT_133
-      - LT_132
-      - 香港01➤高速➤x1_1
-      - az香港_7
-      - CN_68
-      - RU_156
-      - 油管 TG 8度科技 5
-      - 油管 TG 8度科技 6
-      - RU_157
-      - CN_69
-      - RU_155
-      - 油管 TG 8度科技 7
-      - Lv1台湾02[1_0]_4
-      - github_com/freefq-香港腾讯云2_3
-      - ^🇭🇰香港HK 1846 *hi-moon.pw
-      - CN_油管 TG 8度科技
-      - CN_油管 TG 8度科技 2
-      - _548 | 8.62Mb
-      - CN_油管 TG 8度科技 3
-      - CN_油管 TG 8度科技 4
-      - _581 |10.36Mb
-      - CN_油管 TG 8度科技 5
-      - _593 | 7.57Mb
-      - CN_油管 TG 8度科技 6
-      - CN_油管 TG 8度科技 7
-      - 油管 TG 8度科技 8
-      - _香港(yudou66_com玉豆分享)_30
-      - CN_油管 TG 8度科技 8
-      - 油管 TG 8度科技 9
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - V2RAY-香港AWS06_28
-      - _CA_加拿大
-      - :中国-ss-hk-zone.checkmails.xyz:22999-可用-中转:103.135.250.73-解锁香港地区NF非自制剧
-      - CN_油管 TG 8度科技 9
-      - 油管 TG 8度科技 10
-      - _577 | 8.12Mb
-      - 油管 TG 8度科技 11
-      - "[v1] 香港・12"
+      - 日本(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 2
       - 新加坡(绿头外网集团)(Public)
-      - HK_112
-      - AU_42
-      - "[v1] 香港・05"
-      - "[v1] 香港・15"
-      - 45.137.10.174
-      - CN_油管 TG 8度科技 10
+      - 新加坡(绿头外网集团)(Public) 2
+      - 新加坡(绿头外网集团)(Public) 3
+      - 日本(绿头外网集团)(Public) 3
+      - 韩国(绿头外网集团)(Public)
+      - 韩国(绿头外网集团)(Public) 2
+      - 油管 TG 8度科技
+      - 马来西亚(绿头外网集团)(Public)
+      - JP日本45_45
+      - 油管 TG 8度科技 2
+      - US_220
+      - 德国(绿头外网集团)(Public)
+      - 403更新_HK_香港_8
+      - US美国43_43
+      - 美国(绿头外网集团)(Public)
+      - hostdare_1
+      - DE德国46_46
+      - SG_2
+      - Relay_🇨🇳CN-🇭🇰HK_408
+      - 法国(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 4
+      - github_com/freefq-美国21_59
+      - 油管 TG 8度科技 3
+      - 新加坡(绿头外网集团)(Public) 4
+      - CYL-科技（2022_04_02）_1132
+      - Relay_日本-_217
+      - newserver1_2
+      - 香港(绿头外网集团)(Public)
+      - _430 | 8.73Mb
+      - Relay_🇨🇳CN-🇭🇰HK_418
+      - _581 |10.36Mb
+      - CN_油管 TG 8度科技
+      - 香港(绿头外网集团)(Public) 2
+      - RU_138
+      - _441 | 4.57Mb
+      - 28美国∞直连
+      - 403更新_IN_印度_10
+      - ""
+      - 香港(绿头外网集团)(Public) 3
+      - 美国_3125
+      - LT_1650
+      - 油管 TG 8度科技 4
+      - ZZ_357
+      - :美国-ss-134.195.196.51:8080-可用-直连-仅支持加拿大地区NF自制剧
+      - 香港(绿头外网集团)(Public) 4
+      - 403更新_US_美国_17
+      - CN_油管 TG 8度科技 2
+      - 美国(欢迎订阅Youtube破解资源君)
+      - ZZ_237
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -906,106 +489,57 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - "[v1] 香港・13"
-      - JP_126
-      - "[v1] 香港・16"
-      - "[v1] 香港・06"
-      - "[v1] 香港・02"
-      - "[v1] 香港・17"
-      - RO_145
-      - "[v1] 香港・08"
-      - "[v1] 香港・09"
-      - US_279
-      - "[v1] 香港・04"
-      - US_318
-      - HK_103
-      - Lv1新加坡02[1_0]_6
-      - ^🇭🇰香港HK 1156 *hi-moon.pw
-      - 台湾➤原生ip解锁Netflix动漫等流媒体➤x1_6
-      - "[v1] 香港・01"
-      - 油管 TG 8度科技
-      - 韩国➤高速➤x1_13
-      - 日本➤高速➤x1_9
-      - 印度➤高速➤x1_5
-      - Relay_🇭🇰HK-🇬🇧GB_975
-      - AU_41
-      - 香港05➤高速➤x1_3
-      - 油管 TG 8度科技 2
-      - Lv1美国03[1_0]_10
-      - Lv1台湾01[1_0]_5
-      - 油管 TG 8度科技 3
-      - Lv1美国02[1_0]_9
-      - "[v1] 香港・07"
-      - Lv1日本01[1_0]_7
-      - CN_65
-      - "[04-01]|oslook|俄罗斯(RU)Russia/SaintPetersburg_10"
-      - Lv1美国01[1_0]_8
-      - 油管 TG 8度科技 4
-      - 香港➤5GB带宽优质线路➤x1_14
-      - CN_64
-      - RU_21
-      - 香港阿伟科技atTG/油管_193
-      - 美国加拿大➤高速➤x1_10
-      - CN_66
-      - _HK_wmt(4_1)_2
-      - CN_71
-      - CN_60
-      - CN_67
-      - CN_63
-      - 美国洛杉矶➤高速➤x1_12
-      - 香港➤独享➤x1_16
-      - 香港➤三网优化专线➤x1_15
-      - :美国-ss-155.94.235.108:64132-可用-直连-仅支持美国地区NF自制剧
-      - 香港1➤独享➤x1_17
-      - CN_62
-      - CN_61
-      - AU_47
-      - CN_70
-      - LT_133
-      - LT_132
-      - 香港01➤高速➤x1_1
-      - az香港_7
-      - CN_68
-      - RU_156
-      - 油管 TG 8度科技 5
-      - 油管 TG 8度科技 6
-      - RU_157
-      - CN_69
-      - RU_155
-      - 油管 TG 8度科技 7
-      - Lv1台湾02[1_0]_4
-      - github_com/freefq-香港腾讯云2_3
-      - ^🇭🇰香港HK 1846 *hi-moon.pw
-      - CN_油管 TG 8度科技
-      - CN_油管 TG 8度科技 2
-      - _548 | 8.62Mb
-      - CN_油管 TG 8度科技 3
-      - CN_油管 TG 8度科技 4
-      - _581 |10.36Mb
-      - CN_油管 TG 8度科技 5
-      - _593 | 7.57Mb
-      - CN_油管 TG 8度科技 6
-      - CN_油管 TG 8度科技 7
-      - 油管 TG 8度科技 8
-      - _香港(yudou66_com玉豆分享)_30
-      - CN_油管 TG 8度科技 8
-      - 油管 TG 8度科技 9
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - V2RAY-香港AWS06_28
-      - _CA_加拿大
-      - :中国-ss-hk-zone.checkmails.xyz:22999-可用-中转:103.135.250.73-解锁香港地区NF非自制剧
-      - CN_油管 TG 8度科技 9
-      - 油管 TG 8度科技 10
-      - _577 | 8.12Mb
-      - 油管 TG 8度科技 11
-      - "[v1] 香港・12"
+      - 日本(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 2
       - 新加坡(绿头外网集团)(Public)
-      - HK_112
-      - AU_42
-      - "[v1] 香港・05"
-      - "[v1] 香港・15"
-      - 45.137.10.174
-      - CN_油管 TG 8度科技 10
+      - 新加坡(绿头外网集团)(Public) 2
+      - 新加坡(绿头外网集团)(Public) 3
+      - 日本(绿头外网集团)(Public) 3
+      - 韩国(绿头外网集团)(Public)
+      - 韩国(绿头外网集团)(Public) 2
+      - 油管 TG 8度科技
+      - 马来西亚(绿头外网集团)(Public)
+      - JP日本45_45
+      - 油管 TG 8度科技 2
+      - US_220
+      - 德国(绿头外网集团)(Public)
+      - 403更新_HK_香港_8
+      - US美国43_43
+      - 美国(绿头外网集团)(Public)
+      - hostdare_1
+      - DE德国46_46
+      - SG_2
+      - Relay_🇨🇳CN-🇭🇰HK_408
+      - 法国(绿头外网集团)(Public)
+      - 日本(绿头外网集团)(Public) 4
+      - github_com/freefq-美国21_59
+      - 油管 TG 8度科技 3
+      - 新加坡(绿头外网集团)(Public) 4
+      - CYL-科技（2022_04_02）_1132
+      - Relay_日本-_217
+      - newserver1_2
+      - 香港(绿头外网集团)(Public)
+      - _430 | 8.73Mb
+      - Relay_🇨🇳CN-🇭🇰HK_418
+      - _581 |10.36Mb
+      - CN_油管 TG 8度科技
+      - 香港(绿头外网集团)(Public) 2
+      - RU_138
+      - _441 | 4.57Mb
+      - 28美国∞直连
+      - 403更新_IN_印度_10
+      - ""
+      - 香港(绿头外网集团)(Public) 3
+      - 美国_3125
+      - LT_1650
+      - 油管 TG 8度科技 4
+      - ZZ_357
+      - :美国-ss-134.195.196.51:8080-可用-直连-仅支持加拿大地区NF自制剧
+      - 香港(绿头外网集团)(Public) 4
+      - 403更新_US_美国_17
+      - CN_油管 TG 8度科技 2
+      - 美国(欢迎订阅Youtube破解资源君)
+      - ZZ_237
 rules:
  - DOMAIN-SUFFIX,local,🎯 全球直连
  - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
