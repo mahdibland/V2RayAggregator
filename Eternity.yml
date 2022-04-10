@@ -5,1387 +5,391 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: az1_1, server: 40.83.96.141, port: 32124, type: vmess, uuid: c96a1b8a-d7b3-46ab-e213-2a379b6c24f1, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: DE_9008 @WangCai_1 (7), server: 5.183.179.167, port: 9008, type: ss, cipher: aes-256-cfb, password: y9VURyNzJWNRYEGQ, udp: true}
-  - {name: DE_9084 @WangCai_1 (16), server: 5.183.179.166, port: 9084, type: ss, cipher: aes-256-cfb, password: c3NtHJ5ujV2tGDfj, udp: true}
-  - {name: DE_9053 @WangCai_1 (2), server: 5.183.179.140, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C, udp: true}
-  - {name: DE_9093 @WangCai_1 (5), server: 5.183.179.146, port: 9093, type: ss, cipher: aes-256-cfb, password: wfLC2y7rzZyCmuyt, udp: true}
-  - {name: DE_9064 @WangCai_1 (7), server: 5.183.179.167, port: 9064, type: ss, cipher: aes-256-cfb, password: cp8pRSUAyLhTfVWH, udp: true}
-  - {name: DE_9045 @WangCai_1 (1), server: 5.183.179.139, port: 9045, type: ss, cipher: aes-256-cfb, password: Lp27rqyJq72bZsqX, udp: true}
-  - {name: DE_9024 @WangCai_1 (15), server: 5.183.179.166, port: 9024, type: ss, cipher: aes-256-cfb, password: BejrQvtu9sqUeNuZ, udp: true}
-  - {name: DE_9015 @WangCai_1 (5), server: 5.183.179.146, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
-  - {name: DE_9040 @WangCai_1 (7), server: 5.183.179.167, port: 9040, type: ss, cipher: aes-256-cfb, password: p9z5BVADH2YFs3MN, udp: true}
-  - {name: DE_9098 @WangCai_1 (3), server: 5.183.179.141, port: 9098, type: ss, cipher: aes-256-cfb, password: aLpQtfEZe445QyHk, udp: true}
-  - {name: DE_9056 @WangCai_1, server: 5.183.179.137, port: 9056, type: ss, cipher: aes-256-cfb, password: rNBfNuuANFCAk7KB, udp: true}
-  - {name: DE_9010 @WangCai_1, server: 5.183.179.137, port: 9010, type: ss, cipher: aes-256-cfb, password: f63gg8EruDnUrmz4, udp: true}
-  - {name: DE_9097 @WangCai_1 (1), server: 5.183.179.139, port: 9097, type: ss, cipher: aes-256-cfb, password: Sn5B7jTqr76aCJT8, udp: true}
-  - {name: DE_9032 @WangCai_1 (16), server: 5.183.179.166, port: 9032, type: ss, cipher: aes-256-cfb, password: UWZQeLRWnkqgkseq, udp: true}
-  - {name: DE_9001 @WangCai_1 (6), server: 5.183.179.148, port: 9001, type: ss, cipher: aes-256-cfb, password: UkXRsXvR6buDMG2Y, udp: true}
-  - {name: DE_9011 @WangCai_1, server: 5.183.179.137, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
-  - {name: DE_9098 @WangCai_1 (8), server: 5.183.179.170, port: 9098, type: ss, cipher: aes-256-cfb, password: aLpQtfEZe445QyHk, udp: true}
-  - {name: DE_9079 @WangCai_1 (16), server: 5.183.179.166, port: 9079, type: ss, cipher: aes-256-cfb, password: TPqX8edgbAURcAMb, udp: true}
-  - {name: DE_9027 @WangCai_1 (5), server: 5.183.179.148, port: 9027, type: ss, cipher: aes-256-cfb, password: EXN3S3eQpjE7EJu8, udp: true}
-  - {name: DE_9093 @WangCai_1 (16), server: 5.183.179.166, port: 9093, type: ss, cipher: aes-256-cfb, password: wfLC2y7rzZyCmuyt, udp: true}
-  - {name: DE_9024 @WangCai_1, server: 5.183.179.137, port: 9024, type: ss, cipher: aes-256-cfb, password: BejrQvtu9sqUeNuZ, udp: true}
-  - {name: DE_9098 @WangCai_1, server: 5.183.179.137, port: 9098, type: ss, cipher: aes-256-cfb, password: aLpQtfEZe445QyHk, udp: true}
-  - {name: DE_9007 @WangCai_1 (3), server: 5.183.179.141, port: 9007, type: ss, cipher: aes-256-cfb, password: kSPmvwdFzGMMW5pY, udp: true}
-  - {name: DE_9001 @WangCai_1 (3), server: 5.183.179.141, port: 9001, type: ss, cipher: aes-256-cfb, password: UkXRsXvR6buDMG2Y, udp: true}
-  - {name: DE_9064 @WangCai_1 (5), server: 5.183.179.146, port: 9064, type: ss, cipher: aes-256-cfb, password: cp8pRSUAyLhTfVWH, udp: true}
-  - {name: DE_9053 @WangCai_1, server: 5.183.179.137, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C, udp: true}
-  - {name: DE_9059 @WangCai_1 (1), server: 5.183.179.139, port: 9059, type: ss, cipher: aes-256-cfb, password: 9XwYyZsK8SNzQDtY, udp: true}
-  - {name: DE_9024 @WangCai_1 (11), server: 5.183.179.141, port: 9024, type: ss, cipher: aes-256-cfb, password: BejrQvtu9sqUeNuZ, udp: true}
-  - {name: DE_9018 @WangCai_1 (6), server: 5.183.179.148, port: 9018, type: ss, cipher: aes-256-cfb, password: fG2artUmHfNT2cX7, udp: true}
-  - {name: DE_9007 @WangCai_1 (16), server: 5.183.179.166, port: 9007, type: ss, cipher: aes-256-cfb, password: kSPmvwdFzGMMW5pY, udp: true}
-  - {name: DE_9041 @WangCai_1 (8), server: 5.183.179.170, port: 9041, type: ss, cipher: aes-256-cfb, password: U6qnYRhfyDmn8sgn, udp: true}
-  - {name: DE_9033 @WangCai_1, server: 5.183.179.137, port: 9033, type: ss, cipher: aes-256-cfb, password: UTJA57ypk2XKQpnm, udp: true}
-  - {name: DE_9043 @WangCai_1 (1), server: 5.183.179.139, port: 9043, type: ss, cipher: aes-256-cfb, password: HSZuyJQcWe8dxNdF, udp: true}
-  - {name: DE_9006 @WangCai_1 (16), server: 5.183.179.166, port: 9006, type: ss, cipher: aes-256-cfb, password: FAdUvMJUq5vDgKEq, udp: true}
-  - {name: DE_9003 @WangCai_1 (7), server: 5.183.179.167, port: 9003, type: ss, cipher: aes-256-cfb, password: JdmRK9gMEqFgs8nP, udp: true}
-  - {name: DE_9079 @WangCai_1 (8), server: 5.183.179.170, port: 9079, type: ss, cipher: aes-256-cfb, password: TPqX8edgbAURcAMb, udp: true}
-  - {name: DE_9031 @WangCai_1 (8), server: 5.183.179.170, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: DE_9014 @WangCai_1, server: 5.183.179.137, port: 9014, type: ss, cipher: aes-256-cfb, password: KnJGad3FqTvjqbaX, udp: true}
-  - {name: DE_9026 @WangCai_1 (2), server: 5.183.179.140, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA, udp: true}
-  - {name: DE_9031 @WangCai_1 (6), server: 5.183.179.148, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: DE_9011 @WangCai_1 (6), server: 5.183.179.148, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
-  - {name: DE_9050 @WangCai_1 (8), server: 5.183.179.170, port: 9050, type: ss, cipher: aes-256-cfb, password: FG5ddLsMPbV5CutE, udp: true}
-  - {name: DE_9003 @WangCai_1 (5), server: 5.183.179.146, port: 9003, type: ss, cipher: aes-256-cfb, password: JdmRK9gMEqFgs8nP, udp: true}
-  - {name: DE_9057 @WangCai_1 (5), server: 5.183.179.146, port: 9057, type: ss, cipher: aes-256-cfb, password: wjTugX3ZtHMB9c3Z, udp: true}
-  - {name: DE_9000 @WangCai_1 (16), server: 5.183.179.166, port: 9000, type: ss, cipher: aes-256-cfb, password: a3GFYt36Sm82Vys9, udp: true}
-  - {name: DE_9031 @WangCai_1 (16), server: 5.183.179.166, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: DE_9097 @WangCai_1 (8), server: 5.183.179.170, port: 9097, type: ss, cipher: aes-256-cfb, password: Sn5B7jTqr76aCJT8, udp: true}
-  - {name: DE_9045 @WangCai_1 (8), server: 5.183.179.170, port: 9045, type: ss, cipher: aes-256-cfb, password: Lp27rqyJq72bZsqX, udp: true}
-  - {name: DE_9014 @WangCai_1 (8), server: 5.183.179.170, port: 9014, type: ss, cipher: aes-256-cfb, password: KnJGad3FqTvjqbaX, udp: true}
-  - {name: DE_9084 @WangCai_1 (5), server: 5.183.179.146, port: 9084, type: ss, cipher: aes-256-cfb, password: c3NtHJ5ujV2tGDfj, udp: true}
-  - {name: DE_9038 @WangCai_1 (16), server: 5.183.179.166, port: 9038, type: ss, cipher: aes-256-cfb, password: gYCYXfkUQEs2TaJQ, udp: true}
-  - {name: DE_9019 @WangCai_1 (8), server: 5.183.179.170, port: 9019, type: ss, cipher: aes-256-cfb, password: GA9KzeEgvfxNrgmM, udp: true}
-  - {name: DE_9056 @WangCai_1 (1), server: 5.183.179.139, port: 9056, type: ss, cipher: aes-256-cfb, password: rNBfNuuANFCAk7KB, udp: true}
-  - {name: DE_9014 @WangCai_1 (16), server: 5.183.179.166, port: 9014, type: ss, cipher: aes-256-cfb, password: KnJGad3FqTvjqbaX, udp: true}
-  - {name: DE_9043 @WangCai_1, server: 5.183.179.137, port: 9043, type: ss, cipher: aes-256-cfb, password: HSZuyJQcWe8dxNdF, udp: true}
-  - {name: DE_9032 @WangCai_1 (1), server: 5.183.179.139, port: 9032, type: ss, cipher: aes-256-cfb, password: UWZQeLRWnkqgkseq, udp: true}
-  - {name: DE_9011 @WangCai_1 (16), server: 5.183.179.166, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
-  - {name: DE_9020 @WangCai_1, server: 5.183.179.137, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: DE_9000 @WangCai_1 (1), server: 5.183.179.139, port: 9000, type: ss, cipher: aes-256-cfb, password: a3GFYt36Sm82Vys9, udp: true}
-  - {name: DE_9064 @WangCai_1 (2), server: 5.183.179.140, port: 9064, type: ss, cipher: aes-256-cfb, password: cp8pRSUAyLhTfVWH, udp: true}
-  - {name: DE_9070 @WangCai_1 (7), server: 5.183.179.167, port: 9070, type: ss, cipher: aes-256-cfb, password: bf7v334KKDV3YDhH, udp: true}
-  - {name: DE_9032 @WangCai_1 (7), server: 5.183.179.167, port: 9032, type: ss, cipher: aes-256-cfb, password: UWZQeLRWnkqgkseq, udp: true}
-  - {name: DE_9088 @WangCai_1, server: 5.183.179.137, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
-  - {name: DE_9097 @WangCai_1 (16), server: 5.183.179.166, port: 9097, type: ss, cipher: aes-256-cfb, password: Sn5B7jTqr76aCJT8, udp: true}
-  - {name: DE_9059 @WangCai_1 (8), server: 5.183.179.170, port: 9059, type: ss, cipher: aes-256-cfb, password: 9XwYyZsK8SNzQDtY, udp: true}
-  - {name: DE_9098 @WangCai_1 (5), server: 5.183.179.146, port: 9098, type: ss, cipher: aes-256-cfb, password: aLpQtfEZe445QyHk, udp: true}
-  - {name: DE_9040 @WangCai_1 (5), server: 5.183.179.146, port: 9040, type: ss, cipher: aes-256-cfb, password: p9z5BVADH2YFs3MN, udp: true}
-  - {name: DE_9094 @WangCai_1 (15), server: 5.183.179.166, port: 9094, type: ss, cipher: aes-256-cfb, password: rpgbNnU9rDDU4aWZ, udp: true}
-  - {name: DE_9041 @WangCai_1, server: 5.183.179.137, port: 9041, type: ss, cipher: aes-256-cfb, password: U6qnYRhfyDmn8sgn, udp: true}
-  - {name: DE_9097 @WangCai_1, server: 5.183.179.137, port: 9097, type: ss, cipher: aes-256-cfb, password: Sn5B7jTqr76aCJT8, udp: true}
-  - {name: DE_9008 @WangCai_1 (1), server: 5.183.179.139, port: 9008, type: ss, cipher: aes-256-cfb, password: y9VURyNzJWNRYEGQ, udp: true}
-  - {name: DE_9040 @WangCai_1 (6), server: 5.183.179.148, port: 9040, type: ss, cipher: aes-256-cfb, password: p9z5BVADH2YFs3MN, udp: true}
-  - {name: DE_9084 @WangCai_1 (7), server: 5.183.179.167, port: 9084, type: ss, cipher: aes-256-cfb, password: c3NtHJ5ujV2tGDfj, udp: true}
-  - {name: DE_9010 @WangCai_1 (7), server: 5.183.179.167, port: 9010, type: ss, cipher: aes-256-cfb, password: f63gg8EruDnUrmz4, udp: true}
-  - {name: DE_9007 @WangCai_1 (1), server: 5.183.179.139, port: 9007, type: ss, cipher: aes-256-cfb, password: kSPmvwdFzGMMW5pY, udp: true}
-  - {name: DE_9060 @WangCai_1 (5), server: 5.183.179.146, port: 9060, type: ss, cipher: aes-256-cfb, password: ueLXVkvh4hckhErQ, udp: true}
-  - {name: DE_9045 @WangCai_1 (5), server: 5.183.179.146, port: 9045, type: ss, cipher: aes-256-cfb, password: Lp27rqyJq72bZsqX, udp: true}
-  - {name: DE_9093 @WangCai_1 (8), server: 5.183.179.170, port: 9093, type: ss, cipher: aes-256-cfb, password: wfLC2y7rzZyCmuyt, udp: true}
-  - {name: DE_9050 @WangCai_1 (1), server: 5.183.179.139, port: 9050, type: ss, cipher: aes-256-cfb, password: FG5ddLsMPbV5CutE, udp: true}
-  - {name: DE_9026 @WangCai_1, server: 5.183.179.137, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA, udp: true}
-  - {name: DE_9073 @WangCai_1 (1), server: 5.183.179.139, port: 9073, type: ss, cipher: aes-256-cfb, password: daFYagqDdBdA6VTX, udp: true}
-  - {name: DE_9098 @WangCai_1 (1), server: 5.183.179.139, port: 9098, type: ss, cipher: aes-256-cfb, password: aLpQtfEZe445QyHk, udp: true}
-  - {name: DE_9040 @WangCai_1 (1), server: 5.183.179.139, port: 9040, type: ss, cipher: aes-256-cfb, password: p9z5BVADH2YFs3MN, udp: true}
-  - {name: DE_9003 @WangCai_1 (2), server: 5.183.179.140, port: 9003, type: ss, cipher: aes-256-cfb, password: JdmRK9gMEqFgs8nP, udp: true}
-  - {name: DE_9033 @WangCai_1 (3), server: 5.183.179.141, port: 9033, type: ss, cipher: aes-256-cfb, password: UTJA57ypk2XKQpnm, udp: true}
-  - {name: DE_9097 @WangCai_1 (5), server: 5.183.179.146, port: 9097, type: ss, cipher: aes-256-cfb, password: Sn5B7jTqr76aCJT8, udp: true}
-  - {name: DE_9046 @WangCai_1 (16), server: 5.183.179.166, port: 9046, type: ss, cipher: aes-256-cfb, password: NvS8N4Vf8qAGPSCL, udp: true}
-  - {name: DE_9040 @WangCai_1, server: 5.183.179.137, port: 9040, type: ss, cipher: aes-256-cfb, password: p9z5BVADH2YFs3MN, udp: true}
-  - {name: DE_9020 @WangCai_1 (5), server: 5.183.179.146, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: DE_9007 @WangCai_1 (5), server: 5.183.179.146, port: 9007, type: ss, cipher: aes-256-cfb, password: kSPmvwdFzGMMW5pY, udp: true}
-  - {name: DE_9088 @WangCai_1 (2), server: 5.183.179.140, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
-  - {name: DE_9093 @WangCai_1 (7), server: 5.183.179.167, port: 9093, type: ss, cipher: aes-256-cfb, password: wfLC2y7rzZyCmuyt, udp: true}
-  - {name: DE_9031 @WangCai_1 (7), server: 5.183.179.167, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: DE_9088 @WangCai_1 (7), server: 5.183.179.167, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
-  - {name: DE_9000 @WangCai_1 (8), server: 5.183.179.170, port: 9000, type: ss, cipher: aes-256-cfb, password: a3GFYt36Sm82Vys9, udp: true}
-  - {name: DE_9041 @WangCai_1 (16), server: 5.183.179.166, port: 9041, type: ss, cipher: aes-256-cfb, password: U6qnYRhfyDmn8sgn, udp: true}
-  - {name: DE_9050 @WangCai_1 (16), server: 5.183.179.166, port: 9050, type: ss, cipher: aes-256-cfb, password: FG5ddLsMPbV5CutE, udp: true}
-  - {name: DE_9020 @WangCai_1 (16), server: 5.183.179.166, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: DE_9031 @WangCai_1 (1), server: 5.183.179.139, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: DE_9008 @WangCai_1 (2), server: 5.183.179.140, port: 9008, type: ss, cipher: aes-256-cfb, password: y9VURyNzJWNRYEGQ, udp: true}
-  - {name: DE_9033 @WangCai_1 (5), server: 5.183.179.146, port: 9033, type: ss, cipher: aes-256-cfb, password: UTJA57ypk2XKQpnm, udp: true}
-  - {name: DE_9026 @WangCai_1 (6), server: 5.183.179.148, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA, udp: true}
-  - {name: DE_9042 @WangCai_1 (5), server: 5.183.179.146, port: 9042, type: ss, cipher: aes-256-cfb, password: S7KwUu7yBy58S3Ga, udp: true}
-  - {name: DE_9038 @WangCai_1 (8), server: 5.183.179.170, port: 9038, type: ss, cipher: aes-256-cfb, password: gYCYXfkUQEs2TaJQ, udp: true}
-  - {name: DE_9084 @WangCai_1, server: 5.183.179.137, port: 9084, type: ss, cipher: aes-256-cfb, password: c3NtHJ5ujV2tGDfj, udp: true}
-  - {name: DE_9043 @WangCai_1 (3), server: 5.183.179.141, port: 9043, type: ss, cipher: aes-256-cfb, password: HSZuyJQcWe8dxNdF, udp: true}
-  - {name: DE_9056 @WangCai_1 (8), server: 5.183.179.170, port: 9056, type: ss, cipher: aes-256-cfb, password: rNBfNuuANFCAk7KB, udp: true}
-  - {name: DE_9046 @WangCai_1 (1), server: 5.183.179.139, port: 9046, type: ss, cipher: aes-256-cfb, password: NvS8N4Vf8qAGPSCL, udp: true}
-  - {name: DE_9037 @WangCai_1 (2), server: 5.183.179.140, port: 9037, type: ss, cipher: aes-256-cfb, password: TN2YqghxeFDKZfLU, udp: true}
-  - {name: DE_9024 @WangCai_1 (7), server: 5.183.179.170, port: 9024, type: ss, cipher: aes-256-cfb, password: BejrQvtu9sqUeNuZ, udp: true}
-  - {name: DE_9042 @WangCai_1 (16), server: 5.183.179.166, port: 9042, type: ss, cipher: aes-256-cfb, password: S7KwUu7yBy58S3Ga, udp: true}
-  - {name: DE_9032 @WangCai_1 (8), server: 5.183.179.170, port: 9032, type: ss, cipher: aes-256-cfb, password: UWZQeLRWnkqgkseq, udp: true}
-  - {name: DE_9010 @WangCai_1 (3), server: 5.183.179.141, port: 9010, type: ss, cipher: aes-256-cfb, password: f63gg8EruDnUrmz4, udp: true}
-  - {name: DE_9060 @WangCai_1 (8), server: 5.183.179.170, port: 9060, type: ss, cipher: aes-256-cfb, password: ueLXVkvh4hckhErQ, udp: true}
-  - {name: DE_9041 @WangCai_1 (1), server: 5.183.179.139, port: 9041, type: ss, cipher: aes-256-cfb, password: U6qnYRhfyDmn8sgn, udp: true}
-  - {name: DE_9014 @WangCai_1 (6), server: 5.183.179.148, port: 9014, type: ss, cipher: aes-256-cfb, password: KnJGad3FqTvjqbaX, udp: true}
-  - {name: DE_9045 @WangCai_1 (7), server: 5.183.179.167, port: 9045, type: ss, cipher: aes-256-cfb, password: Lp27rqyJq72bZsqX, udp: true}
-  - {name: DE_9060 @WangCai_1, server: 5.183.179.137, port: 9060, type: ss, cipher: aes-256-cfb, password: ueLXVkvh4hckhErQ, udp: true}
-  - {name: DE_9041 @WangCai_1 (5), server: 5.183.179.146, port: 9041, type: ss, cipher: aes-256-cfb, password: U6qnYRhfyDmn8sgn, udp: true}
-  - {name: DE_9011 @WangCai_1 (5), server: 5.183.179.146, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
-  - {name: DE_9026 @WangCai_1 (3), server: 5.183.179.141, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA, udp: true}
-  - {name: DE_9045 @WangCai_1 (16), server: 5.183.179.166, port: 9045, type: ss, cipher: aes-256-cfb, password: Lp27rqyJq72bZsqX, udp: true}
-  - {name: DE_9043 @WangCai_1 (6), server: 5.183.179.148, port: 9043, type: ss, cipher: aes-256-cfb, password: HSZuyJQcWe8dxNdF, udp: true}
-  - {name: DE_9011 @WangCai_1 (1), server: 5.183.179.139, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
-  - {name: DE_9008 @WangCai_1, server: 5.183.179.137, port: 9008, type: ss, cipher: aes-256-cfb, password: y9VURyNzJWNRYEGQ, udp: true}
-  - {name: DE_9006 @WangCai_1 (1), server: 5.183.179.139, port: 9006, type: ss, cipher: aes-256-cfb, password: FAdUvMJUq5vDgKEq, udp: true}
-  - {name: DE_9014 @WangCai_1 (1), server: 5.183.179.139, port: 9014, type: ss, cipher: aes-256-cfb, password: KnJGad3FqTvjqbaX, udp: true}
-  - {name: DE_9084 @WangCai_1 (6), server: 5.183.179.148, port: 9084, type: ss, cipher: aes-256-cfb, password: c3NtHJ5ujV2tGDfj, udp: true}
-  - {name: DE_9059 @WangCai_1 (15), server: 5.183.179.166, port: 9059, type: ss, cipher: aes-256-cfb, password: 9XwYyZsK8SNzQDtY, udp: true}
-  - {name: DE_9056 @WangCai_1 (6), server: 5.183.179.148, port: 9056, type: ss, cipher: aes-256-cfb, password: rNBfNuuANFCAk7KB, udp: true}
-  - {name: DE_9053 @WangCai_1 (7), server: 5.183.179.167, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C, udp: true}
-  - {name: DE_9088 @WangCai_1 (3), server: 5.183.179.141, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
-  - {name: DE_9032 @WangCai_1 (5), server: 5.183.179.146, port: 9032, type: ss, cipher: aes-256-cfb, password: UWZQeLRWnkqgkseq, udp: true}
-  - {name: DE_9097 @WangCai_1 (6), server: 5.183.179.148, port: 9097, type: ss, cipher: aes-256-cfb, password: Sn5B7jTqr76aCJT8, udp: true}
-  - {name: DE_9060 @WangCai_1 (16), server: 5.183.179.166, port: 9060, type: ss, cipher: aes-256-cfb, password: ueLXVkvh4hckhErQ, udp: true}
-  - {name: DE_9056 @WangCai_1 (16), server: 5.183.179.166, port: 9056, type: ss, cipher: aes-256-cfb, password: rNBfNuuANFCAk7KB, udp: true}
-  - {name: DE_9057 @WangCai_1 (7), server: 5.183.179.167, port: 9057, type: ss, cipher: aes-256-cfb, password: wjTugX3ZtHMB9c3Z, udp: true}
-  - {name: DE_9045 @WangCai_1, server: 5.183.179.137, port: 9045, type: ss, cipher: aes-256-cfb, password: Lp27rqyJq72bZsqX, udp: true}
-  - {name: DE_9006 @WangCai_1 (6), server: 5.183.179.148, port: 9006, type: ss, cipher: aes-256-cfb, password: FAdUvMJUq5vDgKEq, udp: true}
-  - {name: DE_9027 @WangCai_1 (6), server: 5.183.179.167, port: 9027, type: ss, cipher: aes-256-cfb, password: EXN3S3eQpjE7EJu8, udp: true}
-  - {name: DE_9040 @WangCai_1 (16), server: 5.183.179.166, port: 9040, type: ss, cipher: aes-256-cfb, password: p9z5BVADH2YFs3MN, udp: true}
-  - {name: DE_9094 @WangCai_1 (1), server: 5.183.179.139, port: 9094, type: ss, cipher: aes-256-cfb, password: rpgbNnU9rDDU4aWZ, udp: true}
-  - {name: DE_9020 @WangCai_1 (6), server: 5.183.179.148, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: DE_9037 @WangCai_1 (16), server: 5.183.179.166, port: 9037, type: ss, cipher: aes-256-cfb, password: TN2YqghxeFDKZfLU, udp: true}
-  - {name: DE_9005 @WangCai_1 (8), server: 5.183.179.170, port: 9005, type: ss, cipher: aes-256-cfb, password: ZET59LF6DvCC8KVt, udp: true}
-  - {name: DE_9084 @WangCai_1 (1), server: 5.183.179.139, port: 9084, type: ss, cipher: aes-256-cfb, password: c3NtHJ5ujV2tGDfj, udp: true}
-  - {name: DE_9057 @WangCai_1 (1), server: 5.183.179.139, port: 9057, type: ss, cipher: aes-256-cfb, password: wjTugX3ZtHMB9c3Z, udp: true}
-  - {name: DE_9045 @WangCai_1 (3), server: 5.183.179.141, port: 9045, type: ss, cipher: aes-256-cfb, password: Lp27rqyJq72bZsqX, udp: true}
-  - {name: DE_9033 @WangCai_1 (16), server: 5.183.179.166, port: 9033, type: ss, cipher: aes-256-cfb, password: UTJA57ypk2XKQpnm, udp: true}
-  - {name: DE_9001 @WangCai_1 (7), server: 5.183.179.167, port: 9001, type: ss, cipher: aes-256-cfb, password: UkXRsXvR6buDMG2Y, udp: true}
-  - {name: DE_9038 @WangCai_1 (5), server: 5.183.179.146, port: 9038, type: ss, cipher: aes-256-cfb, password: gYCYXfkUQEs2TaJQ, udp: true}
-  - {name: DE_9008 @WangCai_1 (6), server: 5.183.179.148, port: 9008, type: ss, cipher: aes-256-cfb, password: y9VURyNzJWNRYEGQ, udp: true}
-  - {name: DE_9070 @WangCai_1 (1), server: 5.183.179.139, port: 9070, type: ss, cipher: aes-256-cfb, password: bf7v334KKDV3YDhH, udp: true}
-  - {name: DE_9011 @WangCai_1 (2), server: 5.183.179.140, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
-  - {name: DE_9020 @WangCai_1 (3), server: 5.183.179.141, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: DE_9031 @WangCai_1 (3), server: 5.183.179.141, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: DE_9019 @WangCai_1 (16), server: 5.183.179.166, port: 9019, type: ss, cipher: aes-256-cfb, password: GA9KzeEgvfxNrgmM, udp: true}
-  - {name: DE_9050 @WangCai_1 (7), server: 5.183.179.167, port: 9050, type: ss, cipher: aes-256-cfb, password: FG5ddLsMPbV5CutE, udp: true}
-  - {name: DE_9000 @WangCai_1, server: 5.183.179.137, port: 9000, type: ss, cipher: aes-256-cfb, password: a3GFYt36Sm82Vys9, udp: true}
-  - {name: DE_9064 @WangCai_1 (6), server: 5.183.179.148, port: 9064, type: ss, cipher: aes-256-cfb, password: cp8pRSUAyLhTfVWH, udp: true}
-  - {name: DE_9053 @WangCai_1 (6), server: 5.183.179.148, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C, udp: true}
-  - {name: DE_9059 @WangCai_1 (7), server: 5.183.179.167, port: 9059, type: ss, cipher: aes-256-cfb, password: 9XwYyZsK8SNzQDtY, udp: true}
-  - {name: DE_9003 @WangCai_1, server: 5.183.179.137, port: 9003, type: ss, cipher: aes-256-cfb, password: JdmRK9gMEqFgs8nP, udp: true}
-  - {name: DE_9040 @WangCai_1 (2), server: 5.183.179.140, port: 9040, type: ss, cipher: aes-256-cfb, password: p9z5BVADH2YFs3MN, udp: true}
-  - {name: DE_9073 @WangCai_1 (16), server: 5.183.179.166, port: 9073, type: ss, cipher: aes-256-cfb, password: daFYagqDdBdA6VTX, udp: true}
-  - {name: DE_9040 @WangCai_1 (3), server: 5.183.179.141, port: 9040, type: ss, cipher: aes-256-cfb, password: p9z5BVADH2YFs3MN, udp: true}
-  - {name: DE_9057 @WangCai_1 (6), server: 5.183.179.148, port: 9057, type: ss, cipher: aes-256-cfb, password: wjTugX3ZtHMB9c3Z, udp: true}
-  - {name: DE_9001 @WangCai_1 (2), server: 5.183.179.140, port: 9001, type: ss, cipher: aes-256-cfb, password: UkXRsXvR6buDMG2Y, udp: true}
-  - {name: DE_9019 @WangCai_1 (3), server: 5.183.179.141, port: 9019, type: ss, cipher: aes-256-cfb, password: GA9KzeEgvfxNrgmM, udp: true}
-  - {name: DE_9000 @WangCai_1 (6), server: 5.183.179.148, port: 9000, type: ss, cipher: aes-256-cfb, password: a3GFYt36Sm82Vys9, udp: true}
-  - {name: DE_9043 @WangCai_1 (16), server: 5.183.179.166, port: 9043, type: ss, cipher: aes-256-cfb, password: HSZuyJQcWe8dxNdF, udp: true}
-  - {name: DE_9018 @WangCai_1 (16), server: 5.183.179.166, port: 9018, type: ss, cipher: aes-256-cfb, password: fG2artUmHfNT2cX7, udp: true}
-  - {name: DE_9020 @WangCai_1 (7), server: 5.183.179.167, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: DE_9010 @WangCai_1 (2), server: 5.183.179.140, port: 9010, type: ss, cipher: aes-256-cfb, password: f63gg8EruDnUrmz4, udp: true}
-  - {name: DE_9003 @WangCai_1 (16), server: 5.183.179.166, port: 9003, type: ss, cipher: aes-256-cfb, password: JdmRK9gMEqFgs8nP, udp: true}
-  - {name: DE_9025 @WangCai_1 (7), server: 5.183.179.167, port: 9025, type: ss, cipher: aes-256-cfb, password: XPtzA9sCug3SPR4c, udp: true}
-  - {name: DE_9019 @WangCai_1, server: 5.183.179.137, port: 9019, type: ss, cipher: aes-256-cfb, password: GA9KzeEgvfxNrgmM, udp: true}
-  - {name: DE_9019 @WangCai_1 (5), server: 5.183.179.146, port: 9019, type: ss, cipher: aes-256-cfb, password: GA9KzeEgvfxNrgmM, udp: true}
-  - {name: DE_9031 @WangCai_1 (5), server: 5.183.179.146, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: DE_9079 @WangCai_1, server: 5.183.179.137, port: 9079, type: ss, cipher: aes-256-cfb, password: TPqX8edgbAURcAMb, udp: true}
-  - {name: DE_9025 @WangCai_1, server: 5.183.179.137, port: 9025, type: ss, cipher: aes-256-cfb, password: XPtzA9sCug3SPR4c, udp: true}
-  - {name: DE_9094 @WangCai_1 (8), server: 5.183.179.170, port: 9094, type: ss, cipher: aes-256-cfb, password: rpgbNnU9rDDU4aWZ, udp: true}
-  - {name: DE_9025 @WangCai_1 (2), server: 5.183.179.140, port: 9025, type: ss, cipher: aes-256-cfb, password: XPtzA9sCug3SPR4c, udp: true}
-  - {name: DE_9025 @WangCai_1 (6), server: 5.183.179.148, port: 9025, type: ss, cipher: aes-256-cfb, password: XPtzA9sCug3SPR4c, udp: true}
-  - {name: DE_9018 @WangCai_1 (7), server: 5.183.179.167, port: 9018, type: ss, cipher: aes-256-cfb, password: fG2artUmHfNT2cX7, udp: true}
-  - {name: DE_9043 @WangCai_1 (8), server: 5.183.179.170, port: 9043, type: ss, cipher: aes-256-cfb, password: HSZuyJQcWe8dxNdF, udp: true}
-  - {name: DE_9093 @WangCai_1 (1), server: 5.183.179.139, port: 9093, type: ss, cipher: aes-256-cfb, password: wfLC2y7rzZyCmuyt, udp: true}
-  - {name: DE_9098 @WangCai_1 (16), server: 5.183.179.166, port: 9098, type: ss, cipher: aes-256-cfb, password: aLpQtfEZe445QyHk, udp: true}
-  - {name: DE_9079 @WangCai_1 (1), server: 5.183.179.139, port: 9079, type: ss, cipher: aes-256-cfb, password: TPqX8edgbAURcAMb, udp: true}
-  - {name: DE_9018 @WangCai_1 (2), server: 5.183.179.140, port: 9018, type: ss, cipher: aes-256-cfb, password: fG2artUmHfNT2cX7, udp: true}
-  - {name: DE_9043 @WangCai_1 (5), server: 5.183.179.146, port: 9043, type: ss, cipher: aes-256-cfb, password: HSZuyJQcWe8dxNdF, udp: true}
-  - {name: DE_9025 @WangCai_1 (3), server: 5.183.179.141, port: 9025, type: ss, cipher: aes-256-cfb, password: XPtzA9sCug3SPR4c, udp: true}
-  - {name: DE_9037 @WangCai_1 (5), server: 5.183.179.146, port: 9037, type: ss, cipher: aes-256-cfb, password: TN2YqghxeFDKZfLU, udp: true}
-  - {name: DE_9006 @WangCai_1 (8), server: 5.183.179.170, port: 9006, type: ss, cipher: aes-256-cfb, password: FAdUvMJUq5vDgKEq, udp: true}
-  - {name: DE_9005 @WangCai_1 (3), server: 5.183.179.141, port: 9005, type: ss, cipher: aes-256-cfb, password: ZET59LF6DvCC8KVt, udp: true}
-  - {name: DE_9079 @WangCai_1 (5), server: 5.183.179.146, port: 9079, type: ss, cipher: aes-256-cfb, password: TPqX8edgbAURcAMb, udp: true}
-  - {name: DE_9005 @WangCai_1 (16), server: 5.183.179.166, port: 9005, type: ss, cipher: aes-256-cfb, password: ZET59LF6DvCC8KVt, udp: true}
-  - {name: DE_9070 @WangCai_1 (16), server: 5.183.179.166, port: 9070, type: ss, cipher: aes-256-cfb, password: bf7v334KKDV3YDhH, udp: true}
-  - {name: DE_9011 @WangCai_1 (7), server: 5.183.179.167, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
-  - {name: DE_9037 @WangCai_1 (7), server: 5.183.179.167, port: 9037, type: ss, cipher: aes-256-cfb, password: TN2YqghxeFDKZfLU, udp: true}
-  - {name: DE_9026 @WangCai_1 (7), server: 5.183.179.167, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA, udp: true}
-  - {name: DE_9027 @WangCai_1, server: 5.183.179.137, port: 9027, type: ss, cipher: aes-256-cfb, password: EXN3S3eQpjE7EJu8, udp: true}
-  - {name: DE_9038 @WangCai_1 (1), server: 5.183.179.139, port: 9038, type: ss, cipher: aes-256-cfb, password: gYCYXfkUQEs2TaJQ, udp: true}
-  - {name: DE_9053 @WangCai_1 (3), server: 5.183.179.141, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C, udp: true}
-  - {name: DE_9057 @WangCai_1 (16), server: 5.183.179.166, port: 9057, type: ss, cipher: aes-256-cfb, password: wjTugX3ZtHMB9c3Z, udp: true}
-  - {name: DE_9000 @WangCai_1 (3), server: 5.183.179.141, port: 9000, type: ss, cipher: aes-256-cfb, password: a3GFYt36Sm82Vys9, udp: true}
-  - {name: DE_9084 @WangCai_1 (3), server: 5.183.179.141, port: 9084, type: ss, cipher: aes-256-cfb, password: c3NtHJ5ujV2tGDfj, udp: true}
-  - {name: DE_9037 @WangCai_1 (6), server: 5.183.179.148, port: 9037, type: ss, cipher: aes-256-cfb, password: TN2YqghxeFDKZfLU, udp: true}
-  - {name: DE_9070 @WangCai_1 (8), server: 5.183.179.170, port: 9070, type: ss, cipher: aes-256-cfb, password: bf7v334KKDV3YDhH, udp: true}
-  - {name: DE_9046 @WangCai_1 (8), server: 5.183.179.170, port: 9046, type: ss, cipher: aes-256-cfb, password: NvS8N4Vf8qAGPSCL, udp: true}
-  - {name: DE_9000 @WangCai_1 (5), server: 5.183.179.146, port: 9000, type: ss, cipher: aes-256-cfb, password: a3GFYt36Sm82Vys9, udp: true}
-  - {name: DE_9003 @WangCai_1 (1), server: 5.183.179.139, port: 9003, type: ss, cipher: aes-256-cfb, password: JdmRK9gMEqFgs8nP, udp: true}
-  - {name: DE_9003 @WangCai_1 (6), server: 5.183.179.148, port: 9003, type: ss, cipher: aes-256-cfb, password: JdmRK9gMEqFgs8nP, udp: true}
-  - {name: DE_9027 @WangCai_1 (2), server: 5.183.179.140, port: 9027, type: ss, cipher: aes-256-cfb, password: EXN3S3eQpjE7EJu8, udp: true}
-  - {name: DE_9020 @WangCai_1 (8), server: 5.183.179.170, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: DE_9008 @WangCai_1 (5), server: 5.183.179.146, port: 9008, type: ss, cipher: aes-256-cfb, password: y9VURyNzJWNRYEGQ, udp: true}
-  - {name: DE_9079 @WangCai_1 (6), server: 5.183.179.148, port: 9079, type: ss, cipher: aes-256-cfb, password: TPqX8edgbAURcAMb, udp: true}
-  - {name: DE_9057 @WangCai_1, server: 5.183.179.137, port: 9057, type: ss, cipher: aes-256-cfb, password: wjTugX3ZtHMB9c3Z, udp: true}
-  - {name: DE_9001 @WangCai_1, server: 5.183.179.137, port: 9001, type: ss, cipher: aes-256-cfb, password: UkXRsXvR6buDMG2Y, udp: true}
-  - {name: DE_9007 @WangCai_1 (7), server: 5.183.179.167, port: 9007, type: ss, cipher: aes-256-cfb, password: kSPmvwdFzGMMW5pY, udp: true}
-  - {name: DE_9031 @WangCai_1, server: 5.183.179.137, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: DE_9020 @WangCai_1 (1), server: 5.183.179.139, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: DE_9045 @WangCai_1 (6), server: 5.183.179.148, port: 9045, type: ss, cipher: aes-256-cfb, password: Lp27rqyJq72bZsqX, udp: true}
-  - {name: DE_9015 @WangCai_1 (16), server: 5.183.179.166, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
-  - {name: DE_9033 @WangCai_1 (8), server: 5.183.179.170, port: 9033, type: ss, cipher: aes-256-cfb, password: UTJA57ypk2XKQpnm, udp: true}
-  - {name: DE_9060 @WangCai_1 (3), server: 5.183.179.141, port: 9060, type: ss, cipher: aes-256-cfb, password: ueLXVkvh4hckhErQ, udp: true}
-  - {name: DE_9018 @WangCai_1 (5), server: 5.183.179.146, port: 9018, type: ss, cipher: aes-256-cfb, password: fG2artUmHfNT2cX7, udp: true}
-  - {name: DE_9007 @WangCai_1 (6), server: 5.183.179.148, port: 9007, type: ss, cipher: aes-256-cfb, password: kSPmvwdFzGMMW5pY, udp: true}
-  - {name: DE_9057 @WangCai_1 (2), server: 5.183.179.140, port: 9057, type: ss, cipher: aes-256-cfb, password: wjTugX3ZtHMB9c3Z, udp: true}
-  - {name: DE_9079 @WangCai_1 (3), server: 5.183.179.141, port: 9079, type: ss, cipher: aes-256-cfb, password: TPqX8edgbAURcAMb, udp: true}
-  - {name: DE_9007 @WangCai_1, server: 5.183.179.137, port: 9007, type: ss, cipher: aes-256-cfb, password: kSPmvwdFzGMMW5pY, udp: true}
-  - {name: DE_9098 @WangCai_1 (6), server: 5.183.179.148, port: 9098, type: ss, cipher: aes-256-cfb, password: aLpQtfEZe445QyHk, udp: true}
-  - {name: DE_9042 @WangCai_1 (2), server: 5.183.179.140, port: 9042, type: ss, cipher: aes-256-cfb, password: S7KwUu7yBy58S3Ga, udp: true}
-  - {name: DE_9042 @WangCai_1 (6), server: 5.183.179.148, port: 9042, type: ss, cipher: aes-256-cfb, password: S7KwUu7yBy58S3Ga, udp: true}
-  - {name: DE_9088 @WangCai_1 (6), server: 5.183.179.148, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
-  - {name: DE_9015 @WangCai_1 (6), server: 5.183.179.148, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
-  - {name: DE_9010 @WangCai_1 (6), server: 5.183.179.148, port: 9010, type: ss, cipher: aes-256-cfb, password: f63gg8EruDnUrmz4, udp: true}
-  - {name: DE_9008 @WangCai_1 (16), server: 5.183.179.166, port: 9008, type: ss, cipher: aes-256-cfb, password: y9VURyNzJWNRYEGQ, udp: true}
-  - {name: DE_9015 @WangCai_1 (2), server: 5.183.179.140, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
-  - {name: DE_9073 @WangCai_1 (8), server: 5.183.179.170, port: 9073, type: ss, cipher: aes-256-cfb, password: daFYagqDdBdA6VTX, udp: true}
-  - {name: DE_9015 @WangCai_1 (7), server: 5.183.179.167, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
-  - {name: DE_9005 @WangCai_1, server: 5.183.179.137, port: 9005, type: ss, cipher: aes-256-cfb, password: ZET59LF6DvCC8KVt, udp: true}
-  - {name: DE_9042 @WangCai_1 (7), server: 5.183.179.167, port: 9042, type: ss, cipher: aes-256-cfb, password: S7KwUu7yBy58S3Ga, udp: true}
-  - {name: SG_9032 @WangCai_1 (2), server: 103.172.116.7, port: 9032, type: ss, cipher: aes-256-cfb, password: UWZQeLRWnkqgkseq, udp: true}
-  - {name: SG_9064 @WangCai_1 (3), server: 103.172.116.8, port: 9064, type: ss, cipher: aes-256-cfb, password: cp8pRSUAyLhTfVWH, udp: true}
-  - {name: SG_9093 @WangCai_1 (2), server: 103.172.116.7, port: 9093, type: ss, cipher: aes-256-cfb, password: wfLC2y7rzZyCmuyt, udp: true}
-  - {name: SG_9025 @WangCai_1 (3), server: 103.172.116.8, port: 9025, type: ss, cipher: aes-256-cfb, password: XPtzA9sCug3SPR4c, udp: true}
-  - {name: SG_9045 @WangCai_1 (3), server: 103.172.116.8, port: 9045, type: ss, cipher: aes-256-cfb, password: Lp27rqyJq72bZsqX, udp: true}
-  - {name: SG_9050 @WangCai_1 (2), server: 103.172.116.7, port: 9050, type: ss, cipher: aes-256-cfb, password: FG5ddLsMPbV5CutE, udp: true}
-  - {name: SG_9008 @WangCai_1 (3), server: 103.172.116.8, port: 9008, type: ss, cipher: aes-256-cfb, password: y9VURyNzJWNRYEGQ, udp: true}
-  - {name: SG_9014 @WangCai_1 (3), server: 103.172.116.8, port: 9014, type: ss, cipher: aes-256-cfb, password: KnJGad3FqTvjqbaX, udp: true}
-  - {name: AU_12, server: 185.167.116.38, port: 9014, type: ss, cipher: aes-256-cfb, password: KnJGad3FqTvjqbaX, udp: true}
-  - {name: SG_9020 @WangCai_1 (3), server: 103.172.116.8, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: SG_9079 @WangCai_1 (3), server: 103.172.116.8, port: 9079, type: ss, cipher: aes-256-cfb, password: TPqX8edgbAURcAMb, udp: true}
-  - {name: SG_9015 @WangCai_1 (3), server: 103.172.116.8, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
-  - {name: SG_9059 @WangCai_1 (2), server: 103.172.116.7, port: 9059, type: ss, cipher: aes-256-cfb, password: 9XwYyZsK8SNzQDtY, udp: true}
-  - {name: SG_9000 @WangCai_1 (3), server: 103.172.116.8, port: 9000, type: ss, cipher: aes-256-cfb, password: a3GFYt36Sm82Vys9, udp: true}
-  - {name: SG_9043 @WangCai_1 (3), server: 103.172.116.8, port: 9043, type: ss, cipher: aes-256-cfb, password: HSZuyJQcWe8dxNdF, udp: true}
-  - {name: SG_9084 @WangCai_1 (3), server: 103.172.116.8, port: 9084, type: ss, cipher: aes-256-cfb, password: c3NtHJ5ujV2tGDfj, udp: true}
-  - {name: SG_9038 @WangCai_1 (2), server: 103.172.116.7, port: 9038, type: ss, cipher: aes-256-cfb, password: gYCYXfkUQEs2TaJQ, udp: true}
-  - {name: SG_9007 @WangCai_1 (3), server: 103.172.116.8, port: 9007, type: ss, cipher: aes-256-cfb, password: kSPmvwdFzGMMW5pY, udp: true}
-  - {name: SG_9040 @WangCai_1 (3), server: 103.172.116.8, port: 9040, type: ss, cipher: aes-256-cfb, password: p9z5BVADH2YFs3MN, udp: true}
-  - {name: SG_9037 @WangCai_1 (3), server: 103.172.116.8, port: 9037, type: ss, cipher: aes-256-cfb, password: TN2YqghxeFDKZfLU, udp: true}
-  - {name: SG_9011 @WangCai_1 (3), server: 103.172.116.8, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
-  - {name: SG_9094 @WangCai_1 (2), server: 103.172.116.7, port: 9094, type: ss, cipher: aes-256-cfb, password: rpgbNnU9rDDU4aWZ, udp: true}
-  - {name: SG_9070 @WangCai_1 (2), server: 103.172.116.7, port: 9070, type: ss, cipher: aes-256-cfb, password: bf7v334KKDV3YDhH, udp: true}
-  - {name: SG_9033 @WangCai_1 (2), server: 103.172.116.7, port: 9033, type: ss, cipher: aes-256-cfb, password: UTJA57ypk2XKQpnm, udp: true}
-  - {name: SG_9019 @WangCai_1 (2), server: 103.172.116.7, port: 9019, type: ss, cipher: aes-256-cfb, password: GA9KzeEgvfxNrgmM, udp: true}
-  - {name: :澳大利亚-ss-185.167.116.38:9007-可用-直连-仅支持澳大利亚地区NF自制剧, server: 185.167.116.38, port: 9007, type: ss, cipher: aes-256-cfb, password: kSPmvwdFzGMMW5pY, udp: true}
-  - {name: SG_9003 @WangCai_1 (3), server: 103.172.116.8, port: 9003, type: ss, cipher: aes-256-cfb, password: JdmRK9gMEqFgs8nP, udp: true}
-  - {name: SG_9018 @WangCai_1 (3), server: 103.172.116.8, port: 9018, type: ss, cipher: aes-256-cfb, password: fG2artUmHfNT2cX7, udp: true}
-  - {name: SG_9042 @WangCai_1 (3), server: 103.172.116.8, port: 9042, type: ss, cipher: aes-256-cfb, password: S7KwUu7yBy58S3Ga, udp: true}
-  - {name: SG_9060 @WangCai_1 (2), server: 103.172.116.7, port: 9060, type: ss, cipher: aes-256-cfb, password: ueLXVkvh4hckhErQ, udp: true}
-  - {name: SG_9088 @WangCai_1 (3), server: 103.172.116.8, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
-  - {name: :中国-ss-14.29.124.168:25266-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25266, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_油管 TG 8度科技, server: 14.29.124.168, port: 25210, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: :中国-ss-14.29.124.168:25231-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25231, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: _441 | 4.57Mb, server: 14.29.124.168, port: 25245, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_91, server: 14.29.124.168, port: 25295, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: :中国-ss-14.29.124.168:25230-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25230, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: SG_9098 @WangCai_1 (3), server: 103.172.116.8, port: 9098, type: ss, cipher: aes-256-cfb, password: aLpQtfEZe445QyHk, udp: true}
-  - {name: SG_9057 @WangCai_1 (3), server: 103.172.116.8, port: 9057, type: ss, cipher: aes-256-cfb, password: wjTugX3ZtHMB9c3Z, udp: true}
+  - {name: EXTM3U-香港-nf-iplc, server: 120.233.10.55, port: 40309, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: CN_44, server: gy.sharecentrepro.tk, port: 34148, type: trojan, password: sharecentrepro, sni: gy.sharecentrepro.tk, skip-cert-verify: true, udp: true}
+  - {name: CN_45, server: gy.sharecentrepro.tk, port: 17775, type: trojan, password: sharecentrepro, sni: gy.sharecentrepro.tk, skip-cert-verify: true, udp: true}
+  - {name: 台湾(欢迎订阅Youtube破解资源君), server: 330tw.fans8.xyz, port: 443, type: vmess, uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c, alterId: 2, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ray, ws-headers: {Host: 330tw.fans8.xyz}, udp: true}
+  - {name: V1-#202_IPLC-深圳-台湾_NF_x4_0_V2ray_253, server: juzi-iplc001.ddns-oink.xyz, port: 40202, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: juzi-iplc001.ddns-oink.xyz}, udp: true}
+  - {name: V1-#310_IPLC-深圳-香港BGP_NF_x4_0_V2ray_259, server: juzi-iplc001.ddns-oink.xyz, port: 40310, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: juzi-iplc001.ddns-oink.xyz}, udp: true}
+  - {name: EXTM3U-SG-nf-iplc, server: 120.233.10.55, port: 40175, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: vpnhat-日本-nf, server: 112.64.98.220, port: 40039, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: IR_615 |49.42Mb, server: 185.148.14.58, port: 53514, type: trojan, password: 3r90JDGBYA, skip-cert-verify: true, udp: true}
+  - {name: _法国_YouTubeVV科技_46, server: 149.202.82.172, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM, udp: true}
+  - {name: EXTM3U-香港-nf-iplc 2, server: 120.233.10.55, port: 40123, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: _US_美国, server: 169.197.142.4, port: 2375, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7, udp: true}
+  - {name: _US_美国 2, server: 169.197.142.216, port: 8881, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
+  - {name: V3-#322_广东-台湾_NF_x2_0_V2ray_268, server: juzixjp-001.ddns-oink.xyz, port: 40322, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: juzixjp-001.ddns-oink.xyz}, udp: true}
+  - {name: _US_美国 3, server: 38.75.136.139, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27, udp: true}
+  - {name: _US_美国 4, server: 169.197.142.216, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
+  - {name: _US_美国 5, server: 169.197.142.216, port: 8000, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: _US_美国 6, server: 169.197.142.216, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
+  - {name: _US_美国 7, server: 167.88.61.50, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId, udp: true}
+  - {name: _US_美国 8, server: 38.75.137.71, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7, udp: true}
+  - {name: _US_美国 9, server: 142.202.48.17, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7, udp: true}
+  - {name: _CA_加拿大, server: 198.57.27.218, port: 8882, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
+  - {name: _US_美国 10, server: 38.75.137.71, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
+  - {name: _CA_加拿大 2, server: 134.195.196.199, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
+  - {name: _US_美国 11, server: 38.75.137.71, port: 8000, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: 美国(欢迎订阅Youtube破解资源君), server: 48us.fans8.xyz, port: 443, type: vmess, uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c, alterId: 2, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ray, ws-headers: {Host: 48us.fans8.xyz}, udp: true}
+  - {name: _US_美国 12, server: 169.197.142.216, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS, udp: true}
+  - {name: V3-#319_广东-台湾_NF_x2_0_V2ray_265, server: juzixjp-001.ddns-oink.xyz, port: 40319, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: juzixjp-001.ddns-oink.xyz}, udp: true}
+  - {name: _US_美国 13, server: 38.91.100.134, port: 8881, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
+  - {name: _US_美国 14, server: 38.68.134.69, port: 2375, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7, udp: true}
+  - {name: _US_美国 15, server: 38.75.136.139, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: github.com/freefq+-+北美地区++16, server: 134.195.198.211, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM, udp: true}
+  - {name: _US_美国 16, server: 142.202.48.17, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, udp: true}
+  - {name: _CA_加拿大 3, server: 198.57.27.218, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM, udp: true}
+  - {name: _CA_加拿大 4, server: 198.57.27.218, port: 8091, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27, udp: true}
+  - {name: _CA_加拿大 5, server: 134.195.196.132, port: 8881, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4, udp: true}
+  - {name: EXTM3U-香港-nf-iplc 3, server: 120.233.10.55, port: 40310, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: _US_美国 17, server: 38.68.134.190, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
+  - {name: _US_美国 18, server: 169.197.143.157, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, udp: true}
+  - {name: _US_美国 19, server: 167.88.63.11, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM, udp: true}
+  - {name: _US_美国 20, server: 38.75.137.71, port: 5601, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: _US_美国 21, server: 38.68.134.190, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: _US_美国 22, server: 38.68.135.19, port: 2375, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7, udp: true}
+  - {name: _CA_加拿大 6, server: 198.57.27.218, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
+  - {name: _US_美国 23, server: 38.68.134.190, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, udp: true}
+  - {name: _CA_加拿大 7, server: 134.195.196.231, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: _US_美国 24, server: 38.68.134.190, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId, udp: true}
+  - {name: _US_美国 25, server: 169.197.143.157, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27, udp: true}
+  - {name: _US_美国 26, server: 169.197.143.157, port: 8008, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74, udp: true}
+  - {name: _CA_加拿大 8, server: 198.57.27.218, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v, udp: true}
+  - {name: NL_363, server: 213.183.59.218, port: 9006, type: ss, cipher: aes-256-cfb, password: FAdUvMJUq5vDgKEq, udp: true}
+  - {name: _CA_加拿大 9, server: 198.57.27.218, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId, udp: true}
+  - {name: _US_美国 27, server: 169.197.143.157, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
+  - {name: _US_美国 28, server: 38.68.134.190, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
+  - {name: _US_美国 29, server: 38.68.134.69, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7, udp: true}
+  - {name: _US_美国 30, server: 38.68.134.190, port: 8008, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74, udp: true}
+  - {name: _US_美国 31, server: 167.88.62.62, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm, udp: true}
+  - {name: _US_美国 32, server: 169.197.143.157, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC, udp: true}
+  - {name: V1-#307_IPLC-深圳-香港HKT_NF_x4_0_V2ray_256, server: juzi-iplc001.ddns-oink.xyz, port: 40307, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: juzi-iplc001.ddns-oink.xyz}, udp: true}
+  - {name: V1-#306_IPLC-深圳-香港HKT_NF_x4_0_V2ray_255, server: juzi-iplc001.ddns-oink.xyz, port: 40306, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: juzi-iplc001.ddns-oink.xyz}, udp: true}
+  - {name: EXTM3U-台湾-nf-iplc, server: 120.233.10.55, port: 40202, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: V1-#309_IPLC-深圳-香港BGP_NF_x4_0_V2ray_258, server: juzi-iplc001.ddns-oink.xyz, port: 40309, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: juzi-iplc001.ddns-oink.xyz}, udp: true}
+  - {name: 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25231, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: vpnpool-香港HKT-nf, server: 120.232.82.157, port: 40239, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: CN_油管+TG+8度科技, server: 14.29.124.168, port: 25218, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: V3-#320_广东-台湾_NF_x2_0_V2ray_266, server: juzixjp-001.ddns-oink.xyz, port: 40320, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: juzixjp-001.ddns-oink.xyz}, udp: true}
+  - {name: vpnpool-香港HKT, server: 120.232.82.157, port: 40262, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25230, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: V2-#238_广东-香港HKT_NF_x1_5_V2ray_277, server: jzdjd-01.ddns-oink.xyz, port: 40238, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: jzdjd-01.ddns-oink.xyz}, udp: true}
+  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用), server: 14.29.124.168, port: 25266, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: 美国(欢迎订阅Youtube破解资源君) 2, server: hkmf2.speedcncnforward2.tk, port: 8443, type: trojan, password: d0173f59-c7e7-4bb0-bc09-3da657c70dd6, sni: hkmf2.speedcncnforward2.tk, skip-cert-verify: true, udp: true}
+  - {name: EXTM3U-香港HKT-nf-iplc, server: 120.233.10.55, port: 40306, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: vpnpool-香港HKT-nf 2, server: 120.232.82.157, port: 40238, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: V3-#23_广东-香港HKBN_NF_x1_5_V2ray_285, server: jzdjd-01.ddns-oink.xyz, port: 40023, type: vmess, uuid: e4cba870-e545-3e17-bd03-f3ce5e3e292e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /jz666666, ws-headers: {Host: jzdjd-01.ddns-oink.xyz}, udp: true}
+  - {name: 美国(欢迎订阅Youtube破解资源君) 3, server: hkmf2.speedcncnforward2.tk, port: 8443, type: trojan, password: e816d28a-c617-4954-87f6-aac16c3189f5, sni: hkmf2.speedcncnforward2.tk, skip-cert-verify: true, udp: true}
+  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2, server: 101.91.121.247, port: 50004, type: ss, cipher: aes-256-cfb, password: !<str> 4415934295, udp: true}
   - {name: 加拿大(yudou66_com玉豆分享)_18, server: ingress-i1.onebox6.org, port: 38701, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: ingress-i1.onebox6.org}, udp: true}
-  - {name: RU_16509+@WangCai_1, server: 180.163.62.91, port: 16509, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: AU_15, server: 185.167.116.38, port: 9050, type: ss, cipher: aes-256-cfb, password: FG5ddLsMPbV5CutE, udp: true}
-  - {name: AU_10, server: 185.167.116.38, port: 9064, type: ss, cipher: aes-256-cfb, password: cp8pRSUAyLhTfVWH, udp: true}
-  - {name: AU_18, server: 185.167.116.38, port: 9042, type: ss, cipher: aes-256-cfb, password: S7KwUu7yBy58S3Ga, udp: true}
-  - {name: :澳大利亚-ss-185.167.116.38:9005-可用-直连-仅支持澳大利亚地区NF自制剧, server: 185.167.116.38, port: 9005, type: ss, cipher: aes-256-cfb, password: ZET59LF6DvCC8KVt, udp: true}
-  - {name: AU_14, server: 185.167.116.38, port: 9094, type: ss, cipher: aes-256-cfb, password: rpgbNnU9rDDU4aWZ, udp: true}
-  - {name: AU_03, server: 185.167.116.38, port: 9037, type: ss, cipher: aes-256-cfb, password: TN2YqghxeFDKZfLU, udp: true}
-  - {name: AU_05, server: 185.167.116.38, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C, udp: true}
-  - {name: AU_16, server: 185.167.116.38, port: 9000, type: ss, cipher: aes-256-cfb, password: a3GFYt36Sm82Vys9, udp: true}
-  - {name: AU_35, server: 185.167.116.38, port: 9019, type: ss, cipher: aes-256-cfb, password: GA9KzeEgvfxNrgmM, udp: true}
-  - {name: AU_40, server: 185.167.116.38, port: 9001, type: ss, cipher: aes-256-cfb, password: UkXRsXvR6buDMG2Y, udp: true}
-  - {name: AU_79, server: 185.167.116.38, port: 9046, type: ss, cipher: aes-256-cfb, password: NvS8N4Vf8qAGPSCL, udp: true}
-  - {name: :澳大利亚-ss-185.167.116.38:9033-可用-直连-仅支持澳大利亚地区NF自制剧, server: 185.167.116.38, port: 9033, type: ss, cipher: aes-256-cfb, password: UTJA57ypk2XKQpnm, udp: true}
-  - {name: :澳大利亚-ss-185.167.116.38:9057-可用-直连-仅支持澳大利亚地区NF自制剧, server: 185.167.116.38, port: 9057, type: ss, cipher: aes-256-cfb, password: wjTugX3ZtHMB9c3Z, udp: true}
-  - {name: AU_06, server: 185.167.116.38, port: 9060, type: ss, cipher: aes-256-cfb, password: ueLXVkvh4hckhErQ, udp: true}
-  - {name: AU_11, server: 185.167.116.38, port: 9024, type: ss, cipher: aes-256-cfb, password: BejrQvtu9sqUeNuZ, udp: true}
-  - {name: DE_9042 @WangCai_1 (4), server: 5.183.179.145, port: 9042, type: ss, cipher: aes-256-cfb, password: S7KwUu7yBy58S3Ga, udp: true}
-  - {name: 美国-BGP-K, server: ultimate-stack.atomwan.link, port: 11000, type: ss, cipher: chacha20-ietf-poly1305, password: 9680e06a-fd10-4381-b796-8f305e09b08f, udp: true}
-  - {name: 美国-BGP-N, server: ultimate-stack.atomwan.link, port: 11005, type: ss, cipher: chacha20-ietf-poly1305, password: 9680e06a-fd10-4381-b796-8f305e09b08f, udp: true}
-  - {name: 俄罗斯-BGP, server: ultimate-stack.atomwan.link, port: 11017, type: ss, cipher: chacha20-ietf-poly1305, password: 9680e06a-fd10-4381-b796-8f305e09b08f, udp: true}
-  - {name: :澳大利亚-ss-185.167.116.38:9006-可用-直连-仅支持澳大利亚地区NF自制剧, server: 185.167.116.38, port: 9006, type: ss, cipher: aes-256-cfb, password: FAdUvMJUq5vDgKEq, udp: true}
-  - {name: AU_38, server: 185.167.116.38, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: :俄罗斯-ss-5.183.179.145:9010-可用-直连-解锁德国地区NF非自制剧, server: 5.183.179.145, port: 9010, type: ss, cipher: aes-256-cfb, password: f63gg8EruDnUrmz4, udp: true}
-  - {name: DE_9064 @WangCai_1 (4), server: 5.183.179.145, port: 9064, type: ss, cipher: aes-256-cfb, password: cp8pRSUAyLhTfVWH, udp: true}
-  - {name: :俄罗斯-ss-5.183.179.145:9031-可用-直连-解锁德国地区NF非自制剧, server: 5.183.179.145, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: :俄罗斯-ss-5.183.179.145:9040-可用-直连-解锁德国地区NF非自制剧, server: 5.183.179.145, port: 9040, type: ss, cipher: aes-256-cfb, password: p9z5BVADH2YFs3MN, udp: true}
-  - {name: DE_9088 @WangCai_1 (4), server: 5.183.179.145, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
-  - {name: :俄罗斯-ss-5.183.179.145:9070-可用-直连-解锁德国地区NF非自制剧, server: 5.183.179.145, port: 9070, type: ss, cipher: aes-256-cfb, password: bf7v334KKDV3YDhH, udp: true}
-  - {name: DE_9026 @WangCai_1 (4), server: 5.183.179.145, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA, udp: true}
-  - {name: DE_9027 @WangCai_1 (3), server: 5.183.179.145, port: 9027, type: ss, cipher: aes-256-cfb, password: EXN3S3eQpjE7EJu8, udp: true}
-  - {name: RU_218, server: 217.30.10.63, port: 9003, type: ss, cipher: aes-256-cfb, password: JdmRK9gMEqFgs8nP, udp: true}
-  - {name: RU_259, server: 217.30.10.63, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
-  - {name: RU_261, server: 217.30.10.63, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C, udp: true}
-  - {name: DE_9037 @WangCai_1 (4), server: 5.183.179.145, port: 9037, type: ss, cipher: aes-256-cfb, password: TN2YqghxeFDKZfLU, udp: true}
-  - {name: DE_9025 @WangCai_1 (4), server: 5.183.179.145, port: 9025, type: ss, cipher: aes-256-cfb, password: XPtzA9sCug3SPR4c, udp: true}
-  - {name: DE_9053 @WangCai_1 (4), server: 5.183.179.145, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C, udp: true}
-  - {name: :俄罗斯-ss-217.30.10.63:9098-可用-直连-仅支持波兰地区NF自制剧, server: 217.30.10.63, port: 9098, type: ss, cipher: aes-256-cfb, password: aLpQtfEZe445QyHk, udp: true}
-  - {name: RU_231, server: 217.30.10.63, port: 9001, type: ss, cipher: aes-256-cfb, password: UkXRsXvR6buDMG2Y, udp: true}
-  - {name: RU_256, server: 217.30.10.63, port: 9093, type: ss, cipher: aes-256-cfb, password: wfLC2y7rzZyCmuyt, udp: true}
-  - {name: :中国-ss-101.91.121.247:50004-可用-直连-完全不支持NF, server: 101.91.121.247, port: 50004, type: ss, cipher: aes-256-cfb, password: !<str> 4415934295, udp: true}
-  - {name: RU_260, server: 217.30.10.63, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
-  - {name: SG_9027 @WangCai_1 (5), server: 103.172.116.9, port: 9027, type: ss, cipher: aes-256-cfb, password: EXN3S3eQpjE7EJu8, udp: true}
-  - {name: RU_222, server: 217.30.10.63, port: 9041, type: ss, cipher: aes-256-cfb, password: U6qnYRhfyDmn8sgn, udp: true}
-  - {name: RU_232, server: 217.30.10.63, port: 9032, type: ss, cipher: aes-256-cfb, password: UWZQeLRWnkqgkseq, udp: true}
-  - {name: RU_233, server: 217.30.10.63, port: 9037, type: ss, cipher: aes-256-cfb, password: TN2YqghxeFDKZfLU, udp: true}
-  - {name: SG_9042 @WangCai_1 (5), server: 103.172.116.9, port: 9042, type: ss, cipher: aes-256-cfb, password: S7KwUu7yBy58S3Ga, udp: true}
-  - {name: KR_46196+@WangCai_1, server: 180.163.62.91, port: 46196, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: KR_46199+@WangCai_1, server: 180.163.62.91, port: 46199, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: RU_220, server: 217.30.10.63, port: 9025, type: ss, cipher: aes-256-cfb, password: XPtzA9sCug3SPR4c, udp: true}
-  - {name: KR_21000+@WangCai_1, server: 180.163.62.91, port: 21000, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: KR_46194+@WangCai_1, server: 180.163.62.91, port: 46194, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: KR_46195+@WangCai_1, server: 180.163.62.91, port: 46195, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: KR_46198+@WangCai_1, server: 180.163.62.91, port: 46198, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: KR_46193+@WangCai_1, server: 180.163.62.91, port: 46193, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: SG_9011 @WangCai_1 (5), server: 103.172.116.9, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
-  - {name: SG_9001 @WangCai_1 (5), server: 103.172.116.9, port: 9001, type: ss, cipher: aes-256-cfb, password: UkXRsXvR6buDMG2Y, udp: true}
-  - {name: KR_46197+@WangCai_1, server: 180.163.62.91, port: 46197, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: 28美国∞直连, server: 45.32.94.166, port: 31676, type: vmess, uuid: 6f3ec45c-5283-40e8-aea9-7749f4c75753, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: http, http-opts: {method: GET, path: [/], headers: {Host: [45.32.94.166]}}, udp: true}
+  - {name: LT_269, server: 213.183.63.218, port: 9000, type: ss, cipher: aes-256-cfb, password: a3GFYt36Sm82Vys9, udp: true}
+  - {name: _581+|10.36Mb, server: 14.29.124.168, port: 25270, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: LT_261, server: 213.183.63.217, port: 9006, type: ss, cipher: aes-256-cfb, password: FAdUvMJUq5vDgKEq, udp: true}
+  - {name: 香港节点2(免费)倍率(x0.01), server: hkmf2.speedcncnforward2.tk, port: 8443, type: trojan, password: eb40a3f4-3b04-4a1c-993d-d71b44fee92c, sni: hkmf2.speedcncnforward2.tk, skip-cert-verify: true, udp: true}
+  - {name: LT_274, server: 213.183.63.217, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
+  - {name: NL_372, server: 213.183.59.185, port: 9059, type: ss, cipher: aes-256-cfb, password: 9XwYyZsK8SNzQDtY, udp: true}
+  - {name: LT_270, server: 213.183.63.217, port: 9094, type: ss, cipher: aes-256-cfb, password: rpgbNnU9rDDU4aWZ, udp: true}
+  - {name: LT_315, server: 213.183.53.177, port: 9084, type: ss, cipher: aes-256-cfb, password: c3NtHJ5ujV2tGDfj, udp: true}
+  - {name: :俄罗斯-ssr-213.183.53.200:9031-可用-直连-仅支持俄罗斯联邦地区NF自制剧, server: 213.183.53.200, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
+  - {name: :俄罗斯-ssr-213.183.53.177:9020-可用-直连-仅支持俄罗斯联邦地区NF自制剧, server: 213.183.53.177, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
+  - {name: LT_251, server: 213.183.53.202, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C, udp: true}
+  - {name: LT_290, server: 213.183.53.177, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
+  - {name: LT_319, server: 213.183.53.177, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
+  - {name: SG_9079+@WangCai_1+(3), server: 103.172.116.8, port: 9079, type: ss, cipher: aes-256-cfb, password: TPqX8edgbAURcAMb, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - az1_1
-      - DE_9008 @WangCai_1 (7)
-      - DE_9084 @WangCai_1 (16)
-      - DE_9053 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (5)
-      - DE_9064 @WangCai_1 (7)
-      - DE_9045 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (15)
-      - DE_9015 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (7)
-      - DE_9098 @WangCai_1 (3)
-      - DE_9056 @WangCai_1
-      - DE_9010 @WangCai_1
-      - DE_9097 @WangCai_1 (1)
-      - DE_9032 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (6)
-      - DE_9011 @WangCai_1
-      - DE_9098 @WangCai_1 (8)
-      - DE_9079 @WangCai_1 (16)
-      - DE_9027 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (16)
-      - DE_9024 @WangCai_1
-      - DE_9098 @WangCai_1
-      - DE_9007 @WangCai_1 (3)
-      - DE_9001 @WangCai_1 (3)
-      - DE_9064 @WangCai_1 (5)
-      - DE_9053 @WangCai_1
-      - DE_9059 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (11)
-      - DE_9018 @WangCai_1 (6)
-      - DE_9007 @WangCai_1 (16)
-      - DE_9041 @WangCai_1 (8)
-      - DE_9033 @WangCai_1
-      - DE_9043 @WangCai_1 (1)
-      - DE_9006 @WangCai_1 (16)
-      - DE_9003 @WangCai_1 (7)
-      - DE_9079 @WangCai_1 (8)
-      - DE_9031 @WangCai_1 (8)
-      - DE_9014 @WangCai_1
-      - DE_9026 @WangCai_1 (2)
-      - DE_9031 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (6)
-      - DE_9050 @WangCai_1 (8)
-      - DE_9003 @WangCai_1 (5)
-      - DE_9057 @WangCai_1 (5)
-      - DE_9000 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (16)
-      - DE_9097 @WangCai_1 (8)
-      - DE_9045 @WangCai_1 (8)
-      - DE_9014 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (16)
-      - DE_9019 @WangCai_1 (8)
-      - DE_9056 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (16)
-      - DE_9043 @WangCai_1
-      - DE_9032 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (16)
-      - DE_9020 @WangCai_1
-      - DE_9000 @WangCai_1 (1)
-      - DE_9064 @WangCai_1 (2)
-      - DE_9070 @WangCai_1 (7)
-      - DE_9032 @WangCai_1 (7)
-      - DE_9088 @WangCai_1
-      - DE_9097 @WangCai_1 (16)
-      - DE_9059 @WangCai_1 (8)
-      - DE_9098 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (5)
-      - DE_9094 @WangCai_1 (15)
-      - DE_9041 @WangCai_1
-      - DE_9097 @WangCai_1
-      - DE_9008 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (6)
-      - DE_9084 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (7)
-      - DE_9007 @WangCai_1 (1)
-      - DE_9060 @WangCai_1 (5)
-      - DE_9045 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (8)
-      - DE_9050 @WangCai_1 (1)
-      - DE_9026 @WangCai_1
-      - DE_9073 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (3)
-      - DE_9097 @WangCai_1 (5)
-      - DE_9046 @WangCai_1 (16)
-      - DE_9040 @WangCai_1
-      - DE_9020 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (5)
-      - DE_9088 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (7)
-      - DE_9031 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (7)
-      - DE_9000 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (1)
-      - DE_9008 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (8)
-      - DE_9084 @WangCai_1
-      - DE_9043 @WangCai_1 (3)
-      - DE_9056 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (1)
-      - DE_9037 @WangCai_1 (2)
-      - DE_9024 @WangCai_1 (7)
-      - DE_9042 @WangCai_1 (16)
-      - DE_9032 @WangCai_1 (8)
-      - DE_9010 @WangCai_1 (3)
-      - DE_9060 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (6)
-      - DE_9045 @WangCai_1 (7)
-      - DE_9060 @WangCai_1
-      - DE_9041 @WangCai_1 (5)
-      - DE_9011 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (3)
-      - DE_9045 @WangCai_1 (16)
-      - DE_9043 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (1)
-      - DE_9008 @WangCai_1
-      - DE_9006 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (1)
-      - DE_9084 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (15)
-      - DE_9056 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (3)
-      - DE_9032 @WangCai_1 (5)
-      - DE_9097 @WangCai_1 (6)
-      - DE_9060 @WangCai_1 (16)
-      - DE_9056 @WangCai_1 (16)
-      - DE_9057 @WangCai_1 (7)
-      - DE_9045 @WangCai_1
-      - DE_9006 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (6)
-      - DE_9040 @WangCai_1 (16)
-      - DE_9094 @WangCai_1 (1)
-      - DE_9020 @WangCai_1 (6)
-      - DE_9037 @WangCai_1 (16)
-      - DE_9005 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (1)
-      - DE_9057 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (3)
-      - DE_9033 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (7)
-      - DE_9038 @WangCai_1 (5)
-      - DE_9008 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (3)
-      - DE_9031 @WangCai_1 (3)
-      - DE_9019 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (7)
-      - DE_9000 @WangCai_1
-      - DE_9064 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (7)
-      - DE_9003 @WangCai_1
-      - DE_9040 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (16)
-      - DE_9040 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (6)
-      - DE_9001 @WangCai_1 (2)
-      - DE_9019 @WangCai_1 (3)
-      - DE_9000 @WangCai_1 (6)
-      - DE_9043 @WangCai_1 (16)
-      - DE_9018 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (2)
-      - DE_9003 @WangCai_1 (16)
-      - DE_9025 @WangCai_1 (7)
-      - DE_9019 @WangCai_1
-      - DE_9019 @WangCai_1 (5)
-      - DE_9031 @WangCai_1 (5)
-      - DE_9079 @WangCai_1
-      - DE_9025 @WangCai_1
-      - DE_9094 @WangCai_1 (8)
-      - DE_9025 @WangCai_1 (2)
-      - DE_9025 @WangCai_1 (6)
-      - DE_9018 @WangCai_1 (7)
-      - DE_9043 @WangCai_1 (8)
-      - DE_9093 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (16)
-      - DE_9079 @WangCai_1 (1)
-      - DE_9018 @WangCai_1 (2)
-      - DE_9043 @WangCai_1 (5)
-      - DE_9025 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (5)
-      - DE_9006 @WangCai_1 (8)
-      - DE_9005 @WangCai_1 (3)
-      - DE_9079 @WangCai_1 (5)
-      - DE_9005 @WangCai_1 (16)
-      - DE_9070 @WangCai_1 (16)
-      - DE_9011 @WangCai_1 (7)
-      - DE_9037 @WangCai_1 (7)
-      - DE_9026 @WangCai_1 (7)
-      - DE_9027 @WangCai_1
-      - DE_9038 @WangCai_1 (1)
-      - DE_9053 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (16)
-      - DE_9000 @WangCai_1 (3)
-      - DE_9084 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (8)
-      - DE_9000 @WangCai_1 (5)
-      - DE_9003 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (8)
-      - DE_9008 @WangCai_1 (5)
-      - DE_9079 @WangCai_1 (6)
-      - DE_9057 @WangCai_1
-      - DE_9001 @WangCai_1
-      - DE_9007 @WangCai_1 (7)
-      - DE_9031 @WangCai_1
-      - DE_9020 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (16)
-      - DE_9033 @WangCai_1 (8)
-      - DE_9060 @WangCai_1 (3)
-      - DE_9018 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (6)
-      - DE_9057 @WangCai_1 (2)
-      - DE_9079 @WangCai_1 (3)
-      - DE_9007 @WangCai_1
-      - DE_9098 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (2)
-      - DE_9042 @WangCai_1 (6)
-      - DE_9088 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (6)
-      - DE_9010 @WangCai_1 (6)
-      - DE_9008 @WangCai_1 (16)
-      - DE_9015 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (8)
-      - DE_9015 @WangCai_1 (7)
-      - DE_9005 @WangCai_1
-      - DE_9042 @WangCai_1 (7)
-      - SG_9032 @WangCai_1 (2)
-      - SG_9064 @WangCai_1 (3)
-      - SG_9093 @WangCai_1 (2)
-      - SG_9025 @WangCai_1 (3)
-      - SG_9045 @WangCai_1 (3)
-      - SG_9050 @WangCai_1 (2)
-      - SG_9008 @WangCai_1 (3)
-      - SG_9014 @WangCai_1 (3)
-      - AU_12
-      - SG_9020 @WangCai_1 (3)
-      - SG_9079 @WangCai_1 (3)
-      - SG_9015 @WangCai_1 (3)
-      - SG_9059 @WangCai_1 (2)
-      - SG_9000 @WangCai_1 (3)
-      - SG_9043 @WangCai_1 (3)
-      - SG_9084 @WangCai_1 (3)
-      - SG_9038 @WangCai_1 (2)
-      - SG_9007 @WangCai_1 (3)
-      - SG_9040 @WangCai_1 (3)
-      - SG_9037 @WangCai_1 (3)
-      - SG_9011 @WangCai_1 (3)
-      - SG_9094 @WangCai_1 (2)
-      - SG_9070 @WangCai_1 (2)
-      - SG_9033 @WangCai_1 (2)
-      - SG_9019 @WangCai_1 (2)
-      - :澳大利亚-ss-185.167.116.38:9007-可用-直连-仅支持澳大利亚地区NF自制剧
-      - SG_9003 @WangCai_1 (3)
-      - SG_9018 @WangCai_1 (3)
-      - SG_9042 @WangCai_1 (3)
-      - SG_9060 @WangCai_1 (2)
-      - SG_9088 @WangCai_1 (3)
-      - :中国-ss-14.29.124.168:25266-可用-直连-完全不支持NF
-      - CN_油管 TG 8度科技
-      - :中国-ss-14.29.124.168:25231-可用-直连-完全不支持NF
-      - _441 | 4.57Mb
-      - CN_91
-      - :中国-ss-14.29.124.168:25230-可用-直连-完全不支持NF
-      - SG_9098 @WangCai_1 (3)
-      - SG_9057 @WangCai_1 (3)
+      - EXTM3U-香港-nf-iplc
+      - CN_44
+      - CN_45
+      - 台湾(欢迎订阅Youtube破解资源君)
+      - V1-#202_IPLC-深圳-台湾_NF_x4_0_V2ray_253
+      - V1-#310_IPLC-深圳-香港BGP_NF_x4_0_V2ray_259
+      - EXTM3U-SG-nf-iplc
+      - vpnhat-日本-nf
+      - IR_615 |49.42Mb
+      - _法国_YouTubeVV科技_46
+      - EXTM3U-香港-nf-iplc 2
+      - _US_美国
+      - _US_美国 2
+      - V3-#322_广东-台湾_NF_x2_0_V2ray_268
+      - _US_美国 3
+      - _US_美国 4
+      - _US_美国 5
+      - _US_美国 6
+      - _US_美国 7
+      - _US_美国 8
+      - _US_美国 9
+      - _CA_加拿大
+      - _US_美国 10
+      - _CA_加拿大 2
+      - _US_美国 11
+      - 美国(欢迎订阅Youtube破解资源君)
+      - _US_美国 12
+      - V3-#319_广东-台湾_NF_x2_0_V2ray_265
+      - _US_美国 13
+      - _US_美国 14
+      - _US_美国 15
+      - github.com/freefq+-+北美地区++16
+      - _US_美国 16
+      - _CA_加拿大 3
+      - _CA_加拿大 4
+      - _CA_加拿大 5
+      - EXTM3U-香港-nf-iplc 3
+      - _US_美国 17
+      - _US_美国 18
+      - _US_美国 19
+      - _US_美国 20
+      - _US_美国 21
+      - _US_美国 22
+      - _CA_加拿大 6
+      - _US_美国 23
+      - _CA_加拿大 7
+      - _US_美国 24
+      - _US_美国 25
+      - _US_美国 26
+      - _CA_加拿大 8
+      - NL_363
+      - _CA_加拿大 9
+      - _US_美国 27
+      - _US_美国 28
+      - _US_美国 29
+      - _US_美国 30
+      - _US_美国 31
+      - _US_美国 32
+      - V1-#307_IPLC-深圳-香港HKT_NF_x4_0_V2ray_256
+      - V1-#306_IPLC-深圳-香港HKT_NF_x4_0_V2ray_255
+      - EXTM3U-台湾-nf-iplc
+      - V1-#309_IPLC-深圳-香港BGP_NF_x4_0_V2ray_258
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - vpnpool-香港HKT-nf
+      - CN_油管+TG+8度科技
+      - V3-#320_广东-台湾_NF_x2_0_V2ray_266
+      - vpnpool-香港HKT
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - V2-#238_广东-香港HKT_NF_x1_5_V2ray_277
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
+      - 美国(欢迎订阅Youtube破解资源君) 2
+      - EXTM3U-香港HKT-nf-iplc
+      - vpnpool-香港HKT-nf 2
+      - V3-#23_广东-香港HKBN_NF_x1_5_V2ray_285
+      - 美国(欢迎订阅Youtube破解资源君) 3
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
       - 加拿大(yudou66_com玉豆分享)_18
-      - RU_16509+@WangCai_1
-      - AU_15
-      - AU_10
-      - AU_18
-      - :澳大利亚-ss-185.167.116.38:9005-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_14
-      - AU_03
-      - AU_05
-      - AU_16
-      - AU_35
-      - AU_40
-      - AU_79
-      - :澳大利亚-ss-185.167.116.38:9033-可用-直连-仅支持澳大利亚地区NF自制剧
-      - :澳大利亚-ss-185.167.116.38:9057-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_06
-      - AU_11
-      - DE_9042 @WangCai_1 (4)
-      - 美国-BGP-K
-      - 美国-BGP-N
-      - 俄罗斯-BGP
-      - :澳大利亚-ss-185.167.116.38:9006-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_38
-      - :俄罗斯-ss-5.183.179.145:9010-可用-直连-解锁德国地区NF非自制剧
-      - DE_9064 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9031-可用-直连-解锁德国地区NF非自制剧
-      - :俄罗斯-ss-5.183.179.145:9040-可用-直连-解锁德国地区NF非自制剧
-      - DE_9088 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9070-可用-直连-解锁德国地区NF非自制剧
-      - DE_9026 @WangCai_1 (4)
-      - DE_9027 @WangCai_1 (3)
-      - RU_218
-      - RU_259
-      - RU_261
-      - DE_9037 @WangCai_1 (4)
-      - DE_9025 @WangCai_1 (4)
-      - DE_9053 @WangCai_1 (4)
-      - :俄罗斯-ss-217.30.10.63:9098-可用-直连-仅支持波兰地区NF自制剧
-      - RU_231
-      - RU_256
-      - :中国-ss-101.91.121.247:50004-可用-直连-完全不支持NF
-      - RU_260
-      - SG_9027 @WangCai_1 (5)
-      - RU_222
-      - RU_232
-      - RU_233
-      - SG_9042 @WangCai_1 (5)
-      - KR_46196+@WangCai_1
-      - KR_46199+@WangCai_1
-      - RU_220
-      - KR_21000+@WangCai_1
-      - KR_46194+@WangCai_1
-      - KR_46195+@WangCai_1
-      - KR_46198+@WangCai_1
-      - KR_46193+@WangCai_1
-      - SG_9011 @WangCai_1 (5)
-      - SG_9001 @WangCai_1 (5)
-      - KR_46197+@WangCai_1
+      - 28美国∞直连
+      - LT_269
+      - _581+|10.36Mb
+      - LT_261
+      - 香港节点2(免费)倍率(x0.01)
+      - LT_274
+      - NL_372
+      - LT_270
+      - LT_315
+      - :俄罗斯-ssr-213.183.53.200:9031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - :俄罗斯-ssr-213.183.53.177:9020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - LT_251
+      - LT_290
+      - LT_319
+      - SG_9079+@WangCai_1+(3)
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - az1_1
-      - DE_9008 @WangCai_1 (7)
-      - DE_9084 @WangCai_1 (16)
-      - DE_9053 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (5)
-      - DE_9064 @WangCai_1 (7)
-      - DE_9045 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (15)
-      - DE_9015 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (7)
-      - DE_9098 @WangCai_1 (3)
-      - DE_9056 @WangCai_1
-      - DE_9010 @WangCai_1
-      - DE_9097 @WangCai_1 (1)
-      - DE_9032 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (6)
-      - DE_9011 @WangCai_1
-      - DE_9098 @WangCai_1 (8)
-      - DE_9079 @WangCai_1 (16)
-      - DE_9027 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (16)
-      - DE_9024 @WangCai_1
-      - DE_9098 @WangCai_1
-      - DE_9007 @WangCai_1 (3)
-      - DE_9001 @WangCai_1 (3)
-      - DE_9064 @WangCai_1 (5)
-      - DE_9053 @WangCai_1
-      - DE_9059 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (11)
-      - DE_9018 @WangCai_1 (6)
-      - DE_9007 @WangCai_1 (16)
-      - DE_9041 @WangCai_1 (8)
-      - DE_9033 @WangCai_1
-      - DE_9043 @WangCai_1 (1)
-      - DE_9006 @WangCai_1 (16)
-      - DE_9003 @WangCai_1 (7)
-      - DE_9079 @WangCai_1 (8)
-      - DE_9031 @WangCai_1 (8)
-      - DE_9014 @WangCai_1
-      - DE_9026 @WangCai_1 (2)
-      - DE_9031 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (6)
-      - DE_9050 @WangCai_1 (8)
-      - DE_9003 @WangCai_1 (5)
-      - DE_9057 @WangCai_1 (5)
-      - DE_9000 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (16)
-      - DE_9097 @WangCai_1 (8)
-      - DE_9045 @WangCai_1 (8)
-      - DE_9014 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (16)
-      - DE_9019 @WangCai_1 (8)
-      - DE_9056 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (16)
-      - DE_9043 @WangCai_1
-      - DE_9032 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (16)
-      - DE_9020 @WangCai_1
-      - DE_9000 @WangCai_1 (1)
-      - DE_9064 @WangCai_1 (2)
-      - DE_9070 @WangCai_1 (7)
-      - DE_9032 @WangCai_1 (7)
-      - DE_9088 @WangCai_1
-      - DE_9097 @WangCai_1 (16)
-      - DE_9059 @WangCai_1 (8)
-      - DE_9098 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (5)
-      - DE_9094 @WangCai_1 (15)
-      - DE_9041 @WangCai_1
-      - DE_9097 @WangCai_1
-      - DE_9008 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (6)
-      - DE_9084 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (7)
-      - DE_9007 @WangCai_1 (1)
-      - DE_9060 @WangCai_1 (5)
-      - DE_9045 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (8)
-      - DE_9050 @WangCai_1 (1)
-      - DE_9026 @WangCai_1
-      - DE_9073 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (3)
-      - DE_9097 @WangCai_1 (5)
-      - DE_9046 @WangCai_1 (16)
-      - DE_9040 @WangCai_1
-      - DE_9020 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (5)
-      - DE_9088 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (7)
-      - DE_9031 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (7)
-      - DE_9000 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (1)
-      - DE_9008 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (8)
-      - DE_9084 @WangCai_1
-      - DE_9043 @WangCai_1 (3)
-      - DE_9056 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (1)
-      - DE_9037 @WangCai_1 (2)
-      - DE_9024 @WangCai_1 (7)
-      - DE_9042 @WangCai_1 (16)
-      - DE_9032 @WangCai_1 (8)
-      - DE_9010 @WangCai_1 (3)
-      - DE_9060 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (6)
-      - DE_9045 @WangCai_1 (7)
-      - DE_9060 @WangCai_1
-      - DE_9041 @WangCai_1 (5)
-      - DE_9011 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (3)
-      - DE_9045 @WangCai_1 (16)
-      - DE_9043 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (1)
-      - DE_9008 @WangCai_1
-      - DE_9006 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (1)
-      - DE_9084 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (15)
-      - DE_9056 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (3)
-      - DE_9032 @WangCai_1 (5)
-      - DE_9097 @WangCai_1 (6)
-      - DE_9060 @WangCai_1 (16)
-      - DE_9056 @WangCai_1 (16)
-      - DE_9057 @WangCai_1 (7)
-      - DE_9045 @WangCai_1
-      - DE_9006 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (6)
-      - DE_9040 @WangCai_1 (16)
-      - DE_9094 @WangCai_1 (1)
-      - DE_9020 @WangCai_1 (6)
-      - DE_9037 @WangCai_1 (16)
-      - DE_9005 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (1)
-      - DE_9057 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (3)
-      - DE_9033 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (7)
-      - DE_9038 @WangCai_1 (5)
-      - DE_9008 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (3)
-      - DE_9031 @WangCai_1 (3)
-      - DE_9019 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (7)
-      - DE_9000 @WangCai_1
-      - DE_9064 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (7)
-      - DE_9003 @WangCai_1
-      - DE_9040 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (16)
-      - DE_9040 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (6)
-      - DE_9001 @WangCai_1 (2)
-      - DE_9019 @WangCai_1 (3)
-      - DE_9000 @WangCai_1 (6)
-      - DE_9043 @WangCai_1 (16)
-      - DE_9018 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (2)
-      - DE_9003 @WangCai_1 (16)
-      - DE_9025 @WangCai_1 (7)
-      - DE_9019 @WangCai_1
-      - DE_9019 @WangCai_1 (5)
-      - DE_9031 @WangCai_1 (5)
-      - DE_9079 @WangCai_1
-      - DE_9025 @WangCai_1
-      - DE_9094 @WangCai_1 (8)
-      - DE_9025 @WangCai_1 (2)
-      - DE_9025 @WangCai_1 (6)
-      - DE_9018 @WangCai_1 (7)
-      - DE_9043 @WangCai_1 (8)
-      - DE_9093 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (16)
-      - DE_9079 @WangCai_1 (1)
-      - DE_9018 @WangCai_1 (2)
-      - DE_9043 @WangCai_1 (5)
-      - DE_9025 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (5)
-      - DE_9006 @WangCai_1 (8)
-      - DE_9005 @WangCai_1 (3)
-      - DE_9079 @WangCai_1 (5)
-      - DE_9005 @WangCai_1 (16)
-      - DE_9070 @WangCai_1 (16)
-      - DE_9011 @WangCai_1 (7)
-      - DE_9037 @WangCai_1 (7)
-      - DE_9026 @WangCai_1 (7)
-      - DE_9027 @WangCai_1
-      - DE_9038 @WangCai_1 (1)
-      - DE_9053 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (16)
-      - DE_9000 @WangCai_1 (3)
-      - DE_9084 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (8)
-      - DE_9000 @WangCai_1 (5)
-      - DE_9003 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (8)
-      - DE_9008 @WangCai_1 (5)
-      - DE_9079 @WangCai_1 (6)
-      - DE_9057 @WangCai_1
-      - DE_9001 @WangCai_1
-      - DE_9007 @WangCai_1 (7)
-      - DE_9031 @WangCai_1
-      - DE_9020 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (16)
-      - DE_9033 @WangCai_1 (8)
-      - DE_9060 @WangCai_1 (3)
-      - DE_9018 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (6)
-      - DE_9057 @WangCai_1 (2)
-      - DE_9079 @WangCai_1 (3)
-      - DE_9007 @WangCai_1
-      - DE_9098 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (2)
-      - DE_9042 @WangCai_1 (6)
-      - DE_9088 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (6)
-      - DE_9010 @WangCai_1 (6)
-      - DE_9008 @WangCai_1 (16)
-      - DE_9015 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (8)
-      - DE_9015 @WangCai_1 (7)
-      - DE_9005 @WangCai_1
-      - DE_9042 @WangCai_1 (7)
-      - SG_9032 @WangCai_1 (2)
-      - SG_9064 @WangCai_1 (3)
-      - SG_9093 @WangCai_1 (2)
-      - SG_9025 @WangCai_1 (3)
-      - SG_9045 @WangCai_1 (3)
-      - SG_9050 @WangCai_1 (2)
-      - SG_9008 @WangCai_1 (3)
-      - SG_9014 @WangCai_1 (3)
-      - AU_12
-      - SG_9020 @WangCai_1 (3)
-      - SG_9079 @WangCai_1 (3)
-      - SG_9015 @WangCai_1 (3)
-      - SG_9059 @WangCai_1 (2)
-      - SG_9000 @WangCai_1 (3)
-      - SG_9043 @WangCai_1 (3)
-      - SG_9084 @WangCai_1 (3)
-      - SG_9038 @WangCai_1 (2)
-      - SG_9007 @WangCai_1 (3)
-      - SG_9040 @WangCai_1 (3)
-      - SG_9037 @WangCai_1 (3)
-      - SG_9011 @WangCai_1 (3)
-      - SG_9094 @WangCai_1 (2)
-      - SG_9070 @WangCai_1 (2)
-      - SG_9033 @WangCai_1 (2)
-      - SG_9019 @WangCai_1 (2)
-      - :澳大利亚-ss-185.167.116.38:9007-可用-直连-仅支持澳大利亚地区NF自制剧
-      - SG_9003 @WangCai_1 (3)
-      - SG_9018 @WangCai_1 (3)
-      - SG_9042 @WangCai_1 (3)
-      - SG_9060 @WangCai_1 (2)
-      - SG_9088 @WangCai_1 (3)
-      - :中国-ss-14.29.124.168:25266-可用-直连-完全不支持NF
-      - CN_油管 TG 8度科技
-      - :中国-ss-14.29.124.168:25231-可用-直连-完全不支持NF
-      - _441 | 4.57Mb
-      - CN_91
-      - :中国-ss-14.29.124.168:25230-可用-直连-完全不支持NF
-      - SG_9098 @WangCai_1 (3)
-      - SG_9057 @WangCai_1 (3)
+      - EXTM3U-香港-nf-iplc
+      - CN_44
+      - CN_45
+      - 台湾(欢迎订阅Youtube破解资源君)
+      - V1-#202_IPLC-深圳-台湾_NF_x4_0_V2ray_253
+      - V1-#310_IPLC-深圳-香港BGP_NF_x4_0_V2ray_259
+      - EXTM3U-SG-nf-iplc
+      - vpnhat-日本-nf
+      - IR_615 |49.42Mb
+      - _法国_YouTubeVV科技_46
+      - EXTM3U-香港-nf-iplc 2
+      - _US_美国
+      - _US_美国 2
+      - V3-#322_广东-台湾_NF_x2_0_V2ray_268
+      - _US_美国 3
+      - _US_美国 4
+      - _US_美国 5
+      - _US_美国 6
+      - _US_美国 7
+      - _US_美国 8
+      - _US_美国 9
+      - _CA_加拿大
+      - _US_美国 10
+      - _CA_加拿大 2
+      - _US_美国 11
+      - 美国(欢迎订阅Youtube破解资源君)
+      - _US_美国 12
+      - V3-#319_广东-台湾_NF_x2_0_V2ray_265
+      - _US_美国 13
+      - _US_美国 14
+      - _US_美国 15
+      - github.com/freefq+-+北美地区++16
+      - _US_美国 16
+      - _CA_加拿大 3
+      - _CA_加拿大 4
+      - _CA_加拿大 5
+      - EXTM3U-香港-nf-iplc 3
+      - _US_美国 17
+      - _US_美国 18
+      - _US_美国 19
+      - _US_美国 20
+      - _US_美国 21
+      - _US_美国 22
+      - _CA_加拿大 6
+      - _US_美国 23
+      - _CA_加拿大 7
+      - _US_美国 24
+      - _US_美国 25
+      - _US_美国 26
+      - _CA_加拿大 8
+      - NL_363
+      - _CA_加拿大 9
+      - _US_美国 27
+      - _US_美国 28
+      - _US_美国 29
+      - _US_美国 30
+      - _US_美国 31
+      - _US_美国 32
+      - V1-#307_IPLC-深圳-香港HKT_NF_x4_0_V2ray_256
+      - V1-#306_IPLC-深圳-香港HKT_NF_x4_0_V2ray_255
+      - EXTM3U-台湾-nf-iplc
+      - V1-#309_IPLC-深圳-香港BGP_NF_x4_0_V2ray_258
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - vpnpool-香港HKT-nf
+      - CN_油管+TG+8度科技
+      - V3-#320_广东-台湾_NF_x2_0_V2ray_266
+      - vpnpool-香港HKT
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - V2-#238_广东-香港HKT_NF_x1_5_V2ray_277
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
+      - 美国(欢迎订阅Youtube破解资源君) 2
+      - EXTM3U-香港HKT-nf-iplc
+      - vpnpool-香港HKT-nf 2
+      - V3-#23_广东-香港HKBN_NF_x1_5_V2ray_285
+      - 美国(欢迎订阅Youtube破解资源君) 3
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
       - 加拿大(yudou66_com玉豆分享)_18
-      - RU_16509+@WangCai_1
-      - AU_15
-      - AU_10
-      - AU_18
-      - :澳大利亚-ss-185.167.116.38:9005-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_14
-      - AU_03
-      - AU_05
-      - AU_16
-      - AU_35
-      - AU_40
-      - AU_79
-      - :澳大利亚-ss-185.167.116.38:9033-可用-直连-仅支持澳大利亚地区NF自制剧
-      - :澳大利亚-ss-185.167.116.38:9057-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_06
-      - AU_11
-      - DE_9042 @WangCai_1 (4)
-      - 美国-BGP-K
-      - 美国-BGP-N
-      - 俄罗斯-BGP
-      - :澳大利亚-ss-185.167.116.38:9006-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_38
-      - :俄罗斯-ss-5.183.179.145:9010-可用-直连-解锁德国地区NF非自制剧
-      - DE_9064 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9031-可用-直连-解锁德国地区NF非自制剧
-      - :俄罗斯-ss-5.183.179.145:9040-可用-直连-解锁德国地区NF非自制剧
-      - DE_9088 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9070-可用-直连-解锁德国地区NF非自制剧
-      - DE_9026 @WangCai_1 (4)
-      - DE_9027 @WangCai_1 (3)
-      - RU_218
-      - RU_259
-      - RU_261
-      - DE_9037 @WangCai_1 (4)
-      - DE_9025 @WangCai_1 (4)
-      - DE_9053 @WangCai_1 (4)
-      - :俄罗斯-ss-217.30.10.63:9098-可用-直连-仅支持波兰地区NF自制剧
-      - RU_231
-      - RU_256
-      - :中国-ss-101.91.121.247:50004-可用-直连-完全不支持NF
-      - RU_260
-      - SG_9027 @WangCai_1 (5)
-      - RU_222
-      - RU_232
-      - RU_233
-      - SG_9042 @WangCai_1 (5)
-      - KR_46196+@WangCai_1
-      - KR_46199+@WangCai_1
-      - RU_220
-      - KR_21000+@WangCai_1
-      - KR_46194+@WangCai_1
-      - KR_46195+@WangCai_1
-      - KR_46198+@WangCai_1
-      - KR_46193+@WangCai_1
-      - SG_9011 @WangCai_1 (5)
-      - SG_9001 @WangCai_1 (5)
-      - KR_46197+@WangCai_1
+      - 28美国∞直连
+      - LT_269
+      - _581+|10.36Mb
+      - LT_261
+      - 香港节点2(免费)倍率(x0.01)
+      - LT_274
+      - NL_372
+      - LT_270
+      - LT_315
+      - :俄罗斯-ssr-213.183.53.200:9031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - :俄罗斯-ssr-213.183.53.177:9020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - LT_251
+      - LT_290
+      - LT_319
+      - SG_9079+@WangCai_1+(3)
   - name: 🎥 NETFLIX
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - az1_1
-      - DE_9008 @WangCai_1 (7)
-      - DE_9084 @WangCai_1 (16)
-      - DE_9053 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (5)
-      - DE_9064 @WangCai_1 (7)
-      - DE_9045 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (15)
-      - DE_9015 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (7)
-      - DE_9098 @WangCai_1 (3)
-      - DE_9056 @WangCai_1
-      - DE_9010 @WangCai_1
-      - DE_9097 @WangCai_1 (1)
-      - DE_9032 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (6)
-      - DE_9011 @WangCai_1
-      - DE_9098 @WangCai_1 (8)
-      - DE_9079 @WangCai_1 (16)
-      - DE_9027 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (16)
-      - DE_9024 @WangCai_1
-      - DE_9098 @WangCai_1
-      - DE_9007 @WangCai_1 (3)
-      - DE_9001 @WangCai_1 (3)
-      - DE_9064 @WangCai_1 (5)
-      - DE_9053 @WangCai_1
-      - DE_9059 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (11)
-      - DE_9018 @WangCai_1 (6)
-      - DE_9007 @WangCai_1 (16)
-      - DE_9041 @WangCai_1 (8)
-      - DE_9033 @WangCai_1
-      - DE_9043 @WangCai_1 (1)
-      - DE_9006 @WangCai_1 (16)
-      - DE_9003 @WangCai_1 (7)
-      - DE_9079 @WangCai_1 (8)
-      - DE_9031 @WangCai_1 (8)
-      - DE_9014 @WangCai_1
-      - DE_9026 @WangCai_1 (2)
-      - DE_9031 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (6)
-      - DE_9050 @WangCai_1 (8)
-      - DE_9003 @WangCai_1 (5)
-      - DE_9057 @WangCai_1 (5)
-      - DE_9000 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (16)
-      - DE_9097 @WangCai_1 (8)
-      - DE_9045 @WangCai_1 (8)
-      - DE_9014 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (16)
-      - DE_9019 @WangCai_1 (8)
-      - DE_9056 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (16)
-      - DE_9043 @WangCai_1
-      - DE_9032 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (16)
-      - DE_9020 @WangCai_1
-      - DE_9000 @WangCai_1 (1)
-      - DE_9064 @WangCai_1 (2)
-      - DE_9070 @WangCai_1 (7)
-      - DE_9032 @WangCai_1 (7)
-      - DE_9088 @WangCai_1
-      - DE_9097 @WangCai_1 (16)
-      - DE_9059 @WangCai_1 (8)
-      - DE_9098 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (5)
-      - DE_9094 @WangCai_1 (15)
-      - DE_9041 @WangCai_1
-      - DE_9097 @WangCai_1
-      - DE_9008 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (6)
-      - DE_9084 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (7)
-      - DE_9007 @WangCai_1 (1)
-      - DE_9060 @WangCai_1 (5)
-      - DE_9045 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (8)
-      - DE_9050 @WangCai_1 (1)
-      - DE_9026 @WangCai_1
-      - DE_9073 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (3)
-      - DE_9097 @WangCai_1 (5)
-      - DE_9046 @WangCai_1 (16)
-      - DE_9040 @WangCai_1
-      - DE_9020 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (5)
-      - DE_9088 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (7)
-      - DE_9031 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (7)
-      - DE_9000 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (1)
-      - DE_9008 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (8)
-      - DE_9084 @WangCai_1
-      - DE_9043 @WangCai_1 (3)
-      - DE_9056 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (1)
-      - DE_9037 @WangCai_1 (2)
-      - DE_9024 @WangCai_1 (7)
-      - DE_9042 @WangCai_1 (16)
-      - DE_9032 @WangCai_1 (8)
-      - DE_9010 @WangCai_1 (3)
-      - DE_9060 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (6)
-      - DE_9045 @WangCai_1 (7)
-      - DE_9060 @WangCai_1
-      - DE_9041 @WangCai_1 (5)
-      - DE_9011 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (3)
-      - DE_9045 @WangCai_1 (16)
-      - DE_9043 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (1)
-      - DE_9008 @WangCai_1
-      - DE_9006 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (1)
-      - DE_9084 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (15)
-      - DE_9056 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (3)
-      - DE_9032 @WangCai_1 (5)
-      - DE_9097 @WangCai_1 (6)
-      - DE_9060 @WangCai_1 (16)
-      - DE_9056 @WangCai_1 (16)
-      - DE_9057 @WangCai_1 (7)
-      - DE_9045 @WangCai_1
-      - DE_9006 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (6)
-      - DE_9040 @WangCai_1 (16)
-      - DE_9094 @WangCai_1 (1)
-      - DE_9020 @WangCai_1 (6)
-      - DE_9037 @WangCai_1 (16)
-      - DE_9005 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (1)
-      - DE_9057 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (3)
-      - DE_9033 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (7)
-      - DE_9038 @WangCai_1 (5)
-      - DE_9008 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (3)
-      - DE_9031 @WangCai_1 (3)
-      - DE_9019 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (7)
-      - DE_9000 @WangCai_1
-      - DE_9064 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (7)
-      - DE_9003 @WangCai_1
-      - DE_9040 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (16)
-      - DE_9040 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (6)
-      - DE_9001 @WangCai_1 (2)
-      - DE_9019 @WangCai_1 (3)
-      - DE_9000 @WangCai_1 (6)
-      - DE_9043 @WangCai_1 (16)
-      - DE_9018 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (2)
-      - DE_9003 @WangCai_1 (16)
-      - DE_9025 @WangCai_1 (7)
-      - DE_9019 @WangCai_1
-      - DE_9019 @WangCai_1 (5)
-      - DE_9031 @WangCai_1 (5)
-      - DE_9079 @WangCai_1
-      - DE_9025 @WangCai_1
-      - DE_9094 @WangCai_1 (8)
-      - DE_9025 @WangCai_1 (2)
-      - DE_9025 @WangCai_1 (6)
-      - DE_9018 @WangCai_1 (7)
-      - DE_9043 @WangCai_1 (8)
-      - DE_9093 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (16)
-      - DE_9079 @WangCai_1 (1)
-      - DE_9018 @WangCai_1 (2)
-      - DE_9043 @WangCai_1 (5)
-      - DE_9025 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (5)
-      - DE_9006 @WangCai_1 (8)
-      - DE_9005 @WangCai_1 (3)
-      - DE_9079 @WangCai_1 (5)
-      - DE_9005 @WangCai_1 (16)
-      - DE_9070 @WangCai_1 (16)
-      - DE_9011 @WangCai_1 (7)
-      - DE_9037 @WangCai_1 (7)
-      - DE_9026 @WangCai_1 (7)
-      - DE_9027 @WangCai_1
-      - DE_9038 @WangCai_1 (1)
-      - DE_9053 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (16)
-      - DE_9000 @WangCai_1 (3)
-      - DE_9084 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (8)
-      - DE_9000 @WangCai_1 (5)
-      - DE_9003 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (8)
-      - DE_9008 @WangCai_1 (5)
-      - DE_9079 @WangCai_1 (6)
-      - DE_9057 @WangCai_1
-      - DE_9001 @WangCai_1
-      - DE_9007 @WangCai_1 (7)
-      - DE_9031 @WangCai_1
-      - DE_9020 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (16)
-      - DE_9033 @WangCai_1 (8)
-      - DE_9060 @WangCai_1 (3)
-      - DE_9018 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (6)
-      - DE_9057 @WangCai_1 (2)
-      - DE_9079 @WangCai_1 (3)
-      - DE_9007 @WangCai_1
-      - DE_9098 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (2)
-      - DE_9042 @WangCai_1 (6)
-      - DE_9088 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (6)
-      - DE_9010 @WangCai_1 (6)
-      - DE_9008 @WangCai_1 (16)
-      - DE_9015 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (8)
-      - DE_9015 @WangCai_1 (7)
-      - DE_9005 @WangCai_1
-      - DE_9042 @WangCai_1 (7)
-      - SG_9032 @WangCai_1 (2)
-      - SG_9064 @WangCai_1 (3)
-      - SG_9093 @WangCai_1 (2)
-      - SG_9025 @WangCai_1 (3)
-      - SG_9045 @WangCai_1 (3)
-      - SG_9050 @WangCai_1 (2)
-      - SG_9008 @WangCai_1 (3)
-      - SG_9014 @WangCai_1 (3)
-      - AU_12
-      - SG_9020 @WangCai_1 (3)
-      - SG_9079 @WangCai_1 (3)
-      - SG_9015 @WangCai_1 (3)
-      - SG_9059 @WangCai_1 (2)
-      - SG_9000 @WangCai_1 (3)
-      - SG_9043 @WangCai_1 (3)
-      - SG_9084 @WangCai_1 (3)
-      - SG_9038 @WangCai_1 (2)
-      - SG_9007 @WangCai_1 (3)
-      - SG_9040 @WangCai_1 (3)
-      - SG_9037 @WangCai_1 (3)
-      - SG_9011 @WangCai_1 (3)
-      - SG_9094 @WangCai_1 (2)
-      - SG_9070 @WangCai_1 (2)
-      - SG_9033 @WangCai_1 (2)
-      - SG_9019 @WangCai_1 (2)
-      - :澳大利亚-ss-185.167.116.38:9007-可用-直连-仅支持澳大利亚地区NF自制剧
-      - SG_9003 @WangCai_1 (3)
-      - SG_9018 @WangCai_1 (3)
-      - SG_9042 @WangCai_1 (3)
-      - SG_9060 @WangCai_1 (2)
-      - SG_9088 @WangCai_1 (3)
-      - :中国-ss-14.29.124.168:25266-可用-直连-完全不支持NF
-      - CN_油管 TG 8度科技
-      - :中国-ss-14.29.124.168:25231-可用-直连-完全不支持NF
-      - _441 | 4.57Mb
-      - CN_91
-      - :中国-ss-14.29.124.168:25230-可用-直连-完全不支持NF
-      - SG_9098 @WangCai_1 (3)
-      - SG_9057 @WangCai_1 (3)
+      - EXTM3U-香港-nf-iplc
+      - CN_44
+      - CN_45
+      - 台湾(欢迎订阅Youtube破解资源君)
+      - V1-#202_IPLC-深圳-台湾_NF_x4_0_V2ray_253
+      - V1-#310_IPLC-深圳-香港BGP_NF_x4_0_V2ray_259
+      - EXTM3U-SG-nf-iplc
+      - vpnhat-日本-nf
+      - IR_615 |49.42Mb
+      - _法国_YouTubeVV科技_46
+      - EXTM3U-香港-nf-iplc 2
+      - _US_美国
+      - _US_美国 2
+      - V3-#322_广东-台湾_NF_x2_0_V2ray_268
+      - _US_美国 3
+      - _US_美国 4
+      - _US_美国 5
+      - _US_美国 6
+      - _US_美国 7
+      - _US_美国 8
+      - _US_美国 9
+      - _CA_加拿大
+      - _US_美国 10
+      - _CA_加拿大 2
+      - _US_美国 11
+      - 美国(欢迎订阅Youtube破解资源君)
+      - _US_美国 12
+      - V3-#319_广东-台湾_NF_x2_0_V2ray_265
+      - _US_美国 13
+      - _US_美国 14
+      - _US_美国 15
+      - github.com/freefq+-+北美地区++16
+      - _US_美国 16
+      - _CA_加拿大 3
+      - _CA_加拿大 4
+      - _CA_加拿大 5
+      - EXTM3U-香港-nf-iplc 3
+      - _US_美国 17
+      - _US_美国 18
+      - _US_美国 19
+      - _US_美国 20
+      - _US_美国 21
+      - _US_美国 22
+      - _CA_加拿大 6
+      - _US_美国 23
+      - _CA_加拿大 7
+      - _US_美国 24
+      - _US_美国 25
+      - _US_美国 26
+      - _CA_加拿大 8
+      - NL_363
+      - _CA_加拿大 9
+      - _US_美国 27
+      - _US_美国 28
+      - _US_美国 29
+      - _US_美国 30
+      - _US_美国 31
+      - _US_美国 32
+      - V1-#307_IPLC-深圳-香港HKT_NF_x4_0_V2ray_256
+      - V1-#306_IPLC-深圳-香港HKT_NF_x4_0_V2ray_255
+      - EXTM3U-台湾-nf-iplc
+      - V1-#309_IPLC-深圳-香港BGP_NF_x4_0_V2ray_258
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - vpnpool-香港HKT-nf
+      - CN_油管+TG+8度科技
+      - V3-#320_广东-台湾_NF_x2_0_V2ray_266
+      - vpnpool-香港HKT
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - V2-#238_广东-香港HKT_NF_x1_5_V2ray_277
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
+      - 美国(欢迎订阅Youtube破解资源君) 2
+      - EXTM3U-香港HKT-nf-iplc
+      - vpnpool-香港HKT-nf 2
+      - V3-#23_广东-香港HKBN_NF_x1_5_V2ray_285
+      - 美国(欢迎订阅Youtube破解资源君) 3
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
       - 加拿大(yudou66_com玉豆分享)_18
-      - RU_16509+@WangCai_1
-      - AU_15
-      - AU_10
-      - AU_18
-      - :澳大利亚-ss-185.167.116.38:9005-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_14
-      - AU_03
-      - AU_05
-      - AU_16
-      - AU_35
-      - AU_40
-      - AU_79
-      - :澳大利亚-ss-185.167.116.38:9033-可用-直连-仅支持澳大利亚地区NF自制剧
-      - :澳大利亚-ss-185.167.116.38:9057-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_06
-      - AU_11
-      - DE_9042 @WangCai_1 (4)
-      - 美国-BGP-K
-      - 美国-BGP-N
-      - 俄罗斯-BGP
-      - :澳大利亚-ss-185.167.116.38:9006-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_38
-      - :俄罗斯-ss-5.183.179.145:9010-可用-直连-解锁德国地区NF非自制剧
-      - DE_9064 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9031-可用-直连-解锁德国地区NF非自制剧
-      - :俄罗斯-ss-5.183.179.145:9040-可用-直连-解锁德国地区NF非自制剧
-      - DE_9088 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9070-可用-直连-解锁德国地区NF非自制剧
-      - DE_9026 @WangCai_1 (4)
-      - DE_9027 @WangCai_1 (3)
-      - RU_218
-      - RU_259
-      - RU_261
-      - DE_9037 @WangCai_1 (4)
-      - DE_9025 @WangCai_1 (4)
-      - DE_9053 @WangCai_1 (4)
-      - :俄罗斯-ss-217.30.10.63:9098-可用-直连-仅支持波兰地区NF自制剧
-      - RU_231
-      - RU_256
-      - :中国-ss-101.91.121.247:50004-可用-直连-完全不支持NF
-      - RU_260
-      - SG_9027 @WangCai_1 (5)
-      - RU_222
-      - RU_232
-      - RU_233
-      - SG_9042 @WangCai_1 (5)
-      - KR_46196+@WangCai_1
-      - KR_46199+@WangCai_1
-      - RU_220
-      - KR_21000+@WangCai_1
-      - KR_46194+@WangCai_1
-      - KR_46195+@WangCai_1
-      - KR_46198+@WangCai_1
-      - KR_46193+@WangCai_1
-      - SG_9011 @WangCai_1 (5)
-      - SG_9001 @WangCai_1 (5)
-      - KR_46197+@WangCai_1
+      - 28美国∞直连
+      - LT_269
+      - _581+|10.36Mb
+      - LT_261
+      - 香港节点2(免费)倍率(x0.01)
+      - LT_274
+      - NL_372
+      - LT_270
+      - LT_315
+      - :俄罗斯-ssr-213.183.53.200:9031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - :俄罗斯-ssr-213.183.53.177:9020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - LT_251
+      - LT_290
+      - LT_319
+      - SG_9079+@WangCai_1+(3)
   - name: ⛔️ 广告拦截
     type: select
     proxies:
@@ -1404,1391 +408,415 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - az1_1
-      - DE_9008 @WangCai_1 (7)
-      - DE_9084 @WangCai_1 (16)
-      - DE_9053 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (5)
-      - DE_9064 @WangCai_1 (7)
-      - DE_9045 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (15)
-      - DE_9015 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (7)
-      - DE_9098 @WangCai_1 (3)
-      - DE_9056 @WangCai_1
-      - DE_9010 @WangCai_1
-      - DE_9097 @WangCai_1 (1)
-      - DE_9032 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (6)
-      - DE_9011 @WangCai_1
-      - DE_9098 @WangCai_1 (8)
-      - DE_9079 @WangCai_1 (16)
-      - DE_9027 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (16)
-      - DE_9024 @WangCai_1
-      - DE_9098 @WangCai_1
-      - DE_9007 @WangCai_1 (3)
-      - DE_9001 @WangCai_1 (3)
-      - DE_9064 @WangCai_1 (5)
-      - DE_9053 @WangCai_1
-      - DE_9059 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (11)
-      - DE_9018 @WangCai_1 (6)
-      - DE_9007 @WangCai_1 (16)
-      - DE_9041 @WangCai_1 (8)
-      - DE_9033 @WangCai_1
-      - DE_9043 @WangCai_1 (1)
-      - DE_9006 @WangCai_1 (16)
-      - DE_9003 @WangCai_1 (7)
-      - DE_9079 @WangCai_1 (8)
-      - DE_9031 @WangCai_1 (8)
-      - DE_9014 @WangCai_1
-      - DE_9026 @WangCai_1 (2)
-      - DE_9031 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (6)
-      - DE_9050 @WangCai_1 (8)
-      - DE_9003 @WangCai_1 (5)
-      - DE_9057 @WangCai_1 (5)
-      - DE_9000 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (16)
-      - DE_9097 @WangCai_1 (8)
-      - DE_9045 @WangCai_1 (8)
-      - DE_9014 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (16)
-      - DE_9019 @WangCai_1 (8)
-      - DE_9056 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (16)
-      - DE_9043 @WangCai_1
-      - DE_9032 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (16)
-      - DE_9020 @WangCai_1
-      - DE_9000 @WangCai_1 (1)
-      - DE_9064 @WangCai_1 (2)
-      - DE_9070 @WangCai_1 (7)
-      - DE_9032 @WangCai_1 (7)
-      - DE_9088 @WangCai_1
-      - DE_9097 @WangCai_1 (16)
-      - DE_9059 @WangCai_1 (8)
-      - DE_9098 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (5)
-      - DE_9094 @WangCai_1 (15)
-      - DE_9041 @WangCai_1
-      - DE_9097 @WangCai_1
-      - DE_9008 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (6)
-      - DE_9084 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (7)
-      - DE_9007 @WangCai_1 (1)
-      - DE_9060 @WangCai_1 (5)
-      - DE_9045 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (8)
-      - DE_9050 @WangCai_1 (1)
-      - DE_9026 @WangCai_1
-      - DE_9073 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (3)
-      - DE_9097 @WangCai_1 (5)
-      - DE_9046 @WangCai_1 (16)
-      - DE_9040 @WangCai_1
-      - DE_9020 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (5)
-      - DE_9088 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (7)
-      - DE_9031 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (7)
-      - DE_9000 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (1)
-      - DE_9008 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (8)
-      - DE_9084 @WangCai_1
-      - DE_9043 @WangCai_1 (3)
-      - DE_9056 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (1)
-      - DE_9037 @WangCai_1 (2)
-      - DE_9024 @WangCai_1 (7)
-      - DE_9042 @WangCai_1 (16)
-      - DE_9032 @WangCai_1 (8)
-      - DE_9010 @WangCai_1 (3)
-      - DE_9060 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (6)
-      - DE_9045 @WangCai_1 (7)
-      - DE_9060 @WangCai_1
-      - DE_9041 @WangCai_1 (5)
-      - DE_9011 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (3)
-      - DE_9045 @WangCai_1 (16)
-      - DE_9043 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (1)
-      - DE_9008 @WangCai_1
-      - DE_9006 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (1)
-      - DE_9084 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (15)
-      - DE_9056 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (3)
-      - DE_9032 @WangCai_1 (5)
-      - DE_9097 @WangCai_1 (6)
-      - DE_9060 @WangCai_1 (16)
-      - DE_9056 @WangCai_1 (16)
-      - DE_9057 @WangCai_1 (7)
-      - DE_9045 @WangCai_1
-      - DE_9006 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (6)
-      - DE_9040 @WangCai_1 (16)
-      - DE_9094 @WangCai_1 (1)
-      - DE_9020 @WangCai_1 (6)
-      - DE_9037 @WangCai_1 (16)
-      - DE_9005 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (1)
-      - DE_9057 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (3)
-      - DE_9033 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (7)
-      - DE_9038 @WangCai_1 (5)
-      - DE_9008 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (3)
-      - DE_9031 @WangCai_1 (3)
-      - DE_9019 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (7)
-      - DE_9000 @WangCai_1
-      - DE_9064 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (7)
-      - DE_9003 @WangCai_1
-      - DE_9040 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (16)
-      - DE_9040 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (6)
-      - DE_9001 @WangCai_1 (2)
-      - DE_9019 @WangCai_1 (3)
-      - DE_9000 @WangCai_1 (6)
-      - DE_9043 @WangCai_1 (16)
-      - DE_9018 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (2)
-      - DE_9003 @WangCai_1 (16)
-      - DE_9025 @WangCai_1 (7)
-      - DE_9019 @WangCai_1
-      - DE_9019 @WangCai_1 (5)
-      - DE_9031 @WangCai_1 (5)
-      - DE_9079 @WangCai_1
-      - DE_9025 @WangCai_1
-      - DE_9094 @WangCai_1 (8)
-      - DE_9025 @WangCai_1 (2)
-      - DE_9025 @WangCai_1 (6)
-      - DE_9018 @WangCai_1 (7)
-      - DE_9043 @WangCai_1 (8)
-      - DE_9093 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (16)
-      - DE_9079 @WangCai_1 (1)
-      - DE_9018 @WangCai_1 (2)
-      - DE_9043 @WangCai_1 (5)
-      - DE_9025 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (5)
-      - DE_9006 @WangCai_1 (8)
-      - DE_9005 @WangCai_1 (3)
-      - DE_9079 @WangCai_1 (5)
-      - DE_9005 @WangCai_1 (16)
-      - DE_9070 @WangCai_1 (16)
-      - DE_9011 @WangCai_1 (7)
-      - DE_9037 @WangCai_1 (7)
-      - DE_9026 @WangCai_1 (7)
-      - DE_9027 @WangCai_1
-      - DE_9038 @WangCai_1 (1)
-      - DE_9053 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (16)
-      - DE_9000 @WangCai_1 (3)
-      - DE_9084 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (8)
-      - DE_9000 @WangCai_1 (5)
-      - DE_9003 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (8)
-      - DE_9008 @WangCai_1 (5)
-      - DE_9079 @WangCai_1 (6)
-      - DE_9057 @WangCai_1
-      - DE_9001 @WangCai_1
-      - DE_9007 @WangCai_1 (7)
-      - DE_9031 @WangCai_1
-      - DE_9020 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (16)
-      - DE_9033 @WangCai_1 (8)
-      - DE_9060 @WangCai_1 (3)
-      - DE_9018 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (6)
-      - DE_9057 @WangCai_1 (2)
-      - DE_9079 @WangCai_1 (3)
-      - DE_9007 @WangCai_1
-      - DE_9098 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (2)
-      - DE_9042 @WangCai_1 (6)
-      - DE_9088 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (6)
-      - DE_9010 @WangCai_1 (6)
-      - DE_9008 @WangCai_1 (16)
-      - DE_9015 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (8)
-      - DE_9015 @WangCai_1 (7)
-      - DE_9005 @WangCai_1
-      - DE_9042 @WangCai_1 (7)
-      - SG_9032 @WangCai_1 (2)
-      - SG_9064 @WangCai_1 (3)
-      - SG_9093 @WangCai_1 (2)
-      - SG_9025 @WangCai_1 (3)
-      - SG_9045 @WangCai_1 (3)
-      - SG_9050 @WangCai_1 (2)
-      - SG_9008 @WangCai_1 (3)
-      - SG_9014 @WangCai_1 (3)
-      - AU_12
-      - SG_9020 @WangCai_1 (3)
-      - SG_9079 @WangCai_1 (3)
-      - SG_9015 @WangCai_1 (3)
-      - SG_9059 @WangCai_1 (2)
-      - SG_9000 @WangCai_1 (3)
-      - SG_9043 @WangCai_1 (3)
-      - SG_9084 @WangCai_1 (3)
-      - SG_9038 @WangCai_1 (2)
-      - SG_9007 @WangCai_1 (3)
-      - SG_9040 @WangCai_1 (3)
-      - SG_9037 @WangCai_1 (3)
-      - SG_9011 @WangCai_1 (3)
-      - SG_9094 @WangCai_1 (2)
-      - SG_9070 @WangCai_1 (2)
-      - SG_9033 @WangCai_1 (2)
-      - SG_9019 @WangCai_1 (2)
-      - :澳大利亚-ss-185.167.116.38:9007-可用-直连-仅支持澳大利亚地区NF自制剧
-      - SG_9003 @WangCai_1 (3)
-      - SG_9018 @WangCai_1 (3)
-      - SG_9042 @WangCai_1 (3)
-      - SG_9060 @WangCai_1 (2)
-      - SG_9088 @WangCai_1 (3)
-      - :中国-ss-14.29.124.168:25266-可用-直连-完全不支持NF
-      - CN_油管 TG 8度科技
-      - :中国-ss-14.29.124.168:25231-可用-直连-完全不支持NF
-      - _441 | 4.57Mb
-      - CN_91
-      - :中国-ss-14.29.124.168:25230-可用-直连-完全不支持NF
-      - SG_9098 @WangCai_1 (3)
-      - SG_9057 @WangCai_1 (3)
+      - EXTM3U-香港-nf-iplc
+      - CN_44
+      - CN_45
+      - 台湾(欢迎订阅Youtube破解资源君)
+      - V1-#202_IPLC-深圳-台湾_NF_x4_0_V2ray_253
+      - V1-#310_IPLC-深圳-香港BGP_NF_x4_0_V2ray_259
+      - EXTM3U-SG-nf-iplc
+      - vpnhat-日本-nf
+      - IR_615 |49.42Mb
+      - _法国_YouTubeVV科技_46
+      - EXTM3U-香港-nf-iplc 2
+      - _US_美国
+      - _US_美国 2
+      - V3-#322_广东-台湾_NF_x2_0_V2ray_268
+      - _US_美国 3
+      - _US_美国 4
+      - _US_美国 5
+      - _US_美国 6
+      - _US_美国 7
+      - _US_美国 8
+      - _US_美国 9
+      - _CA_加拿大
+      - _US_美国 10
+      - _CA_加拿大 2
+      - _US_美国 11
+      - 美国(欢迎订阅Youtube破解资源君)
+      - _US_美国 12
+      - V3-#319_广东-台湾_NF_x2_0_V2ray_265
+      - _US_美国 13
+      - _US_美国 14
+      - _US_美国 15
+      - github.com/freefq+-+北美地区++16
+      - _US_美国 16
+      - _CA_加拿大 3
+      - _CA_加拿大 4
+      - _CA_加拿大 5
+      - EXTM3U-香港-nf-iplc 3
+      - _US_美国 17
+      - _US_美国 18
+      - _US_美国 19
+      - _US_美国 20
+      - _US_美国 21
+      - _US_美国 22
+      - _CA_加拿大 6
+      - _US_美国 23
+      - _CA_加拿大 7
+      - _US_美国 24
+      - _US_美国 25
+      - _US_美国 26
+      - _CA_加拿大 8
+      - NL_363
+      - _CA_加拿大 9
+      - _US_美国 27
+      - _US_美国 28
+      - _US_美国 29
+      - _US_美国 30
+      - _US_美国 31
+      - _US_美国 32
+      - V1-#307_IPLC-深圳-香港HKT_NF_x4_0_V2ray_256
+      - V1-#306_IPLC-深圳-香港HKT_NF_x4_0_V2ray_255
+      - EXTM3U-台湾-nf-iplc
+      - V1-#309_IPLC-深圳-香港BGP_NF_x4_0_V2ray_258
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - vpnpool-香港HKT-nf
+      - CN_油管+TG+8度科技
+      - V3-#320_广东-台湾_NF_x2_0_V2ray_266
+      - vpnpool-香港HKT
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - V2-#238_广东-香港HKT_NF_x1_5_V2ray_277
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
+      - 美国(欢迎订阅Youtube破解资源君) 2
+      - EXTM3U-香港HKT-nf-iplc
+      - vpnpool-香港HKT-nf 2
+      - V3-#23_广东-香港HKBN_NF_x1_5_V2ray_285
+      - 美国(欢迎订阅Youtube破解资源君) 3
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
       - 加拿大(yudou66_com玉豆分享)_18
-      - RU_16509+@WangCai_1
-      - AU_15
-      - AU_10
-      - AU_18
-      - :澳大利亚-ss-185.167.116.38:9005-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_14
-      - AU_03
-      - AU_05
-      - AU_16
-      - AU_35
-      - AU_40
-      - AU_79
-      - :澳大利亚-ss-185.167.116.38:9033-可用-直连-仅支持澳大利亚地区NF自制剧
-      - :澳大利亚-ss-185.167.116.38:9057-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_06
-      - AU_11
-      - DE_9042 @WangCai_1 (4)
-      - 美国-BGP-K
-      - 美国-BGP-N
-      - 俄罗斯-BGP
-      - :澳大利亚-ss-185.167.116.38:9006-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_38
-      - :俄罗斯-ss-5.183.179.145:9010-可用-直连-解锁德国地区NF非自制剧
-      - DE_9064 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9031-可用-直连-解锁德国地区NF非自制剧
-      - :俄罗斯-ss-5.183.179.145:9040-可用-直连-解锁德国地区NF非自制剧
-      - DE_9088 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9070-可用-直连-解锁德国地区NF非自制剧
-      - DE_9026 @WangCai_1 (4)
-      - DE_9027 @WangCai_1 (3)
-      - RU_218
-      - RU_259
-      - RU_261
-      - DE_9037 @WangCai_1 (4)
-      - DE_9025 @WangCai_1 (4)
-      - DE_9053 @WangCai_1 (4)
-      - :俄罗斯-ss-217.30.10.63:9098-可用-直连-仅支持波兰地区NF自制剧
-      - RU_231
-      - RU_256
-      - :中国-ss-101.91.121.247:50004-可用-直连-完全不支持NF
-      - RU_260
-      - SG_9027 @WangCai_1 (5)
-      - RU_222
-      - RU_232
-      - RU_233
-      - SG_9042 @WangCai_1 (5)
-      - KR_46196+@WangCai_1
-      - KR_46199+@WangCai_1
-      - RU_220
-      - KR_21000+@WangCai_1
-      - KR_46194+@WangCai_1
-      - KR_46195+@WangCai_1
-      - KR_46198+@WangCai_1
-      - KR_46193+@WangCai_1
-      - SG_9011 @WangCai_1 (5)
-      - SG_9001 @WangCai_1 (5)
-      - KR_46197+@WangCai_1
+      - 28美国∞直连
+      - LT_269
+      - _581+|10.36Mb
+      - LT_261
+      - 香港节点2(免费)倍率(x0.01)
+      - LT_274
+      - NL_372
+      - LT_270
+      - LT_315
+      - :俄罗斯-ssr-213.183.53.200:9031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - :俄罗斯-ssr-213.183.53.177:9020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - LT_251
+      - LT_290
+      - LT_319
+      - SG_9079+@WangCai_1+(3)
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
+      - EXTM3U-香港-nf-iplc
+      - 台湾(欢迎订阅Youtube破解资源君)
+      - V1-#202_IPLC-深圳-台湾_NF_x4_0_V2ray_253
+      - V1-#310_IPLC-深圳-香港BGP_NF_x4_0_V2ray_259
+      - EXTM3U-香港-nf-iplc 2
+      - V3-#322_广东-台湾_NF_x2_0_V2ray_268
+      - V3-#319_广东-台湾_NF_x2_0_V2ray_265
+      - EXTM3U-香港-nf-iplc 3
+      - V1-#307_IPLC-深圳-香港HKT_NF_x4_0_V2ray_256
+      - V1-#306_IPLC-深圳-香港HKT_NF_x4_0_V2ray_255
+      - EXTM3U-台湾-nf-iplc
+      - V1-#309_IPLC-深圳-香港BGP_NF_x4_0_V2ray_258
+      - vpnpool-香港HKT-nf
+      - V3-#320_广东-台湾_NF_x2_0_V2ray_266
+      - vpnpool-香港HKT
+      - V2-#238_广东-香港HKT_NF_x1_5_V2ray_277
+      - EXTM3U-香港HKT-nf-iplc
+      - vpnpool-香港HKT-nf 2
+      - V3-#23_广东-香港HKBN_NF_x1_5_V2ray_285
+      - 香港节点2(免费)倍率(x0.01)
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - az1_1
-      - DE_9008 @WangCai_1 (7)
-      - DE_9084 @WangCai_1 (16)
-      - DE_9053 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (5)
-      - DE_9064 @WangCai_1 (7)
-      - DE_9045 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (15)
-      - DE_9015 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (7)
-      - DE_9098 @WangCai_1 (3)
-      - DE_9056 @WangCai_1
-      - DE_9010 @WangCai_1
-      - DE_9097 @WangCai_1 (1)
-      - DE_9032 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (6)
-      - DE_9011 @WangCai_1
-      - DE_9098 @WangCai_1 (8)
-      - DE_9079 @WangCai_1 (16)
-      - DE_9027 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (16)
-      - DE_9024 @WangCai_1
-      - DE_9098 @WangCai_1
-      - DE_9007 @WangCai_1 (3)
-      - DE_9001 @WangCai_1 (3)
-      - DE_9064 @WangCai_1 (5)
-      - DE_9053 @WangCai_1
-      - DE_9059 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (11)
-      - DE_9018 @WangCai_1 (6)
-      - DE_9007 @WangCai_1 (16)
-      - DE_9041 @WangCai_1 (8)
-      - DE_9033 @WangCai_1
-      - DE_9043 @WangCai_1 (1)
-      - DE_9006 @WangCai_1 (16)
-      - DE_9003 @WangCai_1 (7)
-      - DE_9079 @WangCai_1 (8)
-      - DE_9031 @WangCai_1 (8)
-      - DE_9014 @WangCai_1
-      - DE_9026 @WangCai_1 (2)
-      - DE_9031 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (6)
-      - DE_9050 @WangCai_1 (8)
-      - DE_9003 @WangCai_1 (5)
-      - DE_9057 @WangCai_1 (5)
-      - DE_9000 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (16)
-      - DE_9097 @WangCai_1 (8)
-      - DE_9045 @WangCai_1 (8)
-      - DE_9014 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (16)
-      - DE_9019 @WangCai_1 (8)
-      - DE_9056 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (16)
-      - DE_9043 @WangCai_1
-      - DE_9032 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (16)
-      - DE_9020 @WangCai_1
-      - DE_9000 @WangCai_1 (1)
-      - DE_9064 @WangCai_1 (2)
-      - DE_9070 @WangCai_1 (7)
-      - DE_9032 @WangCai_1 (7)
-      - DE_9088 @WangCai_1
-      - DE_9097 @WangCai_1 (16)
-      - DE_9059 @WangCai_1 (8)
-      - DE_9098 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (5)
-      - DE_9094 @WangCai_1 (15)
-      - DE_9041 @WangCai_1
-      - DE_9097 @WangCai_1
-      - DE_9008 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (6)
-      - DE_9084 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (7)
-      - DE_9007 @WangCai_1 (1)
-      - DE_9060 @WangCai_1 (5)
-      - DE_9045 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (8)
-      - DE_9050 @WangCai_1 (1)
-      - DE_9026 @WangCai_1
-      - DE_9073 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (3)
-      - DE_9097 @WangCai_1 (5)
-      - DE_9046 @WangCai_1 (16)
-      - DE_9040 @WangCai_1
-      - DE_9020 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (5)
-      - DE_9088 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (7)
-      - DE_9031 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (7)
-      - DE_9000 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (1)
-      - DE_9008 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (8)
-      - DE_9084 @WangCai_1
-      - DE_9043 @WangCai_1 (3)
-      - DE_9056 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (1)
-      - DE_9037 @WangCai_1 (2)
-      - DE_9024 @WangCai_1 (7)
-      - DE_9042 @WangCai_1 (16)
-      - DE_9032 @WangCai_1 (8)
-      - DE_9010 @WangCai_1 (3)
-      - DE_9060 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (6)
-      - DE_9045 @WangCai_1 (7)
-      - DE_9060 @WangCai_1
-      - DE_9041 @WangCai_1 (5)
-      - DE_9011 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (3)
-      - DE_9045 @WangCai_1 (16)
-      - DE_9043 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (1)
-      - DE_9008 @WangCai_1
-      - DE_9006 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (1)
-      - DE_9084 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (15)
-      - DE_9056 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (3)
-      - DE_9032 @WangCai_1 (5)
-      - DE_9097 @WangCai_1 (6)
-      - DE_9060 @WangCai_1 (16)
-      - DE_9056 @WangCai_1 (16)
-      - DE_9057 @WangCai_1 (7)
-      - DE_9045 @WangCai_1
-      - DE_9006 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (6)
-      - DE_9040 @WangCai_1 (16)
-      - DE_9094 @WangCai_1 (1)
-      - DE_9020 @WangCai_1 (6)
-      - DE_9037 @WangCai_1 (16)
-      - DE_9005 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (1)
-      - DE_9057 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (3)
-      - DE_9033 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (7)
-      - DE_9038 @WangCai_1 (5)
-      - DE_9008 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (3)
-      - DE_9031 @WangCai_1 (3)
-      - DE_9019 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (7)
-      - DE_9000 @WangCai_1
-      - DE_9064 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (7)
-      - DE_9003 @WangCai_1
-      - DE_9040 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (16)
-      - DE_9040 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (6)
-      - DE_9001 @WangCai_1 (2)
-      - DE_9019 @WangCai_1 (3)
-      - DE_9000 @WangCai_1 (6)
-      - DE_9043 @WangCai_1 (16)
-      - DE_9018 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (2)
-      - DE_9003 @WangCai_1 (16)
-      - DE_9025 @WangCai_1 (7)
-      - DE_9019 @WangCai_1
-      - DE_9019 @WangCai_1 (5)
-      - DE_9031 @WangCai_1 (5)
-      - DE_9079 @WangCai_1
-      - DE_9025 @WangCai_1
-      - DE_9094 @WangCai_1 (8)
-      - DE_9025 @WangCai_1 (2)
-      - DE_9025 @WangCai_1 (6)
-      - DE_9018 @WangCai_1 (7)
-      - DE_9043 @WangCai_1 (8)
-      - DE_9093 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (16)
-      - DE_9079 @WangCai_1 (1)
-      - DE_9018 @WangCai_1 (2)
-      - DE_9043 @WangCai_1 (5)
-      - DE_9025 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (5)
-      - DE_9006 @WangCai_1 (8)
-      - DE_9005 @WangCai_1 (3)
-      - DE_9079 @WangCai_1 (5)
-      - DE_9005 @WangCai_1 (16)
-      - DE_9070 @WangCai_1 (16)
-      - DE_9011 @WangCai_1 (7)
-      - DE_9037 @WangCai_1 (7)
-      - DE_9026 @WangCai_1 (7)
-      - DE_9027 @WangCai_1
-      - DE_9038 @WangCai_1 (1)
-      - DE_9053 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (16)
-      - DE_9000 @WangCai_1 (3)
-      - DE_9084 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (8)
-      - DE_9000 @WangCai_1 (5)
-      - DE_9003 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (8)
-      - DE_9008 @WangCai_1 (5)
-      - DE_9079 @WangCai_1 (6)
-      - DE_9057 @WangCai_1
-      - DE_9001 @WangCai_1
-      - DE_9007 @WangCai_1 (7)
-      - DE_9031 @WangCai_1
-      - DE_9020 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (16)
-      - DE_9033 @WangCai_1 (8)
-      - DE_9060 @WangCai_1 (3)
-      - DE_9018 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (6)
-      - DE_9057 @WangCai_1 (2)
-      - DE_9079 @WangCai_1 (3)
-      - DE_9007 @WangCai_1
-      - DE_9098 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (2)
-      - DE_9042 @WangCai_1 (6)
-      - DE_9088 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (6)
-      - DE_9010 @WangCai_1 (6)
-      - DE_9008 @WangCai_1 (16)
-      - DE_9015 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (8)
-      - DE_9015 @WangCai_1 (7)
-      - DE_9005 @WangCai_1
-      - DE_9042 @WangCai_1 (7)
-      - SG_9032 @WangCai_1 (2)
-      - SG_9064 @WangCai_1 (3)
-      - SG_9093 @WangCai_1 (2)
-      - SG_9025 @WangCai_1 (3)
-      - SG_9045 @WangCai_1 (3)
-      - SG_9050 @WangCai_1 (2)
-      - SG_9008 @WangCai_1 (3)
-      - SG_9014 @WangCai_1 (3)
-      - AU_12
-      - SG_9020 @WangCai_1 (3)
-      - SG_9079 @WangCai_1 (3)
-      - SG_9015 @WangCai_1 (3)
-      - SG_9059 @WangCai_1 (2)
-      - SG_9000 @WangCai_1 (3)
-      - SG_9043 @WangCai_1 (3)
-      - SG_9084 @WangCai_1 (3)
-      - SG_9038 @WangCai_1 (2)
-      - SG_9007 @WangCai_1 (3)
-      - SG_9040 @WangCai_1 (3)
-      - SG_9037 @WangCai_1 (3)
-      - SG_9011 @WangCai_1 (3)
-      - SG_9094 @WangCai_1 (2)
-      - SG_9070 @WangCai_1 (2)
-      - SG_9033 @WangCai_1 (2)
-      - SG_9019 @WangCai_1 (2)
-      - :澳大利亚-ss-185.167.116.38:9007-可用-直连-仅支持澳大利亚地区NF自制剧
-      - SG_9003 @WangCai_1 (3)
-      - SG_9018 @WangCai_1 (3)
-      - SG_9042 @WangCai_1 (3)
-      - SG_9060 @WangCai_1 (2)
-      - SG_9088 @WangCai_1 (3)
-      - :中国-ss-14.29.124.168:25266-可用-直连-完全不支持NF
-      - CN_油管 TG 8度科技
-      - :中国-ss-14.29.124.168:25231-可用-直连-完全不支持NF
-      - _441 | 4.57Mb
-      - CN_91
-      - :中国-ss-14.29.124.168:25230-可用-直连-完全不支持NF
-      - SG_9098 @WangCai_1 (3)
-      - SG_9057 @WangCai_1 (3)
+      - EXTM3U-香港-nf-iplc
+      - CN_44
+      - CN_45
+      - 台湾(欢迎订阅Youtube破解资源君)
+      - V1-#202_IPLC-深圳-台湾_NF_x4_0_V2ray_253
+      - V1-#310_IPLC-深圳-香港BGP_NF_x4_0_V2ray_259
+      - EXTM3U-SG-nf-iplc
+      - vpnhat-日本-nf
+      - IR_615 |49.42Mb
+      - _法国_YouTubeVV科技_46
+      - EXTM3U-香港-nf-iplc 2
+      - _US_美国
+      - _US_美国 2
+      - V3-#322_广东-台湾_NF_x2_0_V2ray_268
+      - _US_美国 3
+      - _US_美国 4
+      - _US_美国 5
+      - _US_美国 6
+      - _US_美国 7
+      - _US_美国 8
+      - _US_美国 9
+      - _CA_加拿大
+      - _US_美国 10
+      - _CA_加拿大 2
+      - _US_美国 11
+      - 美国(欢迎订阅Youtube破解资源君)
+      - _US_美国 12
+      - V3-#319_广东-台湾_NF_x2_0_V2ray_265
+      - _US_美国 13
+      - _US_美国 14
+      - _US_美国 15
+      - github.com/freefq+-+北美地区++16
+      - _US_美国 16
+      - _CA_加拿大 3
+      - _CA_加拿大 4
+      - _CA_加拿大 5
+      - EXTM3U-香港-nf-iplc 3
+      - _US_美国 17
+      - _US_美国 18
+      - _US_美国 19
+      - _US_美国 20
+      - _US_美国 21
+      - _US_美国 22
+      - _CA_加拿大 6
+      - _US_美国 23
+      - _CA_加拿大 7
+      - _US_美国 24
+      - _US_美国 25
+      - _US_美国 26
+      - _CA_加拿大 8
+      - NL_363
+      - _CA_加拿大 9
+      - _US_美国 27
+      - _US_美国 28
+      - _US_美国 29
+      - _US_美国 30
+      - _US_美国 31
+      - _US_美国 32
+      - V1-#307_IPLC-深圳-香港HKT_NF_x4_0_V2ray_256
+      - V1-#306_IPLC-深圳-香港HKT_NF_x4_0_V2ray_255
+      - EXTM3U-台湾-nf-iplc
+      - V1-#309_IPLC-深圳-香港BGP_NF_x4_0_V2ray_258
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - vpnpool-香港HKT-nf
+      - CN_油管+TG+8度科技
+      - V3-#320_广东-台湾_NF_x2_0_V2ray_266
+      - vpnpool-香港HKT
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - V2-#238_广东-香港HKT_NF_x1_5_V2ray_277
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
+      - 美国(欢迎订阅Youtube破解资源君) 2
+      - EXTM3U-香港HKT-nf-iplc
+      - vpnpool-香港HKT-nf 2
+      - V3-#23_广东-香港HKBN_NF_x1_5_V2ray_285
+      - 美国(欢迎订阅Youtube破解资源君) 3
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
       - 加拿大(yudou66_com玉豆分享)_18
-      - RU_16509+@WangCai_1
-      - AU_15
-      - AU_10
-      - AU_18
-      - :澳大利亚-ss-185.167.116.38:9005-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_14
-      - AU_03
-      - AU_05
-      - AU_16
-      - AU_35
-      - AU_40
-      - AU_79
-      - :澳大利亚-ss-185.167.116.38:9033-可用-直连-仅支持澳大利亚地区NF自制剧
-      - :澳大利亚-ss-185.167.116.38:9057-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_06
-      - AU_11
-      - DE_9042 @WangCai_1 (4)
-      - 美国-BGP-K
-      - 美国-BGP-N
-      - 俄罗斯-BGP
-      - :澳大利亚-ss-185.167.116.38:9006-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_38
-      - :俄罗斯-ss-5.183.179.145:9010-可用-直连-解锁德国地区NF非自制剧
-      - DE_9064 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9031-可用-直连-解锁德国地区NF非自制剧
-      - :俄罗斯-ss-5.183.179.145:9040-可用-直连-解锁德国地区NF非自制剧
-      - DE_9088 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9070-可用-直连-解锁德国地区NF非自制剧
-      - DE_9026 @WangCai_1 (4)
-      - DE_9027 @WangCai_1 (3)
-      - RU_218
-      - RU_259
-      - RU_261
-      - DE_9037 @WangCai_1 (4)
-      - DE_9025 @WangCai_1 (4)
-      - DE_9053 @WangCai_1 (4)
-      - :俄罗斯-ss-217.30.10.63:9098-可用-直连-仅支持波兰地区NF自制剧
-      - RU_231
-      - RU_256
-      - :中国-ss-101.91.121.247:50004-可用-直连-完全不支持NF
-      - RU_260
-      - SG_9027 @WangCai_1 (5)
-      - RU_222
-      - RU_232
-      - RU_233
-      - SG_9042 @WangCai_1 (5)
-      - KR_46196+@WangCai_1
-      - KR_46199+@WangCai_1
-      - RU_220
-      - KR_21000+@WangCai_1
-      - KR_46194+@WangCai_1
-      - KR_46195+@WangCai_1
-      - KR_46198+@WangCai_1
-      - KR_46193+@WangCai_1
-      - SG_9011 @WangCai_1 (5)
-      - SG_9001 @WangCai_1 (5)
-      - KR_46197+@WangCai_1
+      - 28美国∞直连
+      - LT_269
+      - _581+|10.36Mb
+      - LT_261
+      - 香港节点2(免费)倍率(x0.01)
+      - LT_274
+      - NL_372
+      - LT_270
+      - LT_315
+      - :俄罗斯-ssr-213.183.53.200:9031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - :俄罗斯-ssr-213.183.53.177:9020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - LT_251
+      - LT_290
+      - LT_319
+      - SG_9079+@WangCai_1+(3)
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - az1_1
-      - DE_9008 @WangCai_1 (7)
-      - DE_9084 @WangCai_1 (16)
-      - DE_9053 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (5)
-      - DE_9064 @WangCai_1 (7)
-      - DE_9045 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (15)
-      - DE_9015 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (7)
-      - DE_9098 @WangCai_1 (3)
-      - DE_9056 @WangCai_1
-      - DE_9010 @WangCai_1
-      - DE_9097 @WangCai_1 (1)
-      - DE_9032 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (6)
-      - DE_9011 @WangCai_1
-      - DE_9098 @WangCai_1 (8)
-      - DE_9079 @WangCai_1 (16)
-      - DE_9027 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (16)
-      - DE_9024 @WangCai_1
-      - DE_9098 @WangCai_1
-      - DE_9007 @WangCai_1 (3)
-      - DE_9001 @WangCai_1 (3)
-      - DE_9064 @WangCai_1 (5)
-      - DE_9053 @WangCai_1
-      - DE_9059 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (11)
-      - DE_9018 @WangCai_1 (6)
-      - DE_9007 @WangCai_1 (16)
-      - DE_9041 @WangCai_1 (8)
-      - DE_9033 @WangCai_1
-      - DE_9043 @WangCai_1 (1)
-      - DE_9006 @WangCai_1 (16)
-      - DE_9003 @WangCai_1 (7)
-      - DE_9079 @WangCai_1 (8)
-      - DE_9031 @WangCai_1 (8)
-      - DE_9014 @WangCai_1
-      - DE_9026 @WangCai_1 (2)
-      - DE_9031 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (6)
-      - DE_9050 @WangCai_1 (8)
-      - DE_9003 @WangCai_1 (5)
-      - DE_9057 @WangCai_1 (5)
-      - DE_9000 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (16)
-      - DE_9097 @WangCai_1 (8)
-      - DE_9045 @WangCai_1 (8)
-      - DE_9014 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (16)
-      - DE_9019 @WangCai_1 (8)
-      - DE_9056 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (16)
-      - DE_9043 @WangCai_1
-      - DE_9032 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (16)
-      - DE_9020 @WangCai_1
-      - DE_9000 @WangCai_1 (1)
-      - DE_9064 @WangCai_1 (2)
-      - DE_9070 @WangCai_1 (7)
-      - DE_9032 @WangCai_1 (7)
-      - DE_9088 @WangCai_1
-      - DE_9097 @WangCai_1 (16)
-      - DE_9059 @WangCai_1 (8)
-      - DE_9098 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (5)
-      - DE_9094 @WangCai_1 (15)
-      - DE_9041 @WangCai_1
-      - DE_9097 @WangCai_1
-      - DE_9008 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (6)
-      - DE_9084 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (7)
-      - DE_9007 @WangCai_1 (1)
-      - DE_9060 @WangCai_1 (5)
-      - DE_9045 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (8)
-      - DE_9050 @WangCai_1 (1)
-      - DE_9026 @WangCai_1
-      - DE_9073 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (3)
-      - DE_9097 @WangCai_1 (5)
-      - DE_9046 @WangCai_1 (16)
-      - DE_9040 @WangCai_1
-      - DE_9020 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (5)
-      - DE_9088 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (7)
-      - DE_9031 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (7)
-      - DE_9000 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (1)
-      - DE_9008 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (8)
-      - DE_9084 @WangCai_1
-      - DE_9043 @WangCai_1 (3)
-      - DE_9056 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (1)
-      - DE_9037 @WangCai_1 (2)
-      - DE_9024 @WangCai_1 (7)
-      - DE_9042 @WangCai_1 (16)
-      - DE_9032 @WangCai_1 (8)
-      - DE_9010 @WangCai_1 (3)
-      - DE_9060 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (6)
-      - DE_9045 @WangCai_1 (7)
-      - DE_9060 @WangCai_1
-      - DE_9041 @WangCai_1 (5)
-      - DE_9011 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (3)
-      - DE_9045 @WangCai_1 (16)
-      - DE_9043 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (1)
-      - DE_9008 @WangCai_1
-      - DE_9006 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (1)
-      - DE_9084 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (15)
-      - DE_9056 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (3)
-      - DE_9032 @WangCai_1 (5)
-      - DE_9097 @WangCai_1 (6)
-      - DE_9060 @WangCai_1 (16)
-      - DE_9056 @WangCai_1 (16)
-      - DE_9057 @WangCai_1 (7)
-      - DE_9045 @WangCai_1
-      - DE_9006 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (6)
-      - DE_9040 @WangCai_1 (16)
-      - DE_9094 @WangCai_1 (1)
-      - DE_9020 @WangCai_1 (6)
-      - DE_9037 @WangCai_1 (16)
-      - DE_9005 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (1)
-      - DE_9057 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (3)
-      - DE_9033 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (7)
-      - DE_9038 @WangCai_1 (5)
-      - DE_9008 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (3)
-      - DE_9031 @WangCai_1 (3)
-      - DE_9019 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (7)
-      - DE_9000 @WangCai_1
-      - DE_9064 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (7)
-      - DE_9003 @WangCai_1
-      - DE_9040 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (16)
-      - DE_9040 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (6)
-      - DE_9001 @WangCai_1 (2)
-      - DE_9019 @WangCai_1 (3)
-      - DE_9000 @WangCai_1 (6)
-      - DE_9043 @WangCai_1 (16)
-      - DE_9018 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (2)
-      - DE_9003 @WangCai_1 (16)
-      - DE_9025 @WangCai_1 (7)
-      - DE_9019 @WangCai_1
-      - DE_9019 @WangCai_1 (5)
-      - DE_9031 @WangCai_1 (5)
-      - DE_9079 @WangCai_1
-      - DE_9025 @WangCai_1
-      - DE_9094 @WangCai_1 (8)
-      - DE_9025 @WangCai_1 (2)
-      - DE_9025 @WangCai_1 (6)
-      - DE_9018 @WangCai_1 (7)
-      - DE_9043 @WangCai_1 (8)
-      - DE_9093 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (16)
-      - DE_9079 @WangCai_1 (1)
-      - DE_9018 @WangCai_1 (2)
-      - DE_9043 @WangCai_1 (5)
-      - DE_9025 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (5)
-      - DE_9006 @WangCai_1 (8)
-      - DE_9005 @WangCai_1 (3)
-      - DE_9079 @WangCai_1 (5)
-      - DE_9005 @WangCai_1 (16)
-      - DE_9070 @WangCai_1 (16)
-      - DE_9011 @WangCai_1 (7)
-      - DE_9037 @WangCai_1 (7)
-      - DE_9026 @WangCai_1 (7)
-      - DE_9027 @WangCai_1
-      - DE_9038 @WangCai_1 (1)
-      - DE_9053 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (16)
-      - DE_9000 @WangCai_1 (3)
-      - DE_9084 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (8)
-      - DE_9000 @WangCai_1 (5)
-      - DE_9003 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (8)
-      - DE_9008 @WangCai_1 (5)
-      - DE_9079 @WangCai_1 (6)
-      - DE_9057 @WangCai_1
-      - DE_9001 @WangCai_1
-      - DE_9007 @WangCai_1 (7)
-      - DE_9031 @WangCai_1
-      - DE_9020 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (16)
-      - DE_9033 @WangCai_1 (8)
-      - DE_9060 @WangCai_1 (3)
-      - DE_9018 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (6)
-      - DE_9057 @WangCai_1 (2)
-      - DE_9079 @WangCai_1 (3)
-      - DE_9007 @WangCai_1
-      - DE_9098 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (2)
-      - DE_9042 @WangCai_1 (6)
-      - DE_9088 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (6)
-      - DE_9010 @WangCai_1 (6)
-      - DE_9008 @WangCai_1 (16)
-      - DE_9015 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (8)
-      - DE_9015 @WangCai_1 (7)
-      - DE_9005 @WangCai_1
-      - DE_9042 @WangCai_1 (7)
-      - SG_9032 @WangCai_1 (2)
-      - SG_9064 @WangCai_1 (3)
-      - SG_9093 @WangCai_1 (2)
-      - SG_9025 @WangCai_1 (3)
-      - SG_9045 @WangCai_1 (3)
-      - SG_9050 @WangCai_1 (2)
-      - SG_9008 @WangCai_1 (3)
-      - SG_9014 @WangCai_1 (3)
-      - AU_12
-      - SG_9020 @WangCai_1 (3)
-      - SG_9079 @WangCai_1 (3)
-      - SG_9015 @WangCai_1 (3)
-      - SG_9059 @WangCai_1 (2)
-      - SG_9000 @WangCai_1 (3)
-      - SG_9043 @WangCai_1 (3)
-      - SG_9084 @WangCai_1 (3)
-      - SG_9038 @WangCai_1 (2)
-      - SG_9007 @WangCai_1 (3)
-      - SG_9040 @WangCai_1 (3)
-      - SG_9037 @WangCai_1 (3)
-      - SG_9011 @WangCai_1 (3)
-      - SG_9094 @WangCai_1 (2)
-      - SG_9070 @WangCai_1 (2)
-      - SG_9033 @WangCai_1 (2)
-      - SG_9019 @WangCai_1 (2)
-      - :澳大利亚-ss-185.167.116.38:9007-可用-直连-仅支持澳大利亚地区NF自制剧
-      - SG_9003 @WangCai_1 (3)
-      - SG_9018 @WangCai_1 (3)
-      - SG_9042 @WangCai_1 (3)
-      - SG_9060 @WangCai_1 (2)
-      - SG_9088 @WangCai_1 (3)
-      - :中国-ss-14.29.124.168:25266-可用-直连-完全不支持NF
-      - CN_油管 TG 8度科技
-      - :中国-ss-14.29.124.168:25231-可用-直连-完全不支持NF
-      - _441 | 4.57Mb
-      - CN_91
-      - :中国-ss-14.29.124.168:25230-可用-直连-完全不支持NF
-      - SG_9098 @WangCai_1 (3)
-      - SG_9057 @WangCai_1 (3)
+      - EXTM3U-香港-nf-iplc
+      - CN_44
+      - CN_45
+      - 台湾(欢迎订阅Youtube破解资源君)
+      - V1-#202_IPLC-深圳-台湾_NF_x4_0_V2ray_253
+      - V1-#310_IPLC-深圳-香港BGP_NF_x4_0_V2ray_259
+      - EXTM3U-SG-nf-iplc
+      - vpnhat-日本-nf
+      - IR_615 |49.42Mb
+      - _法国_YouTubeVV科技_46
+      - EXTM3U-香港-nf-iplc 2
+      - _US_美国
+      - _US_美国 2
+      - V3-#322_广东-台湾_NF_x2_0_V2ray_268
+      - _US_美国 3
+      - _US_美国 4
+      - _US_美国 5
+      - _US_美国 6
+      - _US_美国 7
+      - _US_美国 8
+      - _US_美国 9
+      - _CA_加拿大
+      - _US_美国 10
+      - _CA_加拿大 2
+      - _US_美国 11
+      - 美国(欢迎订阅Youtube破解资源君)
+      - _US_美国 12
+      - V3-#319_广东-台湾_NF_x2_0_V2ray_265
+      - _US_美国 13
+      - _US_美国 14
+      - _US_美国 15
+      - github.com/freefq+-+北美地区++16
+      - _US_美国 16
+      - _CA_加拿大 3
+      - _CA_加拿大 4
+      - _CA_加拿大 5
+      - EXTM3U-香港-nf-iplc 3
+      - _US_美国 17
+      - _US_美国 18
+      - _US_美国 19
+      - _US_美国 20
+      - _US_美国 21
+      - _US_美国 22
+      - _CA_加拿大 6
+      - _US_美国 23
+      - _CA_加拿大 7
+      - _US_美国 24
+      - _US_美国 25
+      - _US_美国 26
+      - _CA_加拿大 8
+      - NL_363
+      - _CA_加拿大 9
+      - _US_美国 27
+      - _US_美国 28
+      - _US_美国 29
+      - _US_美国 30
+      - _US_美国 31
+      - _US_美国 32
+      - V1-#307_IPLC-深圳-香港HKT_NF_x4_0_V2ray_256
+      - V1-#306_IPLC-深圳-香港HKT_NF_x4_0_V2ray_255
+      - EXTM3U-台湾-nf-iplc
+      - V1-#309_IPLC-深圳-香港BGP_NF_x4_0_V2ray_258
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - vpnpool-香港HKT-nf
+      - CN_油管+TG+8度科技
+      - V3-#320_广东-台湾_NF_x2_0_V2ray_266
+      - vpnpool-香港HKT
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - V2-#238_广东-香港HKT_NF_x1_5_V2ray_277
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
+      - 美国(欢迎订阅Youtube破解资源君) 2
+      - EXTM3U-香港HKT-nf-iplc
+      - vpnpool-香港HKT-nf 2
+      - V3-#23_广东-香港HKBN_NF_x1_5_V2ray_285
+      - 美国(欢迎订阅Youtube破解资源君) 3
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
       - 加拿大(yudou66_com玉豆分享)_18
-      - RU_16509+@WangCai_1
-      - AU_15
-      - AU_10
-      - AU_18
-      - :澳大利亚-ss-185.167.116.38:9005-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_14
-      - AU_03
-      - AU_05
-      - AU_16
-      - AU_35
-      - AU_40
-      - AU_79
-      - :澳大利亚-ss-185.167.116.38:9033-可用-直连-仅支持澳大利亚地区NF自制剧
-      - :澳大利亚-ss-185.167.116.38:9057-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_06
-      - AU_11
-      - DE_9042 @WangCai_1 (4)
-      - 美国-BGP-K
-      - 美国-BGP-N
-      - 俄罗斯-BGP
-      - :澳大利亚-ss-185.167.116.38:9006-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_38
-      - :俄罗斯-ss-5.183.179.145:9010-可用-直连-解锁德国地区NF非自制剧
-      - DE_9064 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9031-可用-直连-解锁德国地区NF非自制剧
-      - :俄罗斯-ss-5.183.179.145:9040-可用-直连-解锁德国地区NF非自制剧
-      - DE_9088 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9070-可用-直连-解锁德国地区NF非自制剧
-      - DE_9026 @WangCai_1 (4)
-      - DE_9027 @WangCai_1 (3)
-      - RU_218
-      - RU_259
-      - RU_261
-      - DE_9037 @WangCai_1 (4)
-      - DE_9025 @WangCai_1 (4)
-      - DE_9053 @WangCai_1 (4)
-      - :俄罗斯-ss-217.30.10.63:9098-可用-直连-仅支持波兰地区NF自制剧
-      - RU_231
-      - RU_256
-      - :中国-ss-101.91.121.247:50004-可用-直连-完全不支持NF
-      - RU_260
-      - SG_9027 @WangCai_1 (5)
-      - RU_222
-      - RU_232
-      - RU_233
-      - SG_9042 @WangCai_1 (5)
-      - KR_46196+@WangCai_1
-      - KR_46199+@WangCai_1
-      - RU_220
-      - KR_21000+@WangCai_1
-      - KR_46194+@WangCai_1
-      - KR_46195+@WangCai_1
-      - KR_46198+@WangCai_1
-      - KR_46193+@WangCai_1
-      - SG_9011 @WangCai_1 (5)
-      - SG_9001 @WangCai_1 (5)
-      - KR_46197+@WangCai_1
+      - 28美国∞直连
+      - LT_269
+      - _581+|10.36Mb
+      - LT_261
+      - 香港节点2(免费)倍率(x0.01)
+      - LT_274
+      - NL_372
+      - LT_270
+      - LT_315
+      - :俄罗斯-ssr-213.183.53.200:9031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - :俄罗斯-ssr-213.183.53.177:9020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - LT_251
+      - LT_290
+      - LT_319
+      - SG_9079+@WangCai_1+(3)
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - az1_1
-      - DE_9008 @WangCai_1 (7)
-      - DE_9084 @WangCai_1 (16)
-      - DE_9053 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (5)
-      - DE_9064 @WangCai_1 (7)
-      - DE_9045 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (15)
-      - DE_9015 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (7)
-      - DE_9098 @WangCai_1 (3)
-      - DE_9056 @WangCai_1
-      - DE_9010 @WangCai_1
-      - DE_9097 @WangCai_1 (1)
-      - DE_9032 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (6)
-      - DE_9011 @WangCai_1
-      - DE_9098 @WangCai_1 (8)
-      - DE_9079 @WangCai_1 (16)
-      - DE_9027 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (16)
-      - DE_9024 @WangCai_1
-      - DE_9098 @WangCai_1
-      - DE_9007 @WangCai_1 (3)
-      - DE_9001 @WangCai_1 (3)
-      - DE_9064 @WangCai_1 (5)
-      - DE_9053 @WangCai_1
-      - DE_9059 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (11)
-      - DE_9018 @WangCai_1 (6)
-      - DE_9007 @WangCai_1 (16)
-      - DE_9041 @WangCai_1 (8)
-      - DE_9033 @WangCai_1
-      - DE_9043 @WangCai_1 (1)
-      - DE_9006 @WangCai_1 (16)
-      - DE_9003 @WangCai_1 (7)
-      - DE_9079 @WangCai_1 (8)
-      - DE_9031 @WangCai_1 (8)
-      - DE_9014 @WangCai_1
-      - DE_9026 @WangCai_1 (2)
-      - DE_9031 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (6)
-      - DE_9050 @WangCai_1 (8)
-      - DE_9003 @WangCai_1 (5)
-      - DE_9057 @WangCai_1 (5)
-      - DE_9000 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (16)
-      - DE_9097 @WangCai_1 (8)
-      - DE_9045 @WangCai_1 (8)
-      - DE_9014 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (16)
-      - DE_9019 @WangCai_1 (8)
-      - DE_9056 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (16)
-      - DE_9043 @WangCai_1
-      - DE_9032 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (16)
-      - DE_9020 @WangCai_1
-      - DE_9000 @WangCai_1 (1)
-      - DE_9064 @WangCai_1 (2)
-      - DE_9070 @WangCai_1 (7)
-      - DE_9032 @WangCai_1 (7)
-      - DE_9088 @WangCai_1
-      - DE_9097 @WangCai_1 (16)
-      - DE_9059 @WangCai_1 (8)
-      - DE_9098 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (5)
-      - DE_9094 @WangCai_1 (15)
-      - DE_9041 @WangCai_1
-      - DE_9097 @WangCai_1
-      - DE_9008 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (6)
-      - DE_9084 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (7)
-      - DE_9007 @WangCai_1 (1)
-      - DE_9060 @WangCai_1 (5)
-      - DE_9045 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (8)
-      - DE_9050 @WangCai_1 (1)
-      - DE_9026 @WangCai_1
-      - DE_9073 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (3)
-      - DE_9097 @WangCai_1 (5)
-      - DE_9046 @WangCai_1 (16)
-      - DE_9040 @WangCai_1
-      - DE_9020 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (5)
-      - DE_9088 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (7)
-      - DE_9031 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (7)
-      - DE_9000 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (1)
-      - DE_9008 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (8)
-      - DE_9084 @WangCai_1
-      - DE_9043 @WangCai_1 (3)
-      - DE_9056 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (1)
-      - DE_9037 @WangCai_1 (2)
-      - DE_9024 @WangCai_1 (7)
-      - DE_9042 @WangCai_1 (16)
-      - DE_9032 @WangCai_1 (8)
-      - DE_9010 @WangCai_1 (3)
-      - DE_9060 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (6)
-      - DE_9045 @WangCai_1 (7)
-      - DE_9060 @WangCai_1
-      - DE_9041 @WangCai_1 (5)
-      - DE_9011 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (3)
-      - DE_9045 @WangCai_1 (16)
-      - DE_9043 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (1)
-      - DE_9008 @WangCai_1
-      - DE_9006 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (1)
-      - DE_9084 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (15)
-      - DE_9056 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (3)
-      - DE_9032 @WangCai_1 (5)
-      - DE_9097 @WangCai_1 (6)
-      - DE_9060 @WangCai_1 (16)
-      - DE_9056 @WangCai_1 (16)
-      - DE_9057 @WangCai_1 (7)
-      - DE_9045 @WangCai_1
-      - DE_9006 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (6)
-      - DE_9040 @WangCai_1 (16)
-      - DE_9094 @WangCai_1 (1)
-      - DE_9020 @WangCai_1 (6)
-      - DE_9037 @WangCai_1 (16)
-      - DE_9005 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (1)
-      - DE_9057 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (3)
-      - DE_9033 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (7)
-      - DE_9038 @WangCai_1 (5)
-      - DE_9008 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (3)
-      - DE_9031 @WangCai_1 (3)
-      - DE_9019 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (7)
-      - DE_9000 @WangCai_1
-      - DE_9064 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (7)
-      - DE_9003 @WangCai_1
-      - DE_9040 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (16)
-      - DE_9040 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (6)
-      - DE_9001 @WangCai_1 (2)
-      - DE_9019 @WangCai_1 (3)
-      - DE_9000 @WangCai_1 (6)
-      - DE_9043 @WangCai_1 (16)
-      - DE_9018 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (2)
-      - DE_9003 @WangCai_1 (16)
-      - DE_9025 @WangCai_1 (7)
-      - DE_9019 @WangCai_1
-      - DE_9019 @WangCai_1 (5)
-      - DE_9031 @WangCai_1 (5)
-      - DE_9079 @WangCai_1
-      - DE_9025 @WangCai_1
-      - DE_9094 @WangCai_1 (8)
-      - DE_9025 @WangCai_1 (2)
-      - DE_9025 @WangCai_1 (6)
-      - DE_9018 @WangCai_1 (7)
-      - DE_9043 @WangCai_1 (8)
-      - DE_9093 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (16)
-      - DE_9079 @WangCai_1 (1)
-      - DE_9018 @WangCai_1 (2)
-      - DE_9043 @WangCai_1 (5)
-      - DE_9025 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (5)
-      - DE_9006 @WangCai_1 (8)
-      - DE_9005 @WangCai_1 (3)
-      - DE_9079 @WangCai_1 (5)
-      - DE_9005 @WangCai_1 (16)
-      - DE_9070 @WangCai_1 (16)
-      - DE_9011 @WangCai_1 (7)
-      - DE_9037 @WangCai_1 (7)
-      - DE_9026 @WangCai_1 (7)
-      - DE_9027 @WangCai_1
-      - DE_9038 @WangCai_1 (1)
-      - DE_9053 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (16)
-      - DE_9000 @WangCai_1 (3)
-      - DE_9084 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (8)
-      - DE_9000 @WangCai_1 (5)
-      - DE_9003 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (8)
-      - DE_9008 @WangCai_1 (5)
-      - DE_9079 @WangCai_1 (6)
-      - DE_9057 @WangCai_1
-      - DE_9001 @WangCai_1
-      - DE_9007 @WangCai_1 (7)
-      - DE_9031 @WangCai_1
-      - DE_9020 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (16)
-      - DE_9033 @WangCai_1 (8)
-      - DE_9060 @WangCai_1 (3)
-      - DE_9018 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (6)
-      - DE_9057 @WangCai_1 (2)
-      - DE_9079 @WangCai_1 (3)
-      - DE_9007 @WangCai_1
-      - DE_9098 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (2)
-      - DE_9042 @WangCai_1 (6)
-      - DE_9088 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (6)
-      - DE_9010 @WangCai_1 (6)
-      - DE_9008 @WangCai_1 (16)
-      - DE_9015 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (8)
-      - DE_9015 @WangCai_1 (7)
-      - DE_9005 @WangCai_1
-      - DE_9042 @WangCai_1 (7)
-      - SG_9032 @WangCai_1 (2)
-      - SG_9064 @WangCai_1 (3)
-      - SG_9093 @WangCai_1 (2)
-      - SG_9025 @WangCai_1 (3)
-      - SG_9045 @WangCai_1 (3)
-      - SG_9050 @WangCai_1 (2)
-      - SG_9008 @WangCai_1 (3)
-      - SG_9014 @WangCai_1 (3)
-      - AU_12
-      - SG_9020 @WangCai_1 (3)
-      - SG_9079 @WangCai_1 (3)
-      - SG_9015 @WangCai_1 (3)
-      - SG_9059 @WangCai_1 (2)
-      - SG_9000 @WangCai_1 (3)
-      - SG_9043 @WangCai_1 (3)
-      - SG_9084 @WangCai_1 (3)
-      - SG_9038 @WangCai_1 (2)
-      - SG_9007 @WangCai_1 (3)
-      - SG_9040 @WangCai_1 (3)
-      - SG_9037 @WangCai_1 (3)
-      - SG_9011 @WangCai_1 (3)
-      - SG_9094 @WangCai_1 (2)
-      - SG_9070 @WangCai_1 (2)
-      - SG_9033 @WangCai_1 (2)
-      - SG_9019 @WangCai_1 (2)
-      - :澳大利亚-ss-185.167.116.38:9007-可用-直连-仅支持澳大利亚地区NF自制剧
-      - SG_9003 @WangCai_1 (3)
-      - SG_9018 @WangCai_1 (3)
-      - SG_9042 @WangCai_1 (3)
-      - SG_9060 @WangCai_1 (2)
-      - SG_9088 @WangCai_1 (3)
-      - :中国-ss-14.29.124.168:25266-可用-直连-完全不支持NF
-      - CN_油管 TG 8度科技
-      - :中国-ss-14.29.124.168:25231-可用-直连-完全不支持NF
-      - _441 | 4.57Mb
-      - CN_91
-      - :中国-ss-14.29.124.168:25230-可用-直连-完全不支持NF
-      - SG_9098 @WangCai_1 (3)
-      - SG_9057 @WangCai_1 (3)
+      - EXTM3U-香港-nf-iplc
+      - CN_44
+      - CN_45
+      - 台湾(欢迎订阅Youtube破解资源君)
+      - V1-#202_IPLC-深圳-台湾_NF_x4_0_V2ray_253
+      - V1-#310_IPLC-深圳-香港BGP_NF_x4_0_V2ray_259
+      - EXTM3U-SG-nf-iplc
+      - vpnhat-日本-nf
+      - IR_615 |49.42Mb
+      - _法国_YouTubeVV科技_46
+      - EXTM3U-香港-nf-iplc 2
+      - _US_美国
+      - _US_美国 2
+      - V3-#322_广东-台湾_NF_x2_0_V2ray_268
+      - _US_美国 3
+      - _US_美国 4
+      - _US_美国 5
+      - _US_美国 6
+      - _US_美国 7
+      - _US_美国 8
+      - _US_美国 9
+      - _CA_加拿大
+      - _US_美国 10
+      - _CA_加拿大 2
+      - _US_美国 11
+      - 美国(欢迎订阅Youtube破解资源君)
+      - _US_美国 12
+      - V3-#319_广东-台湾_NF_x2_0_V2ray_265
+      - _US_美国 13
+      - _US_美国 14
+      - _US_美国 15
+      - github.com/freefq+-+北美地区++16
+      - _US_美国 16
+      - _CA_加拿大 3
+      - _CA_加拿大 4
+      - _CA_加拿大 5
+      - EXTM3U-香港-nf-iplc 3
+      - _US_美国 17
+      - _US_美国 18
+      - _US_美国 19
+      - _US_美国 20
+      - _US_美国 21
+      - _US_美国 22
+      - _CA_加拿大 6
+      - _US_美国 23
+      - _CA_加拿大 7
+      - _US_美国 24
+      - _US_美国 25
+      - _US_美国 26
+      - _CA_加拿大 8
+      - NL_363
+      - _CA_加拿大 9
+      - _US_美国 27
+      - _US_美国 28
+      - _US_美国 29
+      - _US_美国 30
+      - _US_美国 31
+      - _US_美国 32
+      - V1-#307_IPLC-深圳-香港HKT_NF_x4_0_V2ray_256
+      - V1-#306_IPLC-深圳-香港HKT_NF_x4_0_V2ray_255
+      - EXTM3U-台湾-nf-iplc
+      - V1-#309_IPLC-深圳-香港BGP_NF_x4_0_V2ray_258
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - vpnpool-香港HKT-nf
+      - CN_油管+TG+8度科技
+      - V3-#320_广东-台湾_NF_x2_0_V2ray_266
+      - vpnpool-香港HKT
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - V2-#238_广东-香港HKT_NF_x1_5_V2ray_277
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
+      - 美国(欢迎订阅Youtube破解资源君) 2
+      - EXTM3U-香港HKT-nf-iplc
+      - vpnpool-香港HKT-nf 2
+      - V3-#23_广东-香港HKBN_NF_x1_5_V2ray_285
+      - 美国(欢迎订阅Youtube破解资源君) 3
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
       - 加拿大(yudou66_com玉豆分享)_18
-      - RU_16509+@WangCai_1
-      - AU_15
-      - AU_10
-      - AU_18
-      - :澳大利亚-ss-185.167.116.38:9005-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_14
-      - AU_03
-      - AU_05
-      - AU_16
-      - AU_35
-      - AU_40
-      - AU_79
-      - :澳大利亚-ss-185.167.116.38:9033-可用-直连-仅支持澳大利亚地区NF自制剧
-      - :澳大利亚-ss-185.167.116.38:9057-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_06
-      - AU_11
-      - DE_9042 @WangCai_1 (4)
-      - 美国-BGP-K
-      - 美国-BGP-N
-      - 俄罗斯-BGP
-      - :澳大利亚-ss-185.167.116.38:9006-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_38
-      - :俄罗斯-ss-5.183.179.145:9010-可用-直连-解锁德国地区NF非自制剧
-      - DE_9064 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9031-可用-直连-解锁德国地区NF非自制剧
-      - :俄罗斯-ss-5.183.179.145:9040-可用-直连-解锁德国地区NF非自制剧
-      - DE_9088 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9070-可用-直连-解锁德国地区NF非自制剧
-      - DE_9026 @WangCai_1 (4)
-      - DE_9027 @WangCai_1 (3)
-      - RU_218
-      - RU_259
-      - RU_261
-      - DE_9037 @WangCai_1 (4)
-      - DE_9025 @WangCai_1 (4)
-      - DE_9053 @WangCai_1 (4)
-      - :俄罗斯-ss-217.30.10.63:9098-可用-直连-仅支持波兰地区NF自制剧
-      - RU_231
-      - RU_256
-      - :中国-ss-101.91.121.247:50004-可用-直连-完全不支持NF
-      - RU_260
-      - SG_9027 @WangCai_1 (5)
-      - RU_222
-      - RU_232
-      - RU_233
-      - SG_9042 @WangCai_1 (5)
-      - KR_46196+@WangCai_1
-      - KR_46199+@WangCai_1
-      - RU_220
-      - KR_21000+@WangCai_1
-      - KR_46194+@WangCai_1
-      - KR_46195+@WangCai_1
-      - KR_46198+@WangCai_1
-      - KR_46193+@WangCai_1
-      - SG_9011 @WangCai_1 (5)
-      - SG_9001 @WangCai_1 (5)
-      - KR_46197+@WangCai_1
+      - 28美国∞直连
+      - LT_269
+      - _581+|10.36Mb
+      - LT_261
+      - 香港节点2(免费)倍率(x0.01)
+      - LT_274
+      - NL_372
+      - LT_270
+      - LT_315
+      - :俄罗斯-ssr-213.183.53.200:9031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - :俄罗斯-ssr-213.183.53.177:9020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - LT_251
+      - LT_290
+      - LT_319
+      - SG_9079+@WangCai_1+(3)
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -2804,347 +832,98 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - az1_1
-      - DE_9008 @WangCai_1 (7)
-      - DE_9084 @WangCai_1 (16)
-      - DE_9053 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (5)
-      - DE_9064 @WangCai_1 (7)
-      - DE_9045 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (15)
-      - DE_9015 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (7)
-      - DE_9098 @WangCai_1 (3)
-      - DE_9056 @WangCai_1
-      - DE_9010 @WangCai_1
-      - DE_9097 @WangCai_1 (1)
-      - DE_9032 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (6)
-      - DE_9011 @WangCai_1
-      - DE_9098 @WangCai_1 (8)
-      - DE_9079 @WangCai_1 (16)
-      - DE_9027 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (16)
-      - DE_9024 @WangCai_1
-      - DE_9098 @WangCai_1
-      - DE_9007 @WangCai_1 (3)
-      - DE_9001 @WangCai_1 (3)
-      - DE_9064 @WangCai_1 (5)
-      - DE_9053 @WangCai_1
-      - DE_9059 @WangCai_1 (1)
-      - DE_9024 @WangCai_1 (11)
-      - DE_9018 @WangCai_1 (6)
-      - DE_9007 @WangCai_1 (16)
-      - DE_9041 @WangCai_1 (8)
-      - DE_9033 @WangCai_1
-      - DE_9043 @WangCai_1 (1)
-      - DE_9006 @WangCai_1 (16)
-      - DE_9003 @WangCai_1 (7)
-      - DE_9079 @WangCai_1 (8)
-      - DE_9031 @WangCai_1 (8)
-      - DE_9014 @WangCai_1
-      - DE_9026 @WangCai_1 (2)
-      - DE_9031 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (6)
-      - DE_9050 @WangCai_1 (8)
-      - DE_9003 @WangCai_1 (5)
-      - DE_9057 @WangCai_1 (5)
-      - DE_9000 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (16)
-      - DE_9097 @WangCai_1 (8)
-      - DE_9045 @WangCai_1 (8)
-      - DE_9014 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (16)
-      - DE_9019 @WangCai_1 (8)
-      - DE_9056 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (16)
-      - DE_9043 @WangCai_1
-      - DE_9032 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (16)
-      - DE_9020 @WangCai_1
-      - DE_9000 @WangCai_1 (1)
-      - DE_9064 @WangCai_1 (2)
-      - DE_9070 @WangCai_1 (7)
-      - DE_9032 @WangCai_1 (7)
-      - DE_9088 @WangCai_1
-      - DE_9097 @WangCai_1 (16)
-      - DE_9059 @WangCai_1 (8)
-      - DE_9098 @WangCai_1 (5)
-      - DE_9040 @WangCai_1 (5)
-      - DE_9094 @WangCai_1 (15)
-      - DE_9041 @WangCai_1
-      - DE_9097 @WangCai_1
-      - DE_9008 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (6)
-      - DE_9084 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (7)
-      - DE_9007 @WangCai_1 (1)
-      - DE_9060 @WangCai_1 (5)
-      - DE_9045 @WangCai_1 (5)
-      - DE_9093 @WangCai_1 (8)
-      - DE_9050 @WangCai_1 (1)
-      - DE_9026 @WangCai_1
-      - DE_9073 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (1)
-      - DE_9040 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (3)
-      - DE_9097 @WangCai_1 (5)
-      - DE_9046 @WangCai_1 (16)
-      - DE_9040 @WangCai_1
-      - DE_9020 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (5)
-      - DE_9088 @WangCai_1 (2)
-      - DE_9093 @WangCai_1 (7)
-      - DE_9031 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (7)
-      - DE_9000 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (16)
-      - DE_9031 @WangCai_1 (1)
-      - DE_9008 @WangCai_1 (2)
-      - DE_9033 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (5)
-      - DE_9038 @WangCai_1 (8)
-      - DE_9084 @WangCai_1
-      - DE_9043 @WangCai_1 (3)
-      - DE_9056 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (1)
-      - DE_9037 @WangCai_1 (2)
-      - DE_9024 @WangCai_1 (7)
-      - DE_9042 @WangCai_1 (16)
-      - DE_9032 @WangCai_1 (8)
-      - DE_9010 @WangCai_1 (3)
-      - DE_9060 @WangCai_1 (8)
-      - DE_9041 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (6)
-      - DE_9045 @WangCai_1 (7)
-      - DE_9060 @WangCai_1
-      - DE_9041 @WangCai_1 (5)
-      - DE_9011 @WangCai_1 (5)
-      - DE_9026 @WangCai_1 (3)
-      - DE_9045 @WangCai_1 (16)
-      - DE_9043 @WangCai_1 (6)
-      - DE_9011 @WangCai_1 (1)
-      - DE_9008 @WangCai_1
-      - DE_9006 @WangCai_1 (1)
-      - DE_9014 @WangCai_1 (1)
-      - DE_9084 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (15)
-      - DE_9056 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (7)
-      - DE_9088 @WangCai_1 (3)
-      - DE_9032 @WangCai_1 (5)
-      - DE_9097 @WangCai_1 (6)
-      - DE_9060 @WangCai_1 (16)
-      - DE_9056 @WangCai_1 (16)
-      - DE_9057 @WangCai_1 (7)
-      - DE_9045 @WangCai_1
-      - DE_9006 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (6)
-      - DE_9040 @WangCai_1 (16)
-      - DE_9094 @WangCai_1 (1)
-      - DE_9020 @WangCai_1 (6)
-      - DE_9037 @WangCai_1 (16)
-      - DE_9005 @WangCai_1 (8)
-      - DE_9084 @WangCai_1 (1)
-      - DE_9057 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (3)
-      - DE_9033 @WangCai_1 (16)
-      - DE_9001 @WangCai_1 (7)
-      - DE_9038 @WangCai_1 (5)
-      - DE_9008 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (1)
-      - DE_9011 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (3)
-      - DE_9031 @WangCai_1 (3)
-      - DE_9019 @WangCai_1 (16)
-      - DE_9050 @WangCai_1 (7)
-      - DE_9000 @WangCai_1
-      - DE_9064 @WangCai_1 (6)
-      - DE_9053 @WangCai_1 (6)
-      - DE_9059 @WangCai_1 (7)
-      - DE_9003 @WangCai_1
-      - DE_9040 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (16)
-      - DE_9040 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (6)
-      - DE_9001 @WangCai_1 (2)
-      - DE_9019 @WangCai_1 (3)
-      - DE_9000 @WangCai_1 (6)
-      - DE_9043 @WangCai_1 (16)
-      - DE_9018 @WangCai_1 (16)
-      - DE_9020 @WangCai_1 (7)
-      - DE_9010 @WangCai_1 (2)
-      - DE_9003 @WangCai_1 (16)
-      - DE_9025 @WangCai_1 (7)
-      - DE_9019 @WangCai_1
-      - DE_9019 @WangCai_1 (5)
-      - DE_9031 @WangCai_1 (5)
-      - DE_9079 @WangCai_1
-      - DE_9025 @WangCai_1
-      - DE_9094 @WangCai_1 (8)
-      - DE_9025 @WangCai_1 (2)
-      - DE_9025 @WangCai_1 (6)
-      - DE_9018 @WangCai_1 (7)
-      - DE_9043 @WangCai_1 (8)
-      - DE_9093 @WangCai_1 (1)
-      - DE_9098 @WangCai_1 (16)
-      - DE_9079 @WangCai_1 (1)
-      - DE_9018 @WangCai_1 (2)
-      - DE_9043 @WangCai_1 (5)
-      - DE_9025 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (5)
-      - DE_9006 @WangCai_1 (8)
-      - DE_9005 @WangCai_1 (3)
-      - DE_9079 @WangCai_1 (5)
-      - DE_9005 @WangCai_1 (16)
-      - DE_9070 @WangCai_1 (16)
-      - DE_9011 @WangCai_1 (7)
-      - DE_9037 @WangCai_1 (7)
-      - DE_9026 @WangCai_1 (7)
-      - DE_9027 @WangCai_1
-      - DE_9038 @WangCai_1 (1)
-      - DE_9053 @WangCai_1 (3)
-      - DE_9057 @WangCai_1 (16)
-      - DE_9000 @WangCai_1 (3)
-      - DE_9084 @WangCai_1 (3)
-      - DE_9037 @WangCai_1 (6)
-      - DE_9070 @WangCai_1 (8)
-      - DE_9046 @WangCai_1 (8)
-      - DE_9000 @WangCai_1 (5)
-      - DE_9003 @WangCai_1 (1)
-      - DE_9003 @WangCai_1 (6)
-      - DE_9027 @WangCai_1 (2)
-      - DE_9020 @WangCai_1 (8)
-      - DE_9008 @WangCai_1 (5)
-      - DE_9079 @WangCai_1 (6)
-      - DE_9057 @WangCai_1
-      - DE_9001 @WangCai_1
-      - DE_9007 @WangCai_1 (7)
-      - DE_9031 @WangCai_1
-      - DE_9020 @WangCai_1 (1)
-      - DE_9045 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (16)
-      - DE_9033 @WangCai_1 (8)
-      - DE_9060 @WangCai_1 (3)
-      - DE_9018 @WangCai_1 (5)
-      - DE_9007 @WangCai_1 (6)
-      - DE_9057 @WangCai_1 (2)
-      - DE_9079 @WangCai_1 (3)
-      - DE_9007 @WangCai_1
-      - DE_9098 @WangCai_1 (6)
-      - DE_9042 @WangCai_1 (2)
-      - DE_9042 @WangCai_1 (6)
-      - DE_9088 @WangCai_1 (6)
-      - DE_9015 @WangCai_1 (6)
-      - DE_9010 @WangCai_1 (6)
-      - DE_9008 @WangCai_1 (16)
-      - DE_9015 @WangCai_1 (2)
-      - DE_9073 @WangCai_1 (8)
-      - DE_9015 @WangCai_1 (7)
-      - DE_9005 @WangCai_1
-      - DE_9042 @WangCai_1 (7)
-      - SG_9032 @WangCai_1 (2)
-      - SG_9064 @WangCai_1 (3)
-      - SG_9093 @WangCai_1 (2)
-      - SG_9025 @WangCai_1 (3)
-      - SG_9045 @WangCai_1 (3)
-      - SG_9050 @WangCai_1 (2)
-      - SG_9008 @WangCai_1 (3)
-      - SG_9014 @WangCai_1 (3)
-      - AU_12
-      - SG_9020 @WangCai_1 (3)
-      - SG_9079 @WangCai_1 (3)
-      - SG_9015 @WangCai_1 (3)
-      - SG_9059 @WangCai_1 (2)
-      - SG_9000 @WangCai_1 (3)
-      - SG_9043 @WangCai_1 (3)
-      - SG_9084 @WangCai_1 (3)
-      - SG_9038 @WangCai_1 (2)
-      - SG_9007 @WangCai_1 (3)
-      - SG_9040 @WangCai_1 (3)
-      - SG_9037 @WangCai_1 (3)
-      - SG_9011 @WangCai_1 (3)
-      - SG_9094 @WangCai_1 (2)
-      - SG_9070 @WangCai_1 (2)
-      - SG_9033 @WangCai_1 (2)
-      - SG_9019 @WangCai_1 (2)
-      - :澳大利亚-ss-185.167.116.38:9007-可用-直连-仅支持澳大利亚地区NF自制剧
-      - SG_9003 @WangCai_1 (3)
-      - SG_9018 @WangCai_1 (3)
-      - SG_9042 @WangCai_1 (3)
-      - SG_9060 @WangCai_1 (2)
-      - SG_9088 @WangCai_1 (3)
-      - :中国-ss-14.29.124.168:25266-可用-直连-完全不支持NF
-      - CN_油管 TG 8度科技
-      - :中国-ss-14.29.124.168:25231-可用-直连-完全不支持NF
-      - _441 | 4.57Mb
-      - CN_91
-      - :中国-ss-14.29.124.168:25230-可用-直连-完全不支持NF
-      - SG_9098 @WangCai_1 (3)
-      - SG_9057 @WangCai_1 (3)
+      - EXTM3U-香港-nf-iplc
+      - CN_44
+      - CN_45
+      - 台湾(欢迎订阅Youtube破解资源君)
+      - V1-#202_IPLC-深圳-台湾_NF_x4_0_V2ray_253
+      - V1-#310_IPLC-深圳-香港BGP_NF_x4_0_V2ray_259
+      - EXTM3U-SG-nf-iplc
+      - vpnhat-日本-nf
+      - IR_615 |49.42Mb
+      - _法国_YouTubeVV科技_46
+      - EXTM3U-香港-nf-iplc 2
+      - _US_美国
+      - _US_美国 2
+      - V3-#322_广东-台湾_NF_x2_0_V2ray_268
+      - _US_美国 3
+      - _US_美国 4
+      - _US_美国 5
+      - _US_美国 6
+      - _US_美国 7
+      - _US_美国 8
+      - _US_美国 9
+      - _CA_加拿大
+      - _US_美国 10
+      - _CA_加拿大 2
+      - _US_美国 11
+      - 美国(欢迎订阅Youtube破解资源君)
+      - _US_美国 12
+      - V3-#319_广东-台湾_NF_x2_0_V2ray_265
+      - _US_美国 13
+      - _US_美国 14
+      - _US_美国 15
+      - github.com/freefq+-+北美地区++16
+      - _US_美国 16
+      - _CA_加拿大 3
+      - _CA_加拿大 4
+      - _CA_加拿大 5
+      - EXTM3U-香港-nf-iplc 3
+      - _US_美国 17
+      - _US_美国 18
+      - _US_美国 19
+      - _US_美国 20
+      - _US_美国 21
+      - _US_美国 22
+      - _CA_加拿大 6
+      - _US_美国 23
+      - _CA_加拿大 7
+      - _US_美国 24
+      - _US_美国 25
+      - _US_美国 26
+      - _CA_加拿大 8
+      - NL_363
+      - _CA_加拿大 9
+      - _US_美国 27
+      - _US_美国 28
+      - _US_美国 29
+      - _US_美国 30
+      - _US_美国 31
+      - _US_美国 32
+      - V1-#307_IPLC-深圳-香港HKT_NF_x4_0_V2ray_256
+      - V1-#306_IPLC-深圳-香港HKT_NF_x4_0_V2ray_255
+      - EXTM3U-台湾-nf-iplc
+      - V1-#309_IPLC-深圳-香港BGP_NF_x4_0_V2ray_258
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - vpnpool-香港HKT-nf
+      - CN_油管+TG+8度科技
+      - V3-#320_广东-台湾_NF_x2_0_V2ray_266
+      - vpnpool-香港HKT
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - V2-#238_广东-香港HKT_NF_x1_5_V2ray_277
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
+      - 美国(欢迎订阅Youtube破解资源君) 2
+      - EXTM3U-香港HKT-nf-iplc
+      - vpnpool-香港HKT-nf 2
+      - V3-#23_广东-香港HKBN_NF_x1_5_V2ray_285
+      - 美国(欢迎订阅Youtube破解资源君) 3
+      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
       - 加拿大(yudou66_com玉豆分享)_18
-      - RU_16509+@WangCai_1
-      - AU_15
-      - AU_10
-      - AU_18
-      - :澳大利亚-ss-185.167.116.38:9005-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_14
-      - AU_03
-      - AU_05
-      - AU_16
-      - AU_35
-      - AU_40
-      - AU_79
-      - :澳大利亚-ss-185.167.116.38:9033-可用-直连-仅支持澳大利亚地区NF自制剧
-      - :澳大利亚-ss-185.167.116.38:9057-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_06
-      - AU_11
-      - DE_9042 @WangCai_1 (4)
-      - 美国-BGP-K
-      - 美国-BGP-N
-      - 俄罗斯-BGP
-      - :澳大利亚-ss-185.167.116.38:9006-可用-直连-仅支持澳大利亚地区NF自制剧
-      - AU_38
-      - :俄罗斯-ss-5.183.179.145:9010-可用-直连-解锁德国地区NF非自制剧
-      - DE_9064 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9031-可用-直连-解锁德国地区NF非自制剧
-      - :俄罗斯-ss-5.183.179.145:9040-可用-直连-解锁德国地区NF非自制剧
-      - DE_9088 @WangCai_1 (4)
-      - :俄罗斯-ss-5.183.179.145:9070-可用-直连-解锁德国地区NF非自制剧
-      - DE_9026 @WangCai_1 (4)
-      - DE_9027 @WangCai_1 (3)
-      - RU_218
-      - RU_259
-      - RU_261
-      - DE_9037 @WangCai_1 (4)
-      - DE_9025 @WangCai_1 (4)
-      - DE_9053 @WangCai_1 (4)
-      - :俄罗斯-ss-217.30.10.63:9098-可用-直连-仅支持波兰地区NF自制剧
-      - RU_231
-      - RU_256
-      - :中国-ss-101.91.121.247:50004-可用-直连-完全不支持NF
-      - RU_260
-      - SG_9027 @WangCai_1 (5)
-      - RU_222
-      - RU_232
-      - RU_233
-      - SG_9042 @WangCai_1 (5)
-      - KR_46196+@WangCai_1
-      - KR_46199+@WangCai_1
-      - RU_220
-      - KR_21000+@WangCai_1
-      - KR_46194+@WangCai_1
-      - KR_46195+@WangCai_1
-      - KR_46198+@WangCai_1
-      - KR_46193+@WangCai_1
-      - SG_9011 @WangCai_1 (5)
-      - SG_9001 @WangCai_1 (5)
-      - KR_46197+@WangCai_1
+      - 28美国∞直连
+      - LT_269
+      - _581+|10.36Mb
+      - LT_261
+      - 香港节点2(免费)倍率(x0.01)
+      - LT_274
+      - NL_372
+      - LT_270
+      - LT_315
+      - :俄罗斯-ssr-213.183.53.200:9031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - :俄罗斯-ssr-213.183.53.177:9020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
+      - LT_251
+      - LT_290
+      - LT_319
+      - SG_9079+@WangCai_1+(3)
 rules:
  - DOMAIN-SUFFIX,local,🎯 全球直连
  - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
