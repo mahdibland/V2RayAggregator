@@ -5,327 +5,255 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25231, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_油管+TG+8度科技, server: 14.29.124.168, port: 25218, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25230, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用), server: 14.29.124.168, port: 25266, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2, server: 101.91.121.247, port: 50004, type: ss, cipher: aes-256-cfb, password: !<str> 4415934295, udp: true}
-  - {name: LT_290, server: 213.183.53.177, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: CN, server: cn1.iepl.starlink.st, port: 50600, type: ss, cipher: aes-128-gcm, password: ced52354-bec2-4209-9121-b57d3dfb59e9, udp: true}
-  - {name: CN 2, server: 14.29.124.168, port: 25235, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN 3, server: cn1.iepl.starlink.st, port: 50500, type: ss, cipher: aes-128-gcm, password: ced52354-bec2-4209-9121-b57d3dfb59e9, udp: true}
-  - {name: CN 4, server: 14.29.124.168, port: 25217, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN 5, server: 14.29.124.168, port: 25279, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN 6, server: cn1.iepl.starlink.st, port: 50300, type: ss, cipher: aes-128-gcm, password: ced52354-bec2-4209-9121-b57d3dfb59e9, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 3, server: 169.197.142.99, port: 8091, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 4, server: www.seetheworldjp.ga, port: 443, type: trojan, password: f42e1a2e-e650-44f4-8d17-bcb68663da18, sni: www.seetheworldjp.ga, skip-cert-verify: true, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:), server: sg1.31vpn.com, port: 443, type: vmess, uuid: dce4c472-6f3f-4c45-80e5-cbfe5ecad7ee, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /fastssh/bddasdf/624e71635ed8e/, ws-headers: {Host: sg1.31vpn.com}, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 2, server: 104.166.135.10, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, alterId: 4, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ws, ws-headers: {Host: 104.166.135.10}, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 5, server: 134.195.198.252, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 3, server: in-v1.sdgdn.com, port: 50207, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: in-v1.sdgdn.com}, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 6, server: www.ggchk.ga, port: 443, type: trojan, password: 4ae98d26-b209-4dd5-8e91-bf11d4f10801, sni: www.ggchk.ga, skip-cert-verify: true, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 4, server: 49.234.158.14, port: 10909, type: vmess, uuid: c3082e6f-37b2-41b6-b40a-1063bc8e2853, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 5, server: us1.31vpn.com, port: 80, type: vmess, uuid: bb4b9e95-c9ff-411c-9a47-483570e169aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /fastssh/remaoqi/624ca41d72e6d/, ws-headers: {Host: us1.31vpn.com}, udp: true}
-  - {name: github.com/freefq - 新加坡DigitalOcean数据中心 12, server: sg1.31vpn.com, port: 80, type: vmess, uuid: a9481600-ef36-402a-a0e5-5547bfd7b87c, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /fastssh/ppdt/624dde181c76e/, ws-headers: {Host: sg1.31vpn.com}, udp: true}
-  - {name: github.com/freefq - 新加坡DigitalOcean数据中心 26, server: sg1.31vpn.com, port: 80, type: vmess, uuid: 9dc0c6aa-39a1-46be-9938-85999e3c3498, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /fastssh/ccvcxds/6252624d4fda3/, ws-headers: {Host: sg1.31vpn.com}, udp: true}
+  - {name: "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_13", server: in02.dns2333.xyz, port: 63041, type: vmess, uuid: e701a942-fba5-3381-b15e-2838689b9c23, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /mg, ws-headers: {Host: in02.dns2333.xyz}, udp: true}
+  - {name: "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_16", server: in03.dns2333.xyz, port: 63014, type: vmess, uuid: e701a942-fba5-3381-b15e-2838689b9c23, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /mg, ws-headers: {Host: in03.dns2333.xyz}, udp: true}
+  - {name: "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_18", server: 120.240.48.19, port: 38106, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: 120.240.48.19}, udp: true}
+  - {name: "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_5", server: in02.dns2333.xyz, port: 63014, type: vmess, uuid: e701a942-fba5-3381-b15e-2838689b9c23, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /mg, ws-headers: {Host: in02.dns2333.xyz}, udp: true}
+  - {name: _159.48Mb, server: 45.32.94.166, port: 31676, type: vmess, uuid: 6f3ec45c-5283-40e8-aea9-7749f4c75753, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: http, http-opts: {method: GET, path: [/], headers: {Host: [45.32.94.166]}}, udp: true}
+  - {name: -GB-0415-恢复更新, server: 152.89.210.84, port: 9079, type: ss, cipher: aes-256-cfb, password: TPqX8edgbAURcAMb, udp: true}
+  - {name: -GB-0415-恢复更新 2, server: 152.89.210.84, port: 9024, type: ss, cipher: aes-256-cfb, password: BejrQvtu9sqUeNuZ, udp: true}
   - {name: github.com/freefq - 湖南省长沙市电信 27, server: in-v1.sdgdn.com, port: 50301, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: in-v1.sdgdn.com}, udp: true}
+  - {name: github.com/freefq - 美国Microsoft数据中心 20, server: hkmf1.speedcncnforward2.tk, port: 10004, type: trojan, password: 04d83e9e-d6ff-49ca-9c32-082b9b9c9c54, sni: hkmf1.speedcncnforward2.tk, skip-cert-verify: true, udp: true}
   - {name: github.com/freefq - 上海市电信 28, server: ingress-i1.onebox6.org, port: 38106, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: www.ivpnpro.net}, udp: true}
-  - {name: github.com/freefq - 北美地区  34, server: 104.166.135.10, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, alterId: 4, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ws, ws-headers: {Host: ahdaeph8.com}, udp: true}
-  - {name: 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25245, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25289, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25287, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_06, server: 14.29.124.168, port: 25210, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: github.com/freefq - 新加坡DigitalOcean数据中心 26, server: sg1.31vpn.com, port: 80, type: vmess, uuid: 9dc0c6aa-39a1-46be-9938-85999e3c3498, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /fastssh/ccvcxds/6252624d4fda3/, ws-headers: {Host: sg1.31vpn.com}, udp: true}
+  - {name: HK-Openit.ml, server: azhk.node.qchwnd.moe, port: 443, type: trojan, password: 2647cdac-aa5c-4955-a13b-b66793cf48cd, sni: azhk.node.qchwnd.moe, skip-cert-verify: true, udp: true}
+  - {name: HK-Openit.ml 2, server: api.tcpbbr.net, port: 443, type: trojan, password: 283695dc-fcc8-11ea-8684-f23c913c8d2b, sni: api.tcpbbr.net, skip-cert-verify: true, udp: true}
+  - {name: HK-Openit.ml 3, server: ssl.tcpbbr.net, port: 443, type: trojan, password: 5a3d9b78-cb5b-11ea-82ef-f23c9164ca5d, sni: ssl.tcpbbr.net, skip-cert-verify: true, udp: true}
+  - {name: ID-Openit.ml, server: id2-trojan.bonds.id, port: 443, type: trojan, password: 8d4ab0f0-79be-11eb-be0b-1239d0255272, sni: id2-trojan.bonds.id, skip-cert-verify: true, udp: true}
+  - {name: IN-Openit.ml, server: in-am2.eqnode.net, port: 8080, type: ssr, cipher: aes-256-cfb, password: fD0KP8PWA, protocol: origin, obfs: tls1.2_ticket_auth, protocol-param: "", obfs-param: "", udp: true}
+  - {name: JP-Openit.ml, server: tw.softbank.mjj-home.com, port: 443, type: trojan, password: share.mjj-home.com, sni: tw.softbank.mjj-home.com, skip-cert-verify: true, udp: true}
+  - {name: JP-Openit.ml 2, server: tky3.ssgnode.ga, port: 443, type: trojan, password: 82a115db-6e59-4319-9730-8f5638908d59YWVzLTI1Ni1nY2023115_5a451f03, sni: tky3.ssgnode.ga, skip-cert-verify: true, udp: true}
   - {name: Relay_🇨🇳CN-🇨🇦CA_10, server: in-v1.sdgdn.com, port: 50205, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: telegram.channel.ripaojiedian}, udp: true}
   - {name: Relay_🇨🇳CN-🇨🇦CA_13, server: in-v1.sdgdn.com, port: 50206, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: telegram.channel.p2psharing}, udp: true}
   - {name: Relay_🇨🇳CN-🇨🇦CA_17, server: in-v1.sdgdn.com, port: 50701, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: telegram.channel.ripaojiedian}, udp: true}
-  - {name: Relay_🇸🇬SG-🇨🇦CA_27, server: sg1.31vpn.com, port: 80, type: vmess, uuid: dce4c472-6f3f-4c45-80e5-cbfe5ecad7ee, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /fastssh/bddasdf/624e71635ed8e/, ws-headers: {Host: sg1.31vpn.com}, udp: true}
-  - {name: CN_36, server: in-v1.sdgdn.com, port: 50206, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: in-v1.sdgdn.com}, udp: true}
+  - {name: Relay_美国-_879, server: 029.NA.POP.BIGAIRPORT.NET, port: 12356, type: vmess, uuid: c899fb95-cc39-4f3a-a882-36b70d4bef0f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: 029.NA.POP.BIGAIRPORT.NET}, udp: true}
   - {name: Relay_中国-加拿大_482, server: in-v1.sdgdn.com, port: 50701, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: in-v1.sdgdn.com}, udp: true}
   - {name: Relay_中国-加拿大_492, server: in-v1.sdgdn.com, port: 50205, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: in-v1.sdgdn.com}, udp: true}
-  - {name: tg@nfeng6+202, server: 14.29.124.168, port: 25295, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+190, server: 14.29.124.168, port: 25219, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+193, server: 14.29.124.168, port: 25259, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+207, server: 14.29.124.168, port: 25252, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+191, server: 14.29.124.168, port: 25296, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+200, server: 14.29.124.168, port: 25247, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+206, server: 14.29.124.168, port: 25297, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+195, server: 14.29.124.168, port: 25286, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: T.04.台湾.中继3.動畫瘋, server: cscu.wecanfly.top, port: 51132, type: trojan, password: 5eaea1b9-b977-3391-b7cb-370addb40ce2, sni: cscu.wecanfly.top, skip-cert-verify: true, udp: true}
+  - {name: RU-Openit.ml, server: 213.183.53.200, port: 9033, type: ss, cipher: aes-256-cfb, password: UTJA57ypk2XKQpnm, udp: true}
+  - {name: SG-Openit.ml, server: sgp.xrenblog.com, port: 18888, type: vmess, uuid: 6731a7a4-cac0-4218-d3e7-a4fe8c933b5a, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /xrenblog, ws-headers: {Host: sgp.xrenblog.com}, udp: true}
+  - {name: SG-Openit.ml 2, server: 184.168.127.50, port: 443, type: trojan, password: a3fa58b581353bb375d2ddad0f327938, skip-cert-verify: true, udp: true}
+  - {name: SG-Openit.ml 3, server: sg1-trojan.bonds.id, port: 443, type: trojan, password: 5c5ceb40-902b-11eb-945a-1239d0255272, sni: sg1-trojan.bonds.id, skip-cert-verify: true, udp: true}
+  - {name: SG-v2cross.com, server: sg1.31vpn.com, port: 443, type: vmess, uuid: 9dc0c6aa-39a1-46be-9938-85999e3c3498, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /fastssh/ccvcxds/6252624d4fda3/, ws-headers: {Host: sg1.31vpn.com}, udp: true}
   - {name: T.04.台湾.中继1.動畫瘋, server: t1.wecanfly.top, port: 51133, type: trojan, password: 5eaea1b9-b977-3391-b7cb-370addb40ce2, sni: t1.wecanfly.top, skip-cert-verify: true, udp: true}
+  - {name: T.04.台湾.中继3.動畫瘋, server: cscu.wecanfly.top, port: 51132, type: trojan, password: 5eaea1b9-b977-3391-b7cb-370addb40ce2, sni: cscu.wecanfly.top, skip-cert-verify: true, udp: true}
   - {name: T.07.法国.中继2, server: t2.doggogogo.top, port: 50207, type: trojan, password: 5eaea1b9-b977-3391-b7cb-370addb40ce2, sni: t2.doggogogo.top, skip-cert-verify: true, udp: true}
-  - {name: 韩国(绿头外网集团)(Public), server: cn1.iepl.starlink.st, port: 50400, type: ss, cipher: aes-128-gcm, password: ced52354-bec2-4209-9121-b57d3dfb59e9, udp: true}
-  - {name: _中国_YouTubeVV科技_27, server: fsyd.wecanfly.top, port: 51133, type: trojan, password: 5eaea1b9-b977-3391-b7cb-370addb40ce2, sni: fsyd.wecanfly.top, skip-cert-verify: true, udp: true}
-  - {name: CN 7, server: 14.29.124.168, port: 25270, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN 8, server: 14.29.124.168, port: 25220, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 6, server: ingress-i1.onebox6.org, port: 38106, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: ingress-i1.onebox6.org}, udp: true}
-  - {name: 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 7, server: 169.197.142.99, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM, udp: true}
-  - {name: 美国-ss-169.197.142.999102-可用-直连-仅支持加拿大地区NF自制剧, server: 169.197.142.99, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY, udp: true}
-  - {name: ZZ_72, server: 169.197.142.99, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
-  - {name: ZZ_77, server: 169.197.142.99, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG, udp: true}
-  - {name: ZZ_78, server: 169.197.142.99, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN, udp: true}
-  - {name: Relay_🇹🇷TR-🇹🇷TR_37, server: za02.holiganfan.com, port: 10088, type: trojan, password: 8c0a7502-0343-43d4-8551-030668fceab1, sni: za02.holiganfan.com, skip-cert-verify: true, udp: true}
-  - {name: 欧洲, server: v2ray.ifuckgfw.ga, port: 8443, type: vmess, uuid: ef20236c-b3c3-11ec-876b-5254001b7b42, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /yUxLk70F/, ws-headers: {Host: v2ray.ifuckgfw.ga}, udp: true}
-  - {name: CN_37, server: 49.234.158.14, port: 10909, type: vmess, uuid: c3082e6f-37b2-41b6-b40a-1063bc8e2853, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: 欧洲 2, server: v2ray.ifuckgfw.ga, port: 8443, type: vmess, uuid: f40c594a-b3c3-11ec-876b-5254001b7b42, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /yUxLk70F/, ws-headers: {Host: v2ray.ifuckgfw.ga}, udp: true}
-  - {name: 美国-Openit.ml, server: 45.32.94.166, port: 31676, type: vmess, uuid: 6f3ec45c-5283-40e8-aea9-7749f4c75753, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: http, http-opts: {method: GET, path: [/], headers: {Host: [45.32.94.166]}}, udp: true}
-  - {name: 欧洲 3, server: v2ray.ifuckgfw.ga, port: 8443, type: vmess, uuid: ecb634c2-b3c3-11ec-876b-5254001b7b42, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /yUxLk70F/, ws-headers: {Host: v2ray.ifuckgfw.ga}, udp: true}
-  - {name: _159.48Mb, server: 45.32.94.166, port: 31676, type: vmess, uuid: 6f3ec45c-5283-40e8-aea9-7749f4c75753, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: http, http-opts: {method: GET, path: [/], headers: {Host: [45.32.94.166]}}, udp: true}
-  - {name: LT_315, server: 213.183.53.177, port: 9084, type: ss, cipher: aes-256-cfb, password: c3NtHJ5ujV2tGDfj, udp: true}
-  - {name: 俄罗斯-ssr-213.183.53.2009031-可用-直连-仅支持俄罗斯联邦地区NF自制剧, server: 213.183.53.200, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: 俄罗斯-ssr-213.183.53.1779020-可用-直连-仅支持俄罗斯联邦地区NF自制剧, server: 213.183.53.177, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: LT_290 2, server: 213.183.53.177, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: LT_319, server: 213.183.53.177, port: 9011, type: ss, cipher: aes-256-cfb, password: M3t2ZEQcMGRWBjRa, udp: true}
-  - {name: HK011, server: 120.233.10.230, port: 50400, type: ss, cipher: aes-128-gcm, password: ced52354-bec2-4209-9121-b57d3dfb59e9, udp: true}
-  - {name: HK022, server: 120.233.10.230, port: 50300, type: ss, cipher: aes-128-gcm, password: ced52354-bec2-4209-9121-b57d3dfb59e9, udp: true}
-  - {name: tg@nfeng6+194, server: 14.29.124.168, port: 25294, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+192, server: 14.29.124.168, port: 25283, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: 俄罗斯RU+75+*hi-moon.pw, server: 213.183.53.177, port: 9005, type: ss, cipher: aes-256-cfb, password: ZET59LF6DvCC8KVt, udp: true}
   - {name: T.07.法国.中继3, server: cscu.wecanfly.top, port: 50207, type: trojan, password: 5eaea1b9-b977-3391-b7cb-370addb40ce2, sni: cscu.wecanfly.top, skip-cert-verify: true, udp: true}
+  - {name: tg@nfeng6 196, server: 14.29.124.168, port: 25238, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+190, server: 14.29.124.168, port: 25219, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+191, server: 14.29.124.168, port: 25296, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+192, server: 14.29.124.168, port: 25283, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+193, server: 14.29.124.168, port: 25259, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+194, server: 14.29.124.168, port: 25294, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+195, server: 14.29.124.168, port: 25286, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+200, server: 14.29.124.168, port: 25247, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+202, server: 14.29.124.168, port: 25295, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+206, server: 14.29.124.168, port: 25297, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: TW, server: 330tw.fans8.xyz, port: 443, type: vmess, uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c, alterId: 2, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ray, ws-headers: {Host: 330tw.fans8.xyz}, udp: true}
+  - {name: TW-Openit.ml, server: tw.tcpbbr.net, port: 443, type: trojan, password: 283695dc-fcc8-11ea-8684-f23c913c8d2b, sni: tw.tcpbbr.net, skip-cert-verify: true, udp: true}
+  - {name: TW-Openit.ml 2, server: tw.tcpbbr.net, port: 443, type: trojan, password: b155c2a4-ee79-11eb-a8bf-f23c91cfbbc9, sni: tw.tcpbbr.net, skip-cert-verify: true, udp: true}
+  - {name: US-Openit.ml, server: v.9051246.xyz, port: 443, type: trojan, password: !<str> 18825786, sni: v.9051246.xyz, skip-cert-verify: true, udp: true}
+  - {name: US-Openit.ml 2, server: us-trojan.bonds.id, port: 443, type: trojan, password: 38239dd0-902b-11eb-afc1-1239d0255272, sni: us-trojan.bonds.id, skip-cert-verify: true, udp: true}
+  - {name: US-Openit.ml 3, server: api.mjj-home.com, port: 443, type: trojan, password: share.mjj-home.com, sni: api.mjj-home.com, skip-cert-verify: true, udp: true}
+  - {name: 俄罗斯RU+75+*hi-moon.pw, server: 213.183.53.177, port: 9005, type: ss, cipher: aes-256-cfb, password: ZET59LF6DvCC8KVt, udp: true}
+  - {name: 美国, server: tky.xrenblog.com, port: 18888, type: vmess, uuid: b51eb7f5-1d97-48fb-d344-9d774f9422df, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /xrenblog, ws-headers: {Host: tky.xrenblog.com}, udp: true}
+  - {name: 美国_2012, server: 023.AP.POP.BIGAIRPORT.NET, port: 12356, type: vmess, uuid: c899fb95-cc39-4f3a-a882-36b70d4bef0f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: 023.AP.POP.BIGAIRPORT.NET}, udp: true}
+  - {name: 日本节点(免费)倍率0x不消耗流量), server: rbmf.speedcncnforward3.tk, port: 10004, type: trojan, password: eb40a3f4-3b04-4a1c-993d-d71b44fee92c, sni: rbmf.speedcncnforward3.tk, skip-cert-verify: true, udp: true}
+  - {name: 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25230, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25231, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25245, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25287, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF, server: 14.29.124.168, port: 25289, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
-      - CN_油管+TG+8度科技
-      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
-      - LT_290
-      - CN
-      - CN 2
-      - CN 3
-      - CN 4
-      - CN 5
-      - CN 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 2
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 5
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 5
-      - github.com/freefq - 新加坡DigitalOcean数据中心 12
-      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_13"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_16"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_18"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_5"
+      - _159.48Mb
+      - -GB-0415-恢复更新
+      - -GB-0415-恢复更新 2
       - github.com/freefq - 湖南省长沙市电信 27
+      - github.com/freefq - 美国Microsoft数据中心 20
       - github.com/freefq - 上海市电信 28
-      - github.com/freefq - 北美地区  34
-      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
-      - CN_06
+      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - HK-Openit.ml
+      - HK-Openit.ml 2
+      - HK-Openit.ml 3
+      - ID-Openit.ml
+      - IN-Openit.ml
+      - JP-Openit.ml
+      - JP-Openit.ml 2
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇸🇬SG-🇨🇦CA_27
-      - CN_36
+      - Relay_美国-_879
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - tg@nfeng6+202
-      - tg@nfeng6+190
-      - tg@nfeng6+193
-      - tg@nfeng6+207
-      - tg@nfeng6+191
-      - tg@nfeng6+200
-      - tg@nfeng6+206
-      - tg@nfeng6+195
-      - T.04.台湾.中继3.動畫瘋
+      - RU-Openit.ml
+      - SG-Openit.ml
+      - SG-Openit.ml 2
+      - SG-Openit.ml 3
+      - SG-v2cross.com
       - T.04.台湾.中继1.動畫瘋
+      - T.04.台湾.中继3.動畫瘋
       - T.07.法国.中继2
-      - 韩国(绿头外网集团)(Public)
-      - _中国_YouTubeVV科技_27
-      - CN 7
-      - CN 8
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 7
-      - 美国-ss-169.197.142.999102-可用-直连-仅支持加拿大地区NF自制剧
-      - ZZ_72
-      - ZZ_77
-      - ZZ_78
-      - Relay_🇹🇷TR-🇹🇷TR_37
-      - 欧洲
-      - CN_37
-      - 欧洲 2
-      - 美国-Openit.ml
-      - 欧洲 3
-      - _159.48Mb
-      - LT_315
-      - 俄罗斯-ssr-213.183.53.2009031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - 俄罗斯-ssr-213.183.53.1779020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - LT_290 2
-      - LT_319
-      - HK011
-      - HK022
-      - tg@nfeng6+194
-      - tg@nfeng6+192
-      - 俄罗斯RU+75+*hi-moon.pw
       - T.07.法国.中继3
+      - tg@nfeng6 196
+      - tg@nfeng6+190
+      - tg@nfeng6+191
+      - tg@nfeng6+192
+      - tg@nfeng6+193
+      - tg@nfeng6+194
+      - tg@nfeng6+195
+      - tg@nfeng6+200
+      - tg@nfeng6+202
+      - tg@nfeng6+206
+      - TW
+      - TW-Openit.ml
+      - TW-Openit.ml 2
+      - US-Openit.ml
+      - US-Openit.ml 2
+      - US-Openit.ml 3
+      - 俄罗斯RU+75+*hi-moon.pw
+      - 美国
+      - 美国_2012
+      - 日本节点(免费)倍率0x不消耗流量)
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
-      - CN_油管+TG+8度科技
-      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
-      - LT_290
-      - CN
-      - CN 2
-      - CN 3
-      - CN 4
-      - CN 5
-      - CN 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 2
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 5
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 5
-      - github.com/freefq - 新加坡DigitalOcean数据中心 12
-      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_13"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_16"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_18"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_5"
+      - _159.48Mb
+      - -GB-0415-恢复更新
+      - -GB-0415-恢复更新 2
       - github.com/freefq - 湖南省长沙市电信 27
+      - github.com/freefq - 美国Microsoft数据中心 20
       - github.com/freefq - 上海市电信 28
-      - github.com/freefq - 北美地区  34
-      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
-      - CN_06
+      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - HK-Openit.ml
+      - HK-Openit.ml 2
+      - HK-Openit.ml 3
+      - ID-Openit.ml
+      - IN-Openit.ml
+      - JP-Openit.ml
+      - JP-Openit.ml 2
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇸🇬SG-🇨🇦CA_27
-      - CN_36
+      - Relay_美国-_879
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - tg@nfeng6+202
-      - tg@nfeng6+190
-      - tg@nfeng6+193
-      - tg@nfeng6+207
-      - tg@nfeng6+191
-      - tg@nfeng6+200
-      - tg@nfeng6+206
-      - tg@nfeng6+195
-      - T.04.台湾.中继3.動畫瘋
+      - RU-Openit.ml
+      - SG-Openit.ml
+      - SG-Openit.ml 2
+      - SG-Openit.ml 3
+      - SG-v2cross.com
       - T.04.台湾.中继1.動畫瘋
+      - T.04.台湾.中继3.動畫瘋
       - T.07.法国.中继2
-      - 韩国(绿头外网集团)(Public)
-      - _中国_YouTubeVV科技_27
-      - CN 7
-      - CN 8
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 7
-      - 美国-ss-169.197.142.999102-可用-直连-仅支持加拿大地区NF自制剧
-      - ZZ_72
-      - ZZ_77
-      - ZZ_78
-      - Relay_🇹🇷TR-🇹🇷TR_37
-      - 欧洲
-      - CN_37
-      - 欧洲 2
-      - 美国-Openit.ml
-      - 欧洲 3
-      - _159.48Mb
-      - LT_315
-      - 俄罗斯-ssr-213.183.53.2009031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - 俄罗斯-ssr-213.183.53.1779020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - LT_290 2
-      - LT_319
-      - HK011
-      - HK022
-      - tg@nfeng6+194
-      - tg@nfeng6+192
-      - 俄罗斯RU+75+*hi-moon.pw
       - T.07.法国.中继3
+      - tg@nfeng6 196
+      - tg@nfeng6+190
+      - tg@nfeng6+191
+      - tg@nfeng6+192
+      - tg@nfeng6+193
+      - tg@nfeng6+194
+      - tg@nfeng6+195
+      - tg@nfeng6+200
+      - tg@nfeng6+202
+      - tg@nfeng6+206
+      - TW
+      - TW-Openit.ml
+      - TW-Openit.ml 2
+      - US-Openit.ml
+      - US-Openit.ml 2
+      - US-Openit.ml 3
+      - 俄罗斯RU+75+*hi-moon.pw
+      - 美国
+      - 美国_2012
+      - 日本节点(免费)倍率0x不消耗流量)
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
   - name: 🎥 NETFLIX
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
-      - CN_油管+TG+8度科技
-      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
-      - LT_290
-      - CN
-      - CN 2
-      - CN 3
-      - CN 4
-      - CN 5
-      - CN 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 2
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 5
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 5
-      - github.com/freefq - 新加坡DigitalOcean数据中心 12
-      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_13"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_16"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_18"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_5"
+      - _159.48Mb
+      - -GB-0415-恢复更新
+      - -GB-0415-恢复更新 2
       - github.com/freefq - 湖南省长沙市电信 27
+      - github.com/freefq - 美国Microsoft数据中心 20
       - github.com/freefq - 上海市电信 28
-      - github.com/freefq - 北美地区  34
-      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
-      - CN_06
+      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - HK-Openit.ml
+      - HK-Openit.ml 2
+      - HK-Openit.ml 3
+      - ID-Openit.ml
+      - IN-Openit.ml
+      - JP-Openit.ml
+      - JP-Openit.ml 2
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇸🇬SG-🇨🇦CA_27
-      - CN_36
+      - Relay_美国-_879
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - tg@nfeng6+202
-      - tg@nfeng6+190
-      - tg@nfeng6+193
-      - tg@nfeng6+207
-      - tg@nfeng6+191
-      - tg@nfeng6+200
-      - tg@nfeng6+206
-      - tg@nfeng6+195
-      - T.04.台湾.中继3.動畫瘋
+      - RU-Openit.ml
+      - SG-Openit.ml
+      - SG-Openit.ml 2
+      - SG-Openit.ml 3
+      - SG-v2cross.com
       - T.04.台湾.中继1.動畫瘋
+      - T.04.台湾.中继3.動畫瘋
       - T.07.法国.中继2
-      - 韩国(绿头外网集团)(Public)
-      - _中国_YouTubeVV科技_27
-      - CN 7
-      - CN 8
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 7
-      - 美国-ss-169.197.142.999102-可用-直连-仅支持加拿大地区NF自制剧
-      - ZZ_72
-      - ZZ_77
-      - ZZ_78
-      - Relay_🇹🇷TR-🇹🇷TR_37
-      - 欧洲
-      - CN_37
-      - 欧洲 2
-      - 美国-Openit.ml
-      - 欧洲 3
-      - _159.48Mb
-      - LT_315
-      - 俄罗斯-ssr-213.183.53.2009031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - 俄罗斯-ssr-213.183.53.1779020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - LT_290 2
-      - LT_319
-      - HK011
-      - HK022
-      - tg@nfeng6+194
-      - tg@nfeng6+192
-      - 俄罗斯RU+75+*hi-moon.pw
       - T.07.法国.中继3
+      - tg@nfeng6 196
+      - tg@nfeng6+190
+      - tg@nfeng6+191
+      - tg@nfeng6+192
+      - tg@nfeng6+193
+      - tg@nfeng6+194
+      - tg@nfeng6+195
+      - tg@nfeng6+200
+      - tg@nfeng6+202
+      - tg@nfeng6+206
+      - TW
+      - TW-Openit.ml
+      - TW-Openit.ml 2
+      - US-Openit.ml
+      - US-Openit.ml 2
+      - US-Openit.ml 3
+      - 俄罗斯RU+75+*hi-moon.pw
+      - 美国
+      - 美国_2012
+      - 日本节点(免费)倍率0x不消耗流量)
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
   - name: ⛔️ 广告拦截
     type: select
     proxies:
@@ -344,333 +272,265 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
-      - CN_油管+TG+8度科技
-      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
-      - LT_290
-      - CN
-      - CN 2
-      - CN 3
-      - CN 4
-      - CN 5
-      - CN 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 2
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 5
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 5
-      - github.com/freefq - 新加坡DigitalOcean数据中心 12
-      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_13"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_16"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_18"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_5"
+      - _159.48Mb
+      - -GB-0415-恢复更新
+      - -GB-0415-恢复更新 2
       - github.com/freefq - 湖南省长沙市电信 27
+      - github.com/freefq - 美国Microsoft数据中心 20
       - github.com/freefq - 上海市电信 28
-      - github.com/freefq - 北美地区  34
-      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
-      - CN_06
+      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - HK-Openit.ml
+      - HK-Openit.ml 2
+      - HK-Openit.ml 3
+      - ID-Openit.ml
+      - IN-Openit.ml
+      - JP-Openit.ml
+      - JP-Openit.ml 2
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇸🇬SG-🇨🇦CA_27
-      - CN_36
+      - Relay_美国-_879
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - tg@nfeng6+202
-      - tg@nfeng6+190
-      - tg@nfeng6+193
-      - tg@nfeng6+207
-      - tg@nfeng6+191
-      - tg@nfeng6+200
-      - tg@nfeng6+206
-      - tg@nfeng6+195
-      - T.04.台湾.中继3.動畫瘋
+      - RU-Openit.ml
+      - SG-Openit.ml
+      - SG-Openit.ml 2
+      - SG-Openit.ml 3
+      - SG-v2cross.com
       - T.04.台湾.中继1.動畫瘋
+      - T.04.台湾.中继3.動畫瘋
       - T.07.法国.中继2
-      - 韩国(绿头外网集团)(Public)
-      - _中国_YouTubeVV科技_27
-      - CN 7
-      - CN 8
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 7
-      - 美国-ss-169.197.142.999102-可用-直连-仅支持加拿大地区NF自制剧
-      - ZZ_72
-      - ZZ_77
-      - ZZ_78
-      - Relay_🇹🇷TR-🇹🇷TR_37
-      - 欧洲
-      - CN_37
-      - 欧洲 2
-      - 美国-Openit.ml
-      - 欧洲 3
-      - _159.48Mb
-      - LT_315
-      - 俄罗斯-ssr-213.183.53.2009031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - 俄罗斯-ssr-213.183.53.1779020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - LT_290 2
-      - LT_319
-      - HK011
-      - HK022
-      - tg@nfeng6+194
-      - tg@nfeng6+192
-      - 俄罗斯RU+75+*hi-moon.pw
       - T.07.法国.中继3
+      - tg@nfeng6 196
+      - tg@nfeng6+190
+      - tg@nfeng6+191
+      - tg@nfeng6+192
+      - tg@nfeng6+193
+      - tg@nfeng6+194
+      - tg@nfeng6+195
+      - tg@nfeng6+200
+      - tg@nfeng6+202
+      - tg@nfeng6+206
+      - TW
+      - TW-Openit.ml
+      - TW-Openit.ml 2
+      - US-Openit.ml
+      - US-Openit.ml 2
+      - US-Openit.ml 3
+      - 俄罗斯RU+75+*hi-moon.pw
+      - 美国
+      - 美国_2012
+      - 日本节点(免费)倍率0x不消耗流量)
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
-      - T.04.台湾.中继3.動畫瘋
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_13"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_16"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_18"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_5"
       - T.04.台湾.中继1.動畫瘋
+      - T.04.台湾.中继3.動畫瘋
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
-      - CN_油管+TG+8度科技
-      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
-      - LT_290
-      - CN
-      - CN 2
-      - CN 3
-      - CN 4
-      - CN 5
-      - CN 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 2
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 5
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 5
-      - github.com/freefq - 新加坡DigitalOcean数据中心 12
-      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_13"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_16"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_18"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_5"
+      - _159.48Mb
+      - -GB-0415-恢复更新
+      - -GB-0415-恢复更新 2
       - github.com/freefq - 湖南省长沙市电信 27
+      - github.com/freefq - 美国Microsoft数据中心 20
       - github.com/freefq - 上海市电信 28
-      - github.com/freefq - 北美地区  34
-      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
-      - CN_06
+      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - HK-Openit.ml
+      - HK-Openit.ml 2
+      - HK-Openit.ml 3
+      - ID-Openit.ml
+      - IN-Openit.ml
+      - JP-Openit.ml
+      - JP-Openit.ml 2
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇸🇬SG-🇨🇦CA_27
-      - CN_36
+      - Relay_美国-_879
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - tg@nfeng6+202
-      - tg@nfeng6+190
-      - tg@nfeng6+193
-      - tg@nfeng6+207
-      - tg@nfeng6+191
-      - tg@nfeng6+200
-      - tg@nfeng6+206
-      - tg@nfeng6+195
-      - T.04.台湾.中继3.動畫瘋
+      - RU-Openit.ml
+      - SG-Openit.ml
+      - SG-Openit.ml 2
+      - SG-Openit.ml 3
+      - SG-v2cross.com
       - T.04.台湾.中继1.動畫瘋
+      - T.04.台湾.中继3.動畫瘋
       - T.07.法国.中继2
-      - 韩国(绿头外网集团)(Public)
-      - _中国_YouTubeVV科技_27
-      - CN 7
-      - CN 8
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 7
-      - 美国-ss-169.197.142.999102-可用-直连-仅支持加拿大地区NF自制剧
-      - ZZ_72
-      - ZZ_77
-      - ZZ_78
-      - Relay_🇹🇷TR-🇹🇷TR_37
-      - 欧洲
-      - CN_37
-      - 欧洲 2
-      - 美国-Openit.ml
-      - 欧洲 3
-      - _159.48Mb
-      - LT_315
-      - 俄罗斯-ssr-213.183.53.2009031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - 俄罗斯-ssr-213.183.53.1779020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - LT_290 2
-      - LT_319
-      - HK011
-      - HK022
-      - tg@nfeng6+194
-      - tg@nfeng6+192
-      - 俄罗斯RU+75+*hi-moon.pw
       - T.07.法国.中继3
+      - tg@nfeng6 196
+      - tg@nfeng6+190
+      - tg@nfeng6+191
+      - tg@nfeng6+192
+      - tg@nfeng6+193
+      - tg@nfeng6+194
+      - tg@nfeng6+195
+      - tg@nfeng6+200
+      - tg@nfeng6+202
+      - tg@nfeng6+206
+      - TW
+      - TW-Openit.ml
+      - TW-Openit.ml 2
+      - US-Openit.ml
+      - US-Openit.ml 2
+      - US-Openit.ml 3
+      - 俄罗斯RU+75+*hi-moon.pw
+      - 美国
+      - 美国_2012
+      - 日本节点(免费)倍率0x不消耗流量)
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
-      - CN_油管+TG+8度科技
-      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
-      - LT_290
-      - CN
-      - CN 2
-      - CN 3
-      - CN 4
-      - CN 5
-      - CN 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 2
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 5
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 5
-      - github.com/freefq - 新加坡DigitalOcean数据中心 12
-      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_13"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_16"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_18"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_5"
+      - _159.48Mb
+      - -GB-0415-恢复更新
+      - -GB-0415-恢复更新 2
       - github.com/freefq - 湖南省长沙市电信 27
+      - github.com/freefq - 美国Microsoft数据中心 20
       - github.com/freefq - 上海市电信 28
-      - github.com/freefq - 北美地区  34
-      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
-      - CN_06
+      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - HK-Openit.ml
+      - HK-Openit.ml 2
+      - HK-Openit.ml 3
+      - ID-Openit.ml
+      - IN-Openit.ml
+      - JP-Openit.ml
+      - JP-Openit.ml 2
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇸🇬SG-🇨🇦CA_27
-      - CN_36
+      - Relay_美国-_879
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - tg@nfeng6+202
-      - tg@nfeng6+190
-      - tg@nfeng6+193
-      - tg@nfeng6+207
-      - tg@nfeng6+191
-      - tg@nfeng6+200
-      - tg@nfeng6+206
-      - tg@nfeng6+195
-      - T.04.台湾.中继3.動畫瘋
+      - RU-Openit.ml
+      - SG-Openit.ml
+      - SG-Openit.ml 2
+      - SG-Openit.ml 3
+      - SG-v2cross.com
       - T.04.台湾.中继1.動畫瘋
+      - T.04.台湾.中继3.動畫瘋
       - T.07.法国.中继2
-      - 韩国(绿头外网集团)(Public)
-      - _中国_YouTubeVV科技_27
-      - CN 7
-      - CN 8
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 7
-      - 美国-ss-169.197.142.999102-可用-直连-仅支持加拿大地区NF自制剧
-      - ZZ_72
-      - ZZ_77
-      - ZZ_78
-      - Relay_🇹🇷TR-🇹🇷TR_37
-      - 欧洲
-      - CN_37
-      - 欧洲 2
-      - 美国-Openit.ml
-      - 欧洲 3
-      - _159.48Mb
-      - LT_315
-      - 俄罗斯-ssr-213.183.53.2009031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - 俄罗斯-ssr-213.183.53.1779020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - LT_290 2
-      - LT_319
-      - HK011
-      - HK022
-      - tg@nfeng6+194
-      - tg@nfeng6+192
-      - 俄罗斯RU+75+*hi-moon.pw
       - T.07.法国.中继3
+      - tg@nfeng6 196
+      - tg@nfeng6+190
+      - tg@nfeng6+191
+      - tg@nfeng6+192
+      - tg@nfeng6+193
+      - tg@nfeng6+194
+      - tg@nfeng6+195
+      - tg@nfeng6+200
+      - tg@nfeng6+202
+      - tg@nfeng6+206
+      - TW
+      - TW-Openit.ml
+      - TW-Openit.ml 2
+      - US-Openit.ml
+      - US-Openit.ml 2
+      - US-Openit.ml 3
+      - 俄罗斯RU+75+*hi-moon.pw
+      - 美国
+      - 美国_2012
+      - 日本节点(免费)倍率0x不消耗流量)
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
-      - CN_油管+TG+8度科技
-      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
-      - LT_290
-      - CN
-      - CN 2
-      - CN 3
-      - CN 4
-      - CN 5
-      - CN 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 2
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 5
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 5
-      - github.com/freefq - 新加坡DigitalOcean数据中心 12
-      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_13"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_16"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_18"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_5"
+      - _159.48Mb
+      - -GB-0415-恢复更新
+      - -GB-0415-恢复更新 2
       - github.com/freefq - 湖南省长沙市电信 27
+      - github.com/freefq - 美国Microsoft数据中心 20
       - github.com/freefq - 上海市电信 28
-      - github.com/freefq - 北美地区  34
-      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
-      - CN_06
+      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - HK-Openit.ml
+      - HK-Openit.ml 2
+      - HK-Openit.ml 3
+      - ID-Openit.ml
+      - IN-Openit.ml
+      - JP-Openit.ml
+      - JP-Openit.ml 2
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇸🇬SG-🇨🇦CA_27
-      - CN_36
+      - Relay_美国-_879
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - tg@nfeng6+202
-      - tg@nfeng6+190
-      - tg@nfeng6+193
-      - tg@nfeng6+207
-      - tg@nfeng6+191
-      - tg@nfeng6+200
-      - tg@nfeng6+206
-      - tg@nfeng6+195
-      - T.04.台湾.中继3.動畫瘋
+      - RU-Openit.ml
+      - SG-Openit.ml
+      - SG-Openit.ml 2
+      - SG-Openit.ml 3
+      - SG-v2cross.com
       - T.04.台湾.中继1.動畫瘋
+      - T.04.台湾.中继3.動畫瘋
       - T.07.法国.中继2
-      - 韩国(绿头外网集团)(Public)
-      - _中国_YouTubeVV科技_27
-      - CN 7
-      - CN 8
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 7
-      - 美国-ss-169.197.142.999102-可用-直连-仅支持加拿大地区NF自制剧
-      - ZZ_72
-      - ZZ_77
-      - ZZ_78
-      - Relay_🇹🇷TR-🇹🇷TR_37
-      - 欧洲
-      - CN_37
-      - 欧洲 2
-      - 美国-Openit.ml
-      - 欧洲 3
-      - _159.48Mb
-      - LT_315
-      - 俄罗斯-ssr-213.183.53.2009031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - 俄罗斯-ssr-213.183.53.1779020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - LT_290 2
-      - LT_319
-      - HK011
-      - HK022
-      - tg@nfeng6+194
-      - tg@nfeng6+192
-      - 俄罗斯RU+75+*hi-moon.pw
       - T.07.法国.中继3
+      - tg@nfeng6 196
+      - tg@nfeng6+190
+      - tg@nfeng6+191
+      - tg@nfeng6+192
+      - tg@nfeng6+193
+      - tg@nfeng6+194
+      - tg@nfeng6+195
+      - tg@nfeng6+200
+      - tg@nfeng6+202
+      - tg@nfeng6+206
+      - TW
+      - TW-Openit.ml
+      - TW-Openit.ml 2
+      - US-Openit.ml
+      - US-Openit.ml 2
+      - US-Openit.ml 3
+      - 俄罗斯RU+75+*hi-moon.pw
+      - 美国
+      - 美国_2012
+      - 日本节点(免费)倍率0x不消耗流量)
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -686,82 +546,64 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
-      - CN_油管+TG+8度科技
-      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 2
-      - LT_290
-      - CN
-      - CN 2
-      - CN 3
-      - CN 4
-      - CN 5
-      - CN 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:)
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 2
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 5
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 3
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 4
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 5
-      - github.com/freefq - 新加坡DigitalOcean数据中心 12
-      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_13"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_16"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_18"
+      - "[04-17]|oslook|中国香港/中国台湾(CN)China/Shenzhen/(可能是中转节点)_5"
+      - _159.48Mb
+      - -GB-0415-恢复更新
+      - -GB-0415-恢复更新 2
       - github.com/freefq - 湖南省长沙市电信 27
+      - github.com/freefq - 美国Microsoft数据中心 20
       - github.com/freefq - 上海市电信 28
-      - github.com/freefq - 北美地区  34
-      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
-      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
-      - CN_06
+      - github.com/freefq - 新加坡DigitalOcean数据中心 26
+      - HK-Openit.ml
+      - HK-Openit.ml 2
+      - HK-Openit.ml 3
+      - ID-Openit.ml
+      - IN-Openit.ml
+      - JP-Openit.ml
+      - JP-Openit.ml 2
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇸🇬SG-🇨🇦CA_27
-      - CN_36
+      - Relay_美国-_879
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - tg@nfeng6+202
-      - tg@nfeng6+190
-      - tg@nfeng6+193
-      - tg@nfeng6+207
-      - tg@nfeng6+191
-      - tg@nfeng6+200
-      - tg@nfeng6+206
-      - tg@nfeng6+195
-      - T.04.台湾.中继3.動畫瘋
+      - RU-Openit.ml
+      - SG-Openit.ml
+      - SG-Openit.ml 2
+      - SG-Openit.ml 3
+      - SG-v2cross.com
       - T.04.台湾.中继1.動畫瘋
+      - T.04.台湾.中继3.動畫瘋
       - T.07.法国.中继2
-      - 韩国(绿头外网集团)(Public)
-      - _中国_YouTubeVV科技_27
-      - CN 7
-      - CN 8
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用:) 6
-      - 这些节点只能备用或者防止失联，虽然质量并不是很好，也请低调使用) 7
-      - 美国-ss-169.197.142.999102-可用-直连-仅支持加拿大地区NF自制剧
-      - ZZ_72
-      - ZZ_77
-      - ZZ_78
-      - Relay_🇹🇷TR-🇹🇷TR_37
-      - 欧洲
-      - CN_37
-      - 欧洲 2
-      - 美国-Openit.ml
-      - 欧洲 3
-      - _159.48Mb
-      - LT_315
-      - 俄罗斯-ssr-213.183.53.2009031-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - 俄罗斯-ssr-213.183.53.1779020-可用-直连-仅支持俄罗斯联邦地区NF自制剧
-      - LT_290 2
-      - LT_319
-      - HK011
-      - HK022
-      - tg@nfeng6+194
-      - tg@nfeng6+192
-      - 俄罗斯RU+75+*hi-moon.pw
       - T.07.法国.中继3
+      - tg@nfeng6 196
+      - tg@nfeng6+190
+      - tg@nfeng6+191
+      - tg@nfeng6+192
+      - tg@nfeng6+193
+      - tg@nfeng6+194
+      - tg@nfeng6+195
+      - tg@nfeng6+200
+      - tg@nfeng6+202
+      - tg@nfeng6+206
+      - TW
+      - TW-Openit.ml
+      - TW-Openit.ml 2
+      - US-Openit.ml
+      - US-Openit.ml 2
+      - US-Openit.ml 3
+      - 俄罗斯RU+75+*hi-moon.pw
+      - 美国
+      - 美国_2012
+      - 日本节点(免费)倍率0x不消耗流量)
+      - 中国-ss-14.29.124.16825230-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825231-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825245-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825287-可用-直连-完全不支持NF
+      - 中国-ss-14.29.124.16825289-可用-直连-完全不支持NF
 rules:
  - DOMAIN-SUFFIX,local,🎯 全球直连
  - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
