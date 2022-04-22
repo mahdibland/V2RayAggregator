@@ -5,499 +5,199 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: "@SSRSUB-V04-付费推荐:suo.yt/ssrsub", server: 104.166.135.10, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, alterId: 4, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ws, ws-headers: {Host: ahdaeph8.com}, udp: true}
-  - {name: "@SSRSUB-V15-付费推荐:suo.yt/ssrsub", server: ahdaeph8.com, port: 443, type: vmess, uuid: aba50dd4-5484-3b05-b14a-4661caf862d5, alterId: 4, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ws, ws-headers: {Host: ahdaeph8.com}, udp: true}
-  - {name: "@SSRSUB-俄罗斯V01-付费推荐:dlj.tf/ssrsub", server: v1.ssrsub.com, port: 8443, type: vmess, uuid: b7c70df3-f92f-4800-a8e1-67e6dc833256, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ssrsub, ws-headers: {Host: v1.ssrsub.com}, udp: true}
-  - {name: "@SSRSUB-俄罗斯V03-付费推荐:dlj.tf/ssrsub", server: v3.ssrsub.com, port: 8443, type: vmess, uuid: b7c70df3-f92f-4800-a8e1-67e6dc833256, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ssrsub, ws-headers: {Host: v3.ssrsub.com}, udp: true}
-  - {name: <about:@freeyule>, server: s1.lg-blpop.wds-dsa.com, port: 19700, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: 8du.shop, server: v5.ssrsub.com, port: 8443, type: vmess, uuid: b7c70df3-f92f-4800-a8e1-67e6dc833256, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ssrsub, ws-headers: {Host: v5.ssrsub.com}, udp: true}
-  - {name: 8du.shop 2, server: hax.hax01.tk, port: 443, type: vmess, uuid: e2e073ce-c1d4-43ed-89f5-ca978507548a, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: hax.hax01.tk}, udp: true}
-  - {name: America 02, server: s1.lg-blpop.wds-dsa.com, port: 19601, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: CA-Openit.ml, server: ca-trojan.bonds.id, port: 443, type: trojan, password: 36ebefac5a3ef0-b4ab-11eb-b65e-1239d0255272, sni: ca-trojan.bonds.id, skip-cert-verify: true, udp: true}
-  - {name: CH-Openit.ml, server: 185.126.116.125, port: 9014, type: ss, cipher: aes-256-cfb, password: KnJGad3FqTvjqbaX, udp: true}
-  - {name: CN_8du.shop, server: hk-s-route.teacher2060.com, port: 603, type: ss, cipher: chacha20-ietf-poly1305, password: oq7Hsx00G4, udp: true}
-  - {name: CN_8du.shop 2, server: jp-s-route.teacher2060.com, port: 601, type: ss, cipher: chacha20-ietf-poly1305, password: oq7Hsx00G4, udp: true}
-  - {name: CN_8du.shop 3, server: 14.29.124.168, port: 25256, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_8du.shop 4, server: 14.29.124.168, port: 25218, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: CN_8du.shop, server: 14.29.124.168, port: 25210, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: CN-Openit.ml, server: 116.129.254.29, port: 3389, type: trojan, password: a170b44c2dfac9e6, skip-cert-verify: true, udp: true}
+  - {name: CN-Openit.ml 2, server: 116.129.253.134, port: 3389, type: trojan, password: a170b44c2dfac9e6, skip-cert-verify: true, udp: true}
+  - {name: tg@nfeng6 196, server: 14.29.124.168, port: 25238, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+192, server: 14.29.124.168, port: 25283, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: CN_8du.shop 2, server: 14.29.124.168, port: 25256, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: CN_8du.shop 3, server: 14.29.124.168, port: 25218, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+202, server: 14.29.124.168, port: 25295, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: github.com/freefq - 美国CloudFlare节点 13, server: app.ssfree.ru, port: 443, type: vmess, uuid: af69acb2-c1f0-11ec-b17f-000017022008, alterId: 64, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /getweather, ws-headers: {Host: app.ssfree.ru}, udp: true}
+  - {name: CN-Openit.ml 3, server: 14.29.124.168, port: 25217, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: tg@nfeng6+206, server: 14.29.124.168, port: 25297, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: CN_8du.shop 4, server: 14.29.124.168, port: 25252, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: github.com/freefq - 美国Microsoft数据中心 12, server: jpaz1.xmrth-node.xyz, port: 10058, type: vmess, uuid: 49aed705-ac45-332c-aa62-7ac9a9d8cb0b, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /index, ws-headers: {Host: www.baidu.com}, udp: true}
   - {name: CN_8du.shop 5, server: 14.29.124.168, port: 25266, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_8du.shop 6, server: 14.29.124.168, port: 25210, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_8du.shop 7, server: sg-s-route.teacher2060.com, port: 602, type: ss, cipher: chacha20-ietf-poly1305, password: oq7Hsx00G4, udp: true}
-  - {name: CN_8du.shop 8, server: 14.29.124.168, port: 25220, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_8du.shop 9, server: 14.29.124.168, port: 25252, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_8du.shop 10, server: 14.29.124.168, port: 25279, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN_8du.shop 11, server: 106.75.233.91, port: 3389, type: trojan, password: a170b44c2dfac9e6, skip-cert-verify: true, udp: true}
-  - {name: CN_8du.shop 12, server: 106.75.154.24, port: 3389, type: trojan, password: a170b44c2dfac9e6, skip-cert-verify: true, udp: true}
-  - {name: CN_8du.shop 13, server: 120.232.192.250, port: 3384, type: trojan, password: a170b44c2dfac9e6, skip-cert-verify: true, udp: true}
-  - {name: CN_8du.shop 14, server: 123.59.87.29, port: 3389, type: trojan, password: a170b44c2dfac9e6, skip-cert-verify: true, udp: true}
-  - {name: CN_8du.shop 15, server: 106.75.168.104, port: 3389, type: trojan, password: a170b44c2dfac9e6, skip-cert-verify: true, udp: true}
-  - {name: CN_8du.shop 16, server: 120.132.50.158, port: 3389, type: trojan, password: a170b44c2dfac9e6, skip-cert-verify: true, udp: true}
-  - {name: CN_8du.shop 17, server: s1.upyun.online, port: 12340, type: trojan, password: 316b40c0-0dab-4ea1-9666-ac1658b033b2, sni: s1.upyun.online, skip-cert-verify: true, udp: true}
-  - {name: CN_8du.shop 18, server: 117.50.106.86, port: 3389, type: trojan, password: edf497f40f71aeeb, skip-cert-verify: true, udp: true}
-  - {name: CN_8du.shop 19, server: 123.59.72.193, port: 3389, type: trojan, password: a170b44c2dfac9e6, skip-cert-verify: true, udp: true}
-  - {name: CN-Openit.ml, server: s1.lg-blpop.wds-dsa.com, port: 19710, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: CN-Openit.ml 2, server: 14.29.124.168, port: 25217, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: CN-Openit.ml 3, server: 49.234.158.14, port: 10909, type: vmess, uuid: c3082e6f-37b2-41b6-b40a-1063bc8e2853, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: CN-Openit.ml 4, server: 119.147.20.236, port: 38701, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: ingress-i1.onebox6.org}, udp: true}
-  - {name: CN-Openit.ml 5, server: centralchina1.cloudlink123.com, port: 37003, type: ss, cipher: aes-128-gcm, password: 12e9f5f8-e087-4dfb-8cab-fe8f02e53c5d, udp: true}
-  - {name: CN-Openit.ml 6, server: hk-hkg-shhk-001-tr.cdn.savoy.click, port: 20089, type: trojan, password: SfobRIcergHchqBFzzua, sni: hk-hkg-shhk-001-tr.cdn.savoy.click, skip-cert-verify: true, udp: true}
-  - {name: CN-Openit.ml 7, server: s1.lg-blpop.wds-dsa.com, port: 19606, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: -GB-0415-恢复更新, server: 152.89.210.84, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
-  - {name: -GB-0415-恢复更新 2, server: 152.89.210.84, port: 9059, type: ss, cipher: aes-256-cfb, password: 9XwYyZsK8SNzQDtY, udp: true}
-  - {name: -GB-0415-恢复更新 3, server: 152.89.210.84, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
-  - {name: HK-Openit.ml, server: api.tcpbbr.net, port: 443, type: trojan, password: 283695dc-fcc8-11ea-8684-f23c913c8d2b, sni: api.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: HK-Openit.ml 2, server: ssl.tcpbbr.net, port: 443, type: trojan, password: 5a3d9b78-cb5b-11ea-82ef-f23c9164ca5d, sni: ssl.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: HK-Openit.ml 3, server: s47.s2022.xyz, port: 23498, type: trojan, password: 3b43ffda-8b5c-3480-87f9-d4b069d7457a, sni: s47.s2022.xyz, skip-cert-verify: true, udp: true}
-  - {name: HK-Openit.ml 4, server: s255.s2022.xyz, port: 28420, type: trojan, password: 3b43ffda-8b5c-3480-87f9-d4b069d7457a, sni: s255.s2022.xyz, skip-cert-verify: true, udp: true}
-  - {name: HK-Openit.ml 5, server: api.tcpbbr.net, port: 443, type: trojan, password: 5c7b33c6-6d83-11eb-b77b-f23c913c8d2b, sni: api.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: Hong Kong 02, server: s1.lg-blpop.wds-dsa.com, port: 19701, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: Hong Kong 03, server: s1.lg-blpop.wds-dsa.com, port: 19702, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: ID-Openit.ml, server: id2-trojan.bonds.id, port: 443, type: trojan, password: 8d4ab0f0-79be-11eb-be0b-1239d0255272, sni: id2-trojan.bonds.id, skip-cert-verify: true, udp: true}
-  - {name: Japan 03, server: s1.lg-blpop.wds-dsa.com, port: 19607, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: JP-Openit.ml, server: tw.softbank.mjj-home.com, port: 443, type: trojan, password: share.mjj-home.com, sni: tw.softbank.mjj-home.com, skip-cert-verify: true, udp: true}
-  - {name: JP-Openit.ml 2, server: tky3.ssgnode.ga, port: 443, type: trojan, password: 82a115db-6e59-4319-9730-8f5638908d59YWVzLTI1Ni1nY2023115_5a451f03, sni: tky3.ssgnode.ga, skip-cert-verify: true, udp: true}
-  - {name: JP-Openit.ml 3, server: tky3.ssgnode.ga, port: 443, type: trojan, password: bcYWVzLTI1Ni1nY206Q1VuZFNabll23115_5a451f03, sni: tky3.ssgnode.ga, skip-cert-verify: true, udp: true}
-  - {name: JP-Openit.ml 4, server: 106.180.225.69, port: 1443, type: trojan, password: 7x42LetRa0, skip-cert-verify: true, udp: true}
-  - {name: JP-Openit.ml 5, server: tky3.ssgnode.ga, port: 443, type: trojan, password: lWNFc1RmRBNk5NQU5KSnga3fa58ac5a3ef0-b4ab-11eb-b65e-1239d0255272, sni: tky3.ssgnode.ga, skip-cert-verify: true, udp: true}
-  - {name: KR-Openit.ml, server: jgwcc2.gaox.ml, port: 443, type: trojan, password: 9c822f05-cfdc-479a-9534-60f3d4127435, sni: jgwcc2.gaox.ml, skip-cert-verify: true, udp: true}
-  - {name: LT_962 |52.41Mb, server: 213.183.53.200, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
-  - {name: LT_978 |55.66Mb, server: 213.183.53.200, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
+  - {name: tg@nfeng6+200, server: 14.29.124.168, port: 25247, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: Relay_🇯🇵JP-🇯🇵JP_13, server: jpaz2.xmrth-node.xyz, port: 10672, type: vmess, uuid: 49aed705-ac45-332c-aa62-7ac9a9d8cb0b, alterId: 2, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /index, ws-headers: {Host: www.baidu.com}, udp: true}
+  - {name: 中国_366_11.42Mb, server: 120.240.48.20, port: 38102, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: 120.240.48.20}, udp: true}
+  - {name: _ 9.04Mb, server: 120.240.48.20, port: 38106, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: 120.240.48.20}, udp: true}
+  - {name: tg@nfeng6+194, server: 14.29.124.168, port: 25294, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
+  - {name: LT_978+|55.66Mb, server: 213.183.53.200, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
+  - {name: LT_962+|52.41Mb, server: 213.183.53.200, port: 9015, type: ss, cipher: aes-256-cfb, password: ZpNDDKRu9MagNvaf, udp: true}
   - {name: LT_987 |53.23Mb, server: 213.183.53.177, port: 9008, type: ss, cipher: aes-256-cfb, password: y9VURyNzJWNRYEGQ, udp: true}
-  - {name: -NL-0416节点 14:00-1, server: 213.183.51.172, port: 9005, type: ss, cipher: aes-256-cfb, password: ZET59LF6DvCC8KVt, udp: true}
-  - {name: -NL-0416节点 14:00-15, server: 213.183.51.172, port: 9073, type: ss, cipher: aes-256-cfb, password: daFYagqDdBdA6VTX, udp: true}
-  - {name: -NL-0416节点 14:00-2, server: 213.183.51.171, port: 9001, type: ss, cipher: aes-256-cfb, password: UkXRsXvR6buDMG2Y, udp: true}
-  - {name: -NL-0416节点 14:00-20, server: 213.183.51.171, port: 9094, type: ss, cipher: aes-256-cfb, password: rpgbNnU9rDDU4aWZ, udp: true}
-  - {name: -NL-0416节点 14:00-36, server: 213.183.51.171, port: 9070, type: ss, cipher: aes-256-cfb, password: bf7v334KKDV3YDhH, udp: true}
-  - {name: -NL-0416节点 14:00-5, server: 213.183.51.172, port: 9027, type: ss, cipher: aes-256-cfb, password: EXN3S3eQpjE7EJu8, udp: true}
-  - {name: -NL-0416节点 14:00-51, server: 213.183.51.172, port: 9060, type: ss, cipher: aes-256-cfb, password: ueLXVkvh4hckhErQ, udp: true}
-  - {name: -NL-0416节点 14:00-64, server: 213.183.51.171, port: 9031, type: ss, cipher: aes-256-cfb, password: BwcAUZk8hUFAkDGN, udp: true}
-  - {name: PL_8du.shop, server: 217.30.10.67, port: 9041, type: ss, cipher: aes-256-cfb, password: U6qnYRhfyDmn8sgn, udp: true}
-  - {name: PL_8du.shop 2, server: 217.30.10.68, port: 9070, type: ss, cipher: aes-256-cfb, password: bf7v334KKDV3YDhH, udp: true}
-  - {name: PL_8du.shop 3, server: 217.30.10.68, port: 9098, type: ss, cipher: aes-256-cfb, password: aLpQtfEZe445QyHk, udp: true}
-  - {name: PL_8du.shop 4, server: 217.30.10.65, port: 9020, type: ss, cipher: aes-256-cfb, password: BNmAXXxAHYpTRdzu, udp: true}
+  - {name: 中国_363_11.84Mb, server: 120.240.48.20, port: 38101, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: 120.240.48.20}, udp: true}
+  - {name: RU-Openit.ml, server: 213.183.53.200, port: 9038, type: ss, cipher: aes-256-cfb, password: gYCYXfkUQEs2TaJQ, udp: true}
+  - {name: US_8du.shop, server: 1chuan.top, port: 443, type: vmess, uuid: fa8f90e0-2fae-4b05-df7a-ea325bc517d8, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /evo, ws-headers: {Host: 1chuan.top}, udp: true}
+  - {name: LT_978 |55.66Mb, server: 213.183.53.200, port: 9088, type: ss, cipher: aes-256-cfb, password: f8npKgNzdkss2ytn, udp: true}
+  - {name: "印度 01 福利 [0.1x]", server: doin.node003.insnow.xyz, port: 9933, type: trojan, password: 9a057015-6dfb-4b57-9f69-877423598741, sni: doin.node003.insnow.xyz, skip-cert-verify: true, udp: true}
+  - {name: CN-v2cross.com, server: 120.240.48.20, port: 38101, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: Relay_中国-未知_452, server: 120.240.48.20, port: 38102, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: US-Openit.ml, server: share.fanqiangvpn.com, port: 80, type: vmess, uuid: ee8d15c0-927d-497a-ba84-65447a790f56, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: share.fanqiangvpn.com}, udp: true}
+  - {name: CN-Openit.ml 4, server: centralchina1.cloudlink123.com, port: 37003, type: ss, cipher: aes-128-gcm, password: 3f6006ca-e8ba-49d5-af9d-f4806dd36e09, udp: true}
+  - {name: 中国_811, server: 120.240.48.20, port: 38106, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: t.me/vpnhat}, udp: true}
+  - {name: github.com/freefq - 美国  17, server: kr.node002.insnow.xyz, port: 9915, type: trojan, password: 9a057015-6dfb-4b57-9f69-877423598741, sni: kr.node002.insnow.xyz, skip-cert-verify: true, udp: true}
+  - {name: github.com/freefq - 上海市电信 20, server: ingress-i1.onebox6.org, port: 38106, type: vmess, uuid: 79386685-16da-327c-9e14-aa6d702d86bc, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: www.ivpnpro.net}, udp: true}
+  - {name: CN_8du.shop 6, server: 1.0-hk.a.bp2022.top, port: 13324, type: vmess, uuid: 292c8c43-5234-4987-8466-b3b233533971, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
+  - {name: github.com/freefq - 美国CloudFlare公司CDN节点 18, server: fumetsuseiko.tk, port: 443, type: vmess, uuid: 3364a992-7e4a-4551-d488-e3fad37421ad, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: fumetsuseiko.tk}, udp: true}
+  - {name: 付费高速节点购买网址↓, server: s2.upyun.online, port: 12340, type: trojan, password: 316b40c0-0dab-4ea1-9666-ac1658b033b2, sni: s2.upyun.online, skip-cert-verify: true, udp: true}
+  - {name: tg@nfeng6+190, server: 14.29.124.168, port: 25219, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
   - {name: Relay_🇨🇳CN-🇨🇦CA_10, server: in-v1.sdgdn.com, port: 50205, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: telegram.channel.ripaojiedian}, udp: true}
   - {name: Relay_🇨🇳CN-🇨🇦CA_13, server: in-v1.sdgdn.com, port: 50206, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: telegram.channel.p2psharing}, udp: true}
   - {name: Relay_🇨🇳CN-🇨🇦CA_13 2, server: in-v1.sdgdn.com, port: 50207, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: in-v1.sdgdn.com}, udp: true}
   - {name: Relay_🇨🇳CN-🇨🇦CA_17, server: in-v1.sdgdn.com, port: 50701, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: telegram.channel.ripaojiedian}, udp: true}
-  - {name: Relay_🇨🇳CN-🇺🇸US_10, server: in-v1.sdgdn.com, port: 50401, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: in-v1.sdgdn.com}, udp: true}
-  - {name: Relay_美国-_2061, server: 138.197.236.77, port: 443, type: vmess, uuid: 3579436c-b37e-11eb-8529-0242ac130003, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ray, ws-headers: {Host: 138.197.236.77}, udp: true}
-  - {name: Relay_美国-_2290, server: 172.67.68.58, port: 443, type: vmess, uuid: f2f578e4-692d-40b5-af99-9f1dd712eb32, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /shuier, ws-headers: {Host: xc1.v2rie.pp.ua}, udp: true}
-  - {name: Relay_新加坡-_870, server: 128.199.131.91, port: 41976, type: vmess, uuid: 5db07bd0-e392-45a4-ad73-4663b4b59155, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: 128.199.131.91}, udp: true}
   - {name: Relay_中国-加拿大_482, server: in-v1.sdgdn.com, port: 50701, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: in-v1.sdgdn.com}, udp: true}
   - {name: Relay_中国-加拿大_492, server: in-v1.sdgdn.com, port: 50205, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 1, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /hls/cctv5phd.m3u8, ws-headers: {Host: in-v1.sdgdn.com}, udp: true}
-  - {name: RU, server: 331tw.fans8.xyz, port: 443, type: vmess, uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c, alterId: 2, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ray, ws-headers: {Host: 331tw.fans8.xyz}, udp: true}
-  - {name: RU-Openit.ml, server: 213.183.53.200, port: 9094, type: ss, cipher: aes-256-cfb, password: rpgbNnU9rDDU4aWZ, udp: true}
-  - {name: RU-Openit.ml 2, server: 213.183.53.200, port: 9073, type: ss, cipher: aes-256-cfb, password: daFYagqDdBdA6VTX, udp: true}
-  - {name: RU-Openit.ml 3, server: 213.183.53.200, port: 9057, type: ss, cipher: aes-256-cfb, password: wjTugX3ZtHMB9c3Z, udp: true}
-  - {name: RU-Openit.ml 4, server: 213.183.53.200, port: 9038, type: ss, cipher: aes-256-cfb, password: gYCYXfkUQEs2TaJQ, udp: true}
-  - {name: SG-Openit.ml, server: 184.168.127.50, port: 443, type: trojan, password: a3fa58b581353bb375d2ddad0f327938, skip-cert-verify: true, udp: true}
-  - {name: SG-Openit.ml 2, server: sg1-trojan.bonds.id, port: 443, type: trojan, password: 5c5ceb40-902b-11eb-945a-1239d0255272, sni: sg1-trojan.bonds.id, skip-cert-verify: true, udp: true}
-  - {name: SG-Openit.ml 3, server: v2-3.godlight.xyz, port: 39273, type: vmess, uuid: 6a52f259-4367-468c-a828-7b8283c2f059, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /f45361465j175, ws-headers: {Host: v2-3.godlight.xyz}, udp: true}
-  - {name: SG-Openit.ml 4, server: sg3-trojan.bonds.id, port: 443, type: trojan, password: 97fdf760-7bbf-11eb-8e14-1239d0255272, sni: sg3-trojan.bonds.id, skip-cert-verify: true, udp: true}
-  - {name: Singapore 01, server: s1.lg-blpop.wds-dsa.com, port: 19705, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: South Korea 01, server: s1.lg-blpop.wds-dsa.com, port: 19610, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: South Korea 02, server: s1.lg-blpop.wds-dsa.com, port: 19611, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: T.07.法国.中继2, server: t2.doggogogo.top, port: 50207, type: trojan, password: 5eaea1b9-b977-3391-b7cb-370addb40ce2, sni: t2.doggogogo.top, skip-cert-verify: true, udp: true}
-  - {name: T.07.法国.中继3, server: cscu.wecanfly.top, port: 50207, type: trojan, password: 5eaea1b9-b977-3391-b7cb-370addb40ce2, sni: cscu.wecanfly.top, skip-cert-verify: true, udp: true}
-  - {name: Taiwan 02, server: s1.lg-blpop.wds-dsa.com, port: 19711, type: trojan, password: 5d1ab994-348c-3a3e-8947-ce7e9dfeee25, sni: s1.lg-blpop.wds-dsa.com, skip-cert-verify: true, udp: true}
-  - {name: tg@nfeng6 196, server: 14.29.124.168, port: 25238, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+190, server: 14.29.124.168, port: 25219, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+192, server: 14.29.124.168, port: 25283, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+194, server: 14.29.124.168, port: 25294, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+200, server: 14.29.124.168, port: 25247, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+202, server: 14.29.124.168, port: 25295, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: tg@nfeng6+206, server: 14.29.124.168, port: 25297, type: ss, cipher: aes-128-cfb, password: QazEdcTgb159@$*, udp: true}
-  - {name: TW, server: 330tw.fans8.xyz, port: 443, type: vmess, uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c, alterId: 2, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ray, ws-headers: {Host: 330tw.fans8.xyz}, udp: true}
-  - {name: TW_8du.shop, server: 60.249.3.125, port: 3389, type: trojan, password: a170b44c2dfac9e6, skip-cert-verify: true, udp: true}
-  - {name: TW-Openit.ml, server: tw.tcpbbr.net, port: 443, type: trojan, password: 283695dc-fcc8-11ea-8684-f23c913c8d2b, sni: tw.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: TW-Openit.ml 2, server: tw.tcpbbr.net, port: 443, type: trojan, password: b155c2a4-ee79-11eb-a8bf-f23c91cfbbc9, sni: tw.tcpbbr.net, skip-cert-verify: true, udp: true}
-  - {name: US_8du.shop, server: hax2.hax01.ml, port: 443, type: vmess, uuid: 25af03c3-27ff-4c14-c142-ad7694ec42f9, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: hax2.hax01.ml}, udp: true}
-  - {name: US-Openit.ml, server: v.9051246.xyz, port: 443, type: trojan, password: !<str> 18825786, sni: v.9051246.xyz, skip-cert-verify: true, udp: true}
-  - {name: US-Openit.ml 2, server: api.mjj-home.com, port: 443, type: trojan, password: share.mjj-home.com, sni: api.mjj-home.com, skip-cert-verify: true, udp: true}
-  - {name: US-Openit.ml 3, server: usd.scsevers.cf, port: 443, type: trojan, password: sharecentretest, sni: usd.scsevers.cf, skip-cert-verify: true, udp: true}
-  - {name: US-Openit.ml 4, server: xioix.gq, port: 443, type: trojan, password: 9b7195ba-f029-4d7d-a728-ece6e0fdc363, sni: xioix.gq, skip-cert-verify: true, udp: true}
-  - {name: US-Openit.ml 5, server: us01.straycloud.icu, port: 442, type: trojan, password: 0ac65136-5962-49d6-91f0-138957f6dec9, sni: us01.straycloud.icu, skip-cert-verify: true, udp: true}
-  - {name: US-v2cross.com, server: 207.246.94.28, port: 42383, type: vmess, uuid: 4773dfdc-9c85-4873-8720-ce8cf5f74f7c, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: 付费高速节点购买网址↓, server: s2.upyun.online, port: 12340, type: trojan, password: 316b40c0-0dab-4ea1-9666-ac1658b033b2, sni: s2.upyun.online, skip-cert-verify: true, udp: true}
-  - {name: 欧洲, server: 412sgsg.fans8.xyz, port: 443, type: vmess, uuid: 5c70da5d-e641-3bf8-b7dc-5babd843ff3c, alterId: 2, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /ray, ws-headers: {Host: 412sgsg.fans8.xyz}, udp: true}
-  - {name: 倾城极速.tk-中国-Openit.ml, server: 49.234.158.14, port: 10909, type: vmess, uuid: c3082e6f-37b2-41b6-b40a-1063bc8e2853, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, udp: true}
-  - {name: 全球直连③, server: s3.upyun.online, port: 12340, type: trojan, password: 316b40c0-0dab-4ea1-9666-ac1658b033b2, sni: s3.upyun.online, skip-cert-verify: true, udp: true}
-  - {name: 日本节点(免费)倍率0x不消耗流量), server: rbmf.speedcncnforward3.tk, port: 10004, type: trojan, password: eb40a3f4-3b04-4a1c-993d-d71b44fee92c, sni: rbmf.speedcncnforward3.tk, skip-cert-verify: true, udp: true}
-  - {name: 香港_1_1#228at599G_7, server: s228.s2022.xyz, port: 42406, type: trojan, password: 3b43ffda-8b5c-3480-87f9-d4b069d7457a, sni: s228.s2022.xyz, skip-cert-verify: true, udp: true}
-  - {name: 香港_1_2#253at552G_10, server: s253.s2022.xyz, port: 25221, type: trojan, password: 3b43ffda-8b5c-3480-87f9-d4b069d7457a, sni: s253.s2022.xyz, skip-cert-verify: true, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - 🎯 全球直连
-      - "@SSRSUB-V04-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-V15-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-俄罗斯V01-付费推荐:dlj.tf/ssrsub"
-      - "@SSRSUB-俄罗斯V03-付费推荐:dlj.tf/ssrsub"
-      - <about:@freeyule>
-      - 8du.shop
-      - 8du.shop 2
-      - America 02
-      - CA-Openit.ml
-      - CH-Openit.ml
       - CN_8du.shop
-      - CN_8du.shop 2
-      - CN_8du.shop 3
-      - CN_8du.shop 4
-      - CN_8du.shop 5
-      - CN_8du.shop 6
-      - CN_8du.shop 7
-      - CN_8du.shop 8
-      - CN_8du.shop 9
-      - CN_8du.shop 10
-      - CN_8du.shop 11
-      - CN_8du.shop 12
-      - CN_8du.shop 13
-      - CN_8du.shop 14
-      - CN_8du.shop 15
-      - CN_8du.shop 16
-      - CN_8du.shop 17
-      - CN_8du.shop 18
-      - CN_8du.shop 19
       - CN-Openit.ml
       - CN-Openit.ml 2
+      - tg@nfeng6 196
+      - tg@nfeng6+192
+      - CN_8du.shop 2
+      - CN_8du.shop 3
+      - tg@nfeng6+202
+      - github.com/freefq - 美国CloudFlare节点 13
       - CN-Openit.ml 3
-      - CN-Openit.ml 4
-      - CN-Openit.ml 5
-      - CN-Openit.ml 6
-      - CN-Openit.ml 7
-      - -GB-0415-恢复更新
-      - -GB-0415-恢复更新 2
-      - -GB-0415-恢复更新 3
-      - HK-Openit.ml
-      - HK-Openit.ml 2
-      - HK-Openit.ml 3
-      - HK-Openit.ml 4
-      - HK-Openit.ml 5
-      - Hong Kong 02
-      - Hong Kong 03
-      - ID-Openit.ml
-      - Japan 03
-      - JP-Openit.ml
-      - JP-Openit.ml 2
-      - JP-Openit.ml 3
-      - JP-Openit.ml 4
-      - JP-Openit.ml 5
-      - KR-Openit.ml
-      - LT_962 |52.41Mb
-      - LT_978 |55.66Mb
+      - tg@nfeng6+206
+      - CN_8du.shop 4
+      - github.com/freefq - 美国Microsoft数据中心 12
+      - CN_8du.shop 5
+      - tg@nfeng6+200
+      - Relay_🇯🇵JP-🇯🇵JP_13
+      - 中国_366_11.42Mb
+      - _ 9.04Mb
+      - tg@nfeng6+194
+      - LT_978+|55.66Mb
+      - LT_962+|52.41Mb
       - LT_987 |53.23Mb
-      - -NL-0416节点 14:00-1
-      - -NL-0416节点 14:00-15
-      - -NL-0416节点 14:00-2
-      - -NL-0416节点 14:00-20
-      - -NL-0416节点 14:00-36
-      - -NL-0416节点 14:00-5
-      - -NL-0416节点 14:00-51
-      - -NL-0416节点 14:00-64
-      - PL_8du.shop
-      - PL_8du.shop 2
-      - PL_8du.shop 3
-      - PL_8du.shop 4
+      - 中国_363_11.84Mb
+      - RU-Openit.ml
+      - US_8du.shop
+      - LT_978 |55.66Mb
+      - 印度 01 福利 [0.1x]
+      - CN-v2cross.com
+      - Relay_中国-未知_452
+      - US-Openit.ml
+      - CN-Openit.ml 4
+      - 中国_811
+      - github.com/freefq - 美国  17
+      - github.com/freefq - 上海市电信 20
+      - CN_8du.shop 6
+      - github.com/freefq - 美国CloudFlare公司CDN节点 18
+      - 付费高速节点购买网址↓
+      - tg@nfeng6+190
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_13 2
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇨🇳CN-🇺🇸US_10
-      - Relay_美国-_2061
-      - Relay_美国-_2290
-      - Relay_新加坡-_870
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - RU
-      - RU-Openit.ml
-      - RU-Openit.ml 2
-      - RU-Openit.ml 3
-      - RU-Openit.ml 4
-      - SG-Openit.ml
-      - SG-Openit.ml 2
-      - SG-Openit.ml 3
-      - SG-Openit.ml 4
-      - Singapore 01
-      - South Korea 01
-      - South Korea 02
-      - T.07.法国.中继2
-      - T.07.法国.中继3
-      - Taiwan 02
-      - tg@nfeng6 196
-      - tg@nfeng6+190
-      - tg@nfeng6+192
-      - tg@nfeng6+194
-      - tg@nfeng6+200
-      - tg@nfeng6+202
-      - tg@nfeng6+206
-      - TW
-      - TW_8du.shop
-      - TW-Openit.ml
-      - TW-Openit.ml 2
-      - US_8du.shop
-      - US-Openit.ml
-      - US-Openit.ml 2
-      - US-Openit.ml 3
-      - US-Openit.ml 4
-      - US-Openit.ml 5
-      - US-v2cross.com
-      - 付费高速节点购买网址↓
-      - 欧洲
-      - 倾城极速.tk-中国-Openit.ml
-      - 全球直连③
-      - 日本节点(免费)倍率0x不消耗流量)
-      - 香港_1_1#228at599G_7
-      - 香港_1_2#253at552G_10
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
-      - "@SSRSUB-V04-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-V15-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-俄罗斯V01-付费推荐:dlj.tf/ssrsub"
-      - "@SSRSUB-俄罗斯V03-付费推荐:dlj.tf/ssrsub"
-      - <about:@freeyule>
-      - 8du.shop
-      - 8du.shop 2
-      - America 02
-      - CA-Openit.ml
-      - CH-Openit.ml
       - CN_8du.shop
-      - CN_8du.shop 2
-      - CN_8du.shop 3
-      - CN_8du.shop 4
-      - CN_8du.shop 5
-      - CN_8du.shop 6
-      - CN_8du.shop 7
-      - CN_8du.shop 8
-      - CN_8du.shop 9
-      - CN_8du.shop 10
-      - CN_8du.shop 11
-      - CN_8du.shop 12
-      - CN_8du.shop 13
-      - CN_8du.shop 14
-      - CN_8du.shop 15
-      - CN_8du.shop 16
-      - CN_8du.shop 17
-      - CN_8du.shop 18
-      - CN_8du.shop 19
       - CN-Openit.ml
       - CN-Openit.ml 2
+      - tg@nfeng6 196
+      - tg@nfeng6+192
+      - CN_8du.shop 2
+      - CN_8du.shop 3
+      - tg@nfeng6+202
+      - github.com/freefq - 美国CloudFlare节点 13
       - CN-Openit.ml 3
-      - CN-Openit.ml 4
-      - CN-Openit.ml 5
-      - CN-Openit.ml 6
-      - CN-Openit.ml 7
-      - -GB-0415-恢复更新
-      - -GB-0415-恢复更新 2
-      - -GB-0415-恢复更新 3
-      - HK-Openit.ml
-      - HK-Openit.ml 2
-      - HK-Openit.ml 3
-      - HK-Openit.ml 4
-      - HK-Openit.ml 5
-      - Hong Kong 02
-      - Hong Kong 03
-      - ID-Openit.ml
-      - Japan 03
-      - JP-Openit.ml
-      - JP-Openit.ml 2
-      - JP-Openit.ml 3
-      - JP-Openit.ml 4
-      - JP-Openit.ml 5
-      - KR-Openit.ml
-      - LT_962 |52.41Mb
-      - LT_978 |55.66Mb
+      - tg@nfeng6+206
+      - CN_8du.shop 4
+      - github.com/freefq - 美国Microsoft数据中心 12
+      - CN_8du.shop 5
+      - tg@nfeng6+200
+      - Relay_🇯🇵JP-🇯🇵JP_13
+      - 中国_366_11.42Mb
+      - _ 9.04Mb
+      - tg@nfeng6+194
+      - LT_978+|55.66Mb
+      - LT_962+|52.41Mb
       - LT_987 |53.23Mb
-      - -NL-0416节点 14:00-1
-      - -NL-0416节点 14:00-15
-      - -NL-0416节点 14:00-2
-      - -NL-0416节点 14:00-20
-      - -NL-0416节点 14:00-36
-      - -NL-0416节点 14:00-5
-      - -NL-0416节点 14:00-51
-      - -NL-0416节点 14:00-64
-      - PL_8du.shop
-      - PL_8du.shop 2
-      - PL_8du.shop 3
-      - PL_8du.shop 4
+      - 中国_363_11.84Mb
+      - RU-Openit.ml
+      - US_8du.shop
+      - LT_978 |55.66Mb
+      - 印度 01 福利 [0.1x]
+      - CN-v2cross.com
+      - Relay_中国-未知_452
+      - US-Openit.ml
+      - CN-Openit.ml 4
+      - 中国_811
+      - github.com/freefq - 美国  17
+      - github.com/freefq - 上海市电信 20
+      - CN_8du.shop 6
+      - github.com/freefq - 美国CloudFlare公司CDN节点 18
+      - 付费高速节点购买网址↓
+      - tg@nfeng6+190
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_13 2
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇨🇳CN-🇺🇸US_10
-      - Relay_美国-_2061
-      - Relay_美国-_2290
-      - Relay_新加坡-_870
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - RU
-      - RU-Openit.ml
-      - RU-Openit.ml 2
-      - RU-Openit.ml 3
-      - RU-Openit.ml 4
-      - SG-Openit.ml
-      - SG-Openit.ml 2
-      - SG-Openit.ml 3
-      - SG-Openit.ml 4
-      - Singapore 01
-      - South Korea 01
-      - South Korea 02
-      - T.07.法国.中继2
-      - T.07.法国.中继3
-      - Taiwan 02
-      - tg@nfeng6 196
-      - tg@nfeng6+190
-      - tg@nfeng6+192
-      - tg@nfeng6+194
-      - tg@nfeng6+200
-      - tg@nfeng6+202
-      - tg@nfeng6+206
-      - TW
-      - TW_8du.shop
-      - TW-Openit.ml
-      - TW-Openit.ml 2
-      - US_8du.shop
-      - US-Openit.ml
-      - US-Openit.ml 2
-      - US-Openit.ml 3
-      - US-Openit.ml 4
-      - US-Openit.ml 5
-      - US-v2cross.com
-      - 付费高速节点购买网址↓
-      - 欧洲
-      - 倾城极速.tk-中国-Openit.ml
-      - 全球直连③
-      - 日本节点(免费)倍率0x不消耗流量)
-      - 香港_1_1#228at599G_7
-      - 香港_1_2#253at552G_10
   - name: 🎥 NETFLIX
     type: select
     proxies:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - "@SSRSUB-V04-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-V15-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-俄罗斯V01-付费推荐:dlj.tf/ssrsub"
-      - "@SSRSUB-俄罗斯V03-付费推荐:dlj.tf/ssrsub"
-      - <about:@freeyule>
-      - 8du.shop
-      - 8du.shop 2
-      - America 02
-      - CA-Openit.ml
-      - CH-Openit.ml
       - CN_8du.shop
-      - CN_8du.shop 2
-      - CN_8du.shop 3
-      - CN_8du.shop 4
-      - CN_8du.shop 5
-      - CN_8du.shop 6
-      - CN_8du.shop 7
-      - CN_8du.shop 8
-      - CN_8du.shop 9
-      - CN_8du.shop 10
-      - CN_8du.shop 11
-      - CN_8du.shop 12
-      - CN_8du.shop 13
-      - CN_8du.shop 14
-      - CN_8du.shop 15
-      - CN_8du.shop 16
-      - CN_8du.shop 17
-      - CN_8du.shop 18
-      - CN_8du.shop 19
       - CN-Openit.ml
       - CN-Openit.ml 2
+      - tg@nfeng6 196
+      - tg@nfeng6+192
+      - CN_8du.shop 2
+      - CN_8du.shop 3
+      - tg@nfeng6+202
+      - github.com/freefq - 美国CloudFlare节点 13
       - CN-Openit.ml 3
-      - CN-Openit.ml 4
-      - CN-Openit.ml 5
-      - CN-Openit.ml 6
-      - CN-Openit.ml 7
-      - -GB-0415-恢复更新
-      - -GB-0415-恢复更新 2
-      - -GB-0415-恢复更新 3
-      - HK-Openit.ml
-      - HK-Openit.ml 2
-      - HK-Openit.ml 3
-      - HK-Openit.ml 4
-      - HK-Openit.ml 5
-      - Hong Kong 02
-      - Hong Kong 03
-      - ID-Openit.ml
-      - Japan 03
-      - JP-Openit.ml
-      - JP-Openit.ml 2
-      - JP-Openit.ml 3
-      - JP-Openit.ml 4
-      - JP-Openit.ml 5
-      - KR-Openit.ml
-      - LT_962 |52.41Mb
-      - LT_978 |55.66Mb
+      - tg@nfeng6+206
+      - CN_8du.shop 4
+      - github.com/freefq - 美国Microsoft数据中心 12
+      - CN_8du.shop 5
+      - tg@nfeng6+200
+      - Relay_🇯🇵JP-🇯🇵JP_13
+      - 中国_366_11.42Mb
+      - _ 9.04Mb
+      - tg@nfeng6+194
+      - LT_978+|55.66Mb
+      - LT_962+|52.41Mb
       - LT_987 |53.23Mb
-      - -NL-0416节点 14:00-1
-      - -NL-0416节点 14:00-15
-      - -NL-0416节点 14:00-2
-      - -NL-0416节点 14:00-20
-      - -NL-0416节点 14:00-36
-      - -NL-0416节点 14:00-5
-      - -NL-0416节点 14:00-51
-      - -NL-0416节点 14:00-64
-      - PL_8du.shop
-      - PL_8du.shop 2
-      - PL_8du.shop 3
-      - PL_8du.shop 4
+      - 中国_363_11.84Mb
+      - RU-Openit.ml
+      - US_8du.shop
+      - LT_978 |55.66Mb
+      - 印度 01 福利 [0.1x]
+      - CN-v2cross.com
+      - Relay_中国-未知_452
+      - US-Openit.ml
+      - CN-Openit.ml 4
+      - 中国_811
+      - github.com/freefq - 美国  17
+      - github.com/freefq - 上海市电信 20
+      - CN_8du.shop 6
+      - github.com/freefq - 美国CloudFlare公司CDN节点 18
+      - 付费高速节点购买网址↓
+      - tg@nfeng6+190
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_13 2
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇨🇳CN-🇺🇸US_10
-      - Relay_美国-_2061
-      - Relay_美国-_2290
-      - Relay_新加坡-_870
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - RU
-      - RU-Openit.ml
-      - RU-Openit.ml 2
-      - RU-Openit.ml 3
-      - RU-Openit.ml 4
-      - SG-Openit.ml
-      - SG-Openit.ml 2
-      - SG-Openit.ml 3
-      - SG-Openit.ml 4
-      - Singapore 01
-      - South Korea 01
-      - South Korea 02
-      - T.07.法国.中继2
-      - T.07.法国.中继3
-      - Taiwan 02
-      - tg@nfeng6 196
-      - tg@nfeng6+190
-      - tg@nfeng6+192
-      - tg@nfeng6+194
-      - tg@nfeng6+200
-      - tg@nfeng6+202
-      - tg@nfeng6+206
-      - TW
-      - TW_8du.shop
-      - TW-Openit.ml
-      - TW-Openit.ml 2
-      - US_8du.shop
-      - US-Openit.ml
-      - US-Openit.ml 2
-      - US-Openit.ml 3
-      - US-Openit.ml 4
-      - US-Openit.ml 5
-      - US-v2cross.com
-      - 付费高速节点购买网址↓
-      - 欧洲
-      - 倾城极速.tk-中国-Openit.ml
-      - 全球直连③
-      - 日本节点(免费)倍率0x不消耗流量)
-      - 香港_1_1#228at599G_7
-      - 香港_1_2#253at552G_10
   - name: ⛔️ 广告拦截
     type: select
     proxies:
@@ -516,505 +216,203 @@ proxy-groups:
       - 🔰 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - "@SSRSUB-V04-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-V15-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-俄罗斯V01-付费推荐:dlj.tf/ssrsub"
-      - "@SSRSUB-俄罗斯V03-付费推荐:dlj.tf/ssrsub"
-      - <about:@freeyule>
-      - 8du.shop
-      - 8du.shop 2
-      - America 02
-      - CA-Openit.ml
-      - CH-Openit.ml
       - CN_8du.shop
-      - CN_8du.shop 2
-      - CN_8du.shop 3
-      - CN_8du.shop 4
-      - CN_8du.shop 5
-      - CN_8du.shop 6
-      - CN_8du.shop 7
-      - CN_8du.shop 8
-      - CN_8du.shop 9
-      - CN_8du.shop 10
-      - CN_8du.shop 11
-      - CN_8du.shop 12
-      - CN_8du.shop 13
-      - CN_8du.shop 14
-      - CN_8du.shop 15
-      - CN_8du.shop 16
-      - CN_8du.shop 17
-      - CN_8du.shop 18
-      - CN_8du.shop 19
       - CN-Openit.ml
       - CN-Openit.ml 2
+      - tg@nfeng6 196
+      - tg@nfeng6+192
+      - CN_8du.shop 2
+      - CN_8du.shop 3
+      - tg@nfeng6+202
+      - github.com/freefq - 美国CloudFlare节点 13
       - CN-Openit.ml 3
-      - CN-Openit.ml 4
-      - CN-Openit.ml 5
-      - CN-Openit.ml 6
-      - CN-Openit.ml 7
-      - -GB-0415-恢复更新
-      - -GB-0415-恢复更新 2
-      - -GB-0415-恢复更新 3
-      - HK-Openit.ml
-      - HK-Openit.ml 2
-      - HK-Openit.ml 3
-      - HK-Openit.ml 4
-      - HK-Openit.ml 5
-      - Hong Kong 02
-      - Hong Kong 03
-      - ID-Openit.ml
-      - Japan 03
-      - JP-Openit.ml
-      - JP-Openit.ml 2
-      - JP-Openit.ml 3
-      - JP-Openit.ml 4
-      - JP-Openit.ml 5
-      - KR-Openit.ml
-      - LT_962 |52.41Mb
-      - LT_978 |55.66Mb
+      - tg@nfeng6+206
+      - CN_8du.shop 4
+      - github.com/freefq - 美国Microsoft数据中心 12
+      - CN_8du.shop 5
+      - tg@nfeng6+200
+      - Relay_🇯🇵JP-🇯🇵JP_13
+      - 中国_366_11.42Mb
+      - _ 9.04Mb
+      - tg@nfeng6+194
+      - LT_978+|55.66Mb
+      - LT_962+|52.41Mb
       - LT_987 |53.23Mb
-      - -NL-0416节点 14:00-1
-      - -NL-0416节点 14:00-15
-      - -NL-0416节点 14:00-2
-      - -NL-0416节点 14:00-20
-      - -NL-0416节点 14:00-36
-      - -NL-0416节点 14:00-5
-      - -NL-0416节点 14:00-51
-      - -NL-0416节点 14:00-64
-      - PL_8du.shop
-      - PL_8du.shop 2
-      - PL_8du.shop 3
-      - PL_8du.shop 4
+      - 中国_363_11.84Mb
+      - RU-Openit.ml
+      - US_8du.shop
+      - LT_978 |55.66Mb
+      - 印度 01 福利 [0.1x]
+      - CN-v2cross.com
+      - Relay_中国-未知_452
+      - US-Openit.ml
+      - CN-Openit.ml 4
+      - 中国_811
+      - github.com/freefq - 美国  17
+      - github.com/freefq - 上海市电信 20
+      - CN_8du.shop 6
+      - github.com/freefq - 美国CloudFlare公司CDN节点 18
+      - 付费高速节点购买网址↓
+      - tg@nfeng6+190
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_13 2
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇨🇳CN-🇺🇸US_10
-      - Relay_美国-_2061
-      - Relay_美国-_2290
-      - Relay_新加坡-_870
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - RU
-      - RU-Openit.ml
-      - RU-Openit.ml 2
-      - RU-Openit.ml 3
-      - RU-Openit.ml 4
-      - SG-Openit.ml
-      - SG-Openit.ml 2
-      - SG-Openit.ml 3
-      - SG-Openit.ml 4
-      - Singapore 01
-      - South Korea 01
-      - South Korea 02
-      - T.07.法国.中继2
-      - T.07.法国.中继3
-      - Taiwan 02
-      - tg@nfeng6 196
-      - tg@nfeng6+190
-      - tg@nfeng6+192
-      - tg@nfeng6+194
-      - tg@nfeng6+200
-      - tg@nfeng6+202
-      - tg@nfeng6+206
-      - TW
-      - TW_8du.shop
-      - TW-Openit.ml
-      - TW-Openit.ml 2
-      - US_8du.shop
-      - US-Openit.ml
-      - US-Openit.ml 2
-      - US-Openit.ml 3
-      - US-Openit.ml 4
-      - US-Openit.ml 5
-      - US-v2cross.com
-      - 付费高速节点购买网址↓
-      - 欧洲
-      - 倾城极速.tk-中国-Openit.ml
-      - 全球直连③
-      - 日本节点(免费)倍率0x不消耗流量)
-      - 香港_1_1#228at599G_7
-      - 香港_1_2#253at552G_10
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
-      - 香港_1_1#228at599G_7
-      - 香港_1_2#253at552G_10
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔰 节点选择
-      - "@SSRSUB-V04-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-V15-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-俄罗斯V01-付费推荐:dlj.tf/ssrsub"
-      - "@SSRSUB-俄罗斯V03-付费推荐:dlj.tf/ssrsub"
-      - <about:@freeyule>
-      - 8du.shop
-      - 8du.shop 2
-      - America 02
-      - CA-Openit.ml
-      - CH-Openit.ml
       - CN_8du.shop
-      - CN_8du.shop 2
-      - CN_8du.shop 3
-      - CN_8du.shop 4
-      - CN_8du.shop 5
-      - CN_8du.shop 6
-      - CN_8du.shop 7
-      - CN_8du.shop 8
-      - CN_8du.shop 9
-      - CN_8du.shop 10
-      - CN_8du.shop 11
-      - CN_8du.shop 12
-      - CN_8du.shop 13
-      - CN_8du.shop 14
-      - CN_8du.shop 15
-      - CN_8du.shop 16
-      - CN_8du.shop 17
-      - CN_8du.shop 18
-      - CN_8du.shop 19
       - CN-Openit.ml
       - CN-Openit.ml 2
+      - tg@nfeng6 196
+      - tg@nfeng6+192
+      - CN_8du.shop 2
+      - CN_8du.shop 3
+      - tg@nfeng6+202
+      - github.com/freefq - 美国CloudFlare节点 13
       - CN-Openit.ml 3
-      - CN-Openit.ml 4
-      - CN-Openit.ml 5
-      - CN-Openit.ml 6
-      - CN-Openit.ml 7
-      - -GB-0415-恢复更新
-      - -GB-0415-恢复更新 2
-      - -GB-0415-恢复更新 3
-      - HK-Openit.ml
-      - HK-Openit.ml 2
-      - HK-Openit.ml 3
-      - HK-Openit.ml 4
-      - HK-Openit.ml 5
-      - Hong Kong 02
-      - Hong Kong 03
-      - ID-Openit.ml
-      - Japan 03
-      - JP-Openit.ml
-      - JP-Openit.ml 2
-      - JP-Openit.ml 3
-      - JP-Openit.ml 4
-      - JP-Openit.ml 5
-      - KR-Openit.ml
-      - LT_962 |52.41Mb
-      - LT_978 |55.66Mb
+      - tg@nfeng6+206
+      - CN_8du.shop 4
+      - github.com/freefq - 美国Microsoft数据中心 12
+      - CN_8du.shop 5
+      - tg@nfeng6+200
+      - Relay_🇯🇵JP-🇯🇵JP_13
+      - 中国_366_11.42Mb
+      - _ 9.04Mb
+      - tg@nfeng6+194
+      - LT_978+|55.66Mb
+      - LT_962+|52.41Mb
       - LT_987 |53.23Mb
-      - -NL-0416节点 14:00-1
-      - -NL-0416节点 14:00-15
-      - -NL-0416节点 14:00-2
-      - -NL-0416节点 14:00-20
-      - -NL-0416节点 14:00-36
-      - -NL-0416节点 14:00-5
-      - -NL-0416节点 14:00-51
-      - -NL-0416节点 14:00-64
-      - PL_8du.shop
-      - PL_8du.shop 2
-      - PL_8du.shop 3
-      - PL_8du.shop 4
+      - 中国_363_11.84Mb
+      - RU-Openit.ml
+      - US_8du.shop
+      - LT_978 |55.66Mb
+      - 印度 01 福利 [0.1x]
+      - CN-v2cross.com
+      - Relay_中国-未知_452
+      - US-Openit.ml
+      - CN-Openit.ml 4
+      - 中国_811
+      - github.com/freefq - 美国  17
+      - github.com/freefq - 上海市电信 20
+      - CN_8du.shop 6
+      - github.com/freefq - 美国CloudFlare公司CDN节点 18
+      - 付费高速节点购买网址↓
+      - tg@nfeng6+190
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_13 2
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇨🇳CN-🇺🇸US_10
-      - Relay_美国-_2061
-      - Relay_美国-_2290
-      - Relay_新加坡-_870
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - RU
-      - RU-Openit.ml
-      - RU-Openit.ml 2
-      - RU-Openit.ml 3
-      - RU-Openit.ml 4
-      - SG-Openit.ml
-      - SG-Openit.ml 2
-      - SG-Openit.ml 3
-      - SG-Openit.ml 4
-      - Singapore 01
-      - South Korea 01
-      - South Korea 02
-      - T.07.法国.中继2
-      - T.07.法国.中继3
-      - Taiwan 02
-      - tg@nfeng6 196
-      - tg@nfeng6+190
-      - tg@nfeng6+192
-      - tg@nfeng6+194
-      - tg@nfeng6+200
-      - tg@nfeng6+202
-      - tg@nfeng6+206
-      - TW
-      - TW_8du.shop
-      - TW-Openit.ml
-      - TW-Openit.ml 2
-      - US_8du.shop
-      - US-Openit.ml
-      - US-Openit.ml 2
-      - US-Openit.ml 3
-      - US-Openit.ml 4
-      - US-Openit.ml 5
-      - US-v2cross.com
-      - 付费高速节点购买网址↓
-      - 欧洲
-      - 倾城极速.tk-中国-Openit.ml
-      - 全球直连③
-      - 日本节点(免费)倍率0x不消耗流量)
-      - 香港_1_1#228at599G_7
-      - 香港_1_2#253at552G_10
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
-      - "@SSRSUB-V04-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-V15-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-俄罗斯V01-付费推荐:dlj.tf/ssrsub"
-      - "@SSRSUB-俄罗斯V03-付费推荐:dlj.tf/ssrsub"
-      - <about:@freeyule>
-      - 8du.shop
-      - 8du.shop 2
-      - America 02
-      - CA-Openit.ml
-      - CH-Openit.ml
       - CN_8du.shop
-      - CN_8du.shop 2
-      - CN_8du.shop 3
-      - CN_8du.shop 4
-      - CN_8du.shop 5
-      - CN_8du.shop 6
-      - CN_8du.shop 7
-      - CN_8du.shop 8
-      - CN_8du.shop 9
-      - CN_8du.shop 10
-      - CN_8du.shop 11
-      - CN_8du.shop 12
-      - CN_8du.shop 13
-      - CN_8du.shop 14
-      - CN_8du.shop 15
-      - CN_8du.shop 16
-      - CN_8du.shop 17
-      - CN_8du.shop 18
-      - CN_8du.shop 19
       - CN-Openit.ml
       - CN-Openit.ml 2
+      - tg@nfeng6 196
+      - tg@nfeng6+192
+      - CN_8du.shop 2
+      - CN_8du.shop 3
+      - tg@nfeng6+202
+      - github.com/freefq - 美国CloudFlare节点 13
       - CN-Openit.ml 3
-      - CN-Openit.ml 4
-      - CN-Openit.ml 5
-      - CN-Openit.ml 6
-      - CN-Openit.ml 7
-      - -GB-0415-恢复更新
-      - -GB-0415-恢复更新 2
-      - -GB-0415-恢复更新 3
-      - HK-Openit.ml
-      - HK-Openit.ml 2
-      - HK-Openit.ml 3
-      - HK-Openit.ml 4
-      - HK-Openit.ml 5
-      - Hong Kong 02
-      - Hong Kong 03
-      - ID-Openit.ml
-      - Japan 03
-      - JP-Openit.ml
-      - JP-Openit.ml 2
-      - JP-Openit.ml 3
-      - JP-Openit.ml 4
-      - JP-Openit.ml 5
-      - KR-Openit.ml
-      - LT_962 |52.41Mb
-      - LT_978 |55.66Mb
+      - tg@nfeng6+206
+      - CN_8du.shop 4
+      - github.com/freefq - 美国Microsoft数据中心 12
+      - CN_8du.shop 5
+      - tg@nfeng6+200
+      - Relay_🇯🇵JP-🇯🇵JP_13
+      - 中国_366_11.42Mb
+      - _ 9.04Mb
+      - tg@nfeng6+194
+      - LT_978+|55.66Mb
+      - LT_962+|52.41Mb
       - LT_987 |53.23Mb
-      - -NL-0416节点 14:00-1
-      - -NL-0416节点 14:00-15
-      - -NL-0416节点 14:00-2
-      - -NL-0416节点 14:00-20
-      - -NL-0416节点 14:00-36
-      - -NL-0416节点 14:00-5
-      - -NL-0416节点 14:00-51
-      - -NL-0416节点 14:00-64
-      - PL_8du.shop
-      - PL_8du.shop 2
-      - PL_8du.shop 3
-      - PL_8du.shop 4
+      - 中国_363_11.84Mb
+      - RU-Openit.ml
+      - US_8du.shop
+      - LT_978 |55.66Mb
+      - 印度 01 福利 [0.1x]
+      - CN-v2cross.com
+      - Relay_中国-未知_452
+      - US-Openit.ml
+      - CN-Openit.ml 4
+      - 中国_811
+      - github.com/freefq - 美国  17
+      - github.com/freefq - 上海市电信 20
+      - CN_8du.shop 6
+      - github.com/freefq - 美国CloudFlare公司CDN节点 18
+      - 付费高速节点购买网址↓
+      - tg@nfeng6+190
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_13 2
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇨🇳CN-🇺🇸US_10
-      - Relay_美国-_2061
-      - Relay_美国-_2290
-      - Relay_新加坡-_870
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - RU
-      - RU-Openit.ml
-      - RU-Openit.ml 2
-      - RU-Openit.ml 3
-      - RU-Openit.ml 4
-      - SG-Openit.ml
-      - SG-Openit.ml 2
-      - SG-Openit.ml 3
-      - SG-Openit.ml 4
-      - Singapore 01
-      - South Korea 01
-      - South Korea 02
-      - T.07.法国.中继2
-      - T.07.法国.中继3
-      - Taiwan 02
-      - tg@nfeng6 196
-      - tg@nfeng6+190
-      - tg@nfeng6+192
-      - tg@nfeng6+194
-      - tg@nfeng6+200
-      - tg@nfeng6+202
-      - tg@nfeng6+206
-      - TW
-      - TW_8du.shop
-      - TW-Openit.ml
-      - TW-Openit.ml 2
-      - US_8du.shop
-      - US-Openit.ml
-      - US-Openit.ml 2
-      - US-Openit.ml 3
-      - US-Openit.ml 4
-      - US-Openit.ml 5
-      - US-v2cross.com
-      - 付费高速节点购买网址↓
-      - 欧洲
-      - 倾城极速.tk-中国-Openit.ml
-      - 全球直连③
-      - 日本节点(免费)倍率0x不消耗流量)
-      - 香港_1_1#228at599G_7
-      - 香港_1_2#253at552G_10
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - "@SSRSUB-V04-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-V15-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-俄罗斯V01-付费推荐:dlj.tf/ssrsub"
-      - "@SSRSUB-俄罗斯V03-付费推荐:dlj.tf/ssrsub"
-      - <about:@freeyule>
-      - 8du.shop
-      - 8du.shop 2
-      - America 02
-      - CA-Openit.ml
-      - CH-Openit.ml
       - CN_8du.shop
-      - CN_8du.shop 2
-      - CN_8du.shop 3
-      - CN_8du.shop 4
-      - CN_8du.shop 5
-      - CN_8du.shop 6
-      - CN_8du.shop 7
-      - CN_8du.shop 8
-      - CN_8du.shop 9
-      - CN_8du.shop 10
-      - CN_8du.shop 11
-      - CN_8du.shop 12
-      - CN_8du.shop 13
-      - CN_8du.shop 14
-      - CN_8du.shop 15
-      - CN_8du.shop 16
-      - CN_8du.shop 17
-      - CN_8du.shop 18
-      - CN_8du.shop 19
       - CN-Openit.ml
       - CN-Openit.ml 2
+      - tg@nfeng6 196
+      - tg@nfeng6+192
+      - CN_8du.shop 2
+      - CN_8du.shop 3
+      - tg@nfeng6+202
+      - github.com/freefq - 美国CloudFlare节点 13
       - CN-Openit.ml 3
-      - CN-Openit.ml 4
-      - CN-Openit.ml 5
-      - CN-Openit.ml 6
-      - CN-Openit.ml 7
-      - -GB-0415-恢复更新
-      - -GB-0415-恢复更新 2
-      - -GB-0415-恢复更新 3
-      - HK-Openit.ml
-      - HK-Openit.ml 2
-      - HK-Openit.ml 3
-      - HK-Openit.ml 4
-      - HK-Openit.ml 5
-      - Hong Kong 02
-      - Hong Kong 03
-      - ID-Openit.ml
-      - Japan 03
-      - JP-Openit.ml
-      - JP-Openit.ml 2
-      - JP-Openit.ml 3
-      - JP-Openit.ml 4
-      - JP-Openit.ml 5
-      - KR-Openit.ml
-      - LT_962 |52.41Mb
-      - LT_978 |55.66Mb
+      - tg@nfeng6+206
+      - CN_8du.shop 4
+      - github.com/freefq - 美国Microsoft数据中心 12
+      - CN_8du.shop 5
+      - tg@nfeng6+200
+      - Relay_🇯🇵JP-🇯🇵JP_13
+      - 中国_366_11.42Mb
+      - _ 9.04Mb
+      - tg@nfeng6+194
+      - LT_978+|55.66Mb
+      - LT_962+|52.41Mb
       - LT_987 |53.23Mb
-      - -NL-0416节点 14:00-1
-      - -NL-0416节点 14:00-15
-      - -NL-0416节点 14:00-2
-      - -NL-0416节点 14:00-20
-      - -NL-0416节点 14:00-36
-      - -NL-0416节点 14:00-5
-      - -NL-0416节点 14:00-51
-      - -NL-0416节点 14:00-64
-      - PL_8du.shop
-      - PL_8du.shop 2
-      - PL_8du.shop 3
-      - PL_8du.shop 4
+      - 中国_363_11.84Mb
+      - RU-Openit.ml
+      - US_8du.shop
+      - LT_978 |55.66Mb
+      - 印度 01 福利 [0.1x]
+      - CN-v2cross.com
+      - Relay_中国-未知_452
+      - US-Openit.ml
+      - CN-Openit.ml 4
+      - 中国_811
+      - github.com/freefq - 美国  17
+      - github.com/freefq - 上海市电信 20
+      - CN_8du.shop 6
+      - github.com/freefq - 美国CloudFlare公司CDN节点 18
+      - 付费高速节点购买网址↓
+      - tg@nfeng6+190
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_13 2
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇨🇳CN-🇺🇸US_10
-      - Relay_美国-_2061
-      - Relay_美国-_2290
-      - Relay_新加坡-_870
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - RU
-      - RU-Openit.ml
-      - RU-Openit.ml 2
-      - RU-Openit.ml 3
-      - RU-Openit.ml 4
-      - SG-Openit.ml
-      - SG-Openit.ml 2
-      - SG-Openit.ml 3
-      - SG-Openit.ml 4
-      - Singapore 01
-      - South Korea 01
-      - South Korea 02
-      - T.07.法国.中继2
-      - T.07.法国.中继3
-      - Taiwan 02
-      - tg@nfeng6 196
-      - tg@nfeng6+190
-      - tg@nfeng6+192
-      - tg@nfeng6+194
-      - tg@nfeng6+200
-      - tg@nfeng6+202
-      - tg@nfeng6+206
-      - TW
-      - TW_8du.shop
-      - TW-Openit.ml
-      - TW-Openit.ml 2
-      - US_8du.shop
-      - US-Openit.ml
-      - US-Openit.ml 2
-      - US-Openit.ml 3
-      - US-Openit.ml 4
-      - US-Openit.ml 5
-      - US-v2cross.com
-      - 付费高速节点购买网址↓
-      - 欧洲
-      - 倾城极速.tk-中国-Openit.ml
-      - 全球直连③
-      - 日本节点(免费)倍率0x不消耗流量)
-      - 香港_1_1#228at599G_7
-      - 香港_1_2#253at552G_10
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -1030,125 +428,50 @@ proxy-groups:
       - 🔰 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - "@SSRSUB-V04-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-V15-付费推荐:suo.yt/ssrsub"
-      - "@SSRSUB-俄罗斯V01-付费推荐:dlj.tf/ssrsub"
-      - "@SSRSUB-俄罗斯V03-付费推荐:dlj.tf/ssrsub"
-      - <about:@freeyule>
-      - 8du.shop
-      - 8du.shop 2
-      - America 02
-      - CA-Openit.ml
-      - CH-Openit.ml
       - CN_8du.shop
-      - CN_8du.shop 2
-      - CN_8du.shop 3
-      - CN_8du.shop 4
-      - CN_8du.shop 5
-      - CN_8du.shop 6
-      - CN_8du.shop 7
-      - CN_8du.shop 8
-      - CN_8du.shop 9
-      - CN_8du.shop 10
-      - CN_8du.shop 11
-      - CN_8du.shop 12
-      - CN_8du.shop 13
-      - CN_8du.shop 14
-      - CN_8du.shop 15
-      - CN_8du.shop 16
-      - CN_8du.shop 17
-      - CN_8du.shop 18
-      - CN_8du.shop 19
       - CN-Openit.ml
       - CN-Openit.ml 2
+      - tg@nfeng6 196
+      - tg@nfeng6+192
+      - CN_8du.shop 2
+      - CN_8du.shop 3
+      - tg@nfeng6+202
+      - github.com/freefq - 美国CloudFlare节点 13
       - CN-Openit.ml 3
-      - CN-Openit.ml 4
-      - CN-Openit.ml 5
-      - CN-Openit.ml 6
-      - CN-Openit.ml 7
-      - -GB-0415-恢复更新
-      - -GB-0415-恢复更新 2
-      - -GB-0415-恢复更新 3
-      - HK-Openit.ml
-      - HK-Openit.ml 2
-      - HK-Openit.ml 3
-      - HK-Openit.ml 4
-      - HK-Openit.ml 5
-      - Hong Kong 02
-      - Hong Kong 03
-      - ID-Openit.ml
-      - Japan 03
-      - JP-Openit.ml
-      - JP-Openit.ml 2
-      - JP-Openit.ml 3
-      - JP-Openit.ml 4
-      - JP-Openit.ml 5
-      - KR-Openit.ml
-      - LT_962 |52.41Mb
-      - LT_978 |55.66Mb
+      - tg@nfeng6+206
+      - CN_8du.shop 4
+      - github.com/freefq - 美国Microsoft数据中心 12
+      - CN_8du.shop 5
+      - tg@nfeng6+200
+      - Relay_🇯🇵JP-🇯🇵JP_13
+      - 中国_366_11.42Mb
+      - _ 9.04Mb
+      - tg@nfeng6+194
+      - LT_978+|55.66Mb
+      - LT_962+|52.41Mb
       - LT_987 |53.23Mb
-      - -NL-0416节点 14:00-1
-      - -NL-0416节点 14:00-15
-      - -NL-0416节点 14:00-2
-      - -NL-0416节点 14:00-20
-      - -NL-0416节点 14:00-36
-      - -NL-0416节点 14:00-5
-      - -NL-0416节点 14:00-51
-      - -NL-0416节点 14:00-64
-      - PL_8du.shop
-      - PL_8du.shop 2
-      - PL_8du.shop 3
-      - PL_8du.shop 4
+      - 中国_363_11.84Mb
+      - RU-Openit.ml
+      - US_8du.shop
+      - LT_978 |55.66Mb
+      - 印度 01 福利 [0.1x]
+      - CN-v2cross.com
+      - Relay_中国-未知_452
+      - US-Openit.ml
+      - CN-Openit.ml 4
+      - 中国_811
+      - github.com/freefq - 美国  17
+      - github.com/freefq - 上海市电信 20
+      - CN_8du.shop 6
+      - github.com/freefq - 美国CloudFlare公司CDN节点 18
+      - 付费高速节点购买网址↓
+      - tg@nfeng6+190
       - Relay_🇨🇳CN-🇨🇦CA_10
       - Relay_🇨🇳CN-🇨🇦CA_13
       - Relay_🇨🇳CN-🇨🇦CA_13 2
       - Relay_🇨🇳CN-🇨🇦CA_17
-      - Relay_🇨🇳CN-🇺🇸US_10
-      - Relay_美国-_2061
-      - Relay_美国-_2290
-      - Relay_新加坡-_870
       - Relay_中国-加拿大_482
       - Relay_中国-加拿大_492
-      - RU
-      - RU-Openit.ml
-      - RU-Openit.ml 2
-      - RU-Openit.ml 3
-      - RU-Openit.ml 4
-      - SG-Openit.ml
-      - SG-Openit.ml 2
-      - SG-Openit.ml 3
-      - SG-Openit.ml 4
-      - Singapore 01
-      - South Korea 01
-      - South Korea 02
-      - T.07.法国.中继2
-      - T.07.法国.中继3
-      - Taiwan 02
-      - tg@nfeng6 196
-      - tg@nfeng6+190
-      - tg@nfeng6+192
-      - tg@nfeng6+194
-      - tg@nfeng6+200
-      - tg@nfeng6+202
-      - tg@nfeng6+206
-      - TW
-      - TW_8du.shop
-      - TW-Openit.ml
-      - TW-Openit.ml 2
-      - US_8du.shop
-      - US-Openit.ml
-      - US-Openit.ml 2
-      - US-Openit.ml 3
-      - US-Openit.ml 4
-      - US-Openit.ml 5
-      - US-v2cross.com
-      - 付费高速节点购买网址↓
-      - 欧洲
-      - 倾城极速.tk-中国-Openit.ml
-      - 全球直连③
-      - 日本节点(免费)倍率0x不消耗流量)
-      - 香港_1_1#228at599G_7
-      - 香港_1_2#253at552G_10
 rules:
  - DOMAIN-SUFFIX,local,🎯 全球直连
  - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
