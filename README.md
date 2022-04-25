@@ -86,7 +86,7 @@
 </details>
 
 ### 所有节点
-合并节点总数: `5744`
+合并节点总数: `5624`
 [节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### 节点来源
@@ -101,7 +101,7 @@
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `35`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `2073`
 - [umelabs/node.umelabs.dev](https://github.com/umelabs/node.umelabs.dev), 节点数量: `5`
-- [yu-steven/openit](https://github.com/yu-steven/openit), 节点数量: `223`
+- [yu-steven/openit](https://github.com/yu-steven/openit), 节点数量: `213`
 - [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), 节点数量: `0`
 - [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `40`
 - [gooooooooooooogle/Clash-Config](https://github.com/gooooooooooooogle/Clash-Config), 节点数量: `22`
@@ -123,7 +123,7 @@
 - [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), 节点数量: `41`
 - [moneyfly1/sublist](https://github.com/moneyfly1/sublist), 节点数量: `7`
 - [poduv/poduv](https://github.com/poduv/poduv), 节点数量: `44`
-- [ok1991/v2ray](https://github.com/ok1991/v2ray), 节点数量: `145`
+- [ok1991/v2ray](https://github.com/ok1991/v2ray), 节点数量: `40`
 - [parkerpa/jsfxs](https://github.com/parkerpa/jsfxs), 节点数量: `582`
 - [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), 节点数量: `0`
 - [km-hello/SubLink](https://github.com/km-hello/SubLink), 节点数量: `3`
