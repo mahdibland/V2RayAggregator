@@ -57,7 +57,7 @@ class sub_merge():
         print('Merging nodes...\n')
         content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
         content_yaml = sub_convert.convert(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
-        content_base64 = sub_convert.base64_encode(content_yaml)
+        content_base64 = sub_convert.base64_encode(content_raw)
         content = content_raw
 
         def content_write(file, output_type):
@@ -196,7 +196,7 @@ class sub_merge():
             f.write(data)
 
 if __name__ == '__main__':
-    update_url.update_main([0,21,22])
+    update_url.update_main()
     sub_merge.geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
     sub_list = sub_merge.read_list(sub_list_json)
