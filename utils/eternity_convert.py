@@ -1,4 +1,5 @@
 import re, yaml
+import time, os
 
 from sub_convert import sub_convert
 from list_merge import sub_merge
@@ -8,6 +9,7 @@ Eternity_yml_file = './Eternity.yml'
 readme = './README.md'
 
 provider_path = './update/provider/'
+update_path = './update/'
 
 sub_list_json = './sub/sub_list.json'
 
@@ -18,14 +20,11 @@ class NoAliasDumper(yaml.SafeDumper): # https://ttl255.com/yaml-anchors-and-alia
     def ignore_aliases(self, data):
         return True
 
-def eternity_convert(content, config, output, provider_file_enabled=True):
-    try:
-        file_eternity = open(content, 'r', encoding='utf-8')
-        sub_content = file_eternity.read()
-        file_eternity.close()
-    except Exception as err:
-        print(err)
-        sub_content = content
+def eternity_convert(file, config, output, provider_file_enabled=True):
+    
+    file_eternity = open(file, 'r', encoding='utf-8')
+    sub_content = file_eternity.read()
+    file_eternity.close()
     all_provider = sub_convert.convert(sub_content,'content','YAML',custom_set={ 'dup_rm_enabled': False,'format_name_enabled': True})
 
     # 创建并写入 provider 
@@ -146,10 +145,29 @@ def eternity_convert(content, config, output, provider_file_enabled=True):
     """
     config_yaml = yaml.dump(config, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2, Dumper=NoAliasDumper)
     
-    Eternity_yml = open(output, 'w', encoding='utf-8')
+    Eternity_yml = open(output, 'w+', encoding='utf-8')
     Eternity_yml.write(config_yaml)
     Eternity_yml.close()
 
+def backup(file):
+    t = time.localtime()
+    date = time.strftime('%y%m', t)
+    date_day = time.strftime('%y%m%d', t)
+
+    file_eternity = open(file, 'r', encoding='utf-8')
+    sub_content = file_eternity.read()
+    file_eternity.close()
+
+    try:
+        os.mkdir(f'{update_path}{date}')
+    except FileExistsError:
+        pass
+    txt_dir = update_path + date + '/' + date_day + '.txt' # 生成$MM$DD.txt文件名
+    file = open(txt_dir, 'w', encoding= 'utf-8')
+    file.write(sub_convert.base64_decode(sub_content))
+    file.close()
+
 if __name__ == '__main__':
-    convert = eternity_convert(Eterniy_file, config_file, output=Eternity_yml_file)
+    eternity_convert(Eterniy_file, config_file, output=Eternity_yml_file)
+    backup(Eterniy_file)
     sub_merge.readme_update(readme,sub_merge.read_list(sub_list_json))
