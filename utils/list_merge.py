@@ -3,7 +3,7 @@
 from sub_convert import sub_convert # Python 之间互相调用文件https://blog.csdn.net/winycg/article/details/78512300
 from list_update import update_url
 
-import json, re
+import json, re, os
 from urllib import request
 
 
@@ -22,11 +22,15 @@ class sub_merge():
     def sub_merge(url_list): # 将转换后的所有 Url 链接内容合并转换 YAML or Base64, ，并输出文件，输入订阅列表。
 
         content_list = []
+        for t in os.walk(sub_list_path):
+            for f in t[2]:
+                f = t[0]+f
+                os.remove(f)
+
         for index in range(len(url_list)):
             content = sub_convert.convert_remote(url_list[index]['url'],'url')
             ids = url_list[index]['id']
             remarks = url_list[index]['remarks']
-            #try:
             if content == 'Url 解析错误':
                 content = sub_convert.convert(sub_merge.read_list(sub_list_json)[index]['url'],'url','url')
                 if content != 'Url 解析错误':
@@ -34,22 +38,22 @@ class sub_merge():
                     print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
                 else:
                     print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding= 'utf-8')
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
                 file.write('Url 解析错误')
                 file.close()
             elif content == 'Url 订阅内容无法解析':
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding= 'utf-8')
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
                 file.write('Url 订阅内容无法解析')
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
             elif content != None:
                 content_list.append(content)
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding= 'utf-8')
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
                 file.write(content)
                 file.close()
                 print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
             else:
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w', encoding= 'utf-8')
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
                 file.write('Url 订阅内容无法解析')
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
@@ -61,7 +65,7 @@ class sub_merge():
         content = content_raw
 
         def content_write(file, output_type):
-            file = open(file, 'w', encoding = 'utf-8')
+            file = open(file, 'w+', encoding = 'utf-8')
             file.write(output_type)
             file.close
         
