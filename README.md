@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # TopFreeProxies
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/alanbobs999/topfreeproxies/sub_merge?label=sub_merge)](https://github.com/alanbobs999/TopFreeProxies/actions/workflows/sub_merge.yml) 
 
