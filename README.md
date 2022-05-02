@@ -1531,45 +1531,45 @@
 </details>
 
 ### 所有节点
-合并节点总数: `8123`
+合并节点总数: `7055`
 [节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### 节点来源
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `49`
 - [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `498`
-- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `207`
-- [freefq/free](https://github.com/freefq/free), 节点数量: `105`
+- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `166`
+- [freefq/free](https://github.com/freefq/free), 节点数量: `63`
 - [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `181`
 - [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `100`
-- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `151`
+- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `84`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), 节点数量: `22`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `35`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `2178`
-- [yu-steven/openit](https://github.com/yu-steven/openit), 节点数量: `397`
+- [yu-steven/openit](https://github.com/yu-steven/openit), 节点数量: `193`
 - [alanbobs999/TopFreeProxies](https://github.com/alanbobs999/TopFreeProxies), 节点数量: `62`
-- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `122`
+- [ldir92664/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), 节点数量: `124`
 - [gooooooooooooogle/Clash-Config](https://github.com/gooooooooooooogle/Clash-Config), 节点数量: `22`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `176`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `145`
-- [wrfree/free](https://github.com/wrfree/free), 节点数量: `105`
-- [GreenFishStudio/GreenFish](https://github.com/GreenFishStudio/GreenFish), 节点数量: `63`
+- [wrfree/free](https://github.com/wrfree/free), 节点数量: `63`
+- [GreenFishStudio/GreenFish](https://github.com/GreenFishStudio/GreenFish), 节点数量: `57`
 - [ObcbO/auto-subscribe](https://github.com/ObcbO/auto-subscribe), 节点数量: `145`
 - [tomdegnan/clashrule](https://github.com/tomdegnan/clashrule), 节点数量: `214`
 - [TG@getv2ray](https://t.me/getv2ray), 节点数量: `7`
 - [changfengoss](https://github.com/ronghuaxueleng/get_v2), 节点数量: `902`
-- [anaer/Sub](https://github.com/anaer/Sub), 节点数量: `166`
-- [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), 节点数量: `158`
+- [anaer/Sub](https://github.com/anaer/Sub), 节点数量: `161`
+- [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), 节点数量: `104`
 - [KYLELI1991/subscription_vless](https://github.com/KYLELI1991/subscription_vless), 节点数量: `1`
-- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), 节点数量: `67`
-- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), 节点数量: `65`
+- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), 节点数量: `37`
+- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), 节点数量: `92`
 - [moneyfly1/sublist](https://github.com/moneyfly1/sublist), 节点数量: `32`
 - [poduv/poduv](https://github.com/poduv/poduv), 节点数量: `163`
 - [ok1991/v2ray](https://github.com/ok1991/v2ray), 节点数量: `57`
 - [parkerpa/jsfxs](https://github.com/parkerpa/jsfxs), 节点数量: `582`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), 节点数量: `623`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), 节点数量: `0`
 - [songkaik/Sub](https://github.com/songkaik/Sub), 节点数量: `240`
-- [yosefwang/subscription](https://github.com/yosefwang/subscription), 节点数量: `15`
-- [Nodefree.org](https://github.com/Fukki-Z/nodefree), 节点数量: `57`
+- [yosefwang/subscription](https://github.com/yosefwang/subscription), 节点数量: `13`
+- [Nodefree.org](https://github.com/Fukki-Z/nodefree), 节点数量: `76`
 
 ## 客户端选择
 ### 主流桌面客户端
