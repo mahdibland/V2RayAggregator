@@ -35,7 +35,7 @@ jobs:
       #   CONFIG: ${{ secrets.CONFIG }}
       run: |
         chmod +x ./utils/speedtest/litespeedtest
-        ./utils/speedtest/litespeedtest --config config.json --test https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge_base64.txt
+        ./utils/speedtest/litespeedtest --config ./utils/speedtest/config.json --test https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge_base64.txt
 
       
     - name: 提交更改
