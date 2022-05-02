@@ -32,8 +32,6 @@ jobs:
       run: |
         pip install -r ./utils/requirements.txt
     - name: 执行任务
-      # env:
-      #   CONFIG: ${{ secrets.CONFIG }}
       run: |
         python ./utils/list_merge.py
       
@@ -48,5 +46,4 @@ jobs:
     - name: 推送更改
       uses:  ad-m/github-push-action@master
       with:
-         # github_token: ${{ secrets.TOKEN }}
          branch: master
