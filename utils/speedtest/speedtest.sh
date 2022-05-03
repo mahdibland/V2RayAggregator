@@ -15,7 +15,7 @@ sudo chmod 777 ../../../../../etc/proxychains.conf
 mv -f proxychains.conf ../../../../../etc/proxychains.conf
 #开始运行 Clash
 sudo pkill -f clash
-nohup ./clash -f clash_config.yml >clash.log 2>&1 &
+sudo nohup ./clash -f clash_config.yml >clash.log 2>&1 &
 #运行 LiteSpeedTest
 chmod +x lite
-nohup proxychains ./lite --config ./lite_config.json --test https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity.yml >speedtest.log 2>&1 &
+sudo nohup proxychains ./lite --config ./lite_config.json --test https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/Eternity.yml >speedtest.log 2>&1 &

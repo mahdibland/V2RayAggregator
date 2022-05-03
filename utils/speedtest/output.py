@@ -4,8 +4,8 @@ out_json = './out.json'
 
 def read_json(file): # 将 out.json 内容读取为列表
     while os.path.isfile(file)==False:
-        print('Await speedtest complete')
-        time.sleep(5)
+        print('Awaiting speedtest complete')
+        time.sleep(30)
     with open(file, 'r', encoding='utf-8') as f:
         print('Reading out.json')
         proxies_all = json.load(f)
