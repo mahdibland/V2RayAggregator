@@ -78,6 +78,7 @@ class sub_merge():
     def read_list(json_file,remote=False): # 将 sub_list.json Url 内容读取为列表
         with open(json_file, 'r', encoding='utf-8') as f:
             raw_list = json.load(f)
+            f.close()
         input_list = []
         for index in range(len(raw_list)):
             if raw_list[index]['enabled']:
