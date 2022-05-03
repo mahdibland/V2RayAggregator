@@ -7,6 +7,8 @@ on:
   push:
     paths:
       - './sub/sub_merge_base64.txt'
+  schedule:
+    - cron: '30 */4 * * *'
   
 jobs:
   deploy:
@@ -40,6 +42,7 @@ jobs:
       run: |                 
          git config --local user.email "actions@github.com"
          git config --local user.name "GitHub Actions"
+         git pull origin master
          git add Eternity
          git add Eternity.yml
          git add README.md
