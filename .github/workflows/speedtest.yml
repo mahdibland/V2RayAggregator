@@ -34,8 +34,7 @@ jobs:
         pip install -r ./utils/requirements.txt
     - name: speedtest
       run: |
-        chmod +x ./utils/speedtest/litespeedtest
-        ./utils/speedtest/litespeedtest --config ./utils/speedtest/config.json --test https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge_base64.txt
+        sudo sh ./utils/speedtest/speedtest.sh
         python ./utils/speedtest/output.py
         python ./utils/eternity_convert.py
     - name: commit
