@@ -9,7 +9,7 @@ on:
       - './sub/sub_merge_base64.txt'
   
 jobs:
-  Test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - name: 迁出代码
@@ -37,12 +37,14 @@ jobs:
         chmod +x ./utils/speedtest/litespeedtest
         ./utils/speedtest/litespeedtest --config ./utils/speedtest/config.json --test https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge_base64.txt
 
-        python ./utils/speedtest/speedtest.py
+      
     - name: 提交更改
       run: |                 
          git config --local user.email "actions@github.com"
          git config --local user.name "GitHub Actions"
+         git add ./utils
          git add Eternity
+         git add README.md
          git commit -m "$(date '+%Y-%m-%d %H:%M:%S')筛选节点"
     - name: 推送更改
       uses:  ad-m/github-push-action@master
