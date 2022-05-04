@@ -1,0 +1,40 @@
+# port of HTTP
+port: 7890
+
+# port of SOCKS5
+socks-port: 1080
+
+# (HTTP and SOCKS5 in one port)
+# mixed-port: 7890
+
+# redir port for Linux and macOS
+# redir-port: 7892
+
+allow-lan: false
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+
+proxies:
+
+proxy-groups:
+  - name: cn
+    type: load-balance
+    use:
+      - all
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+
+proxy-providers:
+  all:
+    type: http
+    url: "https://sspool.herokuapp.com/clash/proxies?c=CN"
+    path: sspool.herokuapp.com/provider-cn.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+
+rules:
+  - DOMAIN-SUFFIX,smtp,DIRECT
+  - MATCH,cn
