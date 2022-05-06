@@ -86,7 +86,7 @@ class update_url():
 
                 try:
                     raw_content = raw_content.replace('amp;', '')
-                    pattern = re.compile(r'https://shadowshare.v2cross.com/servers/temp/\w{16}')
+                    pattern = re.compile(r'https://shadowshare.v2cross.com/publicserver/servers/temp/\w{16}')
                     
                     new_url = re.findall(pattern, raw_content)[0]
                     return new_url
