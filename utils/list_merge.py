@@ -126,7 +126,7 @@ class sub_merge():
                         f.close()
                     repo_amount_dic.setdefault(id, amount)
                     line = f'- [{remarks}]({repo_site}), 节点数量: `{amount}`\n'
-                if id != 12:
+                if remarks != "alanbobs999/TopFreeProxies":
                     thanks.append(line)
             f.close()
         
@@ -144,7 +144,7 @@ class sub_merge():
                     proxies = proxies.split('\n')
                     proxies = ['    '+proxy for proxy in proxies]
                     proxies = [proxy+'\n' for proxy in proxies]
-                top_amount = len(proxies) - 1
+                top_amount = len(proxies)
                 
                 lines.insert(index+1, f'高速节点数量: `{top_amount}`\n')
                 index += 4
