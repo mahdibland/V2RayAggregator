@@ -24,8 +24,8 @@
 
 另有国内加速链接：
 
-- [多协议Base64编码](https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/Eternity)
-- [Clash](https://raw.fastgit.org/alanbobs999/TopFreeProxies/master/Eternity.yml)
+- [多协议Base64编码](https://fastly.jsdelivr.net/gh/alanbobs999/TopFreeProxies@master/Eternity)
+- [Clash](https://fastly.jsdelivr.net/gh/alanbobs999/TopFreeProxies@master/Eternity.yml)
 
 >`Clash`链接所使用的配置在仓库`./update/provider/`中，有相应配置文件和以国家分类的`proxy-provider`。
 >
@@ -34,7 +34,7 @@
 
 ## 节点信息
 ### 高速节点
-高速节点数量: `98`
+高速节点数量: `99`
 <details>
   <summary>展开复制节点</summary>
 
