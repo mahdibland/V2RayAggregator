@@ -33,6 +33,10 @@ jobs:
         pip install -r ./utils/requirements.txt
     - name: 执行任务
       run: |
+        wget -O subconverter.gz https://github.com/Dreamacro/clash/releases/download/v1.10.0/clash-linux-amd64-v1.10.0.gz
+        gunzip subconverter.gz
+        chmod +x ./clash && ./subconverter &
+        
         python ./utils/list_merge.py
       
     - name: 提交更改

@@ -28,7 +28,7 @@ class sub_merge():
                 os.remove(f)
 
         for index in range(len(url_list)):
-            content = sub_convert.convert_remote(url_list[index]['url'],'url')
+            content = sub_convert.convert_remote(url_list[index]['url'],'url','http://127.0.0.1:25500')
             ids = url_list[index]['id']
             remarks = url_list[index]['remarks']
             if content == 'Url 解析错误':
