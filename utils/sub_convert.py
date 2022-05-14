@@ -653,7 +653,6 @@ class sub_convert():
         # 使用远程订阅转换服务，输出相应配置。
         sever_host = host
         url = urllib.parse.quote(url, safe='') # https://docs.python.org/zh-cn/3/library/urllib.parse.html
-        #http://127.0.0.1:25500/sub?target=clash&url=url&insert=false&config=&emoji=true&list=true&udp=false&tfo=false&expand=true&scv=false&fdn=false&sort=false&new_name=true
         if output_type == 'clash':
             converted_url = sever_host+'/sub?target=clash&url='+url+'&insert=false&emoji=true&list=true'
             try:
