@@ -35,8 +35,7 @@ jobs:
       run: |
         wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/latest/download/subconverter_linux64.tar.gz
         tar -zxvf subconverter.tar.gz -C ./
-        cd ./subconverter
-        chmod +x ./subconverter && ./subconverter &
+        chmod +x ./subconverter/subconverter && ./subconverter/subconverter &
 
         python ./utils/list_merge.py
       
