@@ -33,8 +33,9 @@ jobs:
         pip install -r ./utils/requirements.txt
     - name: 执行任务
       run: |
-        wget -O subconverter.gz https://github.com/tindy2013/subconverter/releases/latest/download/subconverter_linux64.tar.gz
-        gunzip subconverter.gz
+        wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/latest/download/subconverter_linux64.tar.gz
+        tar -zxvf subconverter.tar.gz -C ./
+        cd ./subconverter
         chmod +x ./subconverter && ./subconverter &
 
         python ./utils/list_merge.py
@@ -45,7 +46,6 @@ jobs:
          git config --local user.name "GitHub Actions"
          git pull origin master
          git add ./sub
-         git add ./utils
          git add README.md
          git commit -m "$(date '+%Y-%m-%d %H:%M:%S')合并节点"
     - name: 推送更改
