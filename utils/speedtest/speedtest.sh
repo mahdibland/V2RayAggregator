@@ -1,5 +1,5 @@
 #准备好所需文件
-wget -O clash.gz https://github.com/Dreamacro/clash/releases/latest/download/clash-linux-amd64-v1.10.0.gz
+wget -O clash.gz https://github.com/Dreamacro/clash/releases/download/v1.10.6/clash-linux-amd64-v1.10.6.gz
 gunzip clash.gz
 wget -O lite.gz https://github.com/alanbobs999/LiteSpeedTest/releases/download/v0.9.1/lite-linux-amd64-v0.9.1.gz
 gunzip lite.gz
