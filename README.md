@@ -211,9 +211,9 @@
 免费节点失效太快，推荐一些性价比高的机场应急使用。
 - [魔戒.net](https://www.mojie.cyou/#/register?code=sAbl0qtT)
   - 按量计费机场, 1¥10G, 10¥130G
-  - 所有套餐均是一样的节点与一样的服务，所有套餐流量永不过期，用完为止，不限制客户端数量，最高可提供 2Gbps 峰值。
+  - 所有套餐均是一样的节点与一样的服务，所有套餐流量永不过期，用完为止，不限制客户端数量，最高可提供 2Gbps 峰值
 - [大迅云](https://daxun.club/#/register?code=JPmAFPav)
-  - 最低月付 5¥50G, 购买 12¥ 及以上套餐免费领取奈飞 + 迪士尼 Plus 共享号
+  - 最低月付 5¥50G, 12¥200G, 购买 12¥ 及以上套餐免费领取奈飞 + 迪士尼 Plus 共享号
   - 原生IP负载均衡，流媒体解锁晚高峰油管秒开，主打性价比，有试用
 - [阿伟云](https://awslcn.xyz/#/register?code=8C18uZwl)
   - 最低月付 1¥ 起, 9.99¥100G
@@ -223,4 +223,4 @@
 订阅节点仅作学习交流使用，只是对网络上节点的优选排序，用于查找资料，学习知识，不做任何违法行为。所有资源均来自互联网，仅供大家交流学习使用，出现违法问题概不负责。
 
 ## 星标统计
-[![Stargazers over time](https://starchart.cc/alanbobs999/TopFreeProxies.svg)](https://starchart.cc/alanbobs999/TopFreeProxies)
+[![Star History Chart](https://api.star-history.com/svg?repos=alanbobs999/TopFreeProxies&type=Date)](https://star-history.com/#alanbobs999/TopFreeProxies&Date)
