@@ -44,7 +44,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
             elif 'HK' in line or '香港' in line:
                 hk_proxy.append(line)
             elif 'SG' in line or '新加坡' in line:
-                 sg_proxy.append(line)
+                sg_proxy.append(line)
             else:
                 others_proxy.append(line)
     us_provider = 'proxies:\n' + '\n'.join(us_proxy)

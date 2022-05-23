@@ -41,13 +41,13 @@ jobs:
       
     - name: 提交更改
       run: |                 
-         git config --local user.email "actions@github.com"
-         git config --local user.name "GitHub Actions"
-         git pull origin master
-         git add ./sub
-         git add README.md
-         git commit -m "$(date '+%Y-%m-%d %H:%M:%S')合并节点"
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions"
+        git pull origin master
+        git add ./sub
+        git add README.md
+        git commit -m "$(date '+%Y-%m-%d %H:%M:%S')合并节点"
     - name: 推送更改
       uses:  ad-m/github-push-action@master
       with:
-         branch: master
+        branch: master
