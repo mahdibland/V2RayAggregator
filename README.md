@@ -141,38 +141,38 @@
 </details>
 
 ### 所有节点
-合并节点总数: `5694`
+合并节点总数: `5760`
 [节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### 节点来源
-- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `84`
+- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `76`
 - [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `174`
-- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `117`
-- [freefq/free](https://github.com/freefq/free), 节点数量: `46`
-- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `141`
+- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `131`
+- [freefq/free](https://github.com/freefq/free), 节点数量: `40`
+- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `122`
 - [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `100`
-- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `62`
+- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `75`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), 节点数量: `42`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `279`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `2715`
-- [yu-steven/openit](https://github.com/yu-steven/openit), 节点数量: `99`
+- [yu-steven/openit](https://github.com/yu-steven/openit), 节点数量: `67`
 - [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), 节点数量: `8`
 - [gooooooooooooogle/Clash-Config](https://github.com/gooooooooooooogle/Clash-Config), 节点数量: `42`
-- [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `62`
+- [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `52`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `145`
-- [wrfree/free](https://github.com/wrfree/free), 节点数量: `46`
+- [wrfree/free](https://github.com/wrfree/free), 节点数量: `40`
 - [GreenFishStudio/GreenFish](https://github.com/GreenFishStudio/GreenFish), 节点数量: `56`
 - [tomdegnan/clashrule](https://github.com/tomdegnan/clashrule), 节点数量: `214`
-- [changfengoss](https://github.com/ronghuaxueleng/get_v2), 节点数量: `27`
-- [anaer/Sub](https://github.com/anaer/Sub), 节点数量: `182`
-- [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), 节点数量: `40`
-- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), 节点数量: `39`
-- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), 节点数量: `52`
+- [changfengoss](https://github.com/ronghuaxueleng/get_v2), 节点数量: `145`
+- [anaer/Sub](https://github.com/anaer/Sub), 节点数量: `164`
+- [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), 节点数量: `87`
+- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), 节点数量: `30`
+- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), 节点数量: `41`
 - [moneyfly1/sublist](https://github.com/moneyfly1/sublist), 节点数量: `67`
 - [poduv/poduv](https://github.com/poduv/poduv), 节点数量: `22`
 - [ok1991/v2ray](https://github.com/ok1991/v2ray), 节点数量: `39`
 - [parkerpa/jsfxs](https://github.com/parkerpa/jsfxs), 节点数量: `582`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), 节点数量: `12`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), 节点数量: `5`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), 节点数量: `101`
 
 ## 客户端选择
