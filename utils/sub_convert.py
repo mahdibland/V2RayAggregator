@@ -8,42 +8,10 @@ import geoip2.database
 
 class sub_convert():
 
-    """
-    将订阅链接或者订阅内容输入 convert 函数中, 第一步将内容转化为 Clash 节点配置字典, 第二步对节点进行去重和重命名等修饰处理, 第三步输出指定格式. 
-    第一步堆栈: 
-        YAML To Dict:
-            raw_yaml
-            convert --> transfer --> format
-            dict
-        URL To Dict:
-            raw_url
-            convert --> transfer --> format --> yaml_encode --> format
-            dict
-        Base64 To Dict:
-            raw_base64
-            convert --> transfer --> base64_decode --> format --> yaml_encode --> format
-            dict
-    第二步堆栈:
-        dict
-        convert --> makeup --> format
-        yaml_final
-    第三步堆栈:
-        YAML To YAML:
-            yaml_final
-            makeup --> convert
-            yaml_final
-        YAML To URL:
-            yaml_final
-            makeup --> yaml_decode --> convert
-            url_final
-        YAML To Base64:
-            yaml_final
-            makeup --> yaml_decode --> base64_encode --> convert
-            base64_final
-    """
-
-    def convert(raw_input, input_type='url', output_type='url', custom_set={'dup_rm_enabled': False, 'format_name_enabled': False}): # {'input_type': ['url', 'content'],'output_type': ['url', 'YAML', 'Base64']}
-        # convert Url to YAML or Base64
+    def main(raw_input, input_type='url', output_type='url', custom_set={'dup_rm_enabled': False, 'format_name_enabled': False}): # {'input_type': ['url', 'content'],'output_type': ['url', 'YAML', 'Base64']}
+        """Convert subscribe content to YAML or Base64 or url.
+        首先获取到订阅内容，然后对其进行格式化处理。如果内容不是 “订阅内容解析错误”，在进行去重、改名操作后（可选）输出目标格式，否则输出 “订阅内容解析错误”。
+        """
         if input_type == 'url': # 获取 URL 订阅链接内容
             sub_content = ''
             if isinstance(raw_input, list):
@@ -55,12 +23,12 @@ class sub_convert():
                     try:
                         print('Downloading from:' + url)
                         resp = s.get(url, timeout=5)
-                        s_content = sub_convert.yaml_decode(sub_convert.transfer(resp.content.decode('utf-8')))
+                        s_content = sub_convert.yaml_decode(sub_convert.format(resp.content.decode('utf-8')))
                         a_content.append(s_content)
                     except Exception as err:
                         print(err)
                         return 'Url 解析错误'
-                sub_content = sub_convert.transfer(''.join(a_content))
+                sub_content = sub_convert.format(''.join(a_content))
             else:
                 s = requests.Session()
                 s.mount('http://', HTTPAdapter(max_retries=5))
@@ -68,14 +36,14 @@ class sub_convert():
                 try:
                     print('Downloading from:' + raw_input)
                     resp = s.get(raw_input, timeout=5)
-                    sub_content = sub_convert.transfer(resp.content.decode('utf-8'))
+                    sub_content = sub_convert.format(resp.content.decode('utf-8'))
                 except Exception as err:
                     print(err)
                     return 'Url 解析错误'
         elif input_type == 'content': # 解析订阅内容
-            sub_content = sub_convert.transfer(raw_input)
+            sub_content = sub_convert.format(raw_input)
 
-        if sub_content != '订阅内容解析错误': # 输出
+        if sub_content != '订阅内容解析错误':
             dup_rm_enabled = custom_set['dup_rm_enabled']
             format_name_enabled = custom_set['format_name_enabled']
             final_content = sub_convert.makeup(sub_content,dup_rm_enabled,format_name_enabled)
@@ -90,138 +58,108 @@ class sub_convert():
                 return '订阅内容解析错误'
         else:
             return '订阅内容解析错误'
-    def transfer(sub_content): # 将 URL 内容转换为 YAML 格式
+    def format(sub_content): # 对链接文本(Base64, url, YAML)进行格式化处理, 输出节点的配置字典（Clash 配置）
         if '</b>' not in sub_content:
-            if 'proxies:' in sub_content: # 判断字符串是否在文本中，是，判断为YAML。https://cloud.tencent.com/developer/article/1699719
-                url_content = sub_convert.format(sub_content)
-                return url_content
-                #return self.url_content.replace('\r','') # 去除‘回车\r符’ https://blog.csdn.net/jerrygaoling/article/details/81051447
-            elif '://'  in sub_content: # 同上，是，判断为 Url 链接内容。
-                url_content = sub_convert.yaml_encode(sub_convert.format(sub_content))
-                return url_content
-            else: # 判断 Base64.
+            if 'proxies:' not in sub_content: # 对 URL 内容进行格式化处理
+                url_list = []
                 try:
-                    url_content = sub_convert.base64_decode(sub_content)
-                    url_content = sub_convert.yaml_encode(sub_convert.format(url_content))
-                    return url_content
-                except Exception: # 万能异常 https://blog.csdn.net/Candance_star/article/details/94135515
-                    print('订阅内容解析错误')
-                    return '订阅内容解析错误'
-        else:
-            print('订阅内容解析错误')
-            return '订阅内容解析错误'
-    def format(sub_content, output=False): # 对链接文本进行格式化处理, 输出节点的配置字典, output 为真时输出 YAML 文本
+                    if '://' not in sub_content:
+                        sub_content = sub_convert.base64_decode(sub_content)
 
-        if 'proxies:' not in sub_content: # 对 URL 内容进行格式化处理
-            url_list = []
-            try:
-                if '://' not in sub_content:
-                    sub_content = sub_convert.base64_encode(sub_content)
+                    raw_url_list = re.split(r'\n+', sub_content)
 
-                raw_url_list = re.split(r'\n+', sub_content)
+                    for url in raw_url_list:
+                        while len(re.split('ss://|ssr://|vmess://|trojan://|vless://', url)) > 2:
+                            url_to_split = url[8:]
+                            if 'ss://' in url_to_split and 'vmess://' not in url_to_split and 'vless://' not in url_to_split:
+                                url_splited = url_to_split.replace('ss://', '\nss://', 1) # https://www.runoob.com/python/att-string-replace.html
+                            elif 'ssr://' in url_to_split:
+                                url_splited = url_to_split.replace('ssr://', '\nssr://', 1)
+                            elif 'vmess://' in url_to_split:
+                                url_splited = url_to_split.replace('vmess://', '\nvmess://', 1)
+                            elif 'trojan://' in url_to_split:
+                                url_splited = url_to_split.replace('trojan://', '\ntrojan://', 1)
+                            elif 'vless://' in url_to_split:
+                                url_splited = url_to_split.replace('vless://', '\nvless://', 1)
+                            url_split = url_splited.split('\n')
 
-                for url in raw_url_list:
-                    while len(re.split('ss://|ssr://|vmess://|trojan://|vless://', url)) > 2:
-                        url_to_split = url[8:]
-                        if 'ss://' in url_to_split and 'vmess://' not in url_to_split and 'vless://' not in url_to_split:
-                            url_splited = url_to_split.replace('ss://', '\nss://', 1) # https://www.runoob.com/python/att-string-replace.html
-                        elif 'ssr://' in url_to_split:
-                            url_splited = url_to_split.replace('ssr://', '\nssr://', 1)
-                        elif 'vmess://' in url_to_split:
-                            url_splited = url_to_split.replace('vmess://', '\nvmess://', 1)
-                        elif 'trojan://' in url_to_split:
-                            url_splited = url_to_split.replace('trojan://', '\ntrojan://', 1)
-                        elif 'vless://' in url_to_split:
-                            url_splited = url_to_split.replace('vless://', '\nvless://', 1)
-                        url_split = url_splited.split('\n')
+                            front_url = url[:8] + url_split[0]
+                            url_list.append(front_url)
+                            url = url_split[1]
 
-                        front_url = url[:8] + url_split[0]
-                        url_list.append(front_url)
-                        url = url_split[1]
+                        url_list.append(url)
 
-                    url_list.append(url)
-
-                url_content = '\n'.join(url_list)
-                return url_content
-            except:
-                print('Sub_content 格式错误')
-                return ''
-
-        elif 'proxies:' in sub_content: # 对 Clash 内容进行格式化处理
-            try:
-                try_load = yaml.safe_load(sub_content)
-                if output == False:
-                    sub_content_yaml = try_load
-                else:
-                    sub_content_yaml = sub_content
-            except Exception:
-                try:
-                    sub_content = sub_content.replace('\'', '').replace('"', '')
-                    url_list = []
-                    il_chars = ['|', '?', '[', ']', '@', '!', '%']
-
-                    lines = re.split(r'\n+', sub_content)
-                    line_fix_list = []
-
-                    for line in lines:
-                        value_list = re.split(r': |, ', line)
-                        if len(value_list) > 6:
-                            value_list_fix = []
-                            for value in value_list:
-                                for char in il_chars:
-                                    value_il = False
-                                    if char in value:
-                                        value_il = True
-                                        break
-                                if value_il == True and ('{' not in value and '}' not in value):
-                                    value = '"' + value + '"'
-                                    value_list_fix.append(value)
-                                elif value_il == True and '}' in value:
-                                    if '}}' in value:
-                                        host_part = value.replace('}}','')
-                                        host_value = '"'+host_part+'"}}'
-                                        value_list_fix.append(host_value)
-                                    elif '}}' not in value:
-                                        host_part = value.replace('}','')
-                                        host_value = '"'+host_part+'"}'
-                                        value_list_fix.append(host_value)
-                                else:
-                                    value_list_fix.append(value)
-                                line_fix = line
-                            for index in range(len(value_list_fix)):
-                                line_fix = line_fix.replace(value_list[index], value_list_fix[index])
-                            line_fix_list.append(line_fix)
-                        elif len(value_list) == 2:
-                            value_list_fix = []
-                            for value in value_list:
-                                for char in il_chars:
-                                    value_il = False
-                                    if char in value:
-                                        value_il = True
-                                        break
-                                if value_il == True:
-                                    value = '"' + value + '"'
-                                value_list_fix.append(value)
-                            line_fix = line
-                            for index in range(len(value_list_fix)):
-                                line_fix = line_fix.replace(value_list[index], value_list_fix[index])
-                            line_fix_list.append(line_fix)
-                        elif len(value_list) == 1:
-                            if ':' in line:
-                                line_fix_list.append(line)
-                        else:
-                            line_fix_list.append(line)
-
-                    sub_content = '\n'.join(line_fix_list).replace('False', 'false').replace('True', 'true')
-
-                    if output == False:
-                        sub_content_yaml = yaml.safe_load(sub_content)
-                    else: # output 值为 True 时返回修饰过的 YAML 文本
-                        sub_content_yaml = sub_content
+                    url_content = '\n'.join(url_list)
+                    return sub_convert.yaml_encode(url_content,output=False)
                 except:
                     print('Sub_content 格式错误')
-                    return '' # 解析 URL 内容错误时返回空字符串
-            if output == False:
+                    return '订阅内容解析错误'
+
+            elif 'proxies:' in sub_content: # 对 Clash 内容进行格式化处理
+                try:
+                    try_load = yaml.safe_load(sub_content)
+                    sub_content_yaml = try_load
+                except Exception:
+                    try:
+                        sub_content = sub_content.replace('\'', '').replace('"', '')
+                        url_list = []
+                        il_chars = ['|', '?', '[', ']', '@', '!', '%']
+                        lines = re.split(r'\n+', sub_content)
+                        line_fix_list = []
+                        for line in lines:
+                            value_list = re.split(r': |, ', line)
+                            if len(value_list) > 6:
+                                value_list_fix = []
+                                for value in value_list:
+                                    for char in il_chars:
+                                        value_il = False
+                                        if char in value:
+                                            value_il = True
+                                            break
+                                    if value_il == True and ('{' not in value and '}' not in value):
+                                        value = '"' + value + '"'
+                                        value_list_fix.append(value)
+                                    elif value_il == True and '}' in value:
+                                        if '}}' in value:
+                                            host_part = value.replace('}}','')
+                                            host_value = '"'+host_part+'"}}'
+                                            value_list_fix.append(host_value)
+                                        elif '}}' not in value:
+                                            host_part = value.replace('}','')
+                                            host_value = '"'+host_part+'"}'
+                                            value_list_fix.append(host_value)
+                                    else:
+                                        value_list_fix.append(value)
+                                    line_fix = line
+                                for index in range(len(value_list_fix)):
+                                    line_fix = line_fix.replace(value_list[index], value_list_fix[index])
+                                line_fix_list.append(line_fix)
+                            elif len(value_list) == 2:
+                                value_list_fix = []
+                                for value in value_list:
+                                    for char in il_chars:
+                                        value_il = False
+                                        if char in value:
+                                            value_il = True
+                                            break
+                                    if value_il == True:
+                                        value = '"' + value + '"'
+                                    value_list_fix.append(value)
+                                line_fix = line
+                                for index in range(len(value_list_fix)):
+                                    line_fix = line_fix.replace(value_list[index], value_list_fix[index])
+                                line_fix_list.append(line_fix)
+                            elif len(value_list) == 1:
+                                if ':' in line:
+                                    line_fix_list.append(line)
+                            else:
+                                line_fix_list.append(line)
+
+                        sub_content = '\n'.join(line_fix_list).replace('False', 'false').replace('True', 'true')
+                        sub_content_yaml = yaml.safe_load(sub_content)
+                    except:
+                        print('Sub_content 格式错误')
+                        return '订阅内容解析错误'
                 for item in sub_content_yaml['proxies']:# 对转换过程中出现的不标准配置格式转换
                     try:
                         if item['type'] == 'vmess' and 'HOST' in item['ws-headers'].keys():
@@ -231,17 +169,16 @@ class sub_convert():
                             sub_content_yaml['proxies'].remove(item)
                         pass
 
-            return sub_content_yaml # 返回字典, output 值为 True 时返回修饰过的 YAML 文本
-    def makeup(input, dup_rm_enabled=False, format_name_enabled=False): # 对节点进行区域的筛选和重命名，输出 YAML 文本 
+                return sub_content_yaml # 返回字典, output 值为 True 时返回修饰过的 YAML 文本
+        else:
+            print('订阅内容解析错误')
+            return '订阅内容解析错误'
+    def makeup(input, dup_rm_enabled=False, format_name_enabled=False): # 输入节点配置字典, 对节点进行区域的筛选和重命名，输出 YAML 文本 
         # 区域判断(Clash YAML): https://blog.csdn.net/CSDN_duomaomao/article/details/89712826 (ip-api)
         if isinstance(input, dict):
             sub_content = input
         else:
-            if 'proxies:' in input:
-                sub_content = sub_convert.format(input)
-            else:
-                yaml_content_raw = sub_convert.convert(input, 'content', 'YAML')
-                sub_content = yaml.safe_load(yaml_content_raw)
+            sub_content = sub_convert.format(input)
         proxies_list = sub_content['proxies']
         
         if dup_rm_enabled: # 去重
@@ -261,7 +198,7 @@ class sub_convert():
                 begin_2 = begin + 1
                 while begin_2 <= (length - 1):
 
-                    if proxy_compared['server'] == proxies_list[begin_2]['server']:
+                    if proxy_compared['server'] == proxies_list[begin_2]['server'] and proxy_compared['port'] == proxies_list[begin_2]['port']:
                         proxies_list.pop(begin_2)
                         length -= 1
                     begin_2 += 1
@@ -378,19 +315,17 @@ class sub_convert():
                     proxy_str = str(proxy)
                     url_list.append(proxy_str)
             elif format_name_enabled == False:
-                if proxy['server'] != '127.0.0.1':
+                if proxy['server'] != '127.0.0.1': # 防止加入无用节点
                     proxy_str = str(proxy)
                     url_list.append(proxy_str)
 
         yaml_content_dic = {'proxies': url_list}
         yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
         yaml_content = yaml_content_raw.replace('\'', '').replace('False', 'false').replace('True', 'true')
-
-        yaml_content = sub_convert.format(yaml_content,True)
         
         return yaml_content # 输出 YAML 格式文本
 
-    def yaml_encode(url_content): # 将 URL 内容转换为 YAML 文本后再使用 format() 进行格式化处理
+    def yaml_encode(url_content,output=True): # 将 URL 内容转换为 YAML 文本, output 为 False 时输出节点配置字典
         url_list = []
 
         lines = re.split(r'\n+', url_content)
@@ -548,23 +483,21 @@ class sub_convert():
                     pass
 
         yaml_content_dic = {'proxies': url_list}
-        yaml_content = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
+        if output:
+            yaml_content = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
+        else:
+            yaml_content = yaml_content_dic
         return yaml_content
     def base64_encode(url_content): # 将 URL 内容转换为 Base64
         base64_content = base64.b64encode(url_content.encode('utf-8')).decode('ascii')
         return base64_content
 
     def yaml_decode(url_content): # YAML 文本转换为 URL 链接内容
-        
         try:
             if isinstance(url_content, dict):
                 sub_content = url_content
             else:
-                if 'proxies:' in url_content:
-                    sub_content = sub_convert.format(url_content)
-                else:
-                    yaml_content_raw = sub_convert.convert(url_content, 'content', 'YAML')
-                    sub_content = yaml.safe_load(yaml_content_raw)
+                sub_content = sub_convert.format(url_content)
             proxies_list = sub_content['proxies']
 
             protocol_url = []
@@ -641,18 +574,12 @@ class sub_convert():
     def base64_decode(url_content): # Base64 转换为 URL 链接内容
         if '-' in url_content:
             url_content = url_content.replace('-', '+')
-        elif '_' in url_content:
+        if '_' in url_content:
             url_content = url_content.replace('_', '/')
         #print(len(url_content))
         missing_padding = len(url_content) % 4
         if missing_padding != 0:
             url_content += '='*(4 - missing_padding) # 不是4的倍数后加= https://www.cnblogs.com/wswang/p/7717997.html
-        """ elif(len(url_content)%3 == 1):
-            url_content += '=='
-        elif(len(url_content)%3 == 2): 
-            url_content += '=' """
-        #print(url_content)
-        #print(len(url_content))
         try:
             base64_content = base64.b64decode(url_content.encode('utf-8')).decode('utf-8','ignore') # https://www.codenong.com/42339876/
             base64_content_format = base64_content
@@ -704,10 +631,10 @@ class sub_convert():
 
 
 if __name__ == '__main__':
-    subscribe = 'https://drive.google.com/uc?export=download&id=13Ky0JMPNnisBkUOrl57VQ1ckrUWy4Nhi'
+    subscribe = 'https://fastly.jsdelivr.net/gh/alanbobs999/TopFreeProxies@master/sub/sub_merge.txt'
     output_path = './output.txt'
 
-    content = sub_convert.convert_remote(subscribe, 'url')
+    content = sub_convert.main(subscribe, 'url', 'YAML')
 
     file = open(output_path, 'w', encoding= 'utf-8')
     file.write(content)

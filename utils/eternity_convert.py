@@ -25,7 +25,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     file_eternity = open(file, 'r', encoding='utf-8')
     sub_content = file_eternity.read()
     file_eternity.close()
-    all_provider = sub_convert.convert(sub_content,'content','YAML',custom_set={'dup_rm_enabled': False,'format_name_enabled': True})
+    all_provider = sub_convert.main(sub_content,'content','YAML',custom_set={'dup_rm_enabled': False,'format_name_enabled': True})
 
     # 创建并写入 provider 
     lines = re.split(r'\n+', all_provider)

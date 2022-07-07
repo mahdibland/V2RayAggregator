@@ -32,7 +32,7 @@ class sub_merge():
             ids = url_list[index]['id']
             remarks = url_list[index]['remarks']
             if content == 'Url 解析错误':
-                content = sub_convert.convert(sub_merge.read_list(sub_list_json)[index]['url'],'url','url')
+                content = sub_convert.main(sub_merge.read_list(sub_list_json)[index]['url'],'url','url')
                 if content != 'Url 解析错误':
                     content_list.append(content)
                     print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
@@ -60,7 +60,7 @@ class sub_merge():
 
         print('Merging nodes...\n')
         content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
-        content_yaml = sub_convert.convert(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
+        content_yaml = sub_convert.main(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
         content_base64 = sub_convert.base64_encode(content_raw)
         content = content_raw
 
