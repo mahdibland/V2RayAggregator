@@ -572,7 +572,7 @@ class sub_convert():
             for index in range(len(proxies_list)): # 不同节点订阅链接内容 https://github.com/hoochanlon/fq-book/blob/master/docs/append/srvurl.md
                 proxy = proxies_list[index]
 
-                if proxy['type'] == 'vmess': # Vmess 节点提取, 由 Vmess 所有参数 dump JSON 后 base64 得来。
+                if proxy['type'] == 'vmess': # Vmess 节点提取, 由 Vmess 所有参数 dump JSON 后 base64 encode 得来。
 
                     yaml_default_config = {
                         'name': 'Vmess Node', 'server': '0.0.0.0', 'port': 0, 'uuid': '', 'alterId': 0,
@@ -614,10 +614,25 @@ class sub_convert():
                     trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + trojan_go + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                     protocol_url.append(trojan_proxy)
                 
-                #elif proxy['type'] == 'ssr':
-                    #ssr_base64_decoded = str(proxy['server']) + ':' + str(proxy['port']) + ':' + str(proxy['protocol']) 
-                    #ssr_base64_decoded = ssr_base64_decoded + ':' + str(proxy['cipher']) + ':' + str(proxy['obfs']) + ':' + str(sub_convert.base64_encode(proxy['password'])) + '/?'
-                    #protocol_url.append(vmessr_proxy)
+                elif proxy['type'] == 'ssr': # ssr 节点提取, 由 ssr_base64_decoded 中所有参数总体 base64 encode
+                    remarks = sub_convert.base64_encode(proxy['name']).replace('+', '-')
+                    server = proxy['server']
+                    port = str(proxy['port'])
+                    password = sub_convert.base64_encode(proxy['password'])
+                    cipher = proxy['cipher']
+                    protocol = proxy['protocol']
+                    obfs = proxy['obfs']
+                    try:
+                        group = sub_convert.base64_encode(proxy['group'])
+                        obfsparam = sub_convert.base64_encode(proxy['obfsparam'])
+                        protoparam = sub_convert.base64_encode(proxy['protoparam'])
+                    except KeyError:
+                        group = 'U1NSUHJvdmlkZXI'
+                        obfsparam = ''
+                        protoparam = ''
+
+                    ssr_proxy = 'ssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':'+password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam)
+                    protocol_url.append(ssr_proxy)
 
             yaml_content = ''.join(protocol_url)
             return yaml_content
