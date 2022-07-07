@@ -272,14 +272,70 @@ class sub_convert():
         for proxy in proxies_list: # 改名
             if format_name_enabled:
                 emoji = {
-                    'US': '🇺🇸','HK': '🇭🇰', 'SG': '🇸🇬',
-                    'JP': '🇯🇵', 'TW': '🇹🇼', 'CA': '🇨🇦',
-                    'GB': '🇬🇧', 'CN': '🇨🇳', 'NL': '🇳🇱',
-                    'TH': '🇹🇭', 'BE': '🇧🇪', 'IN': '🇮🇳',
-                    'IT': '🇮🇹', 'PE': '🇵🇪', 'RO': '🇷🇴',
-                    'AU': '🇦🇺', 'DE': '🇩🇪', 'RU': '🇷🇺',
-                    'KR': '🇰🇷', 'DK': '🇩🇰', 'PT': '🇵🇹',
-                    'CY': '🇨🇾', 'ES': '🇪🇸', 'RELAY': '🏁',
+                    'AD': '🇦🇩', 'AE': '🇦🇪', 'AF': '🇦🇫', 'AG': '🇦🇬', 
+                    'AI': '🇦🇮', 'AL': '🇦🇱', 'AM': '🇦🇲', 'AO': '🇦🇴', 
+                    'AQ': '🇦🇶', 'AR': '🇦🇷', 'AS': '🇦🇸', 'AT': '🇦🇹', 
+                    'AU': '🇦🇺', 'AW': '🇦🇼', 'AX': '🇦🇽', 'AZ': '🇦🇿', 
+                    'BA': '🇧🇦', 'BB': '🇧🇧', 'BD': '🇧🇩', 'BE': '🇧🇪', 
+                    'BF': '🇧🇫', 'BG': '🇧🇬', 'BH': '🇧🇭', 'BI': '🇧🇮', 
+                    'BJ': '🇧🇯', 'BL': '🇧🇱', 'BM': '🇧🇲', 'BN': '🇧🇳', 
+                    'BO': '🇧🇴', 'BQ': '🇧🇶', 'BR': '🇧🇷', 'BS': '🇧🇸', 
+                    'BT': '🇧🇹', 'BV': '🇧🇻', 'BW': '🇧🇼', 'BY': '🇧🇾', 
+                    'BZ': '🇧🇿', 'CA': '🇨🇦', 'CC': '🇨🇨', 'CD': '🇨🇩', 
+                    'CF': '🇨🇫', 'CG': '🇨🇬', 'CH': '🇨🇭', 'CI': '🇨🇮', 
+                    'CK': '🇨🇰', 'CL': '🇨🇱', 'CM': '🇨🇲', 'CN': '🇨🇳', 
+                    'CO': '🇨🇴', 'CR': '🇨🇷', 'CU': '🇨🇺', 'CV': '🇨🇻', 
+                    'CW': '🇨🇼', 'CX': '🇨🇽', 'CY': '🇨🇾', 'CZ': '🇨🇿', 
+                    'DE': '🇩🇪', 'DJ': '🇩🇯', 'DK': '🇩🇰', 'DM': '🇩🇲', 
+                    'DO': '🇩🇴', 'DZ': '🇩🇿', 'EC': '🇪🇨', 'EE': '🇪🇪', 
+                    'EG': '🇪🇬', 'EH': '🇪🇭', 'ER': '🇪🇷', 'ES': '🇪🇸', 
+                    'ET': '🇪🇹', 'EU': '🇪🇺', 'FI': '🇫🇮', 'FJ': '🇫🇯', 
+                    'FK': '🇫🇰', 'FM': '🇫🇲', 'FO': '🇫🇴', 'FR': '🇫🇷', 
+                    'GA': '🇬🇦', 'GB': '🇬🇧', 'GD': '🇬🇩', 'GE': '🇬🇪', 
+                    'GF': '🇬🇫', 'GG': '🇬🇬', 'GH': '🇬🇭', 'GI': '🇬🇮', 
+                    'GL': '🇬🇱', 'GM': '🇬🇲', 'GN': '🇬🇳', 'GP': '🇬🇵', 
+                    'GQ': '🇬🇶', 'GR': '🇬🇷', 'GS': '🇬🇸', 'GT': '🇬🇹', 
+                    'GU': '🇬🇺', 'GW': '🇬🇼', 'GY': '🇬🇾', 'HK': '🇭🇰', 
+                    'HM': '🇭🇲', 'HN': '🇭🇳', 'HR': '🇭🇷', 'HT': '🇭🇹', 
+                    'HU': '🇭🇺', 'ID': '🇮🇩', 'IE': '🇮🇪', 'IL': '🇮🇱', 
+                    'IM': '🇮🇲', 'IN': '🇮🇳', 'IO': '🇮🇴', 'IQ': '🇮🇶', 
+                    'IR': '🇮🇷', 'IS': '🇮🇸', 'IT': '🇮🇹', 'JE': '🇯🇪', 
+                    'JM': '🇯🇲', 'JO': '🇯🇴', 'JP': '🇯🇵', 'KE': '🇰🇪', 
+                    'KG': '🇰🇬', 'KH': '🇰🇭', 'KI': '🇰🇮', 'KM': '🇰🇲', 
+                    'KN': '🇰🇳', 'KP': '🇰🇵', 'KR': '🇰🇷', 'KW': '🇰🇼', 
+                    'KY': '🇰🇾', 'KZ': '🇰🇿', 'LA': '🇱🇦', 'LB': '🇱🇧', 
+                    'LC': '🇱🇨', 'LI': '🇱🇮', 'LK': '🇱🇰', 'LR': '🇱🇷', 
+                    'LS': '🇱🇸', 'LT': '🇱🇹', 'LU': '🇱🇺', 'LV': '🇱🇻', 
+                    'LY': '🇱🇾', 'MA': '🇲🇦', 'MC': '🇲🇨', 'MD': '🇲🇩', 
+                    'ME': '🇲🇪', 'MF': '🇲🇫', 'MG': '🇲🇬', 'MH': '🇲🇭', 
+                    'MK': '🇲🇰', 'ML': '🇲🇱', 'MM': '🇲🇲', 'MN': '🇲🇳', 
+                    'MO': '🇲🇴', 'MP': '🇲🇵', 'MQ': '🇲🇶', 'MR': '🇲🇷', 
+                    'MS': '🇲🇸', 'MT': '🇲🇹', 'MU': '🇲🇺', 'MV': '🇲🇻', 
+                    'MW': '🇲🇼', 'MX': '🇲🇽', 'MY': '🇲🇾', 'MZ': '🇲🇿', 
+                    'NA': '🇳🇦', 'NC': '🇳🇨', 'NE': '🇳🇪', 'NF': '🇳🇫', 
+                    'NG': '🇳🇬', 'NI': '🇳🇮', 'NL': '🇳🇱', 'NO': '🇳🇴', 
+                    'NP': '🇳🇵', 'NR': '🇳🇷', 'NU': '🇳🇺', 'NZ': '🇳🇿', 
+                    'OM': '🇴🇲', 'PA': '🇵🇦', 'PE': '🇵🇪', 'PF': '🇵🇫', 
+                    'PG': '🇵🇬', 'PH': '🇵🇭', 'PK': '🇵🇰', 'PL': '🇵🇱', 
+                    'PM': '🇵🇲', 'PN': '🇵🇳', 'PR': '🇵🇷', 'PS': '🇵🇸', 
+                    'PT': '🇵🇹', 'PW': '🇵🇼', 'PY': '🇵🇾', 'QA': '🇶🇦', 
+                    'RE': '🇷🇪', 'RO': '🇷🇴', 'RS': '🇷🇸', 'RU': '🇷🇺', 
+                    'RW': '🇷🇼', 'SA': '🇸🇦', 'SB': '🇸🇧', 'SC': '🇸🇨', 
+                    'SD': '🇸🇩', 'SE': '🇸🇪', 'SG': '🇸🇬', 'SH': '🇸🇭', 
+                    'SI': '🇸🇮', 'SJ': '🇸🇯', 'SK': '🇸🇰', 'SL': '🇸🇱', 
+                    'SM': '🇸🇲', 'SN': '🇸🇳', 'SO': '🇸🇴', 'SR': '🇸🇷', 
+                    'SS': '🇸🇸', 'ST': '🇸🇹', 'SV': '🇸🇻', 'SX': '🇸🇽', 
+                    'SY': '🇸🇾', 'SZ': '🇸🇿', 'TC': '🇹🇨', 'TD': '🇹🇩', 
+                    'TF': '🇹🇫', 'TG': '🇹🇬', 'TH': '🇹🇭', 'TJ': '🇹🇯', 
+                    'TK': '🇹🇰', 'TL': '🇹🇱', 'TM': '🇹🇲', 'TN': '🇹🇳', 
+                    'TO': '🇹🇴', 'TR': '🇹🇷', 'TT': '🇹🇹', 'TV': '🇹🇻', 
+                    'TW': '🇹🇼', 'TZ': '🇹🇿', 'UA': '🇺🇦', 'UG': '🇺🇬', 
+                    'UM': '🇺🇲', 'US': '🇺🇸', 'UY': '🇺🇾', 'UZ': '🇺🇿', 
+                    'VA': '🇻🇦', 'VC': '🇻🇨', 'VE': '🇻🇪', 'VG': '🇻🇬', 
+                    'VI': '🇻🇮', 'VN': '🇻🇳', 'VU': '🇻🇺', 'WF': '🇼🇫', 
+                    'WS': '🇼🇸', 'XK': '🇽🇰', 'YE': '🇾🇪', 'YT': '🇾🇹', 
+                    'ZA': '🇿🇦', 'ZM': '🇿🇲', 'ZW': '🇿🇼', 
+                    'RELAY': '🏁',
                     'NOWHERE': '🇦🇶',
                 }
 
@@ -304,8 +360,6 @@ class sub_convert():
                     country_code = 'RELAY'
                 elif country_code == 'PRIVATE':
                     country_code = 'RELAY'
-                elif country_code == 'CN':
-                    country_code = 'HK'
 
                 if country_code in emoji:
                     name_emoji = emoji[country_code]
@@ -313,11 +367,11 @@ class sub_convert():
                     name_emoji = emoji['NOWHERE']
 
                 proxy_index = proxies_list.index(proxy)
-                if len(proxies_list) > 999:
+                if len(proxies_list) >= 999:
                     proxy['name'] = f'{name_emoji}{country_code}-{ip}-{proxy_index:0>4d}'
-                elif len(proxies_list) < 999 and len(proxies_list) > 99:
+                elif len(proxies_list) <= 999 and len(proxies_list) > 99:
                     proxy['name'] = f'{name_emoji}{country_code}-{ip}-{proxy_index:0>3d}'
-                elif len(proxies_list) < 99:
+                elif len(proxies_list) <= 99:
                     proxy['name'] = f'{name_emoji}{country_code}-{ip}-{proxy_index:0>2d}'
 
                 if proxy['server'] != '127.0.0.1':
@@ -376,7 +430,9 @@ class sub_convert():
                             yaml_url.setdefault('ws-path', '/')
                         else:
                             yaml_url.setdefault('ws-path', vmess_config['path'])
-                        if vmess_config['tls'] == '' or vmess_config['tls'] is False or vmess_config['tls'] is None:
+                        if vmess_config['net'] == 'h2' or vmess_config['net'] == 'grpc':
+                            yaml_url.setdefault('tls', True)
+                        elif vmess_config['tls'] == '' or vmess_config['tls'] is False or vmess_config['tls'] is None:
                             yaml_url.setdefault('tls', False)
                         else:
                             yaml_url.setdefault('tls', True)
@@ -425,31 +481,30 @@ class sub_convert():
                 try:
                     ssr_content = sub_convert.base64_decode(line.replace('ssr://', ''))
                 
-                    part_list = re.split('/\?', ssr_content)
-                    if '&' in part_list[1]:
-                        ssr_part = re.split('&', part_list[1]) # 将 SSR content /？后部分参数分割
-                        for item in ssr_part:
-                            if 'remarks=' in item:
-                                remarks_part = item.replace('remarks=', '')
-                        try:
-                            remarks = sub_convert.base64_decode(remarks_part)
-                        except Exception:
-                            remarks = 'ssr'
-                    else:
-                        remarks_part = part_list[1].replace('remarks=', '')
-                        try:
-                            remarks = sub_convert.base64_decode(remarks_part)
-                        except Exception:
-                            remarks = 'ssr'
-                            print(f'SSR format error, content:{remarks_part}')
-                    yaml_url.setdefault('name', urllib.parse.unquote(remarks))
+                    parts = re.split(':', ssr_content)
+                    if len(parts) != 6:
+                        print('SSR 格式错误: %s' % ssr_content)
+                    password_and_params = parts[5]
+                    password_and_params = re.split('/\?', password_and_params)
+                    password_encode_str = password_and_params[0]
+                    params = password_and_params[1]
 
-                    server_part_list = re.split(':', part_list[0])
-                    yaml_url.setdefault('server', server_part_list[0])
-                    yaml_url.setdefault('port', server_part_list[1])
+                    param_parts = re.split('\&', params)
+                    param_dic = {}
+                    for part in param_parts:
+                        key_and_value = re.split('\=', part)
+                        param_dic[key_and_value[0]] = key_and_value[1]
+                    yaml_url.setdefault('name', sub_convert.base64_decode(param_dic['remarks']))
+                    yaml_url.setdefault('server', parts[0])
+                    yaml_url.setdefault('port', parts[1])
                     yaml_url.setdefault('type', 'ssr')
-                    yaml_url.setdefault('cipher', server_part_list[3])
-                    yaml_url.setdefault('password', server_part_list[5])
+                    yaml_url.setdefault('cipher', parts[3])
+                    yaml_url.setdefault('password', sub_convert.base64_decode(password_encode_str))
+                    yaml_url.setdefault('obfs', parts[4])
+                    yaml_url.setdefault('protocol', parts[2])
+                    yaml_url.setdefault('obfsparam', sub_convert.base64_decode(param_dic['obfsparam']))
+                    yaml_url.setdefault('protoparam', sub_convert.base64_decode(param_dic['protoparam']))
+                    yaml_url.setdefault('group', sub_convert.base64_decode(param_dic['group']))
 
                     url_list.append(yaml_url)
                 except Exception as err:
@@ -516,7 +571,7 @@ class sub_convert():
             for index in range(len(proxies_list)): # 不同节点订阅链接内容 https://github.com/hoochanlon/fq-book/blob/master/docs/append/srvurl.md
                 proxy = proxies_list[index]
 
-                if proxy['type'] == 'vmess': # Vmess 节点提取, 由 Vmess 所有参数 dump JSON 后 base64 得来。
+                if proxy['type'] == 'vmess': # Vmess 节点提取, 由 Vmess 所有参数 dump JSON 后 base64 encode 得来。
 
                     yaml_default_config = {
                         'name': 'Vmess Node', 'server': '0.0.0.0', 'port': 0, 'uuid': '', 'alterId': 0,
@@ -558,10 +613,25 @@ class sub_convert():
                     trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + trojan_go + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                     protocol_url.append(trojan_proxy)
                 
-                #elif proxy['type'] == 'ssr':
-                    #ssr_base64_decoded = str(proxy['server']) + ':' + str(proxy['port']) + ':' + str(proxy['protocol']) 
-                    #ssr_base64_decoded = ssr_base64_decoded + ':' + str(proxy['cipher']) + ':' + str(proxy['obfs']) + ':' + str(sub_convert.base64_encode(proxy['password'])) + '/?'
-                    #protocol_url.append(vmessr_proxy)
+                elif proxy['type'] == 'ssr': # ssr 节点提取, 由 ssr_base64_decoded 中所有参数总体 base64 encode
+                    remarks = sub_convert.base64_encode(proxy['name']).replace('+', '-')
+                    server = proxy['server']
+                    port = str(proxy['port'])
+                    password = sub_convert.base64_encode(proxy['password'])
+                    cipher = proxy['cipher']
+                    protocol = proxy['protocol']
+                    obfs = proxy['obfs']
+                    try:
+                        group = sub_convert.base64_encode(proxy['group'])
+                        obfsparam = sub_convert.base64_encode(proxy['obfsparam'])
+                        protoparam = sub_convert.base64_encode(proxy['protoparam'])
+                    except KeyError:
+                        group = 'U1NSUHJvdmlkZXI'
+                        obfsparam = ''
+                        protoparam = ''
+
+                    ssr_proxy = 'ssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':'+password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam)
+                    protocol_url.append(ssr_proxy)
 
             yaml_content = ''.join(protocol_url)
             return yaml_content
@@ -592,12 +662,12 @@ class sub_convert():
             base64_content_format = base64_content
             return str(base64_content)
 
-    def convert_remote(url='', output_type='clash', host='https://api.v1.mk'): #{url='订阅链接', output_type={'clash': 输出 Clash 配置, 'base64': 输出 Base64 配置, 'url': 输出 url 配置}, host='远程订阅转化服务地址'}
+    def convert_remote(url='', output_type='clash', host='http://127.0.0.1:25500'): #{url='订阅链接', output_type={'clash': 输出 Clash 配置, 'base64': 输出 Base64 配置, 'url': 输出 url 配置}, host='远程订阅转化服务地址'}
         # 使用远程订阅转换服务，输出相应配置。
         sever_host = host
         url = urllib.parse.quote(url, safe='') # https://docs.python.org/zh-cn/3/library/urllib.parse.html
         if output_type == 'clash':
-            converted_url = sever_host+'/sub?target=clash&url='+url+'&insert=false&config=https%3A%2F%2Fraw.nameless13.com%2Fapi%2Fpublic%2Fdl%2FzKF9vFbb%2Feasy.ini'
+            converted_url = sever_host+'/sub?target=clash&url='+url+'&insert=false&emoji=true&list=true'
             try:
                 resp = requests.get(converted_url)
             except Exception as err:
@@ -608,7 +678,18 @@ class sub_convert():
             else:
                 sub_content = sub_convert.makeup(sub_convert.format(resp.text), dup_rm_enabled=False, format_name_enabled=True)
         elif output_type == 'base64':
-            converted_url = sever_host+'/sub?target=mixed&url='+url+'&insert=false&config=https%3A%2F%2Fraw.nameless13.com%2Fapi%2Fpublic%2Fdl%2FzKF9vFbb%2Feasy.ini'
+            converted_url = sever_host+'/sub?target=mixed&url='+url+'&insert=false&emoji=true&list=true'
+            try:
+                resp = requests.get(converted_url)
+            except Exception as err:
+                print(err)
+                return 'Url 解析错误'
+            if resp.text == 'No nodes were found!':
+                sub_content = 'Url 解析错误'
+            else:
+                sub_content = sub_convert.base64_encode(resp.text)
+        elif output_type == 'url':
+            converted_url = sever_host+'/sub?target=mixed&url='+url+'&insert=false&emoji=true&list=true'
             try:
                 resp = requests.get(converted_url)
             except Exception as err:
@@ -618,17 +699,6 @@ class sub_convert():
                 sub_content = 'Url 解析错误'
             else:
                 sub_content = resp.text
-        elif output_type == 'url':
-            converted_url = sever_host+'/sub?target=mixed&url='+url+'&insert=false&config=https%3A%2F%2Fraw.nameless13.com%2Fapi%2Fpublic%2Fdl%2FzKF9vFbb%2Feasy.ini'
-            try:
-                resp = requests.get(converted_url)
-            except Exception as err:
-                print(err)
-                return 'Url 解析错误'
-            if resp.text == 'No nodes were found!':
-                sub_content = 'Url 解析错误'
-            else:
-                sub_content = sub_convert.base64_decode(resp.text)
 
         return sub_content
 
