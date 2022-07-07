@@ -65,12 +65,12 @@ class update_url():
             this_month = datetime.today().strftime('%Y%m')
             url_front = 'https://nodefree.org/dy/'
             url_end = '.txt'
-            new_url = url_front + today + url_end
+            new_url = url_front + this_month + '/' + today + url_end
         if id == 0:
             today = datetime.today().strftime('%m%d')
             url_front = 'https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/'
             url_end = '.txt'
-            new_url = url_front + this_month + '/' + today + url_end
+            new_url = url_front + today + url_end
 
         if url_updated(new_url):
             return new_url
