@@ -110,7 +110,7 @@ class sub_convert():
         else:
             print('订阅内容解析错误')
             return '订阅内容解析错误'
-    def format(sub_content, output=False): # 对节点 Url 进行格式化处理, 输出节点的字典格式, output 为真时输出 YAML 文本
+    def format(sub_content, output=False): # 对链接文本进行格式化处理, 输出节点的配置字典, output 为真时输出 YAML 文本
 
         if 'proxies:' not in sub_content: # 对 URL 内容进行格式化处理
             url_list = []
@@ -336,7 +336,7 @@ class sub_convert():
         
         return yaml_content # 输出 YAML 格式文本
 
-    def yaml_encode(url_content): # 将 URL 内容转换为 YAML (输出默认 YAML 格式)
+    def yaml_encode(url_content): # 将 URL 内容转换为 YAML 文本后再使用 format() 进行格式化处理
         url_list = []
 
         lines = re.split(r'\n+', url_content)
@@ -493,8 +493,7 @@ class sub_convert():
                     pass
 
         yaml_content_dic = {'proxies': url_list}
-        yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
-        yaml_content = sub_convert.format(yaml_content_raw)
+        yaml_content = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2)
         return yaml_content
     def base64_encode(url_content): # 将 URL 内容转换为 Base64
         base64_content = base64.b64encode(url_content.encode('utf-8')).decode('ascii')
@@ -591,7 +590,7 @@ class sub_convert():
         except UnicodeDecodeError:
             base64_content = base64.b64decode(url_content)
             base64_content_format = base64_content
-            return base64_content
+            return str(base64_content)
 
     def convert_remote(url='', output_type='clash', host='https://api.v1.mk'): #{url='订阅链接', output_type={'clash': 输出 Clash 配置, 'base64': 输出 Base64 配置, 'url': 输出 url 配置}, host='远程订阅转化服务地址'}
         # 使用远程订阅转换服务，输出相应配置。
