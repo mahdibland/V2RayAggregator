@@ -58,7 +58,7 @@ class sub_convert():
                 return '订阅内容解析错误'
         else:
             return '订阅内容解析错误'
-    def format(sub_content): # 对链接文本(Base64, url, YAML)进行格式化处理, 输出节点的配置字典（Clash 配置）
+    def format(sub_content,output=False): # 对链接文本(Base64, url, YAML)进行格式化处理, 输出节点的配置字典（Clash 配置）, output 为真是输出 YAML 文本
         if '</b>' not in sub_content:
             if 'proxies:' not in sub_content: # 对 URL 内容进行格式化处理
                 url_list = []
@@ -98,12 +98,24 @@ class sub_convert():
             elif 'proxies:' in sub_content: # 对 Clash 内容进行格式化处理
                 try:
                     try_load = yaml.safe_load(sub_content)
-                    sub_content_yaml = try_load
+                    if output:
+                        raise ValueError
+                    else:
+                        content_yaml_dic = try_load
+                        for item in content_yaml_dic['proxies']:# 对转换过程中出现的不标准配置格式转换
+                            try:
+                                if item['type'] == 'vmess' and 'HOST' in item['ws-headers'].keys():
+                                    item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
+                            except KeyError:
+                                if '.' not in item['server']:
+                                    content_yaml_dic['proxies'].remove(item)
+                                pass
+                        return content_yaml_dic # 返回字典, output 值为 True 时返回修饰过的 YAML 文本
                 except Exception:
                     try:
                         sub_content = sub_content.replace('\'', '').replace('"', '')
                         url_list = []
-                        il_chars = ['|', '?', '[', ']', '@', '!', '%']
+                        il_chars = ['|', '?', '[', ']', '@', '!', '%', ':']
                         lines = re.split(r'\n+', sub_content)
                         line_fix_list = []
                         for line in lines:
@@ -156,20 +168,23 @@ class sub_convert():
                                 line_fix_list.append(line)
 
                         sub_content = '\n'.join(line_fix_list).replace('False', 'false').replace('True', 'true')
-                        sub_content_yaml = yaml.safe_load(sub_content)
+                        if output:
+                            return sub_content
+                        else:
+                            content_yaml_dic = yaml.safe_load(sub_content)
+                            for item in content_yaml_dic['proxies']:# 对转换过程中出现的不标准配置格式转换
+                                try:
+                                    if item['type'] == 'vmess' and 'HOST' in item['ws-headers'].keys():
+                                        item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
+                                except KeyError:
+                                    if '.' not in item['server']:
+                                        content_yaml_dic['proxies'].remove(item)
+                                    pass
+
+                            return content_yaml_dic # 返回字典, output 值为 True 时返回修饰过的 YAML 文本
                     except:
                         print('Sub_content 格式错误')
                         return '订阅内容解析错误'
-                for item in sub_content_yaml['proxies']:# 对转换过程中出现的不标准配置格式转换
-                    try:
-                        if item['type'] == 'vmess' and 'HOST' in item['ws-headers'].keys():
-                            item['ws-headers']['Host'] = item['ws-headers'].pop("HOST")
-                    except KeyError:
-                        if '.' not in item['server']:
-                            sub_content_yaml['proxies'].remove(item)
-                        pass
-
-                return sub_content_yaml # 返回字典, output 值为 True 时返回修饰过的 YAML 文本
         else:
             print('订阅内容解析错误')
             return '订阅内容解析错误'
@@ -321,7 +336,7 @@ class sub_convert():
 
         yaml_content_dic = {'proxies': url_list}
         yaml_content_raw = yaml.dump(yaml_content_dic, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2) # yaml.dump 显示中文方法 https://blog.csdn.net/weixin_41548578/article/details/90651464 yaml.dump 各种参数 https://blog.csdn.net/swinfans/article/details/88770119
-        yaml_content = yaml_content_raw.replace('\'', '').replace('False', 'false').replace('True', 'true')
+        yaml_content = sub_convert.format(yaml_content_raw,output=True)
         
         return yaml_content # 输出 YAML 格式文本
 
@@ -554,16 +569,23 @@ class sub_convert():
                     cipher = proxy['cipher']
                     protocol = proxy['protocol']
                     obfs = proxy['obfs']
-                    try:
-                        group = sub_convert.base64_encode(proxy['group'])
-                        obfsparam = sub_convert.base64_encode(proxy['obfsparam'])
-                        protoparam = sub_convert.base64_encode(proxy['protoparam'])
-                    except KeyError:
-                        group = 'U1NSUHJvdmlkZXI'
-                        obfsparam = ''
-                        protoparam = ''
+                    for key in {'group', 'obfsparam', 'protoparam'}:
+                        if key in proxy:
+                            if key == 'group':
+                                group = sub_convert.base64_encode(proxy[key])
+                            elif key == 'obfsparam':
+                                obfsparam = sub_convert.base64_encode(proxy[key])
+                            elif key == 'protoparam':
+                                protoparam = sub_convert.base64_encode(proxy[key])
+                        else:
+                            if key == 'group':
+                                group = 'U1NSUHJvdmlkZXI'
+                            elif key == 'obfsparam':
+                                obfsparam = ''
+                            elif key == 'protoparam':
+                                protoparam = ''
 
-                    ssr_proxy = 'ssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':'+password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam)
+                    ssr_proxy = 'ssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':'+password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam+'\n')
                     protocol_url.append(ssr_proxy)
 
             yaml_content = ''.join(protocol_url)
