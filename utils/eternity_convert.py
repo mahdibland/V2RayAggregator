@@ -168,6 +168,7 @@ def backup(file):
     file.close()
 
 if __name__ == '__main__':
+    sub_merge.geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
     eternity_convert(Eterniy_file, config_file, output=Eternity_yml_file)
     backup(Eterniy_file)
     sub_merge.readme_update(readme,sub_merge.read_list(sub_list_json))
