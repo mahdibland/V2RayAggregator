@@ -141,32 +141,32 @@
 </details>
 
 ### 所有节点
-合并节点总数: `5810`
+合并节点总数: `5708`
 [节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### 节点来源
-- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `154`
+- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `97`
 - [chfchf0306/clash](https://github.com/chfchf0306/clash), 节点数量: `448`
-- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `144`
-- [freefq/free](https://github.com/freefq/free), 节点数量: `58`
-- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `130`
+- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `176`
+- [freefq/free](https://github.com/freefq/free), 节点数量: `50`
+- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `122`
 - [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `100`
 - [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), 节点数量: `87`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), 节点数量: `42`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `71`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `3212`
-- [yu-steven/openit](https://github.com/yu-steven/openit), 节点数量: `59`
+- [yu-steven/openit](https://github.com/yu-steven/openit), 节点数量: `69`
 - [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), 节点数量: `39`
 - [gooooooooooooogle/Clash-Config](https://github.com/gooooooooooooogle/Clash-Config), 节点数量: `1`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `54`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `51`
-- [wrfree/free](https://github.com/wrfree/free), 节点数量: `58`
+- [wrfree/free](https://github.com/wrfree/free), 节点数量: `50`
 - [GreenFishStudio/GreenFish](https://github.com/GreenFishStudio/GreenFish), 节点数量: `56`
 - [changfengoss](https://github.com/ronghuaxueleng/get_v2), 节点数量: `3`
-- [anaer/Sub](https://github.com/anaer/Sub), 节点数量: `303`
+- [anaer/Sub](https://github.com/anaer/Sub), 节点数量: `270`
 - [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), 节点数量: `4`
-- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), 节点数量: `54`
-- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), 节点数量: `71`
+- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), 节点数量: `44`
+- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), 节点数量: `51`
 - [moneyfly1/sublist](https://github.com/moneyfly1/sublist), 节点数量: `435`
 - [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), 节点数量: `27`
 - [kxswa/k](https://github.com/kxswa/k), 节点数量: `0`
