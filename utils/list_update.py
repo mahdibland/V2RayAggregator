@@ -82,10 +82,10 @@ class update_url():
             url_update = 'https://v2cross.com/archives/1884'
 
             if url_updated(url_update):
-                resp = requests.get(url_update, timeout=5)
-                raw_content = resp.text
-
                 try:
+                    resp = requests.get(url_update, timeout=5)
+                    raw_content = resp.text
+
                     raw_content = raw_content.replace('amp;', '')
                     pattern = re.compile(r'https://shadowshare.v2cross.com/publicserver/servers/temp/\w{16}')
                     
