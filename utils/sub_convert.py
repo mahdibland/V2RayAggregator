@@ -357,7 +357,7 @@ class sub_convert():
                         yaml_url.setdefault('uuid', vmess_config['id'])
                         yaml_url.setdefault('alterId', int(vmess_config['aid']))
                         yaml_url.setdefault('cipher', vmess_config['scy'])
-                        yaml_url.setdefault('skip-cert-vertify', True)
+                        yaml_url.setdefault('skip-cert-verify', True)
                         if vmess_config['net'] == '' or vmess_config['net'] is False or vmess_config['net'] is None:
                             yaml_url.setdefault('network', 'tcp')
                         else:
