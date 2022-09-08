@@ -141,12 +141,12 @@
 </details>
 
 ### 所有节点
-合并节点总数: `5199`
+合并节点总数: `5208`
 [节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### 节点来源
-- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `99`
-- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `147`
+- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `104`
+- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `149`
 - [freefq/free](https://github.com/freefq/free), 节点数量: `35`
 - [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), 节点数量: `48`
 - [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), 节点数量: `1`
@@ -154,17 +154,17 @@
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), 节点数量: `42`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), 节点数量: `50`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), 节点数量: `3150`
-- [yu-steven/openit](https://github.com/yu-steven/openit), 节点数量: `72`
-- [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `44`
+- [yu-steven/openit](https://github.com/yu-steven/openit), 节点数量: `66`
+- [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), 节点数量: `66`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `10`
 - [wrfree/free](https://github.com/wrfree/free), 节点数量: `35`
 - [changfengoss](https://github.com/ronghuaxueleng/get_v2), 节点数量: `32`
-- [anaer/Sub](https://github.com/anaer/Sub), 节点数量: `225`
+- [anaer/Sub](https://github.com/anaer/Sub), 节点数量: `217`
 - [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), 节点数量: `158`
-- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), 节点数量: `24`
+- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), 节点数量: `26`
 - [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), 节点数量: `0`
 - [moneyfly1/sublist](https://github.com/moneyfly1/sublist), 节点数量: `637`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), 节点数量: `21`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), 节点数量: `13`
 - [kxswa/k](https://github.com/kxswa/k), 节点数量: `37`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), 节点数量: `50`
 
