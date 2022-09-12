@@ -78,6 +78,16 @@ class update_url():
             return current_url
 
     def find_link(id,current_url):
+        if id == 40:
+            try:
+                res_json = requests.get('https://api.github.com/repos/mianfeifq/share/contents/').json()
+                for file in res_json:
+                    if file['name'].startswith('data'):
+                        return file['download_url'] 
+                else:
+                    return current_url
+            except Exception:
+                return current_url
         if id == 33:
             url_update = 'https://v2cross.com/archives/1884'
 
