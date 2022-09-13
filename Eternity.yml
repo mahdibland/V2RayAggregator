@@ -4,6 +4,196 @@ allow-lan: false
 mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - dns.msftncsi.com
+  - www.msftncsi.com
+  - www.msftconnecttest.com
+  - stun.*.*.*
+  - stun.*.*
+  - miwifi.com
+  - music.163.com
+  - '*.music.163.com'
+  - '*.126.net'
+  - api-jooxtt.sanook.com
+  - api.joox.com
+  - joox.com
+  - y.qq.com
+  - '*.y.qq.com'
+  - streamoc.music.tc.qq.com
+  - mobileoc.music.tc.qq.com
+  - isure.stream.qqmusic.qq.com
+  - dl.stream.qqmusic.qq.com
+  - aqqmusic.tc.qq.com
+  - amobile.music.tc.qq.com
+  - '*.xiami.com'
+  - '*.music.migu.cn'
+  - music.migu.cn
+  - netis.cc
+  - router.asus.com
+  - repeater.asus.com
+  - routerlogin.com
+  - routerlogin.net
+  - tendawifi.com
+  - tendawifi.net
+  - tplinklogin.net
+  - tplinkwifi.net
+  - tplinkrepeater.net
+  - '*.ntp.org.cn'
+  - '*.openwrt.pool.ntp.org'
+  - '*.msftconnecttest.com'
+  - '*.msftncsi.com'
+  - localhost.ptlogin2.qq.com
+  - '*.*.*.srv.nintendo.net'
+  - '*.*.stun.playstation.net'
+  - xbox.*.*.microsoft.com
+  - '*.ipv6.microsoft.com'
+  - '*.*.xboxlive.com'
+  - speedtest.cros.wr.pvp.net
+  default-nameserver:
+  - 9.9.9.9
+  nameserver:
+  - 1.2.4.8
+  - 210.2.4.8
+  - 223.5.5.5
+  - 223.6.6.6
+  - 52.80.52.52
+  - 117.50.10.10
+  - 180.76.76.76
+  - 119.28.28.28
+  - 119.29.29.29
+  - 114.114.114.114
+  - 114.114.115.115
+  - 101.226.4.6
+  - 218.30.118.6
+  - 123.125.81.6
+  - 140.207.198.6
+  - 202.38.64.1
+  - 202.112.20.131
+  - 202.141.160.95
+  - 202.141.160.99
+  - 202.141.176.95
+  - 202.141.176.99
+  - tls://dot.pub:853
+  - tls://1.12.12.12:853
+  - tls://120.53.53.53:853
+  - https://doh.pub/dns-query
+  - https://sm2.doh.pub/dns-query
+  - https://1.12.12.12/dns-query
+  - https://120.53.53.53/dns-query
+  - https://dns.alidns.com/dns-query
+  - https://doh.dns.sb/dns-query
+  - https://dns.rubyfish.cn/dns-query
+  fallback:
+  - 9.9.9.9
+  - 149.112.112.112
+  - 8.8.4.4
+  - 8.8.8.8
+  - 1.0.0.1
+  - 1.1.1.1
+  - 208.67.220.220
+  - 208.67.220.222
+  - 208.67.222.220
+  - 208.67.222.222
+  - 195.46.39.39
+  - 195.46.39.40
+  - 168.95.1.1
+  - 203.80.96.10
+  - 168.95.192.1
+  - 164.124.101.2
+  - 164.124.107.9
+  - 203.248.252.2
+  - 203.248.242.2
+  - 80.80.80.80
+  - 80.80.81.81
+  - 199.85.126.10
+  - 199.85.127.10
+  - 168.126.63.1
+  - 168.126.63.2
+  - 139.175.252.16
+  - 139.175.55.244
+  - 202.45.84.58
+  - 202.45.84.59
+  - 8.26.56.26
+  - 23.253.163.53
+  - 77.88.8.1
+  - 77.88.8.8
+  - 89.233.43.71
+  - 91.239.100.100
+  - 198.101.242.72
+  - 8.20.247.20
+  - 64.6.64.6
+  - 64.6.65.6
+  - 209.244.0.3
+  - 209.244.0.4
+  - 210.220.163.82
+  - 219.250.36.130
+  - 202.14.67.4
+  - 84.200.69.80
+  - 84.200.70.40
+  - 202.14.67.14
+  - 156.154.70.1
+  - 156.154.71.1
+  - 216.146.35.35
+  - 216.146.36.36
+  - 77.109.148.136
+  - 77.109.148.137
+  - 101.101.101.101
+  - 101.102.103.104
+  - 74.82.42.42
+  - 66.220.18.42
+  - https://dns.quad9.net/dns-query
+  - https://dns9.quad9.net/dns-query
+  - tls://dns.google:853
+  - https://8.8.4.4/dns-query
+  - https://8.8.8.8/dns-query
+  - https://dns.google/dns-query
+  - tls://1.0.0.1:853
+  - tls://1.1.1.1:853
+  - tls://one.one.one.one
+  - tls://1dot1dot1dot1.cloudflare-dns.com
+  - https://1.0.0.1/dns-query
+  - https://1.1.1.1/dns-query
+  - https://cloudflare-dns.com/dns-query
+  - https://dns.daycat.space/dns-query
+  - https://dns.adguard.com/dns-query
+  - https://dns-family.adguard.com/dns-query
+  - https://dns-unfiltered.adguard.com/dns-query
+  - tls://b.iqiq.io:853
+  - tls://h.iqiq.io:853
+  - tls://j.iqiq.io:853
+  - tls://c.passcloud.xyz:853
+  - tls://x.passcloud.xyz:853
+  - https://a.passcloud.xyz/hk
+  - https://a.passcloud.xyz/am
+  - https://a.passcloud.xyz/us
+  - https://a.passcloud.xyz/sz
+  - https://a.passcloud.xyz/cdn
+  - https://a.passcloud.xyz/dns-query
+  - https://worldwide.passcloud.xyz/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+    - 240.0.0.0/4
+    - 127.0.0.1/8
+    - 0.0.0.0/32
+    domain:
+    - +.google.com
+    - +.facebook.com
+    - +.twitter.com
+    - +.youtube.com
+    - +.xn--ngstr-lra8j.com
+    - +.google.cn
+    - +.googleapis.cn
+    - +.googleapis.com
+    - +.gvt1.com
 proxies:
 - name: 🇺🇸US-156.146.38.163-00
   server: 156.146.38.163
@@ -77,398 +267,158 @@ proxies:
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-12
-  server: 156.146.38.163
+- name: 🇺🇸US-129.146.242.130-12
+  server: fhcarm1.gaox.ml
   port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-13
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-14
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-192.96.204.250-15
-  server: 192.96.204.250
-  port: 443
-  type: vmess
-  uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-  alterId: 4
-  cipher: auto
+  type: trojan
+  password: 05742120-ce23-4cc8-88f5-6d221ce45bf4
   skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /ws
-    headers:
-      Host: usa-washington.lvuft.com
-- name: 🇺🇸US-192.96.204.250-16
-  server: usa-washington.lvuft.com
+- name: 🇺🇸US-129.146.255.158-13
+  server: fhcarm2.gaox.ml
   port: 443
-  type: vmess
-  uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-  alterId: 4
-  cipher: auto
+  type: trojan
+  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
+  sni: fhcarm2.gaox.ml
   skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /ws
-    headers:
-      Host: usa-washington.lvuft.com
-- name: 🇺🇸US-156.146.38.163-17
-  server: 156.146.38.163
+- name: 🇺🇸US-129.146.242.130-14
+  server: fhcarm1.gaox.ml
   port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-18
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-19
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-20
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-21
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-22
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-23
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-192.96.204.250-24
-  server: usa-washington.lvuft.com
-  port: 443
-  type: vmess
-  uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-  alterId: 4
-  cipher: auto
+  type: trojan
+  password: 05742120-ce23-4cc8-88f5-6d221ce45bf4
+  sni: fhcarm1.gaox.ml
   skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /ws
-    headers:
-      Host: usa-washington.lvuft.com
-- name: 🏁RELAY-172.67.187.211-25
-  server: us03.gogogoo.cyou
-  port: 443
-  type: vmess
-  uuid: db5d1aa3-908b-44d1-be0a-4e6a8d4e4cda
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /go
-    headers:
-      Host: us03.gogogoo.cyou
-- name: 🏁RELAY-172.67.187.211-26
-  server: us02.gogogoo.cyou
-  port: 443
-  type: vmess
-  uuid: db5d1aa3-908b-44d1-be0a-4e6a8d4e4cda
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /go
-    headers:
-      Host: us02.gogogoo.cyou
-- name: 🇺🇸US-129.146.255.158-27
+- name: 🇺🇸US-129.146.255.158-15
   server: fhcarm2.gaox.ml
   port: 443
   type: trojan
   password: f39bd244-f5fe-415c-8b98-a1e5250bf178
   skip-cert-verify: true
-- name: 🇺🇸US-192.96.204.250-28
-  server: usa-washington.lvuft.com
-  port: 443
+- name: 🇺🇸US-137.184.93.209-16
+  server: 137.184.93.209
+  port: 10365
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 9682edd6-89e6-4e6a-b31d-271089771d87
+- name: 🇺🇸US-158.101.19.172-17
+  server: 158.101.19.172
+  port: 10910
   type: vmess
-  uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-  alterId: 4
+  uuid: 241645f5-3190-429b-b513-5265a242dfe1
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: 158.101.19.172
+- name: 🇺🇸US-129.146.242.130-18
+  server: fhcarm1.gaox.ml
+  port: 443
+  type: trojan
+  password: 05742120-ce23-4cc8-88f5-6d221ce45bf4
+  skip-cert-verify: true
+- name: 🇺🇸US-129.146.255.158-19
+  server: fhcarm2.gaox.ml
+  port: 443
+  type: trojan
+  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
+  skip-cert-verify: true
+- name: 🇺🇸US-137.184.93.209-20
+  server: do.cloudorg.uk
+  port: 443
+  type: trojan
+  password: 9682edd6-89e6-4e6a-b31d-271089771d87
+  sni: do.cloudorg.uk
+  skip-cert-verify: true
+- name: 🇺🇸US-137.184.93.209-21
+  server: do.cloudorg.uk
+  port: 443
+  type: trojan
+  password: 9682edd6-89e6-4e6a-b31d-271089771d87
+  skip-cert-verify: true
+- name: 🇺🇸US-23.239.7.10-22
+  server: v29.heduian.online
+  port: 30866
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
   cipher: auto
   skip-cert-verify: true
   network: ws
-  tls: true
+  tls: false
   ws-opts:
-    path: /ws
+    path: /oooo
     headers:
-      Host: usa-washington.lvuft.com
+      Host: v29.heduian.online
+- name: 🇺🇸US-147.182.239.174-23
+  server: s1.hass.win
+  port: 12340
+  type: trojan
+  password: dfbf0d67-f03d-4184-a224-c2d64a571f99
+  skip-cert-verify: true
+- name: 🇺🇸US-23.239.7.10-24
+  server: v29.heduian.online
+  port: 30866
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: false
+  ws-opts:
+    path: /oooo
+    headers:
+      Host: v29.heduian.online
+- name: 🇺🇸US-158.101.19.172-25
+  server: 158.101.19.172
+  port: 10910
+  type: vmess
+  uuid: 241645f5-3190-429b-b513-5265a242dfe1
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: 158.101.19.172
+- name: 🇺🇸US-97.64.31.80-26
+  server: 97.64.31.80
+  port: 247
+  type: ss
+  cipher: aes-256-cfb
+  password: bwhskrskr03
+- name: 🇺🇸US-23.239.7.10-27
+  server: v4.heduian.online
+  port: 30866
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: false
+  ws-opts:
+    path: /oooo
+    headers:
+      Host: v4.heduian.online
+- name: 🇺🇸US-156.146.38.163-28
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
 - name: 🇺🇸US-137.184.93.209-29
   server: 137.184.93.209
   port: 10365
   type: ss
   cipher: chacha20-ietf-poly1305
   password: 9682edd6-89e6-4e6a-b31d-271089771d87
-- name: 🇺🇸US-137.184.93.209-30
-  server: 137.184.93.209
-  port: 10365
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 9682edd6-89e6-4e6a-b31d-271089771d87
-- name: 🇺🇸US-137.184.93.209-31
-  server: do.cloudorg.uk
-  port: 443
-  type: trojan
-  password: 9682edd6-89e6-4e6a-b31d-271089771d87
-  skip-cert-verify: true
-- name: 🏁RELAY-104.18.107.161-32
-  server: cf.naixii.top
-  port: 443
-  type: vmess
-  uuid: 5e6f7d1f-ae22-48b4-9d73-88314de4d4a7
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /qvFvfAfHvz
-    headers:
-      Host: bvm.naixii.top
-- name: 🇺🇸US-129.146.255.158-33
-  server: fhcarm2.gaox.ml
-  port: 443
-  type: trojan
-  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
-  skip-cert-verify: true
-- name: 🇺🇸US-156.146.38.163-34
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-35
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🏁RELAY-104.21.72.236-36
-  server: us02.gogogoo.cyou
-  port: 443
-  type: vmess
-  uuid: db5d1aa3-908b-44d1-be0a-4e6a8d4e4cda
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /go
-    headers:
-      Host: us02.gogogoo.cyou
-- name: 🇺🇸US-147.182.239.174-37
-  server: s3.hazz.win
-  port: 12340
-  type: trojan
-  password: dfbf0d67-f03d-4184-a224-c2d64a571f99
-  sni: s3.hazz.win
-  skip-cert-verify: true
-- name: 🇺🇸US-156.146.38.163-38
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-39
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-40
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-41
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-42
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-161.35.229.94-43
-  server: weixin.babazhuji.com
-  port: 443
-  type: vmess
-  uuid: 27848739-7e62-4138-9fd3-098a63964b6b
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /tech
-    headers:
-      Host: weixin.babazhuji.com
-- name: 🇺🇸US-129.146.242.130-44
-  server: fhcarm1.gaox.ml
-  port: 443
-  type: trojan
-  password: 05742120-ce23-4cc8-88f5-6d221ce45bf4
-  skip-cert-verify: true
-- name: 🏁RELAY-104.18.107.161-45
-  server: cf.naixii.top
-  port: 443
-  type: vmess
-  uuid: 5e6f7d1f-ae22-48b4-9d73-88314de4d4a7
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /qvFvfAfHvz
-    headers:
-      Host: bvm.naixii.top
-- name: 🇺🇸US-192.96.204.250-46
-  server: 192.96.204.250
-  port: 443
-  type: vmess
-  uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
-  alterId: 4
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /ws
-    headers:
-      Host: usa-washington.lvuft.com
-- name: 🏁RELAY-172.67.144.150-47
-  server: arm.ptuu.gq
-  port: 443
-  type: vmess
-  uuid: 9821b817-5cb0-4af3-a3e3-7c137850935d
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /123
-    headers:
-      Host: arm.ptuu.gq
-- name: 🇺🇸US-156.146.38.163-48
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-97.64.31.80-49
-  server: 97.64.31.80
-  port: 247
-  type: ss
-  cipher: aes-256-cfb
-  password: bwhskrskr03
-- name: 🇺🇸US-161.35.229.94-50
-  server: weixin.babazhuji.com
-  port: 443
-  type: vmess
-  uuid: 27848739-7e62-4138-9fd3-098a63964b6b
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /tech
-    headers:
-      Host: weixin.babazhuji.com
-- name: 🇺🇸US-129.146.255.158-51
-  server: fhcarm2.gaox.ml
-  port: 443
-  type: trojan
-  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
-  skip-cert-verify: true
-- name: 🇺🇸US-129.146.255.158-52
-  server: fhcarm2.gaox.ml
-  port: 443
-  type: trojan
-  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
-  skip-cert-verify: true
-- name: 🇺🇸US-156.146.38.163-53
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-129.146.255.158-54
-  server: fhcarm2.gaox.ml
-  port: 443
-  type: trojan
-  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
-  skip-cert-verify: true
-- name: 🇺🇸US-158.101.19.172-55
-  server: 158.101.19.172
-  port: 10910
-  type: vmess
-  uuid: 241645f5-3190-429b-b513-5265a242dfe1
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: 158.101.19.172
-- name: 🏁RELAY-104.21.72.236-56
-  server: us03.gogogoo.cyou
-  port: 443
-  type: vmess
-  uuid: db5d1aa3-908b-44d1-be0a-4e6a8d4e4cda
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /go
-    headers:
-      Host: us03.gogogoo.cyou
-- name: 🇺🇸US-192.96.204.250-57
+- name: 🇺🇸US-192.96.204.250-30
   server: usa-washington.lvuft.com
   port: 443
   type: vmess
@@ -482,19 +432,34 @@ proxies:
     path: /ws
     headers:
       Host: usa-washington.lvuft.com
-- name: 🇺🇸US-156.146.38.163-58
-  server: 156.146.38.163
-  port: 443
+- name: 🇺🇸US-45.78.9.112-31
+  server: c59s1.jamjams3.net
+  port: 7523
   type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-129.146.255.158-59
-  server: fhcarm2.gaox.ml
+  cipher: aes-256-gcm
+  password: mqDAJBC9AtqprCSS
+- name: 🇺🇸US-45.33.57.17-32
+  server: 45.33.57.17
   port: 443
   type: trojan
-  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
+  password: ef81a036-1db9-45ed-a3aa-f932a4750066
+  sni: cdn.qchwnd.moe
   skip-cert-verify: true
-- name: 🏁RELAY-104.21.28.65-60
+- name: 🇺🇸US-23.239.7.10-33
+  server: v29.heduian.online
+  port: 30866
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: false
+  ws-opts:
+    path: /oooo
+    headers:
+      Host: v29.heduian.online
+- name: 🏁RELAY-104.21.28.65-34
   server: arm.ptuu.gq
   port: 443
   type: vmess
@@ -508,68 +473,27 @@ proxies:
     path: /123
     headers:
       Host: arm.ptuu.gq
-- name: 🇺🇸US-173.82.210.82-61
-  server: s2.520guge.com
-  port: 443
+- name: 🇺🇸US-23.239.7.10-35
+  server: v4.heduian.online
+  port: 30866
   type: vmess
-  uuid: cf1819c8-e530-4626-aec0-87ac04200385
-  alterId: 0
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
   cipher: auto
   skip-cert-verify: true
   network: ws
-  tls: true
-  ws-opts:
-    path: /happy
-    headers:
-      Host: s2.520guge.com
-- name: 🇺🇸US-158.101.19.172-62
-  server: 158.101.19.172
-  port: 10910
-  type: vmess
-  uuid: 241645f5-3190-429b-b513-5265a242dfe1
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
   tls: false
   ws-opts:
-    path: /
+    path: /oooo
     headers:
-      Host: 158.101.19.172
-- name: 🇺🇸US-158.101.19.172-63
-  server: 158.101.19.172
-  port: 10910
-  type: vmess
-  uuid: 241645f5-3190-429b-b513-5265a242dfe1
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: 158.101.19.172
-- name: 🇺🇸US-156.146.38.163-64
+      Host: baidu.com
+- name: 🇺🇸US-156.146.38.163-36
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-65
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-147.182.239.174-66
-  server: s1.hass.win
-  port: 12340
-  type: trojan
-  password: dfbf0d67-f03d-4184-a224-c2d64a571f99
-  sni: s1.hass.win
-  skip-cert-verify: true
-- name: 🏁RELAY-104.21.28.65-67
+- name: 🏁RELAY-172.67.144.150-37
   server: arm.ptuu.gq
   port: 443
   type: vmess
@@ -583,46 +507,59 @@ proxies:
     path: /123
     headers:
       Host: arm.ptuu.gq
-- name: 🇺🇸US-129.146.242.130-68
+- name: 🇺🇸US-45.78.5.150-38
+  server: c59s2.jamjams3.net
+  port: 7523
+  type: ss
+  cipher: aes-256-gcm
+  password: mqDAJBC9AtqprCSS
+- name: 🏁RELAY-172.67.144.150-39
+  server: arm.ptuu.gq
+  port: 443
+  type: vmess
+  uuid: 9821b817-5cb0-4af3-a3e3-7c137850935d
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /123
+    headers:
+      Host: arm.ptuu.gq
+- name: 🇺🇸US-158.101.19.172-40
+  server: 158.101.19.172
+  port: 10910
+  type: vmess
+  uuid: 241645f5-3190-429b-b513-5265a242dfe1
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: 158.101.19.172
+- name: 🇺🇸US-129.146.242.130-41
   server: fhcarm1.gaox.ml
   port: 443
   type: trojan
   password: 05742120-ce23-4cc8-88f5-6d221ce45bf4
   skip-cert-verify: true
-- name: 🏁RELAY-104.21.28.65-69
-  server: arm.ptuu.gq
-  port: 443
-  type: vmess
-  uuid: 9821b817-5cb0-4af3-a3e3-7c137850935d
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: ws
-  tls: true
-  ws-opts:
-    path: /123
-    headers:
-      Host: arm.ptuu.gq
-- name: 🇺🇸US-147.182.239.174-70
+- name: 🇺🇸US-147.182.239.174-42
   server: s3.hazz.win
   port: 12340
   type: trojan
   password: dfbf0d67-f03d-4184-a224-c2d64a571f99
-  sni: s3.hazz.win
   skip-cert-verify: true
-- name: 🇺🇸US-129.146.242.130-71
+- name: 🇺🇸US-129.146.242.130-43
   server: fhcarm1.gaox.ml
   port: 443
   type: trojan
   password: 05742120-ce23-4cc8-88f5-6d221ce45bf4
   skip-cert-verify: true
-- name: 🇺🇸US-97.64.31.80-72
-  server: 97.64.31.80
-  port: 247
-  type: ss
-  cipher: aes-256-cfb
-  password: bwhskrskr03
-- name: 🇺🇸US-158.101.19.172-73
+- name: 🇺🇸US-158.101.19.172-44
   server: 158.101.19.172
   port: 10910
   type: vmess
@@ -636,41 +573,19 @@ proxies:
     path: /
     headers:
       Host: 158.101.19.172
-- name: 🇺🇸US-150.230.41.9-74
-  server: 150.230.41.9
-  port: 23292
-  type: vmess
-  uuid: 956c6c2f-bf54-4b87-fafd-4b767ca12750
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /myblog
-    headers:
-      Host: vfly6.xyz
-- name: 🇺🇸US-156.146.38.163-75
+- name: 🇺🇸US-156.146.38.163-45
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-- name: 🇺🇸US-158.101.19.172-76
-  server: 158.101.19.172
-  port: 10910
-  type: vmess
-  uuid: 241645f5-3190-429b-b513-5265a242dfe1
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: 158.101.19.172
-- name: 🏁RELAY-104.21.72.236-77
+- name: 🇺🇸US-156.146.38.163-46
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+- name: 🏁RELAY-172.67.187.211-47
   server: us03.gogogoo.cyou
   port: 443
   type: vmess
@@ -684,48 +599,97 @@ proxies:
     path: /go
     headers:
       Host: us03.gogogoo.cyou
-- name: 🇺🇸US-156.146.38.163-78
+- name: 🇺🇸US-158.101.19.172-48
+  server: 158.101.19.172
+  port: 10910
+  type: vmess
+  uuid: 241645f5-3190-429b-b513-5265a242dfe1
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: 158.101.19.172
+- name: 🇺🇸US-147.182.239.174-49
+  server: s3.hass.win
+  port: 12340
+  type: trojan
+  password: dfbf0d67-f03d-4184-a224-c2d64a571f99
+  skip-cert-verify: true
+- name: 🇺🇸US-129.146.255.158-50
+  server: fhcarm2.gaox.ml
+  port: 443
+  type: trojan
+  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
+  skip-cert-verify: true
+- name: 🇺🇸US-129.146.255.158-51
+  server: fhcarm2.gaox.ml
+  port: 443
+  type: trojan
+  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
+  skip-cert-verify: true
+- name: 🇺🇸US-158.101.19.172-52
+  server: 158.101.19.172
+  port: 10910
+  type: vmess
+  uuid: 241645f5-3190-429b-b513-5265a242dfe1
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: 158.101.19.172
+- name: 🇺🇸US-156.146.38.163-53
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-- name: 🇺🇸US-158.101.19.172-79
-  server: 158.101.19.172
-  port: 10910
-  type: vmess
-  uuid: 241645f5-3190-429b-b513-5265a242dfe1
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: 158.101.19.172
-- name: 🇺🇸US-158.101.19.172-80
-  server: 158.101.19.172
-  port: 10910
-  type: vmess
-  uuid: 241645f5-3190-429b-b513-5265a242dfe1
-  alterId: 0
-  cipher: auto
-  skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: 158.101.19.172
-- name: 🇺🇸US-147.182.239.174-81
-  server: s3.hass.win
-  port: 12340
+- name: 🇺🇸US-137.184.93.209-54
+  server: 137.184.93.209
+  port: 10365
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 9682edd6-89e6-4e6a-b31d-271089771d87
+- name: 🇺🇸US-137.184.93.209-55
+  server: do.cloudorg.uk
+  port: 443
   type: trojan
-  password: dfbf0d67-f03d-4184-a224-c2d64a571f99
-  sni: s3.hass.win
+  password: 9682edd6-89e6-4e6a-b31d-271089771d87
   skip-cert-verify: true
-- name: 🇺🇸US-158.101.19.172-82
+- name: 🇺🇸US-161.35.229.94-56
+  server: weixin.babazhuji.com
+  port: 443
+  type: vmess
+  uuid: 27848739-7e62-4138-9fd3-098a63964b6b
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /tech
+    headers:
+      Host: weixin.babazhuji.com
+- name: 🇺🇸US-129.146.242.130-57
+  server: fhcarm1.gaox.ml
+  port: 443
+  type: trojan
+  password: 05742120-ce23-4cc8-88f5-6d221ce45bf4
+  skip-cert-verify: true
+- name: 🇺🇸US-137.184.93.209-58
+  server: 137.184.93.209
+  port: 10365
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 9682edd6-89e6-4e6a-b31d-271089771d87
+- name: 🇺🇸US-158.101.19.172-59
   server: 158.101.19.172
   port: 10910
   type: vmess
@@ -739,7 +703,21 @@ proxies:
     path: /
     headers:
       Host: 158.101.19.172
-- name: 🇺🇸US-192.96.204.250-83
+- name: 🇺🇸US-158.101.19.172-60
+  server: 158.101.19.172
+  port: 10910
+  type: vmess
+  uuid: 241645f5-3190-429b-b513-5265a242dfe1
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: 158.101.19.172
+- name: 🇺🇸US-192.96.204.250-61
   server: 192.96.204.250
   port: 443
   type: vmess
@@ -753,61 +731,213 @@ proxies:
     path: /ws
     headers:
       Host: usa-washington.lvuft.com
-- name: 🇺🇸US-198.211.53.79-84
-  server: lsj02.wangxd.life
-  port: 3052
-  type: trojan
-  password: 3a2c0c6c-9ee5-c05f-c951-fcd73831983e
+- name: 🇺🇸US-23.239.7.10-62
+  server: v29.heduian.online
+  port: 30866
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  cipher: auto
   skip-cert-verify: true
-- name: 🇺🇸US-156.146.38.163-85
+  network: ws
+  tls: false
+  ws-opts:
+    path: /oooo
+    headers:
+      Host: baidu.com
+- name: 🇺🇸US-161.35.229.94-63
+  server: weixin.babazhuji.com
+  port: 443
+  type: vmess
+  uuid: 27848739-7e62-4138-9fd3-098a63964b6b
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /tech
+    headers:
+      Host: weixin.babazhuji.com
+- name: 🇺🇸US-45.78.9.147-64
+  server: c10s1.jamjams3.net
+  port: 16522
+  type: ss
+  cipher: aes-256-gcm
+  password: QB7rUb6qjPro24E8
+- name: 🇺🇸US-192.96.204.250-65
+  server: usa-washington.lvuft.com
+  port: 443
+  type: vmess
+  uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
+  alterId: 4
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /ws
+    headers:
+      Host: usa-washington.lvuft.com
+- name: 🇺🇸US-158.101.19.172-66
+  server: 158.101.19.172
+  port: 10910
+  type: vmess
+  uuid: 241645f5-3190-429b-b513-5265a242dfe1
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: tcp
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: 158.101.19.172
+- name: 🏁RELAY-172.67.144.150-67
+  server: arm.ptuu.gq
+  port: 443
+  type: vmess
+  uuid: 9821b817-5cb0-4af3-a3e3-7c137850935d
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /123
+    headers:
+      Host: arm.ptuu.gq
+- name: 🇺🇸US-156.146.38.163-68
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-- name: 🇺🇸US-137.184.93.209-86
-  server: 137.184.93.209
-  port: 10365
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 9682edd6-89e6-4e6a-b31d-271089771d87
-- name: 🇺🇸US-156.146.38.163-87
+- name: 🏁RELAY-172.67.144.150-69
+  server: arm.ptuu.gq
+  port: 443
+  type: vmess
+  uuid: 9821b817-5cb0-4af3-a3e3-7c137850935d
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /123
+    headers:
+      Host: arm.ptuu.gq
+- name: 🇺🇸US-129.146.255.158-70
+  server: fhcarm2.gaox.ml
+  port: 443
+  type: trojan
+  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
+  skip-cert-verify: true
+- name: 🇺🇸US-156.146.38.163-71
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-88
+- name: 🇺🇸US-161.35.229.94-72
+  server: weixin.babazhuji.com
+  port: 443
+  type: vmess
+  uuid: 27848739-7e62-4138-9fd3-098a63964b6b
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /tech
+    headers:
+      Host: weixin.babazhuji.com
+- name: 🇺🇸US-129.146.255.158-73
+  server: fhcarm2.gaox.ml
+  port: 443
+  type: trojan
+  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
+  skip-cert-verify: true
+- name: 🇺🇸US-156.146.38.163-74
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-89
+- name: 🏁RELAY-172.67.187.211-75
+  server: us02.gogogoo.cyou
+  port: 443
+  type: vmess
+  uuid: db5d1aa3-908b-44d1-be0a-4e6a8d4e4cda
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /go
+    headers:
+      Host: us02.gogogoo.cyou
+- name: 🇺🇸US-156.146.38.163-76
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-90
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-156.146.38.163-91
-  server: 156.146.38.163
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-- name: 🇺🇸US-147.182.239.174-92
-  server: s3.hass.win
+- name: 🇺🇸US-147.182.239.174-77
+  server: s1.hazz.win
   port: 12340
   type: trojan
   password: dfbf0d67-f03d-4184-a224-c2d64a571f99
   skip-cert-verify: true
-- name: 🇺🇸US-173.82.210.82-93
+- name: 🇺🇸US-156.146.38.163-78
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+- name: 🇺🇸US-156.146.38.163-79
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+- name: 🏁RELAY-104.21.72.236-80
+  server: us02.gogogoo.cyou
+  port: 443
+  type: vmess
+  uuid: db5d1aa3-908b-44d1-be0a-4e6a8d4e4cda
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /go
+    headers:
+      Host: us02.gogogoo.cyou
+- name: 🏁RELAY-104.21.72.236-81
+  server: us03.gogogoo.cyou
+  port: 443
+  type: vmess
+  uuid: db5d1aa3-908b-44d1-be0a-4e6a8d4e4cda
+  alterId: 0
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /go
+    headers:
+      Host: us03.gogogoo.cyou
+- name: 🇺🇸US-129.146.255.158-82
+  server: fhcarm2.gaox.ml
+  port: 443
+  type: trojan
+  password: f39bd244-f5fe-415c-8b98-a1e5250bf178
+  skip-cert-verify: true
+- name: 🇺🇸US-173.82.210.82-83
   server: s2.520guge.com
   port: 443
   type: vmess
@@ -821,19 +951,61 @@ proxies:
     path: /happy
     headers:
       Host: s2.520guge.com
-- name: 🇺🇸US-156.146.38.163-94
+- name: 🇺🇸US-192.96.204.250-84
+  server: usa-washington.lvuft.com
+  port: 443
+  type: vmess
+  uuid: aba50dd4-5484-3b05-b14a-4661caf862d5
+  alterId: 4
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: true
+  ws-opts:
+    path: /ws
+    headers:
+      Host: usa-washington.lvuft.com
+- name: 🇺🇸US-156.146.38.163-85
   server: 156.146.38.163
   port: 443
   type: ss
   cipher: aes-128-cfb
   password: shadowsocks
-- name: 🇺🇸US-129.146.135.157-95
-  server: fhcamd1.gaox.ml
-  port: 443
-  type: trojan
-  password: e23f408a-012e-4030-8b31-02022031cb50
+- name: 🇺🇸US-23.239.7.10-86
+  server: v4.heduian.online
+  port: 30866
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  cipher: auto
   skip-cert-verify: true
-- name: 🏁RELAY-104.21.59.76-96
+  network: ws
+  tls: false
+  ws-opts:
+    path: /oooo
+    headers:
+      Host: baidu.com
+- name: 🇺🇸US-23.239.7.10-87
+  server: v29.heduian.online
+  port: 30866
+  type: vmess
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  cipher: auto
+  skip-cert-verify: true
+  network: ws
+  tls: false
+  ws-opts:
+    path: /oooo
+    headers:
+      Host: v29.heduian.online
+- name: 🇺🇸US-156.146.38.163-88
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+- name: 🏁RELAY-104.21.59.76-89
   server: usamd.ptuu.tk
   port: 443
   type: vmess
@@ -847,12 +1019,12 @@ proxies:
     path: /123
     headers:
       Host: usamd.ptuu.tk
-- name: 🇺🇸US-51.81.223.22-97
-  server: 51.81.223.22
-  port: 443
+- name: 🇺🇸US-129.146.133.157-90
+  server: 129.146.133.157
+  port: 51009
   type: vmess
-  uuid: c0156451-4efb-45e2-84fc-8d315c4650db
-  alterId: 32
+  uuid: 81714cef-9bde-4a08-aa50-d6bc0172d78b
+  alterId: 0
   cipher: auto
   skip-cert-verify: true
   network: tcp
@@ -860,21 +1032,55 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: 51.81.223.22
-- name: 🇺🇸US-51.81.223.31-98
-  server: 51.81.223.31
+      Host: 129.146.133.157
+- name: 🇺🇸US-156.146.38.163-91
+  server: 156.146.38.163
   port: 443
-  type: vmess
-  uuid: c0156451-4efb-45e2-84fc-8d315c4650db
-  alterId: 32
-  cipher: auto
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+- name: 🇺🇸US-129.146.190.42-92
+  server: fhcamd2.gaox.ml
+  port: 443
+  type: trojan
+  password: dbf9bf9c-2c3f-474a-8031-d4c00666a989
   skip-cert-verify: true
-  network: tcp
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: 51.81.223.31
+- name: 🇺🇸US-156.146.38.163-93
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+- name: 🇺🇸US-45.78.4.66-94
+  server: c10s2.jamjams3.net
+  port: 16522
+  type: ss
+  cipher: aes-256-gcm
+  password: QB7rUb6qjPro24E8
+- name: 🇺🇸US-156.146.38.163-95
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+- name: 🇺🇸US-156.146.38.163-96
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+- name: 🇺🇸US-129.146.190.42-97
+  server: fhcamd2.gaox.ml
+  port: 443
+  type: trojan
+  password: dbf9bf9c-2c3f-474a-8031-d4c00666a989
+  skip-cert-verify: true
+- name: 🇺🇸US-156.146.38.163-98
+  server: 156.146.38.163
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
 proxy-groups:
 - name: 节点选择
   type: select
@@ -903,93 +1109,93 @@ proxy-groups:
   - 🇺🇸US-156.146.38.163-09
   - 🇺🇸US-156.146.38.163-10
   - 🇺🇸US-156.146.38.163-11
-  - 🇺🇸US-156.146.38.163-12
-  - 🇺🇸US-156.146.38.163-13
-  - 🇺🇸US-156.146.38.163-14
-  - 🇺🇸US-192.96.204.250-15
-  - 🇺🇸US-192.96.204.250-16
-  - 🇺🇸US-156.146.38.163-17
-  - 🇺🇸US-156.146.38.163-18
-  - 🇺🇸US-156.146.38.163-19
-  - 🇺🇸US-156.146.38.163-20
-  - 🇺🇸US-156.146.38.163-21
-  - 🇺🇸US-156.146.38.163-22
-  - 🇺🇸US-156.146.38.163-23
-  - 🇺🇸US-192.96.204.250-24
-  - 🏁RELAY-172.67.187.211-25
-  - 🏁RELAY-172.67.187.211-26
-  - 🇺🇸US-129.146.255.158-27
-  - 🇺🇸US-192.96.204.250-28
+  - 🇺🇸US-129.146.242.130-12
+  - 🇺🇸US-129.146.255.158-13
+  - 🇺🇸US-129.146.242.130-14
+  - 🇺🇸US-129.146.255.158-15
+  - 🇺🇸US-137.184.93.209-16
+  - 🇺🇸US-158.101.19.172-17
+  - 🇺🇸US-129.146.242.130-18
+  - 🇺🇸US-129.146.255.158-19
+  - 🇺🇸US-137.184.93.209-20
+  - 🇺🇸US-137.184.93.209-21
+  - 🇺🇸US-23.239.7.10-22
+  - 🇺🇸US-147.182.239.174-23
+  - 🇺🇸US-23.239.7.10-24
+  - 🇺🇸US-158.101.19.172-25
+  - 🇺🇸US-97.64.31.80-26
+  - 🇺🇸US-23.239.7.10-27
+  - 🇺🇸US-156.146.38.163-28
   - 🇺🇸US-137.184.93.209-29
-  - 🇺🇸US-137.184.93.209-30
-  - 🇺🇸US-137.184.93.209-31
-  - 🏁RELAY-104.18.107.161-32
-  - 🇺🇸US-129.146.255.158-33
-  - 🇺🇸US-156.146.38.163-34
-  - 🇺🇸US-156.146.38.163-35
-  - 🏁RELAY-104.21.72.236-36
-  - 🇺🇸US-147.182.239.174-37
-  - 🇺🇸US-156.146.38.163-38
-  - 🇺🇸US-156.146.38.163-39
-  - 🇺🇸US-156.146.38.163-40
-  - 🇺🇸US-156.146.38.163-41
-  - 🇺🇸US-156.146.38.163-42
-  - 🇺🇸US-161.35.229.94-43
-  - 🇺🇸US-129.146.242.130-44
-  - 🏁RELAY-104.18.107.161-45
-  - 🇺🇸US-192.96.204.250-46
-  - 🏁RELAY-172.67.144.150-47
-  - 🇺🇸US-156.146.38.163-48
-  - 🇺🇸US-97.64.31.80-49
-  - 🇺🇸US-161.35.229.94-50
+  - 🇺🇸US-192.96.204.250-30
+  - 🇺🇸US-45.78.9.112-31
+  - 🇺🇸US-45.33.57.17-32
+  - 🇺🇸US-23.239.7.10-33
+  - 🏁RELAY-104.21.28.65-34
+  - 🇺🇸US-23.239.7.10-35
+  - 🇺🇸US-156.146.38.163-36
+  - 🏁RELAY-172.67.144.150-37
+  - 🇺🇸US-45.78.5.150-38
+  - 🏁RELAY-172.67.144.150-39
+  - 🇺🇸US-158.101.19.172-40
+  - 🇺🇸US-129.146.242.130-41
+  - 🇺🇸US-147.182.239.174-42
+  - 🇺🇸US-129.146.242.130-43
+  - 🇺🇸US-158.101.19.172-44
+  - 🇺🇸US-156.146.38.163-45
+  - 🇺🇸US-156.146.38.163-46
+  - 🏁RELAY-172.67.187.211-47
+  - 🇺🇸US-158.101.19.172-48
+  - 🇺🇸US-147.182.239.174-49
+  - 🇺🇸US-129.146.255.158-50
   - 🇺🇸US-129.146.255.158-51
-  - 🇺🇸US-129.146.255.158-52
+  - 🇺🇸US-158.101.19.172-52
   - 🇺🇸US-156.146.38.163-53
-  - 🇺🇸US-129.146.255.158-54
-  - 🇺🇸US-158.101.19.172-55
-  - 🏁RELAY-104.21.72.236-56
-  - 🇺🇸US-192.96.204.250-57
-  - 🇺🇸US-156.146.38.163-58
-  - 🇺🇸US-129.146.255.158-59
-  - 🏁RELAY-104.21.28.65-60
-  - 🇺🇸US-173.82.210.82-61
-  - 🇺🇸US-158.101.19.172-62
-  - 🇺🇸US-158.101.19.172-63
-  - 🇺🇸US-156.146.38.163-64
-  - 🇺🇸US-156.146.38.163-65
-  - 🇺🇸US-147.182.239.174-66
-  - 🏁RELAY-104.21.28.65-67
-  - 🇺🇸US-129.146.242.130-68
-  - 🏁RELAY-104.21.28.65-69
-  - 🇺🇸US-147.182.239.174-70
-  - 🇺🇸US-129.146.242.130-71
-  - 🇺🇸US-97.64.31.80-72
-  - 🇺🇸US-158.101.19.172-73
-  - 🇺🇸US-150.230.41.9-74
-  - 🇺🇸US-156.146.38.163-75
-  - 🇺🇸US-158.101.19.172-76
-  - 🏁RELAY-104.21.72.236-77
+  - 🇺🇸US-137.184.93.209-54
+  - 🇺🇸US-137.184.93.209-55
+  - 🇺🇸US-161.35.229.94-56
+  - 🇺🇸US-129.146.242.130-57
+  - 🇺🇸US-137.184.93.209-58
+  - 🇺🇸US-158.101.19.172-59
+  - 🇺🇸US-158.101.19.172-60
+  - 🇺🇸US-192.96.204.250-61
+  - 🇺🇸US-23.239.7.10-62
+  - 🇺🇸US-161.35.229.94-63
+  - 🇺🇸US-45.78.9.147-64
+  - 🇺🇸US-192.96.204.250-65
+  - 🇺🇸US-158.101.19.172-66
+  - 🏁RELAY-172.67.144.150-67
+  - 🇺🇸US-156.146.38.163-68
+  - 🏁RELAY-172.67.144.150-69
+  - 🇺🇸US-129.146.255.158-70
+  - 🇺🇸US-156.146.38.163-71
+  - 🇺🇸US-161.35.229.94-72
+  - 🇺🇸US-129.146.255.158-73
+  - 🇺🇸US-156.146.38.163-74
+  - 🏁RELAY-172.67.187.211-75
+  - 🇺🇸US-156.146.38.163-76
+  - 🇺🇸US-147.182.239.174-77
   - 🇺🇸US-156.146.38.163-78
-  - 🇺🇸US-158.101.19.172-79
-  - 🇺🇸US-158.101.19.172-80
-  - 🇺🇸US-147.182.239.174-81
-  - 🇺🇸US-158.101.19.172-82
-  - 🇺🇸US-192.96.204.250-83
-  - 🇺🇸US-198.211.53.79-84
+  - 🇺🇸US-156.146.38.163-79
+  - 🏁RELAY-104.21.72.236-80
+  - 🏁RELAY-104.21.72.236-81
+  - 🇺🇸US-129.146.255.158-82
+  - 🇺🇸US-173.82.210.82-83
+  - 🇺🇸US-192.96.204.250-84
   - 🇺🇸US-156.146.38.163-85
-  - 🇺🇸US-137.184.93.209-86
-  - 🇺🇸US-156.146.38.163-87
+  - 🇺🇸US-23.239.7.10-86
+  - 🇺🇸US-23.239.7.10-87
   - 🇺🇸US-156.146.38.163-88
-  - 🇺🇸US-156.146.38.163-89
-  - 🇺🇸US-156.146.38.163-90
+  - 🏁RELAY-104.21.59.76-89
+  - 🇺🇸US-129.146.133.157-90
   - 🇺🇸US-156.146.38.163-91
-  - 🇺🇸US-147.182.239.174-92
-  - 🇺🇸US-173.82.210.82-93
-  - 🇺🇸US-156.146.38.163-94
-  - 🇺🇸US-129.146.135.157-95
-  - 🏁RELAY-104.21.59.76-96
-  - 🇺🇸US-51.81.223.22-97
-  - 🇺🇸US-51.81.223.31-98
+  - 🇺🇸US-129.146.190.42-92
+  - 🇺🇸US-156.146.38.163-93
+  - 🇺🇸US-45.78.4.66-94
+  - 🇺🇸US-156.146.38.163-95
+  - 🇺🇸US-156.146.38.163-96
+  - 🇺🇸US-129.146.190.42-97
+  - 🇺🇸US-156.146.38.163-98
 - name: 漏网之鱼
   type: select
   proxies:
@@ -999,14 +1205,6 @@ proxy-groups:
   - 狮城节点
   - 其他国家
   - REJECT
-  - DIRECT
-- name: 社交服务
-  type: select
-  proxies:
-  - 节点选择
-  - 美国节点
-  - 香港节点
-  - 狮城节点
   - DIRECT
 - name: 苹果服务
   type: select
@@ -1024,14 +1222,6 @@ proxy-groups:
   - 香港节点
   - 狮城节点
   - DIRECT
-- name: 谷歌服务
-  type: select
-  proxies:
-  - 节点选择
-  - 美国节点
-  - 香港节点
-  - 狮城节点
-  - DIRECT
 - name: 全球媒体
   type: select
   proxies:
@@ -1040,7 +1230,7 @@ proxy-groups:
   - 香港节点
   - 狮城节点
   - DIRECT
-- name: Emby视频
+- name: 国内媒体
   type: select
   proxies:
   - 节点选择
@@ -1065,81 +1255,83 @@ proxy-groups:
   - 🇺🇸US-156.146.38.163-09
   - 🇺🇸US-156.146.38.163-10
   - 🇺🇸US-156.146.38.163-11
-  - 🇺🇸US-156.146.38.163-12
-  - 🇺🇸US-156.146.38.163-13
-  - 🇺🇸US-156.146.38.163-14
-  - 🇺🇸US-192.96.204.250-15
-  - 🇺🇸US-192.96.204.250-16
-  - 🇺🇸US-156.146.38.163-17
-  - 🇺🇸US-156.146.38.163-18
-  - 🇺🇸US-156.146.38.163-19
-  - 🇺🇸US-156.146.38.163-20
-  - 🇺🇸US-156.146.38.163-21
-  - 🇺🇸US-156.146.38.163-22
-  - 🇺🇸US-156.146.38.163-23
-  - 🇺🇸US-192.96.204.250-24
-  - 🇺🇸US-129.146.255.158-27
-  - 🇺🇸US-192.96.204.250-28
+  - 🇺🇸US-129.146.242.130-12
+  - 🇺🇸US-129.146.255.158-13
+  - 🇺🇸US-129.146.242.130-14
+  - 🇺🇸US-129.146.255.158-15
+  - 🇺🇸US-137.184.93.209-16
+  - 🇺🇸US-158.101.19.172-17
+  - 🇺🇸US-129.146.242.130-18
+  - 🇺🇸US-129.146.255.158-19
+  - 🇺🇸US-137.184.93.209-20
+  - 🇺🇸US-137.184.93.209-21
+  - 🇺🇸US-23.239.7.10-22
+  - 🇺🇸US-147.182.239.174-23
+  - 🇺🇸US-23.239.7.10-24
+  - 🇺🇸US-158.101.19.172-25
+  - 🇺🇸US-97.64.31.80-26
+  - 🇺🇸US-23.239.7.10-27
+  - 🇺🇸US-156.146.38.163-28
   - 🇺🇸US-137.184.93.209-29
-  - 🇺🇸US-137.184.93.209-30
-  - 🇺🇸US-137.184.93.209-31
-  - 🇺🇸US-129.146.255.158-33
-  - 🇺🇸US-156.146.38.163-34
-  - 🇺🇸US-156.146.38.163-35
-  - 🇺🇸US-147.182.239.174-37
-  - 🇺🇸US-156.146.38.163-38
-  - 🇺🇸US-156.146.38.163-39
-  - 🇺🇸US-156.146.38.163-40
-  - 🇺🇸US-156.146.38.163-41
-  - 🇺🇸US-156.146.38.163-42
-  - 🇺🇸US-161.35.229.94-43
-  - 🇺🇸US-129.146.242.130-44
-  - 🇺🇸US-192.96.204.250-46
-  - 🇺🇸US-156.146.38.163-48
-  - 🇺🇸US-97.64.31.80-49
-  - 🇺🇸US-161.35.229.94-50
+  - 🇺🇸US-192.96.204.250-30
+  - 🇺🇸US-45.78.9.112-31
+  - 🇺🇸US-45.33.57.17-32
+  - 🇺🇸US-23.239.7.10-33
+  - 🇺🇸US-23.239.7.10-35
+  - 🇺🇸US-156.146.38.163-36
+  - 🇺🇸US-45.78.5.150-38
+  - 🇺🇸US-158.101.19.172-40
+  - 🇺🇸US-129.146.242.130-41
+  - 🇺🇸US-147.182.239.174-42
+  - 🇺🇸US-129.146.242.130-43
+  - 🇺🇸US-158.101.19.172-44
+  - 🇺🇸US-156.146.38.163-45
+  - 🇺🇸US-156.146.38.163-46
+  - 🇺🇸US-158.101.19.172-48
+  - 🇺🇸US-147.182.239.174-49
+  - 🇺🇸US-129.146.255.158-50
   - 🇺🇸US-129.146.255.158-51
-  - 🇺🇸US-129.146.255.158-52
+  - 🇺🇸US-158.101.19.172-52
   - 🇺🇸US-156.146.38.163-53
-  - 🇺🇸US-129.146.255.158-54
-  - 🇺🇸US-158.101.19.172-55
-  - 🇺🇸US-192.96.204.250-57
-  - 🇺🇸US-156.146.38.163-58
-  - 🇺🇸US-129.146.255.158-59
-  - 🇺🇸US-173.82.210.82-61
-  - 🇺🇸US-158.101.19.172-62
-  - 🇺🇸US-158.101.19.172-63
-  - 🇺🇸US-156.146.38.163-64
-  - 🇺🇸US-156.146.38.163-65
-  - 🇺🇸US-147.182.239.174-66
-  - 🇺🇸US-129.146.242.130-68
-  - 🇺🇸US-147.182.239.174-70
-  - 🇺🇸US-129.146.242.130-71
-  - 🇺🇸US-97.64.31.80-72
-  - 🇺🇸US-158.101.19.172-73
-  - 🇺🇸US-150.230.41.9-74
-  - 🇺🇸US-156.146.38.163-75
-  - 🇺🇸US-158.101.19.172-76
+  - 🇺🇸US-137.184.93.209-54
+  - 🇺🇸US-137.184.93.209-55
+  - 🇺🇸US-161.35.229.94-56
+  - 🇺🇸US-129.146.242.130-57
+  - 🇺🇸US-137.184.93.209-58
+  - 🇺🇸US-158.101.19.172-59
+  - 🇺🇸US-158.101.19.172-60
+  - 🇺🇸US-192.96.204.250-61
+  - 🇺🇸US-23.239.7.10-62
+  - 🇺🇸US-161.35.229.94-63
+  - 🇺🇸US-45.78.9.147-64
+  - 🇺🇸US-192.96.204.250-65
+  - 🇺🇸US-158.101.19.172-66
+  - 🇺🇸US-156.146.38.163-68
+  - 🇺🇸US-129.146.255.158-70
+  - 🇺🇸US-156.146.38.163-71
+  - 🇺🇸US-161.35.229.94-72
+  - 🇺🇸US-129.146.255.158-73
+  - 🇺🇸US-156.146.38.163-74
+  - 🇺🇸US-156.146.38.163-76
+  - 🇺🇸US-147.182.239.174-77
   - 🇺🇸US-156.146.38.163-78
-  - 🇺🇸US-158.101.19.172-79
-  - 🇺🇸US-158.101.19.172-80
-  - 🇺🇸US-147.182.239.174-81
-  - 🇺🇸US-158.101.19.172-82
-  - 🇺🇸US-192.96.204.250-83
-  - 🇺🇸US-198.211.53.79-84
+  - 🇺🇸US-156.146.38.163-79
+  - 🇺🇸US-129.146.255.158-82
+  - 🇺🇸US-173.82.210.82-83
+  - 🇺🇸US-192.96.204.250-84
   - 🇺🇸US-156.146.38.163-85
-  - 🇺🇸US-137.184.93.209-86
-  - 🇺🇸US-156.146.38.163-87
+  - 🇺🇸US-23.239.7.10-86
+  - 🇺🇸US-23.239.7.10-87
   - 🇺🇸US-156.146.38.163-88
-  - 🇺🇸US-156.146.38.163-89
-  - 🇺🇸US-156.146.38.163-90
+  - 🇺🇸US-129.146.133.157-90
   - 🇺🇸US-156.146.38.163-91
-  - 🇺🇸US-147.182.239.174-92
-  - 🇺🇸US-173.82.210.82-93
-  - 🇺🇸US-156.146.38.163-94
-  - 🇺🇸US-129.146.135.157-95
-  - 🇺🇸US-51.81.223.22-97
-  - 🇺🇸US-51.81.223.31-98
+  - 🇺🇸US-129.146.190.42-92
+  - 🇺🇸US-156.146.38.163-93
+  - 🇺🇸US-45.78.4.66-94
+  - 🇺🇸US-156.146.38.163-95
+  - 🇺🇸US-156.146.38.163-96
+  - 🇺🇸US-129.146.190.42-97
+  - 🇺🇸US-156.146.38.163-98
 - name: 香港节点
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -1157,18 +1349,16 @@ proxy-groups:
   url: http://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🏁RELAY-172.67.187.211-25
-  - 🏁RELAY-172.67.187.211-26
-  - 🏁RELAY-104.18.107.161-32
-  - 🏁RELAY-104.21.72.236-36
-  - 🏁RELAY-104.18.107.161-45
-  - 🏁RELAY-172.67.144.150-47
-  - 🏁RELAY-104.21.72.236-56
-  - 🏁RELAY-104.21.28.65-60
-  - 🏁RELAY-104.21.28.65-67
-  - 🏁RELAY-104.21.28.65-69
-  - 🏁RELAY-104.21.72.236-77
-  - 🏁RELAY-104.21.59.76-96
+  - 🏁RELAY-104.21.28.65-34
+  - 🏁RELAY-172.67.144.150-37
+  - 🏁RELAY-172.67.144.150-39
+  - 🏁RELAY-172.67.187.211-47
+  - 🏁RELAY-172.67.144.150-67
+  - 🏁RELAY-172.67.144.150-69
+  - 🏁RELAY-172.67.187.211-75
+  - 🏁RELAY-104.21.72.236-80
+  - 🏁RELAY-104.21.72.236-81
+  - 🏁RELAY-104.21.59.76-89
 - name: 自动选择
   type: url-test
   url: http://www.gstatic.com/generate_204
@@ -1187,93 +1377,93 @@ proxy-groups:
   - 🇺🇸US-156.146.38.163-09
   - 🇺🇸US-156.146.38.163-10
   - 🇺🇸US-156.146.38.163-11
-  - 🇺🇸US-156.146.38.163-12
-  - 🇺🇸US-156.146.38.163-13
-  - 🇺🇸US-156.146.38.163-14
-  - 🇺🇸US-192.96.204.250-15
-  - 🇺🇸US-192.96.204.250-16
-  - 🇺🇸US-156.146.38.163-17
-  - 🇺🇸US-156.146.38.163-18
-  - 🇺🇸US-156.146.38.163-19
-  - 🇺🇸US-156.146.38.163-20
-  - 🇺🇸US-156.146.38.163-21
-  - 🇺🇸US-156.146.38.163-22
-  - 🇺🇸US-156.146.38.163-23
-  - 🇺🇸US-192.96.204.250-24
-  - 🏁RELAY-172.67.187.211-25
-  - 🏁RELAY-172.67.187.211-26
-  - 🇺🇸US-129.146.255.158-27
-  - 🇺🇸US-192.96.204.250-28
+  - 🇺🇸US-129.146.242.130-12
+  - 🇺🇸US-129.146.255.158-13
+  - 🇺🇸US-129.146.242.130-14
+  - 🇺🇸US-129.146.255.158-15
+  - 🇺🇸US-137.184.93.209-16
+  - 🇺🇸US-158.101.19.172-17
+  - 🇺🇸US-129.146.242.130-18
+  - 🇺🇸US-129.146.255.158-19
+  - 🇺🇸US-137.184.93.209-20
+  - 🇺🇸US-137.184.93.209-21
+  - 🇺🇸US-23.239.7.10-22
+  - 🇺🇸US-147.182.239.174-23
+  - 🇺🇸US-23.239.7.10-24
+  - 🇺🇸US-158.101.19.172-25
+  - 🇺🇸US-97.64.31.80-26
+  - 🇺🇸US-23.239.7.10-27
+  - 🇺🇸US-156.146.38.163-28
   - 🇺🇸US-137.184.93.209-29
-  - 🇺🇸US-137.184.93.209-30
-  - 🇺🇸US-137.184.93.209-31
-  - 🏁RELAY-104.18.107.161-32
-  - 🇺🇸US-129.146.255.158-33
-  - 🇺🇸US-156.146.38.163-34
-  - 🇺🇸US-156.146.38.163-35
-  - 🏁RELAY-104.21.72.236-36
-  - 🇺🇸US-147.182.239.174-37
-  - 🇺🇸US-156.146.38.163-38
-  - 🇺🇸US-156.146.38.163-39
-  - 🇺🇸US-156.146.38.163-40
-  - 🇺🇸US-156.146.38.163-41
-  - 🇺🇸US-156.146.38.163-42
-  - 🇺🇸US-161.35.229.94-43
-  - 🇺🇸US-129.146.242.130-44
-  - 🏁RELAY-104.18.107.161-45
-  - 🇺🇸US-192.96.204.250-46
-  - 🏁RELAY-172.67.144.150-47
-  - 🇺🇸US-156.146.38.163-48
-  - 🇺🇸US-97.64.31.80-49
-  - 🇺🇸US-161.35.229.94-50
+  - 🇺🇸US-192.96.204.250-30
+  - 🇺🇸US-45.78.9.112-31
+  - 🇺🇸US-45.33.57.17-32
+  - 🇺🇸US-23.239.7.10-33
+  - 🏁RELAY-104.21.28.65-34
+  - 🇺🇸US-23.239.7.10-35
+  - 🇺🇸US-156.146.38.163-36
+  - 🏁RELAY-172.67.144.150-37
+  - 🇺🇸US-45.78.5.150-38
+  - 🏁RELAY-172.67.144.150-39
+  - 🇺🇸US-158.101.19.172-40
+  - 🇺🇸US-129.146.242.130-41
+  - 🇺🇸US-147.182.239.174-42
+  - 🇺🇸US-129.146.242.130-43
+  - 🇺🇸US-158.101.19.172-44
+  - 🇺🇸US-156.146.38.163-45
+  - 🇺🇸US-156.146.38.163-46
+  - 🏁RELAY-172.67.187.211-47
+  - 🇺🇸US-158.101.19.172-48
+  - 🇺🇸US-147.182.239.174-49
+  - 🇺🇸US-129.146.255.158-50
   - 🇺🇸US-129.146.255.158-51
-  - 🇺🇸US-129.146.255.158-52
+  - 🇺🇸US-158.101.19.172-52
   - 🇺🇸US-156.146.38.163-53
-  - 🇺🇸US-129.146.255.158-54
-  - 🇺🇸US-158.101.19.172-55
-  - 🏁RELAY-104.21.72.236-56
-  - 🇺🇸US-192.96.204.250-57
-  - 🇺🇸US-156.146.38.163-58
-  - 🇺🇸US-129.146.255.158-59
-  - 🏁RELAY-104.21.28.65-60
-  - 🇺🇸US-173.82.210.82-61
-  - 🇺🇸US-158.101.19.172-62
-  - 🇺🇸US-158.101.19.172-63
-  - 🇺🇸US-156.146.38.163-64
-  - 🇺🇸US-156.146.38.163-65
-  - 🇺🇸US-147.182.239.174-66
-  - 🏁RELAY-104.21.28.65-67
-  - 🇺🇸US-129.146.242.130-68
-  - 🏁RELAY-104.21.28.65-69
-  - 🇺🇸US-147.182.239.174-70
-  - 🇺🇸US-129.146.242.130-71
-  - 🇺🇸US-97.64.31.80-72
-  - 🇺🇸US-158.101.19.172-73
-  - 🇺🇸US-150.230.41.9-74
-  - 🇺🇸US-156.146.38.163-75
-  - 🇺🇸US-158.101.19.172-76
-  - 🏁RELAY-104.21.72.236-77
+  - 🇺🇸US-137.184.93.209-54
+  - 🇺🇸US-137.184.93.209-55
+  - 🇺🇸US-161.35.229.94-56
+  - 🇺🇸US-129.146.242.130-57
+  - 🇺🇸US-137.184.93.209-58
+  - 🇺🇸US-158.101.19.172-59
+  - 🇺🇸US-158.101.19.172-60
+  - 🇺🇸US-192.96.204.250-61
+  - 🇺🇸US-23.239.7.10-62
+  - 🇺🇸US-161.35.229.94-63
+  - 🇺🇸US-45.78.9.147-64
+  - 🇺🇸US-192.96.204.250-65
+  - 🇺🇸US-158.101.19.172-66
+  - 🏁RELAY-172.67.144.150-67
+  - 🇺🇸US-156.146.38.163-68
+  - 🏁RELAY-172.67.144.150-69
+  - 🇺🇸US-129.146.255.158-70
+  - 🇺🇸US-156.146.38.163-71
+  - 🇺🇸US-161.35.229.94-72
+  - 🇺🇸US-129.146.255.158-73
+  - 🇺🇸US-156.146.38.163-74
+  - 🏁RELAY-172.67.187.211-75
+  - 🇺🇸US-156.146.38.163-76
+  - 🇺🇸US-147.182.239.174-77
   - 🇺🇸US-156.146.38.163-78
-  - 🇺🇸US-158.101.19.172-79
-  - 🇺🇸US-158.101.19.172-80
-  - 🇺🇸US-147.182.239.174-81
-  - 🇺🇸US-158.101.19.172-82
-  - 🇺🇸US-192.96.204.250-83
-  - 🇺🇸US-198.211.53.79-84
+  - 🇺🇸US-156.146.38.163-79
+  - 🏁RELAY-104.21.72.236-80
+  - 🏁RELAY-104.21.72.236-81
+  - 🇺🇸US-129.146.255.158-82
+  - 🇺🇸US-173.82.210.82-83
+  - 🇺🇸US-192.96.204.250-84
   - 🇺🇸US-156.146.38.163-85
-  - 🇺🇸US-137.184.93.209-86
-  - 🇺🇸US-156.146.38.163-87
+  - 🇺🇸US-23.239.7.10-86
+  - 🇺🇸US-23.239.7.10-87
   - 🇺🇸US-156.146.38.163-88
-  - 🇺🇸US-156.146.38.163-89
-  - 🇺🇸US-156.146.38.163-90
+  - 🏁RELAY-104.21.59.76-89
+  - 🇺🇸US-129.146.133.157-90
   - 🇺🇸US-156.146.38.163-91
-  - 🇺🇸US-147.182.239.174-92
-  - 🇺🇸US-173.82.210.82-93
-  - 🇺🇸US-156.146.38.163-94
-  - 🇺🇸US-129.146.135.157-95
-  - 🏁RELAY-104.21.59.76-96
-  - 🇺🇸US-51.81.223.22-97
-  - 🇺🇸US-51.81.223.31-98
+  - 🇺🇸US-129.146.190.42-92
+  - 🇺🇸US-156.146.38.163-93
+  - 🇺🇸US-45.78.4.66-94
+  - 🇺🇸US-156.146.38.163-95
+  - 🇺🇸US-156.146.38.163-96
+  - 🇺🇸US-129.146.190.42-97
+  - 🇺🇸US-156.146.38.163-98
 - name: 负载均衡
   type: load-balance
   strategy: consistent-hashing
@@ -1293,93 +1483,93 @@ proxy-groups:
   - 🇺🇸US-156.146.38.163-09
   - 🇺🇸US-156.146.38.163-10
   - 🇺🇸US-156.146.38.163-11
-  - 🇺🇸US-156.146.38.163-12
-  - 🇺🇸US-156.146.38.163-13
-  - 🇺🇸US-156.146.38.163-14
-  - 🇺🇸US-192.96.204.250-15
-  - 🇺🇸US-192.96.204.250-16
-  - 🇺🇸US-156.146.38.163-17
-  - 🇺🇸US-156.146.38.163-18
-  - 🇺🇸US-156.146.38.163-19
-  - 🇺🇸US-156.146.38.163-20
-  - 🇺🇸US-156.146.38.163-21
-  - 🇺🇸US-156.146.38.163-22
-  - 🇺🇸US-156.146.38.163-23
-  - 🇺🇸US-192.96.204.250-24
-  - 🏁RELAY-172.67.187.211-25
-  - 🏁RELAY-172.67.187.211-26
-  - 🇺🇸US-129.146.255.158-27
-  - 🇺🇸US-192.96.204.250-28
+  - 🇺🇸US-129.146.242.130-12
+  - 🇺🇸US-129.146.255.158-13
+  - 🇺🇸US-129.146.242.130-14
+  - 🇺🇸US-129.146.255.158-15
+  - 🇺🇸US-137.184.93.209-16
+  - 🇺🇸US-158.101.19.172-17
+  - 🇺🇸US-129.146.242.130-18
+  - 🇺🇸US-129.146.255.158-19
+  - 🇺🇸US-137.184.93.209-20
+  - 🇺🇸US-137.184.93.209-21
+  - 🇺🇸US-23.239.7.10-22
+  - 🇺🇸US-147.182.239.174-23
+  - 🇺🇸US-23.239.7.10-24
+  - 🇺🇸US-158.101.19.172-25
+  - 🇺🇸US-97.64.31.80-26
+  - 🇺🇸US-23.239.7.10-27
+  - 🇺🇸US-156.146.38.163-28
   - 🇺🇸US-137.184.93.209-29
-  - 🇺🇸US-137.184.93.209-30
-  - 🇺🇸US-137.184.93.209-31
-  - 🏁RELAY-104.18.107.161-32
-  - 🇺🇸US-129.146.255.158-33
-  - 🇺🇸US-156.146.38.163-34
-  - 🇺🇸US-156.146.38.163-35
-  - 🏁RELAY-104.21.72.236-36
-  - 🇺🇸US-147.182.239.174-37
-  - 🇺🇸US-156.146.38.163-38
-  - 🇺🇸US-156.146.38.163-39
-  - 🇺🇸US-156.146.38.163-40
-  - 🇺🇸US-156.146.38.163-41
-  - 🇺🇸US-156.146.38.163-42
-  - 🇺🇸US-161.35.229.94-43
-  - 🇺🇸US-129.146.242.130-44
-  - 🏁RELAY-104.18.107.161-45
-  - 🇺🇸US-192.96.204.250-46
-  - 🏁RELAY-172.67.144.150-47
-  - 🇺🇸US-156.146.38.163-48
-  - 🇺🇸US-97.64.31.80-49
-  - 🇺🇸US-161.35.229.94-50
+  - 🇺🇸US-192.96.204.250-30
+  - 🇺🇸US-45.78.9.112-31
+  - 🇺🇸US-45.33.57.17-32
+  - 🇺🇸US-23.239.7.10-33
+  - 🏁RELAY-104.21.28.65-34
+  - 🇺🇸US-23.239.7.10-35
+  - 🇺🇸US-156.146.38.163-36
+  - 🏁RELAY-172.67.144.150-37
+  - 🇺🇸US-45.78.5.150-38
+  - 🏁RELAY-172.67.144.150-39
+  - 🇺🇸US-158.101.19.172-40
+  - 🇺🇸US-129.146.242.130-41
+  - 🇺🇸US-147.182.239.174-42
+  - 🇺🇸US-129.146.242.130-43
+  - 🇺🇸US-158.101.19.172-44
+  - 🇺🇸US-156.146.38.163-45
+  - 🇺🇸US-156.146.38.163-46
+  - 🏁RELAY-172.67.187.211-47
+  - 🇺🇸US-158.101.19.172-48
+  - 🇺🇸US-147.182.239.174-49
+  - 🇺🇸US-129.146.255.158-50
   - 🇺🇸US-129.146.255.158-51
-  - 🇺🇸US-129.146.255.158-52
+  - 🇺🇸US-158.101.19.172-52
   - 🇺🇸US-156.146.38.163-53
-  - 🇺🇸US-129.146.255.158-54
-  - 🇺🇸US-158.101.19.172-55
-  - 🏁RELAY-104.21.72.236-56
-  - 🇺🇸US-192.96.204.250-57
-  - 🇺🇸US-156.146.38.163-58
-  - 🇺🇸US-129.146.255.158-59
-  - 🏁RELAY-104.21.28.65-60
-  - 🇺🇸US-173.82.210.82-61
-  - 🇺🇸US-158.101.19.172-62
-  - 🇺🇸US-158.101.19.172-63
-  - 🇺🇸US-156.146.38.163-64
-  - 🇺🇸US-156.146.38.163-65
-  - 🇺🇸US-147.182.239.174-66
-  - 🏁RELAY-104.21.28.65-67
-  - 🇺🇸US-129.146.242.130-68
-  - 🏁RELAY-104.21.28.65-69
-  - 🇺🇸US-147.182.239.174-70
-  - 🇺🇸US-129.146.242.130-71
-  - 🇺🇸US-97.64.31.80-72
-  - 🇺🇸US-158.101.19.172-73
-  - 🇺🇸US-150.230.41.9-74
-  - 🇺🇸US-156.146.38.163-75
-  - 🇺🇸US-158.101.19.172-76
-  - 🏁RELAY-104.21.72.236-77
+  - 🇺🇸US-137.184.93.209-54
+  - 🇺🇸US-137.184.93.209-55
+  - 🇺🇸US-161.35.229.94-56
+  - 🇺🇸US-129.146.242.130-57
+  - 🇺🇸US-137.184.93.209-58
+  - 🇺🇸US-158.101.19.172-59
+  - 🇺🇸US-158.101.19.172-60
+  - 🇺🇸US-192.96.204.250-61
+  - 🇺🇸US-23.239.7.10-62
+  - 🇺🇸US-161.35.229.94-63
+  - 🇺🇸US-45.78.9.147-64
+  - 🇺🇸US-192.96.204.250-65
+  - 🇺🇸US-158.101.19.172-66
+  - 🏁RELAY-172.67.144.150-67
+  - 🇺🇸US-156.146.38.163-68
+  - 🏁RELAY-172.67.144.150-69
+  - 🇺🇸US-129.146.255.158-70
+  - 🇺🇸US-156.146.38.163-71
+  - 🇺🇸US-161.35.229.94-72
+  - 🇺🇸US-129.146.255.158-73
+  - 🇺🇸US-156.146.38.163-74
+  - 🏁RELAY-172.67.187.211-75
+  - 🇺🇸US-156.146.38.163-76
+  - 🇺🇸US-147.182.239.174-77
   - 🇺🇸US-156.146.38.163-78
-  - 🇺🇸US-158.101.19.172-79
-  - 🇺🇸US-158.101.19.172-80
-  - 🇺🇸US-147.182.239.174-81
-  - 🇺🇸US-158.101.19.172-82
-  - 🇺🇸US-192.96.204.250-83
-  - 🇺🇸US-198.211.53.79-84
+  - 🇺🇸US-156.146.38.163-79
+  - 🏁RELAY-104.21.72.236-80
+  - 🏁RELAY-104.21.72.236-81
+  - 🇺🇸US-129.146.255.158-82
+  - 🇺🇸US-173.82.210.82-83
+  - 🇺🇸US-192.96.204.250-84
   - 🇺🇸US-156.146.38.163-85
-  - 🇺🇸US-137.184.93.209-86
-  - 🇺🇸US-156.146.38.163-87
+  - 🇺🇸US-23.239.7.10-86
+  - 🇺🇸US-23.239.7.10-87
   - 🇺🇸US-156.146.38.163-88
-  - 🇺🇸US-156.146.38.163-89
-  - 🇺🇸US-156.146.38.163-90
+  - 🏁RELAY-104.21.59.76-89
+  - 🇺🇸US-129.146.133.157-90
   - 🇺🇸US-156.146.38.163-91
-  - 🇺🇸US-147.182.239.174-92
-  - 🇺🇸US-173.82.210.82-93
-  - 🇺🇸US-156.146.38.163-94
-  - 🇺🇸US-129.146.135.157-95
-  - 🏁RELAY-104.21.59.76-96
-  - 🇺🇸US-51.81.223.22-97
-  - 🇺🇸US-51.81.223.31-98
+  - 🇺🇸US-129.146.190.42-92
+  - 🇺🇸US-156.146.38.163-93
+  - 🇺🇸US-45.78.4.66-94
+  - 🇺🇸US-156.146.38.163-95
+  - 🇺🇸US-156.146.38.163-96
+  - 🇺🇸US-129.146.190.42-97
+  - 🇺🇸US-156.146.38.163-98
 - name: 失败切换
   type: fallback
   url: http://www.gstatic.com/generate_204
@@ -1398,145 +1588,139 @@ proxy-groups:
   - 🇺🇸US-156.146.38.163-09
   - 🇺🇸US-156.146.38.163-10
   - 🇺🇸US-156.146.38.163-11
-  - 🇺🇸US-156.146.38.163-12
-  - 🇺🇸US-156.146.38.163-13
-  - 🇺🇸US-156.146.38.163-14
-  - 🇺🇸US-192.96.204.250-15
-  - 🇺🇸US-192.96.204.250-16
-  - 🇺🇸US-156.146.38.163-17
-  - 🇺🇸US-156.146.38.163-18
-  - 🇺🇸US-156.146.38.163-19
-  - 🇺🇸US-156.146.38.163-20
-  - 🇺🇸US-156.146.38.163-21
-  - 🇺🇸US-156.146.38.163-22
-  - 🇺🇸US-156.146.38.163-23
-  - 🇺🇸US-192.96.204.250-24
-  - 🏁RELAY-172.67.187.211-25
-  - 🏁RELAY-172.67.187.211-26
-  - 🇺🇸US-129.146.255.158-27
-  - 🇺🇸US-192.96.204.250-28
+  - 🇺🇸US-129.146.242.130-12
+  - 🇺🇸US-129.146.255.158-13
+  - 🇺🇸US-129.146.242.130-14
+  - 🇺🇸US-129.146.255.158-15
+  - 🇺🇸US-137.184.93.209-16
+  - 🇺🇸US-158.101.19.172-17
+  - 🇺🇸US-129.146.242.130-18
+  - 🇺🇸US-129.146.255.158-19
+  - 🇺🇸US-137.184.93.209-20
+  - 🇺🇸US-137.184.93.209-21
+  - 🇺🇸US-23.239.7.10-22
+  - 🇺🇸US-147.182.239.174-23
+  - 🇺🇸US-23.239.7.10-24
+  - 🇺🇸US-158.101.19.172-25
+  - 🇺🇸US-97.64.31.80-26
+  - 🇺🇸US-23.239.7.10-27
+  - 🇺🇸US-156.146.38.163-28
   - 🇺🇸US-137.184.93.209-29
-  - 🇺🇸US-137.184.93.209-30
-  - 🇺🇸US-137.184.93.209-31
-  - 🏁RELAY-104.18.107.161-32
-  - 🇺🇸US-129.146.255.158-33
-  - 🇺🇸US-156.146.38.163-34
-  - 🇺🇸US-156.146.38.163-35
-  - 🏁RELAY-104.21.72.236-36
-  - 🇺🇸US-147.182.239.174-37
-  - 🇺🇸US-156.146.38.163-38
-  - 🇺🇸US-156.146.38.163-39
-  - 🇺🇸US-156.146.38.163-40
-  - 🇺🇸US-156.146.38.163-41
-  - 🇺🇸US-156.146.38.163-42
-  - 🇺🇸US-161.35.229.94-43
-  - 🇺🇸US-129.146.242.130-44
-  - 🏁RELAY-104.18.107.161-45
-  - 🇺🇸US-192.96.204.250-46
-  - 🏁RELAY-172.67.144.150-47
-  - 🇺🇸US-156.146.38.163-48
-  - 🇺🇸US-97.64.31.80-49
-  - 🇺🇸US-161.35.229.94-50
+  - 🇺🇸US-192.96.204.250-30
+  - 🇺🇸US-45.78.9.112-31
+  - 🇺🇸US-45.33.57.17-32
+  - 🇺🇸US-23.239.7.10-33
+  - 🏁RELAY-104.21.28.65-34
+  - 🇺🇸US-23.239.7.10-35
+  - 🇺🇸US-156.146.38.163-36
+  - 🏁RELAY-172.67.144.150-37
+  - 🇺🇸US-45.78.5.150-38
+  - 🏁RELAY-172.67.144.150-39
+  - 🇺🇸US-158.101.19.172-40
+  - 🇺🇸US-129.146.242.130-41
+  - 🇺🇸US-147.182.239.174-42
+  - 🇺🇸US-129.146.242.130-43
+  - 🇺🇸US-158.101.19.172-44
+  - 🇺🇸US-156.146.38.163-45
+  - 🇺🇸US-156.146.38.163-46
+  - 🏁RELAY-172.67.187.211-47
+  - 🇺🇸US-158.101.19.172-48
+  - 🇺🇸US-147.182.239.174-49
+  - 🇺🇸US-129.146.255.158-50
   - 🇺🇸US-129.146.255.158-51
-  - 🇺🇸US-129.146.255.158-52
+  - 🇺🇸US-158.101.19.172-52
   - 🇺🇸US-156.146.38.163-53
-  - 🇺🇸US-129.146.255.158-54
-  - 🇺🇸US-158.101.19.172-55
-  - 🏁RELAY-104.21.72.236-56
-  - 🇺🇸US-192.96.204.250-57
-  - 🇺🇸US-156.146.38.163-58
-  - 🇺🇸US-129.146.255.158-59
-  - 🏁RELAY-104.21.28.65-60
-  - 🇺🇸US-173.82.210.82-61
-  - 🇺🇸US-158.101.19.172-62
-  - 🇺🇸US-158.101.19.172-63
-  - 🇺🇸US-156.146.38.163-64
-  - 🇺🇸US-156.146.38.163-65
-  - 🇺🇸US-147.182.239.174-66
-  - 🏁RELAY-104.21.28.65-67
-  - 🇺🇸US-129.146.242.130-68
-  - 🏁RELAY-104.21.28.65-69
-  - 🇺🇸US-147.182.239.174-70
-  - 🇺🇸US-129.146.242.130-71
-  - 🇺🇸US-97.64.31.80-72
-  - 🇺🇸US-158.101.19.172-73
-  - 🇺🇸US-150.230.41.9-74
-  - 🇺🇸US-156.146.38.163-75
-  - 🇺🇸US-158.101.19.172-76
-  - 🏁RELAY-104.21.72.236-77
+  - 🇺🇸US-137.184.93.209-54
+  - 🇺🇸US-137.184.93.209-55
+  - 🇺🇸US-161.35.229.94-56
+  - 🇺🇸US-129.146.242.130-57
+  - 🇺🇸US-137.184.93.209-58
+  - 🇺🇸US-158.101.19.172-59
+  - 🇺🇸US-158.101.19.172-60
+  - 🇺🇸US-192.96.204.250-61
+  - 🇺🇸US-23.239.7.10-62
+  - 🇺🇸US-161.35.229.94-63
+  - 🇺🇸US-45.78.9.147-64
+  - 🇺🇸US-192.96.204.250-65
+  - 🇺🇸US-158.101.19.172-66
+  - 🏁RELAY-172.67.144.150-67
+  - 🇺🇸US-156.146.38.163-68
+  - 🏁RELAY-172.67.144.150-69
+  - 🇺🇸US-129.146.255.158-70
+  - 🇺🇸US-156.146.38.163-71
+  - 🇺🇸US-161.35.229.94-72
+  - 🇺🇸US-129.146.255.158-73
+  - 🇺🇸US-156.146.38.163-74
+  - 🏁RELAY-172.67.187.211-75
+  - 🇺🇸US-156.146.38.163-76
+  - 🇺🇸US-147.182.239.174-77
   - 🇺🇸US-156.146.38.163-78
-  - 🇺🇸US-158.101.19.172-79
-  - 🇺🇸US-158.101.19.172-80
-  - 🇺🇸US-147.182.239.174-81
-  - 🇺🇸US-158.101.19.172-82
-  - 🇺🇸US-192.96.204.250-83
-  - 🇺🇸US-198.211.53.79-84
+  - 🇺🇸US-156.146.38.163-79
+  - 🏁RELAY-104.21.72.236-80
+  - 🏁RELAY-104.21.72.236-81
+  - 🇺🇸US-129.146.255.158-82
+  - 🇺🇸US-173.82.210.82-83
+  - 🇺🇸US-192.96.204.250-84
   - 🇺🇸US-156.146.38.163-85
-  - 🇺🇸US-137.184.93.209-86
-  - 🇺🇸US-156.146.38.163-87
+  - 🇺🇸US-23.239.7.10-86
+  - 🇺🇸US-23.239.7.10-87
   - 🇺🇸US-156.146.38.163-88
-  - 🇺🇸US-156.146.38.163-89
-  - 🇺🇸US-156.146.38.163-90
+  - 🏁RELAY-104.21.59.76-89
+  - 🇺🇸US-129.146.133.157-90
   - 🇺🇸US-156.146.38.163-91
-  - 🇺🇸US-147.182.239.174-92
-  - 🇺🇸US-173.82.210.82-93
-  - 🇺🇸US-156.146.38.163-94
-  - 🇺🇸US-129.146.135.157-95
-  - 🏁RELAY-104.21.59.76-96
-  - 🇺🇸US-51.81.223.22-97
-  - 🇺🇸US-51.81.223.31-98
+  - 🇺🇸US-129.146.190.42-92
+  - 🇺🇸US-156.146.38.163-93
+  - 🇺🇸US-45.78.4.66-94
+  - 🇺🇸US-156.146.38.163-95
+  - 🇺🇸US-156.146.38.163-96
+  - 🇺🇸US-129.146.190.42-97
+  - 🇺🇸US-156.146.38.163-98
 rule-providers:
   Applications:
     type: http
     behavior: classical
     url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt
-    path: ./ruleset/TopFreeProxies/applications.yaml
+    path: ./ruleset/TopFreeProxies/applications.txt
   Apple:
     type: http
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt
-    path: ./ruleset/TopFreeProxies/apple.yaml
+    path: ./ruleset/TopFreeProxies/apple.txt
   iCloud:
     type: http
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
-    path: ./ruleset/TopFreeProxies/icloud.yaml
+    path: ./ruleset/TopFreeProxies/icloud.txt
     interval: 86400
   Microsoft:
     type: http
     behavior: classical
-    url: https://fastly.jsdelivr.net/gh/LM-Firefly/Rules@master/Clash-RuleSet-Classical/Microsoft.yaml
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml
     path: ./ruleset/TopFreeProxies/microsoft.yaml
-    interval: 86400
-  Google:
-    type: http
-    behavior: domain
-    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt
-    path: ./ruleset/TopFreeProxies/google.yaml
     interval: 86400
   GlobalMedia:
     type: http
-    behavior: classical
-    url: https://fastly.jsdelivr.net/gh/LM-Firefly/Rules@master/Clash-RuleSet-Classical/GlobalMedia.yaml
-    path: ./ruleset/TopFreeProxies/globalmedia.yaml
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GlobalMedia/GlobalMedia_Domain.txt
+    path: ./ruleset/TopFreeProxies/globalmedia.txt
     interval: 86400
-  Telegram:
-    type: http
-    behavior: ipcidr
-    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
-    path: ./ruleset/TopFreeProxies/telegramcidr.yaml
-    interval: 86400
-  Twitter:
+  Emby:
     type: http
     behavior: classical
-    url: https://fastly.jsdelivr.net/gh/LM-Firefly/Rules@master/Clash-RuleSet-Classical/PROXY/Twitter.yaml
-    path: ./ruleset/TopFreeProxies/twitter.yaml
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Emby/Emby.yaml
+    path: ./ruleset/TopFreeProxies/emby.yaml
+    interval: 86400
+  CnMedia:
+    type: http
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMedia/ChinaMedia.yaml
+    path: ./ruleset/TopFreeProxies/cnmedia.yaml
     interval: 86400
   Private:
     type: http
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
-    path: ./ruleset/TopFreeProxies/private.yaml
+    path: ./ruleset/TopFreeProxies/private.txt
     interval: 86400
   Local-LAN:
     type: http
@@ -1548,19 +1732,18 @@ rule-providers:
     type: http
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
-    path: ./ruleset/TopFreeProxies/proxy.yaml
+    path: ./ruleset/TopFreeProxies/proxy.txt
     interval: 86400
   Reject:
     type: http
     behavior: domain
     url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
-    path: ./ruleset/TopFreeProxies/reject.yaml
+    path: ./ruleset/TopFreeProxies/reject.txt
     interval: 86400
 rules:
 - RULE-SET,Applications,DIRECT
 - IP-CIDR,10.240.0.0/24,DIRECT,no-resolve
 - IP-CIDR,192.168.123.0/24,DIRECT,no-resolve
-- DOMAIN-SUFFIX,emby.wtf,Emby视频,no-resolve
 - DOMAIN-SUFFIX,bitwarden.net,DIRECT,no-resolve
 - DOMAIN-SUFFIX,bitwarden.com,DIRECT,no-resolve
 - RULE-SET,Local-LAN,DIRECT,no-resolve
@@ -1569,10 +1752,9 @@ rules:
 - RULE-SET,Apple,苹果服务
 - RULE-SET,iCloud,苹果服务
 - RULE-SET,Microsoft,微软服务
+- RULE-SET,CnMedia,国内媒体
+- RULE-SET,Emby,全球媒体
 - RULE-SET,GlobalMedia,全球媒体
-- RULE-SET,Google,谷歌服务
-- RULE-SET,Twitter,社交服务
-- RULE-SET,Telegram,社交服务
 - GEOIP,CN,DIRECT
 - RULE-SET,Proxy,节点选择
 - MATCH,漏网之鱼
