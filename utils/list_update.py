@@ -78,7 +78,7 @@ class update_url():
             return current_url
 
     def find_link(id,current_url):
-        if id == 40:
+        if id == 38:
             try:
                 res_json = requests.get('https://api.github.com/repos/mianfeifq/share/contents/').json()
                 for file in res_json:
