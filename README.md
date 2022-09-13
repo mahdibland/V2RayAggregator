@@ -141,7 +141,7 @@
 </details>
 
 ### 所有节点
-合并节点总数: `5297`
+合并节点总数: `6284`
 [节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### 节点来源
@@ -159,14 +159,16 @@
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), 节点数量: `50`
 - [wrfree/free](https://github.com/wrfree/free), 节点数量: `26`
 - [changfengoss](https://github.com/ronghuaxueleng/get_v2), 节点数量: `38`
-- [anaer/Sub](https://github.com/anaer/Sub), 节点数量: `161`
-- [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), 节点数量: `83`
+- [anaer/Sub](https://github.com/anaer/Sub), 节点数量: `158`
+- [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), 节点数量: `75`
 - [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), 节点数量: `22`
 - [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), 节点数量: `22`
 - [moneyfly1/sublist](https://github.com/moneyfly1/sublist), 节点数量: `637`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), 节点数量: `10`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), 节点数量: `5`
 - [kxswa/k](https://github.com/kxswa/k), 节点数量: `20`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), 节点数量: `50`
+- [Rokate/Proxy-Sub - SSR](https://github.com/Rokate/Proxy-Sub), 节点数量: `839`
+- [mianfeifq/share](https://github.com/mianfeifq/share), 节点数量: `164`
 
 ## 客户端选择
 ### 主流桌面客户端
