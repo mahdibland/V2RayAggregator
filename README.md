@@ -34,7 +34,7 @@
 
 ## 节点信息
 ### 高速节点
-高速节点数量: `99`
+高速节点数量: `200`
 <details>
   <summary>展开复制节点</summary>
 
@@ -142,7 +142,7 @@
 
 ### 所有节点
 合并节点总数: `6395`
-[节点链接](https://raw.githubusercontent.com/alanbobs999/TopFreeProxies/master/sub/sub_merge.txt)
+[节点链接](https://raw.githubusercontent.com/mahdibland/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### 节点来源
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `116`
