@@ -16,7 +16,8 @@ def output(list,num):
     output_list = []
     for index in range(num):
         proxy = list[index]['Link']
-        output_list.append(proxy)
+        if not output_list.__contains__(proxy):
+            output_list.append(proxy)
     content = base64.b64encode('\n'.join(output_list).encode('utf-8')).decode('ascii')
     with open('./Eternity', 'w+', encoding='utf-8') as f:
         f.write(content)
