@@ -33,7 +33,7 @@
 >自用在线订阅转换网址：[sub-web-modify](https://sub.v1.mk/)
 
 ## 节点信息
-### 高速节点
+### high-speed node
 高速节点数量: `200`
 <details>
   <summary>展开复制节点</summary>
@@ -241,11 +241,11 @@
 
 </details>
 
-### 所有节点
+### all nodes
 合并节点总数: `6333`
 [节点链接](https://raw.githubusercontent.com/mahdibland/TopFreeProxies/master/sub/sub_merge.txt)
 
-### 节点来源
+### node source
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `107`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), 节点数量: `159`
 - [freefq/free](https://github.com/freefq/free), 节点数量: `47`
