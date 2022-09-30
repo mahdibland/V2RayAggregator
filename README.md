@@ -1,42 +1,42 @@
-# TopFreeProxies
+# ShadowsocksAggregator
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mahdibland/ShadowsocksAggregator/sub_merge?label=sub_merge)](https://github.com/mahdibland/ShadowsocksAggregator/actions/workflows/sub_merge.yml) 
 
 ![Watchers](https://img.shields.io/github/watchers/mahdibland/ShadowsocksAggregator) ![Stars](https://img.shields.io/github/stars/mahdibland/ShadowsocksAggregator) ![Forks](https://img.shields.io/github/forks/mahdibland/ShadowsocksAggregator) ![Vistors](https://visitor-badge.laobi.icu/badge?page_id=alanbobs999.topfreeproxies) ![LICENSE](https://img.shields.io/badge/license-CC%20BY--SA%204.0-green.svg)
 
-[仓库介绍](https://github.com/mahdibland/ShadowsocksAggregator#仓库介绍) | [使用方法](https://github.com/mahdibland/ShadowsocksAggregator#使用方法) | [节点信息](https://github.com/mahdibland/ShadowsocksAggregator#节点信息) | [软件推荐](https://github.com/mahdibland/ShadowsocksAggregator#客户端选择) | [机场推荐](https://github.com/mahdibland/ShadowsocksAggregator#机场推荐) | [仓库声明](https://github.com/mahdibland/ShadowsocksAggregator#仓库声明)
+[Introduction](https://github.com/mahdibland/ShadowsocksAggregator#Introduction) | [Instructions](https://github.com/mahdibland/ShadowsocksAggregator#Instructions) | [Node Information](https://github.com/mahdibland/ShadowsocksAggregator#Node Information) | [Softwares](https://github.com/mahdibland/ShadowsocksAggregator#Softwares)
 
-## 仓库介绍
-本仓库自动化功能全部基于 `GitHub Actions` 实现，如果有需要可以自行 Fork 实现个性化需求。
+## Introduction
+he automation functions of this repository are all implemented based on `GitHub Actions`. If necessary, you can fork yourself to achieve personalized requirements.
 
-对网络上各免费节点池及博主分享的节点进行测速筛选出较为稳定高速的节点，再导入到仓库中进行分享记录。所筛选的节点链接在仓库 `./sub/sub_list.json` 文件中，其中大部分为其他 `GitHub` 仓库链接，如果大家有好的订阅链接欢迎提交 PR ，这些链接包含的所有节点会合并在仓库 `./sub/sub_merge.txt` 中。
+Test the speed of each free node pool on the network and the nodes shared by bloggers to screen out relatively stable and high-speed nodes, and then import them into the warehouse for sharing records. The filtered node links are in the repository `./sub/sub_list.json` file, most of which are links to other `GitHub` repositories, if you have a good subscription link, please submit PR, all the nodes contained in these links will be merged in Repository `./sub/sub_merge.txt`.
 
-测速筛选后的节点订阅文件在仓库根目录 `Eterniy`(Base64) 和 `Eternity.yml`(Clash)。同时在仓库的 `./update` 中保留了原始节点链接的的记录。
+The node subscription files after speed test screening are in the repository root directory `Eterniy`(Base64) and `Eternity.yml`(Clash). Also keep a record of the original node link in the repository's `./update`.
 
-测速功能使用 [LiteSpeedTest](https://github.com/xxf098/LiteSpeedTest) 在 `GitHub Actions` 环境下实现，所以美国节点较多，不能很好代表国内网络环境下节点可用性，目前正在解决这一问题。
+The speed measurement function is implemented in the `GitHub Actions` environment using [LiteSpeedTest](https://github.com/xxf098/LiteSpeedTest), so there are many nodes in the United States, which cannot well represent the node availability in the domestic network environment. Currently, this problem is being solved. question.
 
-虽然是测速筛选过后的节点，但仍然会出现部分节点不可用的情况，遇到这种情况建议选择`Clash`, `Shadowrocket`之类能自动切换低延迟节点的客户端。
+Although it is a node after speed test screening, some nodes may still be unavailable. In this case, it is recommended to choose a client such as `Clash`, `Shadowrocket` that can automatically switch to low-latency nodes.
 
-## 使用方法
-将以下订阅链接导入相应客户端即可。链接中大部分为 SS 协议节点，少量 Vmess, Trojan ,SSR 协议节点，建议选择协议支持完整的客户端。
+## Instructions
+Just import the following subscription link into the corresponding client. Most of the links are SS protocol nodes, and a small number of Vmess, Trojan, and SSR protocol nodes. It is recommended to choose a protocol to support a complete client.
 
-- [多协议Base64编码](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity)
+- [Multi-protocol Base64 encoding](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity)
 - [Clash](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml)
 
-另有国内加速链接：
+Mirror link：
 
-- [多协议Base64编码](https://fastly.jsdelivr.net/gh/mahdibland/ShadowsocksAggregator@master/Eternity)
+- [Multi-protocol Base64 encoding](https://fastly.jsdelivr.net/gh/mahdibland/ShadowsocksAggregator@master/Eternity)
 - [Clash](https://fastly.jsdelivr.net/gh/mahdibland/ShadowsocksAggregator@master/Eternity.yml)
 
->`Clash`链接所使用的配置在仓库`./update/provider/`中，有相应配置文件和以国家分类的`proxy-provider`。
+> The configuration used by the `Clash` link is in the repository `./update/provider/`, with corresponding configuration files and `proxy-provider` categorized by country.
 >
->需要其它配置可使用订阅转换工具自行转换。
->自用在线订阅转换网址：[sub-web-modify](https://sub.v1.mk/)
+> If other configuration is required, you can use the subscription conversion tool to convert it yourself.
+> Self-use online subscription conversion URL: [sub-web-modify](https://sub.v1.mk/)
 
-## 节点信息
+## Node Information
 ### high-speed node
 高速节点数量: `200`
 <details>
-  <summary>展开复制节点</summary>
+  <summary>Expand</summary>
 
     vmess://eyJ2IjoiMiIsInBzIjoiX1VTX3dtdCg5LjMwKV80OSIsImFkZCI6InVzMDEueGlhb3FpOTkuY2YiLCJwb3J0IjoiNjM2MzIiLCJ0eXBlIjoibm9uZSIsImlkIjoiOTJjMGNmZDAtYmI5Zi00MjU4LWJkMGMtODAwMGFhMWExZDYyIiwiYWlkIjoiMCIsIm5ldCI6IndzIiwicGF0aCI6Ii8iLCJob3N0IjoidXMwMS54aWFvcWk5OS5jZiIsInRscyI6IiJ9
     trojan://a9b56b59-ee82-4331-91f8-955d1fdc4e10@nice-ca02.tiktokcdn.buzz:8443?allowInsecure=1#%F0%9F%87%A8%F0%9F%87%A6%20%E5%8A%A0%E6%8B%BF%E5%A4%A7%20006
@@ -243,7 +243,7 @@
 
 ### all nodes
 合并节点总数: `6333`
-[节点链接](https://raw.githubusercontent.com/mahdibland/TopFreeProxies/master/sub/sub_merge.txt)
+[Node link](https://raw.githubusercontent.com/mahdibland/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### node source
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), 节点数量: `107`
@@ -276,8 +276,8 @@
 - [mahdibland/get_v2-wxshi](https://github.com/mahdibland/get_v2), 节点数量: `9`
 - [mahdibland/get_v2-config003](https://github.com/mahdibland/get_v2), 节点数量: `56`
 
-## 客户端选择
-### 主流桌面客户端
+## Softwares
+### Desktop Clients
 |                            MacOS                             |                            Linux                             |                           Windows                            | 简易描述                                           |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :------------------------------------------------- |
 | [CFW](https://github.com/Fndroid/clash_for_windows_pkg/releases) | [CFW](https://github.com/Fndroid/clash_for_windows_pkg/releases) | [CFW(Clash For Windows)](https://github.com/Fndroid/clash_for_windows_pkg/releases) | SS, SSR, Trojan, Vmess, VLESS协议支持，策略分流能力强。            |
@@ -290,7 +290,7 @@
 |   [ClashX](https://github.com/yichengchen/clashX/releases)   |                              ×                               |                              ×                               | SS, SSR, Trojan, Vmess协议支持，占用资源较少。                   |
 |      [V2rayU](https://github.com/yanue/V2rayU/releases)      |                              ×                               |                              ×                               | SS, Trojan, Vmess协议支持，支持订阅，二维码，剪贴板导入，手动配置，二维码分享，与 V2RayN 类似。                        |
 
-### 主流移动客户端
+### Mobile Clients
 |                          iOS/iPadOS                          |                           Android                            | 简易描述                                                     |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | ------------------------------------------------------------ |
 | [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118) | [Shadowrocket](https://play.google.com/store/apps/details?id=com.v2cross.proxy) | SS, SSR, Trojan, Vmess, VLESS协议支持，iOS端需在非国区 App Store 购买，美区售价 $2.99；安卓端非与 iOS 端同一作者，不支持 SSR 协议，免费且内置免费节点。 |
@@ -304,20 +304,3 @@
 |                              ×                               | [ShadowsocksR-android](https://github.com/HMBSbige/ShadowsocksR-Android/releases) | SSR协议支持，安卓专用 SSR 客户端。                                                |
 |                              ×                               |     [V2rayNG](https://github.com/2dust/v2rayNG/releases)     | SS, Trojan, Vmess, VLESS协议支持，v2ray 内核。                           |
 
-## 机场推荐
-免费节点失效太快，推荐一些性价比高的机场应急使用。
-- [魔戒.net](https://www.mojie.cyou/#/register?code=sAbl0qtT)
-  - 按量计费机场, 1¥10G, 10¥130G
-  - 所有套餐均是一样的节点与一样的服务，所有套餐流量永不过期，用完为止，不限制客户端数量，最高可提供 2Gbps 峰值
-- [大迅云](https://daxun.club/#/register?code=JPmAFPav)
-  - 最低月付 5¥50G, 12¥200G, 购买 12¥ 及以上套餐免费领取奈飞 + 迪士尼 Plus 共享号
-  - 原生IP负载均衡，流媒体解锁晚高峰油管秒开，主打性价比，有试用
-- [阿伟云](https://awslcn.xyz/#/register?code=8C18uZwl)
-  - 最低月付 1¥ 起, 9.99¥100G
-  - 无带宽速率限制，有流媒体解锁，香港 BGP 中继线路
-
-## 仓库声明
-订阅节点仅作学习交流使用，只是对网络上节点的优选排序，用于查找资料，学习知识，不做任何违法行为。所有资源均来自互联网，仅供大家交流学习使用，出现违法问题概不负责。
-
-## 星标统计
-[![Star History Chart](https://api.star-history.com/svg?repos=mahdibland/ShadowsocksAggregator&type=Date)](https://star-history.com/#mahdibland/ShadowsocksAggregator&Date)
