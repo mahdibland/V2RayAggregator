@@ -24,5 +24,16 @@ def output(list,num):
         f.close()
     return content
 
+def output(list):
+    output_list = []
+    for item in list:
+        info = "ping: " + str(item["ping"]) + " | speed: " + str(item["speed"]) + " | maxspeed: " + str(item["maxspeed"]) + "proxy: " + item['Link']
+        output_list.append(info)
+    with open('./LogInfo.txt', 'w') as f:
+        f.writelines(output_list)
+        print('Write Log Success!')
+        f.close()
+
 if __name__ == '__main__':
     output(read_json(out_json),200)
+    output(read_json(out_json))
