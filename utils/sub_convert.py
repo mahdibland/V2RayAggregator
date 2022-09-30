@@ -652,7 +652,7 @@ class sub_convert():
 
 
 if __name__ == '__main__':
-    subscribe = 'https://fastly.jsdelivr.net/gh/mahdibland/TopFreeProxies@master/sub/sub_merge.txt'
+    subscribe = 'https://fastly.jsdelivr.net/gh/mahdibland/ShadowsocksAggregator@master/sub/sub_merge.txt'
     output_path = './output.txt'
 
     content = sub_convert.main(subscribe, 'url', 'YAML')
