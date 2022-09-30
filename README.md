@@ -1,12 +1,9 @@
 # ShadowsocksAggregator
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/mahdibland/ShadowsocksAggregator/sub_merge?label=sub_merge)](https://github.com/mahdibland/ShadowsocksAggregator/actions/workflows/sub_merge.yml) 
-
-![Watchers](https://img.shields.io/github/watchers/mahdibland/ShadowsocksAggregator) ![Stars](https://img.shields.io/github/stars/mahdibland/ShadowsocksAggregator) ![Forks](https://img.shields.io/github/forks/mahdibland/ShadowsocksAggregator) ![Vistors](https://visitor-badge.laobi.icu/badge?page_id=alanbobs999.topfreeproxies) ![LICENSE](https://img.shields.io/badge/license-CC%20BY--SA%204.0-green.svg)
 
 [Introduction](https://github.com/mahdibland/ShadowsocksAggregator#Introduction) | [Instructions](https://github.com/mahdibland/ShadowsocksAggregator#Instructions) | [Node Information](https://github.com/mahdibland/ShadowsocksAggregator#NodeInformation) | [Softwares](https://github.com/mahdibland/ShadowsocksAggregator#Softwares)
 
 ## Introduction
-he automation functions of this repository are all implemented based on `GitHub Actions`. If necessary, you can fork yourself to achieve personalized requirements.
+the automation functions of this repository are all implemented based on `GitHub Actions`. If necessary, you can fork yourself to achieve personalized requirements.
 
 Test the speed of each free node pool on the network and the nodes shared by bloggers to screen out relatively stable and high-speed nodes, and then import them into the warehouse for sharing records. The filtered node links are in the repository `./sub/sub_list.json` file, most of which are links to other `GitHub` repositories, if you have a good subscription link, please submit PR, all the nodes contained in these links will be merged in Repository `./sub/sub_merge.txt`.
 
@@ -304,3 +301,4 @@ merge nodes: `6346`
 |                              ×                               | [ShadowsocksR-android](https://github.com/HMBSbige/ShadowsocksR-Android/releases) | SSR协议支持，安卓专用 SSR 客户端。                                                |
 |                              ×                               |     [V2rayNG](https://github.com/2dust/v2rayNG/releases)     | SS, Trojan, Vmess, VLESS协议支持，v2ray 内核。                           |
 
+- Credit: @alanbobs999
