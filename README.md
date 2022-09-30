@@ -3,7 +3,7 @@
 
 ![Watchers](https://img.shields.io/github/watchers/mahdibland/ShadowsocksAggregator) ![Stars](https://img.shields.io/github/stars/mahdibland/ShadowsocksAggregator) ![Forks](https://img.shields.io/github/forks/mahdibland/ShadowsocksAggregator) ![Vistors](https://visitor-badge.laobi.icu/badge?page_id=alanbobs999.topfreeproxies) ![LICENSE](https://img.shields.io/badge/license-CC%20BY--SA%204.0-green.svg)
 
-[Introduction](https://github.com/mahdibland/ShadowsocksAggregator#Introduction) | [Instructions](https://github.com/mahdibland/ShadowsocksAggregator#Instructions) | [Node Information](https://github.com/mahdibland/ShadowsocksAggregator#Node Information) | [Softwares](https://github.com/mahdibland/ShadowsocksAggregator#Softwares)
+[Introduction](https://github.com/mahdibland/ShadowsocksAggregator#Introduction) | [Instructions](https://github.com/mahdibland/ShadowsocksAggregator#Instructions) | [Node Information](https://github.com/mahdibland/ShadowsocksAggregator#NodeInformation) | [Softwares](https://github.com/mahdibland/ShadowsocksAggregator#Softwares)
 
 ## Introduction
 he automation functions of this repository are all implemented based on `GitHub Actions`. If necessary, you can fork yourself to achieve personalized requirements.
@@ -32,7 +32,7 @@ Mirror link：
 > If other configuration is required, you can use the subscription conversion tool to convert it yourself.
 > Self-use online subscription conversion URL: [sub-web-modify](https://sub.v1.mk/)
 
-## Node Information
+## NodeInformation
 ### high-speed node
 高速节点数量: `200`
 <details>
