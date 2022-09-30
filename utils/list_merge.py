@@ -39,11 +39,11 @@ class sub_merge():
                 else:
                     print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-                file.write('Url 解析错误')
+                file.write('Url Parse error')
                 file.close()
             elif content == 'Url 订阅内容无法解析':
                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-                file.write('Url 订阅内容无法解析')
+                file.write('Url Subscription could not be parsed')
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
             elif content != None:
@@ -54,7 +54,7 @@ class sub_merge():
                 print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
             else:
                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-                file.write('Url 订阅内容无法解析')
+                file.write('Url Subscription could not be parsed')
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
 
@@ -106,7 +106,7 @@ class sub_merge():
         # 获得当前名单及各仓库节点数量
         with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
             total = len(f.readlines())
-            total = f'合并节点总数: `{total}`\n'
+            total = f'Total number of merged nodes: `{total}`\n'
             thanks = []
             repo_amount_dic = {}
             for repo in sub_list:
@@ -125,14 +125,14 @@ class sub_merge():
                             amount = len(proxies)
                         f.close()
                     repo_amount_dic.setdefault(id, amount)
-                    line = f'- [{remarks}]({repo_site}), 节点数量: `{amount}`\n'
+                    line = f'- [{remarks}]({repo_site}), number of nodes: `{amount}`\n'
                 if remarks != "alanbobs999/TopFreeProxies":
                     thanks.append(line)
             f.close()
         
         # 高速节点打印
         for index in range(len(lines)):
-            if lines[index] == '### 高速节点\n': # 目标行内容
+            if lines[index] == '### high-speed node\n': # 目标行内容
                 # 清除旧内容
                 lines.pop(index+1) # 删除节点数量
                 while lines[index+4] != '\n':
@@ -146,7 +146,7 @@ class sub_merge():
                     proxies = [proxy+'\n' for proxy in proxies]
                 top_amount = len(proxies)
                 
-                lines.insert(index+1, f'高速节点数量: `{top_amount}`\n')
+                lines.insert(index+1, f'high-speed node quantity: `{top_amount}`\n')
                 index += 4
                 for i in proxies:
                     index += 1
@@ -154,7 +154,7 @@ class sub_merge():
                 break
         # 所有节点打印
         for index in range(len(lines)):
-            if lines[index] == '### 所有节点\n': # 目标行内容
+            if lines[index] == '### all nodes\n': # 目标行内容
                 # 清除旧内容
                 lines.pop(index+1) # 删除节点数量
 
@@ -163,7 +163,7 @@ class sub_merge():
                     proxies = proxies.split('\n')
                     top_amount = len(proxies) - 1
                     f.close()
-                lines.insert(index+1, f'合并节点总数: `{top_amount}`\n')
+                lines.insert(index+1, f'merge nodes: `{top_amount}`\n')
                 """
                 with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
                     proxies = f.read()
@@ -182,7 +182,7 @@ class sub_merge():
                 break
         # 节点来源打印
         for index in range(len(lines)):
-            if lines[index] == '### 节点来源\n':
+            if lines[index] == '### node source\n':
                 # 清除旧内容
                 while lines[index+1] != '\n':
                     lines.pop(index+1)
@@ -196,7 +196,7 @@ class sub_merge():
         # 写入 README 内容
         with open(readme_file, 'w', encoding='utf-8') as f:
             data = ''.join(lines)
-            print('完成!\n')
+            print('Finish!\n')
             f.write(data)
 
 if __name__ == '__main__':
