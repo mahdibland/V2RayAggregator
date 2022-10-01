@@ -59,8 +59,10 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
             name = substrings(line, "name:", ",")
             speed = substrings(log_lines[indexx], "avg_speed:", "|")
             line = re.sub("name:( |)(.*?),", "name: %s | %s," % (name, speed), line)
+            
+#             line = '  ' + line
+            line = line.replace('- ', '')
             print(line)
-            line = '  ' + line
             proxy_all.append(line)
             
             indexx += 1
@@ -162,7 +164,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
                     rule.update({'proxies': all_name})
     config.update(all_provider_dic)
     config.update({'proxy-groups': proxy_groups})
-    config.update({'proxies': yaml.dump(proxy_all, default_flow_style=False, sort_keys=False, allow_unicode=True, width=750, indent=2, Dumper=NoAliasDumper)})
+    config.update({'proxies': yaml.safe_load(proxy_all)})
 
     """
     yaml_format = ruamel.yaml.YAML() # https://www.coder.work/article/4975478
