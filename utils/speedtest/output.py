@@ -27,8 +27,9 @@ def output(list,num):
 def info(list):
     output_list = []
     for item in list:
-        info = "ping: " + str(item["ping"]) + " | speed: " + str(item["speed"]) + " | maxspeed: " + str(item["maxspeed"]) + "proxy: " + item['Link']
-        output_list.append(info)
+#         info = "ping: " + str(item["ping"]) + " | speed: " + str(item["speed"]) + " | maxspeed: " + str(item["maxspeed"]) + "proxy: " + item['Link']
+#         output_list.append(info)
+        output_list.append(str(item) + "\n")
     with open('./LogInfo.txt', 'w') as f:
         f.writelines(output_list)
         print('Write Log Success!')
