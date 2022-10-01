@@ -240,7 +240,7 @@ high-speed node quantity: `200`
 
 ### all nodes
 merge nodes: `107`
-[Node link](https://raw.githubusercontent.com/mahdibland/TopFreeProxies/master/sub/sub_merge.txt)
+[Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `107`
