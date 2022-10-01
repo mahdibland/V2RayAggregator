@@ -58,13 +58,22 @@ class sub_merge():
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
                 
+        
+        secondary_content_list = []
+        
         print('Remove Duplicate Lines ...\n')
-        print('Before Count: %s' % str(content_list.__len__()))
-        print(content_list)
-        content_list = list(set(content_list))
-        print('After Count: %s' % str(content_list.__len__()))
+        
+        for item in content_list:
+            splited = item.split('\n')
+            print('Before Count: %s' % str(splited.__len__()))
+            splited_duplicate_removed = list(set(splited))
+            print('After Count: %s' % str(splited_duplicate_removed.__len__()))
+            new_clean_content = "\n".join(splited_duplicate_removed)
+            secondary_content_list.append(new_clean_content)
+            
         print('Remove Duplicate Lines Completed\n')
-        print(content_list)
+        
+        content_list = secondary_content_list
 
         print('Merging nodes...\n')
         content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
@@ -72,7 +81,6 @@ class sub_merge():
         content_base64 = sub_convert.base64_encode(content_raw)
         content = content_raw
         
-        print(content)
 
         def content_write(file, output_type):
             file = open(file, 'w+', encoding = 'utf-8')
