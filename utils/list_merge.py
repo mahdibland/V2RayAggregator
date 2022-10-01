@@ -57,6 +57,12 @@ class sub_merge():
                 file.write('Url Subscription could not be parsed')
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+                
+        print('Remove Duplicate Lines ...\n')
+        print('Before Count: %s' % str(content_list.__len__()))
+        content_list = list(set(content_list))
+        print('After Count: %s' % str(content_list.__len__()))
+        print('Remove Duplicate Lines Completed\n')
 
         print('Merging nodes...\n')
         content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
