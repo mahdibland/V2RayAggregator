@@ -239,7 +239,7 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes: `6253`
+merge nodes: `6087`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
