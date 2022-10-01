@@ -1,4 +1,4 @@
-import re, yaml, json
+import re, yaml, json, re
 import time, os
 
 from sub_convert import sub_convert
@@ -55,10 +55,14 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
             server_name = substrings(line, "name:", ",")
             server_type = substrings(line, "type:", ",")
             log_lines[indexx] = "name: %s | type: %s | %s" % (server_name, server_type, log_lines[indexx])
-            indexx += 1
             #####
+            name = substrings(line, "name:", ",")
+            speed = substrings(log_lines[indexx], "avg_speed:", "|")
+            line = re.sub('name:( |)(.*?),', "name: %s | %s," % (name, speed), line)
             line = '  ' + line
             proxy_all.append(line)
+            
+            indexx += 1
 
     #####
     log_writer = open(log_file, 'w')
@@ -124,10 +128,15 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
 #         'hk': hk_name,
 #         'sg': sg_name
     }
+    
+    indexx = 0
     for key in provider_dic.keys():
         if not provider_dic[key]['proxies'] is None:
             for proxy in provider_dic[key]['proxies']:
-                name_dict[key].append(proxy['name'])
+                speed = substrings(log_lines[indexx], "avg_speed:", "|")
+                name_dict[key].append(proxy['name'] + " | " + speed)
+                indexx += 1
+                
         if provider_dic[key]['proxies'] is None:
             name_dict[key].append('DIRECT')
     # 策略分组添加节点名
