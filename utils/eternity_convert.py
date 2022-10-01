@@ -63,7 +63,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
 #             line = '  ' + line
             line = line.replace('- ', '')
             print(line)
-            proxy_all.append(line)
+            proxy_all.append(yaml.safe_load(line))
             
             indexx += 1
 
@@ -164,7 +164,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
                     rule.update({'proxies': all_name})
     config.update(all_provider_dic)
     config.update({'proxy-groups': proxy_groups})
-    config.update({'proxies': yaml.safe_load(proxy_all)})
+    config.update({'proxies': proxy_all})
 
     """
     yaml_format = ruamel.yaml.YAML() # https://www.coder.work/article/4975478
