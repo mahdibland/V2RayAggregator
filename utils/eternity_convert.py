@@ -141,10 +141,11 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
                 try:
                     speed = substrings(log_lines[indexx], "avg_speed:", "|")
                     name_dict[key].append(proxy['name'] + " | " + speed)
-                    indexx += 1
                 except:
                     name_dict[key].append(proxy['name'])
                     print(log_lines[indexx])
+                    
+                indexx += 1
                 
         if provider_dic[key]['proxies'] is None:
             name_dict[key].append('DIRECT')
