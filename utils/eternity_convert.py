@@ -118,7 +118,6 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     for key in provider_dic.keys():
         if not provider_dic[key]['proxies'] is None:
             for proxy in provider_dic[key]['proxies']:
-                print(proxy)
                 name_dict[key].append(proxy['name'])
         if provider_dic[key]['proxies'] is None:
             name_dict[key].append('DIRECT')
