@@ -7,31 +7,31 @@ on:
   schedule:
     # - cron: '*/5 * * * *'
     # 表达式生成  https://crontab.guru/
-    - cron: '0 3,9,15,21 * * *'
+    - cron: '0 */3 * * *'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 迁出代码
+    - name: Checkout
       uses: actions/checkout@v2
-    - name: 安装Python
+    - name: Install Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-    - name: 加载缓存
+    - name: Load Cache
       uses: actions/cache@v2
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-${{ hashFiles('**/run_in_Actions/requirements.txt') }}
         restore-keys: |
           ${{ runner.os }}-pip-
-    - name: 设置时区
-      run: sudo timedatectl set-timezone 'Asia/Shanghai'
-    - name: 安装依赖
+    - name: Set Timezone
+      run: sudo timedatectl set-timezone 'Asia/Tehran'
+    - name: Install Requirements
       run: |
         pip install -r ./utils/requirements.txt
-    - name: 执行任务
+    - name: Running Tasks
       run: |
         wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/latest/download/subconverter_linux64.tar.gz
         tar -zxvf subconverter.tar.gz -C ./
@@ -39,15 +39,15 @@ jobs:
 
         python ./utils/list_merge.py
       
-    - name: 提交更改
+    - name: Commit Changes
       run: |                 
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
         git pull origin master
         git add ./sub
         git add README.md
-        git commit -m "$(date '+%Y-%m-%d %H:%M:%S')合并节点"
-    - name: 推送更改
+        git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Update Node"
+    - name: Push Changes
       uses:  ad-m/github-push-action@master
       with:
         branch: master
