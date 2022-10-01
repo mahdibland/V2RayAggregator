@@ -25,7 +25,7 @@ class NoAliasDumper(yaml.SafeDumper): # https://ttl255.com/yaml-anchors-and-alia
 def substrings(string, left, right):
   value = string.replace('\n','').replace(' ', '')
   start = value.index(left)
-  end = value.index(right)
+  end = value[start:].index(right) + (value.__len__() - value[start:].__len__()) 
   final_value = value[start:end].replace(left, '')
   return final_value
 
@@ -52,8 +52,8 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     for line in lines:
         if line != 'proxies:':
             #####
-            server_name = substrings(line, "name:", ",server")
-            server_type = substrings(line, "type:", ",uuid")
+            server_name = substrings(line, "name:", ",")
+            server_type = substrings(line, "type:", ",")
             log_lines[indexx] = "name: %s | type: %s | %s" % (server_name, server_type, log_lines[indexx])
             indexx += 1
             #####
