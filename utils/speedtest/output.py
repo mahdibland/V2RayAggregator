@@ -17,7 +17,7 @@ def output(list,num):
     print(str(list[0]))
     output_list = []
     for item in list:
-        info = "id: %s | remarks: %s | protocol: %s | ping: %s | avg_speed: %s | max_speed: %s | Link: %s" % (str(item["id"]), item["remarks"], item["protocol"], str(item["ping"]), str(arred(item["avg_speed"] * 0.00000095367432, 3)), str(arred(item["max_speed"] * 0.00000095367432, 3)), item["Link"])
+        info = "id: %s | remarks: %s | protocol: %s | ping: %s MS | avg_speed: %s MB | max_speed: %s MB | Link: %s\n" % (str(item["id"]), item["remarks"], item["protocol"], str(item["ping"]), str(arred(item["avg_speed"] * 0.00000095367432, 3)), str(arred(item["max_speed"] * 0.00000095367432, 3)), item["Link"])
         output_list.append(info)
     with open('./LogInfo.txt', 'w') as f1:
         f1.writelines(output_list)
