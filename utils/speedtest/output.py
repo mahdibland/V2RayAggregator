@@ -24,7 +24,7 @@ def output(list,num):
         f.close()
     return content
 
-def output(list):
+def info(list):
     output_list = []
     for item in list:
         info = "ping: " + str(item["ping"]) + " | speed: " + str(item["speed"]) + " | maxspeed: " + str(item["maxspeed"]) + "proxy: " + item['Link']
@@ -36,4 +36,4 @@ def output(list):
 
 if __name__ == '__main__':
     output(read_json(out_json),200)
-    output(read_json(out_json))
+    info(read_json(out_json))
