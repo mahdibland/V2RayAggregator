@@ -21,6 +21,15 @@ class NoAliasDumper(yaml.SafeDumper): # https://ttl255.com/yaml-anchors-and-alia
     def ignore_aliases(self, data):
         return True
 
+    
+def substrings(string, left, right):
+  value = string.replace('\n','').replace(' ', '')
+  start = value.index(left)
+  end = value.index(right)
+  final_value = value[start:end].replace(left, '')
+  return final_value
+
+
 def eternity_convert(file, config, output, provider_file_enabled=True):
     
     file_eternity = open(file, 'r', encoding='utf-8')
@@ -43,11 +52,9 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     for line in lines:
         if line != 'proxies:':
             #####
-            print(line)
-            line_json = json.loads(line.replace('\n', '').replace('- ', ''))
-            server_name = line_json["name"]
-            server_type = line_json["type"]
-            log_lines[indexx] = "name: %s | type: %s | %s" % (server_name, server_type, line)
+            server_name = substrings(line, "name:", ",server")
+            server_type = substrings(line, "type:", ",uuid")
+            log_lines[indexx] = "name: %s | type: %s | %s" % (server_name, server_type, log_lines[indexx])
             indexx += 1
             #####
             line = '  ' + line
