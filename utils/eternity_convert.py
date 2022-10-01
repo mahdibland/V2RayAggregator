@@ -58,7 +58,8 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
             #####
             name = substrings(line, "name:", ",")
             speed = substrings(log_lines[indexx], "avg_speed:", "|")
-            line = re.sub('name:( |)(.*?),', "name: %s | %s," % (name, speed), line)
+            line = re.sub("name:( |)(.*?),", "name: '%s | %s'," % (name, speed), line)
+            print(line)
             line = '  ' + line
             proxy_all.append(line)
             
@@ -133,9 +134,8 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     for key in provider_dic.keys():
         if not provider_dic[key]['proxies'] is None:
             for proxy in provider_dic[key]['proxies']:
-#                 speed = substrings(log_lines[indexx], "avg_speed:", "|")
-#                 name_dict[key].append(proxy['name'] + " | " + speed)
-                name_dict[key].append(proxy['name'])
+                speed = substrings(log_lines[indexx], "avg_speed:", "|")
+                name_dict[key].append(proxy['name'] + " | " + speed)
                 indexx += 1
                 
         if provider_dic[key]['proxies'] is None:
