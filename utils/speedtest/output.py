@@ -33,6 +33,7 @@ def info(list):
         f.writelines(output_list)
         print('Write Log Success!')
         f.close()
+    return true
 
 if __name__ == '__main__':
     output(read_json(out_json),200)
