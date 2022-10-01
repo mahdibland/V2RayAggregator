@@ -30,42 +30,42 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     # 创建并写入 provider 
     lines = re.split(r'\n+', all_provider)
     proxy_all = []
-    us_proxy = []
-    hk_proxy = []
-    sg_proxy = []
-    others_proxy = []
+#     us_proxy = []
+#     hk_proxy = []
+#     sg_proxy = []
+#     others_proxy = []
     for line in lines:
         if line != 'proxies:':
             line = '  ' + line
             proxy_all.append(line)
 
-            if 'US' in line or '美国' in line:
-                us_proxy.append(line)
-            elif 'HK' in line or '香港' in line:
-                hk_proxy.append(line)
-            elif 'SG' in line or '新加坡' in line:
-                sg_proxy.append(line)
-            else:
-                others_proxy.append(line)
-    us_provider = 'proxies:\n' + '\n'.join(us_proxy)
-    hk_provider = 'proxies:\n' + '\n'.join(hk_proxy)
-    sg_provider = 'proxies:\n' + '\n'.join(sg_proxy)
-    others_provider = 'proxies:\n' + '\n'.join(others_proxy)
+#             if 'US' in line or '美国' in line:
+#                 us_proxy.append(line)
+#             elif 'HK' in line or '香港' in line:
+#                 hk_proxy.append(line)
+#             elif 'SG' in line or '新加坡' in line:
+#                 sg_proxy.append(line)
+#             else:
+#                 others_proxy.append(line)
+#     us_provider = 'proxies:\n' + '\n'.join(us_proxy)
+#     hk_provider = 'proxies:\n' + '\n'.join(hk_proxy)
+#     sg_provider = 'proxies:\n' + '\n'.join(sg_proxy)
+#     others_provider = 'proxies:\n' + '\n'.join(others_proxy)
     
     if provider_file_enabled:
         providers_files = {
             'all': provider_path + 'provider-all.yml',
-            'others': provider_path + 'provider-others.yml',
-            'us': provider_path + 'provider-us.yml',
-            'hk': provider_path + 'provider-hk.yml',
-            'sg': provider_path + 'provider-sg.yml'
+#             'others': provider_path + 'provider-others.yml',
+#             'us': provider_path + 'provider-us.yml',
+#             'hk': provider_path + 'provider-hk.yml',
+#             'sg': provider_path + 'provider-sg.yml'
         }
         eternity_providers = {
             'all': all_provider,
-            'others': others_provider,
-            'us': us_provider,
-            'hk': hk_provider,
-            'sg': sg_provider
+#             'others': others_provider,
+#             'us': us_provider,
+#             'hk': hk_provider,
+#             'sg': sg_provider
         }
         print('Writing content to provider')
         for key in providers_files.keys():
@@ -82,16 +82,16 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     config = yaml.safe_load(config_raw)
 
     all_provider_dic = {'proxies': []}
-    others_provider_dic = {'proxies': []}
-    us_provider_dic = {'proxies': []}
-    hk_provider_dic = {'proxies': []}
-    sg_provider_dic = {'proxies': []}
+#     others_provider_dic = {'proxies': []}
+#     us_provider_dic = {'proxies': []}
+#     hk_provider_dic = {'proxies': []}
+#     sg_provider_dic = {'proxies': []}
     provider_dic = {
         'all': all_provider_dic,
-        'others': others_provider_dic,
-        'us': us_provider_dic,
-        'hk': hk_provider_dic,
-        'sg': sg_provider_dic
+#         'others': others_provider_dic,
+#         'us': us_provider_dic,
+#         'hk': hk_provider_dic,
+#         'sg': sg_provider_dic
     }
     for key in eternity_providers.keys(): # 将节点转换为字典形式
         provider_load = yaml.safe_load(eternity_providers[key])
@@ -99,16 +99,16 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
 
     # 创建节点名列表
     all_name = []
-    others_name = []
-    us_name = []
-    hk_name = []
-    sg_name = [] 
+#     others_name = []
+#     us_name = []
+#     hk_name = []
+#     sg_name = [] 
     name_dict = {
         'all': all_name,
-        'others': others_name,
-        'us': us_name,
-        'hk': hk_name,
-        'sg': sg_name
+#         'others': others_name,
+#         'us': us_name,
+#         'hk': hk_name,
+#         'sg': sg_name
     }
     for key in provider_dic.keys():
         if not provider_dic[key]['proxies'] is None:
@@ -125,15 +125,16 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     for rule_name in proxy_group_fill:
         for rule in proxy_groups:
             if rule['name'] == rule_name:
-                if '美国' in rule_name:
-                    rule.update({'proxies': us_name})
-                elif '香港' in rule_name:
-                    rule.update({'proxies': hk_name})
-                elif '狮城' in rule_name or '新加坡' in rule_name:
-                    rule.update({'proxies': sg_name})
-                elif '其他' in rule_name:
-                    rule.update({'proxies': others_name})
-                else:
+#                 if '美国' in rule_name:
+#                     rule.update({'proxies': us_name})
+#                 elif '香港' in rule_name:
+#                     rule.update({'proxies': hk_name})
+#                 elif '狮城' in rule_name or '新加坡' in rule_name:
+#                     rule.update({'proxies': sg_name})
+#                 elif '其他' in rule_name:
+#                     rule.update({'proxies': others_name})
+#                 else:
+                if "Main Group" in rule_name:
                     rule.update({'proxies': all_name})
     config.update(all_provider_dic)
     config.update({'proxy-groups': proxy_groups})
