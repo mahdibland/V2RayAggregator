@@ -60,15 +60,19 @@ class sub_merge():
                 
         print('Remove Duplicate Lines ...\n')
         print('Before Count: %s' % str(content_list.__len__()))
+        print(content_list)
         content_list = list(set(content_list))
         print('After Count: %s' % str(content_list.__len__()))
         print('Remove Duplicate Lines Completed\n')
+        print(content_list)
 
         print('Merging nodes...\n')
         content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
         content_yaml = sub_convert.main(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
         content_base64 = sub_convert.base64_encode(content_raw)
         content = content_raw
+        
+        print(content)
 
         def content_write(file, output_type):
             file = open(file, 'w+', encoding = 'utf-8')
