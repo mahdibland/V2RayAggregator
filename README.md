@@ -239,7 +239,7 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes: `6265`
+merge nodes: `6253`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
@@ -252,7 +252,7 @@ merge nodes: `6265`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), number of nodes: `42`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `40`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), number of nodes: `3710`
-- [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `108`
+- [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `92`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `71`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `50`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `32`
