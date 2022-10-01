@@ -13,12 +13,12 @@ def read_json(file): # 将 out.json 内容读取为列表
     return proxies_all
 
 def output(list,num):
+    arred = lambda x,n : x*(10**n)//1/(10**n)
     print(str(list[0]))
     output_list = []
     for item in list:
-#         info = "ping: " + str(item["ping"]) + " | speed: " + str(item["speed"]) + " | maxspeed: " + str(item["maxspeed"]) + "proxy: " + item['Link']
-#         output_list.append(info)
-        output_list.append(str(item) + "\n")
+        info = "id: %s | remarks: %s | protocol: %s | ping: %s | avg_speed: %s | max_speed: %s | Link: %s" % (str(item["id"]), item["remarks"], item["protocol"], str(item["ping"]), str(arred(item["avg_speed"] * 0.00000095367432, 3)), str(arred(item["max_speed"] * 0.00000095367432, 3)), item["Link"])
+        output_list.append(info)
     with open('./LogInfo.txt', 'w') as f1:
         f1.writelines(output_list)
         f1.close()
