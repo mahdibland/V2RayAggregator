@@ -3,7 +3,7 @@
 [Introduction](https://github.com/mahdibland/ShadowsocksAggregator#Introduction) | [Instructions](https://github.com/mahdibland/ShadowsocksAggregator#Instructions) | [Node Information](https://github.com/mahdibland/ShadowsocksAggregator#NodeInformation) | [Softwares](https://github.com/mahdibland/ShadowsocksAggregator#Softwares)
 
 ## Introduction
-the automation functions of this repository are all implemented based on `GitHub Actions`. If necessary, you can fork yourself to achieve personalized requirements.
+The automation functions of this repository are all implemented based on `GitHub Actions`. If necessary, you can fork yourself to achieve personalized requirements.
 
 Test the speed of each free node pool on the network and the nodes shared by bloggers to screen out relatively stable and high-speed nodes, and then import them into the warehouse for sharing records. The filtered node links are in the repository `./sub/sub_list.json` file, most of which are links to other `GitHub` repositories, if you have a good subscription link, please submit PR, all the nodes contained in these links will be merged in Repository `./sub/sub_merge.txt`.
 
