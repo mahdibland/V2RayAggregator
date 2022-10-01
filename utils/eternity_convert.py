@@ -7,6 +7,7 @@ from list_merge import sub_merge
 Eterniy_file = './Eternity'
 Eternity_yml_file = './Eternity.yml'
 readme = './README.md'
+log_file = './LogInfo.txt'
 
 provider_path = './update/provider/'
 update_path = './update/'
@@ -34,23 +35,27 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
 #     hk_proxy = []
 #     sg_proxy = []
 #     others_proxy = []
+    
+    log_reader = open(log_file, 'r')
+    log_lines = log_reader.readlines()
+    log_reader.close()
+    indexx = 0
     for line in lines:
         if line != 'proxies:':
+            #####
+            line_json = json.loads(line)
+            server_name = line_json["name"]
+            server_type = line_json["type"]
+            log_lines[indexx] = "name: %s | type: %s | %s" % (server_name, server_type, line)
+            #####
             line = '  ' + line
             proxy_all.append(line)
 
-#             if 'US' in line or '美国' in line:
-#                 us_proxy.append(line)
-#             elif 'HK' in line or '香港' in line:
-#                 hk_proxy.append(line)
-#             elif 'SG' in line or '新加坡' in line:
-#                 sg_proxy.append(line)
-#             else:
-#                 others_proxy.append(line)
-#     us_provider = 'proxies:\n' + '\n'.join(us_proxy)
-#     hk_provider = 'proxies:\n' + '\n'.join(hk_proxy)
-#     sg_provider = 'proxies:\n' + '\n'.join(sg_proxy)
-#     others_provider = 'proxies:\n' + '\n'.join(others_proxy)
+    #####
+    log_writer = open(log_file, 'w')
+    log_writer.writelines(log_lines)
+    log_writer.close()
+    #####
     
     if provider_file_enabled:
         providers_files = {
