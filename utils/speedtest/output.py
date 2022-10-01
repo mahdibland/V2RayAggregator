@@ -13,6 +13,17 @@ def read_json(file): # 将 out.json 内容读取为列表
     return proxies_all
 
 def output(list,num):
+    print(str(list[0]))
+    output_list = []
+    for item in list:
+#         info = "ping: " + str(item["ping"]) + " | speed: " + str(item["speed"]) + " | maxspeed: " + str(item["maxspeed"]) + "proxy: " + item['Link']
+#         output_list.append(info)
+        output_list.append(str(item) + "\n")
+    with open('./LogInfo.txt', 'w') as f1:
+        f1.writelines(output_list)
+        f1.close()
+        print('Write Log Success!')
+        
     output_list = []
     for index in range(num):
         proxy = list[index]['Link']
@@ -24,18 +35,5 @@ def output(list,num):
         f.close()
     return content
 
-def info(list):
-    output_list = []
-    for item in list:
-#         info = "ping: " + str(item["ping"]) + " | speed: " + str(item["speed"]) + " | maxspeed: " + str(item["maxspeed"]) + "proxy: " + item['Link']
-#         output_list.append(info)
-        output_list.append(str(item) + "\n")
-    with open('./LogInfo.txt', 'w') as f:
-        f.writelines(output_list)
-        print('Write Log Success!')
-        f.close()
-    return true
-
 if __name__ == '__main__':
     output(read_json(out_json),200)
-    info(read_json(out_json))
