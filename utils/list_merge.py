@@ -59,17 +59,23 @@ class sub_merge():
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
                 
         
-        secondary_content_list = []
         
         print('Remove Duplicate Lines ...\n')
         
-        for item in content_list:
-            splited = item.split('\n')
-            print('Before Count: %s' % str(splited.__len__()))
-            splited_duplicate_removed = list(set(splited))
-            print('After Count: %s' % str(splited_duplicate_removed.__len__()))
-            new_clean_content = "\n".join(splited_duplicate_removed)
-            secondary_content_list.append(new_clean_content)
+        splited = "\n".join(content_list).split('\n')
+        print('Before Count: %s' % str(splited.__len__()))
+        splited_duplicate_removed = list(set(splited))
+        print('After Count: %s' % str(splited_duplicate_removed.__len__()))
+        
+        secondary_content_list = "\n".join(splited_duplicate_removed)
+        
+#         for item in content_list:
+#             splited = item.split('\n')
+#             print('Before Count: %s' % str(splited.__len__()))
+#             splited_duplicate_removed = list(set(splited))
+#             print('After Count: %s' % str(splited_duplicate_removed.__len__()))
+#             new_clean_content = "\n".join(splited_duplicate_removed)
+#             secondary_content_list.append(new_clean_content)
             
         print('Remove Duplicate Lines Completed\n')
         
