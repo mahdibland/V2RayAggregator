@@ -56,13 +56,16 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
             server_type = substrings(line, "type:", ",")
             log_lines[indexx] = "name: %s | type: %s | %s" % (server_name, server_type, log_lines[indexx])
             #####
-            name = substrings(line, "name:", ",")
-            speed = substrings(log_lines[indexx], "avg_speed:", "|")
-            line = re.sub("name:( |)(.*?),", "name: %s | %s," % (name, speed), line)
-            
-#             line = '  ' + line
+            try:
+                name = substrings(line, "name:", ",")
+                speed = substrings(log_lines[indexx], "avg_speed:", "|")
+                line = re.sub("name:( |)(.*?),", "name: %s | %s," % (name, speed), line)
+            except:
+                print(log_lines[indexx])
+                print(line)
+                pass
+#           line = '  ' + line
             line = line.replace('- ', '')
-            print(line)
             proxy_all.append(yaml.safe_load(line))
             
             indexx += 1
@@ -136,9 +139,13 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     for key in provider_dic.keys():
         if not provider_dic[key]['proxies'] is None:
             for proxy in provider_dic[key]['proxies']:
-                speed = substrings(log_lines[indexx], "avg_speed:", "|")
-                name_dict[key].append(proxy['name'] + " | " + speed)
-                indexx += 1
+                try:
+                    speed = substrings(log_lines[indexx], "avg_speed:", "|")
+                    name_dict[key].append(proxy['name'] + " | " + speed)
+                    indexx += 1
+                except:
+                    name_dict[key].append(proxy['name'])
+                    print(log_lines[indexx])
                 
         if provider_dic[key]['proxies'] is None:
             name_dict[key].append('DIRECT')
