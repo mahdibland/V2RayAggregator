@@ -43,10 +43,12 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     for line in lines:
         if line != 'proxies:':
             #####
-            line_json = json.loads(line)
+            print(line)
+            line_json = json.loads(line.replace('\n', ''))
             server_name = line_json["name"]
             server_type = line_json["type"]
             log_lines[indexx] = "name: %s | type: %s | %s" % (server_name, server_type, line)
+            indexx += 1
             #####
             line = '  ' + line
             proxy_all.append(line)
