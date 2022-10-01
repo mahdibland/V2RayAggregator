@@ -162,7 +162,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
                     rule.update({'proxies': all_name})
     config.update(all_provider_dic)
     config.update({'proxy-groups': proxy_groups})
-    config.update({'proxies': proxy_all})
+    config.update({'proxies': yaml.safe_load(proxy_all)})
 
     """
     yaml_format = ruamel.yaml.YAML() # https://www.coder.work/article/4975478
