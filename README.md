@@ -239,7 +239,7 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes: `6674`
+merge nodes: `107`
 [Node link](https://raw.githubusercontent.com/mahdibland/TopFreeProxies/master/sub/sub_merge.txt)
 
 ### node source
