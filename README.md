@@ -1,6 +1,6 @@
 # ShadowsocksAggregator
 
-[Introduction](https://github.com/mahdibland/ShadowsocksAggregator#Introduction) | [Instructions](https://github.com/mahdibland/ShadowsocksAggregator#Instructions) | [Node Information](https://github.com/mahdibland/ShadowsocksAggregator#NodeInformation) | [Softwares](https://github.com/mahdibland/ShadowsocksAggregator#Softwares)
+[Introduction](https://github.com/mahdibland/ShadowsocksAggregator#Introduction) | [Visualizer](https://github.com/mahdibland/ShadowsocksAggregator#Visualizer) | [Instructions](https://github.com/mahdibland/ShadowsocksAggregator#Instructions) | [Node Information](https://github.com/mahdibland/ShadowsocksAggregator#NodeInformation) | [Softwares](https://github.com/mahdibland/ShadowsocksAggregator#Softwares)
 
 ## Introduction
 The automation functions of this repository are all implemented based on `GitHub Actions`. If necessary, you can fork yourself to achieve personalized requirements.
@@ -12,6 +12,9 @@ The node subscription files after speed test screening are in the repository roo
 The speed measurement function is implemented in the `GitHub Actions` environment using [LiteSpeedTest](https://github.com/xxf098/LiteSpeedTest), so there are many nodes in the United States, which cannot well represent the node availability in the domestic network environment. Currently, this problem is being solved. question.
 
 Although it is a node after speed test screening, some nodes may still be unavailable. In this case, it is recommended to choose a client such as `Clash`, `Shadowrocket` that can automatically switch to low-latency nodes.
+
+## Visualizer
+[Netlify] (https://i.ibb.co/g32RmJy/netlify.png){ width: 50px; }
 
 ## Instructions
 Just import the following subscription link into the corresponding client. Most of the links are SS protocol nodes, and a small number of Vmess, Trojan, and SSR protocol nodes. It is recommended to choose a protocol to support a complete client.
