@@ -14,7 +14,13 @@ The speed measurement function is implemented in the `GitHub Actions` environmen
 Although it is a node after speed test screening, some nodes may still be unavailable. In this case, it is recommended to choose a client such as `Clash`, `Shadowrocket` that can automatically switch to low-latency nodes.
 
 ## Visualizer
-[Netlify] (https://i.ibb.co/g32RmJy/netlify.png){ width: 50px; }
+
+- Log Visualizer on Netlify
+
+| <a href="https://unique-piroshki-48c7a2.netlify.app"><img src="https://i.ibb.co/g32RmJy/netlify.png" width="35"/></a> | 
+| ------------- |
+
+
 
 ## Instructions
 Just import the following subscription link into the corresponding client. Most of the links are SS protocol nodes, and a small number of Vmess, Trojan, and SSR protocol nodes. It is recommended to choose a protocol to support a complete client.
