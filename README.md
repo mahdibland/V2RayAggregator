@@ -253,7 +253,7 @@ merge nodes: `0`
 
 ### node source
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `75`
-- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `164`
+- [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `166`
 - [freefq/free](https://github.com/freefq/free), number of nodes: `52`
 - [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), number of nodes: `90`
 - [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), number of nodes: `14`
@@ -261,7 +261,7 @@ merge nodes: `0`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), number of nodes: `42`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `40`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), number of nodes: `3450`
-- [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `37`
+- [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `36`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `45`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `18`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
