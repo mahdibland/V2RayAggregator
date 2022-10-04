@@ -248,7 +248,7 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes: `2117`
+merge nodes: `2098`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
@@ -261,7 +261,7 @@ merge nodes: `2117`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), number of nodes: `42`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `40`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), number of nodes: `3450`
-- [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `36`
+- [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `53`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `45`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `18`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
@@ -273,7 +273,7 @@ merge nodes: `2117`
 - [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `13`
 - [kxswa/k](https://github.com/kxswa/k), number of nodes: `139`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `21`
-- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `232`
+- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `234`
 - [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `234`
 - [mahdibland/get_v2-1](https://github.com/mahdibland/get_v2-1), number of nodes: `1`
 - [mahdibland/get_v2-2](https://github.com/mahdibland/get_v2-2), number of nodes: `10`
