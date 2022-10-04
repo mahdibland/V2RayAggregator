@@ -273,7 +273,7 @@ merge nodes: `0`
 - [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `13`
 - [kxswa/k](https://github.com/kxswa/k), number of nodes: `139`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `21`
-- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `497`
+- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `453`
 - [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `234`
 - [mahdibland/get_v2-1](https://github.com/mahdibland/get_v2-1), number of nodes: `1`
 - [mahdibland/get_v2-2](https://github.com/mahdibland/get_v2-2), number of nodes: `10`
