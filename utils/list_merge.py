@@ -66,8 +66,9 @@ class sub_merge():
         content_raw = ''.join(content_list)
 
         print('Remove Duplicate Lines ...\n')
-        content_raw = sub_convert.main(content_raw, 'content', 'url', {
+        content_raw = sub_convert.main(content_raw, 'content', 'Base64', {
             'dup_rm_enabled': True, 'format_name_enabled': False})
+        content_raw = sub_convert.base64_decode(content_raw)
         print('Remove Duplicate Lines Completed\n')
 
         print('create yaml format of content')
