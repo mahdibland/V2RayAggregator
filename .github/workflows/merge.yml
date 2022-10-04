@@ -43,9 +43,8 @@ jobs:
       run: |                 
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
-        git reset --hard
+        git reset --hard master
         git pull origin master
-        git checkout master
         git add ./sub
         git add README.md
         git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Update Nodes"
