@@ -85,15 +85,27 @@ class sub_merge():
 #         content = content_raw
 
 
-        print('Merging nodes...\n')
-        content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
-        content_yaml = sub_convert.main(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
-        print('create yaml format of content')
-        # already duplicate lines removed
-        content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
-                                        'dup_rm_enabled': False, 'format_name_enabled': True})
+#         print('Merging nodes...\n')
+#         content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
+#         content_yaml = sub_convert.main(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
+#         print('create yaml format of content')
+#         # already duplicate lines removed
+#         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
+#                                         'dup_rm_enabled': False, 'format_name_enabled': True})
 
-        print('create base64 format of content')
+#         print('create base64 format of content')
+#         content_base64 = sub_convert.base64_encode(content_raw)
+
+#         content = content_raw
+
+        print('Merging nodes...\n')
+        content_raw = ''.join(content_list)
+        content_yaml = sub_convert.main(content_raw, 'content', 'content', {
+                                        'dup_rm_enabled': True, 'format_name_enabled': True})
+
+        content_raw = sub_convert.main(content_raw, 'content', 'YAML', {
+            'dup_rm_enabled': True, 'format_name_enabled': True})
+
         content_base64 = sub_convert.base64_encode(content_raw)
 
         content = content_raw
