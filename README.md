@@ -252,7 +252,7 @@ merge nodes: `0`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
-- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `164`
+- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `75`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `164`
 - [freefq/free](https://github.com/freefq/free), number of nodes: `52`
 - [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), number of nodes: `90`
@@ -267,13 +267,13 @@ merge nodes: `0`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
 - [mahdibland/get_v2-0](https://github.com/mahdibland/get_v2-0), number of nodes: `39`
 - [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `205`
-- [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), number of nodes: `74`
+- [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), number of nodes: `131`
 - [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), number of nodes: `46`
 - [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `54`
 - [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `13`
 - [kxswa/k](https://github.com/kxswa/k), number of nodes: `139`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `21`
-- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `453`
+- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `232`
 - [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `234`
 - [mahdibland/get_v2-1](https://github.com/mahdibland/get_v2-1), number of nodes: `1`
 - [mahdibland/get_v2-2](https://github.com/mahdibland/get_v2-2), number of nodes: `10`
