@@ -53,6 +53,8 @@ class sub_convert():
                 return sub_convert.base64_encode(sub_convert.yaml_decode(final_content))
             elif output_type == 'url':
                 return sub_convert.yaml_decode(final_content)
+            elif output_type == 'content':
+                return sub_convert.yaml_decode(final_content)
             else:
                 print('Please define right output type.')
                 return '订阅内容解析错误'
