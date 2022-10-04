@@ -58,35 +58,27 @@ class sub_merge():
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
                 
+        ##############################
         
-        
-        print('Remove Duplicate Lines ...\n')
-        
-        splited = "\n".join(content_list).split('\n')
-        print('Before Count: %s' % str(splited.__len__()))
-        splited_duplicate_removed = list(set(splited))
-        print('After Count: %s' % str(splited_duplicate_removed.__len__()))
-        
-        secondary_content_list = "\n".join(splited_duplicate_removed)
-        
-#         for item in content_list:
-#             splited = item.split('\n')
-#             print('Before Count: %s' % str(splited.__len__()))
-#             splited_duplicate_removed = list(set(splited))
-#             print('After Count: %s' % str(splited_duplicate_removed.__len__()))
-#             new_clean_content = "\n".join(splited_duplicate_removed)
-#             secondary_content_list.append(new_clean_content)
-            
-        print('Remove Duplicate Lines Completed\n')
-        
-        content_list = secondary_content_list
-
         print('Merging nodes...\n')
-        content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
-        content_yaml = sub_convert.main(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
+        content_raw = ''.join(content_list)
+
+        print('Remove Duplicate Lines ...\n')
+        content_raw = sub_convert.main(content_raw, 'content', 'url', {
+            'dup_rm_enabled': True, 'format_name_enabled': False})
+        print('Remove Duplicate Lines Completed\n')
+
+        print('create yaml format of content')
+        # already duplicate lines removed
+        content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
+                                        'dup_rm_enabled': False, 'format_name_enabled': True})
+
+        print('create base64 format of content')
         content_base64 = sub_convert.base64_encode(content_raw)
+
         content = content_raw
         
+        ##############################
 
         def content_write(file, output_type):
             file = open(file, 'w+', encoding = 'utf-8')
