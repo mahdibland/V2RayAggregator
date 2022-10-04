@@ -248,7 +248,7 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes: `5497`
+merge nodes: `2117`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
@@ -256,7 +256,7 @@ merge nodes: `5497`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `166`
 - [freefq/free](https://github.com/freefq/free), number of nodes: `52`
 - [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), number of nodes: `90`
-- [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), number of nodes: `14`
+- [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), number of nodes: `8`
 - [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), number of nodes: `21`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), number of nodes: `42`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `40`
@@ -278,7 +278,7 @@ merge nodes: `5497`
 - [mahdibland/get_v2-1](https://github.com/mahdibland/get_v2-1), number of nodes: `1`
 - [mahdibland/get_v2-2](https://github.com/mahdibland/get_v2-2), number of nodes: `10`
 - [mahdibland/get_v2-3](https://github.com/mahdibland/get_v2-3), number of nodes: `10`
-- [mahdibland/get_v2-bihai](https://github.com/mahdibland/get_v2), number of nodes: `128`
+- [mahdibland/get_v2-bihai](https://github.com/mahdibland/get_v2), number of nodes: `123`
 - [mahdibland/get_v2-wxshi](https://github.com/mahdibland/get_v2), number of nodes: `9`
 - [mahdibland/get_v2-config003](https://github.com/mahdibland/get_v2), number of nodes: `26`
 
