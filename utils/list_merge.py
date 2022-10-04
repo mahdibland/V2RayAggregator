@@ -40,7 +40,7 @@ class sub_merge():
                     print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
                     ############
                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-                file.write('Url Parse error')
+                file.write(content)#Url Parse error
                 file.close()
                     ############
             elif content == 'Url 订阅内容无法解析':
@@ -63,7 +63,10 @@ class sub_merge():
         ##############################
         
         print('Merging nodes...\n')
-        content_raw = ''.join(content_list)
+
+        content_list = list(
+            filter(lambda x: x != '', ''.join(content_list).split("\n")))
+        content_raw = "\n".join(content_list)
 
         print('Remove Duplicate Lines ...\n')
         content_raw = sub_convert.main(content_raw, 'content', 'Base64', {
