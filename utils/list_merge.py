@@ -62,18 +62,32 @@ class sub_merge():
                 
         ##############################
         
+#         print('Merging nodes...\n')
+
+#         content_list = list(
+#             filter(lambda x: x != '', ''.join(content_list).split("\n")))
+#         content_raw = "\n".join(content_list)
+
+#         print('Remove Duplicate Lines ...\n')
+#         content_raw = sub_convert.main(content_raw, 'content', 'Base64', {
+#             'dup_rm_enabled': True, 'format_name_enabled': False})
+#         content_raw = sub_convert.base64_decode(content_raw)
+#         print('Remove Duplicate Lines Completed\n')
+
+#         print('create yaml format of content')
+#         # already duplicate lines removed
+#         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
+#                                         'dup_rm_enabled': False, 'format_name_enabled': True})
+
+#         print('create base64 format of content')
+#         content_base64 = sub_convert.base64_encode(content_raw)
+
+#         content = content_raw
+
+
         print('Merging nodes...\n')
-
-        content_list = list(
-            filter(lambda x: x != '', ''.join(content_list).split("\n")))
-        content_raw = "\n".join(content_list)
-
-        print('Remove Duplicate Lines ...\n')
-        content_raw = sub_convert.main(content_raw, 'content', 'Base64', {
-            'dup_rm_enabled': True, 'format_name_enabled': False})
-        content_raw = sub_convert.base64_decode(content_raw)
-        print('Remove Duplicate Lines Completed\n')
-
+        content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
+        content_yaml = sub_convert.main(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
         print('create yaml format of content')
         # already duplicate lines removed
         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
