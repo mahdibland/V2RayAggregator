@@ -84,6 +84,8 @@ class sub_merge():
 
 #         content = content_raw
 
+           
+          #############################
 
 #         print('Merging nodes...\n')
 #         content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
@@ -100,6 +102,22 @@ class sub_merge():
 
         ###############################
 
+#         print('Merging nodes...\n')
+#         content_raw = ''.join(content_list)
+#         # content_yaml = sub_convert.main(content_raw, 'content', 'content', {
+#         #                                 'dup_rm_enabled': True, 'format_name_enabled': True})
+#         final_content = sub_convert.makeup(
+#             content_raw, True, True)
+#         content_raw = sub_convert.yaml_decode(final_content)
+
+#         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
+#             'dup_rm_enabled': True, 'format_name_enabled': True})
+
+#         content_base64 = sub_convert.base64_encode(content_raw)
+
+#         content = content_raw
+
+
         print('Merging nodes...\n')
         content_raw = ''.join(content_list)
         # content_yaml = sub_convert.main(content_raw, 'content', 'content', {
@@ -111,9 +129,14 @@ class sub_merge():
         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
             'dup_rm_enabled': True, 'format_name_enabled': True})
 
+        # content_yaml = final_content
+
+        content_raw = sub_convert.yaml_decode(content_yaml)
+
         content_base64 = sub_convert.base64_encode(content_raw)
 
         content = content_raw
+        
         
         ##############################
 
