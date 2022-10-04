@@ -248,27 +248,27 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes: `1919`
+merge nodes: `2032`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
-- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `75`
+- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `141`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `166`
-- [freefq/free](https://github.com/freefq/free), number of nodes: `32`
+- [freefq/free](https://github.com/freefq/free), number of nodes: `52`
 - [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), number of nodes: `90`
 - [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), number of nodes: `1`
 - [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), number of nodes: `21`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), number of nodes: `42`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `40`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), number of nodes: `3450`
-- [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `45`
+- [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `51`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `45`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `18`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
 - [mahdibland/get_v2-0](https://github.com/mahdibland/get_v2-0), number of nodes: `39`
-- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `158`
+- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `175`
 - [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), number of nodes: `99`
-- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), number of nodes: `32`
+- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), number of nodes: `45`
 - [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `46`
 - [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `13`
 - [kxswa/k](https://github.com/kxswa/k), number of nodes: `200`
