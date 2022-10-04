@@ -39,9 +39,9 @@ class sub_merge():
                 else:
                     print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
                     ############
-                    file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-                    file.write('Url Parse error')
-                    file.close()
+                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
+                file.write('Url Parse error')
+                file.close()
                     ############
             elif content == 'Url 订阅内容无法解析':
                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
