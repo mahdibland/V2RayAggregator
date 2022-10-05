@@ -28,6 +28,8 @@ class sub_merge():
                 os.remove(f)
                 
         for (index, url_container) in enumerate(url_list):
+            ids = url_list[index]['id']
+            remarks = url_list[index]['remarks']
             for each_url in url_container["url"]:
                 content = ''
                 print("gather server from " + each_url)
@@ -66,9 +68,6 @@ class sub_merge():
                     file.write('Url Subscription could not be parsed')
                     file.close()
                     print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
-
-            ids = url_list[index]['id']
-            remarks = url_list[index]['remarks']
 
             print('already gathered ' + str(''.join(content_list).split('\n')))
             print('\n')
