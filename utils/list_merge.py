@@ -160,9 +160,10 @@ class sub_merge():
 
         content_raw = sub_convert.yaml_decode(content_yaml)
 
-        content_raw = list(
-            filter(lambda x: x != '', content_raw.split("\n")))
-        content_raw = "\n".join(content_raw)
+        ## note removed here
+        # content_raw = list(
+        #     filter(lambda x: x != '', content_raw.split("\n")))
+        # content_raw = "\n".join(content_raw)
 
         content_base64 = sub_convert.base64_encode(content_raw)
 
