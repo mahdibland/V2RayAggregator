@@ -72,7 +72,8 @@ class sub_merge():
                         file.close()
                         print(
                             f'Writing error of {remarks} to {ids:0>2d}.txt\n')
-
+                        
+            # it's not coming down here just adding it :)
             else:
                 each_url = url_container["url"]
                 content = ''
@@ -246,9 +247,8 @@ class sub_merge():
         #     content_raw, True, True)
         # content_raw = sub_convert.yaml_decode(final_content)
 
-#         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
-#             'dup_rm_enabled': True, 'format_name_enabled': True})
-        content_yaml = sub_convert.makeup(content_raw, False, True)
+        content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
+            'dup_rm_enabled': True, 'format_name_enabled': True})
 
         content_raw = sub_convert.yaml_decode(content_yaml)
 
