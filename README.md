@@ -248,12 +248,20 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes: `190`
+merge nodes: `899`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `141`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `50`
+- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `235`
+- [huwo1/proxy_nodes](https://bitbucket.org/huwo1/proxy_nodes/src/main/), number of nodes: `183`
+- [freefq/free](https://github.com/freefq/free), number of nodes: `48`
+- [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), number of nodes: `156`
+- [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), number of nodes: `309`
+- [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), number of nodes: `121`
+- [oslook/clash-freenode](https://github.com/oslook/clash-freenode), number of nodes: `42`
+- [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `73`
 
 ## Softwares
 ### Desktop Clients
