@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 from datetime import timedelta, datetime
-import json, re
+import json
+import re
 import requests
 from requests.adapters import HTTPAdapter
 
@@ -9,11 +10,12 @@ from requests.adapters import HTTPAdapter
 sub_list_json = './sub/sub_list.json'
 
 
-with open(sub_list_json, 'r', encoding='utf-8') as f: # 载入订阅链接
+with open(sub_list_json, 'r', encoding='utf-8') as f:  # 载入订阅链接
     raw_list = json.load(f)
     f.close()
 
-def url_updated(url): # 判断远程远程链接是否已经更新
+
+def url_updated(url):  # 判断远程远程链接是否已经更新
     s = requests.Session()
     s.mount('http://', HTTPAdapter(max_retries=2))
     s.mount('https://', HTTPAdapter(max_retries=2))
@@ -28,6 +30,7 @@ def url_updated(url): # 判断远程远程链接是否已经更新
         url_updated = False
     return url_updated
 
+
 class update_url():
 
     def update_main():
@@ -38,29 +41,31 @@ class update_url():
                 if sub['update_method'] != 'auto' and sub['enabled'] == True:
                     print(f'Finding available update for ID{id}')
                     if sub['update_method'] == 'change_date':
-                        new_url = update_url.change_date(id,current_url)
+                        new_url = update_url.change_date(id, current_url)
                         if new_url == current_url:
                             print(f'No available update for ID{id}\n')
                         else:
                             sub['url'] = new_url
                             print(f'ID{id} url updated to {new_url}\n')
                     elif sub['update_method'] == 'page_release':
-                        new_url = update_url.find_link(id,current_url)
+                        new_url = update_url.find_link(id, current_url)
                         if new_url == current_url:
                             print(f'No available update for ID{id}\n')
                         else:
                             sub['url'] = new_url
                             print(f'ID{id} url updated to {new_url}\n')
+
             except KeyError:
                 print(f'{id} Url not changed! Please define update method.')
-            
-            updated_list = json.dumps(raw_list, sort_keys=False, indent=2, ensure_ascii=False)
+
+            updated_list = json.dumps(
+                raw_list, sort_keys=False, indent=2, ensure_ascii=False)
             file = open(sub_list_json, 'w', encoding='utf-8')
             file.write(updated_list)
             file.close()
 
-    def change_date(id,current_url):
-        if id == 36:
+    def change_date(id, current_url):
+        if id == 1:
             today = datetime.today().strftime('%Y%m%d')
             this_month = datetime.today().strftime('%Y%m')
             url_front = 'https://nodefree.org/dy/'
@@ -77,34 +82,19 @@ class update_url():
         else:
             return current_url
 
-    def find_link(id,current_url):
-        if id == 38:
+    def find_link(id, current_url):
+        if id == 2:
             try:
-                res_json = requests.get('https://api.github.com/repos/mianfeifq/share/contents/').json()
+                res_json = requests.get(
+                    'https://api.github.com/repos/mianfeifq/share/contents/').json()
                 for file in res_json:
                     if file['name'].startswith('data'):
-                        return file['download_url'] 
+                        return file['download_url']
                 else:
                     return current_url
             except Exception:
                 return current_url
-        if id == 33:
-            url_update = 'https://v2cross.com/archives/1884'
 
-            if url_updated(url_update):
-                try:
-                    resp = requests.get(url_update, timeout=5)
-                    raw_content = resp.text
-
-                    raw_content = raw_content.replace('amp;', '')
-                    pattern = re.compile(r'https://shadowshare.v2cross.com/publicserver/servers/temp/\w{16}')
-                    
-                    new_url = re.findall(pattern, raw_content)[0]
-                    return new_url
-                except Exception:
-                    return current_url
-            else:
-                return current_url
 
 if __name__ == '__main__':
     update_url.update_main()
