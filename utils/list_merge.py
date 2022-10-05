@@ -30,7 +30,51 @@ class sub_merge():
         for (index, url_container) in enumerate(url_list):
             ids = url_list[index]['id']
             remarks = url_list[index]['remarks']
-            for each_url in url_container["url"]:
+            if type(url_container['url']) == list:
+                for each_url in url_container["url"]:
+                    content = ''
+                    print("gather server from " + each_url)
+                    content += sub_convert.convert_remote(
+                        each_url, 'url', 'http://127.0.0.1:25500')
+
+                    if content == 'Url 解析错误':
+                        content = sub_convert.main(each_url, 'url', 'url')
+                        if content != 'Url 解析错误':
+                            content_list.append(content)
+                            print(
+                                f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+                        else:
+                            print(
+                                f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+                        file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                    'a+', encoding='utf-8')
+                        file.write(content)
+                        file.close()
+                    elif content == 'Url 订阅内容无法解析':
+                        file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                    'a+', encoding='utf-8')
+                        file.write('Url Subscription could not be parsed')
+                        file.close()
+                        print(
+                            f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+                    elif content != None:
+                        content_list.append(content)
+                        file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                    'a+', encoding='utf-8')
+                        file.write(content)
+                        file.close()
+                        print(
+                            f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+                    else:
+                        file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                    'a+', encoding='utf-8')
+                        file.write('Url Subscription could not be parsed')
+                        file.close()
+                        print(
+                            f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+
+            else:
+                each_url = url_container["url"]
                 content = ''
                 print("gather server from " + each_url)
                 content += sub_convert.convert_remote(
