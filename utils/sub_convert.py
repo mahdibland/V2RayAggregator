@@ -202,7 +202,7 @@ class sub_convert():
                 begin_2 = begin + 1
                 while begin_2 <= (length - 1):
 
-                    if proxy_compared['server'] == proxies_list[begin_2]['server'] and proxy_compared['port'] == proxies_list[begin_2]['port']:
+                    if proxy_compared['server'] == proxies_list[begin_2]['server'] and proxy_compared['port'] == proxies_list[begin_2]['port'] and proxy_compared['type'] == proxies_list[begin_2]['type']:
                         proxies_list.pop(begin_2)
                         length -= 1
                     begin_2 += 1
