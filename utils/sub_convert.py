@@ -377,7 +377,7 @@ class sub_convert():
                         sub_convert.base64_decode(line.replace('vmess://', '')))
                     vmess_default_config = {
                         'v': 'Vmess Node', 'ps': 'Vmess Node', 'add': '0.0.0.0', 'port': 0, 'id': '',
-                        'aid': 0, 'scy': 'auto', 'net': '', 'type': '', 'host': None, 'path': '/', 'tls': ''
+                        'aid': 0, 'scy': 'auto', 'net': '', 'type': '', 'host': '', 'path': '/', 'tls': ''
                     }
                     vmess_default_config.update(vmess_json_config)
                     vmess_config = vmess_default_config
@@ -409,9 +409,11 @@ class sub_convert():
                             yaml_url.setdefault('tls', '')
                         # else:
                         #     yaml_url.setdefault('tls', 'tls')
+
                         yaml_url.setdefault('ws-opts', {})
                         if vmess_config['path'] == '' or vmess_config['path'] is False or vmess_config['path'] is None:
-                            yaml_url['ws-opts'].setdefault('path', '/')
+                            # yaml_url['ws-opts'].setdefault('path', '/')
+                            pass
                         else:
                             yaml_url['ws-opts'].setdefault(
                                 'path', vmess_config['path'])
@@ -575,7 +577,8 @@ class sub_convert():
                     yaml_default_config = {
                         'name': 'Vmess Node', 'server': '0.0.0.0', 'port': 0, 'uuid': '', 'alterId': 0,
                         'cipher': 'auto', 'network': 'ws',
-                        'tls': '', 'sni': '', 'ws-opts': {'path': '/', 'headers': {'Host': ''}}
+                        'ws-opts': {'path': '', 'headers': {'Host': ''}},
+                        'tls': '', 'sni': ''
                     }
                     #
                     yaml_default_config.update(proxy)
@@ -589,13 +592,13 @@ class sub_convert():
 
                     if proxy['ws-opts'] != None and proxy['ws-opts'] != {} and proxy['ws-opts'] != '':
 
-                        vmess_value['ws-opts'] = proxy["ws-opts"]
+                        if 'headers' in proxy_config['ws-opts']:
+                            if proxy_config['ws-opts']['headers']['Host'] != '':
+                                vmess_value['host'] = proxy_config['ws-opts']['headers']['Host']
 
-                        # if proxy['ws-opts']['headers'] != None and proxy['ws-opts']['headers'] != {}:
-                        #     vmess_value['ws-opts']['headers'] = proxy['ws-opts']['headers']
-
-                        # if proxy['ws-opts']['path'] != None and proxy['ws-opts']['path'] != '':
-                        #     vmess_value['path'] = proxy['ws-opts']['path']
+                        if 'path' in proxy_config['ws-opts']:
+                            if proxy_config['ws-opts']['path'] != '':
+                                vmess_value['path'] = proxy_config['ws-opts']['path']
 
                     vmess_raw_proxy = json.dumps(
                         vmess_value, sort_keys=False, indent=2, ensure_ascii=False)
@@ -667,16 +670,16 @@ class sub_convert():
                     """
 
                     ssr_proxy = '\nssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':' +
-                                                                   password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam+'\n')
+                                                                     password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam+'\n')
                     protocol_url.append(ssr_proxy)
 
             yaml_content = ''.join(protocol_url)
-            
+
             # note added here
             yaml_content = list(
                 filter(lambda x: x != '', yaml_content.split("\n")))
             yaml_content = "\n".join(yaml_content)
-            
+
             return yaml_content
         except Exception as err:
             print(f'yaml decode 发生 {err} 错误')
