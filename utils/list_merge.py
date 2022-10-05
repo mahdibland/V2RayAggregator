@@ -27,7 +27,7 @@ class sub_merge():
                 f = t[0]+f
                 os.remove(f)
                 
-        for index, url_container in range(len(url_list)):
+        for (index, url_container) in enumerate(url_list):
             for each_url in url_container["url"]:
                 content = ''
                 print("gather server from " + each_url)
