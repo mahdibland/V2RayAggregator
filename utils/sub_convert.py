@@ -518,7 +518,7 @@ class sub_convert():
                     yaml_default_config = {
                         'name': 'Vmess Node', 'server': '0.0.0.0', 'port': 0, 'uuid': '', 'alterId': 0,
                         'cipher': 'auto', 'network': 'ws', 'ws-opts': {'path': '/', 'headers': {'Host': proxy['server']}},
-                        'tls': '', 'sni': ''
+                        'tls': None, 'sni': ''
                     }
 
                     yaml_default_config.update(proxy)
