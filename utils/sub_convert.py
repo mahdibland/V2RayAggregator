@@ -343,7 +343,7 @@ class sub_convert():
                     vmess_json_config = json.loads(sub_convert.base64_decode(line.replace('vmess://', '')))
                     vmess_default_config = {
                         'v': 'Vmess Node', 'ps': 'Vmess Node', 'add': '0.0.0.0', 'port': 0, 'id': '',
-                        'aid': 0, 'scy': 'auto', 'net': '', 'type': '', 'host': vmess_json_config['add'], 'path': '/', 'tls': ''
+                        'aid': 0, 'scy': 'auto', 'net': '', 'type': '', 'host': vmess_json_config['add'], 'path': '/', 'tls': None
                     }
                     vmess_default_config.update(vmess_json_config)
                     vmess_config = vmess_default_config
@@ -367,7 +367,7 @@ class sub_convert():
                             yaml_url.setdefault('network', 'tcp')
                         else:
                             yaml_url.setdefault('network', vmess_config['net'])
-                        if vmess_config['net'] == 'h2' or vmess_config['net'] == 'grpc':
+                        if vmess_config['net'] == 'h2' or vmess_config['net'] == 'grpc' or vmess_config['tls'] == True:
                             yaml_url.setdefault('tls', True)
                         elif vmess_config['tls'] == '' or vmess_config['tls'] is False or vmess_config['tls'] is None:
                             yaml_url.setdefault('tls', False)
