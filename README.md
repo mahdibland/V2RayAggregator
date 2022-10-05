@@ -250,11 +250,11 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes: `451`
+merge nodes: `444`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
-- [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `591`
+- [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `584`
 
 ## Softwares
 ### Desktop Clients
