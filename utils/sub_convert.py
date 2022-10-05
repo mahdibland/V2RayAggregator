@@ -72,6 +72,7 @@ class sub_convert():
             return '订阅内容解析错误'
 
     # 对链接文本(Base64, url, YAML)进行格式化处理, 输出节点的配置字典（Clash 配置）, output 为真是输出 YAML 文本
+    # 对链接文本(Base64, url, YAML)进行格式化处理, 输出节点的配置字典（Clash 配置）, output 为真是输出 YAML 文本
     def format(sub_content, output=False):
         if '</b>' not in sub_content:
             if 'proxies:' not in sub_content:  # 对 URL 内容进行格式化处理
@@ -362,6 +363,7 @@ class sub_convert():
         return yaml_content  # 输出 YAML 格式文本
 
     # 将 URL 内容转换为 YAML 文本, output 为 False 时输出节点配置字典
+    # 将 URL 内容转换为 YAML 文本, output 为 False 时输出节点配置字典
     def yaml_encode(url_content, output=True):
         url_list = []
 
@@ -375,7 +377,7 @@ class sub_convert():
                         sub_convert.base64_decode(line.replace('vmess://', '')))
                     vmess_default_config = {
                         'v': 'Vmess Node', 'ps': 'Vmess Node', 'add': '0.0.0.0', 'port': 0, 'id': '',
-                        'aid': 0, 'scy': 'auto', 'net': '', 'type': '', 'host': vmess_json_config['add'], 'path': '/', 'tls': ''
+                        'aid': 0, 'scy': 'auto', 'net': '', 'type': '', 'host': None, 'path': '/', 'tls': ''
                     }
                     vmess_default_config.update(vmess_json_config)
                     vmess_config = vmess_default_config
@@ -401,12 +403,12 @@ class sub_convert():
                             yaml_url.setdefault('network', 'tcp')
                         else:
                             yaml_url.setdefault('network', vmess_config['net'])
-                        if vmess_config['net'] == 'h2' or vmess_config['net'] == 'grpc' or vmess_config['tls'] == True or vmess_config['tls'] == 'true':
-                            yaml_url.setdefault('tls', 'true')
-                        elif vmess_config['tls'] == '' or vmess_config['tls'] is False or vmess_config['tls'] is None:
-                            yaml_url.setdefault('tls', 'false')
-                        else:
-                            yaml_url.setdefault('tls', 'true')
+                        if vmess_config['tls'] == 'tls' or vmess_config['net'] == 'h2' or vmess_config['net'] == 'grpc':
+                            yaml_url.setdefault('tls', 'tls')
+                        elif vmess_config['tls'] == '':
+                            yaml_url.setdefault('tls', '')
+                        # else:
+                        #     yaml_url.setdefault('tls', 'tls')
                         yaml_url.setdefault('ws-opts', {})
                         if vmess_config['path'] == '' or vmess_config['path'] is False or vmess_config['path'] is None:
                             yaml_url['ws-opts'].setdefault('path', '/')
@@ -414,8 +416,9 @@ class sub_convert():
                             yaml_url['ws-opts'].setdefault(
                                 'path', vmess_config['path'])
                         if vmess_config['host'] == '':
-                            yaml_url['ws-opts'].setdefault(
-                                'headers', {'Host': vmess_config['add']})
+                            pass
+                            # yaml_url['ws-opts'].setdefault(
+                            #     'headers', {'Host': vmess_config['add']})
                         else:
                             yaml_url['ws-opts'].setdefault(
                                 'headers', {'Host': vmess_config['host']})
@@ -522,7 +525,7 @@ class sub_convert():
                             yaml_url.setdefault('sni', config[4:])
                         elif 'allowInsecure=' in config or 'tls=' in config:
                             if config[-1] == 0:
-                                yaml_url.setdefault('tls', 'false')
+                                yaml_url.setdefault('tls', False)
                         elif 'type=' in config:
                             if config[5:] != 'tcp':
                                 yaml_url.setdefault('network', config[5:])
@@ -530,7 +533,7 @@ class sub_convert():
                             yaml_url.setdefault('ws-path', config[5:])
                         elif 'security=' in config:
                             if config[9:] != 'tls':
-                                yaml_url.setdefault('tls', 'false')
+                                yaml_url.setdefault('tls', False)
 
                     yaml_url.setdefault('skip-cert-verify', True)
 
@@ -571,47 +574,33 @@ class sub_convert():
 
                     yaml_default_config = {
                         'name': 'Vmess Node', 'server': '0.0.0.0', 'port': 0, 'uuid': '', 'alterId': 0,
-                        'cipher': 'auto', 'network': 'ws', 'ws-opts': {'path': '/', 'headers': {'Host': proxy['server']}},
-                        'tls': '', 'sni': ''
+                        'cipher': 'auto', 'network': 'ws',
+                        'tls': '', 'sni': '', 'ws-opts': {'path': '/', 'headers': {'Host': ''}}
                     }
-
+                    #
                     yaml_default_config.update(proxy)
                     proxy_config = yaml_default_config
 
-#                     vmess_value = {
-#                         'v': 2, 'ps': proxy_config['name'], 'add': proxy_config['server'],
-#                         'port': proxy_config['port'], 'id': proxy_config['uuid'], 'aid': proxy_config['alterId'],
-#                         'scy': proxy_config['cipher'], 'net': proxy_config['network'], 'type': None, 'host': proxy_config['ws-opts']['headers']['Host'],
-#                         'path': proxy_config['ws-opts']['path'], 'tls': proxy_config['tls'], 'sni': proxy_config['sni']
-#                         }
+                    vmess_value = {
+                        'v': 2, 'ps': proxy_config['name'], 'add': proxy_config['server'],
+                        'port': proxy_config['port'], 'id': proxy_config['uuid'], 'aid': proxy_config['alterId'],
+                        'scy': proxy_config['cipher'], 'net': proxy_config['network'], 'type': None, 'tls': proxy_config['tls'], 'sni': proxy_config['sni']
+                    }
 
-                    vmess_value = {}
-                    print(proxy)
-                    # todo way 1
-                    vmess_value['v'] = 2
-                    vmess_value['ps'] = proxy_config['name']
-                    vmess_value['add'] = proxy_config['server']
-                    vmess_value['port'] = proxy_config['port']
-                    vmess_value['id'] = proxy_config['uuid']
-                    vmess_value['aid'] = proxy_config['alterId']
-                    vmess_value['scy'] = proxy_config['cipher']
-                    vmess_value['net'] = proxy_config['network']
-                    vmess_value['type'] = None
-                    vmess_value['tls'] = proxy["tls"]
+                    if proxy['ws-opts'] != None and proxy['ws-opts'] != {} and proxy['ws-opts'] != '':
 
-                    if proxy_config['ws-opts']['headers']['Host'] != None and proxy_config['ws-opts']['headers']['Host'] != '':
-                        vmess_value['host'] = proxy_config['ws-opts']['headers']['Host']
-                    if proxy_config['ws-opts']['path'] != None and proxy_config['ws-opts']['path'] != '':
-                        vmess_value['path'] = proxy_config['ws-opts']['path']
-                    if proxy['tls'] != '':
-                        vmess_value['tls'] = str(proxy['tls'])
-                    if proxy_config['sni'] != None and proxy_config['sni'] != '':
-                        vmess_value['sni'] = proxy_config['sni']
+                        vmess_value['ws-opts'] = proxy["ws-opts"]
+
+                        # if proxy['ws-opts']['headers'] != None and proxy['ws-opts']['headers'] != {}:
+                        #     vmess_value['ws-opts']['headers'] = proxy['ws-opts']['headers']
+
+                        # if proxy['ws-opts']['path'] != None and proxy['ws-opts']['path'] != '':
+                        #     vmess_value['path'] = proxy['ws-opts']['path']
 
                     vmess_raw_proxy = json.dumps(
                         vmess_value, sort_keys=False, indent=2, ensure_ascii=False)
                     vmess_proxy = str(
-                        '\nvmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
+                        'vmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
                     protocol_url.append(vmess_proxy)
 
                 # SS 节点提取, 由 ss_base64_decoded 部分(参数: 'cipher', 'password', 'server', 'port') Base64 编码后 加 # 加注释(URL_encode)
@@ -619,7 +608,7 @@ class sub_convert():
                     ss_base64_decoded = str(proxy['cipher']) + ':' + str(
                         proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port'])
                     ss_base64 = sub_convert.base64_encode(ss_base64_decoded)
-                    ss_proxy = str('\nss://' + ss_base64 + '#' +
+                    ss_proxy = str('ss://' + ss_base64 + '#' +
                                    str(urllib.parse.quote(proxy['name'])) + '\n')
                     protocol_url.append(ss_proxy)
 
@@ -635,7 +624,7 @@ class sub_convert():
                         trojan_go = '?allowInsecure=1'
                     if 'sni' in proxy.keys():
                         trojan_go = trojan_go+'&sni='+proxy['sni']
-                    trojan_proxy = str('\ntrojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(
+                    trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(
                         proxy['port']) + trojan_go + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                     protocol_url.append(trojan_proxy)
 
@@ -677,19 +666,12 @@ class sub_convert():
                                 protoparam = ''
                     """
 
-                    ssr_proxy = '\nssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':' +
-                                                                     password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam+'\n')
+                    ssr_proxy = 'ssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':' +
+                                                                   password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam+'\n')
                     protocol_url.append(ssr_proxy)
 
             yaml_content = ''.join(protocol_url)
-
-            # note added here
-            yaml_content = list(
-                filter(lambda x: x != '', yaml_content.split("\n")))
-            yaml_content = "\n".join(yaml_content)
-
             return yaml_content
-
         except Exception as err:
             print(f'yaml decode 发生 {err} 错误')
             return '订阅内容解析错误'
