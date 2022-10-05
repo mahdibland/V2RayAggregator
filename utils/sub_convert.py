@@ -197,7 +197,8 @@ class sub_convert():
                     repetition = raw_length - length
                     print(f'Current Benchmark{begin + 1}-----Current Quantity{length}\nNumber of Repetition{repetition}\n-----Deduplication Completed-----\n')
                 proxy_compared = proxies_list[begin]
-
+                
+                print("\nBefore was " + str(proxies_list.__len__()) + "\n")
                 begin_2 = begin + 1
                 while begin_2 <= (length - 1):
 
@@ -206,6 +207,7 @@ class sub_convert():
                         length -= 1
                     begin_2 += 1
                 begin += 1
+                print("\Now is " + str(proxies_list.__len__()) + "\n")
 
         url_list = []
 
