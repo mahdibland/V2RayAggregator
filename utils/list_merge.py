@@ -60,6 +60,8 @@ class sub_merge():
                 file.close()
                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
                 
+            print('already gathered ' + str(content_list.__len__()))
+                
         ##############################
         
 #         print('Merging nodes...\n')
