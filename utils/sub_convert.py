@@ -185,6 +185,7 @@ class sub_convert():
         proxies_list = sub_content['proxies']
         
         if dup_rm_enabled: # 去重
+            print("\nBefore was " + str(proxies_list.__len__()) + "\n")
             begin = 0
             raw_length = len(proxies_list)
             length = len(proxies_list)
@@ -198,7 +199,6 @@ class sub_convert():
                     print(f'Current Benchmark{begin + 1}-----Current Quantity{length}\nNumber of Repetition{repetition}\n-----Deduplication Completed-----\n')
                 proxy_compared = proxies_list[begin]
                 
-                print("\nBefore was " + str(proxies_list.__len__()) + "\n")
                 begin_2 = begin + 1
                 while begin_2 <= (length - 1):
 
@@ -207,7 +207,8 @@ class sub_convert():
                         length -= 1
                     begin_2 += 1
                 begin += 1
-                print("\nNow is " + str(proxies_list.__len__()) + "\n")
+                
+            print("\nNow is " + str(proxies_list.__len__()) + "\n")
 
         url_list = []
 
