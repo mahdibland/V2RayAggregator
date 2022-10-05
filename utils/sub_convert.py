@@ -593,7 +593,14 @@ class sub_convert():
                     protocol_url.append(ssr_proxy)
 
             yaml_content = ''.join(protocol_url)
+            
+            # note added here
+            yaml_content = list(
+                filter(lambda x: x != '', yaml_content.split("\n")))
+            yaml_content = "\n".join(yaml_content)
+            
             return yaml_content
+        
         except Exception as err:
             print(f'yaml decode 发生 {err} 错误')
             return '订阅内容解析错误'
