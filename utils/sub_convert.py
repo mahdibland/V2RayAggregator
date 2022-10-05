@@ -543,13 +543,15 @@ class sub_convert():
                     vmess_value['scy'] = proxy_config['cipher']
                     vmess_value['net'] = proxy_config['network']
                     vmess_value['type'] = None
-                    if proxy_config['ws-opts']['headers']['Host'] is not None and proxy_config['ws-opts']['headers']['Host'] is not '':
+                    vmess_value['tls'] = proxy["tls"]
+                    
+                    if proxy_config['ws-opts']['headers']['Host'] != None and proxy_config['ws-opts']['headers']['Host'] != '':
                         vmess_value['host'] = proxy_config['ws-opts']['headers']['Host']
-                    if proxy_config['ws-opts']['path'] is not None and proxy_config['ws-opts']['path'] is not '':
+                    if proxy_config['ws-opts']['path'] != None and proxy_config['ws-opts']['path'] != '':
                         vmess_value['path'] = proxy_config['ws-opts']['path']
-                    if proxy['tls'] is not None:
+                    if proxy['tls'] != None:
                         vmess_value['tls'] = proxy['tls']
-                    if proxy_config['sni'] is not None and proxy_config['sni'] is not '':
+                    if proxy_config['sni'] != None and proxy_config['sni'] != '':
                         vmess_value['sni'] = proxy_config['sni']
                         
                     vmess_raw_proxy = json.dumps(vmess_value, sort_keys=False, indent=2, ensure_ascii=False)
