@@ -248,7 +248,7 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes: `4619`
+merge nodes: `4602`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
@@ -258,7 +258,7 @@ merge nodes: `4619`
 - [huwo1/proxy_nodes](https://bitbucket.org/huwo1/proxy_nodes/src/main/), number of nodes: `183`
 - [freefq/free](https://github.com/freefq/free), number of nodes: `53`
 - [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), number of nodes: `156`
-- [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), number of nodes: `309`
+- [vpei/Free-Node-Merge](https://github.com/vpei/Free-Node-Merge), number of nodes: `308`
 - [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), number of nodes: `121`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), number of nodes: `42`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `73`
@@ -274,22 +274,22 @@ merge nodes: `4619`
 - [GreenFishStudio/GreenFish](https://github.com/GreenFishStudio/GreenFish), number of nodes: `43`
 - [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `222`
 - [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), number of nodes: `75`
-- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), number of nodes: `48`
+- [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), number of nodes: `42`
 - [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `46`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `12`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `18`
 - [kxswa/k](https://github.com/kxswa/k), number of nodes: `3`
-- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `302`
+- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `262`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `35`
 - [vveg26/SubAutoConv](https://github.com/vveg26/SubAutoConv), number of nodes: `131`
 - [clash.221207.xyz/pubclashyaml](https://clash.221207.xyz/pubclashyaml), number of nodes: `198`
-- [proxypool.toshiki.top/clash](https://proxypool.toshiki.top/clash/proxies), number of nodes: `724`
+- [proxypool.toshiki.top/clash](https://proxypool.toshiki.top/clash/proxies), number of nodes: `709`
 - [tbbatbb/Proxy](https://github.com/tbbatbb/Proxy), number of nodes: `575`
-- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `1175`
+- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `1219`
 - [2hacc/clash](https://github.com/2hacc/clash), number of nodes: `0`
 - [webdao/v2ray](https://github.com/webdao/v2ray), number of nodes: `0`
 - [openRunner/clash-freenode](https://github.com/openRunner/clash-freenode), number of nodes: `42`
 - [huanongkejizhijia/clashnode](https://github.com/huanongkejizhijia/clashnode), number of nodes: `39`
-- [free886.herokuapp.com/clash](https://free886.herokuapp.com/clash/proxies), number of nodes: `30`
+- [free886.herokuapp.com/clash](https://free886.herokuapp.com/clash/proxies), number of nodes: `31`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `166`
 - [yaney01/Yaney01](https://github.com/yaney01/Yaney01), number of nodes: `50`
 - [YasserDivaR/pr0xy](https://github.com/YasserDivaR/pr0xy), number of nodes: `1492`
