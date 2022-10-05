@@ -191,12 +191,12 @@ class sub_convert():
             length = len(proxies_list)
             while begin < length:
                 if (begin + 1) == 1:
-                    print(f'\n-----Restart-----\nStarting Quantity{length}')
+                    print(f'\n-----Restart-----\nStarting Quantity {length}')
                 elif (begin + 1) % 100 == 0:
-                    print(f'Current Benchmark{begin + 1}-----Current Quantity{length}')
+                    print(f'Current Benchmark {begin + 1}-----Current Quantity {length}')
                 elif (begin + 1) == length and (begin + 1) % 100 != 0:
                     repetition = raw_length - length
-                    print(f'Current Benchmark{begin + 1}-----Current Quantity{length}\nNumber of Repetition{repetition}\n-----Deduplication Completed-----\n')
+                    print(f'Current Benchmark {begin + 1}-----Current Quantity {length}\nNumber of Repetition {repetition}\n-----Deduplication Completed-----\n')
                 proxy_compared = proxies_list[begin]
                 
                 begin_2 = begin + 1
