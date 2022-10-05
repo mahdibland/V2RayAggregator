@@ -155,6 +155,10 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     for rule in proxy_groups:
         if rule['proxies'] is None: # 不是空集加入待加入名称列表
             proxy_group_fill.append(rule['name'])
+            
+    full_size = all_name.__len__()
+    part_size = int(full_size / 4)
+    last_size = full_size - (part_size * 3)
     for rule_name in proxy_group_fill:
         for rule in proxy_groups:
             if rule['name'] == rule_name:
@@ -169,13 +173,13 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
 #                 else:
                 # todo it changes from Main group to tier names
                 if "Tier 1" in rule_name:
-                    rule.update({'proxies': all_name[0:50]})
+                    rule.update({'proxies': all_name[0:part_size]})
                 elif "Tier 2" in rule_name:
-                    rule.update({'proxies': all_name[50:100]})
+                    rule.update({'proxies': all_name[part_size:part_size*2]})
                 elif "Tier 3" in rule_name:
-                    rule.update({'proxies': all_name[100:150]})
+                    rule.update({'proxies': all_name[part_size*2:part_size*3]})
                 elif "Tier 4" in rule_name:
-                    rule.update({'proxies': all_name[150:200]})
+                    rule.update({'proxies': all_name[part_size*3:full_size]})
                     
     config.update(all_provider_dic)
     config.update({'proxy-groups': proxy_groups})
