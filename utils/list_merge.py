@@ -26,41 +26,89 @@ class sub_merge():
             for f in t[2]:
                 f = t[0]+f
                 os.remove(f)
+                
+        for index, url_container in range(len(url_list)):
+            for each_url in url_container["url"]:
+                content = ''
+                print("gather server from " + each_url)
+                content += sub_convert.convert_remote(
+                    each_url, 'url', 'http://127.0.0.1:25500')
 
-        for index in range(len(url_list)):
-            content = sub_convert.convert_remote(url_list[index]['url'],'url','http://127.0.0.1:25500')
-            ids = url_list[index]['id']
-            remarks = url_list[index]['remarks']
-            if content == 'Url 解析错误':
-                content = sub_convert.main(sub_merge.read_list(sub_list_json)[index]['url'],'url','url')
-                if content != 'Url 解析错误':
+                if content == 'Url 解析错误':
+                    content = sub_convert.main(each_url, 'url', 'url')
+                    if content != 'Url 解析错误':
+                        content_list.append(content)
+                        print(
+                            f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+                    else:
+                        print(
+                            f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+                    file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                'a+', encoding='utf-8')
+                    file.write(content)
+                    file.close()
+                elif content == 'Url 订阅内容无法解析':
+                    file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                'a+', encoding='utf-8')
+                    file.write('Url Subscription could not be parsed')
+                    file.close()
+                    print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+                elif content != None:
                     content_list.append(content)
+                    file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                'a+', encoding='utf-8')
+                    file.write(content)
+                    file.close()
                     print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
                 else:
+                    file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                'a+', encoding='utf-8')
+                    file.write('Url Subscription could not be parsed')
+                    file.close()
                     print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
-                    ############
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-                file.write(content)#Url Parse error
-                file.close()
-                    ############
-            elif content == 'Url 订阅内容无法解析':
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-                file.write('Url Subscription could not be parsed')
-                file.close()
-                print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
-            elif content != None:
-                content_list.append(content)
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-                file.write(content)
-                file.close()
-                print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
-            else:
-                file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-                file.write('Url Subscription could not be parsed')
-                file.close()
-                print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+
+            ids = url_list[index]['id']
+            remarks = url_list[index]['remarks']
+
+            print('already gathered ' + str(''.join(content_list).split('\n')))
+            print('\n')
+            
+          #######################################
+        
+#         for index in range(len(url_list)):
+#             content = sub_convert.convert_remote(url_list[index]['url'],'url','http://127.0.0.1:25500')
+#             ids = url_list[index]['id']
+#             remarks = url_list[index]['remarks']
+#             if content == 'Url 解析错误':
+#                 content = sub_convert.main(sub_merge.read_list(sub_list_json)[index]['url'],'url','url')
+#                 if content != 'Url 解析错误':
+#                     content_list.append(content)
+#                     print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+#                 else:
+#                     print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+#                     ############
+#                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
+#                 file.write(content)#Url Parse error
+#                 file.close()
+#                     ############
+#             elif content == 'Url 订阅内容无法解析':
+#                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
+#                 file.write('Url Subscription could not be parsed')
+#                 file.close()
+#                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+#             elif content != None:
+#                 content_list.append(content)
+#                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
+#                 file.write(content)
+#                 file.close()
+#                 print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+#             else:
+#                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
+#                 file.write('Url Subscription could not be parsed')
+#                 file.close()
+#                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
                 
-            print('already gathered ' + str(content_list.__len__()))
+#             print('already gathered ' + str(content_list.__len__()))
                 
         ##############################
         
@@ -312,5 +360,5 @@ if __name__ == '__main__':
 
     sub_list = sub_merge.read_list(sub_list_json)
     sub_list_remote = sub_merge.read_list(sub_list_json,True)
-    sub_merge.sub_merge(sub_list_remote)
+    sub_merge.sub_merge(sub_list)
     sub_merge.readme_update(readme,sub_list)
