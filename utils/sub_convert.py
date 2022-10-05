@@ -207,7 +207,7 @@ class sub_convert():
                         length -= 1
                     begin_2 += 1
                 begin += 1
-                print("\Now is " + str(proxies_list.__len__()) + "\n")
+                print("\nNow is " + str(proxies_list.__len__()) + "\n")
 
         url_list = []
 
