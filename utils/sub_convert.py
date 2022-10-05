@@ -529,13 +529,13 @@ class sub_convert():
                         }
 
                     vmess_raw_proxy = json.dumps(vmess_value, sort_keys=False, indent=2, ensure_ascii=False)
-                    vmess_proxy = str('vmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
+                    vmess_proxy = str('\nvmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
                     protocol_url.append(vmess_proxy)
 
                 elif proxy['type'] == 'ss': # SS 节点提取, 由 ss_base64_decoded 部分(参数: 'cipher', 'password', 'server', 'port') Base64 编码后 加 # 加注释(URL_encode) 
                     ss_base64_decoded = str(proxy['cipher']) + ':' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port'])
                     ss_base64 = sub_convert.base64_encode(ss_base64_decoded)
-                    ss_proxy = str('ss://' + ss_base64 + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
+                    ss_proxy = str('\nss://' + ss_base64 + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                     protocol_url.append(ss_proxy)
 
                 elif proxy['type'] == 'trojan': # Trojan 节点提取, 由 trojan_proxy 中参数再加上 # 加注释(URL_encode) # trojan Go https://p4gefau1t.github.io/trojan-go/developer/url/
@@ -549,7 +549,7 @@ class sub_convert():
                         trojan_go = '?allowInsecure=1'
                     if 'sni' in proxy.keys():
                         trojan_go = trojan_go+'&sni='+proxy['sni']
-                    trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + trojan_go + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
+                    trojan_proxy = str('\ntrojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port']) + trojan_go + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                     protocol_url.append(trojan_proxy)
                 
                 elif proxy['type'] == 'ssr': # ssr 节点提取, 由 ssr_base64_decoded 中所有参数总体 base64 encode
@@ -586,7 +586,7 @@ class sub_convert():
                                 protoparam = ''
                     """
 
-                    ssr_proxy = 'ssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':'+password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam+'\n')
+                    ssr_proxy = '\nssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':'+password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam+'\n')
                     protocol_url.append(ssr_proxy)
 
             yaml_content = ''.join(protocol_url)
