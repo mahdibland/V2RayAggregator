@@ -600,7 +600,7 @@ class sub_convert():
                     vmess_raw_proxy = json.dumps(
                         vmess_value, sort_keys=False, indent=2, ensure_ascii=False)
                     vmess_proxy = str(
-                        'vmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
+                        '\nvmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
                     protocol_url.append(vmess_proxy)
 
                 # SS 节点提取, 由 ss_base64_decoded 部分(参数: 'cipher', 'password', 'server', 'port') Base64 编码后 加 # 加注释(URL_encode)
@@ -608,7 +608,7 @@ class sub_convert():
                     ss_base64_decoded = str(proxy['cipher']) + ':' + str(
                         proxy['password']) + '@' + str(proxy['server']) + ':' + str(proxy['port'])
                     ss_base64 = sub_convert.base64_encode(ss_base64_decoded)
-                    ss_proxy = str('ss://' + ss_base64 + '#' +
+                    ss_proxy = str('\nss://' + ss_base64 + '#' +
                                    str(urllib.parse.quote(proxy['name'])) + '\n')
                     protocol_url.append(ss_proxy)
 
@@ -624,7 +624,7 @@ class sub_convert():
                         trojan_go = '?allowInsecure=1'
                     if 'sni' in proxy.keys():
                         trojan_go = trojan_go+'&sni='+proxy['sni']
-                    trojan_proxy = str('trojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(
+                    trojan_proxy = str('\ntrojan://' + str(proxy['password']) + '@' + str(proxy['server']) + ':' + str(
                         proxy['port']) + trojan_go + '#' + str(urllib.parse.quote(proxy['name'])) + '\n')
                     protocol_url.append(trojan_proxy)
 
@@ -666,11 +666,17 @@ class sub_convert():
                                 protoparam = ''
                     """
 
-                    ssr_proxy = 'ssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':' +
+                    ssr_proxy = '\nssr://'+sub_convert.base64_encode(server+':'+port+':'+protocol+':'+cipher+':'+obfs+':' +
                                                                    password+'/?group='+group+'&remarks='+remarks+'&obfsparam='+obfsparam+'&protoparam='+protoparam+'\n')
                     protocol_url.append(ssr_proxy)
 
             yaml_content = ''.join(protocol_url)
+            
+            # note added here
+            yaml_content = list(
+                filter(lambda x: x != '', yaml_content.split("\n")))
+            yaml_content = "\n".join(yaml_content)
+            
             return yaml_content
         except Exception as err:
             print(f'yaml decode 发生 {err} 错误')
