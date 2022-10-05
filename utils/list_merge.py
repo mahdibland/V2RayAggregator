@@ -204,7 +204,7 @@ class sub_merge():
 
 #         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
 #             'dup_rm_enabled': True, 'format_name_enabled': True})
-        content_yaml = sub_convert.makeup(content_raw, True, True)
+        content_yaml = sub_convert.makeup(content_raw, False, True)
 
         content_raw = sub_convert.yaml_decode(content_yaml)
 
