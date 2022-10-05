@@ -69,7 +69,7 @@ class sub_merge():
                     file.close()
                     print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
 
-            print('already gathered ' + str(''.join(content_list).split('\n')))
+            print('already gathered ' + str(''.join(content_list).split('\n').__len__()))
             print('\n')
             
           #######################################
