@@ -19,8 +19,7 @@ Although it is a node after speed test screening, some nodes may still be unavai
 
 - Log Visualizer on Netlify
 
-| <a href="https://unique-piroshki-48c7a2.netlify.app" target="_blank"><img src="https://i.ibb.co/g32RmJy/netlify.png" width="35"/></a> | 
-| ------------- |
+<a href="https://unique-piroshki-48c7a2.netlify.app" target="_blank"><img src="https://i.ibb.co/g32RmJy/netlify.png" width="35"/></a>
 
 
 
