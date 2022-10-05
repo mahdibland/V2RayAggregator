@@ -546,7 +546,7 @@ class sub_convert():
                         vmess_value['host'] = proxy_config['ws-opts']['headers']['Host']
                     if proxy_config['ws-opts']['path'] is not None and proxy_config['ws-opts']['path'] is not '':
                         vmess_value['path'] = proxy_config['ws-opts']['path']
-                    if proxy_config['tls'] is not None and proxy_config['tls'] is not '':
+                    if type(proxy_config['tls']) is bool:
                         vmess_value['tls'] = proxy_config['tls']
                     if proxy_config['sni'] is not None and proxy_config['sni'] is not '':
                         vmess_value['sni'] = proxy_config['sni']
