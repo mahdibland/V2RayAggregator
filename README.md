@@ -1,5 +1,7 @@
 # ShadowsocksAggregator
 
+[![sub_merge](https://github.com/mahdibland/ShadowsocksAggregator/actions/workflows/merge.yml/badge.svg)](https://github.com/mahdibland/ShadowsocksAggregator/actions/workflows/merge.yml) [![speedtest](https://github.com/mahdibland/ShadowsocksAggregator/actions/workflows/speedtest.yml/badge.svg)](https://github.com/mahdibland/ShadowsocksAggregator/actions/workflows/speedtest.yml)
+
 [Introduction](https://github.com/mahdibland/ShadowsocksAggregator#Introduction) | [Visualizer](https://github.com/mahdibland/ShadowsocksAggregator#Visualizer) | [Instructions](https://github.com/mahdibland/ShadowsocksAggregator#Instructions) | [Node Information](https://github.com/mahdibland/ShadowsocksAggregator#NodeInformation) | [Softwares](https://github.com/mahdibland/ShadowsocksAggregator#Softwares)
 
 ## Introduction
