@@ -524,13 +524,33 @@ class sub_convert():
                     yaml_default_config.update(proxy)
                     proxy_config = yaml_default_config
 
-                    vmess_value = {
-                        'v': 2, 'ps': proxy_config['name'], 'add': proxy_config['server'],
-                        'port': proxy_config['port'], 'id': proxy_config['uuid'], 'aid': proxy_config['alterId'],
-                        'scy': proxy_config['cipher'], 'net': proxy_config['network'], 'type': None, 'host': proxy_config['ws-opts']['headers']['Host'],
-                        'path': proxy_config['ws-opts']['path'], 'tls': proxy_config['tls'], 'sni': proxy_config['sni']
-                        }
-
+#                     vmess_value = {
+#                         'v': 2, 'ps': proxy_config['name'], 'add': proxy_config['server'],
+#                         'port': proxy_config['port'], 'id': proxy_config['uuid'], 'aid': proxy_config['alterId'],
+#                         'scy': proxy_config['cipher'], 'net': proxy_config['network'], 'type': None, 'host': proxy_config['ws-opts']['headers']['Host'],
+#                         'path': proxy_config['ws-opts']['path'], 'tls': proxy_config['tls'], 'sni': proxy_config['sni']
+#                         }
+                    
+                    vmess_value = {}
+                    # todo way 1
+                    vmess_value['v'] = 2
+                    vmess_value['ps'] = proxy_config['name']
+                    vmess_value['add'] = proxy_config['server']
+                    vmess_value['port'] = proxy_config['port']
+                    vmess_value['id'] = proxy_config['uuid']
+                    vmess_value['aid'] = proxy_config['alterId']
+                    vmess_value['scy'] = proxy_config['cipher']
+                    vmess_value['net'] = proxy_config['network']
+                    vmess_value['type'] = None
+                    if proxy_config['ws-opts']['headers']['Host'] is not None and proxy_config['ws-opts']['headers']['Host'] is not '':
+                        vmess_value['host'] = proxy_config['ws-opts']['headers']['Host']
+                    if proxy_config['ws-opts']['path'] is not None and proxy_config['ws-opts']['path'] is not '':
+                        vmess_value['path'] = proxy_config['ws-opts']['path']
+                    if proxy_config['tls'] is not None and proxy_config['tls'] is not '':
+                        vmess_value['tls'] = proxy_config['tls']
+                    if proxy_config['sni'] is not None and proxy_config['sni'] is not '':
+                        vmess_value['sni'] = proxy_config['sni']
+                        
                     vmess_raw_proxy = json.dumps(vmess_value, sort_keys=False, indent=2, ensure_ascii=False)
                     vmess_proxy = str('\nvmess://' + sub_convert.base64_encode(vmess_raw_proxy) + '\n')
                     protocol_url.append(vmess_proxy)
