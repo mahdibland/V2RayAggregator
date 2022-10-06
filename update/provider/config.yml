@@ -6,15 +6,23 @@ log-level: info
 external-controller: 127.0.0.1:9090
 dns:
   enabled: true
+  ipv6: false
   nameserver:
+    - 117.50.10.10
     - 119.29.29.29
+    - 114.114.114.114
     - 223.5.5.5
+    - 223.6.6.6
   fallback:
     - 8.8.8.8
     - 8.8.4.4
     - tls://1.0.0.1:853
     - tls://dns.google:853
-
+  Auto:
+    - tls://1.1.1.1:853
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
+    
 proxies:
 
 proxy-groups:
@@ -30,3 +38,9 @@ proxy-groups:
   - name: "Tier 4 🗿"
     type: select
     proxies:
+    
+rules:
+  - MATCH,Tier 4 🗿
+  - MATCH,Tier 3 💎
+  - MATCH,Tier 2 ⚡️
+  - MATCH,Tier 1 🚀
