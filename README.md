@@ -26,8 +26,8 @@ Although it is a node after speed test screening, some nodes may still be unavai
 ## Instructions
 Just import the following subscription link into the corresponding client. Most of the links are SS protocol nodes, and a small number of Vmess, Trojan, and SSR protocol nodes. It is recommended to choose a protocol to support a complete client.
 
-- [Multi-protocol Base64 encoding](https://private-github-solver-production.up.railway.app/get-url?url=https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity)
-- [Clash](https://private-github-solver-production.up.railway.app/get-url?url=https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml)
+- [Multi-protocol Base64 encoding](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity)
+- [Clash](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml)
 
 Mirror link：
 
@@ -250,7 +250,7 @@ high-speed node quantity: `200`
 
 ### all nodes
 merge nodes: `4599`
-[Node link](https://private-github-solver-production.up.railway.app/get-url?url=https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
+[Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `183`
