@@ -6,14 +6,24 @@ log-level: info
 external-controller: 127.0.0.1:9090
 dns:
   enabled: true
+  enhanced-mode: fake-ip
+  ipv6: false
   nameserver:
-  - 119.29.29.29
-  - 223.5.5.5
+    - 117.50.10.10
+    - 119.29.29.29
+    - 114.114.114.114
+    - 223.5.5.5
+    - 223.6.6.6
   fallback:
-  - 8.8.8.8
-  - 8.8.4.4
-  - tls://1.0.0.1:853
-  - tls://dns.google:853
+    - 8.8.8.8
+    - 8.8.4.4
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
+  Auto:
+    - tls://1.1.1.1:853
+    - tls://1.0.0.1:853
+    - tls://dns.google:853
+    
 proxies:
 - name: 🇺🇸US-45.56.84.120-000 | 104.137MB
   server: vus2.0bad.com
@@ -1995,3 +2005,9 @@ proxy-groups:
   - 🇨🇦CA-51.161.118.38-197 | 7.155MB
   - 🇺🇸US-5.183.100.87-198 | 4.525MB
   - 🇮🇩ID-41.216.177.41-199 | 6.473MB
+  
+rules:
+  - MATCH,Tier 4 🗿
+  - MATCH,Tier 3 💎
+  - MATCH,Tier 2 ⚡️
+  - MATCH,Tier 1 🚀
