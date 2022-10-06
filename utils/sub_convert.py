@@ -368,6 +368,7 @@ class sub_convert():
 
     # 将 URL 内容转换为 YAML 文本, output 为 False 时输出节点配置字典
     # 将 URL 内容转换为 YAML 文本, output 为 False 时输出节点配置字典
+    # to yaml
     def yaml_encode(url_content, output=True):
         url_list = []
 
@@ -408,9 +409,9 @@ class sub_convert():
                         else:
                             yaml_url.setdefault('network', vmess_config['net'])
                         if vmess_config['tls'] == 'tls' or vmess_config['net'] == 'h2' or vmess_config['net'] == 'grpc':
-                            yaml_url.setdefault('tls', 'tls')
-                        elif vmess_config['tls'] == '':
-                            yaml_url.setdefault('tls', '')
+                            yaml_url.setdefault('tls', True)
+                        # elif vmess_config['tls'] == '':
+                        #     yaml_url.setdefault('tls', False)
                         # else:
                         #     yaml_url.setdefault('tls', 'tls')
 
@@ -563,6 +564,7 @@ class sub_convert():
             url_content.encode('utf-8')).decode('ascii')
         return base64_content
 
+    # to url
     def yaml_decode(url_content):  # YAML 文本转换为 URL 链接内容
         try:
             if isinstance(url_content, dict):
@@ -591,8 +593,14 @@ class sub_convert():
                     vmess_value = {
                         'v': 2, 'ps': proxy_config['name'], 'add': proxy_config['server'],
                         'port': proxy_config['port'], 'id': proxy_config['uuid'], 'aid': proxy_config['alterId'],
-                        'scy': proxy_config['cipher'], 'net': proxy_config['network'], 'type': None, 'tls': proxy_config['tls'], 'sni': proxy_config['sni']
+                        'scy': proxy_config['cipher'], 'net': proxy_config['network'], 'type': None, 'sni': proxy_config['sni']
                     }
+
+                    if 'tls' in proxy:
+                        if proxy['tls'] == 'true' or proxy['tls'] == True:
+                            vmess_value['tls'] = 'tls'
+                        # else:
+                        #     vmess_value['tls'] = ''
 
                     if 'ws-opts' in proxy:
                         if proxy['ws-opts'] != None and proxy['ws-opts'] != {} and proxy['ws-opts'] != '':
@@ -758,7 +766,7 @@ class sub_convert():
 
 
 if __name__ == '__main__':
-    subscribe = 'https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt'
+    subscribe = 'https://cdn.jsdelivr.net/gh/mahdibland/ShadowsocksAggregator@master/sub/sub_merge.txt'
     output_path = './output.txt'
 
     content = sub_convert.main(subscribe, 'url', 'YAML')
