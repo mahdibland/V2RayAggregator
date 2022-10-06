@@ -17,24 +17,6 @@ external-controller: 127.0.0.1:9090
 
 proxies:
 
-proxy-groups:
-  - name: cn
-    type: load-balance
-    use:
-      - all
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
-
-proxy-providers:
-  all:
-    type: http
-    url: "https://sspool.herokuapp.com/clash/proxies?c=CN"
-    path: sspool.herokuapp.com/provider-cn.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-
 rules:
   - DOMAIN-SUFFIX,smtp,DIRECT
   - MATCH,cn
