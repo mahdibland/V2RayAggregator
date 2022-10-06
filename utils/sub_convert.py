@@ -118,6 +118,10 @@ class sub_convert():
 
             elif 'proxies:' in sub_content:  # 对 Clash 内容进行格式化处理
                 try:
+                    # fix clash servers from https://github.com/kxswa/k
+                    if '!<str> ' in sub_content:
+                        sub_content = sub_content.replace('!<str> ', '')
+
                     try_load = yaml.safe_load(sub_content)
                     if output:
                         raise ValueError
