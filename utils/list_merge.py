@@ -248,9 +248,10 @@ class sub_merge():
         # content_raw = sub_convert.yaml_decode(final_content)
 
         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
-            'dup_rm_enabled': True, 'format_name_enabled': True})
+            'dup_rm_enabled': False, 'format_name_enabled': True})
 
-        content_raw = sub_convert.yaml_decode(content_yaml)
+        # todo removed dup
+#         content_raw = sub_convert.yaml_decode(content_yaml)
 
         ## note removed here
         # content_raw = list(
