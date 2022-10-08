@@ -85,28 +85,32 @@ class sub_convert():
 
                     for url in raw_url_list:
                         while len(re.split('ss://|ssr://|vmess://|trojan://|vless://', url)) > 2:
-                            url_to_split = url[8:]
-                            if 'ss://' in url_to_split and 'vmess://' not in url_to_split and 'vless://' not in url_to_split:
-                                # https://www.runoob.com/python/att-string-replace.html
-                                url_splited = url_to_split.replace(
-                                    'ss://', '\nss://', 1)
-                            elif 'ssr://' in url_to_split:
-                                url_splited = url_to_split.replace(
-                                    'ssr://', '\nssr://', 1)
-                            elif 'vmess://' in url_to_split:
-                                url_splited = url_to_split.replace(
-                                    'vmess://', '\nvmess://', 1)
-                            elif 'trojan://' in url_to_split:
-                                url_splited = url_to_split.replace(
-                                    'trojan://', '\ntrojan://', 1)
-                            elif 'vless://' in url_to_split:
-                                url_splited = url_to_split.replace(
-                                    'vless://', '\nvless://', 1)
-                            url_split = url_splited.split('\n')
+                            try:
+                                url_to_split = url[8:]
+                                if 'ss://' in url_to_split and 'vmess://' not in url_to_split and 'vless://' not in url_to_split:
+                                    # https://www.runoob.com/python/att-string-replace.html
+                                    url_splited = url_to_split.replace(
+                                        'ss://', '\nss://', 1)
+                                elif 'ssr://' in url_to_split:
+                                    url_splited = url_to_split.replace(
+                                        'ssr://', '\nssr://', 1)
+                                elif 'vmess://' in url_to_split:
+                                    url_splited = url_to_split.replace(
+                                        'vmess://', '\nvmess://', 1)
+                                elif 'trojan://' in url_to_split:
+                                    url_splited = url_to_split.replace(
+                                        'trojan://', '\ntrojan://', 1)
+                                elif 'vless://' in url_to_split:
+                                    url_splited = url_to_split.replace(
+                                        'vless://', '\nvless://', 1)
+                                url_split = url_splited.split('\n')
 
-                            front_url = url[:8] + url_split[0]
-                            url_list.append(front_url)
-                            url = url_split[1]
+                                front_url = url[:8] + url_split[0]
+                                url_list.append(front_url)
+                                url = url_split[1]
+                            except Exception as e:
+                                print(
+                                    f"failed to fix one line in formatting line: {url}")
 
                         url_list.append(url)
 
