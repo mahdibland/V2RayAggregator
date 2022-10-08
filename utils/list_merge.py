@@ -261,7 +261,11 @@ class sub_merge():
 #         print("now is " + str(content_list.__len__()))
         content_list = list(filter(lambda x: x.startswith("ssr://") or x.startswith("ss://")
                                    or x.startswith("trojan://") or x.startswith("vmess://"), content_list))
+    
+        content_list = list(filter(lambda x: x.__contains__("订阅内容解析错误") == False, content_list))
         content_raw = "\n".join(content_list)
+        
+        print(f"it's fine till here with {content_list.__len__()} lines")
 
         # content_yaml = sub_convert.main(content_raw, 'content', 'content', {
         #                                 'dup_rm_enabled': True, 'format_name_enabled': True})
@@ -271,9 +275,15 @@ class sub_merge():
 
         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
             'dup_rm_enabled': True, 'format_name_enabled': True})
+        
+        print('content after parsing')
+        print(content_yaml)
 
         # todo removed dup
         content_raw = sub_convert.yaml_decode(content_yaml)
+        
+        print('decoded content')
+        print(content_raw)
 
         ## note removed here
         # content_raw = list(
