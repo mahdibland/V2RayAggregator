@@ -240,9 +240,9 @@ class sub_merge():
         content_list = list(
             filter(lambda x: x != '', ''.join(content_list).split("\n")))
         # dup remove by string content
-        print("it was " + str(content_list.__len__()))
-        content_list = list(set(content_list))
-        print("now is " + str(content_list.__len__()))
+#         print("it was " + str(content_list.__len__()))
+#         content_list = list(set(content_list))
+#         print("now is " + str(content_list.__len__()))
         content_raw = "\n".join(content_list)
 
         # content_yaml = sub_convert.main(content_raw, 'content', 'content', {
