@@ -264,7 +264,7 @@ merge nodes: `0`
 - [oslook/clash-freenode](https://github.com/oslook/clash-freenode), number of nodes: `42`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `61`
 - [Leon406/SubCrawler](https://github.com/Leon406/SubCrawler), number of nodes: `7966`
-- [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `84`
+- [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `94`
 - [mahdibland/ShadowsocksAggregator](https://github.com/mahdibland/ShadowsocksAggregator), number of nodes: `200`
 - [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), number of nodes: `39`
 - [DoveBoy/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), number of nodes: `200`
@@ -272,7 +272,7 @@ merge nodes: `0`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `26`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `18`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
-- [GreenFishStudio/GreenFish](https://github.com/GreenFishStudio/GreenFish), number of nodes: `42`
+- [GreenFishStudio/GreenFish](https://github.com/GreenFishStudio/GreenFish), number of nodes: `47`
 - [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `168`
 - [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), number of nodes: `170`
 - [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), number of nodes: `31`
@@ -283,13 +283,13 @@ merge nodes: `0`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `95`
 - [vveg26/SubAutoConv](https://github.com/vveg26/SubAutoConv), number of nodes: `131`
 - [clash.221207.xyz/pubclashyaml](https://clash.221207.xyz/pubclashyaml), number of nodes: `146`
-- [proxypool.toshiki.top/clash](https://proxypool.toshiki.top/clash/proxies), number of nodes: `846`
+- [proxypool.toshiki.top/clash](https://proxypool.toshiki.top/clash/proxies), number of nodes: `649`
 - [tbbatbb/Proxy](https://github.com/tbbatbb/Proxy), number of nodes: `551`
 - [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `1252`
 - [paimonhub/Paimonnode](https://github.com/paimonhub/Paimonnode), number of nodes: `17`
 - [openRunner/clash-freenode](https://github.com/openRunner/clash-freenode), number of nodes: `42`
 - [huanongkejizhijia/clashnode](https://github.com/huanongkejizhijia/clashnode), number of nodes: `39`
-- [free886.herokuapp.com/clash](https://free886.herokuapp.com/clash/proxies), number of nodes: `34`
+- [free886.herokuapp.com/clash](https://free886.herokuapp.com/clash/proxies), number of nodes: `33`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `152`
 - [yaney01/Yaney01](https://github.com/yaney01/Yaney01), number of nodes: `50`
 - [YasserDivaR/pr0xy](https://github.com/YasserDivaR/pr0xy), number of nodes: `1492`
