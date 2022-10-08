@@ -117,6 +117,7 @@ class sub_convert():
                     url_content = '\n'.join(url_list)
                     return sub_convert.yaml_encode(url_content, output=False)
                 except:
+                    print(sub_content)
                     print('Sub_content 格式错误')
                     return '订阅内容解析错误'
 
@@ -124,7 +125,8 @@ class sub_convert():
                 try:
                     # fix clash servers from https://github.com/kxswa/k
                     if '!<str> ' in sub_content:
-                        sub_content = sub_content.replace('!<str> ', '')
+                        sub_content = sub_content.replace(
+                            '!<str> ', '').replace('!<str>', '')
 
                     try_load = yaml.safe_load(sub_content)
                     if output:
@@ -200,6 +202,7 @@ class sub_convert():
                             content_yaml_dic = yaml.safe_load(sub_content)
                             return content_yaml_dic  # 返回字典, output 值为 True 时返回修饰过的 YAML 文本
                     except:
+                        print(sub_content)
                         print('Sub_content 格式错误')
                         return '订阅内容解析错误'
             else:
@@ -624,6 +627,8 @@ class sub_convert():
                 sub_content = url_content
             else:
                 sub_content = sub_convert.format(url_content)
+
+            print("Formatting Completed!")
             proxies_list = sub_content['proxies']
 
             protocol_url = []
