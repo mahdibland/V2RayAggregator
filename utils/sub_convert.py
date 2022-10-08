@@ -401,192 +401,214 @@ class sub_convert():
     # 将 URL 内容转换为 YAML 文本, output 为 False 时输出节点配置字典
     # to yaml
     def yaml_encode(url_content, output=True):
-        url_list = []
+        try:
+            url_list = []
 
-        lines = re.split(r'\n+', url_content)
+            lines = re.split(r'\n+', url_content)
 
-        for line in lines:
-            yaml_url = {}
-            if 'vmess://' in line:
+            for line in lines:
                 try:
-                    vmess_json_config = json.loads(
-                        sub_convert.base64_decode(line.replace('vmess://', '')))
-                    vmess_default_config = {
-                        'v': 'Vmess Node', 'ps': 'Vmess Node', 'add': '0.0.0.0', 'port': 0, 'id': '',
-                        'aid': 0, 'scy': 'auto', 'net': '', 'type': '', 'host': '', 'path': '/', 'tls': ''
-                    }
-                    vmess_default_config.update(vmess_json_config)
-                    vmess_config = vmess_default_config
-
                     yaml_url = {}
-                    #yaml_config_str = ['name', 'server', 'port', 'type', 'uuid', 'alterId', 'cipher', 'tls', 'skip-cert-verify', 'network', 'ws-path', 'ws-headers']
-                    #vmess_config_str = ['ps', 'add', 'port', 'id', 'aid', 'scy', 'tls', 'net', 'host', 'path']
-                    # 生成 yaml 节点字典
-                    if vmess_config['id'] == '' or vmess_config['id'] is None:
-                        print('节点格式错误')
-                    else:
-                        yaml_url.setdefault(
-                            'name', urllib.parse.unquote(str(vmess_config['ps'])))
-                        yaml_url.setdefault('server', vmess_config['add'])
-                        yaml_url.setdefault('port', int(vmess_config['port']))
-                        yaml_url.setdefault('type', 'vmess')
-                        yaml_url.setdefault('uuid', vmess_config['id'])
-                        yaml_url.setdefault(
-                            'alterId', int(vmess_config['aid']))
-                        yaml_url.setdefault('cipher', vmess_config['scy'])
-                        yaml_url.setdefault('skip-cert-verify', True)
-                        if vmess_config['net'] == '' or vmess_config['net'] is False or vmess_config['net'] is None:
-                            yaml_url.setdefault('network', 'tcp')
-                        else:
-                            yaml_url.setdefault('network', vmess_config['net'])
-                        if vmess_config['tls'] == 'tls' or vmess_config['net'] == 'h2' or vmess_config['net'] == 'grpc':
-                            yaml_url.setdefault('tls', True)
-                        # elif vmess_config['tls'] == '':
-                        #     yaml_url.setdefault('tls', False)
-                        # else:
-                        #     yaml_url.setdefault('tls', 'tls')
+                    if 'vmess://' in line:
+                        try:
+                            vmess_json_config = json.loads(
+                                sub_convert.base64_decode(line.replace('vmess://', '')))
+                            vmess_default_config = {
+                                'v': 'Vmess Node', 'ps': 'Vmess Node', 'add': '0.0.0.0', 'port': 0, 'id': '',
+                                'aid': 0, 'scy': 'auto', 'net': '', 'type': '', 'host': '', 'path': '/', 'tls': ''
+                            }
+                            vmess_default_config.update(vmess_json_config)
+                            vmess_config = vmess_default_config
 
-                        yaml_url.setdefault('ws-opts', {})
-                        if vmess_config['path'] == '' or vmess_config['path'] is False or vmess_config['path'] is None:
-                            # yaml_url['ws-opts'].setdefault('path', '/')
+                            yaml_url = {}
+                            #yaml_config_str = ['name', 'server', 'port', 'type', 'uuid', 'alterId', 'cipher', 'tls', 'skip-cert-verify', 'network', 'ws-path', 'ws-headers']
+                            #vmess_config_str = ['ps', 'add', 'port', 'id', 'aid', 'scy', 'tls', 'net', 'host', 'path']
+                            # 生成 yaml 节点字典
+                            if vmess_config['id'] == '' or vmess_config['id'] is None:
+                                print('节点格式错误')
+                            else:
+                                yaml_url.setdefault(
+                                    'name', urllib.parse.unquote(str(vmess_config['ps'])))
+                                yaml_url.setdefault(
+                                    'server', vmess_config['add'])
+                                yaml_url.setdefault(
+                                    'port', int(vmess_config['port']))
+                                yaml_url.setdefault('type', 'vmess')
+                                yaml_url.setdefault('uuid', vmess_config['id'])
+                                yaml_url.setdefault(
+                                    'alterId', int(vmess_config['aid']))
+                                yaml_url.setdefault(
+                                    'cipher', vmess_config['scy'])
+                                yaml_url.setdefault('skip-cert-verify', True)
+                                if vmess_config['net'] == '' or vmess_config['net'] is False or vmess_config['net'] is None:
+                                    yaml_url.setdefault('network', 'tcp')
+                                else:
+                                    yaml_url.setdefault(
+                                        'network', vmess_config['net'])
+                                if vmess_config['tls'] == 'tls' or vmess_config['net'] == 'h2' or vmess_config['net'] == 'grpc':
+                                    yaml_url.setdefault('tls', True)
+                                # elif vmess_config['tls'] == '':
+                                #     yaml_url.setdefault('tls', False)
+                                # else:
+                                #     yaml_url.setdefault('tls', 'tls')
+
+                                yaml_url.setdefault('ws-opts', {})
+                                if vmess_config['path'] == '' or vmess_config['path'] is False or vmess_config['path'] is None:
+                                    # yaml_url['ws-opts'].setdefault('path', '/')
+                                    pass
+                                else:
+                                    yaml_url['ws-opts'].setdefault(
+                                        'path', vmess_config['path'])
+                                if vmess_config['host'] == '':
+                                    pass
+                                    # yaml_url['ws-opts'].setdefault(
+                                    #     'headers', {'Host': vmess_config['add']})
+                                else:
+                                    yaml_url['ws-opts'].setdefault(
+                                        'headers', {'Host': vmess_config['host']})
+
+                                url_list.append(yaml_url)
+                        except Exception as err:
+                            print(f'yaml_encode 解析 vmess 节点发生错误: {err}')
                             pass
-                        else:
-                            yaml_url['ws-opts'].setdefault(
-                                'path', vmess_config['path'])
-                        if vmess_config['host'] == '':
+
+                    if 'ss://' in line and 'vless://' not in line and 'vmess://' not in line:
+                        if '#' not in line:
+                            line = line + '#SS%20Node'
+                        try:
+                            ss_content = line.replace('ss://', '')
+                            # https://www.runoob.com/python/att-string-split.html
+                            part_list = ss_content.split('#', 1)
+                            yaml_url.setdefault(
+                                'name', urllib.parse.unquote(part_list[1]))
+                            if '@' in part_list[0]:
+                                mix_part = part_list[0].split('@', 1)
+                                method_part = sub_convert.base64_decode(
+                                    mix_part[0])
+                                server_part = f'{method_part}@{mix_part[1]}'
+                            else:
+                                server_part = sub_convert.base64_decode(
+                                    part_list[0])
+
+                            # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
+                            server_part_list = server_part.split(':', 1)
+                            method_part = server_part_list[0]
+                            server_part_list = server_part_list[1].rsplit(
+                                '@', 1)
+                            password_part = server_part_list[0]
+                            server_part_list = server_part_list[1].split(
+                                ':', 1)
+
+                            yaml_url.setdefault('server', server_part_list[0])
+                            yaml_url.setdefault('port', server_part_list[1])
+                            yaml_url.setdefault('type', 'ss')
+                            yaml_url.setdefault('cipher', method_part)
+                            yaml_url.setdefault('password', password_part)
+
+                            url_list.append(yaml_url)
+                        except Exception as err:
+                            print(f'yaml_encode 解析 ss 节点发生错误: {err}')
                             pass
-                            # yaml_url['ws-opts'].setdefault(
-                            #     'headers', {'Host': vmess_config['add']})
-                        else:
-                            yaml_url['ws-opts'].setdefault(
-                                'headers', {'Host': vmess_config['host']})
 
-                        url_list.append(yaml_url)
-                except Exception as err:
-                    print(f'yaml_encode 解析 vmess 节点发生错误: {err}')
-                    pass
+                    if 'ssr://' in line:
+                        try:
+                            ssr_content = sub_convert.base64_decode(
+                                line.replace('ssr://', ''))
 
-            if 'ss://' in line and 'vless://' not in line and 'vmess://' not in line:
-                if '#' not in line:
-                    line = line + '#SS%20Node'
-                try:
-                    ss_content = line.replace('ss://', '')
-                    # https://www.runoob.com/python/att-string-split.html
-                    part_list = ss_content.split('#', 1)
-                    yaml_url.setdefault(
-                        'name', urllib.parse.unquote(part_list[1]))
-                    if '@' in part_list[0]:
-                        mix_part = part_list[0].split('@', 1)
-                        method_part = sub_convert.base64_decode(mix_part[0])
-                        server_part = f'{method_part}@{mix_part[1]}'
-                    else:
-                        server_part = sub_convert.base64_decode(part_list[0])
+                            parts = re.split(':', ssr_content)
+                            if len(parts) != 6:
+                                print('SSR 格式错误: %s' % ssr_content)
+                            password_and_params = parts[5]
+                            password_and_params = re.split(
+                                '/\?', password_and_params)
+                            password_encode_str = password_and_params[0]
+                            params = password_and_params[1]
 
-                    # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
-                    server_part_list = server_part.split(':', 1)
-                    method_part = server_part_list[0]
-                    server_part_list = server_part_list[1].rsplit('@', 1)
-                    password_part = server_part_list[0]
-                    server_part_list = server_part_list[1].split(':', 1)
+                            param_parts = re.split('\&', params)
+                            param_dic = {'remarks': 'U1NSIE5vZGU=',
+                                         'obfsparam': '', 'protoparam': '', 'group': ''}
+                            for part in param_parts:
+                                key_and_value = re.split('\=', part)
+                                param_dic.update(
+                                    {key_and_value[0]: key_and_value[1]})
+                            yaml_url.setdefault(
+                                'name', sub_convert.base64_decode(param_dic['remarks']))
+                            yaml_url.setdefault('server', parts[0])
+                            yaml_url.setdefault('port', parts[1])
+                            yaml_url.setdefault('type', 'ssr')
+                            yaml_url.setdefault('cipher', parts[3])
+                            yaml_url.setdefault(
+                                'password', sub_convert.base64_decode(password_encode_str))
+                            yaml_url.setdefault('obfs', parts[4])
+                            yaml_url.setdefault('protocol', parts[2])
+                            yaml_url.setdefault(
+                                'obfsparam', sub_convert.base64_decode(param_dic['obfsparam']))
+                            yaml_url.setdefault(
+                                'protoparam', sub_convert.base64_decode(param_dic['protoparam']))
+                            yaml_url.setdefault(
+                                'group', sub_convert.base64_decode(param_dic['group']))
 
-                    yaml_url.setdefault('server', server_part_list[0])
-                    yaml_url.setdefault('port', server_part_list[1])
-                    yaml_url.setdefault('type', 'ss')
-                    yaml_url.setdefault('cipher', method_part)
-                    yaml_url.setdefault('password', password_part)
+                            url_list.append(yaml_url)
+                        except Exception as err:
+                            print(f'yaml_encode 解析 ssr 节点发生错误: {err}')
+                            pass
 
-                    url_list.append(yaml_url)
-                except Exception as err:
-                    print(f'yaml_encode 解析 ss 节点发生错误: {err}')
-                    pass
+                    if 'trojan://' in line:
+                        try:
+                            url_content = line.replace('trojan://', '')
+                            # https://www.runoob.com/python/att-string-split.html
+                            part_list = re.split('#', url_content, maxsplit=1)
+                            yaml_url.setdefault(
+                                'name', urllib.parse.unquote(part_list[1]))
 
-            if 'ssr://' in line:
-                try:
-                    ssr_content = sub_convert.base64_decode(
-                        line.replace('ssr://', ''))
+                            server_part = part_list[0].replace('trojan://', '')
+                            # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
+                            server_part_list = re.split(
+                                ':|@|\?|&', server_part)
+                            yaml_url.setdefault('server', server_part_list[1])
+                            yaml_url.setdefault('port', server_part_list[2])
+                            yaml_url.setdefault('type', 'trojan')
+                            yaml_url.setdefault(
+                                'password', server_part_list[0])
+                            server_part_list = server_part_list[3:]
 
-                    parts = re.split(':', ssr_content)
-                    if len(parts) != 6:
-                        print('SSR 格式错误: %s' % ssr_content)
-                    password_and_params = parts[5]
-                    password_and_params = re.split('/\?', password_and_params)
-                    password_encode_str = password_and_params[0]
-                    params = password_and_params[1]
+                            for config in server_part_list:
+                                if 'sni=' in config:
+                                    yaml_url.setdefault('sni', config[4:])
+                                elif 'allowInsecure=' in config or 'tls=' in config:
+                                    if config[-1] == 0:
+                                        yaml_url.setdefault('tls', False)
+                                elif 'type=' in config:
+                                    if config[5:] != 'tcp':
+                                        yaml_url.setdefault(
+                                            'network', config[5:])
+                                elif 'path=' in config:
+                                    yaml_url.setdefault('ws-path', config[5:])
+                                elif 'security=' in config:
+                                    if config[9:] != 'tls':
+                                        yaml_url.setdefault('tls', False)
 
-                    param_parts = re.split('\&', params)
-                    param_dic = {'remarks': 'U1NSIE5vZGU=',
-                                 'obfsparam': '', 'protoparam': '', 'group': ''}
-                    for part in param_parts:
-                        key_and_value = re.split('\=', part)
-                        param_dic.update({key_and_value[0]: key_and_value[1]})
-                    yaml_url.setdefault(
-                        'name', sub_convert.base64_decode(param_dic['remarks']))
-                    yaml_url.setdefault('server', parts[0])
-                    yaml_url.setdefault('port', parts[1])
-                    yaml_url.setdefault('type', 'ssr')
-                    yaml_url.setdefault('cipher', parts[3])
-                    yaml_url.setdefault(
-                        'password', sub_convert.base64_decode(password_encode_str))
-                    yaml_url.setdefault('obfs', parts[4])
-                    yaml_url.setdefault('protocol', parts[2])
-                    yaml_url.setdefault(
-                        'obfsparam', sub_convert.base64_decode(param_dic['obfsparam']))
-                    yaml_url.setdefault(
-                        'protoparam', sub_convert.base64_decode(param_dic['protoparam']))
-                    yaml_url.setdefault(
-                        'group', sub_convert.base64_decode(param_dic['group']))
+                            yaml_url.setdefault('skip-cert-verify', True)
 
-                    url_list.append(yaml_url)
-                except Exception as err:
-                    print(f'yaml_encode 解析 ssr 节点发生错误: {err}')
-                    pass
+                            url_list.append(yaml_url)
+                        except Exception as err:
+                            print(f'yaml_encode 解析 trojan 节点发生错误: {err}')
+                            pass
 
-            if 'trojan://' in line:
-                try:
-                    url_content = line.replace('trojan://', '')
-                    # https://www.runoob.com/python/att-string-split.html
-                    part_list = re.split('#', url_content, maxsplit=1)
-                    yaml_url.setdefault(
-                        'name', urllib.parse.unquote(part_list[1]))
+                except Exception as e:
+                    print(
+                        f'failed to proccess yaml encoding the raw line: {line} & error: {e}')
 
-                    server_part = part_list[0].replace('trojan://', '')
-                    # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
-                    server_part_list = re.split(':|@|\?|&', server_part)
-                    yaml_url.setdefault('server', server_part_list[1])
-                    yaml_url.setdefault('port', server_part_list[2])
-                    yaml_url.setdefault('type', 'trojan')
-                    yaml_url.setdefault('password', server_part_list[0])
-                    server_part_list = server_part_list[3:]
+            yaml_content_dic = {'proxies': url_list}
+            if output:
+                yaml_content = yaml.dump(yaml_content_dic, default_flow_style=False,
+                                         sort_keys=False, allow_unicode=True, width=750, indent=2)
+            else:
+                yaml_content = yaml_content_dic
+            return yaml_content
 
-                    for config in server_part_list:
-                        if 'sni=' in config:
-                            yaml_url.setdefault('sni', config[4:])
-                        elif 'allowInsecure=' in config or 'tls=' in config:
-                            if config[-1] == 0:
-                                yaml_url.setdefault('tls', False)
-                        elif 'type=' in config:
-                            if config[5:] != 'tcp':
-                                yaml_url.setdefault('network', config[5:])
-                        elif 'path=' in config:
-                            yaml_url.setdefault('ws-path', config[5:])
-                        elif 'security=' in config:
-                            if config[9:] != 'tls':
-                                yaml_url.setdefault('tls', False)
-
-                    yaml_url.setdefault('skip-cert-verify', True)
-
-                    url_list.append(yaml_url)
-                except Exception as err:
-                    print(f'yaml_encode 解析 trojan 节点发生错误: {err}')
-                    pass
-
-        yaml_content_dic = {'proxies': url_list}
-        if output:
-            yaml_content = yaml.dump(yaml_content_dic, default_flow_style=False,
-                                     sort_keys=False, allow_unicode=True, width=750, indent=2)
-        else:
-            yaml_content = yaml_content_dic
-        return yaml_content
+        except Exception as err:
+            print(f'yaml encode error: {err}')
 
     def base64_encode(url_content):  # 将 URL 内容转换为 Base64
         if url_content == None:
