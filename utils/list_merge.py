@@ -259,6 +259,8 @@ class sub_merge():
 #         print("it was " + str(content_list.__len__()))
 #         content_list = list(set(content_list))
 #         print("now is " + str(content_list.__len__()))
+        content_list = list(filter(lambda x: x.startswith("ssr://") or x.startswith("ss://")
+                                   or x.startswith("trojan://") or x.startswith("vmess://"), content_list))
         content_raw = "\n".join(content_list)
 
         # content_yaml = sub_convert.main(content_raw, 'content', 'content', {
