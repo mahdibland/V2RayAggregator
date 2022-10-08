@@ -18,6 +18,12 @@ sub_list_json = './sub/sub_list.json'
 sub_merge_path = './sub/'
 sub_list_path = './sub/list/'
 
+def add_valid(line):
+    if (line.__contains__("ssr://") or line.__contains__("ss://")
+            or line.__contains__("trojan://") or line.__contains__("vmess://")):
+        return line
+    return ''
+
 class sub_merge():
     def sub_merge(url_list): # 将转换后的所有 Url 链接内容合并转换 YAML or Base64, ，并输出文件，输入订阅列表。
 
@@ -40,7 +46,10 @@ class sub_merge():
                     if content == 'Url 解析错误':
                         content = sub_convert.main(each_url, 'url', 'url')
                         if content != 'Url 解析错误':
-                            content_list.append(content)
+                            if add_valid(content) != '':
+                                content_list.append(content)
+                            else:
+                                print(f'this url failed{each_url}')
                             print(
                                 f'Writing content of {remarks} to {ids:0>2d}.txt\n')
                         else:
@@ -58,7 +67,10 @@ class sub_merge():
                         print(
                             f'Writing error of {remarks} to {ids:0>2d}.txt\n')
                     elif content != None:
-                        content_list.append(content)
+                        if add_valid(content) != '':
+                            content_list.append(content)
+                        else:
+                            print(f'this url failed{each_url}')
                         file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                     'a+', encoding='utf-8')
                         file.write(content)
@@ -84,7 +96,11 @@ class sub_merge():
                 if content == 'Url 解析错误':
                     content = sub_convert.main(each_url, 'url', 'url')
                     if content != 'Url 解析错误':
-                        content_list.append(content)
+                        if add_valid(content) != '':
+                            content_list.append(content)
+                        else:
+                            print(f'this url failed{each_url}')
+                            
                         print(
                             f'Writing content of {remarks} to {ids:0>2d}.txt\n')
                     else:
