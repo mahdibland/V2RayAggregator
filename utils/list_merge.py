@@ -281,6 +281,7 @@ class sub_merge():
         
         yaml_proxies = content_yaml.split('\n')[1:]
         temp = list(filter(lambda x: re.search(ipv6, x) == None or re.search(ipv4, x) != None, yaml_proxies))
+        temp = list(filter(lambda x: re.search("path: /(.*?)\?(.*?)=(.*?)}", x) == None, temp))
         print(f"found {yaml_proxies.__len__() - temp.__len__()} bad lines :)")
         content_yaml = "\n".join(temp)
         if content_yaml[-1:] == '\n':
