@@ -18,6 +18,9 @@ sub_list_json = './sub/sub_list.json'
 sub_merge_path = './sub/'
 sub_list_path = './sub/list/'
 
+ipv4 = r"([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
+ipv6 = r'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'
+
 def add_valid(line):
     if (line.__contains__("ssr://") or line.__contains__("ss://")
             or line.__contains__("trojan://") or line.__contains__("vmess://")):
@@ -276,14 +279,19 @@ class sub_merge():
         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
             'dup_rm_enabled': True, 'format_name_enabled': True})
         
-        print('content after parsing')
-        print(content_yaml)
+        yaml_proxies = content_yaml.split('\n')[1:]
+        temp = list(filter(lambda x: re.search(ipv6, x) == None or re.search(ipv4, x) != None, yaml_proxies))
+        print(f"found {yaml_proxies.__len__() - temp.__len__()} bad lines :)")
+        content_yaml = "\n".join(temp)
+        if content_yaml[-1:] == '\n':
+            content_yaml[-1:] = ''
+        content_yaml = 'proxies:\n' + content_yaml
 
         # todo removed dup
         content_raw = sub_convert.yaml_decode(content_yaml)
         
-        print('decoded content')
-        print(content_raw)
+#         print('decoded content')
+#         print(content_raw)
 
         ## note removed here
         # content_raw = list(
