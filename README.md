@@ -277,7 +277,7 @@ merge nodes: `5561`
 - [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), number of nodes: `606`
 - [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), number of nodes: `20`
 - [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `31`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `30`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `19`
 - [kxswa/k](https://github.com/kxswa/k), number of nodes: `169`
 - [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `253`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `99`
@@ -289,7 +289,7 @@ merge nodes: `5561`
 - [paimonhub/Paimonnode](https://github.com/paimonhub/Paimonnode), number of nodes: `17`
 - [openRunner/clash-freenode](https://github.com/openRunner/clash-freenode), number of nodes: `42`
 - [huanongkejizhijia/clashnode](https://github.com/huanongkejizhijia/clashnode), number of nodes: `39`
-- [free886.herokuapp.com/clash](https://free886.herokuapp.com/clash/proxies), number of nodes: `28`
+- [free886.herokuapp.com/clash](https://free886.herokuapp.com/clash/proxies), number of nodes: `29`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `152`
 - [yaney01/Yaney01](https://github.com/yaney01/Yaney01), number of nodes: `50`
 - [YasserDivaR/pr0xy](https://github.com/YasserDivaR/pr0xy), number of nodes: `1492`
