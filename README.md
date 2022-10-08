@@ -272,14 +272,14 @@ merge nodes: `0`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `26`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `18`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
-- [GreenFishStudio/GreenFish](https://github.com/GreenFishStudio/GreenFish), number of nodes: `43`
+- [GreenFishStudio/GreenFish](https://github.com/GreenFishStudio/GreenFish), number of nodes: `42`
 - [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `168`
 - [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), number of nodes: `170`
 - [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), number of nodes: `31`
 - [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `42`
 - [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `30`
 - [kxswa/k](https://github.com/kxswa/k), number of nodes: `282`
-- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `253`
+- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `265`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `95`
 - [vveg26/SubAutoConv](https://github.com/vveg26/SubAutoConv), number of nodes: `131`
 - [clash.221207.xyz/pubclashyaml](https://clash.221207.xyz/pubclashyaml), number of nodes: `146`
@@ -289,12 +289,12 @@ merge nodes: `0`
 - [paimonhub/Paimonnode](https://github.com/paimonhub/Paimonnode), number of nodes: `17`
 - [openRunner/clash-freenode](https://github.com/openRunner/clash-freenode), number of nodes: `42`
 - [huanongkejizhijia/clashnode](https://github.com/huanongkejizhijia/clashnode), number of nodes: `39`
-- [free886.herokuapp.com/clash](https://free886.herokuapp.com/clash/proxies), number of nodes: `33`
+- [free886.herokuapp.com/clash](https://free886.herokuapp.com/clash/proxies), number of nodes: `34`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `152`
 - [yaney01/Yaney01](https://github.com/yaney01/Yaney01), number of nodes: `50`
 - [YasserDivaR/pr0xy](https://github.com/YasserDivaR/pr0xy), number of nodes: `1492`
 - [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `293`
-- [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `608`
+- [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `602`
 - [vveg26/get_proxy](https://github.com/vveg26/get_proxy), number of nodes: `531`
 
 ## Softwares
