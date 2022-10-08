@@ -117,7 +117,6 @@ class sub_convert():
                     url_content = '\n'.join(url_list)
                     return sub_convert.yaml_encode(url_content, output=False)
                 except:
-                    print(sub_content)
                     print('Sub_content 格式错误')
                     return '订阅内容解析错误'
 
@@ -202,7 +201,6 @@ class sub_convert():
                             content_yaml_dic = yaml.safe_load(sub_content)
                             return content_yaml_dic  # 返回字典, output 值为 True 时返回修饰过的 YAML 文本
                     except:
-                        print(sub_content)
                         print('Sub_content 格式错误')
                         return '订阅内容解析错误'
             else:
