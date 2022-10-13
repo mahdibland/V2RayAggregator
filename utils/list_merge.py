@@ -3,7 +3,7 @@
 from sub_convert import sub_convert # Python 之间互相调用文件https://blog.csdn.net/winycg/article/details/78512300
 from list_update import update_url
 
-import json, re, os
+import json, re, os, yaml
 from urllib import request
 
 
@@ -282,9 +282,19 @@ class sub_merge():
         yaml_proxies = content_yaml.split('\n')[1:]
         temp = list(filter(lambda x: re.search(ipv6, x) == None or re.search(ipv4, x) != None, yaml_proxies))
         temp = list(filter(lambda x: re.search("path: /(.*?)\?(.*?)=(.*?)}", x) == None, temp))
+        
+        temp2 = temp
+        temp = []
+        for pr in temp2:
+            try:
+                yaml.safe_load(pr)
+                temp.append(pr)
+            except Exception as e:
+                print(a)
+                
         print(f"found {yaml_proxies.__len__() - temp.__len__()} bad lines :)")
         ###temp###
-        print(temp)
+#         print(temp)
         ##########
         content_yaml = "\n".join(temp)
         if content_yaml[-1:] == '\n':
