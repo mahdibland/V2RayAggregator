@@ -290,7 +290,7 @@ class sub_merge():
                 yaml.safe_load(pr)
                 temp.append(pr)
             except Exception as e:
-                print(a)
+                print(e)
                 
         print(f"found {yaml_proxies.__len__() - temp.__len__()} bad lines :)")
         ###temp###
