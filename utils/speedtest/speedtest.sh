@@ -1,7 +1,7 @@
 #准备好所需文件
 wget -O clash.gz https://github.com/Dreamacro/clash/releases/download/v1.11.8/clash-linux-amd64-v1.11.8.gz
 gunzip clash.gz
-wget -O lite.gz https://github.com/xxf098/LiteSpeedTest/releases/download/v0.11.2/lite-linux-amd64-v3-v0.11.2.gz
+wget -O lite.gz https://github.com/xxf098/LiteSpeedTest/releases/download/v0.11.2/lite-linux-amd64-v0.11.2.gz
 gunzip lite.gz
 wget -O clash_config.yml https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/utils/speedtest/clash_config.yml
 wget -O proxychains.conf https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/utils/speedtest/proxychains.conf
