@@ -17,4 +17,4 @@ sudo pkill -f clash
 ./clash -f clash_config.yml &
 #运行 LiteSpeedTest
 chmod +x ./lite
-sudo nohup proxychains ./lite --config ./lite_config.json --test https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml >speedtest.log 2>&1 &
+sudo nohup proxychains ./lite --config lite_config.json --test https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml >speedtest.log 2>&1 &
