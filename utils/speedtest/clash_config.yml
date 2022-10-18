@@ -19,7 +19,7 @@ proxies:
 
 #########################
 proxy-groups:
-  - name: cn
+  - name: all
     type: load-balance
     use:
       - all
@@ -29,8 +29,8 @@ proxy-groups:
 proxy-providers:
   all:
     type: http
-    url: "https://proxies.bihai.cf/clash/proxies?c=HK,TW,JP,SG,KR,CN"
-    path: bihai/provider-cn.yaml
+    url: "https://proxies.bihai.cf/clash/proxies?c=CN,HK,TW,US,CA,JP,SG,AU,CH,DE,GB,NL,FR,RU"
+    path: bihai/provider.yaml
     health-check:
       enable: true
       interval: 600
