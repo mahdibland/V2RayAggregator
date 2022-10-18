@@ -4,4 +4,3 @@ wget -O lite_config.json https://raw.githubusercontent.com/mahdibland/Shadowsock
 #运行 LiteSpeedTest
 chmod +x ./lite-linux-amd64
 sudo nohup ./lite-linux-amd64 --config ./lite_config.json --test subs >speedtest.log 2>&1 &
-
