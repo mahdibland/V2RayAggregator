@@ -9,8 +9,8 @@ wget -O lite_config.json https://raw.githubusercontent.com/mahdibland/Shadowsock
 chmod +x ./clash && ./clash &
 #安装并配置 proxychains
 sudo apt-get install proxychains
-sudo chmod 777 ../../../../../etc/proxychains.conf
-mv -f proxychains.conf ../../../../../etc/proxychains.conf
+sudo chmod 777 ../../../../../../etc/proxychains.conf
+mv -f proxychains.conf ../../../../../../etc/proxychains.conf
 #开始运行 Clash
 sudo pkill -f clash
 ./clash -f clash_config.yml &
