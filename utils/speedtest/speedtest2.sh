@@ -4,4 +4,4 @@ wget -O lite_config.json https://raw.githubusercontent.com/mahdibland/Shadowsock
 ###################
 #运行 LiteSpeedTest
 chmod +x ./lite-linux-amd64
-sudo ./lite-linux-amd64 --config ./lite_config.json --test https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml >speedtest.log 2>&1 &
+sudo ./lite-linux-amd64 --config ./lite_config.json --test https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity >speedtest.log 2>&1 &
