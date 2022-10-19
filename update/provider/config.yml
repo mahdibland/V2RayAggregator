@@ -8,19 +8,38 @@ external-controller: 127.0.0.1:9090
 proxies:
 
 proxy-groups:
-  - name: "Tier 1 🚀"
-    type: select
-    proxies:
-  - name: "Tier 2 ⚡️"
-    type: select
-    proxies:
-  - name: "Tier 3 💎"
-    type: select
-    proxies:
-  - name: "Tier 4 🗿"
-    type: select
-    proxies:
-    
+- name: Global 🌎
+  type: select
+  proxies:
+  - Tier 1 🚀
+  - Tier 2 ⚡️
+  - Tier 3 💎
+  - Tier 4 🗿
+- name: Tier 1 🚀
+  type: url-test
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  tolerance: 100
+  proxies:
+- name: Tier 2 ⚡️
+  type: url-test
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  tolerance: 100
+  proxies:
+- name: Tier 3 💎
+  type: url-test
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  tolerance: 100
+  proxies:
+- name: Tier 4 🗿
+  type: url-test
+  url: http://clients3.google.com/generate_204
+  interval: 300
+  tolerance: 100
+  proxies:
+  
 rules:
   - MATCH,Tier 4 🗿
   - MATCH,Tier 3 💎
