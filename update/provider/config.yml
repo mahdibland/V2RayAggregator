@@ -5,6 +5,32 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 
+# tun:
+#   enable: true
+#   stack: system
+#   auto-route: true
+#   auto-detect-interface: true
+#   dns-hijack:
+#     - 8.8.8.8:53
+#     - tcp://8.8.8.8:53
+#     - any:53
+#     - tcp://any:53
+    
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:53
+  enhanced-mode: redir-host
+  # use-hosts: true 
+  # fallback: []
+  # fake-ip-filter: []
+  # default-nameserver:
+  nameserver:
+      - 8.8.8.8
+      - https://dns.google/dns-query # DNS OVER HTTPS
+      - tls://dns.google:853 # DNS OVER TLS
+         
+
 proxies:
 
 proxy-groups:
