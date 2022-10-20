@@ -161,6 +161,7 @@ class subs:
         content_list = []
         corresponding_list = []
         corresponding_id = 0
+        bad_lines = 0
         for (index, url_container) in enumerate(content_urls):
             ids = content_urls[index]['id']
             remarks = content_urls[index]['remarks']
@@ -217,6 +218,7 @@ class subs:
                                                     {"id": corresponding_id, "c_clash": each_clash_proxy, "c_mixed": mixed_content[index]})
                                                 corresponding_id += 1
                                             except Exception as e:
+                                                bad_lines += 1
                                                 print(e)
 
                             else:
@@ -254,7 +256,9 @@ class subs:
             filter(lambda x: x != '', ''.join(content_list).split("\n")))
         content_raw = "\n".join(content_list)
 
-        print(f"it's fine till here with {content_list.__len__()} lines")
+        print(f"{content_list.__len__()} lines - {bad_lines} bad lines => total is {content_list.__len__() - bad_lines}")
+
+        print(corresponding_list)
 
         ################  okay everything is fine till here ################
         '''
