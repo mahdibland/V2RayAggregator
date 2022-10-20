@@ -3,6 +3,7 @@
 # Python 之间互相调用文件https://blog.csdn.net/winycg/article/details/78512300
 from sub_convert import sub_convert
 from list_update import update_url
+from get_subs import subs
 
 import json
 import re
@@ -355,5 +356,8 @@ if __name__ == '__main__':
 
     sub_list = sub_merge.read_list(sub_list_json)
     sub_list_remote = sub_merge.read_list(sub_list_json, True)
-    sub_merge.sub_merge(sub_list)
+
+    # sub_merge.sub_merge(sub_list)
+    subs.get_subs(sub_list)
+
     sub_merge.readme_update(readme, sub_list)
