@@ -35,10 +35,10 @@ class subs:
                     content = subs_function.convert_sub(
                         each_url, 'mixed', "http://0.0.0.0:25500")
 
-                    if content == 'Err: No nodes found':
+                    if content == 'Err: No nodes found' or content == 'Err: failed to parse sub':
                         print("host convertor failed. trying manually...")
                         content = sub_convert.main(each_url, 'url', 'url')
-                        if content != 'Url 解析错误':
+                        if content != 'Url 解析错误' and content != '订阅内容解析错误':
                             if subs_function.is_line_valid(content) != '':
                                 content_list.append(content)
                             else:
@@ -48,18 +48,18 @@ class subs:
                         else:
                             print(
                                 f'Writing error of {remarks} to {ids:0>2d}.txt\n')
-                        file = open(f'{sub_list_path}{ids:0>2d}.txt',
-                                    'a+', encoding='utf-8')
-                        file.write(content)
-                        file.close()
 
-                    elif content == 'Err: failed to parse sub':
-                        file = open(f'{sub_list_path}{ids:0>2d}.txt',
-                                    'a+', encoding='utf-8')
-                        file.write('Err: failed to parse sub')
-                        file.close()
-                        print(
-                            f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+                            if content == 'Err: No nodes found':
+                                file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                            'a+', encoding='utf-8')
+                                file.write(content)
+                                file.close()
+
+                            if content == 'Err: failed to parse sub':
+                                file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                            'a+', encoding='utf-8')
+                                file.write('Err: failed to parse sub')
+                                file.close()
 
                     elif content != None and content != '':
                         print("host convertor failed. trying manually...")

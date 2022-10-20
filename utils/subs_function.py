@@ -15,6 +15,7 @@ class subs_function:
             return result
 
         except Exception as e:
+            print(e)
             return "Err: failed to parse sub"
 
     def is_line_valid(line, support_vless=False):
