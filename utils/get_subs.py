@@ -32,7 +32,8 @@ class subs:
             if type(url_container['url']) == list:
                 for each_url in url_container["url"]:
                     print("gather server from " + each_url)
-                    content = subs_function.convert_sub(each_url, 'mixed')
+                    content = subs_function.convert_sub(
+                        each_url, 'mixed', "http://0.0.0.0:25500")
 
                     if content == 'Err: No nodes found':
                         print("host convertor failed. trying manually...")
