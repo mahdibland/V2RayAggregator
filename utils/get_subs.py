@@ -197,17 +197,18 @@ class subs:
 
                         mixed_content = list(
                             filter(lambda x: x != '', content.split("\n")))
-                        clash_content = content_clash.split('\n')
+                        clash_content = list(
+                            filter(lambda x: x != '', content_clash.split('\n')[1:]))
 
-                        for (index, cl) in enumerate(clash_content[1:]):
+                        for (index, cl) in enumerate(clash_content):
                             try:
                                 yaml.safe_load(cl)
                             except Exception as e:
                                 bad_lines += 1
-                                clash_content.pop(index + 1)
+                                clash_content.pop(index)
                                 mixed_content.pop(index)
 
-                        clash_content = "\n".join(clash_content)
+                        clash_content = "proxies:\n" + "\n".join(clash_content)
 
                         yaml_loaded = False
                         try:
