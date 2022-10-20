@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
-from sub_convert import sub_convert # Python 之间互相调用文件https://blog.csdn.net/winycg/article/details/78512300
+# Python 之间互相调用文件https://blog.csdn.net/winycg/article/details/78512300
+from sub_convert import sub_convert
 from list_update import update_url
 
-import json, re, os, yaml
+import json
+import re
+import os
+import yaml
 from urllib import request
 
 
@@ -21,21 +25,23 @@ sub_list_path = './sub/list/'
 ipv4 = r"([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
 ipv6 = r'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'
 
+
 def add_valid(line):
     if (line.__contains__("ssr://") or line.__contains__("ss://")
             or line.__contains__("trojan://") or line.__contains__("vmess://")):
         return line
     return ''
 
+
 class sub_merge():
-    def sub_merge(url_list): # 将转换后的所有 Url 链接内容合并转换 YAML or Base64, ，并输出文件，输入订阅列表。
+    def sub_merge(url_list):  # 将转换后的所有 Url 链接内容合并转换 YAML or Base64, ，并输出文件，输入订阅列表。
 
         content_list = []
         for t in os.walk(sub_list_path):
             for f in t[2]:
                 f = t[0]+f
                 os.remove(f)
-                
+
         for (index, url_container) in enumerate(url_list):
             ids = url_list[index]['id']
             remarks = url_list[index]['remarks']
@@ -87,7 +93,7 @@ class sub_merge():
                         file.close()
                         print(
                             f'Writing error of {remarks} to {ids:0>2d}.txt\n')
-                        
+
             # it's not coming down here just adding it :)
             else:
                 each_url = url_container["url"]
@@ -103,7 +109,7 @@ class sub_merge():
                             content_list.append(content)
                         else:
                             print(f'this url failed{each_url}')
-                            
+
                         print(
                             f'Writing content of {remarks} to {ids:0>2d}.txt\n')
                     else:
@@ -133,126 +139,10 @@ class sub_merge():
                     file.close()
                     print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
 
-            print('already gathered ' + str(''.join(content_list).split('\n').__len__()))
+            print('already gathered ' +
+                  str(''.join(content_list).split('\n').__len__()))
             print('\n')
-            
-          #######################################
-        
-#         for index in range(len(url_list)):
-#             content = sub_convert.convert_remote(url_list[index]['url'],'url','http://127.0.0.1:25500')
-#             ids = url_list[index]['id']
-#             remarks = url_list[index]['remarks']
-#             if content == 'Url 解析错误':
-#                 content = sub_convert.main(sub_merge.read_list(sub_list_json)[index]['url'],'url','url')
-#                 if content != 'Url 解析错误':
-#                     content_list.append(content)
-#                     print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
-#                 else:
-#                     print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
-#                     ############
-#                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-#                 file.write(content)#Url Parse error
-#                 file.close()
-#                     ############
-#             elif content == 'Url 订阅内容无法解析':
-#                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-#                 file.write('Url Subscription could not be parsed')
-#                 file.close()
-#                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
-#             elif content != None:
-#                 content_list.append(content)
-#                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-#                 file.write(content)
-#                 file.close()
-#                 print(f'Writing content of {remarks} to {ids:0>2d}.txt\n')
-#             else:
-#                 file = open(f'{sub_list_path}{ids:0>2d}.txt', 'w+', encoding= 'utf-8')
-#                 file.write('Url Subscription could not be parsed')
-#                 file.close()
-#                 print(f'Writing error of {remarks} to {ids:0>2d}.txt\n')
-                
-#             print('already gathered ' + str(content_list.__len__()))
-                
-        ##############################
-        
-#         print('Merging nodes...\n')
 
-#         content_list = list(
-#             filter(lambda x: x != '', ''.join(content_list).split("\n")))
-#         content_raw = "\n".join(content_list)
-
-#         print('Remove Duplicate Lines ...\n')
-#         content_raw = sub_convert.main(content_raw, 'content', 'Base64', {
-#             'dup_rm_enabled': True, 'format_name_enabled': False})
-#         content_raw = sub_convert.base64_decode(content_raw)
-#         print('Remove Duplicate Lines Completed\n')
-
-#         print('create yaml format of content')
-#         # already duplicate lines removed
-#         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
-#                                         'dup_rm_enabled': False, 'format_name_enabled': True})
-
-#         print('create base64 format of content')
-#         content_base64 = sub_convert.base64_encode(content_raw)
-
-#         content = content_raw
-
-           
-          #############################
-
-#         print('Merging nodes...\n')
-#         content_raw = ''.join(content_list) # https://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p14_combine_and_concatenate_strings.html
-#         content_yaml = sub_convert.main(content_raw,'content','YAML',{'dup_rm_enabled': False, 'format_name_enabled': True})
-#         print('create yaml format of content')
-#         # already duplicate lines removed
-#         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
-#                                         'dup_rm_enabled': False, 'format_name_enabled': True})
-
-#         print('create base64 format of content')
-#         content_base64 = sub_convert.base64_encode(content_raw)
-
-#         content = content_raw
-
-        ###############################
-
-#         print('Merging nodes...\n')
-#         content_raw = ''.join(content_list)
-#         # content_yaml = sub_convert.main(content_raw, 'content', 'content', {
-#         #                                 'dup_rm_enabled': True, 'format_name_enabled': True})
-#         final_content = sub_convert.makeup(
-#             content_raw, True, True)
-#         content_raw = sub_convert.yaml_decode(final_content)
-
-#         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
-#             'dup_rm_enabled': True, 'format_name_enabled': True})
-
-#         content_base64 = sub_convert.base64_encode(content_raw)
-
-#         content = content_raw
-           
-        ###########################################################
-
-#         print('Merging nodes...\n')
-#         content_raw = ''.join(content_list)
-#         # content_yaml = sub_convert.main(content_raw, 'content', 'content', {
-#         #                                 'dup_rm_enabled': True, 'format_name_enabled': True})
-#         final_content = sub_convert.makeup(
-#             content_raw, True, True)
-#         content_raw = sub_convert.yaml_decode(final_content)
-
-#         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
-#             'dup_rm_enabled': True, 'format_name_enabled': True})
-
-#         # content_yaml = final_content
-
-#         content_raw = sub_convert.yaml_decode(content_yaml)
-
-#         content_base64 = sub_convert.base64_encode(content_raw)
-
-#         content = content_raw
-        
-        ##################################################
-        
         print('Merging nodes...\n')
         # content_raw = '\n'.join(content_list)
 
@@ -264,10 +154,11 @@ class sub_merge():
 #         print("now is " + str(content_list.__len__()))
         content_list = list(filter(lambda x: x.startswith("ssr://") or x.startswith("ss://")
                                    or x.startswith("trojan://") or x.startswith("vmess://"), content_list))
-    
-        content_list = list(filter(lambda x: x.__contains__("订阅内容解析错误") == False, content_list))
+
+        content_list = list(
+            filter(lambda x: x.__contains__("订阅内容解析错误") == False, content_list))
         content_raw = "\n".join(content_list)
-        
+
         print(f"it's fine till here with {content_list.__len__()} lines")
 
         # content_yaml = sub_convert.main(content_raw, 'content', 'content', {
@@ -278,11 +169,13 @@ class sub_merge():
 
         content_yaml = sub_convert.main(content_raw, 'content', 'YAML', {
             'dup_rm_enabled': True, 'format_name_enabled': True})
-        
+
         yaml_proxies = content_yaml.split('\n')[1:]
-        temp = list(filter(lambda x: re.search(ipv6, x) == None or re.search(ipv4, x) != None, yaml_proxies))
-        temp = list(filter(lambda x: re.search("path: /(.*?)\?(.*?)=(.*?)}", x) == None, temp))
-        
+        temp = list(filter(lambda x: re.search(ipv6, x) ==
+                    None or re.search(ipv4, x) != None, yaml_proxies))
+        temp = list(filter(lambda x: re.search(
+            "path: /(.*?)\?(.*?)=(.*?)}", x) == None, temp))
+
         temp2 = temp
         temp = []
         for pr in temp2:
@@ -291,7 +184,7 @@ class sub_merge():
                 temp.append(pr)
             except Exception as e:
                 print(e)
-                
+
         print(f"found {yaml_proxies.__len__() - temp.__len__()} bad lines :)")
         ###temp###
 #         print(temp)
@@ -303,11 +196,11 @@ class sub_merge():
 
         # todo removed dup
         content_raw = sub_convert.yaml_decode(content_yaml)
-        
+
 #         print('decoded content')
 #         print(content_raw)
 
-        ## note removed here
+        # note removed here
         # content_raw = list(
         #     filter(lambda x: x != '', content_raw.split("\n")))
         # content_raw = "\n".join(content_raw)
@@ -315,28 +208,29 @@ class sub_merge():
         content_base64 = sub_convert.base64_encode(content_raw)
 
         content = content_raw
-        
+
         ##############################
 
         def content_write(file, output_type):
-            file = open(file, 'w+', encoding = 'utf-8')
+            file = open(file, 'w+', encoding='utf-8')
             file.write(output_type)
             file.close
-        
-        write_list = [f'{sub_merge_path}/sub_merge.txt', f'{sub_merge_path}/sub_merge_base64.txt', f'{sub_merge_path}/sub_merge_yaml.yml']
+
+        write_list = [f'{sub_merge_path}/sub_merge.txt',
+                      f'{sub_merge_path}/sub_merge_base64.txt', f'{sub_merge_path}/sub_merge_yaml.yml']
         content_type = (content, content_base64, content_yaml)
         for index in range(len(write_list)):
             content_write(write_list[index], content_type[index])
         print('Done!\n')
 
-    def read_list(json_file,remote=False): # 将 sub_list.json Url 内容读取为列表
+    def read_list(json_file, remote=False):  # 将 sub_list.json Url 内容读取为列表
         with open(json_file, 'r', encoding='utf-8') as f:
             raw_list = json.load(f)
         input_list = []
         for index in range(len(raw_list)):
             if raw_list[index]['enabled']:
                 if remote == False:
-                    urls = re.split('\|',raw_list[index]['url'])
+                    urls = re.split('\|', raw_list[index]['url'])
                 else:
                     urls = raw_list[index]['url']
                 raw_list[index]['url'] = urls
@@ -352,7 +246,7 @@ class sub_merge():
             print('Failed!\n')
             pass
 
-    def readme_update(readme_file='./README.md', sub_list=[]): # 更新 README 节点信息
+    def readme_update(readme_file='./README.md', sub_list=[]):  # 更新 README 节点信息
         print('更新 README.md 中')
         with open(readme_file, 'r', encoding='utf-8') as f:
             lines = f.readlines()
@@ -383,12 +277,12 @@ class sub_merge():
                 if remarks != "alanbobs999/TopFreeProxies":
                     thanks.append(line)
             f.close()
-        
+
         # 高速节点打印
         for index in range(len(lines)):
-            if lines[index] == '### high-speed node\n': # 目标行内容
+            if lines[index] == '### high-speed node\n':  # 目标行内容
                 # 清除旧内容
-                lines.pop(index+1) # 删除节点数量
+                lines.pop(index+1)  # 删除节点数量
                 while lines[index+4] != '\n':
                     lines.pop(index+4)
 
@@ -399,8 +293,9 @@ class sub_merge():
                     proxies = ['    '+proxy for proxy in proxies]
                     proxies = [proxy+'\n' for proxy in proxies]
                 top_amount = len(proxies)
-                
-                lines.insert(index+1, f'high-speed node quantity: `{top_amount}`\n')
+
+                lines.insert(
+                    index+1, f'high-speed node quantity: `{top_amount}`\n')
                 index += 4
                 for i in proxies:
                     index += 1
@@ -408,9 +303,9 @@ class sub_merge():
                 break
         # 所有节点打印
         for index in range(len(lines)):
-            if lines[index] == '### all nodes\n': # 目标行内容
+            if lines[index] == '### all nodes\n':  # 目标行内容
                 # 清除旧内容
-                lines.pop(index+1) # 删除节点数量
+                lines.pop(index+1)  # 删除节点数量
 
                 with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
                     proxies = f.read()
@@ -442,10 +337,9 @@ class sub_merge():
                     lines.pop(index+1)
 
                 for i in thanks:
-                    index +=1
+                    index += 1
                     lines.insert(index, i)
                 break
-
 
         # 写入 README 内容
         with open(readme_file, 'w', encoding='utf-8') as f:
@@ -453,11 +347,13 @@ class sub_merge():
             print('Finish!\n')
             f.write(data)
 
+
 if __name__ == '__main__':
     update_url.update_main()
-    sub_merge.geoip_update('https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
+    sub_merge.geoip_update(
+        'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
     sub_list = sub_merge.read_list(sub_list_json)
-    sub_list_remote = sub_merge.read_list(sub_list_json,True)
+    sub_list_remote = sub_merge.read_list(sub_list_json, True)
     sub_merge.sub_merge(sub_list)
-    sub_merge.readme_update(readme,sub_list)
+    sub_merge.readme_update(readme, sub_list)
