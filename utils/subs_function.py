@@ -6,9 +6,10 @@ class subs_function:
     def convert_sub(url: str, output: str, convertor_host: "http://0.0.0.0:25500"):
         url = urllib.parse.quote(url, safe='')
         try:
-            result = requests.get(
-                f'{convertor_host}/sub?target={output}&url={url}&insert=false&emoji=true&list=true').text
-            print(f"url to host: {result}")
+            convert_url = requests.get(
+                f'{convertor_host}/sub?target={output}&url={url}&insert=false&emoji=true&list=true')
+            result = convert_url.text
+            print(f"url to host: {convert_url}")
             if result == "No nodes were found!":
                 return "Err: No nodes found"
 
