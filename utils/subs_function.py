@@ -3,16 +3,14 @@ import urllib.parse
 
 
 class subs_function:
-    def convert_sub(url: str, output: str, convertor_host: "http://127.0.0.1:25500"):
+    def convert_sub(url: str, output: str, convertor_host: "http://0.0.0.0:25500"):
         url = urllib.parse.quote(url, safe='')
         try:
             convert_url = f'{convertor_host}/sub?target={output}&url={url}&insert=false&emoji=true&list=true'
             result = requests.get(convert_url).text
             print(f"url to host: {convert_url}")
-            if result == "No nodes were found!":
-                return "Err: No nodes found"
-
-            print(result)
+            # if result == "No nodes were found!":
+            #     return "Err: No nodes found"
             return result
 
         except Exception as e:

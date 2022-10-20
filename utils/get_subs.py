@@ -34,7 +34,8 @@ class subs:
                     print("gather server from " + each_url)
                     content = subs_function.convert_sub(
                         each_url, 'mixed', "http://0.0.0.0:25500")
-
+                    print("added content: %s" %
+                          str(content.split('\n').__len__()))
                     if content == 'Err: No nodes found' or content == 'Err: failed to parse sub':
                         print("host convertor failed. trying manually...")
                         content = sub_convert.main(each_url, 'url', 'url')
