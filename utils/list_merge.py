@@ -360,6 +360,6 @@ if __name__ == '__main__':
     # sub_merge.sub_merge(sub_list)
     # subs.get_subs(sub_list)
     # todo add only first index for testing
-    subs.get_subs_v2(sub_list[0])
+    subs.get_subs_v2(sub_list[0:2])
 
     sub_merge.readme_update(readme, sub_list)
