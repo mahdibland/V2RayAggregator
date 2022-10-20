@@ -101,14 +101,14 @@ class subs_function:
             'NOWHERE': '🇦🇶',
         }
 
-        for (index, c_proxy) in corresponding_proxies:
+        for (index, c_proxy) in enumerate(corresponding_proxies):
             proxy = c_proxy['c_clash']
-            decoded_yaml = yaml.safe_load(proxy)
-            # for safety i add both scenario
-            if type(decoded_yaml) == list:
-                proxy = decoded_yaml[0]
-            else:
-                proxy = decoded_yaml
+            # decoded_yaml = yaml.safe_load(proxy)
+            # # for safety i add both scenario
+            # if type(decoded_yaml) == list:
+            #     proxy = decoded_yaml[0]
+            # else:
+            #     proxy = decoded_yaml
 
             server = proxy['server']
 
@@ -167,35 +167,58 @@ class subs_function:
                 repetition = raw_length - length
                 print(
                     f'Current Benchmark {begin + 1}-----Current Quantity {length}\nNumber of Repetition {repetition}\n-----Deduplication Completed-----\n')
-            proxy_compared = corresponding_proxies[begin]["c_clash"]
+            proxy_compared = yaml.safe_load(
+                corresponding_proxies[begin]["c_clash"])
 
             begin_2 = begin + 1
             while begin_2 <= (length - 1):
                 check = False
-                if proxy_compared['server'] == corresponding_proxies[begin_2]["c_clash"]['server'] and proxy_compared['port'] == corresponding_proxies[begin_2]["c_clash"]['port']:
+                correspond_next_proxy = yaml.safe_load(
+                    corresponding_proxies[begin_2]["c_clash"])
+                if proxy_compared['server'] == correspond_next_proxy['server'] and proxy_compared['port'] == correspond_next_proxy['port']:
                     check = True
-                    if 'net' in corresponding_proxies[begin_2]["c_clash"] and 'net' in proxy_compared:
-                        if proxy_compared['net'] != corresponding_proxies[begin_2]["c_clash"]['net']:
+                    if 'net' in correspond_next_proxy and 'net' in proxy_compared:
+                        if proxy_compared['net'] != correspond_next_proxy['net']:
                             check = False
 
-                    if 'tls' in corresponding_proxies[begin_2]["c_clash"] and 'tls' in proxy_compared:
-                        if proxy_compared['tls'] != corresponding_proxies[begin_2]["c_clash"]['tls']:
+                    if 'tls' in correspond_next_proxy and 'tls' in proxy_compared:
+                        if proxy_compared['tls'] != correspond_next_proxy['tls']:
                             check = False
 
-                    if 'id' in corresponding_proxies[begin_2]["c_clash"] and 'id' in proxy_compared:
-                        if proxy_compared['id'] != corresponding_proxies[begin_2]["c_clash"]['id']:
+                    if 'id' in correspond_next_proxy and 'id' in proxy_compared:
+                        if proxy_compared['id'] != correspond_next_proxy['id']:
                             check = False
 
-                    if 'password' in corresponding_proxies[begin_2]["c_clash"] and 'password' in proxy_compared:
-                        if proxy_compared['password'] != corresponding_proxies[begin_2]["c_clash"]['password']:
+                    if 'ws-opts' in correspond_next_proxy and 'ws-opts' in proxy_compared:
+                        if proxy_compared['ws-opts'] != correspond_next_proxy['ws-opts']:
                             check = False
 
-                    if 'cipher' in corresponding_proxies[begin_2]["c_clash"] and 'cipher' in proxy_compared:
-                        if proxy_compared['cipher'] != corresponding_proxies[begin_2]["c_clash"]['cipher']:
+                    if 'uuid' in correspond_next_proxy and 'uuid' in proxy_compared:
+                        if proxy_compared['uuid'] != correspond_next_proxy['uuid']:
                             check = False
 
-                    if 'type' in corresponding_proxies[begin_2]["c_clash"] and 'type' in proxy_compared:
-                        if proxy_compared['type'] != corresponding_proxies[begin_2]["c_clash"]['type']:
+                    if 'password' in correspond_next_proxy and 'password' in proxy_compared:
+                        if proxy_compared['password'] != correspond_next_proxy['password']:
+                            check = False
+
+                    if 'cipher' in correspond_next_proxy and 'cipher' in proxy_compared:
+                        if proxy_compared['cipher'] != correspond_next_proxy['cipher']:
+                            check = False
+
+                    if 'type' in correspond_next_proxy and 'type' in proxy_compared:
+                        if proxy_compared['type'] != correspond_next_proxy['type']:
+                            check = False
+
+                    if 'udp' in correspond_next_proxy and 'udp' in proxy_compared:
+                        if proxy_compared['udp'] != correspond_next_proxy['udp']:
+                            check = False
+
+                    if 'network' in correspond_next_proxy and 'network' in proxy_compared:
+                        if proxy_compared['network'] != correspond_next_proxy['network']:
+                            check = False
+
+                    if 'obfs' in correspond_next_proxy and 'obfs' in proxy_compared:
+                        if proxy_compared['obfs'] != correspond_next_proxy['obfs']:
                             check = False
 
                     if check:

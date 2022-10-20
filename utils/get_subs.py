@@ -169,6 +169,7 @@ class subs:
                 for each_url in url_container["url"]:
                     print("gather server from " + each_url)
 
+                    # todo change to 0.0.0.0
                     content = subs_function.convert_sub(
                         each_url, 'mixed', "http://0.0.0.0:25500")
                     content_clash = subs_function.convert_sub(
@@ -192,21 +193,33 @@ class subs:
                             file.close()
 
                     elif content != None and content != '':
-                        # creating corresponding list
-                        if subs_function.is_line_valid(content) != '':
-                            content_list.append(content)
+                        content_list.append(content)
 
-                            mixed_content = "".join(content_list).split('\n')
-                            clash_content = "".join(content_clash)
+                        mixed_content = list(
+                            filter(lambda x: x != '', content.split("\n")))
+                        clash_content = content_clash.split('\n')
 
+                        for (index, cl) in enumerate(clash_content[1:]):
                             try:
-                                clash_content = yaml.safe_load(
-                                    clash_content)["proxies"]
+                                yaml.safe_load(cl)
                             except Exception as e:
-                                print(e)
+                                bad_lines += 1
+                                clash_content.pop(index + 1)
+                                mixed_content.pop(index)
 
-                            if clash_content.__len__() == mixed_content.__len__():
-                                for (index, each_clash_proxy) in enumerate(clash_content):
+                        clash_content = "\n".join(clash_content)
+
+                        yaml_loaded = False
+                        try:
+                            clash_content = yaml.safe_load(
+                                clash_content)["proxies"]
+                            yaml_loaded = True
+                        except Exception as e:
+                            print(e)
+
+                        if clash_content.__len__() == mixed_content.__len__() and yaml_loaded == True and mixed_content.__len__() > 0:
+                            for (index, each_clash_proxy) in enumerate(clash_content):
+                                if subs_function.is_line_valid(mixed_content[index]) != '':
                                     if re.search(ipv6, str(each_clash_proxy)) == None or re.search(ipv4, str(each_clash_proxy)) != None:
                                         if re.search("path: /(.*?)\?(.*?)=(.*?)}", str(each_clash_proxy)) == None:
                                             try:
@@ -220,15 +233,6 @@ class subs:
                                             except Exception as e:
                                                 bad_lines += 1
                                                 print(e)
-
-                            else:
-                                print(f'this url failed {each_url}')
-                                file = open(f'{sub_list_path}{ids:0>2d}.txt',
-                                            'a+', encoding='utf-8')
-                                file.write(content)
-                                file.close()
-                                print(
-                                    f'Writing content of {remarks} to {ids:0>2d}.txt\n')
                         else:
                             print(f'this url failed {each_url}')
                             file = open(f'{sub_list_path}{ids:0>2d}.txt',
@@ -257,8 +261,6 @@ class subs:
         content_raw = "\n".join(content_list)
 
         print(f"{content_list.__len__()} lines - {bad_lines} bad lines => total is {content_list.__len__() - bad_lines}")
-
-        print(corresponding_list)
 
         ################  okay everything is fine till here ################
         '''
