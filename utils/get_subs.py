@@ -63,7 +63,6 @@ class subs:
                                 file.close()
 
                     elif content != None and content != '':
-                        print("host convertor failed. trying manually...")
                         if subs_function.is_line_valid(content) != '':
                             content_list.append(content)
                         else:
