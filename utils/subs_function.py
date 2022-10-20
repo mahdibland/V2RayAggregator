@@ -9,8 +9,8 @@ class subs_function:
             convert_url = f'{convertor_host}/sub?target={output}&url={url}&insert=false&emoji=true&list=true'
             result = requests.get(convert_url).text
             print(f"url to host: {convert_url}")
-            # if result == "No nodes were found!":
-            #     return "Err: No nodes found"
+            if result == "No nodes were found!":
+                return "Err: No nodes found"
             return result
 
         except Exception as e:
