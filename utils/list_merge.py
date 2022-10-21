@@ -308,7 +308,8 @@ class sub_merge():
                 # 清除旧内容
                 lines.pop(index+1)  # 删除节点数量
 
-                with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
+                # with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
+                with open('./sub/sub_merge_yaml.yml', 'r', encoding='utf-8') as f:
                     proxies = f.read()
                     proxies = proxies.split('\n')
                     top_amount = len(proxies) - 1
@@ -368,3 +369,4 @@ if __name__ == '__main__':
     # sub_merge.readme_update(readme, sub_list)
 
     subs.get_subs_v3(sub_list)
+    sub_merge.readme_update(readme, sub_list)
