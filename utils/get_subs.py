@@ -67,7 +67,7 @@ class subs:
                         if subs_function.is_line_valid(content, False) != '':
                             content_list.append(content)
                         else:
-                            print(f'this url failed{each_url}')
+                            print(f'this url failed {each_url}')
                         file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                     'a+', encoding='utf-8')
                         file.write(content)
@@ -173,9 +173,9 @@ class subs:
                     # todo change to 0.0.0.0
                     # getting one source in to format
                     content = subs_function.convert_sub(
-                        each_url, 'mixed', "http://0.0.0.0:25500", True)
+                        each_url, 'mixed', "http://0.0.0.0:25500", False)
                     content_clash = subs_function.convert_sub(
-                        each_url, 'clash', "http://0.0.0.0:25500", True)
+                        each_url, 'clash', "http://0.0.0.0:25500", False)
 
                     print("added content: %s" %
                           str(content.split('\n').__len__()))
@@ -239,6 +239,14 @@ class subs:
                                                     safe_mixed.append(
                                                         mixed_content[index])
 
+                                                file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                                            'a+', encoding='utf-8')
+                                                file.write(
+                                                    "\n".join(safe_mixed) + "\n")
+                                                file.close()
+                                                print(
+                                                    f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+
                                     except Exception as e:
                                         bad_lines += 1
                                         # if fails remove the same index from both lists
@@ -253,7 +261,8 @@ class subs:
                                             corresponding_id += 1
 
                                 else:
-                                    print(f'this url failed {each_url}')
+                                    print(
+                                        f'unmatched length in sources {each_url}')
                                     file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                                 'a+', encoding='utf-8')
                                     file.write(content)
@@ -297,7 +306,8 @@ class subs:
                                 #         f'Writing content of {remarks} to {ids:0>2d}.txt\n')
 
                             else:
-                                print(f'this url failed {each_url}')
+                                print(
+                                    f'unmatch length in both sources first stage {each_url}')
                                 file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                             'a+', encoding='utf-8')
                                 file.write(content)
@@ -306,7 +316,7 @@ class subs:
                                     f'Writing content of {remarks} to {ids:0>2d}.txt\n')
 
                         else:
-                            print(f'this url failed {each_url}')
+                            print(f'started with a invalid url {each_url}')
                             file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                         'a+', encoding='utf-8')
                             file.write(content)
@@ -324,6 +334,8 @@ class subs:
 
             print('already gathered ' +
                   str(''.join(content_list).split('\n').__len__()))
+            print('\n')
+            print('----------------------------------------------')
             print('\n')
 
         print('Merging nodes...\n')
