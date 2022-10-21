@@ -248,7 +248,7 @@ class sub_merge():
             pass
 
     def readme_update(readme_file='./README.md', sub_list=[]):  # 更新 README 节点信息
-        print('更新 README.md 中')
+        print('Update README.md file...')
         with open(readme_file, 'r', encoding='utf-8') as f:
             lines = f.readlines()
             f.close()
@@ -313,7 +313,7 @@ class sub_merge():
                     proxies = proxies.split('\n')
                     top_amount = len(proxies) - 1
                     f.close()
-                lines.insert(index+1, f'merge nodes: `{top_amount}`\n')
+                lines.insert(index+1, f'merge nodes w/o dup: `{top_amount}`\n')
                 """
                 with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
                     proxies = f.read()

@@ -177,9 +177,6 @@ class subs:
                     content_clash = subs_function.convert_sub(
                         each_url, 'clash', "http://0.0.0.0:25500", False)
 
-                    print("added content: %s" %
-                          str(content.split('\n').__len__()))
-
                     if content == 'Err: No nodes found' or content == 'Err: failed to parse sub' or content_clash == 'Err: No nodes found' or content_clash == 'Err: failed to parse sub':
                         print("host convertor failed. just continue & ignore...")
 
@@ -196,6 +193,10 @@ class subs:
                             file.close()
 
                     elif content != None and content != '':
+                        single_url_gather_quantity = list(
+                            filter(lambda x: x != '', content.split('\n'))).__len__()
+                        print(
+                            f"added content of current url : {single_url_gather_quantity}")
                         # the mixed result should be a valid ss Url
                         if subs_function.is_line_valid(content, False) != '':
                             content_list.append(content)
@@ -332,8 +333,9 @@ class subs:
                         print(
                             f'Writing error of {remarks} to {ids:0>2d}.txt\n')
 
-            print('already gathered ' + str(list(filter(lambda x: x !=
-                  '', ''.join(content_list).split("\n"))).__len__()))
+            gather_quantity = list(
+                filter(lambda x: x != '', ''.join(content_list).split('\n'))).__len__()
+            print(f"already gathered {gather_quantity}")
 
             print('\n')
             print('----------------------------------------------')
