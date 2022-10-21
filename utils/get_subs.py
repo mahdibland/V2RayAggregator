@@ -198,6 +198,13 @@ class subs:
                         # the mixed result should be a valid ss Url
                         if subs_function.is_line_valid(content, False):
                             content_list.append(content)
+                            file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                        'a+', encoding='utf-8')
+                            file.write(
+                                "\n".join(content) + "\n")
+                            file.close()
+                            print(
+                                f'Writing content of {remarks} to {ids:0>2d}.txt\n')
 
                             # Convert both format to list
                             mixed_content = list(
@@ -251,14 +258,6 @@ class subs:
                                             corresponding_list.append(
                                                 {"id": corresponding_id, "c_clash": safe_clash[i], "c_mixed": each_mixed_proxy})
                                             corresponding_id += 1
-
-                                    file = open(f'{sub_list_path}{ids:0>2d}.txt',
-                                                'a+', encoding='utf-8')
-                                    file.write(
-                                        "\n".join(safe_mixed) + "\n")
-                                    file.close()
-                                    print(
-                                        f'Writing content of {remarks} to {ids:0>2d}.txt\n')
 
                                 else:
                                     print(
