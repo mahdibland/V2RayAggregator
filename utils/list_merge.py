@@ -362,4 +362,4 @@ if __name__ == '__main__':
     # todo add only first index for testing
     subs.get_subs_v2(sub_list[0:1])
 
-    sub_merge.readme_update(readme, sub_list)
+    sub_merge.readme_update(readme, sub_list[0:1])

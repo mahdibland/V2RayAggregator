@@ -182,10 +182,11 @@ class subs:
 
                     if content == 'Err: No nodes found' or content == 'Err: failed to parse sub' or content_clash == 'Err: No nodes found' or content_clash == 'Err: failed to parse sub':
                         print("host convertor failed. just continue & ignore...")
+
                         if content == 'Err: No nodes found' or content_clash == 'Err: No nodes found':
                             file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                         'a+', encoding='utf-8')
-                            file.write(content)
+                            file.write('Err: No nodes found')
                             file.close()
 
                         if content == 'Err: failed to parse sub' or content_clash == 'Err: failed to parse sub':
@@ -196,12 +197,11 @@ class subs:
 
                     elif content != None and content != '':
                         # the mixed result should be a valid ss Url
-                        if subs_function.is_line_valid(content, False):
+                        if subs_function.is_line_valid(content, False) != '':
                             content_list.append(content)
                             file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                         'a+', encoding='utf-8')
-                            file.write(
-                                "\n".join(content) + "\n")
+                            file.write(content)
                             file.close()
                             print(
                                 f'Writing content of {remarks} to {ids:0>2d}.txt\n')
@@ -264,7 +264,7 @@ class subs:
                                         f'unmatched length in sources {each_url}')
                                     file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                                 'a+', encoding='utf-8')
-                                    file.write(content)
+                                    file.write("unmatched length in sources")
                                     file.close()
                                     print(
                                         f'Writing content of {remarks} to {ids:0>2d}.txt\n')
@@ -309,7 +309,8 @@ class subs:
                                     f'unmatch length in both sources first stage {each_url}')
                                 file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                             'a+', encoding='utf-8')
-                                file.write(content)
+                                file.write(
+                                    "unmatch length in both sources first stage")
                                 file.close()
                                 print(
                                     f'Writing content of {remarks} to {ids:0>2d}.txt\n')
@@ -318,7 +319,7 @@ class subs:
                             print(f'started with a invalid url {each_url}')
                             file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                         'a+', encoding='utf-8')
-                            file.write(content)
+                            file.write("started with a invalid url")
                             file.close()
                             print(
                                 f'Writing content of {remarks} to {ids:0>2d}.txt\n')
