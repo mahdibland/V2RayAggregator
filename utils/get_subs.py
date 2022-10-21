@@ -415,7 +415,7 @@ class subs:
                     # todo change to 0.0.0.0
                     # getting one source in to format
                     content_clash = subs_function.convert_sub(
-                        each_url, 'clash', "http://127.0.0.1:25500", False)
+                        each_url, 'clash', "http://0.0.0.0:25500", False)
 
                     if content_clash == 'Err: No nodes found' or content_clash == 'Err: failed to parse sub':
                         print("host convertor failed. just continue & ignore...")
@@ -470,7 +470,14 @@ class subs:
                                             if cl_res != None:
                                                 # safe_clash.append(cl)
                                                 # it's not text it's yaml object
-                                                safe_clash.append(cl_res)
+                                                try:
+                                                    cl_temp = yaml.safe_load(
+                                                        str(cl_res[0]))
+                                                    if cl_temp != None:
+                                                        safe_clash.append(
+                                                            cl_res)
+                                                except Exception as e1:
+                                                    bad_lines += 1
 
                                 except Exception as e:
                                     bad_lines += 1
