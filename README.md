@@ -249,11 +249,11 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes: `203`
+merge nodes: `21`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
-- [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `205`
+- [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `44`
 
 ## Softwares
 ### Desktop Clients
