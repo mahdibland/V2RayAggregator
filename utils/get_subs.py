@@ -363,6 +363,8 @@ class subs:
         corresponding_list = subs_function.fix_proxies_duplication(
             corresponding_proxies=corresponding_list)
 
+        print(f"\nfinal sub length => {corresponding_list.__len__()}")
+
         clash = list(map(lambda x: f"  - {x['c_clash']}", corresponding_list))
         mixed = list(map(lambda x: x["c_mixed"], corresponding_list))
         content_raw = "\n".join(mixed)
