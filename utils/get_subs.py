@@ -390,6 +390,192 @@ class subs:
             content_write(write_list[index], content_type[index])
         print('Done!\n')
 
+    # eject mixed proxies and use only clash
+
+    def get_subs_v3(content_urls: []):
+        if content_urls == []:
+            return
+
+        for t in os.walk(sub_list_path):
+            for f in t[2]:
+                f = t[0]+f
+                os.remove(f)
+
+        content_list = []
+        corresponding_list = []
+        corresponding_id = 0
+        bad_lines = 0
+        for (index, url_container) in enumerate(content_urls):
+            ids = content_urls[index]['id']
+            remarks = content_urls[index]['remarks']
+            if type(url_container['url']) == list:
+                for each_url in url_container["url"]:
+                    print("gather server from " + each_url)
+
+                    # todo change to 0.0.0.0
+                    # getting one source in to format
+                    content_clash = subs_function.convert_sub(
+                        each_url, 'clash', "http://127.0.0.1:25500", False)
+
+                    if content_clash == 'Err: No nodes found' or content_clash == 'Err: failed to parse sub':
+                        print("host convertor failed. just continue & ignore...")
+                        if content_clash == 'Err: No nodes found':
+                            file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                        'a+', encoding='utf-8')
+                            file.write('Err: No nodes found')
+                            file.close()
+
+                        if content_clash == 'Err: failed to parse sub':
+                            file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                        'a+', encoding='utf-8')
+                            file.write('Err: failed to parse sub')
+                            file.close()
+
+                    elif content_clash != None and content_clash != '':
+                        single_url_gather_quantity = list(
+                            filter(lambda x: x != '', content_clash.split('\n'))).__len__()
+                        print(
+                            f"added content of current url : {single_url_gather_quantity - 1}")
+
+                        # Convert both format to list
+                        clash_content = list(
+                            filter(lambda x: x != '', content_clash.split('\n')[1:]))
+
+                        # check of the size of lists are equal
+                        if clash_content.__len__() > 0:
+                            # create a new list for clash lines check result
+                            safe_clash = []
+                            # check for bad line in clash content (yaml check)
+                            for (index, cl) in enumerate(clash_content):
+                                try:
+                                    if re.search(ipv6, str(cl)) == None or re.search(ipv4, str(cl)) != None:
+                                        if re.search("path: /(.*?)\?(.*?)=(.*?)}", str(cl)) == None:
+                                            # todo first trying without it
+                                            # # fix name issues and replacing the illegal character with empty string
+                                            # try:
+                                            #     if 'name' in cl:
+                                            #         match_re = re.search(
+                                            #             "name: (.*?),", cl)[1]
+                                            #         if match_re != None:
+                                            #             match_re = match_re.replace(":", "").replace(
+                                            #                 "|", "").replace('\'', '').replace('"', '')
+                                            #             for char in ill:
+                                            #                 match_re = match_re.replace(
+                                            #                     char, "")
+                                            #             cl = re.sub(
+                                            #                 "name: (.*?),", f"name: {match_re},", cl)
+                                            # except:
+                                            #     pass
+                                            cl_res = yaml.safe_load(cl)
+                                            if cl_res != None:
+                                                # safe_clash.append(cl)
+                                                # it's not text it's yaml object
+                                                safe_clash.append(cl_res)
+
+                                except Exception as e:
+                                    bad_lines += 1
+                                    # if fails remove the same index from both lists
+                                    # clash_content.pop(index)
+                                    # mixed_content.pop(index)
+
+                            if safe_clash.__len__() > 0:
+                                content_list.append(
+                                    "\n".join(clash_content) + "\n")
+                                file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                            'a+', encoding='utf-8')
+                                file.write("\n".join(clash_content) + "\n")
+                                file.close()
+                                print(
+                                    f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+
+                                print("Check Points Passed 👍\n")
+                                for (i, each_clash_proxy) in enumerate(safe_clash):
+                                    # c_clash type is a list with one item
+                                    corresponding_list.append(
+                                        {"id": corresponding_id, "c_clash": each_clash_proxy})
+                                    corresponding_id += 1
+
+                            else:
+                                print(
+                                    f'there is no clash lines {each_url}')
+                                file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                            'a+', encoding='utf-8')
+                                file.write("there is no clash lines")
+                                file.close()
+                                print(
+                                    f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+
+                        else:
+                            print(
+                                f'there is no clash lines first stage {each_url}')
+                            file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                        'a+', encoding='utf-8')
+                            file.write(
+                                "there is no clash lines first stage")
+                            file.close()
+                            print(
+                                f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+
+                    else:
+                        file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                    'a+', encoding='utf-8')
+                        file.write('Url Subscription could not be parsed')
+                        file.close()
+                        print(
+                            f'Writing error of {remarks} to {ids:0>2d}.txt\n')
+
+            gather_quantity = list(
+                filter(lambda x: x != '', ''.join(content_list).split('\n'))).__len__()
+            print(f"already gathered {gather_quantity}")
+
+            print('\n')
+            print('----------------------------------------------')
+            print('\n')
+
+        print('Merging nodes...\n')
+
+        content_list = list(
+            filter(lambda x: x != '', ''.join(content_list).split("\n")))
+        content_raw = "\n".join(content_list)
+
+        print(f"{content_list.__len__()} lines - {bad_lines} bad lines => total is {content_list.__len__() - bad_lines}")
+
+        ################  okay everything is fine till here ################
+        '''
+        we should have a list of corresponding proxies and they are ready to be fixed in 2 steps:
+        1- making their name better (using their server) => via thier clash corresponding
+        2- remove duplicate proxies from the list => via thier clash corresponding
+        after that we have clean list that contains both type that we need, with modification and no conversion :)
+        '''
+
+        ################  Fix names  ################
+        corresponding_list = subs_function.fix_proxies_name(
+            corresponding_proxies=corresponding_list)
+
+        ################  Fix Duplication  ################
+        corresponding_list = subs_function.fix_proxies_duplication(
+            corresponding_proxies=corresponding_list)
+
+        print(f"\nfinal sub length => {corresponding_list.__len__()}")
+
+        clash = list(map(lambda x: f"  - {x['c_clash']}", corresponding_list))
+        content_yaml = 'proxies:\n' + "\n".join(clash)
+
+        # mixed = list(map(lambda x: x["c_mixed"], corresponding_list))
+        # content_raw = "\n".join(mixed)
+        # content_base64 = sub_convert.base64_encode(content_raw)
+        # content = content_raw
+
+        ##############################
+
+        def content_write(file, output_type):
+            file = open(file, 'w+', encoding='utf-8')
+            file.write(output_type)
+            file.close
+
+        content_write(f'{sub_merge_path}/sub_merge_yaml.yml', content_yaml)
+        print('Done!\n')
+
 
 if __name__ == "__main__":
     subs.get_subs([])

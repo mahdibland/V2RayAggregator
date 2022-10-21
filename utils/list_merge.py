@@ -359,8 +359,12 @@ if __name__ == '__main__':
     sub_list_remote = sub_merge.read_list(sub_list_json, True)
 
     # sub_merge.sub_merge(sub_list)
-    # subs.get_subs(sub_list)
-    # todo add only first index for testing
-    subs.get_subs_v2(sub_list)
+    # sub_merge.readme_update(readme, sub_list)
 
-    sub_merge.readme_update(readme, sub_list)
+    # subs.get_subs(sub_list)
+    # sub_merge.readme_update(readme, sub_list)
+
+    # subs.get_subs_v2(sub_list)
+    # sub_merge.readme_update(readme, sub_list)
+
+    subs.get_subs_v3(sub_list[0:1])
