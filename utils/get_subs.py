@@ -332,8 +332,9 @@ class subs:
                         print(
                             f'Writing error of {remarks} to {ids:0>2d}.txt\n')
 
-            print('already gathered ' +
-                  str(''.join(content_list).split('\n').__len__()))
+            print('already gathered ' + str(list(filter(lambda x: x !=
+                  '', ''.join(content_list).split("\n"))).__len__()))
+
             print('\n')
             print('----------------------------------------------')
             print('\n')
