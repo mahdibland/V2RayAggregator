@@ -367,4 +367,4 @@ if __name__ == '__main__':
     # subs.get_subs_v2(sub_list)
     # sub_merge.readme_update(readme, sub_list)
 
-    subs.get_subs_v3(sub_list[0:1])
+    subs.get_subs_v3(sub_list)
