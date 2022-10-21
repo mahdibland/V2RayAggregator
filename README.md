@@ -208,13 +208,13 @@ high-speed node quantity: `159`
 </details>
 
 ### all nodes
-merge nodes w/o dup: `5788`
+merge nodes w/o dup: `164`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `47`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `44`
-- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `113`
+- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `119`
 
 ## Softwares
 ### Desktop Clients
