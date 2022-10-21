@@ -12,6 +12,7 @@ sub_list_path = './sub/list/'
 
 ipv4 = r"([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})"
 ipv6 = r'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'
+ill = ['|', '?', '[', ']', '@', '!', '%', ':']
 
 
 class subs:
@@ -40,7 +41,7 @@ class subs:
                         print("host convertor failed. trying manually...")
                         content = sub_convert.main(each_url, 'url', 'url')
                         if content != 'Url 解析错误' and content != '订阅内容解析错误':
-                            if subs_function.is_line_valid(content) != '':
+                            if subs_function.is_line_valid(content, False) != '':
                                 content_list.append(content)
                             else:
                                 print(f'this url failed{each_url}')
@@ -63,7 +64,7 @@ class subs:
                                 file.close()
 
                     elif content != None and content != '':
-                        if subs_function.is_line_valid(content) != '':
+                        if subs_function.is_line_valid(content, False) != '':
                             content_list.append(content)
                         else:
                             print(f'this url failed{each_url}')
@@ -170,70 +171,140 @@ class subs:
                     print("gather server from " + each_url)
 
                     # todo change to 0.0.0.0
+                    # getting one source in to format
                     content = subs_function.convert_sub(
-                        each_url, 'mixed', "http://0.0.0.0:25500")
+                        each_url, 'mixed', "http://0.0.0.0:25500", True)
                     content_clash = subs_function.convert_sub(
-                        each_url, 'clash', "http://0.0.0.0:25500")
+                        each_url, 'clash', "http://0.0.0.0:25500", True)
 
                     print("added content: %s" %
                           str(content.split('\n').__len__()))
 
-                    if content == 'Err: No nodes found' or content == 'Err: failed to parse sub':
+                    if content == 'Err: No nodes found' or content == 'Err: failed to parse sub' or content_clash == 'Err: No nodes found' or content_clash == 'Err: failed to parse sub':
                         print("host convertor failed. just continue & ignore...")
-                        if content == 'Err: No nodes found':
+                        if content == 'Err: No nodes found' or content_clash == 'Err: No nodes found':
                             file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                         'a+', encoding='utf-8')
                             file.write(content)
                             file.close()
 
-                        if content == 'Err: failed to parse sub':
+                        if content == 'Err: failed to parse sub' or content_clash == 'Err: failed to parse sub':
                             file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                         'a+', encoding='utf-8')
                             file.write('Err: failed to parse sub')
                             file.close()
 
                     elif content != None and content != '':
-                        content_list.append(content)
+                        # the mixed result should be a valid ss Url
+                        if subs_function.is_line_valid(content, False):
+                            content_list.append(content)
 
-                        mixed_content = list(
-                            filter(lambda x: x != '', content.split("\n")))
-                        clash_content = list(
-                            filter(lambda x: x != '', content_clash.split('\n')[1:]))
+                            # Convert both format to list
+                            mixed_content = list(
+                                filter(lambda x: x != '', content.split("\n")))
+                            clash_content = list(
+                                filter(lambda x: x != '', content_clash.split('\n')[1:]))
 
-                        for (index, cl) in enumerate(clash_content):
-                            try:
-                                yaml.safe_load(cl)
-                            except Exception as e:
-                                bad_lines += 1
-                                clash_content.pop(index)
-                                mixed_content.pop(index)
+                            # check of the size of lists are equal
+                            if mixed_content.__len__() == clash_content.__len__() and clash_content.__len__() > 0:
+                                # create a new list for clash lines check result + mixed
+                                safe_clash = []
+                                safe_mixed = []
+                                # check for bad line in clash content (yaml check)
+                                for (index, cl) in enumerate(clash_content):
+                                    try:
+                                        if re.search(ipv6, str(cl)) == None or re.search(ipv4, str(cl)) != None:
+                                            if re.search("path: /(.*?)\?(.*?)=(.*?)}", str(cl)) == None:
+                                                # todo first trying without it
+                                                # # fix name issues and replacing the illegal character with empty string
+                                                # try:
+                                                #     if 'name' in cl:
+                                                #         match_re = re.search(
+                                                #             "name: (.*?),", cl)[1]
+                                                #         if match_re != None:
+                                                #             match_re = match_re.replace(":", "").replace(
+                                                #                 "|", "").replace('\'', '').replace('"', '')
+                                                #             for char in ill:
+                                                #                 match_re = match_re.replace(
+                                                #                     char, "")
+                                                #             cl = re.sub(
+                                                #                 "name: (.*?),", f"name: {match_re},", cl)
+                                                # except:
+                                                #     pass
+                                                cl_res = yaml.safe_load(cl)
+                                                if cl_res != None:
+                                                    # safe_clash.append(cl)
+                                                    # it's not text it's yaml object
+                                                    safe_clash.append(cl_res)
+                                                    safe_mixed.append(
+                                                        mixed_content[index])
 
-                        clash_content = "proxies:\n" + "\n".join(clash_content)
+                                    except Exception as e:
+                                        bad_lines += 1
+                                        # if fails remove the same index from both lists
+                                        # clash_content.pop(index)
+                                        # mixed_content.pop(index)
 
-                        yaml_loaded = False
-                        try:
-                            clash_content = yaml.safe_load(
-                                clash_content)["proxies"]
-                            yaml_loaded = True
-                        except Exception as e:
-                            print(e)
+                                if safe_clash.__len__() == safe_mixed.__len__() and safe_clash.__len__() > 0:
+                                    for (i, each_mixed_proxy) in enumerate(safe_mixed):
+                                        if subs_function.is_line_valid(each_mixed_proxy, False):
+                                            corresponding_list.append(
+                                                {"id": corresponding_id, "c_clash": safe_clash[i], "c_mixed": each_mixed_proxy})
+                                            corresponding_id += 1
 
-                        if clash_content.__len__() == mixed_content.__len__() and yaml_loaded == True and mixed_content.__len__() > 0:
-                            for (index, each_clash_proxy) in enumerate(clash_content):
-                                if subs_function.is_line_valid(mixed_content[index]) != '':
-                                    if re.search(ipv6, str(each_clash_proxy)) == None or re.search(ipv4, str(each_clash_proxy)) != None:
-                                        if re.search("path: /(.*?)\?(.*?)=(.*?)}", str(each_clash_proxy)) == None:
-                                            try:
-                                                # make sure the c_clash_proxy is a valid yaml format
-                                                # also it could be redundent code but it's for safety
-                                                yaml.safe_load(
-                                                    str(each_clash_proxy))
-                                                corresponding_list.append(
-                                                    {"id": corresponding_id, "c_clash": each_clash_proxy, "c_mixed": mixed_content[index]})
-                                                corresponding_id += 1
-                                            except Exception as e:
-                                                bad_lines += 1
-                                                print(e)
+                                else:
+                                    print(f'this url failed {each_url}')
+                                    file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                                'a+', encoding='utf-8')
+                                    file.write(content)
+                                    file.close()
+                                    print(
+                                        f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+
+                                # # make clash ready for yaml loading
+                                # clash_content = "proxies:\n" + \
+                                #     "\n".join(clash_content)
+
+                                # yaml_loaded = False
+                                # try:
+                                #     clash_content = yaml.safe_load(
+                                #         clash_content)["proxies"]
+                                #     yaml_loaded = True
+                                # except Exception as e:
+                                #     print(e)
+
+                                # if clash_content.__len__() == mixed_content.__len__() and yaml_loaded == True and mixed_content.__len__() > 0:
+                                #     for (index, each_clash_proxy) in enumerate(clash_content):
+                                #         if subs_function.is_line_valid(mixed_content[index], False) != '':
+                                #             try:
+                                #                 # make sure the c_clash_proxy is a valid yaml format
+                                #                 # also it could be redundent code but it's for safety
+                                #                 yaml.safe_load(
+                                #                     str(each_clash_proxy))
+                                #                 corresponding_list.append(
+                                #                     {"id": corresponding_id, "c_clash": each_clash_proxy, "c_mixed": mixed_content[index]})
+                                #                 corresponding_id += 1
+                                #             except Exception as e:
+                                #                 bad_lines += 1
+                                #                 print(e)
+                                # else:
+                                #     print(f'this url failed {each_url}')
+                                #     file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                #                 'a+', encoding='utf-8')
+                                #     file.write(content)
+                                #     file.close()
+                                #     print(
+                                #         f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+
+                            else:
+                                print(f'this url failed {each_url}')
+                                file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                            'a+', encoding='utf-8')
+                                file.write(content)
+                                file.close()
+                                print(
+                                    f'Writing content of {remarks} to {ids:0>2d}.txt\n')
+
                         else:
                             print(f'this url failed {each_url}')
                             file = open(f'{sub_list_path}{ids:0>2d}.txt',
@@ -265,10 +336,10 @@ class subs:
 
         ################  okay everything is fine till here ################
         '''
-        we should have a list of corresponding proxies and they are ready to be fixed in 2 ways:
+        we should have a list of corresponding proxies and they are ready to be fixed in 2 steps:
         1- making their name better (using their server) => via thier clash corresponding
         2- remove duplicate proxies from the list => via thier clash corresponding
-        after that we have clean list that contains both type that we need with modification and no conversion :)
+        after that we have clean list that contains both type that we need, with modification and no conversion :)
         '''
 
         ################  Fix names  ################
@@ -278,12 +349,6 @@ class subs:
         ################  Fix Duplication  ################
         corresponding_list = subs_function.fix_proxies_duplication(
             corresponding_proxies=corresponding_list)
-
-        # print(f"found {yaml_proxies.__len__() - temp.__len__()} bad lines :)")
-        # content_yaml = "\n".join(temp)
-        # if content_yaml[-1:] == '\n':
-        #     content_yaml[-1:] = ''
-        # content_yaml = 'proxies:\n' + content_yaml
 
         clash = list(map(lambda x: f"  - {x['c_clash']}", corresponding_list))
         mixed = list(map(lambda x: x["c_mixed"], corresponding_list))

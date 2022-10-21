@@ -8,12 +8,13 @@ import geoip2.database
 
 
 class subs_function:
-    def convert_sub(url: str, output: str, convertor_host: "http://0.0.0.0:25500"):
+    def convert_sub(url: str, output: str, convertor_host="http://0.0.0.0:25500", show_url=False):
         url = urllib.parse.quote(url, safe='')
         try:
             convert_url = f'{convertor_host}/sub?target={output}&url={url}&insert=false&emoji=true&list=true'
             result = requests.get(convert_url).text
-            print(f"url to host: {convert_url}")
+            if show_url:
+                print(f"url to host for {output} : {convert_url}")
             if result == "No nodes were found!":
                 return "Err: No nodes found"
             return result
@@ -110,6 +111,9 @@ class subs_function:
             # else:
             #     proxy = decoded_yaml
 
+            if type(proxy) == list:
+                proxy = proxy[0]
+
             server = proxy['server']
 
             if server.replace('.', '').isdigit():
@@ -148,7 +152,7 @@ class subs_function:
                 proxy['name'] = f'{name_emoji}{country_code}-{ip}-{index:0>2d}'
 
             # corresponding_proxies[index]["c_clash"] = f"  - {proxy}"
-            corresponding_proxies[index]["c_clash"] = f"{proxy}"
+            corresponding_proxies[index]["c_clash"] = proxy
 
         return corresponding_proxies
 
@@ -167,14 +171,20 @@ class subs_function:
                 repetition = raw_length - length
                 print(
                     f'Current Benchmark {begin + 1}-----Current Quantity {length}\nNumber of Repetition {repetition}\n-----Deduplication Completed-----\n')
-            proxy_compared = yaml.safe_load(
-                corresponding_proxies[begin]["c_clash"])
+            # proxy_compared = yaml.safe_load(
+            #     corresponding_proxies[begin]["c_clash"])
+            proxy_compared = corresponding_proxies[begin]["c_clash"]
+            if type(proxy_compared) == list:
+                proxy_compared = proxy_compared[0]
 
             begin_2 = begin + 1
             while begin_2 <= (length - 1):
                 check = False
-                correspond_next_proxy = yaml.safe_load(
-                    corresponding_proxies[begin_2]["c_clash"])
+                # correspond_next_proxy = yaml.safe_load(
+                #     corresponding_proxies[begin_2]["c_clash"])
+                correspond_next_proxy = corresponding_proxies[begin_2]["c_clash"]
+                if type(correspond_next_proxy) == list:
+                    correspond_next_proxy = correspond_next_proxy[0]
                 if proxy_compared['server'] == correspond_next_proxy['server'] and proxy_compared['port'] == correspond_next_proxy['port']:
                     check = True
                     if 'net' in correspond_next_proxy and 'net' in proxy_compared:
