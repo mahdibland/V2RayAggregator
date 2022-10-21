@@ -254,6 +254,7 @@ class subs:
                                         # mixed_content.pop(index)
 
                                 if safe_clash.__len__() == safe_mixed.__len__() and safe_clash.__len__() > 0:
+                                    print("Check Points Passed 👍")
                                     for (i, each_mixed_proxy) in enumerate(safe_mixed):
                                         if subs_function.is_line_valid(each_mixed_proxy, False):
                                             corresponding_list.append(
