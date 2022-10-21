@@ -249,7 +249,7 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes w/o dup: `5724`
+merge nodes w/o dup: `5788`
 [Node link](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 ### node source
@@ -267,23 +267,23 @@ merge nodes w/o dup: `5724`
 - [yu-steven/openit](https://github.com/yu-steven/openit), number of nodes: `274`
 - [mahdibland/ShadowsocksAggregator](https://github.com/mahdibland/ShadowsocksAggregator), number of nodes: `200`
 - [iwxf/free-v2ray](https://github.com/iwxf/free-v2ray), number of nodes: `39`
-- [DoveBoy/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), number of nodes: `117`
+- [DoveBoy/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), number of nodes: `139`
 - [gooooooooooooogle/Clash-Config](https://github.com/gooooooooooooogle/Clash-Config), number of nodes: `1`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `31`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `14`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
 - [GreenFishStudio/GreenFish](https://github.com/GreenFishStudio/GreenFish), number of nodes: `137`
-- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `129`
+- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `119`
 - [xrayfree/free-ssr-ss-v2ray-vpn-clash](https://github.com/xrayfree/free-ssr-ss-v2ray-vpn-clash), number of nodes: `30`
 - [mhmhone/shadowrocket-free-subscribe](https://github.com/mhmhone/shadowrocket-free-subscribe), number of nodes: `14`
 - [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `15`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `5`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `7`
 - [kxswa/k](https://github.com/kxswa/k), number of nodes: `29`
 - [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `217`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `33`
 - [vveg26/SubAutoConv](https://github.com/vveg26/SubAutoConv), number of nodes: `127`
 - [clash.221207.xyz/pubclashyaml](https://clash.221207.xyz/pubclashyaml), number of nodes: `559`
-- [proxypool.toshiki.top/clash](https://proxypool.toshiki.top/clash/proxies), number of nodes: `632`
+- [proxypool.toshiki.top/clash](https://proxypool.toshiki.top/clash/proxies), number of nodes: `630`
 - [tbbatbb/Proxy](https://github.com/tbbatbb/Proxy), number of nodes: `485`
 - [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `914`
 - [paimonhub/Paimonnode](https://github.com/paimonhub/Paimonnode), number of nodes: `17`
