@@ -239,14 +239,6 @@ class subs:
                                                     safe_mixed.append(
                                                         mixed_content[index])
 
-                                                file = open(f'{sub_list_path}{ids:0>2d}.txt',
-                                                            'a+', encoding='utf-8')
-                                                file.write(
-                                                    "\n".join(safe_mixed) + "\n")
-                                                file.close()
-                                                print(
-                                                    f'Writing content of {remarks} to {ids:0>2d}.txt\n')
-
                                     except Exception as e:
                                         bad_lines += 1
                                         # if fails remove the same index from both lists
@@ -259,6 +251,14 @@ class subs:
                                             corresponding_list.append(
                                                 {"id": corresponding_id, "c_clash": safe_clash[i], "c_mixed": each_mixed_proxy})
                                             corresponding_id += 1
+
+                                    file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                                'a+', encoding='utf-8')
+                                    file.write(
+                                        "\n".join(safe_mixed) + "\n")
+                                    file.close()
+                                    print(
+                                        f'Writing content of {remarks} to {ids:0>2d}.txt\n')
 
                                 else:
                                     print(

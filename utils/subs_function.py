@@ -114,7 +114,7 @@ class subs_function:
             if type(proxy) == list:
                 proxy = proxy[0]
 
-            server = proxy['server']
+            server = str(proxy['server'])
 
             if server.replace('.', '').isdigit():
                 ip = server
