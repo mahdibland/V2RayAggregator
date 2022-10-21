@@ -315,7 +315,7 @@ class sub_merge():
                     top_amount = len(proxies) - 1
                     f.close()
                 lines.insert(
-                    index+1, f'merge nodes w/o dup: `{top_amount + 1}`\n')
+                    index+1, f'merge nodes w/o dup: `{top_amount}`\n')
                 """
                 with open('./sub/sub_merge.txt', 'r', encoding='utf-8') as f:
                     proxies = f.read()
