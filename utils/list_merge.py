@@ -314,6 +314,7 @@ class sub_merge():
                     proxies = proxies.split('\n')
                     top_amount = len(proxies) - 1
                     f.close()
+                # if it's not yaml method we need to add 1 to the top amount
                 lines.insert(
                     index+1, f'merge nodes w/o dup: `{top_amount}`\n')
                 """
