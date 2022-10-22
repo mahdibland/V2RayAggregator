@@ -211,8 +211,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     yaml_format.indent(mapping=2, sequence=4, offset=2)
     config_yaml = yaml_format.dump(config, sys.stdout)
     """
-    config_yaml = yaml.dump(config, default_flow_style=False, sort_keys=False,
-                            allow_unicode=True, width=750, indent=2, Dumper=NoAliasDumper)
+    config_yaml = yaml.dump(config)
 
     Eternity_yml = open(output, 'w+', encoding='utf-8')
     Eternity_yml.write(config_yaml)
