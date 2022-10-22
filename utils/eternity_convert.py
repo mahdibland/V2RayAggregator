@@ -49,12 +49,12 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     # all_provider = sub_convert.main(sub_content, 'content', 'YAML', custom_set={
     #                                 'dup_rm_enabled': False, 'format_name_enabled': True})
     all_provider = subs_function.convert_sub(
-        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash')
+        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash', "http://0.0.0.0:25500")
 
     # remove lines with name issue
     all_provider = "proxies:\n" + \
         "\n".join(list(filter(lambda x: str(x).__contains__(
-            "�") == False, all_provider[1:].split("\n"))))
+            "�") == False, all_provider.split("\n")[1:])))
 
     # 创建并写入 provider
     lines = re.split(r'\n+', all_provider)
