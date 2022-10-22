@@ -1,10 +1,11 @@
 # ShadowsocksAggregator
 
-[![sub_merge](https://github.com/mahdibland/ShadowsocksAggregator/actions/workflows/merge.yml/badge.svg)](https://github.com/mahdibland/ShadowsocksAggregator/actions/workflows/merge.yml) [![speedtest](https://github.com/mahdibland/ShadowsocksAggregator/actions/workflows/speedtest.yml/badge.svg)](https://github.com/mahdibland/ShadowsocksAggregator/actions/workflows/speedtest.yml)
+[![sub_merge](https://github.com/mahdibland/SSAggregator/actions/workflows/merge.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/merge.yml) [![speedtest_yaml](https://github.com/mahdibland/SSAggregator/actions/workflows/speedtest_yml.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/speedtest_yml.yml) [![clash_yaml](https://github.com/mahdibland/SSAggregator/actions/workflows/clash_yaml.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/clash_yaml.yml)
 
-[Introduction](https://github.com/mahdibland/ShadowsocksAggregator#Introduction) | [Visualizer](https://github.com/mahdibland/ShadowsocksAggregator#Visualizer) | [Instructions](https://github.com/mahdibland/ShadowsocksAggregator#Instructions) | [Node Information](https://github.com/mahdibland/ShadowsocksAggregator#NodeInformation) | [Softwares](https://github.com/mahdibland/ShadowsocksAggregator#Softwares)
+[Introduction](https://github.com/mahdibland/SSAggregator#Introduction) | [Visualizer](https://github.com/mahdibland/SSAggregator#Visualizer) | [Instructions](https://github.com/mahdibland/SSAggregator#Instructions) | [Node Information](https://github.com/mahdibland/SSAggregator#NodeInformation) | [Softwares](https://github.com/mahdibland/SSAggregator#Softwares)
 
 ## Introduction
+
 The automation functions of this repository are all implemented based on `GitHub Actions`. If necessary, you can fork yourself to achieve personalized requirements.
 
 Test the speed of each free node pool on the network and the nodes shared by bloggers to screen out relatively stable and high-speed nodes, and then import them into the warehouse for sharing records. The filtered node links are in the repository `./sub/sub_list.json` file, most of which are links to other `GitHub` repositories, if you have a good subscription link, please submit PR, all the nodes contained in these links will be merged in Repository `./sub/sub_merge.txt`.
@@ -21,9 +22,8 @@ Although it is a node after speed test screening, some nodes may still be unavai
 
 <a href="https://55292969231427515295.netlify.app/" target="_blank"><img src="https://i.ibb.co/g32RmJy/netlify.png" width="35"/></a>
 
-
-
 ## Instructions
+
 Just import the following subscription link into the corresponding client. Most of the links are SS protocol nodes, and a small number of Vmess, Trojan, and SSR protocol nodes. It is recommended to choose a protocol to support a complete client.
 
 - [Multi-protocol Base64 encoding](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity)
@@ -40,8 +40,11 @@ Mirror link：
 > Self-use online subscription conversion URL: [sub-web-modify](https://sub.v1.mk/)
 
 ## NodeInformation
+
 ### high-speed node
+
 high-speed node quantity: `200`
+
 <details>
   <summary>Expand</summary>
 
@@ -249,14 +252,15 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
+
 merge nodes w/o dup: `10163`
 [~~Node link~~](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 use this link instead:
 [Node link Yaml](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
-
 ### node source
+
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `176`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `44`
 - [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `121`
@@ -303,31 +307,34 @@ use this link instead:
 - [ripaojiedian/freenode](https://gitlab.com/ripaojiedian/freenode), number of nodes: `12`
 
 ## Softwares
+
 ### Desktop Clients
-|                            MacOS                             |                            Linux                             |                           Windows                            | 简易描述                                           |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :------------------------------------------------- |
-| [CFW](https://github.com/Fndroid/clash_for_windows_pkg/releases) | [CFW](https://github.com/Fndroid/clash_for_windows_pkg/releases) | [CFW(Clash For Windows)](https://github.com/Fndroid/clash_for_windows_pkg/releases) | SS, SSR, Trojan, Vmess, VLESS协议支持，策略分流能力强。            |
-|     [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)      |     [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)      |     [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)      | SS, SSR, Trojan, Vmess, VLESS, Trojan-Go协议支持（需安装相关插件）。 |
-|                              ×                               |                              ×                               |      [V2rayN](https://github.com/2dust/v2rayN/releases)      | SS, Trojan, Vmess, VLESS协议支持，有测速，测延迟功能，支持订阅，二维码，剪贴板导入及手动配置。                 |
-|                              ×                               |                              ×                               |    [WinXray](https://github.com/TheMRLL/winxray/releases)    | SS, SSR, Trojan, Vmess, VLESS协议支持，支持自动连接最快节点。            |
-|                              ×                               |                              ×                               | [Shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases) | SS协议支持， SS 专用客户端。                                       |
-|                              ×                               |                              ×                               | [ShadowsocksR-windows](https://github.com/HMBSbige/ShadowsocksR-Windows/releases) | SSR协议支持，SSR 专用客户端。                                      |
-|                [Surge](https://nssurge.com/)                 |                              ×                               |                              ×                               | SS, Trojan, Vmess协议支持，著名网络调试工具，策略分流能力强大，需付费。                        |
-|   [ClashX](https://github.com/yichengchen/clashX/releases)   |                              ×                               |                              ×                               | SS, SSR, Trojan, Vmess协议支持，占用资源较少。                   |
-|      [V2rayU](https://github.com/yanue/V2rayU/releases)      |                              ×                               |                              ×                               | SS, Trojan, Vmess协议支持，支持订阅，二维码，剪贴板导入，手动配置，二维码分享，与 V2RayN 类似。                        |
+
+|                              MacOS                               |                              Linux                               |                                       Windows                                       | 简易描述                                                                                         |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: | :---------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------- |
+| [CFW](https://github.com/Fndroid/clash_for_windows_pkg/releases) | [CFW](https://github.com/Fndroid/clash_for_windows_pkg/releases) | [CFW(Clash For Windows)](https://github.com/Fndroid/clash_for_windows_pkg/releases) | SS, SSR, Trojan, Vmess, VLESS 协议支持，策略分流能力强。                                         |
+|       [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)        |       [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)        |                 [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)                 | SS, SSR, Trojan, Vmess, VLESS, Trojan-Go 协议支持（需安装相关插件）。                            |
+|                                ×                                 |                                ×                                 |                 [V2rayN](https://github.com/2dust/v2rayN/releases)                  | SS, Trojan, Vmess, VLESS 协议支持，有测速，测延迟功能，支持订阅，二维码，剪贴板导入及手动配置。  |
+|                                ×                                 |                                ×                                 |               [WinXray](https://github.com/TheMRLL/winxray/releases)                | SS, SSR, Trojan, Vmess, VLESS 协议支持，支持自动连接最快节点。                                   |
+|                                ×                                 |                                ×                                 | [Shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases)  | SS 协议支持， SS 专用客户端。                                                                    |
+|                                ×                                 |                                ×                                 |  [ShadowsocksR-windows](https://github.com/HMBSbige/ShadowsocksR-Windows/releases)  | SSR 协议支持，SSR 专用客户端。                                                                   |
+|                  [Surge](https://nssurge.com/)                   |                                ×                                 |                                          ×                                          | SS, Trojan, Vmess 协议支持，著名网络调试工具，策略分流能力强大，需付费。                         |
+|     [ClashX](https://github.com/yichengchen/clashX/releases)     |                                ×                                 |                                          ×                                          | SS, SSR, Trojan, Vmess 协议支持，占用资源较少。                                                  |
+|        [V2rayU](https://github.com/yanue/V2rayU/releases)        |                                ×                                 |                                          ×                                          | SS, Trojan, Vmess 协议支持，支持订阅，二维码，剪贴板导入，手动配置，二维码分享，与 V2RayN 类似。 |
 
 ### Mobile Clients
-|                          iOS/iPadOS                          |                           Android                            | 简易描述                                                     |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | ------------------------------------------------------------ |
-| [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118) | [Shadowrocket](https://play.google.com/store/apps/details?id=com.v2cross.proxy) | SS, SSR, Trojan, Vmess, VLESS协议支持，iOS端需在非国区 App Store 购买，美区售价 $2.99；安卓端非与 iOS 端同一作者，不支持 SSR 协议，免费且内置免费节点。 |
-|                [Surge](https://nssurge.com/)                 |                              ×                               | SS, Trojan, Vmess协议支持，iOS 端著名网络调试工具，需付费。                                  |
-| [Quantumult X](https://apps.apple.com/us/app/quantumult-x/id1443988620) |                              ×                               | SS, SSR, Trojan, Vmess协议支持，需在非国区AppStore购买，美区售价$4.99。 |
-| [Potatso Lite](https://apps.apple.com/us/app/potatso-lite/id1239860606) |                              ×                               | SS, SSR协议支持，需在非国区AppStore购买，免费。              |
-|                              ×                               | [Surfboard](https://play.google.com/store/apps/details?id=com.getsurfboard) | SS, SSR, Vmess协议支持，安卓端网络调试软件，兼容 Surge 2 配置。 |
-|                              ×                               | [CFA(Clash For Android)](https://github.com/Kr328/ClashForAndroid/releases) | SS, SSR, Trojan, Vmess协议支持。                             |
-|                              ×                               |  [SagerNet](https://github.com/SagerNet/SagerNet/releases)   | SS, SSR, Trojan, Vmess, VLESS协议支持。                      |
-|                              ×                               | [Shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases) | SS协议支持，安卓专用 SS 客户端。                                                 |
-|                              ×                               | [ShadowsocksR-android](https://github.com/HMBSbige/ShadowsocksR-Android/releases) | SSR协议支持，安卓专用 SSR 客户端。                                                |
-|                              ×                               |     [V2rayNG](https://github.com/2dust/v2rayNG/releases)     | SS, Trojan, Vmess, VLESS协议支持，v2ray 内核。                           |
+
+|                               iOS/iPadOS                                |                                      Android                                       | 简易描述                                                                                                                                                  |
+| :---------------------------------------------------------------------: | :--------------------------------------------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118)  |  [Shadowrocket](https://play.google.com/store/apps/details?id=com.v2cross.proxy)   | SS, SSR, Trojan, Vmess, VLESS 协议支持，iOS 端需在非国区 App Store 购买，美区售价 $2.99；安卓端非与 iOS 端同一作者，不支持 SSR 协议，免费且内置免费节点。 |
+|                      [Surge](https://nssurge.com/)                      |                                         ×                                          | SS, Trojan, Vmess 协议支持，iOS 端著名网络调试工具，需付费。                                                                                              |
+| [Quantumult X](https://apps.apple.com/us/app/quantumult-x/id1443988620) |                                         ×                                          | SS, SSR, Trojan, Vmess 协议支持，需在非国区 AppStore 购买，美区售价$4.99。                                                                                |
+| [Potatso Lite](https://apps.apple.com/us/app/potatso-lite/id1239860606) |                                         ×                                          | SS, SSR 协议支持，需在非国区 AppStore 购买，免费。                                                                                                        |
+|                                    ×                                    |    [Surfboard](https://play.google.com/store/apps/details?id=com.getsurfboard)     | SS, SSR, Vmess 协议支持，安卓端网络调试软件，兼容 Surge 2 配置。                                                                                          |
+|                                    ×                                    |    [CFA(Clash For Android)](https://github.com/Kr328/ClashForAndroid/releases)     | SS, SSR, Trojan, Vmess 协议支持。                                                                                                                         |
+|                                    ×                                    |             [SagerNet](https://github.com/SagerNet/SagerNet/releases)              | SS, SSR, Trojan, Vmess, VLESS 协议支持。                                                                                                                  |
+|                                    ×                                    | [Shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases) | SS 协议支持，安卓专用 SS 客户端。                                                                                                                         |
+|                                    ×                                    | [ShadowsocksR-android](https://github.com/HMBSbige/ShadowsocksR-Android/releases)  | SSR 协议支持，安卓专用 SSR 客户端。                                                                                                                       |
+|                                    ×                                    |                [V2rayNG](https://github.com/2dust/v2rayNG/releases)                | SS, Trojan, Vmess, VLESS 协议支持，v2ray 内核。                                                                                                           |
 
 - Credit: @alanbobs999
