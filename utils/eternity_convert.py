@@ -87,7 +87,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
 #           line = '  ' + line
             line = line.replace('- ', '')
             linee = yaml.safe_load(line)
-            linee["name"] = str(linee["name"])
+            print(linee["name"])
             proxy_all.append(linee)
 
             indexx += 1
