@@ -51,6 +51,10 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     all_provider = subs_function.convert_sub(
         "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash')
 
+    all_provider = "proxies:\n" + \
+        "\n".join(list(filter(lambda x: str(x).__contains__(
+            "�") == False, all_provider[1:].split("\n"))))
+
     # 创建并写入 provider
     lines = re.split(r'\n+', all_provider)
     proxy_all = []
