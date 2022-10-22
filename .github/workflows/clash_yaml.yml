@@ -6,11 +6,10 @@ on:
 
   push:
     paths:
-      - "./sub/sub_merge_base64.txt"
-      - "./sub/sub_merge_yaml.yml"
+      - "./Eternity"
 
   schedule:
-    - cron: "30 */8 * * *"
+    - cron: "00 */9 * * *"
 
 jobs:
   deploy:
@@ -36,15 +35,19 @@ jobs:
           pip install -r ./utils/requirements.txt
       - name: Run Lite Speedtest
         run: |
-          sudo sh ./utils/speedtest/speedtest2_yamlc.sh
-          python ./utils/speedtest/output.py
+          wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz
+          tar -zxvf subconverter.tar.gz -C ./
+          chmod +x ./subconverter/subconverter && nohup ./subconverter/subconverter >./subconverter.log 2>&1 &
+
+          python ./utils/eternity_convert.py
       - name: Commit changes
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git pull origin master
-          git add Eternity
-          git add LogInfo.txt
+          git add Eternity.yml
+          git add README.md
+          git add ./update/*
           git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Filter Nodes"
       - name: Push Change
         uses: ad-m/github-push-action@master

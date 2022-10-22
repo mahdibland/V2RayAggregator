@@ -6,6 +6,9 @@ import time
 import os
 
 from sub_convert import sub_convert
+# below is replacement of above
+from subs_function import subs_function
+
 from list_merge import sub_merge
 
 Eterniy_file = './Eternity'
@@ -42,8 +45,11 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     file_eternity = open(file, 'r', encoding='utf-8')
     sub_content = file_eternity.read()
     file_eternity.close()
-    all_provider = sub_convert.main(sub_content, 'content', 'YAML', custom_set={
-                                    'dup_rm_enabled': False, 'format_name_enabled': True})
+
+    # all_provider = sub_convert.main(sub_content, 'content', 'YAML', custom_set={
+    #                                 'dup_rm_enabled': False, 'format_name_enabled': True})
+    all_provider = subs_function.convert_sub(
+        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash')
 
     # 创建并写入 provider
     lines = re.split(r'\n+', all_provider)
