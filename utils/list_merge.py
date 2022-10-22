@@ -360,14 +360,19 @@ if __name__ == '__main__':
     sub_list = sub_merge.read_list(sub_list_json)
     sub_list_remote = sub_merge.read_list(sub_list_json, True)
 
+    # default method
     # sub_merge.sub_merge(sub_list)
     # sub_merge.readme_update(readme, sub_list)
 
+    # fixed convertor in default method
     # subs.get_subs(sub_list)
     # sub_merge.readme_update(readme, sub_list)
 
+    # using corresponding proxies method
     # subs.get_subs_v2(sub_list)
     # sub_merge.readme_update(readme, sub_list)
 
+    # eject sub converting using local method and using sub convertor instead (only yaml available there is no
+    # base64 or mixed type proxy in this method and other types will be handle using other workflows)
     subs.get_subs_v3(sub_list)
     sub_merge.readme_update(readme, sub_list)
