@@ -87,7 +87,6 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
 #           line = '  ' + line
             line = line.replace('- ', '')
             linee = yaml.safe_load(line)
-            print(linee["name"])
             proxy_all.append(linee)
 
             indexx += 1
@@ -163,9 +162,10 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
             for proxy in provider_dic[key]['proxies']:
                 try:
                     speed = substrings(log_lines[indexx], "avg_speed:", "|")
-                    name_dict[key].append(proxy['name'] + " | " + speed)
+                    name_dict[key].append(
+                        str(proxy['name']).replace(" ", "") + " | " + speed)
                 except:
-                    name_dict[key].append(proxy['name'])
+                    name_dict[key].append(str(proxy['name']).replace(" ", ""))
                     print(log_lines[indexx])
 
                 indexx += 1
