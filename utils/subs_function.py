@@ -8,10 +8,10 @@ import geoip2.database
 
 
 class subs_function:
-    def convert_sub(url: str, output: str, convertor_host="http://0.0.0.0:25500", show_url=False):
+    def convert_sub(url: str, output: str, convertor_host="http://0.0.0.0:25500", show_url=False, extra_options=""):
         url = urllib.parse.quote(url, safe='')
         try:
-            convert_url = f'{convertor_host}/sub?target={output}&url={url}&insert=false&emoji=true&list=true'
+            convert_url = f'{convertor_host}/sub?target={output}&url={url}&insert=false&emoji=true&list=true{extra_options}'
             result = requests.get(convert_url).text
             if show_url:
                 print(f"url to host for {output} : {convert_url}")

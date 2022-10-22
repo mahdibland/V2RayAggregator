@@ -49,7 +49,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     # all_provider = sub_convert.main(sub_content, 'content', 'YAML', custom_set={
     #                                 'dup_rm_enabled': False, 'format_name_enabled': True})
     all_provider = subs_function.convert_sub(
-        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash', "http://0.0.0.0:25500")
+        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash', "http://0.0.0.0:25500", extra_options="&udp=false")
 
     # remove lines with name issue
     all_provider = "proxies:\n" + \
