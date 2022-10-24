@@ -34,9 +34,11 @@ dns:
 proxies:
 
 proxy-groups:
+
 - name: Global ©️
   proxies:
     - Global 🌎
+    - Global 🥶
   type: select
 - name: Tiers 🔮
   proxies:
@@ -45,6 +47,15 @@ proxy-groups:
     - Tier 3 💎
     - Tier 4 🗿
   type: select
+- name: Global 🥶
+  proxies:
+    - Tier 1 🚀
+    - Tier 2 ⚡️
+    - Tier 3 💎
+    - Tier 4 🗿
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+  interval: 300
 - name: Global 🌎
   proxies:
     - Tier 1 🚀
@@ -53,7 +64,8 @@ proxy-groups:
     - Tier 4 🗿
   type: fallback
   url: http://www.gstatic.com/generate_204
-  interval: 600
+  interval: 300
+
 - name: Tier 1 🚀
   type: url-test
   url: http://clients3.google.com/generate_204
