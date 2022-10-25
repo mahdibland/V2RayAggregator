@@ -6,15 +6,14 @@
 
 ## Introduction
 
-The automation functions of this repository are all implemented based on `GitHub Actions`. If necessary, you can fork yourself to achieve personalized requirements.
+The automation functions of this repository are all implemented based on `GitHub Actions`
 
 Test the speed of each free node pool on the network and the nodes shared by bloggers to screen out relatively stable and high-speed nodes, and then import them into the warehouse for sharing records. The filtered node links are in the repository `./sub/sub_list.json` file, most of which are links to other `GitHub` repositories, if you have a good subscription link, please submit PR, all the nodes contained in these links will be merged in Repository `./sub/sub_merge.txt`.
 
 The node subscription files after speed test screening are in the repository root directory `Eterniy`(Base64) and `Eternity.yml`(Clash). Also keep a record of the original node link in the repository's `./update`.
 
-The speed measurement function is implemented in the `GitHub Actions` environment using [LiteSpeedTest](https://github.com/xxf098/LiteSpeedTest), so there are many nodes in the United States, which cannot well represent the node availability in the domestic network environment. Currently, this problem is being solved. question.
+The speed measurement function is implemented in the `GitHub Actions` environment using [LiteSpeedTest](https://github.com/xxf098/LiteSpeedTest), so there are many nodes in the United States, which cannot well represent the node availability in the domestic network environment.
 
-Although it is a node after speed test screening, some nodes may still be unavailable. In this case, it is recommended to choose a client such as `Clash`, `Shadowrocket` that can automatically switch to low-latency nodes.
 
 ## Visualizer
 
@@ -29,12 +28,6 @@ Just import the following subscription link into the corresponding client. Most 
 - [Multi-protocol Base64 encoding](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity)
 - [Clash](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml)
 
-Mirror link：
-
-- [Multi-protocol Base64 encoding](https://fastly.jsdelivr.net/gh/mahdibland/ShadowsocksAggregator@master/Eternity)
-- [Clash](https://fastly.jsdelivr.net/gh/mahdibland/ShadowsocksAggregator@master/Eternity.yml)
-
-> The configuration used by the `Clash` link is in the repository `./update/provider/`, with corresponding configuration files and `proxy-provider` categorized by country.
 >
 > If other configuration is required, you can use the subscription conversion tool to convert it yourself.
 > Self-use online subscription conversion URL: [sub-web-modify](https://sub.v1.mk/)
@@ -534,4 +527,5 @@ use this link instead:
 |                                    ×                                    | [ShadowsocksR-android](https://github.com/HMBSbige/ShadowsocksR-Android/releases)  | SSR 协议支持，安卓专用 SSR 客户端。                                                                                                                       |
 |                                    ×                                    |                [V2rayNG](https://github.com/2dust/v2rayNG/releases)                | SS, Trojan, Vmess, VLESS 协议支持，v2ray 内核。                                                                                                           |
 
-- Credit: @alanbobs999
+### Credit: 
+- [alanbobs999](https://github.com/alanbobs999)
