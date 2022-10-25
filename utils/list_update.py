@@ -65,17 +65,38 @@ class update_url():
             file.close()
 
     def change_date(id, current_url):
+        if id == 0:
+            today = datetime.today().strftime('%m%d')
+            url_front = 'https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/'
+            url_end = '.txt'
+            new_url = url_front + today + url_end
+
         if id == 1:
             today = datetime.today().strftime('%Y%m%d')
             this_month = datetime.today().strftime('%Y%m')
             url_front = 'https://nodefree.org/dy/'
             url_end = '.txt'
             new_url = url_front + this_month + '/' + today + url_end
-        if id == 0:
-            today = datetime.today().strftime('%m%d')
-            url_front = 'https://raw.githubusercontent.com/pojiezhiyuanjun/freev2/master/'
+
+        if id == 3:
+            # https://v2rayshare.com/wp-content/uploads/2022/10/20221025.txt
+            today = datetime.today().strftime('%Y%m%d')
+            this_month = datetime.today().strftime('%m')
+            this_year = datetime.today().strftime('%Y')
+            url_front = 'https://v2rayshare.com/wp-content/uploads/'
             url_end = '.txt'
-            new_url = url_front + today + url_end
+            new_url = url_front + \
+                "/".join([this_year, this_month, today]) + url_end
+
+        if id == 4:
+            # https://clashnode.com/wp-content/uploads/2022/10/20221004.yaml
+            today = datetime.today().strftime('%Y%m%d')
+            this_month = datetime.today().strftime('%m')
+            this_year = datetime.today().strftime('%Y')
+            url_front = 'https://clashnode.com/wp-content/uploads/'
+            url_end = '.txt'
+            new_url = url_front + \
+                "/".join([this_year, this_month, today]) + url_end
 
         if url_updated(new_url):
             return new_url
