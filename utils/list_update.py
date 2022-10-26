@@ -83,7 +83,7 @@ class update_url():
                 sublist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
                     'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/sub_list', timeout=4).text.split("\n")))))
                 urllist.extend(sublist)
-                urllist = list(map(lambda x: quote(x, safe=""), urllist))
+                # urllist = list(map(lambda x: quote(x, safe=""), urllist))
                 new_url = "|".join(list(set(urllist)))
             except Exception as e:
                 print(e)
