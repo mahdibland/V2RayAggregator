@@ -2,8 +2,6 @@
 
 [![sub_merge](https://github.com/mahdibland/SSAggregator/actions/workflows/merge.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/merge.yml) [![speedtest_yaml](https://github.com/mahdibland/SSAggregator/actions/workflows/speedtest_yml.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/speedtest_yml.yml) [![clash_yaml](https://github.com/mahdibland/SSAggregator/actions/workflows/clash_yaml.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/clash_yaml.yml)
 
-[Introduction](https://github.com/mahdibland/SSAggregator#Introduction) | [Visualizer](https://github.com/mahdibland/SSAggregator#Visualizer) | [Instructions](https://github.com/mahdibland/SSAggregator#Instructions) | [Node Information](https://github.com/mahdibland/SSAggregator#NodeInformation) | [Softwares](https://github.com/mahdibland/SSAggregator#Softwares)
-
 ## Quick Note
 🔴 This project is still under maintance. so don't use it until further announcement cause there is a chance you will get errors while updating the nodes, etc.
 
@@ -17,7 +15,7 @@ The node subscription files after speed test screening are in the repository roo
 
 The speed measurement function is implemented in the `GitHub Actions` environment using [LiteSpeedTest](https://github.com/xxf098/LiteSpeedTest), so there are many nodes in the United States, which cannot well represent the node availability in the domestic network environment.
 
-## Featurs
+## Features
 - [x] Lots of sources 😯
 - [x] Deduplication all scrapped nodes 🤤
 - [x] Providing final proxies in major formats (yaml, v2ray, base64) 🦋
@@ -40,7 +38,7 @@ Just import the following subscription link into the corresponding client. Most 
 > If other configuration is required, you can use the subscription conversion tool to convert it yourself.
 > Self-use online subscription conversion URL: [sub-web-modify](https://sub.v1.mk/)
 
-## NodeInformation
+## Node Information
 
 ### high-speed node
 high-speed node quantity: `200`
