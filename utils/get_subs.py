@@ -415,7 +415,7 @@ class subs:
                     # todo change to 0.0.0.0
                     # getting one source in to format
                     content_clash = subs_function.convert_sub(
-                        each_url, 'clash', "http://0.0.0.0:25500", False)
+                        each_url, 'clash', "http://0.0.0.0:25500", False, extra_options="&udp=false")
 
                     if content_clash == 'Err: No nodes found' or content_clash == 'Err: failed to parse sub':
                         print("host convertor failed. just continue & ignore...")
