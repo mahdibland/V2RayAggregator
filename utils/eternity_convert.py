@@ -47,14 +47,16 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     all_provider = subs_function.convert_sub(
         "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/EternityBase", 'clash', "http://0.0.0.0:25500")
 
+    # remove lines with name issue
+    removed_bad_char = list(filter(lambda x: str(x).__contains__(
+        "�") == False, all_provider.split("\n")[1:]))
+
     # take a part from begining of all lines
     num = 200
-    num = lines.__len__() if lines.__len__() <= num else num
+    num = removed_bad_char.__len__() if removed_bad_char.__len__() <= num else num
 
-    # remove lines with name issue
-    all_provider = "proxies:\n" + \
-        "\n".join(list(filter(lambda x: str(x).__contains__(
-            "�") == False, all_provider.split("\n")[1:]))[0:num + 1])
+    # convert the safe partition to yaml format
+    all_provider = "proxies:\n" + "\n".join(removed_bad_char[0:num + 1])
 
     lines = re.split(r'\n+', all_provider)
     # 创建并写入 provider
