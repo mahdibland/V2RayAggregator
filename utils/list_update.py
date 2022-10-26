@@ -54,6 +54,13 @@ class update_url():
                         else:
                             sub['url'] = new_url
                             print(f'ID{id} url updated to {new_url}\n')
+                    elif sub['update_method'] == 'update_airports':
+                        new_url = update_url.update_airports(id, current_url)
+                        if new_url == current_url:
+                            print(f'No available update for ID{id}\n')
+                        else:
+                            sub['url'] = new_url
+                            print(f'ID{id} url updated to {new_url}\n')
 
             except KeyError:
                 print(f'{id} Url not changed! Please define update method.')
@@ -63,6 +70,18 @@ class update_url():
             file = open(sub_list_json, 'w', encoding='utf-8')
             file.write(updated_list)
             file.close()
+
+    def update_airports(id, current_url):
+        if id == 5:
+            urllist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), requests.get(
+                'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/urllist').text.split("\n")))))
+            sublist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), requests.get(
+                'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/sub_list').text.split("\n")))))
+            urllist.extend(sublist)
+            urllist = list(map(lambda x: quote(x, safe=""), urllist))
+            new_url = "|".join(list(set(urllist)))
+
+        return new_url
 
     def change_date(id, current_url):
         if id == 0:
