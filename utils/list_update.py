@@ -5,6 +5,7 @@ import json
 import re
 import requests
 from requests.adapters import HTTPAdapter
+from urllib.parse import quote
 
 # 文件路径定义
 sub_list_json = './sub/sub_list.json'
@@ -20,7 +21,7 @@ def url_updated(url):  # 判断远程远程链接是否已经更新
     s.mount('http://', HTTPAdapter(max_retries=2))
     s.mount('https://', HTTPAdapter(max_retries=2))
     try:
-        resp = s.get(url, timeout=2)
+        resp = s.get(url, timeout=4)
         status = resp.status_code
     except Exception:
         status = 404
@@ -73,14 +74,19 @@ class update_url():
 
     def update_airports(id, current_url):
         if id == 5:
-            urllist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), requests.get(
-                'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/urllist').text.split("\n")))))
-            sublist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), requests.get(
-                'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/sub_list').text.split("\n")))))
-            urllist.extend(sublist)
-            urllist = list(map(lambda x: quote(x, safe=""), urllist))
-            new_url = "|".join(list(set(urllist)))
-
+            try:
+                s = requests.Session()
+                s.mount('http://', HTTPAdapter(max_retries=2))
+                s.mount('https://', HTTPAdapter(max_retries=2))
+                urllist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
+                    'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/urllist', timeout=4).text.split("\n")))))
+                sublist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
+                    'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/sub_list', timeout=4).text.split("\n")))))
+                urllist.extend(sublist)
+                urllist = list(map(lambda x: quote(x, safe=""), urllist))
+                new_url = "|".join(list(set(urllist)))
+            except Exception as e:
+                print(e)
         return new_url
 
     def change_date(id, current_url):
