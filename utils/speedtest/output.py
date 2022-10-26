@@ -24,11 +24,6 @@ def read_json(file):  # 将 out.json 内容读取为列表
 
 
 def output(list, num):
-    if num == -1:
-        num = list.__len__()
-    num = 200
-    num = list.__len__() if list.__len__() <= num else num
-
     # sort base their avg speed rather than max speed which is default option
     list = sorted(list, key=lambda x: x['avg_speed'], reverse=True)
 
@@ -45,7 +40,7 @@ def output(list, num):
         print('Write Log Success!')
 
     output_list = []
-    for index in range(num):
+    for index in range(list.__len__()):
         proxy = list[index]['Link']
         output_list.append(proxy)
 
@@ -53,16 +48,16 @@ def output(list, num):
     content = '\n'.join(output_list)
     content_base64 = base64.b64encode(
         '\n'.join(output_list).encode('utf-8')).decode('ascii')
-
     content_base64_part = base64.b64encode(
         '\n'.join(output_list[0:num]).encode('utf-8')).decode('ascii')
+
     with open(sub_all_base64, 'w+', encoding='utf-8') as f:
         f.write(content_base64)
         print('Write All Base64 Success!')
         f.close()
     with open(Eternity_file_base64, 'w+', encoding='utf-8') as f:
         f.write(content_base64_part)
-        print('Write All Base64 Success!')
+        print('Write Part Base64 Success!')
         f.close()
 
     with open(sub_all, 'w') as f:
@@ -75,12 +70,12 @@ def output(list, num):
         f.close()
     with open(Eternity_file, 'w') as f:
         f.write('\n'.join(output_list[0:num]))
-        print('Write Base Success!')
+        print('Write Part Base Success!')
         f.close()
     return content
 
 
 if __name__ == '__main__':
-    num = -1
+    num = 200
     value = read_json(out_json)
     output(value, value.__len__() if value.__len__() <= num else num)
