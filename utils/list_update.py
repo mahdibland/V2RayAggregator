@@ -84,6 +84,8 @@ class update_url():
                     'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/sub_list', timeout=4).text.split("\n")))))
                 urllist.extend(sublist)
                 # urllist = list(map(lambda x: quote(x, safe=""), urllist))
+                urllist = list(filter(lambda x: str(x).__contains__(
+                    "getafreenode.com") == False, urllist))
                 new_url = "|".join(list(set(urllist)))
             except Exception as e:
                 print(e)
