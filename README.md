@@ -450,14 +450,14 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes w/o dup: `1075`
+merge nodes w/o dup: `1047`
 [~~Node link~~](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 
 use this link instead:
 [Node link Yaml](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
 ### node source
-- [RenaLio/Mux2sub](https://github.com/RenaLio/Mux2sub), number of nodes: `1216`
+- [RenaLio/Mux2sub](https://github.com/RenaLio/Mux2sub), number of nodes: `1187`
 
 ## Softwares
 
