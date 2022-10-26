@@ -12,7 +12,7 @@ class subs_function:
         url = urllib.parse.quote(url, safe='')
         try:
             convert_url = f'{convertor_host}/sub?target={output}&url={url}&insert=false&emoji=true&list=true&tfo=false&scv=false&fdn=false&sort=false{extra_options}'
-            result = requests.get(convert_url, timeout=120).text
+            result = requests.get(convert_url, timeout=240).text
             if show_url:
                 print(f"url to host for {output} : {convert_url}")
             if result == "No nodes were found!":
