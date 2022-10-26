@@ -45,7 +45,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     # no conversion from base64 so udp is not a problem
     # , extra_options="&udp=false"
     all_provider = subs_function.convert_sub(
-        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/EternityBase", 'clash', "http://0.0.0.0:25500")
+        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash', "http://127.0.0.1:25500")
 
     # remove lines with name issue
     removed_bad_char = list(filter(lambda x: str(x).__contains__(
@@ -248,6 +248,6 @@ def backup(file):
 if __name__ == '__main__':
     sub_merge.geoip_update(
         'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
-    eternity_convert(Eterniy_base_file, config_file, output=Eternity_yml_file)
-    backup(Eterniy_base_file)
+    eternity_convert(Eterniy_file, config_file, output=Eternity_yml_file)
+    backup(Eterniy_file)
     sub_merge.readme_update(readme, sub_merge.read_list(sub_list_json))
