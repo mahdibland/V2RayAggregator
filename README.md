@@ -4,6 +4,9 @@
 
 [Introduction](https://github.com/mahdibland/SSAggregator#Introduction) | [Visualizer](https://github.com/mahdibland/SSAggregator#Visualizer) | [Instructions](https://github.com/mahdibland/SSAggregator#Instructions) | [Node Information](https://github.com/mahdibland/SSAggregator#NodeInformation) | [Softwares](https://github.com/mahdibland/SSAggregator#Softwares)
 
+## Quick Note
+🔴 This project is still under maintance. so don't use it until further announcement cause there is a chance you will get errors while updating the nodes, etc.
+
 ## Introduction
 
 The automation functions of this repository are all implemented based on `GitHub Actions`
@@ -14,6 +17,11 @@ The node subscription files after speed test screening are in the repository roo
 
 The speed measurement function is implemented in the `GitHub Actions` environment using [LiteSpeedTest](https://github.com/xxf098/LiteSpeedTest), so there are many nodes in the United States, which cannot well represent the node availability in the domestic network environment.
 
+## Featurs
+- [x] Lots of sources 😯
+- [x] Deduplication all scrapped nodes 🤤
+- [x] Providing final proxies in major formats (yaml, v2ray, base64) 🦋
+- [x] No additional conversion to prevent breaking the nodes 🌿
 
 ## Visualizer
 
