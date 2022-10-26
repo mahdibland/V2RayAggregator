@@ -6,7 +6,7 @@ on:
 
   push:
     paths:
-      - "./Eternity"
+      - "./EternityBase"
 
   schedule:
     - cron: "45 1,9,17 * * *"
@@ -46,6 +46,7 @@ jobs:
           git config --local user.name "GitHub Actions"
           git pull origin master
           git add Eternity.yml
+          git add Eternity
           git add README.md
           git add ./update/*
           git add LogInfo.txt

@@ -11,6 +11,7 @@ from subs_function import subs_function
 
 from list_merge import sub_merge
 
+Eterniy_base_file = './EternityBase'
 Eterniy_file = './Eternity'
 Eternity_yml_file = './Eternity.yml'
 readme = './README.md'
@@ -41,23 +42,22 @@ def substrings(string, left, right):
 
 
 def eternity_convert(file, config, output, provider_file_enabled=True):
-
-    file_eternity = open(file, 'r', encoding='utf-8')
-    sub_content = file_eternity.read()
-    file_eternity.close()
-
-    # all_provider = sub_convert.main(sub_content, 'content', 'YAML', custom_set={
-    #                                 'dup_rm_enabled': False, 'format_name_enabled': True})
+    # no conversion from base64 so udp is not a problem
+    # , extra_options="&udp=false"
     all_provider = subs_function.convert_sub(
-        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash', "http://0.0.0.0:25500", extra_options="&udp=false")
+        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/EternityBase", 'clash', "http://0.0.0.0:25500")
+
+    # take a part from begining of all lines
+    num = 200
+    num = lines.__len__() if lines.__len__() <= num else num
 
     # remove lines with name issue
     all_provider = "proxies:\n" + \
         "\n".join(list(filter(lambda x: str(x).__contains__(
-            "�") == False, all_provider.split("\n")[1:])))
+            "�") == False, all_provider.split("\n")[1:]))[0:num + 1])
 
-    # 创建并写入 provider
     lines = re.split(r'\n+', all_provider)
+    # 创建并写入 provider
     proxy_all = []
 #     us_proxy = []
 #     hk_proxy = []
@@ -240,12 +240,12 @@ def backup(file):
         file.write(sub_convert.base64_decode(sub_content))
         file.close()
     except Exception as e:
-        print("Error While backup Eterniy_file => if you use method yaml ignore this")
+        print("Error While backup EterniyBase_file => if you use method yaml ignore this")
 
 
 if __name__ == '__main__':
     sub_merge.geoip_update(
         'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
-    eternity_convert(Eterniy_file, config_file, output=Eternity_yml_file)
-    backup(Eterniy_file)
+    eternity_convert(Eterniy_base_file, config_file, output=Eternity_yml_file)
+    backup(Eterniy_base_file)
     sub_merge.readme_update(readme, sub_merge.read_list(sub_list_json))
