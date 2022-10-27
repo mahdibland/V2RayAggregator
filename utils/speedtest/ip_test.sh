@@ -1,5 +1,4 @@
-sudo apt install curl
-curl api.ipify.org
+sudo curl api.ipify.org
 # Clash
 wget -O clash.gz https://github.com/Dreamacro/clash/releases/download/v1.11.8/clash-linux-amd64-v1.11.8.gz
 gunzip clash.gz
