@@ -74,21 +74,21 @@ class update_url():
 
     def update_airports(id, current_url):
         if id == 5:
-            try:
-                s = requests.Session()
-                s.mount('http://', HTTPAdapter(max_retries=2))
-                s.mount('https://', HTTPAdapter(max_retries=2))
-                urllist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
-                    'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/urllist', timeout=4).text.split("\n")))))
-                sublist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
-                    'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/sub_list', timeout=4).text.split("\n")))))
-                urllist.extend(sublist)
-                # urllist = list(map(lambda x: quote(x, safe=""), urllist))
-                urllist = list(filter(lambda x: str(x).__contains__(
-                    "getafreenode.com") == False, urllist))
-                new_url = "|".join(list(set(urllist)))
-            except Exception as e:
-                print(e)
+            # try:
+            s = requests.Session()
+            s.mount('http://', HTTPAdapter(max_retries=2))
+            s.mount('https://', HTTPAdapter(max_retries=2))
+            urllist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
+                'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/urllist', timeout=4).text.split("\n")))))
+            sublist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
+                'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/sub_list', timeout=4).text.split("\n")))))
+            urllist.extend(sublist)
+            # urllist = list(map(lambda x: quote(x, safe=""), urllist))
+            urllist = list(filter(lambda x: str(x).__contains__(
+                "getafreenode.com") == False, urllist))
+            new_url = "|".join(list(set(urllist)))
+            # except Exception as e:
+            #     print(e)
         return new_url
 
     def change_date(id, current_url):
