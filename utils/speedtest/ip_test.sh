@@ -14,6 +14,6 @@ sudo chmod 777 ../../../../../../etc/proxychains.conf
 mv -f proxychains.conf ../../../../../../etc/proxychains.conf
 #开始运行 Clash
 sudo pkill -f clash
-sudo nohub ./clash -f clash_config.yml
-sudo proxychains curl api.ipify.org
+./clash -f clash_config.yml &
+proxychains curl -i api.ipify.org
 sudo proxychains curl -i api.ipify.org
