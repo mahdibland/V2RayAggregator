@@ -16,8 +16,8 @@ sudo pkill -f clash
 curl -i ifconfig.me
 ./clash -f clash_config.yml &
 sleep 5
-sudo nohub proxychains curl -i ifconfig.me
+sudo nohup proxychains curl -i ifconfig.me
 sleep 5
-sudo nohub proxychains curl -i ifconfig.me
+sudo nohup proxychains curl -i ifconfig.me
 sleep 5
-sudo nohub proxychains curl -i ifconfig.me
+sudo nohup proxychains curl -i ifconfig.me
