@@ -1,4 +1,4 @@
-name: all_together
+name: Collect
 
 on:
   workflow_dispatch:
@@ -15,7 +15,8 @@ on:
     - cron: "0 0,12 * * *"
 
 jobs:
-  deploy:
+  main:
+    name: Collect & SpeedTest & Filter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
