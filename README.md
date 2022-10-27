@@ -505,7 +505,6 @@ merge nodes w/o dup: `14834`
 - [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `1408`
 - [vveg26/get_proxy](https://github.com/vveg26/get_proxy), number of nodes: `204`
 - [ripaojiedian/freenode](https://gitlab.com/ripaojiedian/freenode), number of nodes: `9`
-- [free.dswang.ga/clash](https://free.dswang.ga/clash), number of nodes: `1`
 - [free.jingfu.cf/clash](https://free.jingfu.cf/clash), number of nodes: `1346`
 - [sspool.herokuapp.com/clash](https://sspool.herokuapp.com/clash), number of nodes: `283`
 - [ew732e8d8h1hi/q832yqwdu21u](https://github.com/ew732e8d8h1hi/q832yqwdu21u), number of nodes: `2102`
