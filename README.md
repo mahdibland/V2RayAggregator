@@ -21,8 +21,11 @@ The speed measurement function is implemented in the `GitHub Actions` environmen
 - [x] Providing final proxies in major formats (yaml, v2ray, base64) 🦋
 - [x] No additional conversion to prevent breaking the nodes 🌿
 
-## Todo
-- [ ] Fix subs that subconvertor unable to convert them using get_v2
+## Recent Todos
+- [x] Fix region based lite speed test (mainly EU) 👀
+- [x] Fix Sort Based on the Avg Speed 👀
+- [x] Update required softwares to latest version 👀
+- [x] Fix sources that subconvertor unable to convert 👀
 
 ## Visualizer
 
@@ -454,9 +457,7 @@ high-speed node quantity: `200`
 
 ### all nodes
 merge nodes w/o dup: `14834`
-[~~Node link~~](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
-
-use this link instead:
+[Node link Mixed](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 [Node link Yaml](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
 ### node source
