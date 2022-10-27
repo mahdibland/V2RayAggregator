@@ -15,5 +15,6 @@ mv -f proxychains.conf ../../../../../../etc/proxychains.conf
 sudo pkill -f clash
 ./clash -f clash_config.yml &
 #运行 LiteSpeedTest
+sleep 5
 chmod +x ./lite-linux-amd64
 sudo nohup proxychains ./lite-linux-amd64 --config ./lite_config.json --test subs >speedtest.log 2>&1 &
