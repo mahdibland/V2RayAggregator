@@ -14,12 +14,6 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇺🇸US-167.88.63.82-061 | 4.338MB
-  server: 167.88.63.82
-  port: 2376
-  type: ss
-  cipher: aes-256-gcm
-  password: faBAoD54k87UJG7
 - name: 🇺🇸US-38.107.226.238-068 | 4.334MB
   server: 38.107.226.238
   port: 2375
@@ -38,33 +32,44 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: faBAoD54k87UJG7
-- name: 🇬🇧GB-172.99.190.149-077 | 4.274MB
+- name: 🇬🇧GB-172.99.190.149-077 | 4.252MB
   server: 172.99.190.149
   port: 8091
   type: ss
   cipher: aes-256-gcm
   password: PCnnH6SQSnfoS27
-- name: 🇺🇸US-167.88.63.99-104 | 4.244MB
+- name: 🇺🇸US-167.88.63.99-104 | 2.739MB
   server: 167.88.63.99
   port: 7307
   type: ss
   cipher: aes-256-gcm
   password: FoOiGlkAA9yPEGP
-- name: HU-185.225.69.134-033 | 3.189MB
-  server: 185.225.69.134
-  port: 45081
-  type: vmess
-  uuid: 3c3bfd75-dc30-4e76-8940-47e1137e21f9
-  alterId: 64
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
 - name: RS-152.89.160.61-000 | 0.0MB
   server: 152.89.160.61
   port: 45329
   type: ss
   cipher: aes-256-gcm
   password: CXSjgD7u7Ar7GxkZ4CgTMUsj
+- name: NOWHERE-0.0.0.0-006 | 0.0MB
+  server: v7.ssrsub.com
+  port: 158
+  type: vmess
+  uuid: 5b092e88-82d8-47eb-a7a2-98bcf02754e9
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v7.ssrsub.com
+- name: 🇩🇰DK-193.29.107.125-007 | 0.0MB
+  server: 193.29.107.125
+  port: 44539
+  type: ss
+  cipher: aes-256-gcm
+  password: r6hDrkP4Et6EENTS8Qy7Tcmg
 - name: 🇨🇦CA-37.19.211.117-008 | 0.0MB
   server: 37.19.211.117
   port: 40093
@@ -231,12 +236,15 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: PCnnH6SQSnfoS27
-- name: 🇩🇰DK-193.29.107.125-007 | 0.0MB
-  server: 193.29.107.125
-  port: 44539
-  type: ss
-  cipher: aes-256-gcm
-  password: r6hDrkP4Et6EENTS8Qy7Tcmg
+- name: HU-185.225.69.134-033 | 0.0MB
+  server: 185.225.69.134
+  port: 45081
+  type: vmess
+  uuid: 3c3bfd75-dc30-4e76-8940-47e1137e21f9
+  alterId: 64
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
 - name: NOWHERE-0.0.0.0-034 | 0.0MB
   server: v5.ssrsub.com
   port: 158
@@ -294,20 +302,12 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: FoOiGlkAA9yPEGP
-- name: NOWHERE-0.0.0.0-006 | 0.0MB
-  server: v7.ssrsub.com
-  port: 158
-  type: vmess
-  uuid: 5b092e88-82d8-47eb-a7a2-98bcf02754e9
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: v7.ssrsub.com
+- name: 🇷🇺RU-2.59.214.204-005 | 0.0MB
+  server: 2.59.214.204
+  port: 152
+  type: ss
+  cipher: aes-128-gcm
+  password: 5b092e88-82d8-47eb-a7a2-98bcf02754e9
 - name: AT-5.253.207.53-043 | 0.0MB
   server: 5.253.207.53
   port: 31944
@@ -326,7 +326,7 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: PCnnH6SQSnfoS27
-- name: RELAY-172.67.150.223-046 | 0.0MB
+- name: RELAY-104.21.0.103-046 | 0.0MB
   server: v2.ssrsub.com
   port: 158
   type: vmess
@@ -454,12 +454,12 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: faBAoD54k87UJG7
-- name: 🇷🇺RU-2.59.214.204-005 | 0.0MB
-  server: 2.59.214.204
-  port: 152
+- name: 🇺🇸US-167.88.63.82-061 | 0.0MB
+  server: 167.88.63.82
+  port: 2376
   type: ss
-  cipher: aes-128-gcm
-  password: 5b092e88-82d8-47eb-a7a2-98bcf02754e9
+  cipher: aes-256-gcm
+  password: faBAoD54k87UJG7
 - name: NOWHERE-0.0.0.0-062 | 0.0MB
   server: t4.ssrsub.com
   port: 8443
@@ -545,7 +545,7 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: PCnnH6SQSnfoS27
-- name: IE-54.228.42.199-075 | 0.0MB
+- name: 🇺🇸US-18.208.60.216-075 | 0.0MB
   server: guarded-bayou-66094.herokuapp.com
   port: 443
   type: vmess
@@ -808,14 +808,14 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - 🇺🇸US-167.88.63.82-061 | 4.338MB
   - 🇺🇸US-38.107.226.238-068 | 4.334MB
   - 🇺🇸US-38.107.226.146-063 | 4.327MB
   - 🇨🇦CA-134.195.198.95-103 | 4.322MB
-  - 🇬🇧GB-172.99.190.149-077 | 4.274MB
-  - 🇺🇸US-167.88.63.99-104 | 4.244MB
-  - HU-185.225.69.134-033 | 3.189MB
+  - 🇬🇧GB-172.99.190.149-077 | 4.252MB
+  - 🇺🇸US-167.88.63.99-104 | 2.739MB
   - RS-152.89.160.61-000 | 0.0MB
+  - NOWHERE-0.0.0.0-006 | 0.0MB
+  - 🇩🇰DK-193.29.107.125-007 | 0.0MB
   - 🇨🇦CA-37.19.211.117-008 | 0.0MB
   - 🇺🇸US-167.88.63.11-009 | 0.0MB
   - IL-87.239.255.114-010 | 0.0MB
@@ -847,7 +847,7 @@ proxy-groups:
   - 🇦🇺AU-172.105.167.214-030 | 0.0MB
   - IT-84.17.58.148-031 | 0.0MB
   - 🇨🇦CA-134.195.196.110-032 | 0.0MB
-  - 🇩🇰DK-193.29.107.125-007 | 0.0MB
+  - HU-185.225.69.134-033 | 0.0MB
   - NOWHERE-0.0.0.0-034 | 0.0MB
   - 🇬🇧GB-172.99.190.246-035 | 0.0MB
   - 🇸🇬SG-13.213.251.185-036 | 0.0MB
@@ -856,11 +856,11 @@ proxy-groups:
   - 🇵🇱PL-5.133.14.196-039 | 0.0MB
   - 🇮🇳IN-172.104.206.241-040 | 0.0MB
   - 🇨🇦CA-134.195.198.195-041 | 0.0MB
-  - NOWHERE-0.0.0.0-006 | 0.0MB
+  - 🇷🇺RU-2.59.214.204-005 | 0.0MB
   - AT-5.253.207.53-043 | 0.0MB
   - 🇮🇳IN-172.105.57.249-044 | 0.0MB
   - 🇮🇳IN-172.105.38.55-045 | 0.0MB
-  - RELAY-172.67.150.223-046 | 0.0MB
+  - RELAY-104.21.0.103-046 | 0.0MB
   - NOWHERE-0.0.0.0-047 | 0.0MB
   - 🇰🇷KR-146.56.187.13-048 | 0.0MB
   - 🇷🇺RU-176.119.156.229-049 | 0.0MB
@@ -881,7 +881,7 @@ proxy-groups:
   - IT-84.17.58.148-058 | 0.0MB
   - IT-212.102.54.160-059 | 0.0MB
   - 🇬🇧GB-193.118.60.176-060 | 0.0MB
-  - 🇷🇺RU-2.59.214.204-005 | 0.0MB
+  - 🇺🇸US-167.88.63.82-061 | 0.0MB
   - NOWHERE-0.0.0.0-062 | 0.0MB
   - HR-85.10.56.192-004 | 0.0MB
   - 🇨🇦CA-198.57.27.225-064 | 0.0MB
@@ -895,7 +895,7 @@ proxy-groups:
   - TR-185.247.138.25-072 | 0.0MB
   - 🇬🇧GB-172.99.190.158-073 | 0.0MB
   - 🇨🇦CA-134.195.196.81-074 | 0.0MB
-  - IE-54.228.42.199-075 | 0.0MB
+  - 🇺🇸US-18.208.60.216-075 | 0.0MB
   - 🇬🇧GB-172.99.190.35-076 | 0.0MB
   - 🇺🇸US-167.88.63.61-003 | 0.0MB
   - 🇷🇺RU-176.119.156.229-078 | 0.0MB
