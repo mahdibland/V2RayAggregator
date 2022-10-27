@@ -45,7 +45,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     # # no conversion from base64 so udp is not a problem
     # subconvertor not working with only proxy url
     all_provider = subs_function.convert_sub(
-        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash', "http://0.0.0.0:25500", extra_options="&udp=false")
+        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash', "http://0.0.0.0:25500", False, extra_options="&udp=false")
 
     # remove lines with name issue
     removed_bad_char = list(filter(lambda x: str(x).__contains__(
