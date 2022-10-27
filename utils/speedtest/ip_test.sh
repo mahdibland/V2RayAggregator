@@ -16,6 +16,5 @@ mv -f proxychains.conf ../../../../../../etc/proxychains.conf
 #开始运行 Clash
 sudo pkill -f clash
 ./clash -f clash_config.yml &
+sudo proxychains ip address
 sudo curl -i api.ipify.org
-sudo proxychains curl -i api.ipify.org
-sudo ip address
