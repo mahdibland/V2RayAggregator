@@ -15,82 +15,93 @@ external-controller: 127.0.0.1:9090
 #     - tcp://8.8.8.8:53
 #     - any:53
 #     - tcp://any:53
-    
+
 dns:
   enable: true
   ipv6: false
   listen: 0.0.0.0:53
   enhanced-mode: redir-host
-  # use-hosts: true 
+  # use-hosts: true
   # fallback: []
   # fake-ip-filter: []
   # default-nameserver:
   nameserver:
-      - 8.8.8.8
-      - https://dns.google/dns-query # DNS OVER HTTPS
-      - tls://dns.google:853 # DNS OVER TLS
-         
+    - 8.8.8.8
+    - https://dns.google/dns-query # DNS OVER HTTPS
+    - tls://dns.google:853 # DNS OVER TLS
 
 proxies:
 
 proxy-groups:
+  - name: Global ©️
+    proxies:
+      - Global 🌎
+      - Global 🥶
+    type: select
+  - name: Tiers 🔮
+    proxies:
+      - Tier 1 🚀
+      - Tier 2 ⚡️
+      - Tier 3 💎
+      - Tier 4 🗿
+    type: select
+  - name: Global 🥶
+    proxies:
+      - Tier 1 🚀
+      - Tier 2 ⚡️
+      - Tier 3 💎
+      - Tier 4 🗿
+    type: url-test
+    url: http://clients3.google.com/generate_204
+    interval: 300
+  - name: Global 🌎
+    proxies:
+      - Tier 1 🚀
+      - Tier 2 ⚡️
+      - Tier 3 💎
+      - Tier 4 🗿
+    type: fallback
+    url: http://clients3.google.com/generate_204
+    interval: 300
 
-- name: Global ©️
-  proxies:
-    - Global 🌎
-    - Global 🥶
-  type: select
-- name: Tiers 🔮
-  proxies:
-    - Tier 1 🚀
-    - Tier 2 ⚡️
-    - Tier 3 💎
-    - Tier 4 🗿
-  type: select
-- name: Global 🥶
-  proxies:
-    - Tier 1 🚀
-    - Tier 2 ⚡️
-    - Tier 3 💎
-    - Tier 4 🗿
-  type: url-test
-  url: http://clients3.google.com/generate_204
-  interval: 300
-- name: Global 🌎
-  proxies:
-    - Tier 1 🚀
-    - Tier 2 ⚡️
-    - Tier 3 💎
-    - Tier 4 🗿
-  type: fallback
-  url: http://clients3.google.com/generate_204
-  interval: 300
+  - name: Tier 1 🚀
+    type: url-test
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+  - name: Tier 2 ⚡️
+    type: url-test
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+  - name: Tier 3 💎
+    type: url-test
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
+  - name: Tier 4 🗿
+    type: url-test
+    url: http://clients3.google.com/generate_204
+    interval: 300
+    tolerance: 100
+    proxies:
 
-- name: Tier 1 🚀
-  type: url-test
-  url: http://clients3.google.com/generate_204
-  interval: 300
-  tolerance: 100
-  proxies:
-- name: Tier 2 ⚡️
-  type: url-test
-  url: http://clients3.google.com/generate_204
-  interval: 300
-  tolerance: 100
-  proxies:
-- name: Tier 3 💎
-  type: url-test
-  url: http://clients3.google.com/generate_204
-  interval: 300
-  tolerance: 100
-  proxies:
-- name: Tier 4 🗿
-  type: url-test
-  url: http://clients3.google.com/generate_204
-  interval: 300
-  tolerance: 100
-  proxies:
-  
+  - name: Tier 1 🚀 Selector
+    type: select
+    proxies:
+  - name: Tier 2 ⚡️ Selector
+    type: select
+    proxies:
+  - name: Tier 3 💎 Selector
+    type: select
+    proxies:
+  - name: Tier 4 🗿 Selector
+    type: select
+    proxies:
+
 rules:
   - MATCH,Tier 4 🗿
   - MATCH,Tier 3 💎
