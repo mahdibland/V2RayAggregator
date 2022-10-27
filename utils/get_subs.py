@@ -418,14 +418,17 @@ class subs:
                         each_url, 'clash', "http://0.0.0.0:25500", False, extra_options="&udp=false")
 
                     if content_clash == 'Err: No nodes found' or content_clash == 'Err: failed to parse sub':
-                        print("host convertor failed. just continue & ignore...")
                         if content_clash == 'Err: No nodes found':
+                            print(
+                                "host convertor was unable to find any nodes. just continue & ignore...\n")
                             file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                         'a+', encoding='utf-8')
                             file.write('Err: No nodes found')
                             file.close()
 
                         if content_clash == 'Err: failed to parse sub':
+                            print(
+                                "host convertor failed. just continue & ignore...\n")
                             file = open(f'{sub_list_path}{ids:0>2d}.txt',
                                         'a+', encoding='utf-8')
                             file.write('Err: failed to parse sub')
