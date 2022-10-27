@@ -1,6 +1,6 @@
 # ShadowsocksAggregator
 
-[![sub_merge](https://github.com/mahdibland/SSAggregator/actions/workflows/merge.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/merge.yml) [![speedtest_yaml](https://github.com/mahdibland/SSAggregator/actions/workflows/speedtest_yml.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/speedtest_yml.yml) [![clash_yaml](https://github.com/mahdibland/SSAggregator/actions/workflows/clash_yaml.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/clash_yaml.yml)
+[![all_together](https://github.com/mahdibland/SSAggregator/actions/workflows/all_together.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/all_together.yml)
 
 ## Quick Note
 🔴 This project is still under maintance. so don't use it until further announcement cause there is a chance you will get errors while updating the nodes, etc.
