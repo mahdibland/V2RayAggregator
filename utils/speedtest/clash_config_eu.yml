@@ -29,12 +29,12 @@ proxy-groups:
 proxy-providers:
   all:
     type: http
-    url: "https://proxies.bihai.cf/clash/proxies?c=DE,GB,NL,FR"
+    url: "https://proxies.bihai.cf/clash/proxies?c=DE,GB,NL,FR&filter=nrp"
     # url: "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/utils/speedtest/provider.yaml"
     path: bihai/no.yaml
     health-check:
       enable: true
-      interval: 600
+      interval: 300
       url: http://clients3.google.com/generate_204
 
 rules:
