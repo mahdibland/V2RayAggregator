@@ -61,6 +61,7 @@ jobs:
 
       - name: Run Lite Speedtest
         run: |
+          sleep 5
           sudo sh ./utils/speedtest/speedtest2_yamlc.sh
           python ./utils/speedtest/output.py
       - name: Commit changes
@@ -83,6 +84,7 @@ jobs:
 
       - name: Run Convertor & Formatter
         run: |
+          sleep 5
           wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz
           tar -zxvf subconverter.tar.gz -C ./
           chmod +x ./subconverter/subconverter && nohup ./subconverter/subconverter >./subconverter.log 2>&1 &
