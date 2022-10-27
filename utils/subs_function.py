@@ -219,9 +219,10 @@ class subs_function:
                         if proxy_compared['type'] != correspond_next_proxy['type']:
                             check = False
 
-                    if 'udp' in correspond_next_proxy and 'udp' in proxy_compared:
-                        if proxy_compared['udp'] != correspond_next_proxy['udp']:
-                            check = False
+                    # due to conversion we could have udp off or on for same proxies
+                    # if 'udp' in correspond_next_proxy and 'udp' in proxy_compared:
+                    #     if proxy_compared['udp'] != correspond_next_proxy['udp']:
+                    #         check = False
 
                     if 'network' in correspond_next_proxy and 'network' in proxy_compared:
                         if proxy_compared['network'] != correspond_next_proxy['network']:
