@@ -21,6 +21,9 @@ The speed measurement function is implemented in the `GitHub Actions` environmen
 - [x] Providing final proxies in major formats (yaml, v2ray, base64) 🦋
 - [x] No additional conversion to prevent breaking the nodes 🌿
 
+## Todo
+- [ ] Fix subs that subconvertor unable to convert them using get_v2
+
 ## Visualizer
 
 - Log Visualizer on Netlify
