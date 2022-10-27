@@ -1,4 +1,4 @@
-sudo curl -i api.ipify.org
+curl -i ifconfig.me
 # Clash
 wget -O clash.gz https://github.com/Dreamacro/clash/releases/download/v1.11.8/clash-linux-amd64-v1.11.8.gz
 gunzip clash.gz
@@ -15,5 +15,5 @@ mv -f proxychains.conf ../../../../../../etc/proxychains.conf
 #开始运行 Clash
 sudo pkill -f clash
 ./clash -f clash_config.yml &
-proxychains curl -i api.ipify.org
-sudo proxychains curl -i api.ipify.org
+sudo proxychains curl -i ifconfig.me
+curl -i ifconfig.me
