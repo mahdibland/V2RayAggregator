@@ -5,11 +5,11 @@ import re
 import time
 import os
 
-from sub_convert import sub_convert
+from utils.sub_convert import sub_convert
 # below is replacement of above
-from subs_function import subs_function
+from utils.subs_function import subs_function
 
-from list_merge import sub_merge
+from utils.airport.list_merge import sub_merge
 
 Eterniy_file = './EternityAir'
 Eternity_yml_file = './EternityAir.yml'

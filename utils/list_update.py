@@ -34,37 +34,75 @@ def url_updated(url):  # 判断远程远程链接是否已经更新
 
 class update_url():
 
-    def update_main():
+    def update_main(use_airport=False, airports_id: [] = [5]):
         for sub in raw_list:
             id = sub['id']
             current_url = sub['url']
-            try:
-                if sub['update_method'] != 'auto' and sub['enabled'] == True:
-                    print(f'Finding available update for ID{id}')
-                    if sub['update_method'] == 'change_date':
-                        new_url = update_url.change_date(id, current_url)
-                        if new_url == current_url:
-                            print(f'No available update for ID{id}\n')
-                        else:
-                            sub['url'] = new_url
-                            print(f'ID{id} url updated to {new_url}\n')
-                    elif sub['update_method'] == 'page_release':
-                        new_url = update_url.find_link(id, current_url)
-                        if new_url == current_url:
-                            print(f'No available update for ID{id}\n')
-                        else:
-                            sub['url'] = new_url
-                            print(f'ID{id} url updated to {new_url}\n')
-                    elif sub['update_method'] == 'update_airports':
-                        new_url = update_url.update_airports(id, current_url)
-                        if new_url == current_url:
-                            print(f'No available update for ID{id}\n')
-                        else:
-                            sub['url'] = new_url
-                            print(f'ID{id} url updated to {new_url}\n')
+            if use_airport == False:
+                if airports_id.__contains__(id) == False:
+                    try:
+                        if sub['update_method'] != 'auto' and sub['enabled'] == True:
+                            print(f'Finding available update for ID{id}')
+                            if sub['update_method'] == 'change_date':
+                                new_url = update_url.change_date(
+                                    id, current_url)
+                                if new_url == current_url:
+                                    print(f'No available update for ID{id}\n')
+                                else:
+                                    sub['url'] = new_url
+                                    print(f'ID{id} url updated to {new_url}\n')
+                            elif sub['update_method'] == 'page_release':
+                                new_url = update_url.find_link(id, current_url)
+                                if new_url == current_url:
+                                    print(f'No available update for ID{id}\n')
+                                else:
+                                    sub['url'] = new_url
+                                    print(f'ID{id} url updated to {new_url}\n')
+                            elif sub['update_method'] == 'update_airports':
+                                new_url = update_url.update_airports(
+                                    id, current_url)
+                                if new_url == current_url:
+                                    print(f'No available update for ID{id}\n')
+                                else:
+                                    sub['url'] = new_url
+                                    print(f'ID{id} url updated to {new_url}\n')
 
-            except KeyError:
-                print(f'{id} Url not changed! Please define update method.')
+                    except KeyError:
+                        print(
+                            f'{id} Url not changed! Please define update method.')
+                        
+            else:
+                if airports_id.__contains__(id) == True:
+                    try:
+                        if sub['update_method'] != 'auto' and sub['enabled'] == True:
+                            print(f'Finding available update for ID{id}')
+                            if sub['update_method'] == 'change_date':
+                                new_url = update_url.change_date(
+                                    id, current_url)
+                                if new_url == current_url:
+                                    print(f'No available update for ID{id}\n')
+                                else:
+                                    sub['url'] = new_url
+                                    print(f'ID{id} url updated to {new_url}\n')
+                            elif sub['update_method'] == 'page_release':
+                                new_url = update_url.find_link(id, current_url)
+                                if new_url == current_url:
+                                    print(f'No available update for ID{id}\n')
+                                else:
+                                    sub['url'] = new_url
+                                    print(f'ID{id} url updated to {new_url}\n')
+                            elif sub['update_method'] == 'update_airports':
+                                new_url = update_url.update_airports(
+                                    id, current_url)
+                                if new_url == current_url:
+                                    print(f'No available update for ID{id}\n')
+                                else:
+                                    sub['url'] = new_url
+                                    print(f'ID{id} url updated to {new_url}\n')
+
+                    except KeyError:
+                        print(
+                            f'{id} Url not changed! Please define update method.')
 
             updated_list = json.dumps(
                 raw_list, sort_keys=False, indent=2, ensure_ascii=False)

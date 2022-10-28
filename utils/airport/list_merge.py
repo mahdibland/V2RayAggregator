@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from sub_convert import sub_convert
-from list_update import update_url
-from get_subs import subs
+from utils.sub_convert import sub_convert
+from utils.list_update import update_url
+from utils.get_subs import subs
 
 import json
 import re
@@ -133,7 +133,7 @@ class sub_merge():
 
 
 if __name__ == '__main__':
-    update_url.update_main()
+    update_url.update_main(use_airport=True, airports_id=[5])
     sub_merge.geoip_update(
         'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
