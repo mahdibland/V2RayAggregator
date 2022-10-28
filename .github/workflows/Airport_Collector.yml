@@ -41,7 +41,7 @@ jobs:
           wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz
           tar -zxvf subconverter.tar.gz -C ./
           chmod +x ./subconverter/subconverter && nohup ./subconverter/subconverter >./subconverter.log 2>&1 &
-          python ./utils/airport/list_merge_airport.py
+          python ./utils/list_merge_airport.py
       - name: Commit Changes
         run: |
           git config --local user.email "actions@github.com"
@@ -81,7 +81,7 @@ jobs:
           wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz
           tar -zxvf subconverter.tar.gz -C ./
           chmod +x ./subconverter/subconverter && nohup ./subconverter/subconverter >./subconverter.log 2>&1 &
-          python ./utils/airport/eternity_convert_airport.py
+          python ./utils/eternity_convert_airport.py
       - name: Commit changes
         run: |
           git config --local user.email "actions@github.com"
