@@ -22,8 +22,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
-          cache: 'pip'
+          python-version: "3.x"
+          cache: "pip"
       - uses: actions/cache@v3
         with:
           path: ~/.cache/pip
@@ -35,7 +35,7 @@ jobs:
       - name: Install Requirements
         run: |
           pip install -r ./utils/requirements.txt
-          
+
       - name: Running Collector
         run: |
           wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz
@@ -51,7 +51,7 @@ jobs:
           git add ./utils/Country.mmdb
           git add README.md
           git checkout master
-          git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Update Nodes"
+          git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Collected 🤩"
       - name: Push Changes
         uses: ad-m/github-push-action@master
         with:
@@ -73,7 +73,7 @@ jobs:
           git add ./sub/sub_merge.txt
           git add ./sub/sub_merge_base64.txt
           git add LogInfo.txt
-          git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Filter Nodes"
+          git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Tested 😍"
       - name: Push Change
         uses: ad-m/github-push-action@master
         with:
@@ -96,7 +96,7 @@ jobs:
           git add README.md
           git add ./update/*
           git add LogInfo.txt
-          git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Filter Nodes"
+          git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Filtered 😍"
       - name: Push Change
         uses: ad-m/github-push-action@master
         with:
