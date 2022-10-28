@@ -40,7 +40,7 @@ def output(list, num):
         proxy = list[index]['Link']
         output_list.append(proxy)
 
-    # content = '\n'.join(output_list)
+    content = '\n'.join(output_list)
     content_base64_part = base64.b64encode(
         '\n'.join(output_list[0:num]).encode('utf-8')).decode('ascii')
 
