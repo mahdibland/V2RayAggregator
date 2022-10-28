@@ -392,7 +392,7 @@ class subs:
 
     # eject mixed proxies and use only clash
 
-    def get_subs_v3(content_urls: []):
+    def get_subs_v3(content_urls: [], output_path="sub_merge_yaml"):
         if content_urls == []:
             return
 
@@ -583,7 +583,7 @@ class subs:
             file.write(output_type)
             file.close
 
-        content_write(f'{sub_merge_path}/sub_merge_yaml.yml', content_yaml)
+        content_write(f'{sub_merge_path}/{output_path}.yml', content_yaml)
         print('Done!\n')
 
 
