@@ -45,11 +45,38 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     # # no conversion from base64 so udp is not a problem
     # subconvertor not working with only proxy url
     all_provider = subs_function.convert_sub(
-        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/Eternity", 'clash', "http://0.0.0.0:25500", False, extra_options="&udp=false")
+        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_base64.txt", 'clash', "http://0.0.0.0:25500", False, extra_options="&udp=false")
+
+    ##########   Add Name to Logs Before making chaages to Proxies  ############
+    temp_providers = all_provider.split('\n')
+    log_reader = open(log_file, 'r')
+    log_lines = log_reader.readlines()
+    log_reader.close()
+    indexx = 0
+    for line in temp_providers:
+        if line != 'proxies:':
+            #####
+            server_name = substrings(line, "name:", ",")
+            server_type = substrings(line, "type:", ",")
+            log_lines[indexx] = "name: %s | type: %s | %s" % (
+                server_name, server_type, log_lines[indexx])
+            #####
+            indexx += 1
+
+    log_writer = open(log_file, 'w')
+    log_writer.writelines(log_lines)
+    log_writer.close()
+    ############################################################################
 
     # remove lines with name issue
     removed_bad_char = list(filter(lambda x: str(x).__contains__(
         "�") == False, all_provider.split("\n")[1:]))
+    log_lines_without_bad_char = list(filter(lambda x: str(x).__contains__(
+        "�") == False, log_lines))
+
+    # make sure the size of two list are equal
+    print(
+        f"removed_bad_char count => {removed_bad_char.__len__()} & log_lines_without_bad_char count => {log_lines_without_bad_char.__len__()}")
 
     # take a part from begining of all lines
     num = 200
@@ -59,45 +86,30 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     all_provider = "proxies:\n" + "\n".join(removed_bad_char[0:num + 1])
 
     lines = re.split(r'\n+', all_provider)
-    # 创建并写入 provider
-    proxy_all = []
-#     us_proxy = []
-#     hk_proxy = []
-#     sg_proxy = []
-#     others_proxy = []
 
-    log_reader = open(log_file, 'r')
-    log_lines = log_reader.readlines()
-    log_reader.close()
+    proxy_all = []
+    #     us_proxy = []
+    #     hk_proxy = []
+    #     sg_proxy = []
+    #     others_proxy = []
     indexx = 0
     for line in lines:
         if line != 'proxies:':
-            #####
-            server_name = substrings(line, "name:", ",")
-            server_type = substrings(line, "type:", ",")
-            log_lines[indexx] = "name: %s | type: %s | %s" % (
-                server_name, server_type, log_lines[indexx])
-            #####
             try:
                 name = substrings(line, "name:", ",")
-                speed = substrings(log_lines[indexx], "avg_speed:", "|")
+                speed = substrings(
+                    log_lines_without_bad_char[indexx], "avg_speed:", "|")
                 line = re.sub("name:( |)(.*?),", "name: %s | %s," %
                               (name, speed), line)
             except:
-                print(log_lines[indexx])
+                print(log_lines_without_bad_char[indexx])
                 pass
-#           line = '  ' + line
+            #           line = '  ' + line
             line = line.replace('- ', '')
             linee = yaml.safe_load(line)
             proxy_all.append(linee)
 
             indexx += 1
-
-    #####
-    log_writer = open(log_file, 'w')
-    log_writer.writelines(log_lines)
-    log_writer.close()
-    #####
 
     if provider_file_enabled:
         providers_files = {
@@ -163,12 +175,13 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
         if not provider_dic[key]['proxies'] is None:
             for proxy in provider_dic[key]['proxies']:
                 try:
-                    speed = substrings(log_lines[indexx], "avg_speed:", "|")
+                    speed = substrings(
+                        log_lines_without_bad_char[indexx], "avg_speed:", "|")
                     name_dict[key].append(
                         str(proxy['name']).replace(" ", "") + " | " + speed)
                 except:
                     name_dict[key].append(str(proxy['name']).replace(" ", ""))
-                    print(log_lines[indexx])
+                    print(log_lines_without_bad_char[indexx])
 
                 indexx += 1
 
