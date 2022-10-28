@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
-
-from utils.sub_convert import sub_convert
-from utils.list_update import update_url
-from utils.get_subs import subs
-
-import json
-import re
-import os
-import yaml
 from urllib import request
+import yaml
+import os
+import re
+import json
+from get_subs import subs
+from list_update import update_url
+from sub_convert import sub_convert
+
 
 Eterniy = './Eternity'
 readme = './README.md'
