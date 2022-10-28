@@ -41,7 +41,7 @@ jobs:
           wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz
           tar -zxvf subconverter.tar.gz -C ./
           chmod +x ./subconverter/subconverter && nohup ./subconverter/subconverter >./subconverter.log 2>&1 &
-          python ./utils/airport/list_merge.py
+          python ./utils/airport/list_merge_airport.py
       - name: Commit Changes
         run: |
           git config --local user.email "actions@github.com"
@@ -49,7 +49,7 @@ jobs:
           git pull origin master
           git add ./sub
           git add ./utils/Country.mmdb
-          git add README.md
+          # git add README.md
           git checkout master
           git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Update Nodes"
       - name: Push Changes
@@ -67,12 +67,8 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git pull origin master
-          git add EternityBase
-          git add Eternity
-          git add Eternity.txt
-          git add ./sub/sub_merge.txt
-          git add ./sub/sub_merge_base64.txt
-          git add LogInfo.txt
+          git add EternityAir
+          git add LogInfoAir.txt
           git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Filter Nodes"
       - name: Push Change
         uses: ad-m/github-push-action@master
@@ -85,17 +81,17 @@ jobs:
           wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz
           tar -zxvf subconverter.tar.gz -C ./
           chmod +x ./subconverter/subconverter && nohup ./subconverter/subconverter >./subconverter.log 2>&1 &
-          python ./utils/airport/eternity_convert.py
+          python ./utils/airport/eternity_convert_airport.py
       - name: Commit changes
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git pull origin master
-          git add Eternity.yml
-          git add Eternity
-          git add README.md
+          git add EternityAir.yml
           git add ./update/*
-          git add LogInfo.txt
+          git add LogInfoAir.txt
+          # git add Eternity
+          # git add README.md
           git commit -m "$(date '+%Y-%m-%d %H:%M:%S') Filter Nodes"
       - name: Push Change
         uses: ad-m/github-push-action@master
