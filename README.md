@@ -26,8 +26,9 @@ The speed measurement function is implemented in the `GitHub Actions` environmen
 - [x] Fix Sort Based on the Avg Speed 👀
 - [x] Update required softwares to latest version 👀
 - [x] Fix sources that subconvertor unable to convert 👀
-- [ ] Add separate files & functions for airport 👀
-- [ ] Fix name (emoji+ip) for all log files 👀
+- [x] Add separate files & functions for airport 👀
+- [x] Fix name (emoji+ip) for all log files 👀
+- [ ] Cleanup redundant files and functions 🧲
 
 ## Visualizer
 
