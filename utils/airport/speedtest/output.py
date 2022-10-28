@@ -40,11 +40,11 @@ def output(list, num):
         proxy = list[index]['Link']
         output_list.append(proxy)
 
-    content = '\n'.join(output_list)
+    # content = '\n'.join(output_list)
     content_base64_part = base64.b64encode(
         '\n'.join(output_list[0:num]).encode('utf-8')).decode('ascii')
 
-    with open(sub_all_base64, 'w+', encoding='utf-8') as f:
+    with open(Eternity_Air, 'w+', encoding='utf-8') as f:
         f.write(content_base64_part)
         print('Write Part Base64 Success!')
         f.close()

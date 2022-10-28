@@ -392,7 +392,7 @@ class subs:
 
     # eject mixed proxies and use only clash
 
-    def get_subs_v3(content_urls: [], output_path="sub_merge_yaml", should_cleanup=True):
+    def get_subs_v3(content_urls: [], output_path="sub_merge_yaml", should_cleanup=True, specific_files_cleanup=["05.txt"]):
         if content_urls == []:
             return
 
@@ -401,6 +401,12 @@ class subs:
                 for f in t[2]:
                     f = t[0]+f
                     os.remove(f)
+        else:
+            for t in os.walk(sub_list_path):
+                for f in t[2]:
+                    if specific_files_cleanup.__contains__(f):
+                        f = t[0]+f
+                        os.remove(f)
 
         content_list = []
         corresponding_list = []
