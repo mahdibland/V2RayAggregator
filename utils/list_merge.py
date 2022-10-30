@@ -353,7 +353,7 @@ class sub_merge():
 
 
 if __name__ == '__main__':
-    update_url.update_main()
+    update_url.update_main(use_airport=False, airports_id=[5])
     sub_merge.geoip_update(
         'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
@@ -374,5 +374,5 @@ if __name__ == '__main__':
 
     # eject sub converting using local method and using sub convertor instead (only yaml available there is no
     # base64 or mixed type proxy in this method and other types will be handle using other workflows)
-    subs.get_subs_v3(sub_list)
+    subs.get_subs_v3(list(filter(lambda x: x['id'] != 5, sub_list)))
     sub_merge.readme_update(readme, sub_list)

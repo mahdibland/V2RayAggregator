@@ -39,7 +39,7 @@ class update_url():
             id = sub['id']
             current_url = sub['url']
             if use_airport == False:
-                if airports_id.__contains__(id) == False:
+                if airports_id.__contains__(id) == False and sub['update_method'] != 'update_airports':
                     try:
                         if sub['update_method'] != 'auto' and sub['enabled'] == True:
                             print(f'Finding available update for ID{id}')
@@ -70,7 +70,7 @@ class update_url():
                     except KeyError:
                         print(
                             f'{id} Url not changed! Please define update method.')
-                        
+
             else:
                 if airports_id.__contains__(id) == True:
                     try:

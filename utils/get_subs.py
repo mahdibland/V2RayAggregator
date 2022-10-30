@@ -399,8 +399,9 @@ class subs:
         if should_cleanup:
             for t in os.walk(sub_list_path):
                 for f in t[2]:
-                    f = t[0]+f
-                    os.remove(f)
+                    if specific_files_cleanup.contains(f) == False:
+                        f = t[0]+f
+                        os.remove(f)
         else:
             for t in os.walk(sub_list_path):
                 for f in t[2]:
