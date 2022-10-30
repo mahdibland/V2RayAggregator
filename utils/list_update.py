@@ -120,7 +120,16 @@ class update_url():
                 'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/urllist', timeout=4).text.split("\n")))))
             sublist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
                 'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/sub_list', timeout=4).text.split("\n")))))
+
+            air_free = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
+                'https://raw.githubusercontent.com/rxsweet/getAirport/main/config/sublist_free', timeout=4).text.split("\n")))))
+            air_mining = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
+                'https://raw.githubusercontent.com/rxsweet/getAirport/main/config/sublist_mining', timeout=4).text.split("\n")))))
+
             urllist.extend(sublist)
+            urllist.extend(air_free)
+            urllist.extend(air_mining)
+
             # urllist = list(map(lambda x: quote(x, safe=""), urllist))
             urllist = list(filter(lambda x: str(x).__contains__(
                 "getafreenode.com") == False, urllist))
