@@ -22,7 +22,7 @@ def read_json(file):  # 将 out.json 内容读取为列表
 
 def output(list, num):
     # sort base their avg speed rather than max speed which is default option
-    list = sorted(list, key=lambda x: x['avg_speed'], reverse=True)
+    # list = sorted(list, key=lambda x: x['avg_speed'], reverse=True)
 
     def arred(x, n): return x*(10**n)//1/(10**n)
     print(str(list[0]))
