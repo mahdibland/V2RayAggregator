@@ -29,6 +29,7 @@ The speed measurement function is implemented in the `GitHub Actions` environmen
 - [x] Add separate files & functions for airport 👀
 - [x] Fix name (emoji+ip) for all log files 👀
 - [ ] Cleanup redundant files and functions 🧲
+- [ ] Separate sub list for airports & other nodes 🧲
 
 ## Visualizer
 
