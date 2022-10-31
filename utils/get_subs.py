@@ -429,18 +429,18 @@ class subs:
                         if content_clash == 'Err: No nodes found':
                             print(
                                 "host convertor was unable to find any nodes. just continue & ignore...\n")
-                            file = open(f'{sub_list_path}{ids:0>2d}.txt',
-                                        'a+', encoding='utf-8')
-                            file.write('Err: No nodes found')
-                            file.close()
+                            # file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                            #             'a+', encoding='utf-8')
+                            # file.write('Err: No nodes found')
+                            # file.close()
 
                         if content_clash == 'Err: failed to parse sub':
                             print(
                                 "host convertor failed. just continue & ignore...\n")
-                            file = open(f'{sub_list_path}{ids:0>2d}.txt',
-                                        'a+', encoding='utf-8')
-                            file.write('Err: failed to parse sub')
-                            file.close()
+                            # file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                            #             'a+', encoding='utf-8')
+                            # file.write('Err: failed to parse sub')
+                            # file.close()
 
                     elif content_clash != None and content_clash != '':
                         single_url_gather_quantity = list(
@@ -516,29 +516,29 @@ class subs:
                             else:
                                 print(
                                     f'there is no clash lines {each_url}')
-                                file = open(f'{sub_list_path}{ids:0>2d}.txt',
-                                            'a+', encoding='utf-8')
-                                file.write("there is no clash lines")
-                                file.close()
+                                # file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                                #             'a+', encoding='utf-8')
+                                # file.write("there is no clash lines")
+                                # file.close()
                                 print(
                                     f'Writing content of {remarks} to {ids:0>2d}.txt\n')
 
                         else:
                             print(
                                 f'there is no clash lines first stage {each_url}')
-                            file = open(f'{sub_list_path}{ids:0>2d}.txt',
-                                        'a+', encoding='utf-8')
-                            file.write(
-                                "there is no clash lines first stage")
-                            file.close()
+                            # file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                            #             'a+', encoding='utf-8')
+                            # file.write(
+                            #     "there is no clash lines first stage")
+                            # file.close()
                             print(
                                 f'Writing content of {remarks} to {ids:0>2d}.txt\n')
 
                     else:
-                        file = open(f'{sub_list_path}{ids:0>2d}.txt',
-                                    'a+', encoding='utf-8')
-                        file.write('Url Subscription could not be parsed')
-                        file.close()
+                        # file = open(f'{sub_list_path}{ids:0>2d}.txt',
+                        #             'a+', encoding='utf-8')
+                        # file.write('Url Subscription could not be parsed')
+                        # file.close()
                         print(
                             f'Writing error of {remarks} to {ids:0>2d}.txt\n')
 
@@ -558,7 +558,7 @@ class subs:
 
         print(f"{content_list.__len__()} lines - {bad_lines} bad lines => total is {content_list.__len__() - bad_lines}")
 
-        ################  okay everything is fine till here ################
+        ################ everything is fine till here ################
         '''
         we should have a list of corresponding proxies and they are ready to be fixed in 2 steps:
         1- making their name better (using their server) => via thier clash corresponding
