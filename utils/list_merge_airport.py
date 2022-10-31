@@ -12,7 +12,7 @@ from sub_convert import sub_convert
 Eterniy = './Eternity'
 readme = './README.md'
 
-sub_list_json = './sub/sub_list.json'
+sub_list_airport_json = './sub/sub_list_airport.json'
 sub_merge_path = './sub/'
 sub_list_path = './sub/list/'
 
@@ -132,12 +132,13 @@ class sub_merge():
 
 
 if __name__ == '__main__':
-    update_url.update_main(use_airport=True, airports_id=[5])
+    update_url.update_main(use_airport=True, airports_id=[
+                           5], sub_list_json="./sub/sub_list_airport.json")
     sub_merge.geoip_update(
         'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
-    sub_list = sub_merge.read_list(sub_list_json)
-    sub_list_remote = sub_merge.read_list(sub_list_json, True)
+    sub_list = sub_merge.read_list(sub_list_airport_json)
+    sub_list_remote = sub_merge.read_list(sub_list_airport_json, True)
 
     subs.get_subs_v3(
         list(filter(lambda x: x['id'] == 5, sub_list)), output_path="airport_merge_yaml", should_cleanup=False, specific_files_cleanup=["05.txt"])
