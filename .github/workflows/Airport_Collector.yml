@@ -68,8 +68,11 @@ jobs:
           git config --local user.name "GitHub Actions"
           git pull origin master
           git add EternityAir
+          git add EternityAir.txt
           git add LogInfoAir.txt
           git add ./sub
+          # git add ./sub/airport_sub_merge.txt
+          # git add ./sub/airport_merge_base64.txt
           git commit -m "♻️ $(date '+%Y-%m-%d %H:%M:%S') Tested"
       - name: Push Change
         uses: ad-m/github-push-action@master
