@@ -258,26 +258,45 @@ class sub_merge():
             total = f'Total number of merged nodes: `{total}`\n'
             thanks = []
             repo_amount_dic = {}
-            for repo in sub_list:
-                line = ''
-                if repo['enabled'] == True:
-                    id = repo['id']
-                    remarks = repo['remarks']
-                    repo_site = repo['site']
-
-                    sub_file = f'./sub/list/{id:0>2d}.txt'
-                    with open(sub_file, 'r', encoding='utf-8') as f:
-                        proxies = f.readlines()
-                        if proxies == ['Url 解析错误'] or proxies == ['订阅内容解析错误']:
-                            amount = 0
-                        else:
-                            amount = len(proxies)
-                        f.close()
-                    repo_amount_dic.setdefault(id, amount)
-                    line = f'- [{remarks}]({repo_site}), number of nodes: `{amount}`\n'
-                if remarks != "alanbobs999/TopFreeProxies":
-                    thanks.append(line)
             f.close()
+            for repo in sub_list:
+                # not breaking the process only because of showcase :)
+                try:
+                    line = ''
+                    if repo['enabled'] == True:
+                        id = repo['id']
+                        remarks = repo['remarks']
+                        repo_site = repo['site']
+
+                        sub_file = f'./sub/list/{id:0>2d}.txt'
+                        with open(sub_file, 'r', encoding='utf-8') as f:
+                            proxies = f.readlines()
+                            if proxies == ['Url 解析错误'] or proxies == ['订阅内容解析错误']:
+                                amount = 0
+                            else:
+                                amount = len(proxies)
+                            f.close()
+                        repo_amount_dic.setdefault(id, amount)
+                        line = f'- [{remarks}]({repo_site}), number of nodes: `{amount}`\n'
+                    # if remarks != "mahdibland/SSAggregator":
+                    #     thanks.append(line)
+                except FileNotFoundError:
+                    try:
+                        with open(sub_file, 'r', encoding='utf-8') as f:
+                            proxies = f.readlines()
+                            if proxies == ['Url 解析错误'] or proxies == ['订阅内容解析错误']:
+                                amount = 0
+                            else:
+                                amount = len(proxies)
+                            f.close()
+                        repo_amount_dic.setdefault(id, amount)
+                        line = f'- [{remarks}]({repo_site}), number of nodes: `{amount}`\n'
+                    except:
+                        # ignore it
+                        pass
+                except:
+                    # ignore it
+                    pass
 
         # 高速节点打印
         for index in range(len(lines)):
