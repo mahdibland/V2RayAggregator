@@ -7,6 +7,8 @@ out_json = './out.json'
 
 Eternity_Air = "./EternityAir"
 airport_all_base64 = "./sub/airport_merge_base64.txt"
+sub_all = "./sub/airport_sub_merge.txt"
+Eternity_Air_file = "./EternityAir.txt"
 
 
 def read_json(file):  # 将 out.json 内容读取为列表
@@ -49,6 +51,10 @@ def output(list, num):
     content_base64_part = base64.b64encode(
         '\n'.join(output_list[0:num]).encode('utf-8')).decode('ascii')
 
+    with open(airport_all_urls, 'w', encoding='utf-8') as f:
+        f.writelines(output_list)
+        print('Write All Urls Success!')
+        f.close()
     with open(airport_all_base64, 'w+', encoding='utf-8') as f:
         f.write(content_base64)
         print('Write All Base64 Success!')
@@ -56,6 +62,15 @@ def output(list, num):
     with open(Eternity_Air, 'w+', encoding='utf-8') as f:
         f.write(content_base64_part)
         print('Write Part Base64 Success!')
+        f.close()
+
+    with open(sub_all, 'w') as f:
+        f.write(content)
+        print('Write All Success!')
+        f.close()
+    with open(Eternity_Air_file, 'w') as f:
+        f.write('\n'.join(output_list[0:num]))
+        print('Write Part Base Success!')
         f.close()
 
     return content
