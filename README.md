@@ -2,16 +2,16 @@
 
 [![Collect](https://github.com/mahdibland/SSAggregator/actions/workflows/Collector.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/Collector.yml) [![Airport Collect](https://github.com/mahdibland/SSAggregator/actions/workflows/Airport_Collector.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/Airport_Collector.yml)
 
-## Quick Note
-🔴 This project is still under maintance. so don't use it until further announcement cause there is a chance you will get errors while updating the nodes, etc.
+## Quick Note & Updates
+🔴 ~~This project is still under maintance. so don't use it until further announcement cause there is a chance you will get errors while updating the nodes, etc.~~  
+
+🟢 11/1/2022: from now you can use this project. also readme file updated with the recent changes so you can find out which file to use.
 
 ## Introduction
 
 The automation functions of this repository are all implemented based on `GitHub Actions`
 
-Test the speed of each free node pool on the network and the nodes shared by bloggers to screen out relatively stable and high-speed nodes, and then import them into the warehouse for sharing records. The filtered node links are in the repository `./sub/sub_list.json` file, most of which are links to other `GitHub` repositories, if you have a good subscription link, please submit PR, all the nodes contained in these links will be merged in Repository `./sub/sub_merge.txt`.
-
-The node subscription files after speed test screening are in the repository root directory `Eterniy`(Base64) and `Eternity.yml`(Clash). Also keep a record of the original node link in the repository's `./update`.
+Test the speed of each free node pool on the network and the nodes shared by bloggers to screen out relatively stable and high-speed nodes, and then import them into the warehouse for sharing records.
 
 The speed measurement function is implemented in the `GitHub Actions` environment using [LiteSpeedTest](https://github.com/xxf098/LiteSpeedTest), so there are many nodes in the United States, which cannot well represent the node availability in the domestic network environment.
 
@@ -33,20 +33,50 @@ The speed measurement function is implemented in the `GitHub Actions` environmen
 
 ## Visualizer
 
-- Log Visualizer on Netlify
+- Log Visualizer on Netlify 
+> if you click on any node url it will copy to clipboard
 
 <a href="https://55292969231427515295.netlify.app/" target="_blank"><img src="https://i.ibb.co/g32RmJy/netlify.png" width="35"/></a>
 
-## Instructions
+## Instructions & Uasge
 
-Just import the following subscription link into the corresponding client. Most of the links are SS protocol nodes, and a small number of Vmess, Trojan, and SSR protocol nodes. It is recommended to choose a protocol to support a complete client.
+### Ready to import (200 filtered nodes)
+> Just import the following subscription link into the corresponding client. Use a client that atleast support ss + ssr + vmess + trojan.
 
-- [Multi-protocol Base64 encoding](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity)
+Nodes filtered using speedtest measurement will be stored in following files:  
+
+* Group 1 (Contains free public nodes)
+- [Base64](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity)
+- [Mixed](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt)
 - [Clash](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml)
 
->
-> If other configuration is required, you can use the subscription conversion tool to convert it yourself.
-> Self-use online subscription conversion URL: [sub-web-modify](https://sub.v1.mk/)
+* Group 2 (Contains only free airports)
+- [Base64](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/EternityAir)
+- [Mixed](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/EternityAir.txt)
+- [Clash](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/EternityAir.yml)
+
+### For Local Testing (all nodes)
+> Only for local testing because the number of nodes is too high and your client will crach if you import them  
+
+All of the nodes merged together will be stored in following files:  
+
+* Group 1 (Contains free public nodes)
+- [Base64](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_base64.txt)
+- [Mixed](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt)
+- [Clash](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
+
+* Group 2 (Contains only free airports)
+- [Base64](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/airport_merge_base64.txt)
+- [Mixed](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/airport_sub_merge.txt)
+- [Clash](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/airport_merge_yaml.yml)
+
+### Manual Subs Conversion
+- If your client does not support the formats that provided here use below services to convert them to your client format (like surfboard)
+> Services for online sub conversion: 
+- [sub-web-modify](https://sub.v1.mk/)
+- [bianyuan](https://bianyuan.xyz/)
+
+<br/>
 
 ## Node Information
 
@@ -461,10 +491,10 @@ high-speed node quantity: `200`
 
 ### all nodes
 merge nodes w/o dup: `14947`
-[Node link Mixed](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
-[Node link Yaml](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
+- [Node link Mixed](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
+- [Node link Yaml](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
-### node source
+### node sources
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `106`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `38`
 - [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `148`
