@@ -51,8 +51,8 @@ def output(list, num):
     content_base64_part = base64.b64encode(
         '\n'.join(output_list[0:num]).encode('utf-8')).decode('ascii')
 
-    with open(airport_all_urls, 'w', encoding='utf-8') as f:
-        f.writelines(output_list)
+    with open(sub_all, 'w') as f:
+        f.write(content)
         print('Write All Urls Success!')
         f.close()
     with open(airport_all_base64, 'w+', encoding='utf-8') as f:
@@ -64,10 +64,6 @@ def output(list, num):
         print('Write Part Base64 Success!')
         f.close()
 
-    with open(sub_all, 'w') as f:
-        f.write(content)
-        print('Write All Success!')
-        f.close()
     with open(Eternity_Air_file, 'w') as f:
         f.write('\n'.join(output_list[0:num]))
         print('Write Part Base Success!')
