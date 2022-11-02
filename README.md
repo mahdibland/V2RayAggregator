@@ -42,7 +42,7 @@ The speed measurement function is implemented in the `GitHub Actions` environmen
 
 ### Tips
 - If you see an IP repeated more than once it's usually because of the different ports.
-- (Group 2) Some free airports only provide 1GB of traffic or have limited time to use that's why I update the airport node every 2 hours and 30 minutes. so if you want to use them set the auto-update option on your client to get fresh nodes.
+- (Group 2) Some free airports only provide 1GB of traffic or have limited time to use that's why I update the airport node every 2 hours. so if you want to use them set the auto-update option on your client to get fresh nodes.
 - (Group 1) Other public nodes are more stable and will be updated every 12 hours.
 - Depending on your internet provider and location, some nodes might not work.
 
@@ -582,6 +582,16 @@ merge nodes w/o dup: `14766`
 - [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), number of nodes: `254`
 
 ## Softwares
+
+### Best Clients For Each OS
+
+|    OS   |          Best Client          | Alternatives |
+|:-------:|:-----------------------------:|:------------:|
+|   IOS   |   Quantumult - Shadowrocket   |  NapsternetV |
+| Android | Surfboard - Clash For Android |    V2rayNg   |
+| Windows |   Clash For Windows - V2rayN  |    Qv2ray    |
+|  Linux  |       Clash For Windows       |    Qv2ray    |
+|  MacOS  |       Clash For Windows       |    Qv2ray    |
 
 ### Desktop Clients
 
