@@ -81,7 +81,21 @@ All of the nodes merged together will be stored in following files:
 - If your client does not support the formats that provided here use below services to convert them to your client format (like surfboard)
 > Services for online sub conversion: 
 - [sub-web-modify](https://sub.v1.mk/)
-- [bianyuan](https://bianyuan.xyz/)
+- [bianyuan](https://bianyuan.xyz/)  
+
+- **If you don't like the groups and rules that set you can use bianyuan api like this:**  
+
+```
+https://pub-api-1.bianyuan.xyz/sub?target=(OutputFormat)&url=(SubUrl)&insert=false
+
+For Example:
+(OutputFormat) = https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml
+(SubUrl) = clash
+
+https://pub-api-1.bianyuan.xyz/sub?target=clash&url=https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml&insert=false
+
+Now you can use the link above to import the subs into your client
+```
 
 <br/>
 
