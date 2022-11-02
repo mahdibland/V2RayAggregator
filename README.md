@@ -16,10 +16,11 @@ Test the speed of each free node pool on the network and the nodes shared by blo
 The speed measurement function is implemented in the `GitHub Actions` environment using [LiteSpeedTest](https://github.com/xxf098/LiteSpeedTest), so there are many nodes in the United States, which cannot well represent the node availability in the domestic network environment.
 
 ## Features
-- [x] Lots of sources 😯
-- [x] Deduplication all scrapped nodes 🤤
-- [x] Providing final proxies in major formats (yaml, v2ray, base64) 🦋
-- [x] No additional conversion to prevent breaking the nodes 🌿
+- Lots of sources 😯
+- Remove all duplicate nodes 🤤
+- Providing nodes in major formats (YAML, clash, v2ray, base64) 🦋
+- No additional conversion to prevent breaking the nodes 🌿
+- Filtering best nodes by testing them and sorting them based on their average speed 🍀
 
 ## Recent Todos
 - [x] Fix region based lite speed test (mainly EU) 👀
