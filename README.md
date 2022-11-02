@@ -38,7 +38,14 @@ The speed measurement function is implemented in the `GitHub Actions` environmen
 
 <a href="https://55292969231427515295.netlify.app/" target="_blank"><img src="https://i.ibb.co/g32RmJy/netlify.png" width="35"/></a>
 
-## Instructions & Uasge
+## Instructions & Usage
+
+### Tips
+- If you see an IP repeated more than once it's usually because of the different ports.
+- (Group 2) Some free airports only provide 1GB of traffic or have limited time to use that's why I update the airport node every 2 hours and 30 minutes. so if you want to use them set the auto-update option on your client to get fresh nodes.
+- (Group 1) Other public nodes are more stable and will be updated every 12 hours.
+- Depending on your internet provider and location, some nodes might not work.
+
 
 ### Ready to import (200 filtered nodes)
 > Just import the following subscription link into the corresponding client. Use a client that atleast support ss + ssr + vmess + trojan.
@@ -56,7 +63,7 @@ Nodes filtered using speedtest measurement will be stored in following files:
 - [Clash](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/EternityAir.yml)
 
 ### For Local Testing (all nodes)
-> Only for local testing because the number of nodes is too high and your client will crach if you import them  
+> Only for local testing because the number of nodes is too high and your client will crash if you import them  
 
 All of the nodes merged together will be stored in following files:  
 
