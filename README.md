@@ -83,7 +83,7 @@ All of the nodes merged together will be stored in following files:
 - [sub-web-modify](https://sub.v1.mk/)
 - [bianyuan](https://bianyuan.xyz/)  
 
-- **If you don't like the groups and rules that set you can use bianyuan api like this:**  
+- **If you don't like the groups and rules that are already set, you can simply use bianyuan API like this::**  
 
 ```
 https://pub-api-1.bianyuan.xyz/sub?target=(OutputFormat)&url=(SubUrl)&insert=false
