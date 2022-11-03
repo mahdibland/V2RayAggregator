@@ -42,9 +42,9 @@ jobs:
           git config --local user.name "GitHub Actions"
           git pull origin master
           git add ./sub
-          git add ./utils/Country.mmdb
-          # git add README.md
           git checkout master
+          # git add README.md
+          # git add ./utils/Country.mmdb
           git commit -m "♻️ $(date '+%Y-%m-%d %H:%M:%S') Collected"
       - name: Push Changes
         uses: ad-m/github-push-action@master

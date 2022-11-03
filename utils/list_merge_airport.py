@@ -134,8 +134,8 @@ class sub_merge():
 if __name__ == '__main__':
     update_url.update_main(use_airport=True, airports_id=[
                            5], sub_list_json="./sub/sub_list_airport.json")
-    sub_merge.geoip_update(
-        'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
+    # sub_merge.geoip_update(
+    #     'https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb')
 
     sub_list = sub_merge.read_list(sub_list_airport_json)
     sub_list_remote = sub_merge.read_list(sub_list_airport_json, True)
