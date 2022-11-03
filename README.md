@@ -512,7 +512,7 @@ high-speed node quantity: `200`
 </details>
 
 ### all nodes
-merge nodes w/o dup: `14213`
+merge nodes w/o dup: `14421`
 - [Node link Mixed](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 - [Node link Yaml](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
