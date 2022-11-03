@@ -20,16 +20,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3.5.1
+        with:
+          node-version: "18.x"
+      - uses: bahmutov/npm-install@v1.6.0
+        with:
+          working-directory: ./utils/localserver
       - uses: actions/setup-python@v4
         with:
           python-version: "3.x"
           cache: "pip"
-      - uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/run_in_Actions/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+      # setup actions has built-in caching function
+      # - uses: actions/cache@v3
+      #   with:
+      #     path: ~/.cache/pip
+      #     key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-pip-
+      # - uses: actions/cache@v3
+      #   with:
+      #     path: ~/.cache/yarn
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
       - name: Set Timezone
         run: sudo timedatectl set-timezone 'Asia/Tehran'
       - name: Install Requirements
@@ -41,6 +54,8 @@ jobs:
           wget -O subconverter.tar.gz https://github.com/tindy2013/subconverter/releases/download/v0.7.2/subconverter_linux64.tar.gz
           tar -zxvf subconverter.tar.gz -C ./
           chmod +x ./subconverter/subconverter && nohup ./subconverter/subconverter >./subconverter.log 2>&1 &
+          node ./utils/localserver/index.js &
+          sleep 2
           python ./utils/list_merge.py
       - name: Commit Changes
         run: |
