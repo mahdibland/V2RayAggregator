@@ -37,7 +37,12 @@ The speed measurement function is implemented in the `GitHub Actions` environmen
 - Log Visualizer on Netlify 
 > if you click on any node url it will copy to clipboard
 
-<a href="https://55292969231427515295.netlify.app/" target="_blank"><img src="https://i.ibb.co/g32RmJy/netlify.png" width="35"/></a>
+
+
+|                  |             Link to Log              |
+|:----------------:|:-----------------------------:|
+|   Public Nodes   |   <a href="https://55292969231427515295.netlify.app/" target="_blank"><img src="https://i.ibb.co/g32RmJy/netlify.png" width="35"/></a>   |
+|     Airport      |   <a href="https://55292969231427515295.netlify.app?type=airport" target="_blank"><img src="https://i.ibb.co/g32RmJy/netlify.png" width="35"/></a>   |
 
 ## Instructions & Usage
 
