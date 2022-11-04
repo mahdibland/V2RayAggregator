@@ -41,16 +41,16 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git pull origin master
+          git pull origin airport-test
           git add ./sub
-          git checkout master
+          git checkout airport-test
           # git add README.md
           # git add ./utils/Country.mmdb
           git commit -m "♻️ $(date '+%Y-%m-%d %H:%M:%S') Collected"
       - name: Push Changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@airport-test
         with:
-          branch: master
+          branch: airport-test
 
       - name: Run Lite Speedtest
         run: |
@@ -61,7 +61,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git pull origin master
+          git pull origin airport-test
           git add EternityAir
           git add EternityAir.txt
           git add LogInfoAir.txt
@@ -70,9 +70,9 @@ jobs:
           # git add ./sub/airport_merge_base64.txt
           git commit -m "♻️ $(date '+%Y-%m-%d %H:%M:%S') Tested"
       - name: Push Change
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@airport-test
         with:
-          branch: master
+          branch: airport-test
 
       - name: Run Convertor & Formatter
         run: |
@@ -85,7 +85,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git pull origin master
+          git pull origin airport-test
           git add EternityAir.yml
           git add ./update/*
           git add LogInfoAir.txt
@@ -93,6 +93,6 @@ jobs:
           # git add README.md
           git commit -m "♻️ $(date '+%Y-%m-%d %H:%M:%S') Filtered"
       - name: Push Change
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@airport-test
         with:
-          branch: master
+          branch: airport-test
