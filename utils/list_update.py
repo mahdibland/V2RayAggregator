@@ -10,6 +10,7 @@ from urllib.parse import quote
 # 文件路径定义
 # sub_list_json = './sub/sub_list.json'
 
+
 def url_updated(url):  # 判断远程远程链接是否已经更新
     s = requests.Session()
     s.mount('http://', HTTPAdapter(max_retries=2))
@@ -28,11 +29,11 @@ def url_updated(url):  # 判断远程远程链接是否已经更新
 
 class update_url():
 
-    def update_main(use_airport=False, airports_id: [] = [5], sub_list_json= './sub/sub_list.json'):
+    def update_main(use_airport=False, airports_id: [] = [5], sub_list_json='./sub/sub_list.json'):
         with open(sub_list_json, 'r', encoding='utf-8') as f:  # 载入订阅链接
             raw_list = json.load(f)
             f.close()
-            
+
         for sub in raw_list:
             id = sub['id']
             current_url = sub['url']
@@ -119,6 +120,11 @@ class update_url():
             sublist = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
                 'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/sub_list', timeout=4).text.split("\n")))))
 
+            logbin = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
+                'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/logs/old/bin', timeout=4).text.split("\n")))))
+            logold = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
+                'https://raw.githubusercontent.com/RenaLio/Mux2sub/main/logs/old/old', timeout=4).text.split("\n")))))
+
             air_free = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
                 'https://raw.githubusercontent.com/rxsweet/getAirport/main/config/sublist_free', timeout=4).text.split("\n")))))
             air_mining = list(set(list(filter(lambda x: x != "" and str(x).startswith("http"), s.get(
@@ -127,6 +133,9 @@ class update_url():
             urllist.extend(sublist)
             urllist.extend(air_free)
             urllist.extend(air_mining)
+
+            urllist.extend(logbin)
+            urllist.extend(logold)
 
             # urllist = list(map(lambda x: quote(x, safe=""), urllist))
             urllist = list(filter(lambda x: str(x).__contains__(
