@@ -1,252 +1,474 @@
-  - {name: _AzadNet(4), server: 103.180.125.251, port: 443, type: trojan, password: 4f7f8560-5873-11ed-b732-225401db9d57, sni: Iran.GOV, skip-cert-verify: false}
-  - {name: AU_AzadNet, server: 51.161.152.180, port: 80, type: vmess, uuid: 6174a585-9a14-4a30-81d4-076376325328, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: _AzadNet, server: 104.21.22.131, port: 443, type: vmess, uuid: d6cfc83f-e1ee-4085-8052-4491a1eeba0f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /good}}
+  - {name: _AzadNet(1), server: 198.41.203.4, port: 443, type: vmess, uuid: fcfaec91-6096-44d8-956c-7868d9e874b1, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /ray}}
+  - {name: _AzadNet(2), server: 141.101.115.158, port: 443, type: vmess, uuid: 41dbac14-48c9-402a-9c30-a63acbae2522, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(3), server: 198.41.212.155, port: 443, type: vmess, uuid: 267a9f38-40d8-4ed6-ab58-cafc67e9c933, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /VHONOFZ3}}
+  - {name: _AzadNet(4), server: 198.41.212.144, port: 443, type: vmess, uuid: 176b598f-445b-41ac-9d2a-430c5c4df26a, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /dongtaiwang.com}}
+  - {name: _AzadNet(5), server: 104.18.27.64, port: 443, type: vmess, uuid: 5f4b2e42-ff2b-4342-86fc-b7ba1b5361e8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(6), server: 104.19.80.46, port: 8080, type: vmess, uuid: 657f7981-0138-4c99-9199-51f62002d8e5, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(7), server: 198.41.212.234, port: 2082, type: vmess, uuid: 68188cc4-0e87-4da8-cd67-7c6dbcaccf6f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(8), server: 103.176.78.153, port: 443, type: trojan, password: idc117okt, skip-cert-verify: false}
+  - {name: _AzadNet(9), server: 103.173.155.72, port: 28443, type: trojan, password: 6f6ae34d-fe7f-4ca1-a912-ecc01386bdc4, skip-cert-verify: false}
+  - {name: _AzadNet(10), server: 103.172.116.94, port: 80, type: vmess, uuid: fbf53107-1b42-3da5-a77d-6ad22544c0e9, alterId: 2, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(11), server: 103.180.125.251, port: 443, type: trojan, password: 4f7f8560-5873-11ed-b732-225401db9d57, sni: Iran.GOV, skip-cert-verify: false}
+  - {name: _AzadNet(12), server: 104.21.17.87, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
+  - {name: _AzadNet(13), server: 104.21.24.156, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
+  - {name: _AzadNet(14), server: 104.21.94.253, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: AE_AzadNet, server: 139.185.39.106, port: 15001, type: trojan, password: bf85b397-0c84-43a3-98d0-5a15c6754be8, sni: ae.838501.xyz, skip-cert-verify: false}
+  - {name: AU_AzadNet, server: 1.0.0.1, port: 80, type: vmess, uuid: 0d02be86-0a21-4c56-a363-1c8c09074466, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: AU_AzadNet(1), server: 51.161.152.180, port: 80, type: vmess, uuid: 6174a585-9a14-4a30-81d4-076376325328, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
   - {name: BE_AzadNet, server: 57.128.45.161, port: 80, type: vmess, uuid: 35d25899-ed20-46d9-9c7c-99c0d414d5e4, alterId: 0, cipher: chacha20-poly1305, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
   - {name: CA_AzadNet, server: 144.217.5.29, port: 443, type: trojan, password: 8d78e5ef-eaef-4649-bd2a-09c8cc7547e1, sni: cat2.sshocean.net, skip-cert-verify: false}
-  - {name: CN_AzadNet, server: 119.36.161.40, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /path/120306182525}}
+  - {name: CN_AzadNet, server: 192.74.250.18, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /path/270132212224}}
+  - {name: CN_AzadNet(1), server: 119.36.161.40, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /path/120306182525}}
+  - {name: CO_AzadNet, server: 188.114.96.3, port: 8880, type: vmess, uuid: 2b984b21-2d35-479d-fdc0-d72c7fa762af, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: webz.kandimiz.online}}
+  - {name: CZ_AzadNet, server: 194.87.196.20, port: 80, type: vmess, uuid: 5cac5403-be7c-4d17-f19d-4751c6eb0628, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
   - {name: DE_AzadNet, server: 93.186.201.158, port: 804, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: DE_AzadNet(1), server: 165.227.160.249, port: 443, type: vmess, uuid: eabc4c9f-6efa-46e9-94c3-c54c8ef722bd, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /racevpn}}
-  - {name: DE_AzadNet(5), server: 5.161.109.45, port: 80, type: vmess, uuid: 2aac77de-b3e4-4017-845c-ca1380f2e8d0, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /telegram-id-@privatevpns}}
-  - {name: DE_AzadNet(11), server: 93.186.201.158, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: DE_AzadNet(12), server: 93.186.201.158, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: FR_AzadNet, server: 152.228.191.232, port: 443, type: vmess, uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /ray}}
-  - {name: FR_AzadNet(1), server: 51.77.213.197, port: 443, type: trojan, password: 973ed2e0-c4d8-4737-a093-71629148086d, sni: frt2.sshocean.net, skip-cert-verify: false}
-  - {name: FR_AzadNet(2), server: 51.195.219.173, port: 443, type: trojan, password: 0f5e6d9a-49af-4bc0-b04b-503102382144, sni: ukt1.sshocean.net, skip-cert-verify: false}
-  - {name: FR_AzadNet(4), server: 51.83.97.167, port: 80, type: vmess, uuid: 94457f20-9b77-4dcc-962b-dae1beeb7b81, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: FR_AzadNet(5), server: 51.83.185.94, port: 80, type: vmess, uuid: 622f0ce1-7ba8-40a1-bf35-2bbd84c96b45, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: GB_AzadNet, server: univstar.51.195.140.208.sslip.io, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws, headers: {Host: univstar.51.195.140.208.sslip.io}}}
-  - {name: GB_AzadNet(1), server: 5.45.94.28, port: 80, type: vmess, uuid: bd3d81c6-9d40-4e75-8a23-7c55d69bf801, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: HK_AzadNet, server: 119.247.119.212, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
+  - {name: DE_AzadNet(1), server: 93.186.201.158, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: DE_AzadNet(2), server: 93.186.201.158, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: FR_AzadNet, server: 51.77.213.197, port: 443, type: trojan, password: 973ed2e0-c4d8-4737-a093-71629148086d, sni: frt2.sshocean.net, skip-cert-verify: false}
+  - {name: FR_AzadNet(1), server: 51.195.219.173, port: 443, type: trojan, password: 0f5e6d9a-49af-4bc0-b04b-503102382144, sni: ukt1.sshocean.net, skip-cert-verify: false}
+  - {name: FR_AzadNet(2), server: 51.83.97.167, port: 80, type: vmess, uuid: 94457f20-9b77-4dcc-962b-dae1beeb7b81, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: FR_AzadNet(3), server: 51.83.185.94, port: 80, type: vmess, uuid: 622f0ce1-7ba8-40a1-bf35-2bbd84c96b45, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: GB_AzadNet, server: 185.44.76.188, port: 443, type: trojan, password: 8697fe6b-1lWNFc1RmRBNk5NQU5KSnga3fa58ac5a3ef0-b4ab-11eb-b65e-1239d0255272, skip-cert-verify: false}
+  - {name: GB_AzadNet(1), server: 95.179.230.78, port: 11911, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: GB_AzadNet(2), server: 185.126.136.216, port: 10001, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false}
+  - {name: GB_AzadNet(3), server: 144.24.89.156, port: 80, type: vmess, uuid: 54b3ef87-0084-4362-af57-2fb494d8ca15, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: GB_AzadNet(4), server: 5.45.94.28, port: 80, type: vmess, uuid: bd3d81c6-9d40-4e75-8a23-7c55d69bf801, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: HK_AzadNet, server: 20.205.57.174, port: 48006, type: vmess, uuid: cf072ee7-adcc-3d24-9eec-57ee94bcce66, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: HK_AzadNet(1), server: 20.187.122.237, port: 10015, type: vmess, uuid: d8c5b486-84bb-3887-a1d9-07455ea608f2, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /v2ray}}
+  - {name: HK_AzadNet(2), server: 47.243.62.222, port: 443, type: vmess, uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /ray}}
+  - {name: HK_AzadNet(3), server: 16.162.4.203, port: 443, type: vmess, uuid: 1617ff1b-4e85-4a8a-81c3-511b3c2efad8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: HK_AzadNet(4), server: 18.167.102.165, port: 12356, type: vmess, uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: HK_AzadNet(5), server: 16.163.143.113, port: 443, type: vmess, uuid: 4456b502-fe61-4be7-a969-aa37d924dbd2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /zh-cn}}
+  - {name: HK_AzadNet(6), server: 119.247.119.212, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
   - {name: ID_AzadNet, server: 45.12.80.151, port: 80, type: vmess, uuid: 5fc32973-a15e-404c-b1f7-707187f7fd6e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /fastssh/amrozi87/6350416ec330b/}}
+  - {name: IE_AzadNet, server: 54.195.175.177, port: 15092, type: vmess, uuid: edc9e8a8-518e-425a-8184-e55d16d844b2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: IN_AzadNet, server: 152.67.5.184, port: 80, type: vmess, uuid: fa0702f4-8ec9-48e5-9b53-a0afb7c3717e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: IN_AzadNet(1), server: 139.59.2.83, port: 80, type: vmess, uuid: 711376da-2b71-4cfd-a1d3-150c1de6ca20, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
   - {name: IR_AzadNet, server: 185.143.233.120, port: 80, type: vmess, uuid: 76e151a7-9980-4077-bd52-07ef4e9cb496, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
-  - {name: IR_AzadNet(3), server: 185.143.234.120, port: 80, type: vmess, uuid: 35d25899-ed20-46d9-9c7c-99c0d414d5e4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
-  - {name: IR_AzadNet(8), server: 185.231.181.214, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: jinajina123}
-  - {name: IR_AzadNet(11), server: 185.231.180.95, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: BHMGPF3SKLDHDFF6}
-  - {name: JP_AzadNet, server: 198.13.59.63, port: 80, type: vmess, uuid: b033201e-577d-4f7a-8c2e-e64bfd6b929d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: NL_AzadNet, server: 41.216.177.234, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: none, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Derty76/634d98433b103/}}
-  - {name: NL_AzadNet(1), server: id-lb.vhax.net, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Arsham85231/6347d08022b91/, headers: {Host: id-lb.vhax.net}}}
-  - {name: NL_AzadNet(5), server: 41.216.177.148, port: 80, type: vmess, uuid: 238af157-6bdd-4131-88df-2bbe723cf773, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: RU_AzadNet, server: 213.183.53.214, port: 9024, type: ss, cipher: aes-256-cfb, password: BejrQvtu9sqUeNuZ}
-  - {name: RU_AzadNet(1), server: 213.183.53.214, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA}
-  - {name: RU_AzadNet(2), server: 213.183.53.214, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C}
-  - {name: SG_AzadNet, server: 51.79.249.18, port: 443, type: trojan, password: 144219b3-363a-496b-b2b0-b68fe9c4004e, sni: sgt5.sshocean.net, skip-cert-verify: false}
-  - {name: SG_AzadNet(1), server: 51.79.140.249, port: 80, type: vmess, uuid: 9238fc7f-ce5a-465f-eff5-66d96df8d6ee, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /@maintenancez/@mtcstores/@jualbelivps}}
-  - {name: SG_AzadNet(2), server: 165.232.164.149, port: 80, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(3), server: 165.232.164.149, port: 443, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(4), server: 51.79.249.247, port: 443, type: trojan, password: 4cc12fec-0f52-4636-abbe-d209e571f4d5, sni: sgt4.sshocean.net, skip-cert-verify: false}
-  - {name: SG_AzadNet(5), server: 51.79.240.77, port: 80, type: vmess, uuid: 2246ba54-c25b-4458-9f74-e3175b76dc7f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(6), server: 51.79.207.226, port: 80, type: vmess, uuid: 511ad999-dbfd-49fd-b6db-740f15af4ec5, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(7), server: 194.233.88.109, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
-  - {name: SG_AzadNet(10), server: 103.253.24.98, port: 80, type: vmess, uuid: 854fc069-23bc-4dd9-9c14-9f3bc50a3b76, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /fastssh/sobert5/63506696b0806/}}
-  - {name: US_AzadNet, server: 15.235.147.186, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Ertusg86/635014638c264/}}
-  - {name: US_AzadNet(1), server: 104.21.17.87, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
-  - {name: US_AzadNet(2), server: 172.67.142.113, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
-  - {name: US_AzadNet(3), server: 134.209.72.85, port: 443, type: vmess, uuid: 3bedaa5e-ade9-49ff-a7ba-51ff3d738ac3, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /racevpn}}
-  - {name: US_AzadNet(5), server: 104.21.24.156, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
-  - {name: US_AzadNet(6), server: 172.67.219.75, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
-  - {name: US_AzadNet(9), server: 137.184.164.233, port: 80, type: vmess, uuid: 5cee90e3-b915-4f1e-bb8d-efadad0c6feb, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: US_AzadNet(10), server: 38.9.140.66, port: 443, type: trojan, password: vvip-periantara, sni: id3tr.jagoan.vip, skip-cert-verify: false}
-  - {name: US_AzadNet(11), server: 43.198.12.229, port: 28443, type: trojan, password: ae7cc604-d970-4200-9a9b-eb45087b4fc1, sni: mzy.hruqoaw.cn, skip-cert-verify: false}
-  - {name: US_AzadNet(12), server: 104.21.94.253, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
-  - {name: US_AzadNet(13), server: 173.205.94.4, port: 443, type: vmess, uuid: 8789e118-d508-33b1-b619-df4a2cf3b933, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /panelmyadmin}}
-  - {name: US_AzadNet(17), server: 38.91.101.159, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(19), server: 172.67.175.100, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
-  - {name: US_AzadNet(26), server: 51.81.211.171, port: 443, type: trojan, password: 2dab5d78-5c56-4252-850d-c037753a40db, sni: ust1.sshocean.net, skip-cert-verify: false}
-  - {name: US_AzadNet(28), server: 38.91.107.225, port: 802, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(29), server: 38.91.107.225, port: 809, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(30), server: 38.91.107.225, port: 812, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(31), server: 172.245.218.162, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(32), server: 172.245.218.162, port: 805, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(33), server: 172.245.218.162, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(34), server: 38.68.134.191, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
-  - {name: US_AzadNet(35), server: 38.68.134.191, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
-  - {name: US_AzadNet(36), server: 38.91.106.136, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
-  - {name: US_AzadNet(37), server: 38.91.102.30, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
-  - {name: US_AzadNet(38), server: 38.68.135.19, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
-  - {name: US_AzadNet(39), server: 38.91.101.159, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
-  - {name: US_AzadNet(40), server: 38.91.107.227, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
-  - {name: US_AzadNet(41), server: 38.68.135.19, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
-  - {name: US_AzadNet(42), server: 38.91.101.159, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
-  - {name: US_AzadNet(43), server: 38.68.134.191, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
-  - {name: US_AzadNet(44), server: 38.68.134.191, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(45), server: 38.68.134.48, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(46), server: 38.68.135.19, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(48), server: 38.91.101.159, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(49), server: 38.91.101.159, port: 5601, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(50), server: 38.91.102.30, port: 5000, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(51), server: 38.68.135.19, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
-  - {name: US_AzadNet(52), server: 38.68.135.19, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
-  - {name: US_AzadNet(53), server: 38.68.134.191, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
-  - {name: US_AzadNet(54), server: 38.68.135.19, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
-  - {name: US_AzadNet(55), server: 38.68.134.191, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
-  - {name: US_AzadNet(56), server: 38.68.134.191, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
-  - {name: US_AzadNet(57), server: 38.68.134.191, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
-  - {name: US_AzadNet(58), server: 38.91.101.159, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
-  - {name: ZA_AzadNet, server: 102.130.123.250, port: 80, type: vmess, uuid: ac6788de-deb2-4416-860a-c87055db64a7, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: _AzadNet(4), server: 103.180.125.251, port: 443, type: trojan, password: 4f7f8560-5873-11ed-b732-225401db9d57, sni: Iran.GOV, skip-cert-verify: false}
-  - {name: AU_AzadNet, server: 51.161.152.180, port: 80, type: vmess, uuid: 6174a585-9a14-4a30-81d4-076376325328, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: IR_AzadNet(1), server: 185.143.234.120, port: 80, type: vmess, uuid: 35d25899-ed20-46d9-9c7c-99c0d414d5e4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
+  - {name: IR_AzadNet(2), server: 185.231.181.214, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: jinajina123}
+  - {name: IR_AzadNet(3), server: 185.231.180.95, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: BHMGPF3SKLDHDFF6}
+  - {name: JP_AzadNet, server: 106.180.225.69, port: 1443, type: trojan, password: 7x42LetRa0, skip-cert-verify: false}
+  - {name: JP_AzadNet(1), server: 132.226.5.246, port: 443, type: trojan, password: 4f7dc540-d244-4e64-af21-4b5bb300add3, sni: www.tokyo2023.ga, skip-cert-verify: false}
+  - {name: JP_AzadNet(2), server: 45.66.134.219, port: 443, type: trojan, password: 28d98f761aca9d636f44db62544628eb, skip-cert-verify: false}
+  - {name: JP_AzadNet(3), server: 54.168.10.3, port: 443, type: vmess, uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(4), server: 150.230.6.78, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: JP_AzadNet(5), server: 54.178.61.182, port: 443, type: trojan, password: f41e6f27-5a33-4eb0-b6be-eb3755c93b78, sni: jp-04.tiktokcdn.sbs, skip-cert-verify: false}
+  - {name: JP_AzadNet(6), server: 172.104.122.23, port: 80, type: vmess, uuid: cb8849d7-3b02-49a4-b305-90e5a0b29c94, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: JP_AzadNet(7), server: 207.148.104.21, port: 13568, type: vmess, uuid: 570d6b22-2094-48a0-8933-ca027e32f010, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /cctv10/hd.m3u8}}
+  - {name: JP_AzadNet(8), server: 139.162.70.196, port: 10001, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(9), server: 13.231.156.221, port: 43632, type: vmess, uuid: 1d2978ba-30ba-4b64-8699-9ba6ba3cd4e8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(10), server: 160.16.69.102, port: 10111, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(11), server: 198.13.59.63, port: 80, type: vmess, uuid: b033201e-577d-4f7a-8c2e-e64bfd6b929d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: KR_AzadNet, server: 193.123.252.35, port: 443, type: trojan, password: d4435b69-3d08-d58a-919f-7f1707150ecb, sni: hg.053111.xyz, skip-cert-verify: false}
+  - {name: KR_AzadNet(1), server: 140.238.12.83, port: 443, type: trojan, password: a1718180-d616-4b71-9bb6-3e96ba20f921, sni: jgw3.gaox.ml, skip-cert-verify: false}
+  - {name: KR_AzadNet(2), server: 152.70.251.160, port: 443, type: trojan, password: b7e0e71f-070c-437a-9826-6e23caeb0307, sni: jgw4.gaox.ml, skip-cert-verify: false}
+  - {name: KR_AzadNet(3), server: 146.56.104.17, port: 19923, type: vmess, uuid: 47c1ba9b-4c51-4144-8bdb-b203d747054f, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: KR_AzadNet(4), server: 146.56.184.1, port: 55214, type: vmess, uuid: a7775588-fc65-33c3-92c6-127339188bfd, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /miao}}
+  - {name: KR_AzadNet(5), server: 3.35.20.225, port: 43632, type: vmess, uuid: 1d2978ba-30ba-4b64-8699-9ba6ba3cd4e8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: KR_AzadNet(6), server: 15.165.9.67, port: 52356, type: vmess, uuid: 1617ff1b-4e85-4a8a-81c3-511b3c2efad8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: LU_AzadNet, server: 81.28.12.12, port: 443, type: vmess, uuid: 0a6b7226-2f9c-393c-bc94-5a34859250c0, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: NL_AzadNet, server: 46.182.107.150, port: 443, type: vmess, uuid: f5250c4e-f855-4eff-b73c-a02226d42fe7, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: NL_AzadNet(1), server: 37.16.6.72, port: 55472, type: vmess, uuid: 5509734c-30d8-4d4b-d67d-7eb94947a1c2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: NL_AzadNet(2), server: 41.216.177.234, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: none, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Derty76/634d98433b103/}}
+  - {name: NL_AzadNet(3), server: 41.216.177.148, port: 80, type: vmess, uuid: 238af157-6bdd-4131-88df-2bbe723cf773, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: RU_AzadNet, server: 165.154.243.45, port: 443, type: vmess, uuid: 7f4ff2e1-c08f-35bd-afe7-4a6a386907aa, alterId: 2, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: RU_AzadNet(1), server: 193.38.51.173, port: 443, type: vmess, uuid: abd9668e-7ade-437a-b0c7-9e7447031684, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: RU_AzadNet(2), server: 213.183.53.214, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA}
+  - {name: RU_AzadNet(3), server: 213.183.53.214, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C}
+  - {name: SG_AzadNet, server: 54.151.175.86, port: 443, type: trojan, password: 41742_920c8caa, sni: hk31.ssgnode.ga, skip-cert-verify: false}
+  - {name: SG_AzadNet(1), server: 139.162.23.118, port: 1020, type: ss, cipher: aes-128-gcm, password: !<str> 202211000000000000000020, plugin: obfs, plugin-opts: {mode: http, host: securevpn.cc}}
+  - {name: SG_AzadNet(2), server: 92.223.116.205, port: 443, type: vmess, uuid: 5c854e2e-205c-4309-8363-ff60ea7b2a16, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: SG_AzadNet(3), server: 13.215.222.208, port: 80, type: vmess, uuid: f1398579-eed1-3335-9ffb-5dac467e23ac, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: SG_AzadNet(4), server: 13.215.189.229, port: 80, type: vmess, uuid: fec544c5-6ec4-45d8-8878-17f799e77e96, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: SG_AzadNet(5), server: 5.44.249.42, port: 3389, type: trojan, password: 182228812d1e0f23, skip-cert-verify: false}
+  - {name: SG_AzadNet(6), server: 13.250.95.11, port: 52356, type: vmess, uuid: edc9e8a8-518e-425a-8184-e55d16d844b2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: SG_AzadNet(7), server: 51.79.249.18, port: 443, type: trojan, password: 144219b3-363a-496b-b2b0-b68fe9c4004e, sni: sgt5.sshocean.net, skip-cert-verify: false}
+  - {name: SG_AzadNet(8), server: 51.79.140.249, port: 80, type: vmess, uuid: 9238fc7f-ce5a-465f-eff5-66d96df8d6ee, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /@maintenancez/@mtcstores/@jualbelivps}}
+  - {name: SG_AzadNet(9), server: 165.232.164.149, port: 80, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(10), server: 165.232.164.149, port: 443, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(11), server: 51.79.249.247, port: 443, type: trojan, password: 4cc12fec-0f52-4636-abbe-d209e571f4d5, sni: sgt4.sshocean.net, skip-cert-verify: false}
+  - {name: SG_AzadNet(12), server: 51.79.240.77, port: 80, type: vmess, uuid: 2246ba54-c25b-4458-9f74-e3175b76dc7f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(13), server: 51.79.207.226, port: 80, type: vmess, uuid: 511ad999-dbfd-49fd-b6db-740f15af4ec5, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(14), server: 194.233.88.109, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
+  - {name: SG_AzadNet(15), server: 103.253.24.98, port: 80, type: vmess, uuid: 854fc069-23bc-4dd9-9c14-9f3bc50a3b76, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /fastssh/sobert5/63506696b0806/}}
+  - {name: US_AzadNet, server: 150.230.201.192, port: 443, type: trojan, password: f42e1a2e-e650-44f4-8d17-bcb68663da18, sni: www.seetheworldjp.ga, skip-cert-verify: false}
+  - {name: US_AzadNet(1), server: 150.230.249.20, port: 443, type: trojan, password: b5fc9fa9-796d-4185-a316-395ecac04a85, sni: www.gomacau.gq, skip-cert-verify: false}
+  - {name: US_AzadNet(2), server: 43.206.67.76, port: 36306, type: trojan, password: 1b5eff5a-f36b-4149-8001-7c8c0c4ed2eb, sni: sunmoon02.abzoones.xyz, skip-cert-verify: false}
+  - {name: US_AzadNet(3), server: 150.230.215.92, port: 443, type: trojan, password: !<str> 111111, sni: www.cjf0423.cf, skip-cert-verify: false}
+  - {name: US_AzadNet(4), server: 20.24.192.3, port: 20769, type: trojan, password: 957e2441-1872-3899-ae34-778435a7c124, sni: azhj001.xibai6.top, skip-cert-verify: false}
+  - {name: US_AzadNet(5), server: 172.66.2.53, port: 2083, type: vmess, uuid: f87fc0d6-4e32-4922-cbfe-e5735a5189ee, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(6), server: 172.64.156.100, port: 443, type: vmess, uuid: d1a2c5fe-b996-46df-bcb4-26f339b6dc61, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(7), server: 172.66.0.105, port: 8443, type: vmess, uuid: 3baaad0f-b764-4f4e-d382-cdd104390838, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(8), server: 34.149.204.188, port: 443, type: vmess, uuid: 07efa45f-7c1b-4fca-8c1a-dba8ea554551, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /07efa45f-7c1b-4fca-8c1a-dba8ea554551-vmess}}
+  - {name: US_AzadNet(9), server: 172.67.149.30, port: 443, type: vmess, uuid: 4ce21a11-44fe-4814-a639-4b7caf501031, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(10), server: 20.222.214.198, port: 10021, type: vmess, uuid: 570d6b22-2094-48a0-8933-ca027e32f010, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /cctv13/hd.m3u8}}
+  - {name: US_AzadNet(11), server: 138.2.70.11, port: 80, type: vmess, uuid: fa0702f4-8ec9-48e5-9b53-a0afb7c3717e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(12), server: 157.254.193.213, port: 25566, type: vmess, uuid: 0225ce78-af21-4b75-bf2d-6be0af0d33a5, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(13), server: 20.24.14.252, port: 443, type: trojan, password: e785e5d2-a05e-486c-8b4f-78b205382b4e, sni: ussj.iamnotagoodman.com, skip-cert-verify: false}
+  - {name: US_AzadNet(14), server: 155.248.160.249, port: 80, type: vmess, uuid: fa0702f4-8ec9-48e5-9b53-a0afb7c3717e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(15), server: 142.4.104.187, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(16), server: 150.230.249.15, port: 46842, type: vmess, uuid: 4530b5ee-ced4-4e64-9285-1867fc5df7f8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: http, http-opts: {method: GET, path: [/]}}
+  - {name: US_AzadNet(17), server: 172.67.134.218, port: 2083, type: vmess, uuid: f87fc0d6-4e32-4922-cbfe-e5735a5189ee, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(18), server: 54.176.234.6, port: 52356, type: vmess, uuid: 1617ff1b-4e85-4a8a-81c3-511b3c2efad8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(19), server: 172.67.178.55, port: 2083, type: vmess, uuid: 0145bfef-aa53-416f-90d4-8634295dab57, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(20), server: 143.198.230.19, port: 443, type: vmess, uuid: 2757fd62-fcf0-4946-9b46-1b697741575b, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /m1}}
+  - {name: US_AzadNet(21), server: 172.67.172.41, port: 443, type: vmess, uuid: e61725c5-c7e4-4530-addc-fdd68a2f8533, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /81ac}}
+  - {name: US_AzadNet(22), server: 43.198.12.222, port: 1051, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(23), server: 172.67.233.140, port: 8443, type: vmess, uuid: 3baaad0f-b764-4f4e-d382-cdd104390838, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(24), server: 154.12.36.47, port: 80, type: vmess, uuid: 7c982e1d-647f-3a15-a8a4-102d73d1913d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /by.xbygood.xyz}}
+  - {name: US_AzadNet(25), server: 15.235.147.186, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Ertusg86/635014638c264/}}
+  - {name: US_AzadNet(26), server: 172.67.142.113, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(27), server: 172.67.219.75, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
+  - {name: US_AzadNet(28), server: 137.184.164.233, port: 80, type: vmess, uuid: 5cee90e3-b915-4f1e-bb8d-efadad0c6feb, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: US_AzadNet(29), server: 38.9.140.66, port: 443, type: trojan, password: vvip-periantara, sni: id3tr.jagoan.vip, skip-cert-verify: false}
+  - {name: US_AzadNet(30), server: 38.91.101.159, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(31), server: 172.67.175.100, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
+  - {name: US_AzadNet(32), server: 51.81.211.171, port: 443, type: trojan, password: 2dab5d78-5c56-4252-850d-c037753a40db, sni: ust1.sshocean.net, skip-cert-verify: false}
+  - {name: US_AzadNet(33), server: 38.91.107.225, port: 802, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(34), server: 38.91.107.225, port: 809, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(35), server: 38.91.107.225, port: 812, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(36), server: 172.245.218.162, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(37), server: 172.245.218.162, port: 805, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(38), server: 172.245.218.162, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(39), server: 38.68.134.191, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: US_AzadNet(40), server: 38.68.134.191, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: US_AzadNet(41), server: 38.91.106.136, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: US_AzadNet(42), server: 38.91.102.30, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
+  - {name: US_AzadNet(43), server: 38.68.135.19, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: US_AzadNet(44), server: 38.91.101.159, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: US_AzadNet(45), server: 38.91.107.227, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: US_AzadNet(46), server: 38.68.135.19, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: US_AzadNet(47), server: 38.91.101.159, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: US_AzadNet(48), server: 38.68.134.191, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
+  - {name: US_AzadNet(49), server: 38.68.134.191, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(50), server: 38.68.134.48, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(51), server: 38.68.135.19, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(52), server: 38.91.101.159, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(53), server: 38.91.101.159, port: 5601, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(54), server: 38.91.102.30, port: 5000, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(55), server: 38.68.135.19, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: US_AzadNet(56), server: 38.68.135.19, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: US_AzadNet(57), server: 38.68.134.191, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
+  - {name: US_AzadNet(58), server: 38.68.135.19, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
+  - {name: US_AzadNet(59), server: 38.68.134.191, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
+  - {name: US_AzadNet(60), server: 38.68.134.191, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: US_AzadNet(61), server: 38.68.134.191, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: US_AzadNet(62), server: 38.91.101.159, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: _AzadNet, server: 104.21.22.131, port: 443, type: vmess, uuid: d6cfc83f-e1ee-4085-8052-4491a1eeba0f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /good}}
+  - {name: _AzadNet(1), server: 198.41.203.4, port: 443, type: vmess, uuid: fcfaec91-6096-44d8-956c-7868d9e874b1, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /ray}}
+  - {name: _AzadNet(2), server: 141.101.115.158, port: 443, type: vmess, uuid: 41dbac14-48c9-402a-9c30-a63acbae2522, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(3), server: 198.41.212.155, port: 443, type: vmess, uuid: 267a9f38-40d8-4ed6-ab58-cafc67e9c933, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /VHONOFZ3}}
+  - {name: _AzadNet(4), server: 198.41.212.144, port: 443, type: vmess, uuid: 176b598f-445b-41ac-9d2a-430c5c4df26a, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /dongtaiwang.com}}
+  - {name: _AzadNet(5), server: 104.18.27.64, port: 443, type: vmess, uuid: 5f4b2e42-ff2b-4342-86fc-b7ba1b5361e8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(6), server: 104.19.80.46, port: 8080, type: vmess, uuid: 657f7981-0138-4c99-9199-51f62002d8e5, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(7), server: 198.41.212.234, port: 2082, type: vmess, uuid: 68188cc4-0e87-4da8-cd67-7c6dbcaccf6f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(8), server: 103.176.78.153, port: 443, type: trojan, password: idc117okt, skip-cert-verify: false}
+  - {name: _AzadNet(9), server: 103.173.155.72, port: 28443, type: trojan, password: 6f6ae34d-fe7f-4ca1-a912-ecc01386bdc4, skip-cert-verify: false}
+  - {name: _AzadNet(10), server: 103.172.116.94, port: 80, type: vmess, uuid: fbf53107-1b42-3da5-a77d-6ad22544c0e9, alterId: 2, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(11), server: 103.180.125.251, port: 443, type: trojan, password: 4f7f8560-5873-11ed-b732-225401db9d57, sni: Iran.GOV, skip-cert-verify: false}
+  - {name: _AzadNet(12), server: 104.21.17.87, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
+  - {name: _AzadNet(13), server: 104.21.24.156, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
+  - {name: _AzadNet(14), server: 104.21.94.253, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: AE_AzadNet, server: 139.185.39.106, port: 15001, type: trojan, password: bf85b397-0c84-43a3-98d0-5a15c6754be8, sni: ae.838501.xyz, skip-cert-verify: false}
+  - {name: AU_AzadNet, server: 1.0.0.1, port: 80, type: vmess, uuid: 0d02be86-0a21-4c56-a363-1c8c09074466, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: AU_AzadNet(1), server: 51.161.152.180, port: 80, type: vmess, uuid: 6174a585-9a14-4a30-81d4-076376325328, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
   - {name: BE_AzadNet, server: 57.128.45.161, port: 80, type: vmess, uuid: 35d25899-ed20-46d9-9c7c-99c0d414d5e4, alterId: 0, cipher: chacha20-poly1305, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
   - {name: CA_AzadNet, server: 144.217.5.29, port: 443, type: trojan, password: 8d78e5ef-eaef-4649-bd2a-09c8cc7547e1, sni: cat2.sshocean.net, skip-cert-verify: false}
-  - {name: CN_AzadNet, server: 119.36.161.40, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /path/120306182525}}
+  - {name: CN_AzadNet, server: 192.74.250.18, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /path/270132212224}}
+  - {name: CN_AzadNet(1), server: 119.36.161.40, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /path/120306182525}}
+  - {name: CO_AzadNet, server: 188.114.96.3, port: 8880, type: vmess, uuid: 2b984b21-2d35-479d-fdc0-d72c7fa762af, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: webz.kandimiz.online}}
+  - {name: CZ_AzadNet, server: 194.87.196.20, port: 80, type: vmess, uuid: 5cac5403-be7c-4d17-f19d-4751c6eb0628, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
   - {name: DE_AzadNet, server: 93.186.201.158, port: 804, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: DE_AzadNet(1), server: 165.227.160.249, port: 443, type: vmess, uuid: eabc4c9f-6efa-46e9-94c3-c54c8ef722bd, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /racevpn}}
-  - {name: DE_AzadNet(5), server: 5.161.109.45, port: 80, type: vmess, uuid: 2aac77de-b3e4-4017-845c-ca1380f2e8d0, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /telegram-id-@privatevpns}}
-  - {name: DE_AzadNet(11), server: 93.186.201.158, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: DE_AzadNet(12), server: 93.186.201.158, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: FR_AzadNet, server: 152.228.191.232, port: 443, type: vmess, uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /ray}}
-  - {name: FR_AzadNet(1), server: 51.77.213.197, port: 443, type: trojan, password: 973ed2e0-c4d8-4737-a093-71629148086d, sni: frt2.sshocean.net, skip-cert-verify: false}
-  - {name: FR_AzadNet(2), server: 51.195.219.173, port: 443, type: trojan, password: 0f5e6d9a-49af-4bc0-b04b-503102382144, sni: ukt1.sshocean.net, skip-cert-verify: false}
-  - {name: FR_AzadNet(4), server: 51.83.97.167, port: 80, type: vmess, uuid: 94457f20-9b77-4dcc-962b-dae1beeb7b81, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: FR_AzadNet(5), server: 51.83.185.94, port: 80, type: vmess, uuid: 622f0ce1-7ba8-40a1-bf35-2bbd84c96b45, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: GB_AzadNet, server: univstar.51.195.140.208.sslip.io, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws, headers: {Host: univstar.51.195.140.208.sslip.io}}}
-  - {name: GB_AzadNet(1), server: 5.45.94.28, port: 80, type: vmess, uuid: bd3d81c6-9d40-4e75-8a23-7c55d69bf801, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: HK_AzadNet, server: 119.247.119.212, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
+  - {name: DE_AzadNet(1), server: 93.186.201.158, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: DE_AzadNet(2), server: 93.186.201.158, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: FR_AzadNet, server: 51.77.213.197, port: 443, type: trojan, password: 973ed2e0-c4d8-4737-a093-71629148086d, sni: frt2.sshocean.net, skip-cert-verify: false}
+  - {name: FR_AzadNet(1), server: 51.195.219.173, port: 443, type: trojan, password: 0f5e6d9a-49af-4bc0-b04b-503102382144, sni: ukt1.sshocean.net, skip-cert-verify: false}
+  - {name: FR_AzadNet(2), server: 51.83.97.167, port: 80, type: vmess, uuid: 94457f20-9b77-4dcc-962b-dae1beeb7b81, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: FR_AzadNet(3), server: 51.83.185.94, port: 80, type: vmess, uuid: 622f0ce1-7ba8-40a1-bf35-2bbd84c96b45, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: GB_AzadNet, server: 185.44.76.188, port: 443, type: trojan, password: 8697fe6b-1lWNFc1RmRBNk5NQU5KSnga3fa58ac5a3ef0-b4ab-11eb-b65e-1239d0255272, skip-cert-verify: false}
+  - {name: GB_AzadNet(1), server: 95.179.230.78, port: 11911, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: GB_AzadNet(2), server: 185.126.136.216, port: 10001, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false}
+  - {name: GB_AzadNet(3), server: 144.24.89.156, port: 80, type: vmess, uuid: 54b3ef87-0084-4362-af57-2fb494d8ca15, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: GB_AzadNet(4), server: 5.45.94.28, port: 80, type: vmess, uuid: bd3d81c6-9d40-4e75-8a23-7c55d69bf801, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: HK_AzadNet, server: 20.205.57.174, port: 48006, type: vmess, uuid: cf072ee7-adcc-3d24-9eec-57ee94bcce66, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: HK_AzadNet(1), server: 20.187.122.237, port: 10015, type: vmess, uuid: d8c5b486-84bb-3887-a1d9-07455ea608f2, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /v2ray}}
+  - {name: HK_AzadNet(2), server: 47.243.62.222, port: 443, type: vmess, uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /ray}}
+  - {name: HK_AzadNet(3), server: 16.162.4.203, port: 443, type: vmess, uuid: 1617ff1b-4e85-4a8a-81c3-511b3c2efad8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: HK_AzadNet(4), server: 18.167.102.165, port: 12356, type: vmess, uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: HK_AzadNet(5), server: 16.163.143.113, port: 443, type: vmess, uuid: 4456b502-fe61-4be7-a969-aa37d924dbd2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /zh-cn}}
+  - {name: HK_AzadNet(6), server: 119.247.119.212, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
   - {name: ID_AzadNet, server: 45.12.80.151, port: 80, type: vmess, uuid: 5fc32973-a15e-404c-b1f7-707187f7fd6e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /fastssh/amrozi87/6350416ec330b/}}
+  - {name: IE_AzadNet, server: 54.195.175.177, port: 15092, type: vmess, uuid: edc9e8a8-518e-425a-8184-e55d16d844b2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: IN_AzadNet, server: 152.67.5.184, port: 80, type: vmess, uuid: fa0702f4-8ec9-48e5-9b53-a0afb7c3717e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: IN_AzadNet(1), server: 139.59.2.83, port: 80, type: vmess, uuid: 711376da-2b71-4cfd-a1d3-150c1de6ca20, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
   - {name: IR_AzadNet, server: 185.143.233.120, port: 80, type: vmess, uuid: 76e151a7-9980-4077-bd52-07ef4e9cb496, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
-  - {name: IR_AzadNet(3), server: 185.143.234.120, port: 80, type: vmess, uuid: 35d25899-ed20-46d9-9c7c-99c0d414d5e4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
-  - {name: IR_AzadNet(8), server: 185.231.181.214, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: jinajina123}
-  - {name: IR_AzadNet(11), server: 185.231.180.95, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: BHMGPF3SKLDHDFF6}
-  - {name: JP_AzadNet, server: 198.13.59.63, port: 80, type: vmess, uuid: b033201e-577d-4f7a-8c2e-e64bfd6b929d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: NL_AzadNet, server: 41.216.177.234, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: none, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Derty76/634d98433b103/}}
-  - {name: NL_AzadNet(1), server: id-lb.vhax.net, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Arsham85231/6347d08022b91/, headers: {Host: id-lb.vhax.net}}}
-  - {name: NL_AzadNet(5), server: 41.216.177.148, port: 80, type: vmess, uuid: 238af157-6bdd-4131-88df-2bbe723cf773, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: RU_AzadNet, server: 213.183.53.214, port: 9024, type: ss, cipher: aes-256-cfb, password: BejrQvtu9sqUeNuZ}
-  - {name: RU_AzadNet(1), server: 213.183.53.214, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA}
-  - {name: RU_AzadNet(2), server: 213.183.53.214, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C}
-  - {name: SG_AzadNet, server: 51.79.249.18, port: 443, type: trojan, password: 144219b3-363a-496b-b2b0-b68fe9c4004e, sni: sgt5.sshocean.net, skip-cert-verify: false}
-  - {name: SG_AzadNet(1), server: 51.79.140.249, port: 80, type: vmess, uuid: 9238fc7f-ce5a-465f-eff5-66d96df8d6ee, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /@maintenancez/@mtcstores/@jualbelivps}}
-  - {name: SG_AzadNet(2), server: 165.232.164.149, port: 80, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(3), server: 165.232.164.149, port: 443, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(4), server: 51.79.249.247, port: 443, type: trojan, password: 4cc12fec-0f52-4636-abbe-d209e571f4d5, sni: sgt4.sshocean.net, skip-cert-verify: false}
-  - {name: SG_AzadNet(5), server: 51.79.240.77, port: 80, type: vmess, uuid: 2246ba54-c25b-4458-9f74-e3175b76dc7f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(6), server: 51.79.207.226, port: 80, type: vmess, uuid: 511ad999-dbfd-49fd-b6db-740f15af4ec5, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(7), server: 194.233.88.109, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
-  - {name: SG_AzadNet(10), server: 103.253.24.98, port: 80, type: vmess, uuid: 854fc069-23bc-4dd9-9c14-9f3bc50a3b76, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /fastssh/sobert5/63506696b0806/}}
-  - {name: US_AzadNet, server: 15.235.147.186, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Ertusg86/635014638c264/}}
-  - {name: US_AzadNet(1), server: 104.21.17.87, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
-  - {name: US_AzadNet(2), server: 172.67.142.113, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
-  - {name: US_AzadNet(3), server: 134.209.72.85, port: 443, type: vmess, uuid: 3bedaa5e-ade9-49ff-a7ba-51ff3d738ac3, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /racevpn}}
-  - {name: US_AzadNet(5), server: 104.21.24.156, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
-  - {name: US_AzadNet(6), server: 172.67.219.75, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
-  - {name: US_AzadNet(9), server: 137.184.164.233, port: 80, type: vmess, uuid: 5cee90e3-b915-4f1e-bb8d-efadad0c6feb, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: US_AzadNet(10), server: 38.9.140.66, port: 443, type: trojan, password: vvip-periantara, sni: id3tr.jagoan.vip, skip-cert-verify: false}
-  - {name: US_AzadNet(11), server: 43.198.12.229, port: 28443, type: trojan, password: ae7cc604-d970-4200-9a9b-eb45087b4fc1, sni: mzy.hruqoaw.cn, skip-cert-verify: false}
-  - {name: US_AzadNet(12), server: 104.21.94.253, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
-  - {name: US_AzadNet(13), server: 173.205.94.4, port: 443, type: vmess, uuid: 8789e118-d508-33b1-b619-df4a2cf3b933, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /panelmyadmin}}
-  - {name: US_AzadNet(17), server: 38.91.101.159, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(19), server: 172.67.175.100, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
-  - {name: US_AzadNet(26), server: 51.81.211.171, port: 443, type: trojan, password: 2dab5d78-5c56-4252-850d-c037753a40db, sni: ust1.sshocean.net, skip-cert-verify: false}
-  - {name: US_AzadNet(28), server: 38.91.107.225, port: 802, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(29), server: 38.91.107.225, port: 809, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(30), server: 38.91.107.225, port: 812, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(31), server: 172.245.218.162, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(32), server: 172.245.218.162, port: 805, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(33), server: 172.245.218.162, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(34), server: 38.68.134.191, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
-  - {name: US_AzadNet(35), server: 38.68.134.191, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
-  - {name: US_AzadNet(36), server: 38.91.106.136, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
-  - {name: US_AzadNet(37), server: 38.91.102.30, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
-  - {name: US_AzadNet(38), server: 38.68.135.19, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
-  - {name: US_AzadNet(39), server: 38.91.101.159, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
-  - {name: US_AzadNet(40), server: 38.91.107.227, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
-  - {name: US_AzadNet(41), server: 38.68.135.19, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
-  - {name: US_AzadNet(42), server: 38.91.101.159, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
-  - {name: US_AzadNet(43), server: 38.68.134.191, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
-  - {name: US_AzadNet(44), server: 38.68.134.191, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(45), server: 38.68.134.48, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(46), server: 38.68.135.19, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(48), server: 38.91.101.159, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(49), server: 38.91.101.159, port: 5601, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(50), server: 38.91.102.30, port: 5000, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(51), server: 38.68.135.19, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
-  - {name: US_AzadNet(52), server: 38.68.135.19, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
-  - {name: US_AzadNet(53), server: 38.68.134.191, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
-  - {name: US_AzadNet(54), server: 38.68.135.19, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
-  - {name: US_AzadNet(55), server: 38.68.134.191, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
-  - {name: US_AzadNet(56), server: 38.68.134.191, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
-  - {name: US_AzadNet(57), server: 38.68.134.191, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
-  - {name: US_AzadNet(58), server: 38.91.101.159, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
-  - {name: ZA_AzadNet, server: 102.130.123.250, port: 80, type: vmess, uuid: ac6788de-deb2-4416-860a-c87055db64a7, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: _AzadNet(4), server: 103.180.125.251, port: 443, type: trojan, password: 4f7f8560-5873-11ed-b732-225401db9d57, sni: Iran.GOV, skip-cert-verify: false}
-  - {name: AU_AzadNet, server: 51.161.152.180, port: 80, type: vmess, uuid: 6174a585-9a14-4a30-81d4-076376325328, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: IR_AzadNet(1), server: 185.143.234.120, port: 80, type: vmess, uuid: 35d25899-ed20-46d9-9c7c-99c0d414d5e4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
+  - {name: IR_AzadNet(2), server: 185.231.181.214, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: jinajina123}
+  - {name: IR_AzadNet(3), server: 185.231.180.95, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: BHMGPF3SKLDHDFF6}
+  - {name: JP_AzadNet, server: 106.180.225.69, port: 1443, type: trojan, password: 7x42LetRa0, skip-cert-verify: false}
+  - {name: JP_AzadNet(1), server: 132.226.5.246, port: 443, type: trojan, password: 4f7dc540-d244-4e64-af21-4b5bb300add3, sni: www.tokyo2023.ga, skip-cert-verify: false}
+  - {name: JP_AzadNet(2), server: 45.66.134.219, port: 443, type: trojan, password: 28d98f761aca9d636f44db62544628eb, skip-cert-verify: false}
+  - {name: JP_AzadNet(3), server: 54.168.10.3, port: 443, type: vmess, uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(4), server: 150.230.6.78, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: JP_AzadNet(5), server: 54.178.61.182, port: 443, type: trojan, password: f41e6f27-5a33-4eb0-b6be-eb3755c93b78, sni: jp-04.tiktokcdn.sbs, skip-cert-verify: false}
+  - {name: JP_AzadNet(6), server: 172.104.122.23, port: 80, type: vmess, uuid: cb8849d7-3b02-49a4-b305-90e5a0b29c94, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: JP_AzadNet(7), server: 207.148.104.21, port: 13568, type: vmess, uuid: 570d6b22-2094-48a0-8933-ca027e32f010, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /cctv10/hd.m3u8}}
+  - {name: JP_AzadNet(8), server: 139.162.70.196, port: 10001, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(9), server: 13.231.156.221, port: 43632, type: vmess, uuid: 1d2978ba-30ba-4b64-8699-9ba6ba3cd4e8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(10), server: 160.16.69.102, port: 10111, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(11), server: 198.13.59.63, port: 80, type: vmess, uuid: b033201e-577d-4f7a-8c2e-e64bfd6b929d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: KR_AzadNet, server: 193.123.252.35, port: 443, type: trojan, password: d4435b69-3d08-d58a-919f-7f1707150ecb, sni: hg.053111.xyz, skip-cert-verify: false}
+  - {name: KR_AzadNet(1), server: 140.238.12.83, port: 443, type: trojan, password: a1718180-d616-4b71-9bb6-3e96ba20f921, sni: jgw3.gaox.ml, skip-cert-verify: false}
+  - {name: KR_AzadNet(2), server: 152.70.251.160, port: 443, type: trojan, password: b7e0e71f-070c-437a-9826-6e23caeb0307, sni: jgw4.gaox.ml, skip-cert-verify: false}
+  - {name: KR_AzadNet(3), server: 146.56.104.17, port: 19923, type: vmess, uuid: 47c1ba9b-4c51-4144-8bdb-b203d747054f, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: KR_AzadNet(4), server: 146.56.184.1, port: 55214, type: vmess, uuid: a7775588-fc65-33c3-92c6-127339188bfd, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /miao}}
+  - {name: KR_AzadNet(5), server: 3.35.20.225, port: 43632, type: vmess, uuid: 1d2978ba-30ba-4b64-8699-9ba6ba3cd4e8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: KR_AzadNet(6), server: 15.165.9.67, port: 52356, type: vmess, uuid: 1617ff1b-4e85-4a8a-81c3-511b3c2efad8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: LU_AzadNet, server: 81.28.12.12, port: 443, type: vmess, uuid: 0a6b7226-2f9c-393c-bc94-5a34859250c0, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: NL_AzadNet, server: 46.182.107.150, port: 443, type: vmess, uuid: f5250c4e-f855-4eff-b73c-a02226d42fe7, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: NL_AzadNet(1), server: 37.16.6.72, port: 55472, type: vmess, uuid: 5509734c-30d8-4d4b-d67d-7eb94947a1c2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: NL_AzadNet(2), server: 41.216.177.234, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: none, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Derty76/634d98433b103/}}
+  - {name: NL_AzadNet(3), server: 41.216.177.148, port: 80, type: vmess, uuid: 238af157-6bdd-4131-88df-2bbe723cf773, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: RU_AzadNet, server: 165.154.243.45, port: 443, type: vmess, uuid: 7f4ff2e1-c08f-35bd-afe7-4a6a386907aa, alterId: 2, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: RU_AzadNet(1), server: 193.38.51.173, port: 443, type: vmess, uuid: abd9668e-7ade-437a-b0c7-9e7447031684, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: RU_AzadNet(2), server: 213.183.53.214, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA}
+  - {name: RU_AzadNet(3), server: 213.183.53.214, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C}
+  - {name: SG_AzadNet, server: 54.151.175.86, port: 443, type: trojan, password: 41742_920c8caa, sni: hk31.ssgnode.ga, skip-cert-verify: false}
+  - {name: SG_AzadNet(1), server: 139.162.23.118, port: 1020, type: ss, cipher: aes-128-gcm, password: !<str> 202211000000000000000020, plugin: obfs, plugin-opts: {mode: http, host: securevpn.cc}}
+  - {name: SG_AzadNet(2), server: 92.223.116.205, port: 443, type: vmess, uuid: 5c854e2e-205c-4309-8363-ff60ea7b2a16, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: SG_AzadNet(3), server: 13.215.222.208, port: 80, type: vmess, uuid: f1398579-eed1-3335-9ffb-5dac467e23ac, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: SG_AzadNet(4), server: 13.215.189.229, port: 80, type: vmess, uuid: fec544c5-6ec4-45d8-8878-17f799e77e96, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: SG_AzadNet(5), server: 5.44.249.42, port: 3389, type: trojan, password: 182228812d1e0f23, skip-cert-verify: false}
+  - {name: SG_AzadNet(6), server: 13.250.95.11, port: 52356, type: vmess, uuid: edc9e8a8-518e-425a-8184-e55d16d844b2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: SG_AzadNet(7), server: 51.79.249.18, port: 443, type: trojan, password: 144219b3-363a-496b-b2b0-b68fe9c4004e, sni: sgt5.sshocean.net, skip-cert-verify: false}
+  - {name: SG_AzadNet(8), server: 51.79.140.249, port: 80, type: vmess, uuid: 9238fc7f-ce5a-465f-eff5-66d96df8d6ee, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /@maintenancez/@mtcstores/@jualbelivps}}
+  - {name: SG_AzadNet(9), server: 165.232.164.149, port: 80, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(10), server: 165.232.164.149, port: 443, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(11), server: 51.79.249.247, port: 443, type: trojan, password: 4cc12fec-0f52-4636-abbe-d209e571f4d5, sni: sgt4.sshocean.net, skip-cert-verify: false}
+  - {name: SG_AzadNet(12), server: 51.79.240.77, port: 80, type: vmess, uuid: 2246ba54-c25b-4458-9f74-e3175b76dc7f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(13), server: 51.79.207.226, port: 80, type: vmess, uuid: 511ad999-dbfd-49fd-b6db-740f15af4ec5, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(14), server: 194.233.88.109, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
+  - {name: SG_AzadNet(15), server: 103.253.24.98, port: 80, type: vmess, uuid: 854fc069-23bc-4dd9-9c14-9f3bc50a3b76, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /fastssh/sobert5/63506696b0806/}}
+  - {name: US_AzadNet, server: 150.230.201.192, port: 443, type: trojan, password: f42e1a2e-e650-44f4-8d17-bcb68663da18, sni: www.seetheworldjp.ga, skip-cert-verify: false}
+  - {name: US_AzadNet(1), server: 150.230.249.20, port: 443, type: trojan, password: b5fc9fa9-796d-4185-a316-395ecac04a85, sni: www.gomacau.gq, skip-cert-verify: false}
+  - {name: US_AzadNet(2), server: 43.206.67.76, port: 36306, type: trojan, password: 1b5eff5a-f36b-4149-8001-7c8c0c4ed2eb, sni: sunmoon02.abzoones.xyz, skip-cert-verify: false}
+  - {name: US_AzadNet(3), server: 150.230.215.92, port: 443, type: trojan, password: !<str> 111111, sni: www.cjf0423.cf, skip-cert-verify: false}
+  - {name: US_AzadNet(4), server: 20.24.192.3, port: 20769, type: trojan, password: 957e2441-1872-3899-ae34-778435a7c124, sni: azhj001.xibai6.top, skip-cert-verify: false}
+  - {name: US_AzadNet(5), server: 172.66.2.53, port: 2083, type: vmess, uuid: f87fc0d6-4e32-4922-cbfe-e5735a5189ee, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(6), server: 172.64.156.100, port: 443, type: vmess, uuid: d1a2c5fe-b996-46df-bcb4-26f339b6dc61, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(7), server: 172.66.0.105, port: 8443, type: vmess, uuid: 3baaad0f-b764-4f4e-d382-cdd104390838, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(8), server: 34.149.204.188, port: 443, type: vmess, uuid: 07efa45f-7c1b-4fca-8c1a-dba8ea554551, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /07efa45f-7c1b-4fca-8c1a-dba8ea554551-vmess}}
+  - {name: US_AzadNet(9), server: 172.67.149.30, port: 443, type: vmess, uuid: 4ce21a11-44fe-4814-a639-4b7caf501031, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(10), server: 20.222.214.198, port: 10021, type: vmess, uuid: 570d6b22-2094-48a0-8933-ca027e32f010, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /cctv13/hd.m3u8}}
+  - {name: US_AzadNet(11), server: 138.2.70.11, port: 80, type: vmess, uuid: fa0702f4-8ec9-48e5-9b53-a0afb7c3717e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(12), server: 157.254.193.213, port: 25566, type: vmess, uuid: 0225ce78-af21-4b75-bf2d-6be0af0d33a5, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(13), server: 20.24.14.252, port: 443, type: trojan, password: e785e5d2-a05e-486c-8b4f-78b205382b4e, sni: ussj.iamnotagoodman.com, skip-cert-verify: false}
+  - {name: US_AzadNet(14), server: 155.248.160.249, port: 80, type: vmess, uuid: fa0702f4-8ec9-48e5-9b53-a0afb7c3717e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(15), server: 142.4.104.187, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(16), server: 150.230.249.15, port: 46842, type: vmess, uuid: 4530b5ee-ced4-4e64-9285-1867fc5df7f8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: http, http-opts: {method: GET, path: [/]}}
+  - {name: US_AzadNet(17), server: 172.67.134.218, port: 2083, type: vmess, uuid: f87fc0d6-4e32-4922-cbfe-e5735a5189ee, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(18), server: 54.176.234.6, port: 52356, type: vmess, uuid: 1617ff1b-4e85-4a8a-81c3-511b3c2efad8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(19), server: 172.67.178.55, port: 2083, type: vmess, uuid: 0145bfef-aa53-416f-90d4-8634295dab57, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(20), server: 143.198.230.19, port: 443, type: vmess, uuid: 2757fd62-fcf0-4946-9b46-1b697741575b, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /m1}}
+  - {name: US_AzadNet(21), server: 172.67.172.41, port: 443, type: vmess, uuid: e61725c5-c7e4-4530-addc-fdd68a2f8533, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /81ac}}
+  - {name: US_AzadNet(22), server: 43.198.12.222, port: 1051, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(23), server: 172.67.233.140, port: 8443, type: vmess, uuid: 3baaad0f-b764-4f4e-d382-cdd104390838, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(24), server: 154.12.36.47, port: 80, type: vmess, uuid: 7c982e1d-647f-3a15-a8a4-102d73d1913d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /by.xbygood.xyz}}
+  - {name: US_AzadNet(25), server: 15.235.147.186, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Ertusg86/635014638c264/}}
+  - {name: US_AzadNet(26), server: 172.67.142.113, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(27), server: 172.67.219.75, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
+  - {name: US_AzadNet(28), server: 137.184.164.233, port: 80, type: vmess, uuid: 5cee90e3-b915-4f1e-bb8d-efadad0c6feb, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: US_AzadNet(29), server: 38.9.140.66, port: 443, type: trojan, password: vvip-periantara, sni: id3tr.jagoan.vip, skip-cert-verify: false}
+  - {name: US_AzadNet(30), server: 38.91.101.159, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(31), server: 172.67.175.100, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
+  - {name: US_AzadNet(32), server: 51.81.211.171, port: 443, type: trojan, password: 2dab5d78-5c56-4252-850d-c037753a40db, sni: ust1.sshocean.net, skip-cert-verify: false}
+  - {name: US_AzadNet(33), server: 38.91.107.225, port: 802, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(34), server: 38.91.107.225, port: 809, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(35), server: 38.91.107.225, port: 812, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(36), server: 172.245.218.162, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(37), server: 172.245.218.162, port: 805, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(38), server: 172.245.218.162, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(39), server: 38.68.134.191, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: US_AzadNet(40), server: 38.68.134.191, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: US_AzadNet(41), server: 38.91.106.136, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: US_AzadNet(42), server: 38.91.102.30, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
+  - {name: US_AzadNet(43), server: 38.68.135.19, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: US_AzadNet(44), server: 38.91.101.159, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: US_AzadNet(45), server: 38.91.107.227, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: US_AzadNet(46), server: 38.68.135.19, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: US_AzadNet(47), server: 38.91.101.159, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: US_AzadNet(48), server: 38.68.134.191, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
+  - {name: US_AzadNet(49), server: 38.68.134.191, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(50), server: 38.68.134.48, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(51), server: 38.68.135.19, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(52), server: 38.91.101.159, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(53), server: 38.91.101.159, port: 5601, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(54), server: 38.91.102.30, port: 5000, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(55), server: 38.68.135.19, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: US_AzadNet(56), server: 38.68.135.19, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: US_AzadNet(57), server: 38.68.134.191, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
+  - {name: US_AzadNet(58), server: 38.68.135.19, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
+  - {name: US_AzadNet(59), server: 38.68.134.191, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
+  - {name: US_AzadNet(60), server: 38.68.134.191, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: US_AzadNet(61), server: 38.68.134.191, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: US_AzadNet(62), server: 38.91.101.159, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: _AzadNet, server: 104.21.22.131, port: 443, type: vmess, uuid: d6cfc83f-e1ee-4085-8052-4491a1eeba0f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /good}}
+  - {name: _AzadNet(1), server: 198.41.203.4, port: 443, type: vmess, uuid: fcfaec91-6096-44d8-956c-7868d9e874b1, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /ray}}
+  - {name: _AzadNet(2), server: 141.101.115.158, port: 443, type: vmess, uuid: 41dbac14-48c9-402a-9c30-a63acbae2522, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(3), server: 198.41.212.155, port: 443, type: vmess, uuid: 267a9f38-40d8-4ed6-ab58-cafc67e9c933, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /VHONOFZ3}}
+  - {name: _AzadNet(4), server: 198.41.212.144, port: 443, type: vmess, uuid: 176b598f-445b-41ac-9d2a-430c5c4df26a, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /dongtaiwang.com}}
+  - {name: _AzadNet(5), server: 104.18.27.64, port: 443, type: vmess, uuid: 5f4b2e42-ff2b-4342-86fc-b7ba1b5361e8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(6), server: 104.19.80.46, port: 8080, type: vmess, uuid: 657f7981-0138-4c99-9199-51f62002d8e5, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(7), server: 198.41.212.234, port: 2082, type: vmess, uuid: 68188cc4-0e87-4da8-cd67-7c6dbcaccf6f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(8), server: 103.176.78.153, port: 443, type: trojan, password: idc117okt, skip-cert-verify: false}
+  - {name: _AzadNet(9), server: 103.173.155.72, port: 28443, type: trojan, password: 6f6ae34d-fe7f-4ca1-a912-ecc01386bdc4, skip-cert-verify: false}
+  - {name: _AzadNet(10), server: 103.172.116.94, port: 80, type: vmess, uuid: fbf53107-1b42-3da5-a77d-6ad22544c0e9, alterId: 2, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: _AzadNet(11), server: 103.180.125.251, port: 443, type: trojan, password: 4f7f8560-5873-11ed-b732-225401db9d57, sni: Iran.GOV, skip-cert-verify: false}
+  - {name: _AzadNet(12), server: 104.21.17.87, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
+  - {name: _AzadNet(13), server: 104.21.24.156, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
+  - {name: _AzadNet(14), server: 104.21.94.253, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: AE_AzadNet, server: 139.185.39.106, port: 15001, type: trojan, password: bf85b397-0c84-43a3-98d0-5a15c6754be8, sni: ae.838501.xyz, skip-cert-verify: false}
+  - {name: AU_AzadNet, server: 1.0.0.1, port: 80, type: vmess, uuid: 0d02be86-0a21-4c56-a363-1c8c09074466, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: AU_AzadNet(1), server: 51.161.152.180, port: 80, type: vmess, uuid: 6174a585-9a14-4a30-81d4-076376325328, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
   - {name: BE_AzadNet, server: 57.128.45.161, port: 80, type: vmess, uuid: 35d25899-ed20-46d9-9c7c-99c0d414d5e4, alterId: 0, cipher: chacha20-poly1305, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
   - {name: CA_AzadNet, server: 144.217.5.29, port: 443, type: trojan, password: 8d78e5ef-eaef-4649-bd2a-09c8cc7547e1, sni: cat2.sshocean.net, skip-cert-verify: false}
-  - {name: CN_AzadNet, server: 119.36.161.40, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /path/120306182525}}
+  - {name: CN_AzadNet, server: 192.74.250.18, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /path/270132212224}}
+  - {name: CN_AzadNet(1), server: 119.36.161.40, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /path/120306182525}}
+  - {name: CO_AzadNet, server: 188.114.96.3, port: 8880, type: vmess, uuid: 2b984b21-2d35-479d-fdc0-d72c7fa762af, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: webz.kandimiz.online}}
+  - {name: CZ_AzadNet, server: 194.87.196.20, port: 80, type: vmess, uuid: 5cac5403-be7c-4d17-f19d-4751c6eb0628, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
   - {name: DE_AzadNet, server: 93.186.201.158, port: 804, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: DE_AzadNet(1), server: 165.227.160.249, port: 443, type: vmess, uuid: eabc4c9f-6efa-46e9-94c3-c54c8ef722bd, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /racevpn}}
-  - {name: DE_AzadNet(5), server: 5.161.109.45, port: 80, type: vmess, uuid: 2aac77de-b3e4-4017-845c-ca1380f2e8d0, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /telegram-id-@privatevpns}}
-  - {name: DE_AzadNet(11), server: 93.186.201.158, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: DE_AzadNet(12), server: 93.186.201.158, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: FR_AzadNet, server: 152.228.191.232, port: 443, type: vmess, uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /ray}}
-  - {name: FR_AzadNet(1), server: 51.77.213.197, port: 443, type: trojan, password: 973ed2e0-c4d8-4737-a093-71629148086d, sni: frt2.sshocean.net, skip-cert-verify: false}
-  - {name: FR_AzadNet(2), server: 51.195.219.173, port: 443, type: trojan, password: 0f5e6d9a-49af-4bc0-b04b-503102382144, sni: ukt1.sshocean.net, skip-cert-verify: false}
-  - {name: FR_AzadNet(4), server: 51.83.97.167, port: 80, type: vmess, uuid: 94457f20-9b77-4dcc-962b-dae1beeb7b81, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: FR_AzadNet(5), server: 51.83.185.94, port: 80, type: vmess, uuid: 622f0ce1-7ba8-40a1-bf35-2bbd84c96b45, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: GB_AzadNet, server: univstar.51.195.140.208.sslip.io, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws, headers: {Host: univstar.51.195.140.208.sslip.io}}}
-  - {name: GB_AzadNet(1), server: 5.45.94.28, port: 80, type: vmess, uuid: bd3d81c6-9d40-4e75-8a23-7c55d69bf801, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: HK_AzadNet, server: 119.247.119.212, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
+  - {name: DE_AzadNet(1), server: 93.186.201.158, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: DE_AzadNet(2), server: 93.186.201.158, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: FR_AzadNet, server: 51.77.213.197, port: 443, type: trojan, password: 973ed2e0-c4d8-4737-a093-71629148086d, sni: frt2.sshocean.net, skip-cert-verify: false}
+  - {name: FR_AzadNet(1), server: 51.195.219.173, port: 443, type: trojan, password: 0f5e6d9a-49af-4bc0-b04b-503102382144, sni: ukt1.sshocean.net, skip-cert-verify: false}
+  - {name: FR_AzadNet(2), server: 51.83.97.167, port: 80, type: vmess, uuid: 94457f20-9b77-4dcc-962b-dae1beeb7b81, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: FR_AzadNet(3), server: 51.83.185.94, port: 80, type: vmess, uuid: 622f0ce1-7ba8-40a1-bf35-2bbd84c96b45, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: GB_AzadNet, server: 185.44.76.188, port: 443, type: trojan, password: 8697fe6b-1lWNFc1RmRBNk5NQU5KSnga3fa58ac5a3ef0-b4ab-11eb-b65e-1239d0255272, skip-cert-verify: false}
+  - {name: GB_AzadNet(1), server: 95.179.230.78, port: 11911, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: GB_AzadNet(2), server: 185.126.136.216, port: 10001, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false}
+  - {name: GB_AzadNet(3), server: 144.24.89.156, port: 80, type: vmess, uuid: 54b3ef87-0084-4362-af57-2fb494d8ca15, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: GB_AzadNet(4), server: 5.45.94.28, port: 80, type: vmess, uuid: bd3d81c6-9d40-4e75-8a23-7c55d69bf801, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: HK_AzadNet, server: 20.205.57.174, port: 48006, type: vmess, uuid: cf072ee7-adcc-3d24-9eec-57ee94bcce66, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: HK_AzadNet(1), server: 20.187.122.237, port: 10015, type: vmess, uuid: d8c5b486-84bb-3887-a1d9-07455ea608f2, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /v2ray}}
+  - {name: HK_AzadNet(2), server: 47.243.62.222, port: 443, type: vmess, uuid: 91646f9a-b4e9-4aca-bfe3-8892b3e58fe7, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /ray}}
+  - {name: HK_AzadNet(3), server: 16.162.4.203, port: 443, type: vmess, uuid: 1617ff1b-4e85-4a8a-81c3-511b3c2efad8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: HK_AzadNet(4), server: 18.167.102.165, port: 12356, type: vmess, uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: HK_AzadNet(5), server: 16.163.143.113, port: 443, type: vmess, uuid: 4456b502-fe61-4be7-a969-aa37d924dbd2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /zh-cn}}
+  - {name: HK_AzadNet(6), server: 119.247.119.212, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
   - {name: ID_AzadNet, server: 45.12.80.151, port: 80, type: vmess, uuid: 5fc32973-a15e-404c-b1f7-707187f7fd6e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /fastssh/amrozi87/6350416ec330b/}}
+  - {name: IE_AzadNet, server: 54.195.175.177, port: 15092, type: vmess, uuid: edc9e8a8-518e-425a-8184-e55d16d844b2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: IN_AzadNet, server: 152.67.5.184, port: 80, type: vmess, uuid: fa0702f4-8ec9-48e5-9b53-a0afb7c3717e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: IN_AzadNet(1), server: 139.59.2.83, port: 80, type: vmess, uuid: 711376da-2b71-4cfd-a1d3-150c1de6ca20, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
   - {name: IR_AzadNet, server: 185.143.233.120, port: 80, type: vmess, uuid: 76e151a7-9980-4077-bd52-07ef4e9cb496, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
-  - {name: IR_AzadNet(3), server: 185.143.234.120, port: 80, type: vmess, uuid: 35d25899-ed20-46d9-9c7c-99c0d414d5e4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
-  - {name: IR_AzadNet(8), server: 185.231.181.214, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: jinajina123}
-  - {name: IR_AzadNet(11), server: 185.231.180.95, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: BHMGPF3SKLDHDFF6}
-  - {name: JP_AzadNet, server: 198.13.59.63, port: 80, type: vmess, uuid: b033201e-577d-4f7a-8c2e-e64bfd6b929d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: NL_AzadNet, server: 41.216.177.234, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: none, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Derty76/634d98433b103/}}
-  - {name: NL_AzadNet(1), server: id-lb.vhax.net, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Arsham85231/6347d08022b91/, headers: {Host: id-lb.vhax.net}}}
-  - {name: NL_AzadNet(5), server: 41.216.177.148, port: 80, type: vmess, uuid: 238af157-6bdd-4131-88df-2bbe723cf773, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: RU_AzadNet, server: 213.183.53.214, port: 9024, type: ss, cipher: aes-256-cfb, password: BejrQvtu9sqUeNuZ}
-  - {name: RU_AzadNet(1), server: 213.183.53.214, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA}
-  - {name: RU_AzadNet(2), server: 213.183.53.214, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C}
-  - {name: SG_AzadNet, server: 51.79.249.18, port: 443, type: trojan, password: 144219b3-363a-496b-b2b0-b68fe9c4004e, sni: sgt5.sshocean.net, skip-cert-verify: false}
-  - {name: SG_AzadNet(1), server: 51.79.140.249, port: 80, type: vmess, uuid: 9238fc7f-ce5a-465f-eff5-66d96df8d6ee, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /@maintenancez/@mtcstores/@jualbelivps}}
-  - {name: SG_AzadNet(2), server: 165.232.164.149, port: 80, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(3), server: 165.232.164.149, port: 443, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(4), server: 51.79.249.247, port: 443, type: trojan, password: 4cc12fec-0f52-4636-abbe-d209e571f4d5, sni: sgt4.sshocean.net, skip-cert-verify: false}
-  - {name: SG_AzadNet(5), server: 51.79.240.77, port: 80, type: vmess, uuid: 2246ba54-c25b-4458-9f74-e3175b76dc7f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(6), server: 51.79.207.226, port: 80, type: vmess, uuid: 511ad999-dbfd-49fd-b6db-740f15af4ec5, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: SG_AzadNet(7), server: 194.233.88.109, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
-  - {name: SG_AzadNet(10), server: 103.253.24.98, port: 80, type: vmess, uuid: 854fc069-23bc-4dd9-9c14-9f3bc50a3b76, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /fastssh/sobert5/63506696b0806/}}
-  - {name: US_AzadNet, server: 15.235.147.186, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Ertusg86/635014638c264/}}
-  - {name: US_AzadNet(1), server: 104.21.17.87, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
-  - {name: US_AzadNet(2), server: 172.67.142.113, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
-  - {name: US_AzadNet(3), server: 134.209.72.85, port: 443, type: vmess, uuid: 3bedaa5e-ade9-49ff-a7ba-51ff3d738ac3, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /racevpn}}
-  - {name: US_AzadNet(5), server: 104.21.24.156, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
-  - {name: US_AzadNet(6), server: 172.67.219.75, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
-  - {name: US_AzadNet(9), server: 137.184.164.233, port: 80, type: vmess, uuid: 5cee90e3-b915-4f1e-bb8d-efadad0c6feb, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
-  - {name: US_AzadNet(10), server: 38.9.140.66, port: 443, type: trojan, password: vvip-periantara, sni: id3tr.jagoan.vip, skip-cert-verify: false}
-  - {name: US_AzadNet(11), server: 43.198.12.229, port: 28443, type: trojan, password: ae7cc604-d970-4200-9a9b-eb45087b4fc1, sni: mzy.hruqoaw.cn, skip-cert-verify: false}
-  - {name: US_AzadNet(12), server: 104.21.94.253, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
-  - {name: US_AzadNet(13), server: 173.205.94.4, port: 443, type: vmess, uuid: 8789e118-d508-33b1-b619-df4a2cf3b933, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /panelmyadmin}}
-  - {name: US_AzadNet(17), server: 38.91.101.159, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(19), server: 172.67.175.100, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
-  - {name: US_AzadNet(26), server: 51.81.211.171, port: 443, type: trojan, password: 2dab5d78-5c56-4252-850d-c037753a40db, sni: ust1.sshocean.net, skip-cert-verify: false}
-  - {name: US_AzadNet(28), server: 38.91.107.225, port: 802, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(29), server: 38.91.107.225, port: 809, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(30), server: 38.91.107.225, port: 812, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(31), server: 172.245.218.162, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(32), server: 172.245.218.162, port: 805, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(33), server: 172.245.218.162, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
-  - {name: US_AzadNet(34), server: 38.68.134.191, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
-  - {name: US_AzadNet(35), server: 38.68.134.191, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
-  - {name: US_AzadNet(36), server: 38.91.106.136, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
-  - {name: US_AzadNet(37), server: 38.91.102.30, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
-  - {name: US_AzadNet(38), server: 38.68.135.19, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
-  - {name: US_AzadNet(39), server: 38.91.101.159, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
-  - {name: US_AzadNet(40), server: 38.91.107.227, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
-  - {name: US_AzadNet(41), server: 38.68.135.19, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
-  - {name: US_AzadNet(42), server: 38.91.101.159, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
-  - {name: US_AzadNet(43), server: 38.68.134.191, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
-  - {name: US_AzadNet(44), server: 38.68.134.191, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(45), server: 38.68.134.48, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(46), server: 38.68.135.19, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(48), server: 38.91.101.159, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(49), server: 38.91.101.159, port: 5601, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(50), server: 38.91.102.30, port: 5000, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: US_AzadNet(51), server: 38.68.135.19, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
-  - {name: US_AzadNet(52), server: 38.68.135.19, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
-  - {name: US_AzadNet(53), server: 38.68.134.191, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
-  - {name: US_AzadNet(54), server: 38.68.135.19, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
-  - {name: US_AzadNet(55), server: 38.68.134.191, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
-  - {name: US_AzadNet(56), server: 38.68.134.191, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
-  - {name: US_AzadNet(57), server: 38.68.134.191, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
-  - {name: US_AzadNet(58), server: 38.91.101.159, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
-  - {name: ZA_AzadNet, server: 102.130.123.250, port: 80, type: vmess, uuid: ac6788de-deb2-4416-860a-c87055db64a7, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: IR_AzadNet(1), server: 185.143.234.120, port: 80, type: vmess, uuid: 35d25899-ed20-46d9-9c7c-99c0d414d5e4, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /user}}
+  - {name: IR_AzadNet(2), server: 185.231.181.214, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: jinajina123}
+  - {name: IR_AzadNet(3), server: 185.231.180.95, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: BHMGPF3SKLDHDFF6}
+  - {name: JP_AzadNet, server: 106.180.225.69, port: 1443, type: trojan, password: 7x42LetRa0, skip-cert-verify: false}
+  - {name: JP_AzadNet(1), server: 132.226.5.246, port: 443, type: trojan, password: 4f7dc540-d244-4e64-af21-4b5bb300add3, sni: www.tokyo2023.ga, skip-cert-verify: false}
+  - {name: JP_AzadNet(2), server: 45.66.134.219, port: 443, type: trojan, password: 28d98f761aca9d636f44db62544628eb, skip-cert-verify: false}
+  - {name: JP_AzadNet(3), server: 54.168.10.3, port: 443, type: vmess, uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(4), server: 150.230.6.78, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: JP_AzadNet(5), server: 54.178.61.182, port: 443, type: trojan, password: f41e6f27-5a33-4eb0-b6be-eb3755c93b78, sni: jp-04.tiktokcdn.sbs, skip-cert-verify: false}
+  - {name: JP_AzadNet(6), server: 172.104.122.23, port: 80, type: vmess, uuid: cb8849d7-3b02-49a4-b305-90e5a0b29c94, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: JP_AzadNet(7), server: 207.148.104.21, port: 13568, type: vmess, uuid: 570d6b22-2094-48a0-8933-ca027e32f010, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /cctv10/hd.m3u8}}
+  - {name: JP_AzadNet(8), server: 139.162.70.196, port: 10001, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(9), server: 13.231.156.221, port: 43632, type: vmess, uuid: 1d2978ba-30ba-4b64-8699-9ba6ba3cd4e8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(10), server: 160.16.69.102, port: 10111, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: JP_AzadNet(11), server: 198.13.59.63, port: 80, type: vmess, uuid: b033201e-577d-4f7a-8c2e-e64bfd6b929d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: KR_AzadNet, server: 193.123.252.35, port: 443, type: trojan, password: d4435b69-3d08-d58a-919f-7f1707150ecb, sni: hg.053111.xyz, skip-cert-verify: false}
+  - {name: KR_AzadNet(1), server: 140.238.12.83, port: 443, type: trojan, password: a1718180-d616-4b71-9bb6-3e96ba20f921, sni: jgw3.gaox.ml, skip-cert-verify: false}
+  - {name: KR_AzadNet(2), server: 152.70.251.160, port: 443, type: trojan, password: b7e0e71f-070c-437a-9826-6e23caeb0307, sni: jgw4.gaox.ml, skip-cert-verify: false}
+  - {name: KR_AzadNet(3), server: 146.56.104.17, port: 19923, type: vmess, uuid: 47c1ba9b-4c51-4144-8bdb-b203d747054f, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: KR_AzadNet(4), server: 146.56.184.1, port: 55214, type: vmess, uuid: a7775588-fc65-33c3-92c6-127339188bfd, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /miao}}
+  - {name: KR_AzadNet(5), server: 3.35.20.225, port: 43632, type: vmess, uuid: 1d2978ba-30ba-4b64-8699-9ba6ba3cd4e8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: KR_AzadNet(6), server: 15.165.9.67, port: 52356, type: vmess, uuid: 1617ff1b-4e85-4a8a-81c3-511b3c2efad8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: LU_AzadNet, server: 81.28.12.12, port: 443, type: vmess, uuid: 0a6b7226-2f9c-393c-bc94-5a34859250c0, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: NL_AzadNet, server: 46.182.107.150, port: 443, type: vmess, uuid: f5250c4e-f855-4eff-b73c-a02226d42fe7, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: NL_AzadNet(1), server: 37.16.6.72, port: 55472, type: vmess, uuid: 5509734c-30d8-4d4b-d67d-7eb94947a1c2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: NL_AzadNet(2), server: 41.216.177.234, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: none, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Derty76/634d98433b103/}}
+  - {name: NL_AzadNet(3), server: 41.216.177.148, port: 80, type: vmess, uuid: 238af157-6bdd-4131-88df-2bbe723cf773, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: RU_AzadNet, server: 165.154.243.45, port: 443, type: vmess, uuid: 7f4ff2e1-c08f-35bd-afe7-4a6a386907aa, alterId: 2, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: RU_AzadNet(1), server: 193.38.51.173, port: 443, type: vmess, uuid: abd9668e-7ade-437a-b0c7-9e7447031684, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: RU_AzadNet(2), server: 213.183.53.214, port: 9026, type: ss, cipher: aes-256-cfb, password: QWDDvVE9npNurQfA}
+  - {name: RU_AzadNet(3), server: 213.183.53.214, port: 9053, type: ss, cipher: aes-256-cfb, password: SBM7R883jBmnqe6C}
+  - {name: SG_AzadNet, server: 54.151.175.86, port: 443, type: trojan, password: 41742_920c8caa, sni: hk31.ssgnode.ga, skip-cert-verify: false}
+  - {name: SG_AzadNet(1), server: 139.162.23.118, port: 1020, type: ss, cipher: aes-128-gcm, password: !<str> 202211000000000000000020, plugin: obfs, plugin-opts: {mode: http, host: securevpn.cc}}
+  - {name: SG_AzadNet(2), server: 92.223.116.205, port: 443, type: vmess, uuid: 5c854e2e-205c-4309-8363-ff60ea7b2a16, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: SG_AzadNet(3), server: 13.215.222.208, port: 80, type: vmess, uuid: f1398579-eed1-3335-9ffb-5dac467e23ac, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: SG_AzadNet(4), server: 13.215.189.229, port: 80, type: vmess, uuid: fec544c5-6ec4-45d8-8878-17f799e77e96, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: SG_AzadNet(5), server: 5.44.249.42, port: 3389, type: trojan, password: 182228812d1e0f23, skip-cert-verify: false}
+  - {name: SG_AzadNet(6), server: 13.250.95.11, port: 52356, type: vmess, uuid: edc9e8a8-518e-425a-8184-e55d16d844b2, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: SG_AzadNet(7), server: 51.79.249.18, port: 443, type: trojan, password: 144219b3-363a-496b-b2b0-b68fe9c4004e, sni: sgt5.sshocean.net, skip-cert-verify: false}
+  - {name: SG_AzadNet(8), server: 51.79.140.249, port: 80, type: vmess, uuid: 9238fc7f-ce5a-465f-eff5-66d96df8d6ee, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /@maintenancez/@mtcstores/@jualbelivps}}
+  - {name: SG_AzadNet(9), server: 165.232.164.149, port: 80, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(10), server: 165.232.164.149, port: 443, type: vmess, uuid: 83bd4b06-1bea-4d6d-8035-ad81aecef655, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(11), server: 51.79.249.247, port: 443, type: trojan, password: 4cc12fec-0f52-4636-abbe-d209e571f4d5, sni: sgt4.sshocean.net, skip-cert-verify: false}
+  - {name: SG_AzadNet(12), server: 51.79.240.77, port: 80, type: vmess, uuid: 2246ba54-c25b-4458-9f74-e3175b76dc7f, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(13), server: 51.79.207.226, port: 80, type: vmess, uuid: 511ad999-dbfd-49fd-b6db-740f15af4ec5, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: SG_AzadNet(14), server: 194.233.88.109, port: 443, type: trojan, password: !<str> 123456, sni: trojan-ctb-sg01.globalssh.xyz, skip-cert-verify: false}
+  - {name: SG_AzadNet(15), server: 103.253.24.98, port: 80, type: vmess, uuid: 854fc069-23bc-4dd9-9c14-9f3bc50a3b76, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /fastssh/sobert5/63506696b0806/}}
+  - {name: US_AzadNet, server: 150.230.201.192, port: 443, type: trojan, password: f42e1a2e-e650-44f4-8d17-bcb68663da18, sni: www.seetheworldjp.ga, skip-cert-verify: false}
+  - {name: US_AzadNet(1), server: 150.230.249.20, port: 443, type: trojan, password: b5fc9fa9-796d-4185-a316-395ecac04a85, sni: www.gomacau.gq, skip-cert-verify: false}
+  - {name: US_AzadNet(2), server: 43.206.67.76, port: 36306, type: trojan, password: 1b5eff5a-f36b-4149-8001-7c8c0c4ed2eb, sni: sunmoon02.abzoones.xyz, skip-cert-verify: false}
+  - {name: US_AzadNet(3), server: 150.230.215.92, port: 443, type: trojan, password: !<str> 111111, sni: www.cjf0423.cf, skip-cert-verify: false}
+  - {name: US_AzadNet(4), server: 20.24.192.3, port: 20769, type: trojan, password: 957e2441-1872-3899-ae34-778435a7c124, sni: azhj001.xibai6.top, skip-cert-verify: false}
+  - {name: US_AzadNet(5), server: 172.66.2.53, port: 2083, type: vmess, uuid: f87fc0d6-4e32-4922-cbfe-e5735a5189ee, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(6), server: 172.64.156.100, port: 443, type: vmess, uuid: d1a2c5fe-b996-46df-bcb4-26f339b6dc61, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(7), server: 172.66.0.105, port: 8443, type: vmess, uuid: 3baaad0f-b764-4f4e-d382-cdd104390838, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(8), server: 34.149.204.188, port: 443, type: vmess, uuid: 07efa45f-7c1b-4fca-8c1a-dba8ea554551, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /07efa45f-7c1b-4fca-8c1a-dba8ea554551-vmess}}
+  - {name: US_AzadNet(9), server: 172.67.149.30, port: 443, type: vmess, uuid: 4ce21a11-44fe-4814-a639-4b7caf501031, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(10), server: 20.222.214.198, port: 10021, type: vmess, uuid: 570d6b22-2094-48a0-8933-ca027e32f010, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /cctv13/hd.m3u8}}
+  - {name: US_AzadNet(11), server: 138.2.70.11, port: 80, type: vmess, uuid: fa0702f4-8ec9-48e5-9b53-a0afb7c3717e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(12), server: 157.254.193.213, port: 25566, type: vmess, uuid: 0225ce78-af21-4b75-bf2d-6be0af0d33a5, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(13), server: 20.24.14.252, port: 443, type: trojan, password: e785e5d2-a05e-486c-8b4f-78b205382b4e, sni: ussj.iamnotagoodman.com, skip-cert-verify: false}
+  - {name: US_AzadNet(14), server: 155.248.160.249, port: 80, type: vmess, uuid: fa0702f4-8ec9-48e5-9b53-a0afb7c3717e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(15), server: 142.4.104.187, port: 443, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(16), server: 150.230.249.15, port: 46842, type: vmess, uuid: 4530b5ee-ced4-4e64-9285-1867fc5df7f8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: http, http-opts: {method: GET, path: [/]}}
+  - {name: US_AzadNet(17), server: 172.67.134.218, port: 2083, type: vmess, uuid: f87fc0d6-4e32-4922-cbfe-e5735a5189ee, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(18), server: 54.176.234.6, port: 52356, type: vmess, uuid: 1617ff1b-4e85-4a8a-81c3-511b3c2efad8, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(19), server: 172.67.178.55, port: 2083, type: vmess, uuid: 0145bfef-aa53-416f-90d4-8634295dab57, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(20), server: 143.198.230.19, port: 443, type: vmess, uuid: 2757fd62-fcf0-4946-9b46-1b697741575b, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /m1}}
+  - {name: US_AzadNet(21), server: 172.67.172.41, port: 443, type: vmess, uuid: e61725c5-c7e4-4530-addc-fdd68a2f8533, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /81ac}}
+  - {name: US_AzadNet(22), server: 43.198.12.222, port: 1051, type: vmess, uuid: ab42ea1f-8e2f-3fff-8a11-d124d62b849e, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false}
+  - {name: US_AzadNet(23), server: 172.67.233.140, port: 8443, type: vmess, uuid: 3baaad0f-b764-4f4e-d382-cdd104390838, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /live}}
+  - {name: US_AzadNet(24), server: 154.12.36.47, port: 80, type: vmess, uuid: 7c982e1d-647f-3a15-a8a4-102d73d1913d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /by.xbygood.xyz}}
+  - {name: US_AzadNet(25), server: 15.235.147.186, port: 80, type: vmess, uuid: 6fea1649-425b-4092-bf53-29792152c925, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /sshkit/Ertusg86/635014638c264/}}
+  - {name: US_AzadNet(26), server: 172.67.142.113, port: 443, type: vmess, uuid: 81d93f62-15a2-4994-adb9-0b5d906aac7e, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /}}
+  - {name: US_AzadNet(27), server: 172.67.219.75, port: 443, type: vmess, uuid: efc067bd-f3ba-ebe7-537f-43a313a8d027, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /kwaqvws}}
+  - {name: US_AzadNet(28), server: 137.184.164.233, port: 80, type: vmess, uuid: 5cee90e3-b915-4f1e-bb8d-efadad0c6feb, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: /vmess}}
+  - {name: US_AzadNet(29), server: 38.9.140.66, port: 443, type: trojan, password: vvip-periantara, sni: id3tr.jagoan.vip, skip-cert-verify: false}
+  - {name: US_AzadNet(30), server: 38.91.101.159, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(31), server: 172.67.175.100, port: 443, type: vmess, uuid: 572126f8-5301-83c2-0a26-c30ced3db7c4, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /wmzmvws}}
+  - {name: US_AzadNet(32), server: 51.81.211.171, port: 443, type: trojan, password: 2dab5d78-5c56-4252-850d-c037753a40db, sni: ust1.sshocean.net, skip-cert-verify: false}
+  - {name: US_AzadNet(33), server: 38.91.107.225, port: 802, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(34), server: 38.91.107.225, port: 809, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(35), server: 38.91.107.225, port: 812, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(36), server: 172.245.218.162, port: 801, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(37), server: 172.245.218.162, port: 805, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(38), server: 172.245.218.162, port: 810, type: ss, cipher: chacha20-ietf-poly1305, password: G!yBwPWH3Vao}
+  - {name: US_AzadNet(39), server: 38.68.134.191, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: US_AzadNet(40), server: 38.68.134.191, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: US_AzadNet(41), server: 38.91.106.136, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: US_AzadNet(42), server: 38.91.102.30, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
+  - {name: US_AzadNet(43), server: 38.68.135.19, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: US_AzadNet(44), server: 38.91.101.159, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: US_AzadNet(45), server: 38.91.107.227, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: US_AzadNet(46), server: 38.68.135.19, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: US_AzadNet(47), server: 38.91.101.159, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: US_AzadNet(48), server: 38.68.134.191, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
+  - {name: US_AzadNet(49), server: 38.68.134.191, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(50), server: 38.68.134.48, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(51), server: 38.68.135.19, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(52), server: 38.91.101.159, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(53), server: 38.91.101.159, port: 5601, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(54), server: 38.91.102.30, port: 5000, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: US_AzadNet(55), server: 38.68.135.19, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: US_AzadNet(56), server: 38.68.135.19, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: US_AzadNet(57), server: 38.68.134.191, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
+  - {name: US_AzadNet(58), server: 38.68.135.19, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
+  - {name: US_AzadNet(59), server: 38.68.134.191, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
+  - {name: US_AzadNet(60), server: 38.68.134.191, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: US_AzadNet(61), server: 38.68.134.191, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: US_AzadNet(62), server: 38.91.101.159, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
