@@ -1,5 +1,6 @@
 #准备好所需文件
-wget -O lite-linux-amd64 https://github.com/mahdibland/SSAggregator/releases/download/1.0.0/lite-linux-amd64-12
+wget -O lite-linux-amd64.zip https://github.com/xxf098/LiteSpeedTest/releases/download/v0.13.1/lite-linux-amd64-v0.13.1.gz
+gzip -d lite-linux-amd64.zip
 wget -O lite_config.json https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/utils/airport/speedtest/lite_config_yaml_airport.json
 #运行 LiteSpeedTest
 chmod +x ./lite-linux-amd64
