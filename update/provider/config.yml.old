@@ -19,17 +19,14 @@ external-controller: 127.0.0.1:9090
 dns:
   enable: true
   ipv6: false
+  listen: 0.0.0.0:53
   enhanced-mode: redir-host
   # use-hosts: true
   # fallback: []
   # fake-ip-filter: []
   # default-nameserver:
   nameserver:
-    - 114.114.114.114
-    - 223.5.5.5
     - 8.8.8.8
-    - 9.9.9.9
-    - 1.1.1.1
     - https://dns.google/dns-query # DNS OVER HTTPS
     - tls://dns.google:853 # DNS OVER TLS
 
@@ -37,58 +34,36 @@ proxies:
 
 proxy-groups:
   - name: Global ©️
-    type: select
     proxies:
-      - Global - UrlTest(Tiers) 🥶
-      - Global - Fallback(Tiers) 🌎
-      - Global - LoadBalance(ch) 🦄
-      - Global - LoadBalance(rr) 🍄
+      - Global 🌎
+      - Global 🥶
+    type: select
+  - name: Tiers 🔮
+    proxies:
       - Tier 1 🚀
       - Tier 2 ⚡️
       - Tier 3 💎
       - Tier 4 🗿
-  - name: Global - UrlTest(Tiers) 🥶
+    type: select
+  - name: Global 🥶
+    proxies:
+      - Tier 1 🚀
+      - Tier 2 ⚡️
+      - Tier 3 💎
+      - Tier 4 🗿
     type: url-test
     url: http://clients3.google.com/generate_204
     interval: 300
+  - name: Global 🌎
     proxies:
       - Tier 1 🚀
       - Tier 2 ⚡️
       - Tier 3 💎
       - Tier 4 🗿
-  - name: Global - Fallback(Tiers) 🌎
     type: fallback
     url: http://clients3.google.com/generate_204
     interval: 300
-    proxies:
-      - Tier 1 🚀
-      - Tier 2 ⚡️
-      - Tier 3 💎
-      - Tier 4 🗿
 
-  #Load-balancers
-  - name: Global - LoadBalance(ch) 🦄
-    type: load-balance
-    strategy: consistent-hashing
-    url: http://clients3.google.com/generate_204
-    interval: 300
-    proxies:
-      - Tier 1 🚀
-      - Tier 2 ⚡️
-      - Tier 3 💎
-      - Tier 4 🗿
-  - name: Global - LoadBalance(rr) 🍄
-    type: load-balance
-    strategy: round-robin
-    url: http://clients3.google.com/generate_204
-    interval: 300
-    proxies:
-      - Tier 1 🚀
-      - Tier 2 ⚡️
-      - Tier 3 💎
-      - Tier 4 🗿
-
-  #Url-tests
   - name: Tier 1 🚀
     type: url-test
     url: http://clients3.google.com/generate_204
@@ -114,18 +89,25 @@ proxy-groups:
     tolerance: 100
     proxies:
 
-  # - name: Tier 1 🚀 Selector
-  #   type: select
-  #   proxies:
-  # - name: Tier 2 ⚡️ Selector
-  #   type: select
-  #   proxies:
-  # - name: Tier 3 💎 Selector
-  #   type: select
-  #   proxies:
-  # - name: Tier 4 🗿 Selector
-  #   type: select
-  #   proxies:
+  - name: Tier 1 🚀 Selector
+    type: select
+    proxies:
+  - name: Tier 2 ⚡️ Selector
+    type: select
+    proxies:
+  - name: Tier 3 💎 Selector
+    type: select
+    proxies:
+  - name: Tier 4 🗿 Selector
+    type: select
+    proxies:
 
 rules:
-  - MATCH,Global ©️
+  - MATCH,Tier 4 🗿
+  - MATCH,Tier 3 💎
+  - MATCH,Tier 2 ⚡️
+  - MATCH,Tier 1 🚀
+  - MATCH,Tier 1 🚀 Selector
+  - MATCH,Tier 2 ⚡️ Selector
+  - MATCH,Tier 3 💎 Selector
+  - MATCH,Tier 4 🗿 Selector
