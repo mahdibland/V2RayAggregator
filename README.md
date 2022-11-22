@@ -23,13 +23,14 @@ The speed measurement function is implemented in the `GitHub Actions` environmen
 - Filtering best nodes by testing them and sorting them based on their average speed 🍀
 
 ## Recent Todos
-- [x] Fix region based lite speed test (mainly EU) 👀
+- [x] ~~Fix region based lite speed test (mainly EU)~~ 👀
 - [x] Fix Sort Based on the Avg Speed 👀
 - [x] Update required softwares to latest version 👀
 - [x] Fix sources that subconvertor unable to convert 👀
 - [x] Add separate files & functions for airport 👀
 - [x] Fix name (emoji+ip) for all log files 👀
 - [x] Separate sub list for airports & other nodes 👀
+- [x] Fixed clash template 👀
 - [ ] Cleanup redundant files and functions (dev Branch) 🧲
 
 ## Visualizer
@@ -90,13 +91,13 @@ All of the nodes merged together will be stored in following files:
 - [bianyuan](https://bianyuan.xyz/)  
 
 - **If you don't like the groups and rules that are already set, you can simply use bianyuan API like this::**  
-
+> don't use this API for your personal airport subs! Pls run the subconverter locally
 ```
 https://pub-api-1.bianyuan.xyz/sub?target=(OutputFormat)&url=(SubUrl)&insert=false
 
 For Example:
-(OutputFormat) = https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml
-(SubUrl) = clash
+(OutputFormat) = clash
+(SubUrl) = https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml
 
 https://pub-api-1.bianyuan.xyz/sub?target=clash&url=https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml&insert=false
 
@@ -591,13 +592,13 @@ merge nodes w/o dup: `14180`
 
 ### Best Clients For Each OS
 
-|    OS   |          Best Client          | Alternatives |
-|:-------:|:-----------------------------:|:------------:|
-|   IOS   |   Quantumult - Shadowrocket   |  NapsternetV |
-| Android | Surfboard - Clash For Android |    V2rayNg   |
-| Windows |   Clash For Windows - V2rayN  |    Qv2ray    |
-|  Linux  |       Clash For Windows       |    Qv2ray    |
-|  MacOS  |       Clash For Windows       |    Qv2ray    |
+|    OS   |              Best Client               | Alternatives |
+|:-------:|:--------------------------------------:|:------------:|
+|   IOS   |        Quantumult - Shadowrocket       |  NapsternetV |
+| Android |      Surfboard - Clash For Android     |    V2rayNg   |
+| Windows |   Clash For Windows - V2rayN - Nekoray |    Qv2ray    |
+|  Linux  |           Clash For Windows            |    Qv2ray    |
+|  MacOS  |           Clash For Windows            |    Qv2ray    |
 
 ### Desktop Clients
 
