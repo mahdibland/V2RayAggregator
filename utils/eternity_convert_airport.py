@@ -42,9 +42,8 @@ def substrings(string, left, right):
 def eternity_convert(file, config, output, provider_file_enabled=True):
     # # no conversion from base64 so udp is not a problem
     # subconvertor not working with only proxy url
-    # , extra_options="&udp=false"
     all_provider = subs_function.convert_sub(
-        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/airport_merge_base64.txt", 'clash', "http://0.0.0.0:25500", False)
+        "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/airport_merge_base64.txt", 'clash', "http://0.0.0.0:25500", False, extra_options="&udp=false")
 
     ##########   Add Name to Logs Before making chaages to Proxies  ############
     temp_providers = all_provider.split('\n')
