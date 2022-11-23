@@ -32,7 +32,7 @@ def output(list, num):
     output_list = []
     for item in list:
         info = "id: %s | remarks: %s | protocol: %s | ping: %s MS | avg_speed: %s MB | max_speed: %s MB | Link: %s\n" % (str(item["id"]), item["remarks"], item["protocol"], str(
-            item["ping"]), str(arred(item["avg_speed"] * 0.00000095367432, 3)), str(arred(item["max_speed"] * 0.00000095367432, 3)), item["Link"])
+            item["ping"]), str(arred(item["avg_speed"] * 0.00000095367432, 3)), str(arred(item["max_speed"] * 0.00000095367432, 3)), item["link"])
         output_list.append(info)
     with open('./LogInfo.txt', 'w') as f1:
         f1.writelines(output_list)
@@ -41,7 +41,7 @@ def output(list, num):
 
     output_list = []
     for index in range(list.__len__()):
-        proxy = list[index]['Link']
+        proxy = list[index]['link']
         output_list.append(proxy)
 
     # writing content as mixed and base64
