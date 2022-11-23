@@ -18,4 +18,4 @@ sudo pkill -f clash
 #运行 LiteSpeedTest
 sleep 5
 chmod +x ./lite-linux-amd64
-sudo nohup proxychains ./lite-linux-amd64 --config ./lite_config.json --test subs >speedtest.log 2>&1 &
+sudo nohup proxychains ./lite-linux-amd64 --config ./lite_config.json --test https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/airport_merge_yaml.yml > speedtest.log 2>&1 &
