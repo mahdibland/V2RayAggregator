@@ -17,7 +17,7 @@ def read_json(file):  # 将 out.json 内容读取为列表
         time.sleep(30)
     with open(file, 'r', encoding='utf-8') as f:
         print('Reading out.json')
-        proxies_all = json.load(f)
+        proxies_all = json.load(f)["nodes"]
         f.close()
     return proxies_all
 
