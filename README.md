@@ -518,6 +518,8 @@ high-speed node quantity: `200`
 
 </details>
 
+- you can import these 200 tested nodes using their subscription link into different clients. refer to `Instructions & Usage` section
+
 ### all nodes
 merge nodes w/o dup: `8743`
 - [Node link Mixed](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
