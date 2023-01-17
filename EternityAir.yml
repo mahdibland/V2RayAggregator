@@ -17,7 +17,24 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇨🇳CN-120.240.45.3-000 | 3.937MB
+  server: 124.wgong1.top
+  port: 52224
+  type: vmess
+  uuid: 0af5decc-f5a3-3219-af12-f668d3af4014
+  alterId: 2
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+- name: 🇨🇳CN-120.240.45.3-001 | 2.94MB
+  server: 123.wgong1.top
+  port: 52223
+  type: vmess
+  uuid: 0af5decc-f5a3-3219-af12-f668d3af4014
+  alterId: 2
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
 proxy-groups:
 - name: Global ©️
   type: select
@@ -92,6 +109,7 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇨🇳CN-120.240.45.3-000 | 3.937MB
+  - 🇨🇳CN-120.240.45.3-001 | 2.94MB
 rules:
 - MATCH,Global ©️
