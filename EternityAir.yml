@@ -17,42 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇺🇸US-54.153.56.156-536 | 239.813MB
-  server: 00000000000000000000000000000000000000000000000000000000000040a.node-for-bigairport.win
-  port: 12356
-  type: vmess
-  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 🇺🇸US-54.176.9.205-526 | 230.431MB
-  server: 00000000000000000000000000000000000000000000000000000000000030a.node-for-bigairport.win
-  port: 52356
-  type: vmess
-  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 🇯🇵JP-13.231.233.60-505 | 0.438MB
-  server: 00000000000000000000000000000000000000000000000000000000000004a.node-for-bigairport.win
-  port: 443
-  type: vmess
-  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 🇯🇵JP-54.248.15.5-520 | 0.43MB
-  server: 00000000000000000000000000000000000000000000000000000000000024a.node-for-bigairport.win
-  port: 52356
-  type: vmess
-  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -108,28 +73,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇺🇸US-54.153.56.156-536 | 239.813MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇺🇸US-54.176.9.205-526 | 230.431MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇯🇵JP-13.231.233.60-505 | 0.438MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇯🇵JP-54.248.15.5-520 | 0.43MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
