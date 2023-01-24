@@ -17,146 +17,20 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-172.67.128.43-337 | 10.304MB
-  server: us02.cf.ssru7.casa
-  port: 443
+- name: 🇨🇳CN-27.150.174.128-483 | 0.347MB
+  server: shct.xn--dlq110j6ul.cc
+  port: 24201
   type: vmess
-  uuid: 3f2c7ad7-bc47-3fa1-ac12-815941d1d07a
+  uuid: 16eadc0d-a7e0-4857-8a99-12a9dea76dd3
   alterId: 0
   cipher: auto
-  tls: true
+  tls: false
   skip-cert-verify: false
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: us02.ssru4.fun
-- name: RELAY-172.67.128.43-069 | 8.32MB
-  server: us02.cf.ssru7.casa
-  port: 443
-  type: vmess
-  uuid: 9bf1067d-e3e6-363e-a00c-e0820e9757ed
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us02.ssru4.fun
-- name: RELAY-172.67.128.43-336 | 6.647MB
-  server: uk01.cf.ssru7.casa
-  port: 443
-  type: vmess
-  uuid: 3f2c7ad7-bc47-3fa1-ac12-815941d1d07a
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: uk01.ssru4.fun
-- name: RELAY-172.67.128.43-068 | 6.113MB
-  server: uk01.cf.ssru7.casa
-  port: 443
-  type: vmess
-  uuid: 9bf1067d-e3e6-363e-a00c-e0820e9757ed
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: uk01.ssru4.fun
-- name: RELAY-172.67.158.188-057 | 6.005MB
-  server: aus01.cf.ssru7.casa
-  port: 443
-  type: vmess
-  uuid: 9bf1067d-e3e6-363e-a00c-e0820e9757ed
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: aus01.paopaocloud.cyou
-- name: RELAY-172.67.128.43-332 | 5.633MB
-  server: lu01.cf.ssru7.casa
-  port: 443
-  type: vmess
-  uuid: 3f2c7ad7-bc47-3fa1-ac12-815941d1d07a
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: lu01.ssru3.casa
-- name: RELAY-104.21.57.25-325 | 3.509MB
-  server: aus01.cf.ssru7.casa
-  port: 443
-  type: vmess
-  uuid: 3f2c7ad7-bc47-3fa1-ac12-815941d1d07a
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: aus01.paopaocloud.cyou
-- name: RELAY-172.67.128.43-064 | 3.264MB
-  server: lu01.cf.ssru7.casa
-  port: 443
-  type: vmess
-  uuid: 9bf1067d-e3e6-363e-a00c-e0820e9757ed
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: lu01.ssru3.casa
-- name: RELAY-172.67.128.43-062 | 1.442MB
-  server: ger01.cf.ssru7.casa
-  port: 443
-  type: vmess
-  uuid: 9bf1067d-e3e6-363e-a00c-e0820e9757ed
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ger01.ssru4.fun
-- name: RELAY-172.67.128.43-330 | 0.716MB
-  server: ger01.cf.ssru7.casa
-  port: 443
-  type: vmess
-  uuid: 3f2c7ad7-bc47-3fa1-ac12-815941d1d07a
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ger01.ssru4.fun
+      Host: shct.xn--dlq110j6ul.cc
 proxy-groups:
 - name: Global ©️
   type: select
@@ -212,34 +86,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - RELAY-172.67.128.43-337 | 10.304MB
-  - RELAY-172.67.128.43-069 | 8.32MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - RELAY-172.67.128.43-336 | 6.647MB
-  - RELAY-172.67.128.43-068 | 6.113MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - RELAY-172.67.158.188-057 | 6.005MB
-  - RELAY-172.67.128.43-332 | 5.633MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-104.21.57.25-325 | 3.509MB
-  - RELAY-172.67.128.43-064 | 3.264MB
-  - RELAY-172.67.128.43-062 | 1.442MB
-  - RELAY-172.67.128.43-330 | 0.716MB
+  - 🇨🇳CN-27.150.174.128-483 | 0.347MB
 rules:
 - MATCH,Global ©️
