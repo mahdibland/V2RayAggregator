@@ -17,7 +17,34 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇨🇳CN-124.226.213.250-000 | 2.472MB
+  server: gxct.xn--dlq110j6ul.cc
+  port: 36140
+  type: vmess
+  uuid: 976183ea-7365-4c3e-bc84-b26492f6b9e6
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gxct.xn--dlq110j6ul.cc
+- name: 🇨🇳CN-124.226.218.214-002 | 0.269MB
+  server: gxct.xn--dlq110j6ul.cc
+  port: 36140
+  type: vmess
+  uuid: 976183ea-7365-4c3e-bc84-b26492f6b9e6
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gxct.xn--dlq110j6ul.cc
 proxy-groups:
 - name: Global ©️
   type: select
@@ -92,6 +119,7 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇨🇳CN-124.226.213.250-000 | 2.472MB
+  - 🇨🇳CN-124.226.218.214-002 | 0.269MB
 rules:
 - MATCH,Global ©️
