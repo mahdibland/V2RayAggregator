@@ -54,6 +54,7 @@ def output(list, num):
         '\n'.join(output_list[0:num]).encode('utf-8')).decode('ascii')
 
     # spliting different protocols
+    os.makedirs(splitted_output, exist_ok=True)
     vmess_outputs = []
     trojan_outputs = []
     ssr_outputs = []
