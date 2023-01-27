@@ -11,6 +11,8 @@ Eternity_file_base64 = "./Eternity"
 Eternity_file = "./Eternity.txt"
 Eternity_Base = "./EternityBase"
 
+splitted_output = "./sub/splitted/"
+
 
 def read_json(file):  # 将 out.json 内容读取为列表
     while os.path.isfile(file) == False:
@@ -50,6 +52,48 @@ def output(list, num):
         '\n'.join(output_list).encode('utf-8')).decode('ascii')
     content_base64_part = base64.b64encode(
         '\n'.join(output_list[0:num]).encode('utf-8')).decode('ascii')
+
+    # spliting different protocols
+    vmess_outputs = []
+    trojan_outputs = []
+    ssr_outputs = []
+    ss_outputs = []
+
+    for output in output_list:
+        if str(output).startswith("vmess://"):
+            vmess_outputs.append(output)
+        if str(output).startswith("trojan://"):
+            trojan_outputs.append(output)
+        if str(output).startswith("ssr://"):
+            ssr_outputs.append(output)
+        if str(output).startswith("ss://"):
+            ss_outputs.append(output)
+
+    with open(splitted_output.__add__("vmess.txt"), 'w') as f:
+        vmess_content = "\n".join(vmess_outputs)
+        f.write(vmess_content)
+        print('Write vmess splitted Success!')
+        f.close()
+
+    with open(splitted_output.__add__("trojan.txt"), 'w') as f:
+        trojan_content = "\n".join(trojan_outputs)
+        f.write(trojan_content)
+        print('Write trojan splitted Success!')
+        f.close()
+
+    with open(splitted_output.__add__("ssr.txt"), 'w') as f:
+        ssr_content = "\n".join(ssr_outputs)
+        f.write(ssr_content)
+        print('Write ssr splitted Success!')
+        f.close()
+
+    with open(splitted_output.__add__("ss.txt"), 'w') as f:
+        ss_content = "\n".join(ss_outputs)
+        f.write(ss_content)
+        print('Write ss splitted Success!')
+        f.close()
+
+    ##################
 
     with open(sub_all_base64, 'w+', encoding='utf-8') as f:
         f.write(content_base64)
