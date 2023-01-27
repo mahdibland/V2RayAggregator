@@ -354,7 +354,7 @@ class sub_merge():
                 break
         # 节点来源打印
         for index in range(len(lines)):
-            if lines[index] == '### node source\n':
+            if lines[index] == '### node sources\n':
                 # 清除旧内容
                 while lines[index+1] != '\n':
                     lines.pop(index+1)
