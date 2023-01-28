@@ -278,6 +278,7 @@ class sub_merge():
                             f.close()
                         repo_amount_dic.setdefault(id, amount)
                         line = f'- [{remarks}]({repo_site}), number of nodes: `{amount}`\n'
+                        thanks.append(line)
                     # if remarks != "mahdibland/SSAggregator":
                     #     thanks.append(line)
                 except FileNotFoundError:
