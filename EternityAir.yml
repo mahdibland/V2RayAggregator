@@ -17,122 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇺🇸US-54.176.115.4-060 | 0.919MB
-  server: 00000000000000000000000000000000000000000000000000000000000010a.node-for-bigairport.win
-  port: 443
-  type: vmess
-  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 🇯🇵JP-18.183.71.60-069 | 0.903MB
-  server: 00000000000000000000000000000000000000000000000000000000000024a.node-for-bigairport.win
-  port: 52356
-  type: vmess
-  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-- name: 🇨🇳CN-223.244.25.161-000 | 0.843MB
-  server: dxhefei01.baipiaozf.com
-  port: 32247
-  type: vmess
-  uuid: 2b4d6e88-3eda-4346-be84-1562f158c716
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: dxhefei01.baipiaozf.com
-- name: 🇨🇳CN-222.84.254.82-001 | 0.768MB
-  server: gxct.xn--dlq110j6ul.cc
-  port: 27520
-  type: vmess
-  uuid: 2b4d6e88-3eda-4346-be84-1562f158c716
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gxct.xn--dlq110j6ul.cc
-- name: 🇨🇳CN-14.18.124.138-002 | 0.762MB
-  server: gddx.fastestcloud.xyz
-  port: 40000
-  type: vmess
-  uuid: 2b4d6e88-3eda-4346-be84-1562f158c716
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gddx.fastestcloud.xyz
-- name: 🇨🇳CN-121.204.163.149-003 | 0.694MB
-  server: shct.xn--dlq110j6ul.cc
-  port: 20598
-  type: vmess
-  uuid: 2b4d6e88-3eda-4346-be84-1562f158c716
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shct.xn--dlq110j6ul.cc
-- name: 🇨🇳CN-124.226.213.250-004 | 0.593MB
-  server: gxct.xn--dlq110j6ul.cc
-  port: 48395
-  type: vmess
-  uuid: 2b4d6e88-3eda-4346-be84-1562f158c716
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gxct.xn--dlq110j6ul.cc
-- name: 🇨🇳CN-121.204.163.149-005 | 0.558MB
-  server: shct.xn--dlq110j6ul.cc
-  port: 24201
-  type: vmess
-  uuid: 2b4d6e88-3eda-4346-be84-1562f158c716
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: shct.xn--dlq110j6ul.cc
-- name: 🇨🇳CN-124.226.213.250-006 | 0.545MB
-  server: gxct.xn--dlq110j6ul.cc
-  port: 26478
-  type: vmess
-  uuid: 2b4d6e88-3eda-4346-be84-1562f158c716
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gxct.xn--dlq110j6ul.cc
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -188,33 +73,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇺🇸US-54.176.115.4-060 | 0.919MB
-  - 🇯🇵JP-18.183.71.60-069 | 0.903MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-223.244.25.161-000 | 0.843MB
-  - 🇨🇳CN-222.84.254.82-001 | 0.768MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-14.18.124.138-002 | 0.762MB
-  - 🇨🇳CN-121.204.163.149-003 | 0.694MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-124.226.213.250-004 | 0.593MB
-  - 🇨🇳CN-121.204.163.149-005 | 0.558MB
-  - 🇨🇳CN-124.226.213.250-006 | 0.545MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
