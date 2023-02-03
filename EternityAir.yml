@@ -17,20 +17,84 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-172.67.128.43-123 | 9.375MB
-  server: us02.cf.ssru7.casa
-  port: 443
-  type: vmess
-  uuid: a07c4617-f259-3a0f-a6b2-d0fb2306b419
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us02.ssru4.fun
+- name: 🇨🇳CN-111.22.142.148-494 | 6.883MB
+  server: z4.810823.xyz
+  port: 13049
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 26eece72-a81f-46eb-af6f-1ff9ab1725bf
+- name: 🇨🇳CN-120.25.41.179-471 | 0.195MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13065
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 26eece72-a81f-46eb-af6f-1ff9ab1725bf
+- name: 🇨🇳CN-120.25.41.179-467 | 0.187MB
+  server: tongzhi.838501.xyz
+  port: 13081
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 26eece72-a81f-46eb-af6f-1ff9ab1725bf
+- name: 🇨🇳CN-120.25.41.179-468 | 0.187MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13082
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 26eece72-a81f-46eb-af6f-1ff9ab1725bf
+- name: 🇨🇳CN-120.25.41.179-465 | 0.176MB
+  server: tongzhi.838501.xyz
+  port: 13081
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 26eece72-a81f-46eb-af6f-1ff9ab1725bf
+- name: 🇨🇳CN-120.25.41.179-469 | 0.173MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13081
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 26eece72-a81f-46eb-af6f-1ff9ab1725bf
+- name: 🇨🇳CN-120.25.41.179-470 | 0.168MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13001
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 26eece72-a81f-46eb-af6f-1ff9ab1725bf
+- name: 🇨🇳CN-120.25.41.179-118 | 0.14MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13081
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 60300427-1ae5-4f4e-a94e-b2e02814637b
+- name: 🇨🇳CN-120.25.41.179-120 | 0.14MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13065
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 60300427-1ae5-4f4e-a94e-b2e02814637b
+- name: 🇨🇳CN-120.25.41.179-117 | 0.131MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13082
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 60300427-1ae5-4f4e-a94e-b2e02814637b
+- name: 🇨🇳CN-120.25.41.179-119 | 0.119MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13001
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 60300427-1ae5-4f4e-a94e-b2e02814637b
+- name: 🇨🇳CN-120.25.41.179-114 | 0.118MB
+  server: tongzhi.838501.xyz
+  port: 13081
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 60300427-1ae5-4f4e-a94e-b2e02814637b
+- name: 🇨🇳CN-120.25.41.179-116 | 0.109MB
+  server: tongzhi.838501.xyz
+  port: 13081
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: 60300427-1ae5-4f4e-a94e-b2e02814637b
 proxy-groups:
 - name: Global ©️
   type: select
@@ -86,25 +150,37 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-111.22.142.148-494 | 6.883MB
+  - 🇨🇳CN-120.25.41.179-471 | 0.195MB
+  - 🇨🇳CN-120.25.41.179-467 | 0.187MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-120.25.41.179-468 | 0.187MB
+  - 🇨🇳CN-120.25.41.179-465 | 0.176MB
+  - 🇨🇳CN-120.25.41.179-469 | 0.173MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-120.25.41.179-470 | 0.168MB
+  - 🇨🇳CN-120.25.41.179-118 | 0.14MB
+  - 🇨🇳CN-120.25.41.179-120 | 0.14MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-172.67.128.43-123 | 9.375MB
+  - 🇨🇳CN-120.25.41.179-117 | 0.131MB
+  - 🇨🇳CN-120.25.41.179-119 | 0.119MB
+  - 🇨🇳CN-120.25.41.179-114 | 0.118MB
+  - 🇨🇳CN-120.25.41.179-116 | 0.109MB
 rules:
 - MATCH,Global ©️
