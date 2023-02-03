@@ -485,10 +485,12 @@ class subs:
                                                     cl_temp = yaml.safe_load(
                                                         str(cl_res[0]))
                                                     if cl_temp != None:
-                                                        if cl_temp['uuid'].__len__() != 36:
-                                                            bad_lines += 1
-                                                            
-                                                        else:    
+                                                        bad_uuid_format = False
+                                                        if 'uuid' in cl_temp:
+                                                            if cl_temp['uuid'].__len__() != 36:
+                                                                bad_uuid_format = True
+                                                        
+                                                        if bad_uuid_format == False:
                                                             if cl_temp['type'] == "ss":
                                                                 if cl_temp["cipher"] != "chacha20-poly1305":
                                                                     safe_clash.append(cl_res)
