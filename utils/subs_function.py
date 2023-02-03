@@ -195,21 +195,21 @@ class subs_function:
                         if proxy_compared['tls'] != correspond_next_proxy['tls']:
                             check = False
 
-                    if 'id' in correspond_next_proxy and 'id' in proxy_compared:
-                        if proxy_compared['id'] != correspond_next_proxy['id']:
-                            check = False
+                    #if 'id' in correspond_next_proxy and 'id' in proxy_compared:
+                    #    if proxy_compared['id'] != correspond_next_proxy['id']:
+                    #        check = False
 
                     if 'ws-opts' in correspond_next_proxy and 'ws-opts' in proxy_compared:
                         if proxy_compared['ws-opts'] != correspond_next_proxy['ws-opts']:
                             check = False
 
-                    if 'uuid' in correspond_next_proxy and 'uuid' in proxy_compared:
-                        if proxy_compared['uuid'] != correspond_next_proxy['uuid']:
-                            check = False
+                    #if 'uuid' in correspond_next_proxy and 'uuid' in proxy_compared:
+                    #    if proxy_compared['uuid'] != correspond_next_proxy['uuid']:
+                    #        check = False
 
-                    if 'password' in correspond_next_proxy and 'password' in proxy_compared:
-                        if proxy_compared['password'] != correspond_next_proxy['password']:
-                            check = False
+                    #if 'password' in correspond_next_proxy and 'password' in proxy_compared:
+                    #    if proxy_compared['password'] != correspond_next_proxy['password']:
+                    #        check = False
 
                     if 'cipher' in correspond_next_proxy and 'cipher' in proxy_compared:
                         if proxy_compared['cipher'] != correspond_next_proxy['cipher']:
