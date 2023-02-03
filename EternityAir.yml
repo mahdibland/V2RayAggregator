@@ -17,7 +17,24 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇨🇳CN-120.25.41.179-246 | 0.436MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13082
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: bdf5c5d3-2c45-44ce-a213-bb3e6a7ac48c
+- name: 🇨🇳CN-120.25.41.179-248 | 0.294MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13001
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: bdf5c5d3-2c45-44ce-a213-bb3e6a7ac48c
+- name: 🇨🇳CN-120.25.41.179-249 | 0.285MB
+  server: sh-jp-dx-iplc.810823.xyz
+  port: 13065
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: bdf5c5d3-2c45-44ce-a213-bb3e6a7ac48c
 proxy-groups:
 - name: Global ©️
   type: select
@@ -92,6 +109,8 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇨🇳CN-120.25.41.179-246 | 0.436MB
+  - 🇨🇳CN-120.25.41.179-248 | 0.294MB
+  - 🇨🇳CN-120.25.41.179-249 | 0.285MB
 rules:
 - MATCH,Global ©️
