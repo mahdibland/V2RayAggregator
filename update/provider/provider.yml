@@ -1,0 +1,94 @@
+mixed-port: 7890
+#ipv6: false
+#allow-lan: true
+mode: rule
+log-level: info
+external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver:
+    - 8.8.8.8
+    - 114.114.114.114
+  enhanced-mode: redir-host
+  nameserver:
+    - 8.8.8.8
+    - 114.114.114.114
+    - https://rubyfish.cn/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+    - tls://dot1.applied-privacy.net:443
+  fallback-filter:
+    ipcidr:
+      - 10.0.0.0/8
+      - 240.0.0.0/4
+      - 100.64.0.0/10
+      - 172.16.0.0/12
+
+proxy-groups:
+  - name: Global
+    type: select
+    proxies:
+      - Auto
+      - LoadBalance(CH)
+      - LoadBalance(RR)
+      - Fallback
+
+  - name: Auto
+    type: url-test
+    url: https://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - aggregator
+      - airports
+
+  - name: LoadBalance(CH)
+    type: load-balance
+    strategy: consistent-hashing
+    url: https://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - aggregator
+      - airports
+
+  - name: LoadBalance(RR)
+    type: load-balance
+    strategy: round-robin
+    url: https://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - aggregator
+      - airports
+
+  - name: Fallback
+    type: fallback
+    url: https://clients3.google.com/generate_204
+    interval: 300
+    use:
+      - aggregator
+      - airports
+
+proxy-providers:
+  aggregator:
+    type: http
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
+    interval: 1440
+    path: ./aggregator.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: https://clients3.google.com/generate_204
+
+  airports:
+    type: http
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_yaml.yml
+    interval: 300
+    path: ./airports.yaml
+    health-check:
+      enable: true
+      interval: 600
+      url: https://clients3.google.com/generate_204
+
+rules:
+  - MATCH,Global
