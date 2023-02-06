@@ -522,14 +522,17 @@ high-speed node quantity: `200`
 
 ### all nodes
 merge nodes w/o dup: `5714`
-- [Node link Mixed](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
-- [Node link Yaml](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
+- [Node link Mixed (V2ray)](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
+- [Node link Yaml (Clash)](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
 #### all nodes separated by protoctol
 - [VMESS](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/vmess.txt)
 - [TROJAN](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/trojan.txt)
 - [SSR](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ssr.txt)
 - [SHADOWSOCKS](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ss.txt)
+
+#### provider config for clash 🐈‍⬛
+- [Clash](https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/update/provider/provider.yml)
 
 ### node sources
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `126`
@@ -599,7 +602,7 @@ merge nodes w/o dup: `5714`
 |    OS   |              Best Client               | Alternatives |
 |:-------:|:--------------------------------------:|:------------:|
 |   IOS   |        Quantumult - Shadowrocket       |  NapsternetV |
-| Android |      Surfboard - Clash For Android     |    V2rayNg   |
+| Android |Surfboard - Clash For Android - Matsuri |    V2rayNg   |
 | Windows |   Clash For Windows - V2rayN - Nekoray |    Qv2ray    |
 |  Linux  |           Clash For Windows            |    Qv2ray    |
 |  MacOS  |           Clash For Windows            |    Qv2ray    |
