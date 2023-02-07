@@ -17,7 +17,48 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇨🇳CN-14.18.96.160-000 | 0.899MB
+  server: gzdx0.170203.xyz
+  port: 53523
+  type: trojan
+  password: 9430a7a3-216b-4f36-8e03-012e19f546d8
+  sni: ru03.170203.xyz
+  skip-cert-verify: false
+- name: 🇨🇳CN-14.18.96.160-001 | 0.892MB
+  server: gzdx0.170203.xyz
+  port: 14515
+  type: trojan
+  password: 9430a7a3-216b-4f36-8e03-012e19f546d8
+  sni: ru04.170203.xyz
+  skip-cert-verify: false
+- name: 🇸🇬SG-13.212.25.79-002 | 0.821MB
+  server: sg001.170203.xyz
+  port: 43543
+  type: vmess
+  uuid: 9430a7a3-216b-4f36-8e03-012e19f546d8
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: sg001.170203.xyz
+- name: 🇸🇬SG-13.250.31.102-003 | 0.684MB
+  server: sg02.170203.xyz
+  port: 43543
+  type: vmess
+  uuid: 9430a7a3-216b-4f36-8e03-012e19f546d8
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: sg02.170203.xyz
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +114,28 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-14.18.96.160-000 | 0.899MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-14.18.96.160-001 | 0.892MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇸🇬SG-13.212.25.79-002 | 0.821MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇸🇬SG-13.250.31.102-003 | 0.684MB
 rules:
 - MATCH,Global ©️
