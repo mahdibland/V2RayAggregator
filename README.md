@@ -532,6 +532,7 @@ merge nodes w/o dup: `5708`
 - [SHADOWSOCKS](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/splitted/ss.txt)
 
 #### provider config for clash 🐈‍⬛
+- [Clash Meta](https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/update/provider/provider-meta.yml) (Recommended)
 - [Clash](https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/update/provider/provider.yml)
 
 ### node sources
