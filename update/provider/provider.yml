@@ -1,75 +1,76 @@
+## It's highly recommended to use *Clash.Meta kernel* with this config.
+## Android client is available on https://f-droid.org
+## Other clients: https://docs.metacubex.one/used
+## In case of modifications, read comments carefully! 
+
 mixed-port: 7890
-#ipv6: false
+geodata-mode: true
+tcp-concurrent: true
 #allow-lan: true
 mode: rule
 log-level: info
+#ipv6: false
 external-controller: 127.0.0.1:9090
+profile:
+  store-selected: true
+  store-fake-ip: true
+
 dns:
-  enable: true
-  ipv6: false
-  default-nameserver:
-    - 8.8.8.8
+  enable: true ## SUGGESTION: Disable it and use `dnscrypt-proxy` or Android's "Secure DNS" option.
+  #listen: 127.0.0.1:53 ## Or 0.0.0.0:53 for LAN.
+  #ipv6: false
+  default-nameserver: 
+    - 1.1.1.1
     - 114.114.114.114
   enhanced-mode: redir-host
+  proxy-server-nameserver:
+    - https://1.1.1.1/dns-query
   nameserver:
-    - 8.8.8.8
+    - 1.1.1.1
     - 114.114.114.114
-    - https://rubyfish.cn/dns-query
   fallback:
     - https://1.1.1.1/dns-query
-    - https://dns.google/dns-query
-    - tls://dot1.applied-privacy.net:443
+    - https://8.8.8.8/dns-query
+    - https://9.9.9.9/dns-query
+    - https://208.67.222.222/dns-query
+    - https://rubyfish.cn/dns-query
   fallback-filter:
     ipcidr:
       - 10.0.0.0/8
-      - 240.0.0.0/4
       - 100.64.0.0/10
+      - 169.254.0.0/16
       - 172.16.0.0/12
+      - 192.0.0.0/24
+      - 198.18.0.0/15
+      - 240.0.0.0/4
+      - 64:ff9b:1::/48
+      - fc00::/7
+      - fe80::/64
 
 proxy-groups:
-  - name: Global
-    type: select
-    proxies:
-      - Auto
-      - LoadBalance(CH)
-      - LoadBalance(RR)
-      - Fallback
-
-  - name: Auto
-    type: url-test
-    url: https://clients3.google.com/generate_204
-    interval: 300
-    use:
-      - aggregator
-      - airports
-
-  - name: LoadBalance(CH)
-    type: load-balance
-    strategy: consistent-hashing
-    url: https://clients3.google.com/generate_204
-    interval: 300
-    use:
-      - aggregator
-      - airports
-
-  - name: LoadBalance(RR)
-    type: load-balance
-    strategy: round-robin
-    url: https://clients3.google.com/generate_204
-    interval: 300
-    use:
-      - aggregator
-      - airports
-
-  - name: Fallback
-    type: fallback
-    url: https://clients3.google.com/generate_204
-    interval: 300
-    use:
-      - aggregator
-      - airports
+  
+- name: auto
+  type: url-test
+  url: http://cp.cloudflare.com/
+  interval: 600
+  lazy: true
+  use:
+    - airports
+    - aggregator
 
 proxy-providers:
+
+  airports:
+    type: http
+    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_yaml.yml
+    interval: 720
+    path: ./airports.yaml
+    health-check:
+      enable: true
+      interval: 600
+      lazy: true
+      url: http://cp.cloudflare.com/
+
   aggregator:
     type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
@@ -78,17 +79,11 @@ proxy-providers:
     health-check:
       enable: true
       interval: 600
-      url: https://clients3.google.com/generate_204
-
-  airports:
-    type: http
-    url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_yaml.yml
-    interval: 300
-    path: ./airports.yaml
-    health-check:
-      enable: true
-      interval: 600
-      url: https://clients3.google.com/generate_204
+      lazy: true
+      url: http://cp.cloudflare.com/
 
 rules:
-  - MATCH,Global
+  - GEOSITE,category-ads-all,REJECT
+  - GEOIP,private,DIRECT,no-resolve
+  - GEOIP,IR,DIRECT ## Change to your country's code.
+  - MATCH,auto
