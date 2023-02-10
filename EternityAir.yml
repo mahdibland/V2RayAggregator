@@ -17,44 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-172.67.193.205-095 | 19.217MB
-  server: uk01.cf.ssssr.icu
-  port: 443
-  type: vmess
-  uuid: 0065a7aa-503f-3d1c-963d-756c4f8f2717
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: uk01.ssru4.fun
-- name: 🇨🇳CN-120.25.41.179-227 | 0.218MB
-  server: sh-jp-dx-iplc.810823.xyz
-  port: 13065
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 0335d7c9-16e6-4a89-8386-cd34aa3acbbb
-- name: 🇨🇳CN-120.25.41.179-224 | 0.172MB
-  server: sh-jp-dx-iplc.810823.xyz
-  port: 13082
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 0335d7c9-16e6-4a89-8386-cd34aa3acbbb
-- name: 🇨🇳CN-120.25.41.179-225 | 0.164MB
-  server: sh-jp-dx-iplc.810823.xyz
-  port: 13081
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 0335d7c9-16e6-4a89-8386-cd34aa3acbbb
-- name: 🇨🇳CN-120.25.41.179-226 | 0.159MB
-  server: sh-jp-dx-iplc.810823.xyz
-  port: 13001
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: 0335d7c9-16e6-4a89-8386-cd34aa3acbbb
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -110,29 +73,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - RELAY-172.67.193.205-095 | 19.217MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-120.25.41.179-227 | 0.218MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-120.25.41.179-224 | 0.172MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-120.25.41.179-225 | 0.164MB
-  - 🇨🇳CN-120.25.41.179-226 | 0.159MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
