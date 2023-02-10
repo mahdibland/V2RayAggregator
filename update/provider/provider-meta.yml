@@ -1,7 +1,8 @@
-## It's highly recommended to use *Clash.Meta kernel* with this config.
-## Android client is available on https://f-droid.org
+## For Clash.Meta
+## Android client is available on https://f-droid.org/en/packages/com.github.metacubex.clash.meta
 ## Other clients: https://docs.metacubex.one/used
 ## In case of modifications, read comments carefully! 
+## If you're not in Iran, change `geoip-code` and GEOIP,IR,DIRECT rule.
 
 mixed-port: 7890
 geodata-mode: true
@@ -9,7 +10,7 @@ tcp-concurrent: true
 #allow-lan: true
 mode: rule
 log-level: info
-#ipv6: false
+ipv6: true
 external-controller: 127.0.0.1:9090
 profile:
   store-selected: true
@@ -18,11 +19,13 @@ profile:
 dns:
   enable: true ## SUGGESTION: Disable it and use `dnscrypt-proxy` or Android's "Secure DNS" option.
   #listen: 127.0.0.1:53 ## Or 0.0.0.0:53 for LAN.
-  #ipv6: false
+  ipv6: true
+  prefer-h3: true
   default-nameserver: 
     - 1.1.1.1
     - 114.114.114.114
   enhanced-mode: redir-host
+  use-hosts: true
   proxy-server-nameserver:
     - https://1.1.1.1/dns-query
   nameserver:
@@ -32,9 +35,10 @@ dns:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
     - https://9.9.9.9/dns-query
-    - https://208.67.222.222/dns-query
     - https://rubyfish.cn/dns-query
   fallback-filter:
+    geoip: true
+    geoip-code: IR ## Change to your country's code.
     ipcidr:
       - 10.0.0.0/8
       - 100.64.0.0/10
@@ -48,7 +52,19 @@ dns:
       - fe80::/64
 
 proxy-groups:
+
+- name: global
+  type: select
+  proxies:
+    - auto
+    - manual
   
+- name: manual
+  type: select
+  use:
+    - airports
+    - aggregator
+
 - name: auto
   type: url-test
   url: http://cp.cloudflare.com/
@@ -85,5 +101,6 @@ proxy-providers:
 rules:
   - GEOSITE,category-ads-all,REJECT
   - GEOIP,private,DIRECT,no-resolve
+  - GEOIP,LAN,DIRECT,no-resolve
   - GEOIP,IR,DIRECT ## Change to your country's code.
-  - MATCH,auto
+  - MATCH,global
