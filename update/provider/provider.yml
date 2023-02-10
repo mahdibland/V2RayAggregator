@@ -1,15 +1,16 @@
-## It's highly recommended to use *Clash.Meta kernel* with this config.
-## Android client is available on https://f-droid.org
-## Other clients: https://docs.metacubex.one/used
+## For Clash (FOSS) -- Can also be used with Clash.Meta but `provider-meta.yml` is more suitable
+## Android client is available on:
+# Github: https://github.com/Kr328/ClashForAndroid/releases/latest
+# Playstore: https://play.google.com/store/apps/details?id=com.github.kr328.clash
+# Izzyondroid: https://apt.izzysoft.de/fdroid/index/apk/com.github.kr328.clash.foss
 ## In case of modifications, read comments carefully! 
+## If you're not in Iran, change `geoip-code` and GEOIP,IR,DIRECT rule.
 
 mixed-port: 7890
-geodata-mode: true
-tcp-concurrent: true
 #allow-lan: true
 mode: rule
 log-level: info
-#ipv6: false
+ipv6: true
 external-controller: 127.0.0.1:9090
 profile:
   store-selected: true
@@ -18,13 +19,12 @@ profile:
 dns:
   enable: true ## SUGGESTION: Disable it and use `dnscrypt-proxy` or Android's "Secure DNS" option.
   #listen: 127.0.0.1:53 ## Or 0.0.0.0:53 for LAN.
-  #ipv6: false
+  ipv6: true
   default-nameserver: 
     - 1.1.1.1
     - 114.114.114.114
   enhanced-mode: redir-host
-  proxy-server-nameserver:
-    - https://1.1.1.1/dns-query
+  use-hosts: true
   nameserver:
     - 1.1.1.1
     - 114.114.114.114
@@ -32,9 +32,10 @@ dns:
     - https://1.1.1.1/dns-query
     - https://8.8.8.8/dns-query
     - https://9.9.9.9/dns-query
-    - https://208.67.222.222/dns-query
     - https://rubyfish.cn/dns-query
   fallback-filter:
+    geoip: true
+    geoip-code: IR ## Change to your country's code.
     ipcidr:
       - 10.0.0.0/8
       - 100.64.0.0/10
@@ -49,6 +50,18 @@ dns:
 
 proxy-groups:
   
+- name: global
+  type: select
+  proxies:
+    - auto
+    - manual
+
+- name: manual
+  type: select
+  use:
+    - airports
+    - aggregator
+
 - name: auto
   type: url-test
   url: http://cp.cloudflare.com/
@@ -84,5 +97,6 @@ proxy-providers:
 
 rules:
   - GEOIP,private,DIRECT,no-resolve
+  - GEOIP,LAN,DIRECT,no-resolve
   - GEOIP,IR,DIRECT ## Change to your country's code.
-  - MATCH,auto
+  - MATCH,global
