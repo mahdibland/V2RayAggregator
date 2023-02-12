@@ -17,116 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-1.1.1.1-00 | 33.151MB
-  server: 1.1.1.1
-  port: 65535
-  type: vmess
-  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-- name: RELAY-1.1.1.1-01 | 31.062MB
-  server: 1.1.1.1
-  port: 65535
-  type: vmess
-  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: d37xr2wb5cxle7.cloudfront.net
-- name: 🇭🇰HK-18.163.33.82-02 | 22.166MB
-  server: 00000000000000000000000000000000000000000000000000000000000001a.node-for-bigairport.win
-  port: 80
-  type: vmess
-  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 00000000000000000000000000000000000000000000000000000000000001a.node-for-bigairport.win
-- name: 🇭🇰HK-16.162.254.252-03 | 22.109MB
-  server: 00000000000000000000000000000000000000000000000000000000000002a.node-for-bigairport.win
-  port: 443
-  type: vmess
-  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: 00000000000000000000000000000000000000000000000000000000000002a.node-for-bigairport.win
-- name: 🇨🇳CN-120.240.236.120-04 | 10.452MB
-  server: az.hk01.ssru7.casa
-  port: 10030
-  type: vmess
-  uuid: f1ec76db-2683-30dc-827c-280153c88807
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: aus01.paopaocloud.cyou
-- name: 🇨🇳CN-120.240.236.120-05 | 5.491MB
-  server: az.hk01.ssru7.casa
-  port: 10010
-  type: vmess
-  uuid: f1ec76db-2683-30dc-827c-280153c88807
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: az01.ssru4.fun
-- name: 🇨🇳CN-120.240.236.120-06 | 0.993MB
-  server: az.hk01.ssru7.casa
-  port: 10022
-  type: vmess
-  uuid: f1ec76db-2683-30dc-827c-280153c88807
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: fr01.2yun.win
-- name: 🇨🇳CN-120.240.236.120-07 | 0.496MB
-  server: az.hk01.ssru7.casa
-  port: 10013
-  type: vmess
-  uuid: f1ec76db-2683-30dc-827c-280153c88807
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: ger01.ssru4.fun
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -182,32 +73,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - RELAY-1.1.1.1-00 | 33.151MB
-  - RELAY-1.1.1.1-01 | 31.062MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇭🇰HK-18.163.33.82-02 | 22.166MB
-  - 🇭🇰HK-16.162.254.252-03 | 22.109MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-120.240.236.120-04 | 10.452MB
-  - 🇨🇳CN-120.240.236.120-05 | 5.491MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-120.240.236.120-06 | 0.993MB
-  - 🇨🇳CN-120.240.236.120-07 | 0.496MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
