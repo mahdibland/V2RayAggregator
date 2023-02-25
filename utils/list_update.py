@@ -129,8 +129,8 @@ class update_url():
             urllist.extend(air_mining)
 
             # urllist = list(map(lambda x: quote(x, safe=""), urllist))
-            urllist = list(filter(lambda x: str(x).__contains__(
-                "getafreenode.com") == False, urllist))
+            # urllist = list(filter(lambda x: str(x).__contains__(
+            #    "getafreenode.com") == False, urllist))
             new_url = "|".join(list(set(urllist)))
             # except Exception as e:
             #     print(e)
@@ -145,10 +145,11 @@ class update_url():
 
         if id == 1:
             today = datetime.today().strftime('%Y%m%d')
-            this_month = datetime.today().strftime('%Y%m')
+            this_year = datetime.today().strftime('%Y')
+            this_month = datetime.today().strftime('%m')
             url_front = 'https://nodefree.org/dy/'
-            url_end = '.txt'
-            new_url = url_front + this_month + '/' + today + url_end
+            url_end = '.yaml'
+            new_url = url_front + this_year + '/' + this_month + '/' + today + url_end
 
         if id == 3:
             # https://v2rayshare.com/wp-content/uploads/2022/10/20221025.txt
