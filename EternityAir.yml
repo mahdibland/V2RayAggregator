@@ -17,132 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇺🇸US-54.174.20.232-064 | 9.707MB
-  server: us02.170203.xyz
-  port: 43543
-  type: vmess
-  uuid: 72111528-352f-472b-8912-ef00c8c2d8ae
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: us02.170203.xyz
-- name: 🇯🇵JP-46.51.224.90-084 | 9.603MB
-  server: jp001.170203.xyz
-  port: 23245
-  type: vmess
-  uuid: 72111528-352f-472b-8912-ef00c8c2d8ae
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp001.170203.xyz
-- name: 🇯🇵JP-54.95.255.66-086 | 9.209MB
-  server: jp04.170203.xyz
-  port: 23245
-  type: vmess
-  uuid: 72111528-352f-472b-8912-ef00c8c2d8ae
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp04.170203.xyz
-- name: 🇯🇵JP-54.199.142.44-087 | 9.053MB
-  server: jp05.170203.xyz
-  port: 23245
-  type: vmess
-  uuid: 72111528-352f-472b-8912-ef00c8c2d8ae
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp05.170203.xyz
-- name: 🇯🇵JP-54.238.150.3-085 | 8.613MB
-  server: jp03.170203.xyz
-  port: 23245
-  type: vmess
-  uuid: 72111528-352f-472b-8912-ef00c8c2d8ae
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp03.170203.xyz
-- name: 🇯🇵JP-43.207.85.102-083 | 7.909MB
-  server: jp02.170203.xyz
-  port: 23245
-  type: vmess
-  uuid: 72111528-352f-472b-8912-ef00c8c2d8ae
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp02.170203.xyz
-- name: 🇯🇵JP-52.195.3.197-075 | 2.489MB
-  server: gzdx1.170203.xyz
-  port: 58630
-  type: trojan
-  password: 72111528-352f-472b-8912-ef00c8c2d8ae
-  sni: 0a01f3ad01.170203.xyz
-  skip-cert-verify: false
-- name: 🇰🇷KR-43.200.253.114-081 | 2.204MB
-  server: kr02.170203.xyz
-  port: 443
-  type: trojan
-  password: 72111528-352f-472b-8912-ef00c8c2d8ae
-  sni: kr02.170203.xyz
-  skip-cert-verify: false
-- name: 🇰🇷KR-43.200.6.99-082 | 1.695MB
-  server: kr01.170203.xyz
-  port: 443
-  type: trojan
-  password: 72111528-352f-472b-8912-ef00c8c2d8ae
-  sni: kr01.170203.xyz
-  skip-cert-verify: false
-- name: 🇯🇵JP-52.195.3.197-077 | 1.685MB
-  server: gzdx1.170203.xyz
-  port: 24798
-  type: trojan
-  password: 72111528-352f-472b-8912-ef00c8c2d8ae
-  sni: sgmax03.170203.xyz
-  skip-cert-verify: false
-- name: 🇨🇳CN-118.212.143.3-194 | 1.45MB
-  server: scloud56.jafiyun.world
-  port: 22056
-  type: trojan
-  password: 21fd5712-2cfb-34ec-a480-41afa979f46e
-  sni: scloud56.jafiyun.world
-  skip-cert-verify: false
-- name: 🇨🇳CN-118.212.143.3-208 | 1.381MB
-  server: scloud16.jafiyun.world
-  port: 22016
-  type: trojan
-  password: 21fd5712-2cfb-34ec-a480-41afa979f46e
-  sni: scloud16.jafiyun.world
-  skip-cert-verify: false
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -198,36 +73,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇺🇸US-54.174.20.232-064 | 9.707MB
-  - 🇯🇵JP-46.51.224.90-084 | 9.603MB
-  - 🇯🇵JP-54.95.255.66-086 | 9.209MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇯🇵JP-54.199.142.44-087 | 9.053MB
-  - 🇯🇵JP-54.238.150.3-085 | 8.613MB
-  - 🇯🇵JP-43.207.85.102-083 | 7.909MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇯🇵JP-52.195.3.197-075 | 2.489MB
-  - 🇰🇷KR-43.200.253.114-081 | 2.204MB
-  - 🇰🇷KR-43.200.6.99-082 | 1.695MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇯🇵JP-52.195.3.197-077 | 1.685MB
-  - 🇨🇳CN-118.212.143.3-194 | 1.45MB
-  - 🇨🇳CN-118.212.143.3-208 | 1.381MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
