@@ -17,7 +17,146 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: NOWHERE-0.0.0.0-000 | 11.57MB
+  server: 2233Cloud
+  port: 443
+  type: trojan
+  password: ed665f7f-8af8-33c3-be97-64a11727a2f9
+  sni: 2233Cloud
+  skip-cert-verify: false
+- name: 🇨🇳CN-223.244.25.161-002 | 11.351MB
+  server: dxhefei01.baipiaozf.com
+  port: 32247
+  type: vmess
+  uuid: 3592b265-9ad8-44d1-8774-26303250994d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: dxhefei01.baipiaozf.com
+- name: 🇨🇳CN-183.232.204.65-003 | 11.292MB
+  server: gzcm.xn--dlq110j6ul.cc
+  port: 21776
+  type: vmess
+  uuid: 3592b265-9ad8-44d1-8774-26303250994d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzcm.xn--dlq110j6ul.cc
+- name: 🇨🇳CN-14.18.81.201-004 | 11.222MB
+  server: gzdx.jcnode.top
+  port: 40000
+  type: vmess
+  uuid: 3592b265-9ad8-44d1-8774-26303250994d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzdx.jcnode.top
+- name: 🇨🇳CN-121.204.163.149-005 | 11.197MB
+  server: shct.xn--dlq110j6ul.cc
+  port: 20598
+  type: vmess
+  uuid: 3592b265-9ad8-44d1-8774-26303250994d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: shct.xn--dlq110j6ul.cc
+- name: 🇨🇳CN-14.18.81.201-006 | 10.873MB
+  server: gzdx.jcnode.top
+  port: 40001
+  type: vmess
+  uuid: 3592b265-9ad8-44d1-8774-26303250994d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzdx.jcnode.top
+- name: 🇨🇳CN-14.18.81.201-007 | 4.262MB
+  server: gzdx.jcnode.top
+  port: 41001
+  type: vmess
+  uuid: 3592b265-9ad8-44d1-8774-26303250994d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzdx.jcnode.top
+- name: 🇨🇳CN-106.225.205.220-008 | 4.144MB
+  server: xmct.xn--dlq110j6ul.cc
+  port: 10851
+  type: vmess
+  uuid: 3592b265-9ad8-44d1-8774-26303250994d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: xmct.xn--dlq110j6ul.cc
+- name: 🇨🇳CN-183.222.27.52-009 | 3.669MB
+  server: ydsichuan01.bpzhuanfa.com
+  port: 42983
+  type: vmess
+  uuid: 3592b265-9ad8-44d1-8774-26303250994d
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: ydsichuan01.bpzhuanfa.com
+- name: 🇨🇳CN-14.18.81.201-010 | 3.341MB
+  server: gzdx.jcnode.top
+  port: 41002
+  type: trojan
+  password: 3592b265-9ad8-44d1-8774-26303250994d
+  sni: jp01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇨🇳CN-14.18.81.201-012 | 3.067MB
+  server: gzdx.jcnode.top
+  port: 41002
+  type: trojan
+  password: 3592b265-9ad8-44d1-8774-26303250994d
+  sni: jp01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇨🇳CN-14.18.81.201-013 | 2.404MB
+  server: gzdx.jcnode.top
+  port: 41003
+  type: trojan
+  password: 3592b265-9ad8-44d1-8774-26303250994d
+  sni: jp01.ckcloud.info
+  skip-cert-verify: false
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +212,36 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - NOWHERE-0.0.0.0-000 | 11.57MB
+  - 🇨🇳CN-223.244.25.161-002 | 11.351MB
+  - 🇨🇳CN-183.232.204.65-003 | 11.292MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-14.18.81.201-004 | 11.222MB
+  - 🇨🇳CN-121.204.163.149-005 | 11.197MB
+  - 🇨🇳CN-14.18.81.201-006 | 10.873MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-14.18.81.201-007 | 4.262MB
+  - 🇨🇳CN-106.225.205.220-008 | 4.144MB
+  - 🇨🇳CN-183.222.27.52-009 | 3.669MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇨🇳CN-14.18.81.201-010 | 3.341MB
+  - 🇨🇳CN-14.18.81.201-012 | 3.067MB
+  - 🇨🇳CN-14.18.81.201-013 | 2.404MB
 rules:
 - MATCH,Global ©️
