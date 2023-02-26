@@ -494,8 +494,23 @@ class subs:
                                                         if bad_uuid_format == False:
                                                             if cl_temp['type'] == "ss" or cl_temp['type'] == "ssr":
                                                                 if cl_temp["cipher"] in valid_ss_cipher_methods:
-                                                                    safe_clash.append(cl_res)
-                                                                    
+                                                                    if cl_temp['type'] == "ss":
+                                                                        if 'plugin' in cl_temp:
+                                                                            if cl_temp['plugin'] == 'obfs':
+                                                                                if 'plugin-opts' in cl_temp:
+                                                                                    if cl_temp['plugin-opts']['mode'] == 'http' or cl_temp['plugin-opts']['mode'] == 'tls':
+                                                                                        safe_clash.append(cl_res)
+                                                                                        
+                                                                                    else:
+                                                                                        bad_lines += 1
+                                                                                else:
+                                                                                    safe_clash.append(cl_res)
+                                                                            else:
+                                                                                safe_clash.append(cl_res)
+                                                                        else:
+                                                                            safe_clash.append(cl_res)
+                                                                    else:
+                                                                        safe_clash.append(cl_res)
                                                                 else:
                                                                     bad_lines += 1
 
