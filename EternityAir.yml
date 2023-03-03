@@ -17,7 +17,111 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: RELAY-172.67.81.238-344 | 7.952MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-172.67.81.238-344 | 7.952MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Amsterdam.v2ray.online
+- name: RELAY-104.24.177.7-350 | 7.738MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.177.7-350 | 7.738MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Lille.v2ray.online
+- name: RELAY-172.67.81.238-347 | 6.713MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-172.67.81.238-347 | 6.713MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Seattle.v2ray.online
+- name: RELAY-104.24.176.7-349 | 6.177MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.176.7-349 | 6.177MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Riga.v2ray.online
+- name: RELAY-104.24.176.7-345 | 5.458MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.176.7-345 | 5.458MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Tokyo.v2ray.online
+- name: RELAY-172.67.81.238-348 | 5.423MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-172.67.81.238-348 | 5.423MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Paris.v2ray.online
+- name: RELAY-104.24.177.7-346 | 5.151MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.177.7-346 | 5.151MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Kansas.v2ray.online
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +177,31 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-172.67.81.238-344 | 7.952MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-104.24.177.7-350 | 7.738MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-172.67.81.238-347 | 6.713MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - RELAY-104.24.176.7-349 | 6.177MB
+  - RELAY-104.24.176.7-345 | 5.458MB
+  - RELAY-172.67.81.238-348 | 5.423MB
+  - RELAY-104.24.177.7-346 | 5.151MB
 rules:
 - MATCH,Global ©️
