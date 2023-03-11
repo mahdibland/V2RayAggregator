@@ -17,11 +17,11 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇸🇬SG-3.1.103.5-051 | 8.721MB
+- name: 🇸🇬SG-3.1.103.5-035 | 9.655MB
   server: sg05.170203.xyz
   port: 43543
   type: vmess
-  uuid: b228f2f9-fb0b-429e-a6c7-ec879b828943
+  uuid: ff700148-cf9f-4261-a5f9-61156bf0365c
   alterId: 0
   cipher: auto
   tls: false
@@ -31,11 +31,11 @@ proxies:
     path: /
     headers:
       Host: sg05.170203.xyz
-- name: 🇺🇸US-3.90.38.12-047 | 1.625MB
-  server: us02.170203.xyz
-  port: 43543
+- name: 🇸🇬SG-54.179.163.249-033 | 7.209MB
+  server: sg003.170203.xyz
+  port: 34333
   type: vmess
-  uuid: b228f2f9-fb0b-429e-a6c7-ec879b828943
+  uuid: ff700148-cf9f-4261-a5f9-61156bf0365c
   alterId: 0
   cipher: auto
   tls: false
@@ -44,12 +44,26 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: us02.170203.xyz
-- name: 🇰🇷KR-43.200.253.114-060 | 0.066MB
+      Host: sg003.170203.xyz
+- name: 🇸🇬SG-18.142.44.46-034 | 3.893MB
+  server: sg04.170203.xyz
+  port: 43543
+  type: vmess
+  uuid: ff700148-cf9f-4261-a5f9-61156bf0365c
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: sg04.170203.xyz
+- name: 🇰🇷KR-43.200.253.114-044 | 0.135MB
   server: kr02.170203.xyz
   port: 443
   type: trojan
-  password: b228f2f9-fb0b-429e-a6c7-ec879b828943
+  password: ff700148-cf9f-4261-a5f9-61156bf0365c
   sni: kr02.170203.xyz
   skip-cert-verify: false
 proxy-groups:
@@ -107,27 +121,28 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇸🇬SG-3.1.103.5-035 | 9.655MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇸🇬SG-54.179.163.249-033 | 7.209MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇸🇬SG-18.142.44.46-034 | 3.893MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇸🇬SG-3.1.103.5-051 | 8.721MB
-  - 🇺🇸US-3.90.38.12-047 | 1.625MB
-  - 🇰🇷KR-43.200.253.114-060 | 0.066MB
+  - 🇰🇷KR-43.200.253.114-044 | 0.135MB
 rules:
 - MATCH,Global ©️
