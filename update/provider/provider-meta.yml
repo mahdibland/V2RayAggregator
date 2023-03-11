@@ -1,15 +1,15 @@
-## For Clash.Meta
+## For Clash.Meta -- Possible to use with Clash Premium but not tested.
 ## Android client is available on https://f-droid.org/en/packages/com.github.metacubex.clash.meta
 ## Other clients: https://docs.metacubex.one/used
 ## In case of modifications, read comments carefully! 
-## If you're not in Iran, change `geoip-code` and GEOIP,IR,DIRECT rule.
+## IMPORTANT: If you're not in Iran, change "GEOSITE,category-ir,DIRECT" and "GEOIP,IR,DIRECT" rules accordingly.
 
 mixed-port: 7890
 geodata-mode: true
 tcp-concurrent: true
-#allow-lan: true
+allow-lan: true
 mode: rule
-log-level: info
+log-level: error ## silent/error/warning/info/debug
 ipv6: true
 external-controller: 127.0.0.1:9090
 profile:
@@ -17,18 +17,18 @@ profile:
   store-fake-ip: true
 
 dns:
-  enable: true ## SUGGESTION: Disable it and use `dnscrypt-proxy` or Android's "Secure DNS" option.
+  enable: true
   #listen: 127.0.0.1:53 ## Or 0.0.0.0:53 for LAN.
   ipv6: true
   prefer-h3: true
   default-nameserver: 
+    - 127.0.0.1
     - 1.1.1.1
     - 114.114.114.114
-  enhanced-mode: redir-host
+  enhanced-mode: fake-ip
   use-hosts: true
-  proxy-server-nameserver:
-    - https://1.1.1.1/dns-query
   nameserver:
+    - 127.0.0.1
     - 1.1.1.1
     - 114.114.114.114
   fallback:
@@ -37,19 +37,27 @@ dns:
     - https://9.9.9.9/dns-query
     - https://rubyfish.cn/dns-query
   fallback-filter:
-    geoip: true
-    geoip-code: IR ## Change to your country's code.
+    geoip: false
     ipcidr:
-      - 10.0.0.0/8
-      - 100.64.0.0/10
-      - 169.254.0.0/16
-      - 172.16.0.0/12
-      - 192.0.0.0/24
-      - 198.18.0.0/15
-      - 240.0.0.0/4
-      - 64:ff9b:1::/48
-      - fc00::/7
-      - fe80::/64
+      - '0.0.0.0/8'
+      - '10.0.0.0/8'
+      - '100.64.0.0/10'
+      - '127.0.0.0/8'
+      - '169.254.0.0/16'
+      - '172.16.0.0/12'
+      - '192.0.0.0/24'
+      - '192.0.2.0/24'
+      - '192.88.99.0/24'
+      - '192.168.0.0/16'
+      - '198.18.0.0/15'
+      - '198.51.100.0/24'
+      - '203.0.113.0/24'
+      - '224.0.0.0/3'
+      - '240.0.0.0/4'
+      - '::1/128'
+      - '64:ff9b:1::/48'
+      - 'fc00::/7'
+      - 'fe80::/10'
 
 proxy-groups:
 
@@ -58,7 +66,7 @@ proxy-groups:
   proxies:
     - auto
     - manual
-  
+
 - name: manual
   type: select
   use:
@@ -67,9 +75,6 @@ proxy-groups:
 
 - name: auto
   type: url-test
-  url: http://cp.cloudflare.com/
-  interval: 600
-  lazy: true
   use:
     - airports
     - aggregator
@@ -79,11 +84,11 @@ proxy-providers:
   airports:
     type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_yaml.yml
-    interval: 43200
-    path: ./airports.yaml
+    interval: 86400
+    path: ./providers/airports.yaml
     health-check:
       enable: true
-      interval: 600
+      interval: 3600
       lazy: true
       url: http://cp.cloudflare.com/
 
@@ -91,16 +96,29 @@ proxy-providers:
     type: http
     url: https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml
     interval: 86400
-    path: ./aggregator.yaml
+    path: ./providers/aggregator.yaml
     health-check:
       enable: true
-      interval: 600
+      interval: 3600
       lazy: true
       url: http://cp.cloudflare.com/
 
+rule-providers:
+  applications:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./ruleset/applications.yaml
+    interval: 604800
+
 rules:
-  - GEOSITE,category-ads-all,REJECT
-  - GEOIP,private,DIRECT,no-resolve
-  - GEOIP,LAN,DIRECT,no-resolve
+  - GEOSITE,category-ads-all,REJECT ## Reject advertisements.
+  - GEOSITE,win-spy,REJECT ## Reject MS Windows analytics and spying domains.
+
+  - DOMAIN,yacd.metacubex.one,DIRECT ## YACD for Clash.Meta
+  - RULE-SET,applications,DIRECT ## P2P softwares.
+  - GEOIP,private,DIRECT,no-resolve ## Loopback and LAN IPs.
+  - GEOSITE,category-ir,DIRECT ## If in China, replace `category-ir` with `cn`. Otherwise delete it.
   - GEOIP,IR,DIRECT ## Change to your country's code.
+
   - MATCH,global
