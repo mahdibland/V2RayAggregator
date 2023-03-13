@@ -17,128 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇨🇳CN-183.240.23.235-000 | 76.301MB
-  server: gy.xueshao.top
-  port: 13945
-  type: trojan
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  sni: hk01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.81.201-001 | 15.676MB
-  server: gzdx.jcnode.top
-  port: 40000
-  type: trojan
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  sni: hk01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-120.232.56.48-002 | 15.621MB
-  server: hncu.donghui.tech
-  port: 13987
-  type: trojan
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  sni: hk01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.81.201-003 | 12.283MB
-  server: gzdx.jcnode.top
-  port: 40001
-  type: trojan
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  sni: hk02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-120.232.56.48-004 | 11.922MB
-  server: hncu.donghui.tech
-  port: 42486
-  type: trojan
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  sni: hk02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.83.77-005 | 10.284MB
-  server: ydgy.fosi.hk
-  port: 51933
-  type: trojan
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  sni: hk02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.81.201-006 | 10.27MB
-  server: gzdx.jcnode.top
-  port: 40002
-  type: ss
-  cipher: aes-256-gcm
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-- name: 🇨🇳CN-120.232.56.48-007 | 10.14MB
-  server: hncu.donghui.tech
-  port: 61561
-  type: ss
-  cipher: aes-256-gcm
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-- name: 🇨🇳CN-14.18.81.201-008 | 10.057MB
-  server: gzdx.jcnode.top
-  port: 40003
-  type: ss
-  cipher: aes-256-gcm
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-- name: 🇨🇳CN-120.232.56.48-009 | 9.941MB
-  server: hncu.donghui.tech
-  port: 55785
-  type: ss
-  cipher: aes-256-gcm
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-- name: 🇨🇳CN-14.18.81.201-010 | 9.714MB
-  server: gzdx.jcnode.top
-  port: 41000
-  type: trojan
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  sni: jp03.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.81.201-011 | 9.578MB
-  server: gzdx.jcnode.top
-  port: 41003
-  type: trojan
-  password: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  sni: jp01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-183.245.149.73-012 | 5.658MB
-  server: hncub.donghui.tech
-  port: 16188
-  type: vmess
-  uuid: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: hncub.donghui.tech
-- name: 🇨🇳CN-14.18.81.201-013 | 0.651MB
-  server: gzdx.jcnode.top
-  port: 42000
-  type: vmess
-  uuid: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gzdx.jcnode.top
-- name: 🇨🇳CN-120.232.56.48-014 | 0.138MB
-  server: hncu.donghui.tech
-  port: 63314
-  type: vmess
-  uuid: 6192b7d9-7360-415e-87b7-071b60d2f24d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: hncu.donghui.tech
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -194,39 +73,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-183.240.23.235-000 | 76.301MB
-  - 🇨🇳CN-14.18.81.201-001 | 15.676MB
-  - 🇨🇳CN-120.232.56.48-002 | 15.621MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-14.18.81.201-003 | 12.283MB
-  - 🇨🇳CN-120.232.56.48-004 | 11.922MB
-  - 🇨🇳CN-14.18.83.77-005 | 10.284MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-14.18.81.201-006 | 10.27MB
-  - 🇨🇳CN-120.232.56.48-007 | 10.14MB
-  - 🇨🇳CN-14.18.81.201-008 | 10.057MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-120.232.56.48-009 | 9.941MB
-  - 🇨🇳CN-14.18.81.201-010 | 9.714MB
-  - 🇨🇳CN-14.18.81.201-011 | 9.578MB
-  - 🇨🇳CN-183.245.149.73-012 | 5.658MB
-  - 🇨🇳CN-14.18.81.201-013 | 0.651MB
-  - 🇨🇳CN-120.232.56.48-014 | 0.138MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
