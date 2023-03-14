@@ -17,7 +17,83 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇺🇸US-54.81.57.51-013 | 41.606MB
+  server: us02.170203.xyz
+  port: 43543
+  type: vmess
+  uuid: ab6eba7f-d8a9-4006-b069-68ce9c52804f
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us02.170203.xyz
+- name: 🇯🇵JP-13.230.96.161-037 | 18.586MB
+  server: jpmax03.170203.xyz
+  port: 443
+  type: trojan
+  password: ab6eba7f-d8a9-4006-b069-68ce9c52804f
+  sni: jpmax03.170203.xyz
+  skip-cert-verify: false
+- name: 🇯🇵JP-43.206.224.216-033 | 16.474MB
+  server: jp03.170203.xyz
+  port: 443
+  type: trojan
+  password: ab6eba7f-d8a9-4006-b069-68ce9c52804f
+  sni: jp03.170203.xyz
+  skip-cert-verify: false
+- name: 🇸🇬SG-54.251.91.233-019 | 11.503MB
+  server: sgmax06.170203.xyz
+  port: 443
+  type: trojan
+  password: ab6eba7f-d8a9-4006-b069-68ce9c52804f
+  sni: sgmax06.170203.xyz
+  skip-cert-verify: false
+- name: 🇸🇬SG-13.212.58.175-023 | 11.451MB
+  server: sgmax09.170203.xyz
+  port: 45634
+  type: trojan
+  password: ab6eba7f-d8a9-4006-b069-68ce9c52804f
+  sni: sgmax09.170203.xyz
+  skip-cert-verify: false
+- name: 🇸🇬SG-13.212.90.40-025 | 11.275MB
+  server: sg01.170203.xyz
+  port: 443
+  type: trojan
+  password: ab6eba7f-d8a9-4006-b069-68ce9c52804f
+  sni: sg01.170203.xyz
+  skip-cert-verify: false
+- name: 🇯🇵JP-43.206.232.198-032 | 5.608MB
+  server: jpmax05.170203.xyz
+  port: 443
+  type: trojan
+  password: ab6eba7f-d8a9-4006-b069-68ce9c52804f
+  sni: jpmax05.170203.xyz
+  skip-cert-verify: false
+- name: 🇰🇷KR-43.200.253.114-029 | 0.241MB
+  server: kr02.170203.xyz
+  port: 443
+  type: trojan
+  password: ab6eba7f-d8a9-4006-b069-68ce9c52804f
+  sni: kr02.170203.xyz
+  skip-cert-verify: false
+- name: 🇭🇰HK-16.162.254.143-306 | 0.176MB
+  server: 00000000000000000000000000000000000000000000000000000000000001a.node-for-bigairport.win
+  port: 80
+  type: vmess
+  uuid: 78065c14-fc80-40b5-a46c-0e34efdf82fa
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 00000000000000000000000000000000000000000000000000000000000001a.node-for-bigairport.win
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +149,33 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇺🇸US-54.81.57.51-013 | 41.606MB
+  - 🇯🇵JP-13.230.96.161-037 | 18.586MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇯🇵JP-43.206.224.216-033 | 16.474MB
+  - 🇸🇬SG-54.251.91.233-019 | 11.503MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇸🇬SG-13.212.58.175-023 | 11.451MB
+  - 🇸🇬SG-13.212.90.40-025 | 11.275MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇯🇵JP-43.206.232.198-032 | 5.608MB
+  - 🇰🇷KR-43.200.253.114-029 | 0.241MB
+  - 🇭🇰HK-16.162.254.143-306 | 0.176MB
 rules:
 - MATCH,Global ©️
