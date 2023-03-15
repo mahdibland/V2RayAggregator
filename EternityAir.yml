@@ -17,111 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇯🇵JP-43.206.232.33-053 | 14.532MB
-  server: gzdx1.170203.xyz
-  port: 24798
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: sgmax03.170203.xyz
-  skip-cert-verify: false
-- name: 🇯🇵JP-13.230.96.161-069 | 14.455MB
-  server: jpmax03.170203.xyz
-  port: 443
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: jpmax03.170203.xyz
-  skip-cert-verify: false
-- name: 🇯🇵JP-54.249.78.69-068 | 14.387MB
-  server: jp05.170203.xyz
-  port: 23245
-  type: vmess
-  uuid: 9da3872f-0663-4050-a7da-43b5d329450d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: jp05.170203.xyz
-- name: 🇯🇵JP-43.206.232.33-076 | 13.541MB
-  server: gzdx1.170203.xyz
-  port: 27528
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: usmax040.170203.xyz
-  skip-cert-verify: false
-- name: 🇰🇷KR-43.200.253.114-061 | 12.678MB
-  server: kr02.170203.xyz
-  port: 443
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: kr02.170203.xyz
-  skip-cert-verify: false
-- name: 🇰🇷KR-43.201.57.106-062 | 12.366MB
-  server: kr01.170203.xyz
-  port: 443
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: kr01.170203.xyz
-  skip-cert-verify: false
-- name: 🇸🇬SG-13.250.36.207-036 | 9.784MB
-  server: sg02.170203.xyz
-  port: 443
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: sg02.170203.xyz
-  skip-cert-verify: false
-- name: 🇸🇬SG-13.212.201.118-055 | 9.784MB
-  server: sgmax09.170203.xyz
-  port: 45634
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: sgmax09.170203.xyz
-  skip-cert-verify: false
-- name: 🇸🇬SG-13.212.110.67-037 | 9.756MB
-  server: sg03.170203.xyz
-  port: 443
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: sg03.170203.xyz
-  skip-cert-verify: false
-- name: 🇸🇬SG-54.251.91.233-051 | 9.651MB
-  server: sgmax06.170203.xyz
-  port: 443
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: sgmax06.170203.xyz
-  skip-cert-verify: false
-- name: 🇸🇬SG-13.229.78.217-034 | 9.58MB
-  server: sg0001.170203.xyz
-  port: 443
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: sg0001.170203.xyz
-  skip-cert-verify: false
-- name: 🇸🇬SG-18.142.252.212-035 | 9.564MB
-  server: sg001.170203.xyz
-  port: 443
-  type: trojan
-  password: 9da3872f-0663-4050-a7da-43b5d329450d
-  sni: sg001.170203.xyz
-  skip-cert-verify: false
-- name: 🇸🇬SG-54.251.30.94-048 | 9.48MB
-  server: sg05.170203.xyz
-  port: 43543
-  type: vmess
-  uuid: 9da3872f-0663-4050-a7da-43b5d329450d
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: sg05.170203.xyz
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -177,37 +73,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇯🇵JP-43.206.232.33-053 | 14.532MB
-  - 🇯🇵JP-13.230.96.161-069 | 14.455MB
-  - 🇯🇵JP-54.249.78.69-068 | 14.387MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇯🇵JP-43.206.232.33-076 | 13.541MB
-  - 🇰🇷KR-43.200.253.114-061 | 12.678MB
-  - 🇰🇷KR-43.201.57.106-062 | 12.366MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇸🇬SG-13.250.36.207-036 | 9.784MB
-  - 🇸🇬SG-13.212.201.118-055 | 9.784MB
-  - 🇸🇬SG-13.212.110.67-037 | 9.756MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇸🇬SG-54.251.91.233-051 | 9.651MB
-  - 🇸🇬SG-13.229.78.217-034 | 9.58MB
-  - 🇸🇬SG-18.142.252.212-035 | 9.564MB
-  - 🇸🇬SG-54.251.30.94-048 | 9.48MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
