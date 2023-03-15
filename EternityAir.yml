@@ -17,7 +17,118 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇺🇸US-34.228.235.173-037 | 35.446MB
+  server: us02.170203.xyz
+  port: 43543
+  type: vmess
+  uuid: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: us02.170203.xyz
+- name: 🇸🇬SG-18.143.178.204-027 | 12.748MB
+  server: sg001.170203.xyz
+  port: 443
+  type: trojan
+  password: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  sni: sg001.170203.xyz
+  skip-cert-verify: false
+- name: 🇸🇬SG-52.221.211.15-026 | 12.598MB
+  server: sg0001.170203.xyz
+  port: 443
+  type: trojan
+  password: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  sni: sg0001.170203.xyz
+  skip-cert-verify: false
+- name: 🇸🇬SG-18.142.226.117-028 | 12.539MB
+  server: sg02.170203.xyz
+  port: 443
+  type: trojan
+  password: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  sni: sg02.170203.xyz
+  skip-cert-verify: false
+- name: 🇸🇬SG-13.212.2.140-067 | 12.3MB
+  server: hkmax01.170203.xyz
+  port: 443
+  type: trojan
+  password: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  sni: hkmax01.170203.xyz
+  skip-cert-verify: false
+- name: 🇸🇬SG-122.248.198.71-042 | 12.129MB
+  server: sgmax06.170203.xyz
+  port: 443
+  type: trojan
+  password: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  sni: sgmax06.170203.xyz
+  skip-cert-verify: false
+- name: 🇯🇵JP-52.194.229.94-059 | 2.388MB
+  server: gzdx1.170203.xyz
+  port: 27528
+  type: trojan
+  password: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  sni: usmax040.170203.xyz
+  skip-cert-verify: false
+- name: 🇸🇬SG-13.213.37.145-038 | 2.048MB
+  server: sg04.170203.xyz
+  port: 43543
+  type: vmess
+  uuid: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: sg04.170203.xyz
+- name: 🇸🇬SG-13.212.110.67-029 | 1.764MB
+  server: sg03.170203.xyz
+  port: 443
+  type: trojan
+  password: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  sni: sg03.170203.xyz
+  skip-cert-verify: false
+- name: 🇯🇵JP-43.206.224.216-051 | 0.23MB
+  server: jp03.170203.xyz
+  port: 443
+  type: trojan
+  password: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  sni: jp03.170203.xyz
+  skip-cert-verify: false
+- name: 🇰🇷KR-43.200.253.114-050 | 0.221MB
+  server: kr02.170203.xyz
+  port: 443
+  type: trojan
+  password: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  sni: kr02.170203.xyz
+  skip-cert-verify: false
+- name: 🇯🇵JP-52.194.229.94-044 | 0.216MB
+  server: gzdx1.170203.xyz
+  port: 24798
+  type: trojan
+  password: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  sni: sgmax03.170203.xyz
+  skip-cert-verify: false
+- name: 🇯🇵JP-176.32.64.254-054 | 0.165MB
+  server: jp05.170203.xyz
+  port: 23245
+  type: vmess
+  uuid: 3c5823f1-5dcf-4ad7-aa84-a3a980c2aa33
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: jp05.170203.xyz
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +184,37 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇺🇸US-34.228.235.173-037 | 35.446MB
+  - 🇸🇬SG-18.143.178.204-027 | 12.748MB
+  - 🇸🇬SG-52.221.211.15-026 | 12.598MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇸🇬SG-18.142.226.117-028 | 12.539MB
+  - 🇸🇬SG-13.212.2.140-067 | 12.3MB
+  - 🇸🇬SG-122.248.198.71-042 | 12.129MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇯🇵JP-52.194.229.94-059 | 2.388MB
+  - 🇸🇬SG-13.213.37.145-038 | 2.048MB
+  - 🇸🇬SG-13.212.110.67-029 | 1.764MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇯🇵JP-43.206.224.216-051 | 0.23MB
+  - 🇰🇷KR-43.200.253.114-050 | 0.221MB
+  - 🇯🇵JP-52.194.229.94-044 | 0.216MB
+  - 🇯🇵JP-176.32.64.254-054 | 0.165MB
 rules:
 - MATCH,Global ©️
