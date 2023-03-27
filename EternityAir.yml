@@ -17,7 +17,62 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇨🇳CN-120.198.71.191-000 | 8.119MB
+  server: gzyd.jcnode.top
+  port: 23002
+  type: vmess
+  uuid: c30c631b-b219-4853-afe0-e722860745b7
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzyd.jcnode.top
+- name: 🇨🇳CN-120.198.71.191-002 | 7.923MB
+  server: gzyd.jcnode.top
+  port: 20000
+  type: vmess
+  uuid: c30c631b-b219-4853-afe0-e722860745b7
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzyd.jcnode.top
+- name: 🇨🇳CN-14.18.81.201-003 | 7.537MB
+  server: gzdx.jcnode.top
+  port: 20001
+  type: vmess
+  uuid: c30c631b-b219-4853-afe0-e722860745b7
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzdx.jcnode.top
+- name: 🇨🇳CN-120.198.71.191-004 | 4.033MB
+  server: gzyd.jcnode.top
+  port: 20001
+  type: vmess
+  uuid: c30c631b-b219-4853-afe0-e722860745b7
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzyd.jcnode.top
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +128,28 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-120.198.71.191-000 | 8.119MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-120.198.71.191-002 | 7.923MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-14.18.81.201-003 | 7.537MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇨🇳CN-120.198.71.191-004 | 4.033MB
 rules:
 - MATCH,Global ©️
