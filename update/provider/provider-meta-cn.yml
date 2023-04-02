@@ -1,0 +1,164 @@
+                          ## COUNTRY: CHINA ##
+## IMPORTANT: Import the appropriate config URL for your country of residence;-
+# e.g. "provider-meta.yml" if in Iran, instead of manually adjusting it,-
+# to ensure bypassing local services while still receiving updates for the config!
+## مهم: آدرس URL کانفیگ مناسب با کشور خود را به نرم افزار وارد کنید؛ مثلا "provider-meta.yml" برای ایران،-
+# بجای دستی تنظیم کردن ، تا علاوه بر پروکسی نشدن سرویس های محلی، برای کانفیگ آپدیت دریافت کنید!
+
+          ## In case of modifications, read comments carefully! ##
+
+## For Clash.Meta -- Possible to use with Clash Premium but not tested.
+## Android client:
+## Preferable: Universal APK with new-version discovery if F-Droid store is installed:
+# https://f-droid.org/en/packages/com.github.metacubex.clash.meta:
+## Arch-specific builds, manual discovery and update, but faster newer releases:
+# https://github.com/MetaCubeX/ClashMetaForAndroid/releases:
+## Other clients: https://docs.metacubex.one/used
+
+mixed-port: 7890
+allow-lan: true
+tcp-concurrent: true
+enable-process: true
+find-process-mode: always
+global-client-fingerprint: chrome
+geodata-mode: true
+geox-url:
+  geoip: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat"
+  geosite: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
+  mmdb: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb"
+mode: rule
+log-level: error ## silent/error/warning/info/debug
+ipv6: true
+external-controller: 127.0.0.1:9090
+profile:
+  store-selected: false ## It's better to default to "auto" every time it restarts.
+  store-fake-ip: true
+
+#tun:
+  #enable: true
+  #stack: system ## system/lwip/gvisor
+  #dns-hijack:
+    #- 0.0.0.0:53
+  #auto-detect-interface: true
+  #auto-route: true
+  #mtu: 9000
+  #strict_route: true
+
+dns:
+  enable: true
+  #listen: 127.0.0.1:53 ## Or 0.0.0.0:53 for LAN.
+  ipv6: true
+  prefer-h3: true
+  default-nameserver: 
+    - '127.0.0.1'
+    - '114.114.114.114'
+  enhanced-mode: fake-ip
+  use-hosts: true
+  nameserver:
+    - '127.0.0.1'
+    - '114.114.114.114'
+  fallback:
+    - "https://1.1.1.1/dns-query"
+    - "https://8.8.8.8/dns-query"
+    - "https://9.9.9.9/dns-query"
+    - "https://rubyfish.cn/dns-query"
+  fallback-filter:
+    geoip: false
+    ipcidr:
+      - '0.0.0.0/8'
+      - '10.0.0.0/8'
+      - '100.64.0.0/10'
+      - '127.0.0.0/8'
+      - '169.254.0.0/16'
+      - '172.16.0.0/12'
+      - '192.0.0.0/24'
+      - '192.0.2.0/24'
+      - '192.88.99.0/24'
+      - '192.168.0.0/16'
+      - '198.18.0.0/15'
+      - '198.51.100.0/24'
+      - '203.0.113.0/24'
+      - '224.0.0.0/3'
+      - '240.0.0.0/4'
+      - '::1/128'
+      - '64:ff9b:1::/48'
+      - 'fc00::/7'
+      - 'fe80::/10'
+
+proxy-groups:
+
+- name: global
+  type: select
+  proxies:
+    - auto
+    - manual
+
+- name: manual
+  type: select
+  use:
+    - local
+    - airports
+    - aggregator
+
+- name: auto
+  type: url-test
+  #filter: "🏁"
+  use:
+    - local
+    - airports
+    - aggregator
+
+proxy-providers:
+
+  local:
+    type: file
+    path: ./providers/local.yaml ## << Put your custom servers here. Clash.Meta also accepts ss://, vmess://, trojan:// and other URLs.
+    health-check:
+      enable: true
+      interval: 3600
+      lazy: true
+      url: "http://cp.cloudflare.com/"
+      #url: "http://detectportal.firefox.com/success.txt"
+
+  airports:
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/sub/airport_merge_yaml.yml"
+    interval: 86400
+    path: ./providers/airports.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      lazy: true
+      url: "http://cp.cloudflare.com/"
+      #url: "http://detectportal.firefox.com/success.txt"
+
+  aggregator:
+    type: http
+    url: "https://cdn.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/sub/sub_merge_yaml.yml"
+    interval: 86400
+    path: ./providers/aggregator.yaml
+    health-check:
+      enable: true
+      interval: 3600
+      lazy: true
+      url: "http://cp.cloudflare.com/"
+      #url: "http://detectportal.firefox.com/success.txt"
+
+rule-providers:
+  applications:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./ruleset/applications.yaml
+    interval: 604800
+
+rules:
+  - GEOSITE,category-ads-all,REJECT ## Rejects advertisements.
+  - GEOSITE,win-spy,REJECT ## Rejects MS Windows analytics and spying.
+  - GEOIP,private,DIRECT,no-resolve ## Loopback and LAN IPs
+  - GEOIP,CN,DIRECT ## Check "provider-meta.yml" for Iran's config.
+  - GEOSITE,cn,DIRECT ## Check "provider-meta.yml" for Iran's config.
+  - RULE-SET,applications,DIRECT ## P2P software e.g. BitTorrent.
+  - DOMAIN,yacd.metacubex.one,DIRECT ## Yet Another Clash Dashbord for Clash.Meta
+  - DOMAIN,clash.metacubex.one,DIRECT ## Razord
+  - MATCH,global
