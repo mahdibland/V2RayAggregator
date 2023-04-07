@@ -17,36 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-104.24.177.7-208 | 6.08MB
-  server: cdnjs.com
-  port: 443
-  type: vmess
-  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-104.24.177.7-208 | 6.08MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: Dusseldorf.kotick.site
-- name: RELAY-104.24.176.7-207 | 1.51MB
-  server: cdnjs.com
-  port: 443
-  type: vmess
-  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-104.24.176.7-207 | 1.51MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: Kansas.kotick.site
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -121,7 +92,6 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-104.24.177.7-208 | 6.08MB
-  - RELAY-104.24.176.7-207 | 1.51MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
