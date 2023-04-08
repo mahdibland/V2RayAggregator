@@ -17,7 +17,36 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: RELAY-172.67.210.221-248 | 18.554MB
+  server: v3.gitvpn.eu.org
+  port: 443
+  type: vmess
+  uuid: 1a205ae2-be41-42b0-abdf-795a2ea3df4e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-172.67.210.221-248 | 18.554MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v3.gitvpn.eu.org
+- name: RELAY-172.67.210.221-255 | 17.266MB
+  server: v13.gitvpn.eu.org
+  port: 443
+  type: vmess
+  uuid: 1a205ae2-be41-42b0-abdf-795a2ea3df4e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-172.67.210.221-255 | 17.266MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v13.gitvpn.eu.org
 proxy-groups:
 - name: Global ©️
   type: select
@@ -92,6 +121,7 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - RELAY-172.67.210.221-248 | 18.554MB
+  - RELAY-172.67.210.221-255 | 17.266MB
 rules:
 - MATCH,Global ©️
