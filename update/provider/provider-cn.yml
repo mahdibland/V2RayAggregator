@@ -82,7 +82,7 @@ proxy-groups:
 - name: manual
   type: select
   use:
-    - local
+    #- local
     - airports
     - aggregator
 
@@ -90,21 +90,22 @@ proxy-groups:
   type: url-test
   #filter: "🏁"
   use:
-    - local
+    #- local
     - airports
     - aggregator
 
 proxy-providers:
 
-  local:
-    type: file
-    path: ./providers/local.yaml ## << Put your custom servers here.
-    health-check:
-      enable: true
-      interval: 3600
-      lazy: true
-      url: "http://cp.cloudflare.com/"
-      #url: "http://detectportal.firefox.com/success.txt"
+  #local:
+    #type: file
+    #path: ./providers/local.yaml ## << Put your custom servers here.
+    #health-check:
+      #enable: true
+      #interval: 3600
+      #lazy: true
+      #url: "http://cdn.jsdelivr.net"
+      ##url: "http://cp.cloudflare.com"
+      ##url: "http://detectportal.firefox.com/success.txt"
 
   airports:
     type: http
@@ -115,7 +116,8 @@ proxy-providers:
       enable: true
       interval: 3600
       lazy: true
-      url: "http://cp.cloudflare.com/"
+      url: "http://cdn.jsdelivr.net"
+      #url: "http://cp.cloudflare.com"
       #url: "http://detectportal.firefox.com/success.txt"
 
   aggregator:
@@ -127,10 +129,12 @@ proxy-providers:
       enable: true
       interval: 3600
       lazy: true
-      url: "http://cp.cloudflare.com/"
+      url: "http://cdn.jsdelivr.net"
+      #url: "http://cp.cloudflare.com"
       #url: "http://detectportal.firefox.com/success.txt"
 
 rules:
   - GEOIP,private,DIRECT,no-resolve ## Loopback and LAN IPs
   - GEOIP,CN,DIRECT ## Check "provider.yml" for Iran's config.
+  - DOMAIN,yacd.haishan.me,DIRECT ## Yet Another Clash Dashboard
   - MATCH,global
