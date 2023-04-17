@@ -1,15 +1,13 @@
-                  ## COUNTRY: NO COUNTRY (BYPASS-FREE) ##
+                          ## COUNTRY: IRAN ##
 ## IMPORTANT: Import the appropriate config URL for your country of residence;-
-# e.g. "provider.yml" if in Iran, instead of manually adjusting it,-
+# e.g. "provider-cn.yml" if in China, instead of manually adjusting it,-
 # to ensure bypassing local services while still receiving updates for the config!
 ## 重要提示：为您居住的国家/地区导入适当的配置 URL；例如 “provider-cn.yml”-
 # 如果在中国而不是手动调整它，以确保绕过本地服务同时仍然接收配置更新！ （谷歌翻译）
-## مهم: آدرس URL کانفیگ مناسب با کشور خود را به نرم افزار وارد کنید؛ مثلا "provider.yml" برای ایران،-
-# بجای دستی تنظیم کردن ، تا علاوه بر پروکسی نشدن سرویس های محلی، برای کانفیگ آپدیت دریافت کنید!
 
           ## In case of modifications, read comments carefully! ##
 
-## For Clash FOSS -- Can also be used with Clash.Meta but `provider-meta-others.yml` is more suitable.
+## For Clash FOSS -- Can also be used with Clash.Meta but `provider-meta.yml` is more suitable.
 ## Android client is available on:
 # Github: https://github.com/Kr328/ClashForAndroid/releases/latest
 # Playstore: https://play.google.com/store/apps/details?id=com.github.kr328.clash
@@ -84,7 +82,7 @@ proxy-groups:
 - name: manual
   type: select
   use:
-    - local
+    #- local
     - airports
     - aggregator
 
@@ -92,21 +90,22 @@ proxy-groups:
   type: url-test
   #filter: "🏁"
   use:
-    - local
+    #- local
     - airports
     - aggregator
 
 proxy-providers:
 
-  local:
-    type: file
-    path: ./providers/local.yaml ## << Put your custom servers here.
-    health-check:
-      enable: true
-      interval: 3600
-      lazy: true
-      url: "http://cp.cloudflare.com/"
-      #url: "http://detectportal.firefox.com/success.txt"
+  #local:
+    #type: file
+    #path: ./providers/local.yaml ## << Put your custom servers here.
+    #health-check:
+      #enable: true
+      #interval: 3600
+      #lazy: true
+      #url: "http://cdn.jsdelivr.net"
+      ##url: "http://cp.cloudflare.com"
+      ##url: "http://detectportal.firefox.com/success.txt"
 
   airports:
     type: http
@@ -117,7 +116,8 @@ proxy-providers:
       enable: true
       interval: 3600
       lazy: true
-      url: "http://cp.cloudflare.com/"
+      url: "http://cdn.jsdelivr.net"
+      #url: "http://cp.cloudflare.com"
       #url: "http://detectportal.firefox.com/success.txt"
 
   aggregator:
@@ -129,9 +129,12 @@ proxy-providers:
       enable: true
       interval: 3600
       lazy: true
-      url: "http://cp.cloudflare.com/"
+      url: "http://cdn.jsdelivr.net"
+      #url: "http://cp.cloudflare.com"
       #url: "http://detectportal.firefox.com/success.txt"
 
 rules:
   - GEOIP,private,DIRECT,no-resolve ## Loopback and LAN IPs
+  - GEOIP,IR,DIRECT ## Check "provider-cn.yml" for China's config.
+  - DOMAIN,yacd.haishan.me,DIRECT ## Yet Another Clash Dashboard
   - MATCH,global
