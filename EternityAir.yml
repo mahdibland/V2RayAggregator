@@ -17,11 +17,11 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇯🇵JP-13.230.38.120-031 | 6.83MB
+- name: 🇯🇵JP-13.230.38.120-227 | 6.916MB
   server: jp05-vm0.entry.srthdw.art
-  port: 30591
+  port: 30589
   type: vmess
-  uuid: b2a2c706-12e0-3335-8a62-31925219a712
+  uuid: 21c670ff-c739-3072-9286-7d2a1d300fcb
   alterId: 1
   cipher: auto
   tls: false
@@ -31,11 +31,25 @@ proxies:
     path: /
     headers:
       Host: jp05-vm0.entry.srthdw.art
-- name: 🇯🇵JP-13.230.38.120-154 | 6.789MB
+- name: 🇯🇵JP-13.230.38.120-273 | 6.905MB
   server: jp05-vm0.entry.srthdw.art
-  port: 30589
+  port: 30591
   type: vmess
-  uuid: 21c670ff-c739-3072-9286-7d2a1d300fcb
+  uuid: c4b2e7ea-1a0e-316f-8e28-0717cc087534
+  alterId: 1
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: jp05-vm0.entry.srthdw.art
+- name: 🇯🇵JP-13.230.38.120-062 | 6.9MB
+  server: jp05-vm0.entry.srthdw.art
+  port: 30591
+  type: vmess
+  uuid: b2a2c706-12e0-3335-8a62-31925219a712
   alterId: 1
   cipher: auto
   tls: false
@@ -119,7 +133,8 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - 🇯🇵JP-13.230.38.120-031 | 6.83MB
-  - 🇯🇵JP-13.230.38.120-154 | 6.789MB
+  - 🇯🇵JP-13.230.38.120-227 | 6.916MB
+  - 🇯🇵JP-13.230.38.120-273 | 6.905MB
+  - 🇯🇵JP-13.230.38.120-062 | 6.9MB
 rules:
 - MATCH,Global ©️
