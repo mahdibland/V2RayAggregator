@@ -101,6 +101,9 @@ class subs_function:
             'RELAY': '🏁',
             'NOWHERE': '🇦🇶',
         }
+        
+        exclude_list_of_countries = ['IL']
+        excluded_proxies = []
 
         for (index, c_proxy) in enumerate(corresponding_proxies):
             proxy = c_proxy['c_clash']
@@ -137,7 +140,7 @@ class subs_function:
                 country_code = 'RELAY'
             elif country_code == 'PRIVATE':
                 country_code = 'RELAY'
-
+                
             if country_code in emoji:
                 name_emoji = emoji[country_code]
             else:
@@ -153,8 +156,12 @@ class subs_function:
 
             # corresponding_proxies[index]["c_clash"] = f"  - {proxy}"
             corresponding_proxies[index]["c_clash"] = proxy
+            
+            # add exclude list
+            if country_code in exclude_list_of_countries:
+                excluded_proxies.append(c_proxy)
 
-        return corresponding_proxies
+        return list(filter(lambda c: c not in excluded_proxies, corresponding_proxies))
 
     def fix_proxies_duplication(corresponding_proxies: []):
         print("\nBefore was " + str(corresponding_proxies.__len__()) + "\n")
