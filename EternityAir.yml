@@ -17,7 +17,81 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: RELAY-104.24.176.7-263 | 7.975MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.176.7-263 | 7.975MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: LosAngeles.kotick.site
+- name: RELAY-172.67.81.238-265 | 7.964MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-172.67.81.238-265 | 7.964MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Amsterdam.kotick.site
+- name: RELAY-104.24.177.7-264 | 7.641MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.177.7-264 | 7.641MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Dusseldorf.kotick.site
+- name: RELAY-172.67.81.238-262 | 7.534MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-172.67.81.238-262 | 7.534MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Lille.kotick.site
+- name: RELAY-172.67.81.238-266 | 6.512MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-172.67.81.238-266 | 6.512MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Kansas.kotick.site
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +147,29 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-104.24.176.7-263 | 7.975MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-172.67.81.238-265 | 7.964MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-104.24.177.7-264 | 7.641MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - RELAY-172.67.81.238-262 | 7.534MB
+  - RELAY-172.67.81.238-266 | 6.512MB
 rules:
 - MATCH,Global ©️
