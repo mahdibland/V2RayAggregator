@@ -17,7 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-172.67.81.238-000 | 8.113MB
+- name: RELAY-104.24.177.7-291 | 8.001MB
   server: cdnjs.com
   port: 443
   type: vmess
@@ -26,13 +26,13 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-172.67.81.238-000 | 8.113MB
+  servername: RELAY-104.24.177.7-291 | 8.001MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: Amsterdam.kotick.site
-- name: RELAY-104.24.176.7-002 | 7.667MB
+- name: RELAY-104.24.176.7-294 | 7.695MB
   server: cdnjs.com
   port: 443
   type: vmess
@@ -41,28 +41,13 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-104.24.176.7-002 | 7.667MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: Dusseldorf.kotick.site
-- name: RELAY-104.24.177.7-001 | 7.24MB
-  server: cdnjs.com
-  port: 443
-  type: vmess
-  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-104.24.177.7-001 | 7.24MB
+  servername: RELAY-104.24.176.7-294 | 7.695MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: LosAngeles.kotick.site
-- name: RELAY-104.24.177.7-003 | 6.92MB
+- name: RELAY-172.67.81.238-292 | 7.613MB
   server: cdnjs.com
   port: 443
   type: vmess
@@ -71,13 +56,13 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-104.24.177.7-003 | 6.92MB
+  servername: RELAY-172.67.81.238-292 | 7.613MB
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: Lille.kotick.site
-- name: RELAY-104.24.177.7-004 | 1.315MB
+      Host: Dusseldorf.kotick.site
+- name: RELAY-104.24.176.7-295 | 5.553MB
   server: cdnjs.com
   port: 443
   type: vmess
@@ -86,12 +71,27 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-104.24.177.7-004 | 1.315MB
+  servername: RELAY-104.24.176.7-295 | 5.553MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: Kansas.kotick.site
+- name: RELAY-172.67.81.238-293 | 4.087MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-172.67.81.238-293 | 4.087MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Lille.kotick.site
 proxy-groups:
 - name: Global ©️
   type: select
@@ -148,28 +148,28 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-172.67.81.238-000 | 8.113MB
+  - RELAY-104.24.177.7-291 | 8.001MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-104.24.176.7-002 | 7.667MB
+  - RELAY-104.24.176.7-294 | 7.695MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-104.24.177.7-001 | 7.24MB
+  - RELAY-172.67.81.238-292 | 7.613MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-104.24.177.7-003 | 6.92MB
-  - RELAY-104.24.177.7-004 | 1.315MB
+  - RELAY-104.24.176.7-295 | 5.553MB
+  - RELAY-172.67.81.238-293 | 4.087MB
 rules:
 - MATCH,Global ©️
