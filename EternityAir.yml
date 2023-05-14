@@ -17,7 +17,48 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: NOWHERE-0.0.0.0-000 | 8.118MB
+  server: 2233Cloud
+  port: 443
+  type: trojan
+  password: 08736267-290e-349f-b12b-8a086a395a12
+  sni: 2233Cloud
+  skip-cert-verify: false
+- name: 🇨🇳CN-111.47.212.60-002 | 7.689MB
+  server: gzyd.jcnode.top
+  port: 22000
+  type: trojan
+  password: b2b26fd1-6981-450f-b6a3-4aba14a9df5f
+  sni: sk01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇨🇳CN-111.47.212.60-004 | 6.987MB
+  server: gzyd.jcnode.top
+  port: 22000
+  type: trojan
+  password: b2b26fd1-6981-450f-b6a3-4aba14a9df5f
+  sni: sk01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇨🇳CN-14.18.120.152-005 | 6.676MB
+  server: gzdx.jcnode.top
+  port: 22000
+  type: trojan
+  password: b2b26fd1-6981-450f-b6a3-4aba14a9df5f
+  sni: sk01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇨🇳CN-111.47.212.60-006 | 0.959MB
+  server: gzyd.jcnode.top
+  port: 20000
+  type: vmess
+  uuid: b2b26fd1-6981-450f-b6a3-4aba14a9df5f
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzyd.jcnode.top
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +114,29 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - NOWHERE-0.0.0.0-000 | 8.118MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-111.47.212.60-002 | 7.689MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-111.47.212.60-004 | 6.987MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇨🇳CN-14.18.120.152-005 | 6.676MB
+  - 🇨🇳CN-111.47.212.60-006 | 0.959MB
 rules:
 - MATCH,Global ©️
