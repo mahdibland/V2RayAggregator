@@ -17,7 +17,41 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇨🇳CN-116.163.29.175-066 | 7.24MB
+  server: scloud41.jafiyun.world
+  port: 22041
+  type: trojan
+  password: 29f9f499-3d2a-3ed9-a9a3-2f0f2b2be3fe
+  sni: scloud41.jafiyun.world
+  skip-cert-verify: false
+- name: 🇨🇳CN-116.163.29.175-068 | 6.135MB
+  server: scloud43.jafiyun.world
+  port: 22043
+  type: trojan
+  password: 29f9f499-3d2a-3ed9-a9a3-2f0f2b2be3fe
+  sni: scloud43.jafiyun.world
+  skip-cert-verify: false
+- name: 🇨🇳CN-116.163.29.175-072 | 5.944MB
+  server: scloud56.jafiyun.world
+  port: 22056
+  type: trojan
+  password: 29f9f499-3d2a-3ed9-a9a3-2f0f2b2be3fe
+  sni: scloud56.jafiyun.world
+  skip-cert-verify: false
+- name: 🇨🇳CN-116.163.29.175-067 | 5.676MB
+  server: scloud42.jafiyun.world
+  port: 22042
+  type: trojan
+  password: 29f9f499-3d2a-3ed9-a9a3-2f0f2b2be3fe
+  sni: scloud42.jafiyun.world
+  skip-cert-verify: false
+- name: 🇨🇳CN-116.163.29.175-073 | 5.582MB
+  server: scloud57.jafiyun.world
+  port: 22057
+  type: trojan
+  password: 29f9f499-3d2a-3ed9-a9a3-2f0f2b2be3fe
+  sni: scloud57.jafiyun.world
+  skip-cert-verify: false
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +107,29 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-116.163.29.175-066 | 7.24MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-116.163.29.175-068 | 6.135MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-116.163.29.175-072 | 5.944MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇨🇳CN-116.163.29.175-067 | 5.676MB
+  - 🇨🇳CN-116.163.29.175-073 | 5.582MB
 rules:
 - MATCH,Global ©️
