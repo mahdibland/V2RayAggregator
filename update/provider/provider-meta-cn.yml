@@ -18,14 +18,9 @@
 mixed-port: 7890
 allow-lan: true
 tcp-concurrent: true
-enable-process: true
 find-process-mode: always
-global-client-fingerprint: chrome
+global-client-fingerprint: random
 geodata-mode: true
-geox-url:
-  geoip: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat"
-  geosite: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
-  mmdb: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb"
 mode: rule
 log-level: error ## silent/error/warning/info/debug
 ipv6: true
@@ -63,27 +58,8 @@ dns:
     - "https://9.9.9.9/dns-query"
     - "https://rubyfish.cn/dns-query"
   fallback-filter:
-    geoip: false
-    ipcidr:
-      - '0.0.0.0/8'
-      - '10.0.0.0/8'
-      - '100.64.0.0/10'
-      - '127.0.0.0/8'
-      - '169.254.0.0/16'
-      - '172.16.0.0/12'
-      - '192.0.0.0/24'
-      - '192.0.2.0/24'
-      - '192.88.99.0/24'
-      - '192.168.0.0/16'
-      - '198.18.0.0/15'
-      - '198.51.100.0/24'
-      - '203.0.113.0/24'
-      - '224.0.0.0/3'
-      - '240.0.0.0/4'
-      - '::1/128'
-      - '64:ff9b:1::/48'
-      - 'fc00::/7'
-      - 'fe80::/10'
+    geoip: true
+    geoip-code: CN
 
 proxy-groups:
 
@@ -92,6 +68,8 @@ proxy-groups:
   proxies:
     - auto
     - manual
+    - DIRECT
+    - REJECT
 
 - name: manual
   type: select
@@ -117,9 +95,9 @@ proxy-providers:
       #enable: true
       #interval: 3600
       #lazy: true
-      #url: "http://cdn.jsdelivr.net"
-      ##url: "http://cp.cloudflare.com"
-      ##url: "http://detectportal.firefox.com/success.txt"
+      #url: "https://cdn.jsdelivr.net"
+      ##url: "https://cp.cloudflare.com"
+      ##url: "https://detectportal.firefox.com/success.txt"
 
   airports:
     type: http
@@ -130,22 +108,23 @@ proxy-providers:
       enable: true
       interval: 3600
       lazy: true
-      url: "http://cdn.jsdelivr.net"
-      #url: "http://cp.cloudflare.com"
-      #url: "http://detectportal.firefox.com/success.txt"
+      url: "https://cdn.jsdelivr.net"
+      #url: "https://cp.cloudflare.com"
+      #url: "https://detectportal.firefox.com/success.txt"
 
   aggregator:
     type: http
     url: "https://cdn.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/sub/sub_merge_yaml.yml"
+    #url: "https://cdn.jsdelivr.net/gh/Bardiafa/Free-V2ray-Config@main/All_Configs_Sub.txt"
     interval: 86400
     path: ./providers/aggregator.yaml
     health-check:
       enable: true
       interval: 3600
       lazy: true
-      url: "http://cdn.jsdelivr.net"
-      #url: "http://cp.cloudflare.com"
-      #url: "http://detectportal.firefox.com/success.txt"
+      url: "https://cdn.jsdelivr.net"
+      #url: "https://cp.cloudflare.com"
+      #url: "https://detectportal.firefox.com/success.txt"
 
 rule-providers:
   applications:
@@ -158,9 +137,10 @@ rule-providers:
 rules:
   - GEOSITE,category-ads-all,REJECT ## Rejects advertisements.
   - GEOSITE,win-spy,REJECT ## Rejects MS Windows analytics and spying.
-  - GEOIP,private,DIRECT,no-resolve ## Loopback and LAN IPs
   - GEOIP,CN,DIRECT ## Check "provider-meta.yml" for Iran's config.
   - GEOSITE,cn,DIRECT ## Check "provider-meta.yml" for Iran's config.
+  - GEOSITE,category-games,DIRECT ## Online gaming
+  - GEOIP,private,DIRECT ## Loopback and LAN IPs
   - RULE-SET,applications,DIRECT ## P2P software e.g. BitTorrent.
   - DOMAIN,yacd.metacubex.one,DIRECT ## Yet Another Clash Dashbord for Clash.Meta
   - DOMAIN,clash.metacubex.one,DIRECT ## Razord
