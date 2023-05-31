@@ -17,7 +17,13 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇩🇪DE-172.104.136.167-105 | 18.348MB
+  server: de01.ckcloud.info
+  port: 21912
+  type: trojan
+  password: 7520618f-e99b-4eec-bdc6-564ee643fe3d
+  sni: de01.ckcloud.info
+  skip-cert-verify: false
 proxy-groups:
 - name: Global ©️
   type: select
@@ -92,6 +98,6 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇩🇪DE-172.104.136.167-105 | 18.348MB
 rules:
 - MATCH,Global ©️
