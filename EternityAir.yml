@@ -17,7 +17,13 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: NOWHERE-0.0.0.0-000 | 21.277MB
+  server: 2233Cloud
+  port: 443
+  type: trojan
+  password: 4e6c50e2-6a4f-3177-92f3-11604aa33401
+  sni: 2233Cloud
+  skip-cert-verify: false
 proxy-groups:
 - name: Global ©️
   type: select
@@ -92,6 +98,6 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - NOWHERE-0.0.0.0-000 | 21.277MB
 rules:
 - MATCH,Global ©️
