@@ -17,7 +17,58 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇩🇪DE-172.104.136.167-054 | 18.093MB
+  server: de01.ckcloud.info
+  port: 21912
+  type: trojan
+  password: 95006c9f-59ca-41ea-babe-7bd8daa6d348
+  sni: de01.ckcloud.info
+  skip-cert-verify: false
+- name: RELAY-104.24.176.7-112 | 7.698MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.176.7-112 | 7.698MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Dusseldorf.kotick.site
+- name: RELAY-104.24.177.7-113 | 7.5MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.177.7-113 | 7.5MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Amsterdam.kotick.site
+- name: RELAY-104.24.177.7-114 | 4.494MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.177.7-114 | 4.494MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Lille.kotick.site
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +124,28 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇩🇪DE-172.104.136.167-054 | 18.093MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-104.24.176.7-112 | 7.698MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-104.24.177.7-113 | 7.5MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - RELAY-104.24.177.7-114 | 4.494MB
 rules:
 - MATCH,Global ©️
