@@ -17,7 +17,73 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇩🇪DE-172.104.136.167-098 | 30.023MB
+  server: de01.ckcloud.info
+  port: 21912
+  type: trojan
+  password: da8e9d81-5494-491a-a587-8be071752b32
+  sni: de01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇺🇸US-192.5.5.241-233 | 10.237MB
+  server: 1v.k8s.now.cc
+  port: 443
+  type: vmess
+  uuid: 1a205ae2-be41-42b0-abdf-795a2ea3df4e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: 🇺🇸US-192.5.5.241-233 | 10.237MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v1.k8s.now.cc
+- name: RELAY-104.21.93.140-235 | 7.865MB
+  server: v3.gitvpn.eu.org
+  port: 443
+  type: vmess
+  uuid: 1a205ae2-be41-42b0-abdf-795a2ea3df4e
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.21.93.140-235 | 7.865MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: v3.gitvpn.eu.org
+- name: RELAY-104.24.176.7-000 | 6.883MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.176.7-000 | 6.883MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Lille.kotick.site
+- name: RELAY-104.24.176.7-002 | 1.075MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.176.7-002 | 1.075MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Kansas.kotick.site
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +139,29 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇩🇪DE-172.104.136.167-098 | 30.023MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇺🇸US-192.5.5.241-233 | 10.237MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-104.21.93.140-235 | 7.865MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - RELAY-104.24.176.7-000 | 6.883MB
+  - RELAY-104.24.176.7-002 | 1.075MB
 rules:
 - MATCH,Global ©️
