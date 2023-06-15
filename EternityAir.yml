@@ -17,12 +17,26 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇩🇪DE-172.104.153.50-041 | 16.505MB
+- name: 🇩🇪DE-172.104.153.50-041 | 11.942MB
   server: de01.ckcloud.info
   port: 21912
   type: trojan
   password: 3fdc777a-4e9a-428f-96bc-adba6c6ae9a8
   sni: de01.ckcloud.info
+  skip-cert-verify: false
+- name: NOWHERE-0.0.0.0-000 | 9.548MB
+  server: 2233Cloud
+  port: 443
+  type: trojan
+  password: eecd75c0-ee3b-3014-ab9a-7215d4048e7c
+  sni: 2233Cloud
+  skip-cert-verify: false
+- name: 🇨🇳CN-124.225.22.110-002 | 9.129MB
+  server: gzdx.jcnode.top
+  port: 43000
+  type: trojan
+  password: 3fdc777a-4e9a-428f-96bc-adba6c6ae9a8
+  sni: sg03.ckcloud.info
   skip-cert-verify: false
 proxy-groups:
 - name: Global ©️
@@ -98,6 +112,8 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - 🇩🇪DE-172.104.153.50-041 | 16.505MB
+  - 🇩🇪DE-172.104.153.50-041 | 11.942MB
+  - NOWHERE-0.0.0.0-000 | 9.548MB
+  - 🇨🇳CN-124.225.22.110-002 | 9.129MB
 rules:
 - MATCH,Global ©️
