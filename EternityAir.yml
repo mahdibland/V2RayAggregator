@@ -17,7 +17,76 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- null
+- name: 🇨🇳CN-14.18.94.209-000 | 11.778MB
+  server: gzyd.jcnode.top
+  port: 29200
+  type: trojan
+  password: 802591ec-8505-4630-bc8d-4bb648a76b08
+  sni: vn01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇨🇳CN-14.18.94.209-002 | 11.412MB
+  server: gzyd.jcnode.top
+  port: 22000
+  type: trojan
+  password: 802591ec-8505-4630-bc8d-4bb648a76b08
+  sni: sk01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇨🇳CN-14.18.94.209-003 | 11.252MB
+  server: gzdx.jcnode.top
+  port: 22000
+  type: trojan
+  password: 802591ec-8505-4630-bc8d-4bb648a76b08
+  sni: sk01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇨🇳CN-124.225.22.110-004 | 11.016MB
+  server: gzdx.jcnode.top
+  port: 20002
+  type: trojan
+  password: 802591ec-8505-4630-bc8d-4bb648a76b08
+  sni: hk01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇨🇳CN-124.225.22.110-005 | 10.983MB
+  server: gzyd.jcnode.top
+  port: 20002
+  type: trojan
+  password: 802591ec-8505-4630-bc8d-4bb648a76b08
+  sni: hk01.ckcloud.info
+  skip-cert-verify: false
+- name: 🇨🇳CN-124.225.22.110-006 | 10.979MB
+  server: gzyd.jcnode.top
+  port: 20000
+  type: vmess
+  uuid: 802591ec-8505-4630-bc8d-4bb648a76b08
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzyd.jcnode.top
+- name: 🇨🇳CN-124.225.22.110-007 | 9.847MB
+  server: gzdx.jcnode.top
+  port: 20000
+  type: vmess
+  uuid: 802591ec-8505-4630-bc8d-4bb648a76b08
+  alterId: 0
+  cipher: auto
+  tls: false
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: gzdx.jcnode.top
+- name: 🇨🇳CN-14.18.94.209-008 | 9.573MB
+  server: gzdx.jcnode.top
+  port: 20005
+  type: trojan
+  password: 802591ec-8505-4630-bc8d-4bb648a76b08
+  sni: hk05.ckcloud.info
+  skip-cert-verify: false
 proxy-groups:
 - name: Global ©️
   type: select
@@ -73,25 +142,32 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-14.18.94.209-000 | 11.778MB
+  - 🇨🇳CN-14.18.94.209-002 | 11.412MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-14.18.94.209-003 | 11.252MB
+  - 🇨🇳CN-124.225.22.110-004 | 11.016MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - 🇨🇳CN-124.225.22.110-005 | 10.983MB
+  - 🇨🇳CN-124.225.22.110-006 | 10.979MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - DIRECT
+  - 🇨🇳CN-124.225.22.110-007 | 9.847MB
+  - 🇨🇳CN-14.18.94.209-008 | 9.573MB
 rules:
 - MATCH,Global ©️
