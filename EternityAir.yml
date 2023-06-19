@@ -17,90 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇨🇳CN-14.18.89.198-052 | 12.762MB
-  server: gzyd.jcnode.top
-  port: 40002
-  type: trojan
-  password: c9baaf7d-f2ff-4335-a8aa-e55405571697
-  sni: hk03.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.103.121-012 | 12.485MB
-  server: gzdx01.jcnode.top
-  port: 20001
-  type: trojan
-  password: 96340c79-4b92-4429-bd2f-c4f5fa8b4770
-  sni: hk04.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.89.198-064 | 12.421MB
-  server: gzdx01.jcnode.top
-  port: 42000
-  type: trojan
-  password: c9baaf7d-f2ff-4335-a8aa-e55405571697
-  sni: rctw02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.89.198-017 | 12.269MB
-  server: gzyd.jcnode.top
-  port: 26000
-  type: trojan
-  password: 96340c79-4b92-4429-bd2f-c4f5fa8b4770
-  sni: uk01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.103.121-002 | 12.266MB
-  server: gzyd.jcnode.top
-  port: 22000
-  type: trojan
-  password: 96340c79-4b92-4429-bd2f-c4f5fa8b4770
-  sni: sk01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.103.121-062 | 11.712MB
-  server: gzdx01.jcnode.top
-  port: 42001
-  type: trojan
-  password: c9baaf7d-f2ff-4335-a8aa-e55405571697
-  sni: rctw01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.89.198-250 | 11.388MB
-  server: gzyd.jcnode.top
-  port: 23005
-  type: trojan
-  password: 23e42a18-0149-42e8-a0ac-b6fd5f11f696
-  sni: sg03.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.103.121-013 | 10.567MB
-  server: gzyd.jcnode.top
-  port: 27000
-  type: trojan
-  password: 96340c79-4b92-4429-bd2f-c4f5fa8b4770
-  sni: de01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.89.198-060 | 6.406MB
-  server: gzyd.jcnode.top
-  port: 41003
-  type: trojan
-  password: c9baaf7d-f2ff-4335-a8aa-e55405571697
-  sni: jp02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.89.198-005 | 2.398MB
-  server: gzyd.jcnode.top
-  port: 20002
-  type: trojan
-  password: 96340c79-4b92-4429-bd2f-c4f5fa8b4770
-  sni: hk01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.89.198-054 | 0.65MB
-  server: gzyd.jcnode.top
-  port: 40001
-  type: trojan
-  password: c9baaf7d-f2ff-4335-a8aa-e55405571697
-  sni: hk02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.18.89.198-046 | 0.501MB
-  server: gzdx01.jcnode.top
-  port: 40004
-  type: trojan
-  password: c9baaf7d-f2ff-4335-a8aa-e55405571697
-  sni: hk05.ckcloud.info
-  skip-cert-verify: false
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -156,36 +73,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-14.18.89.198-052 | 12.762MB
-  - 🇨🇳CN-14.18.103.121-012 | 12.485MB
-  - 🇨🇳CN-14.18.89.198-064 | 12.421MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-14.18.89.198-017 | 12.269MB
-  - 🇨🇳CN-14.18.103.121-002 | 12.266MB
-  - 🇨🇳CN-14.18.103.121-062 | 11.712MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-14.18.89.198-250 | 11.388MB
-  - 🇨🇳CN-14.18.103.121-013 | 10.567MB
-  - 🇨🇳CN-14.18.89.198-060 | 6.406MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-14.18.89.198-005 | 2.398MB
-  - 🇨🇳CN-14.18.89.198-054 | 0.65MB
-  - 🇨🇳CN-14.18.89.198-046 | 0.501MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
