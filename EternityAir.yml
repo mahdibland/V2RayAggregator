@@ -17,34 +17,66 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇨🇳CN-14.18.103.121-000 | 7.937MB
-  server: gzyd.jcnode.top
-  port: 29200
-  type: trojan
-  password: 6d624d59-4778-4a71-941c-4c30e5f51eb6
-  sni: vn01.ckcloud.info
+- name: RELAY-104.24.176.7-044 | 7.927MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
-- name: 🇨🇳CN-14.18.89.198-002 | 7.856MB
-  server: gzyd.jcnode.top
-  port: 22000
-  type: trojan
-  password: 6d624d59-4778-4a71-941c-4c30e5f51eb6
-  sni: sk01.ckcloud.info
+  servername: RELAY-104.24.176.7-044 | 7.927MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Dusseldorf.kotick.site
+- name: RELAY-104.24.176.7-043 | 7.84MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
-- name: 🇨🇳CN-14.18.103.121-003 | 7.452MB
-  server: gzdx.jcnode.top
-  port: 22000
-  type: trojan
-  password: 6d624d59-4778-4a71-941c-4c30e5f51eb6
-  sni: sk01.ckcloud.info
+  servername: RELAY-104.24.176.7-043 | 7.84MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Lille.kotick.site
+- name: RELAY-104.24.176.7-045 | 7.415MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
-- name: 🇨🇳CN-14.18.103.121-004 | 4.543MB
-  server: gzdx.jcnode.top
-  port: 20002
-  type: trojan
-  password: 6d624d59-4778-4a71-941c-4c30e5f51eb6
-  sni: hk01.ckcloud.info
+  servername: RELAY-104.24.176.7-045 | 7.415MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Amsterdam.kotick.site
+- name: RELAY-172.67.81.238-046 | 5.576MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
+  servername: RELAY-172.67.81.238-046 | 5.576MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Kansas.kotick.site
 proxy-groups:
 - name: Global ©️
   type: select
@@ -101,27 +133,27 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-14.18.103.121-000 | 7.937MB
+  - RELAY-104.24.176.7-044 | 7.927MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-14.18.89.198-002 | 7.856MB
+  - RELAY-104.24.176.7-043 | 7.84MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-14.18.103.121-003 | 7.452MB
+  - RELAY-104.24.176.7-045 | 7.415MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-14.18.103.121-004 | 4.543MB
+  - RELAY-172.67.81.238-046 | 5.576MB
 rules:
 - MATCH,Global ©️
