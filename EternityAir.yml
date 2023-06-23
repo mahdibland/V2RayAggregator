@@ -17,21 +17,13 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-104.24.176.7-229 | 5.772MB
-  server: cdnjs.com
-  port: 443
-  type: vmess
-  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-  alterId: 0
-  cipher: auto
-  tls: true
+- name: 🇨🇳CN-14.18.89.198-049 | 3.498MB
+  server: gzyd.jcnode.top
+  port: 29200
+  type: trojan
+  password: 7bf5b8f0-c91c-4302-9630-863a6b2775f7
+  sni: vn01.ckcloud.info
   skip-cert-verify: false
-  servername: RELAY-104.24.176.7-229 | 5.772MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: Dusseldorf.kotick.site
 proxy-groups:
 - name: Global ©️
   type: select
@@ -106,6 +98,6 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-104.24.176.7-229 | 5.772MB
+  - 🇨🇳CN-14.18.89.198-049 | 3.498MB
 rules:
 - MATCH,Global ©️
