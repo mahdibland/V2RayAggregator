@@ -17,7 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-104.24.177.7-000 | 7.641MB
+- name: RELAY-104.24.177.7-242 | 7.331MB
   server: cdnjs.com
   port: 443
   type: vmess
@@ -26,13 +26,28 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-104.24.177.7-000 | 7.641MB
+  servername: RELAY-104.24.177.7-242 | 7.331MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Kansas.kotick.site
+- name: RELAY-104.24.177.7-240 | 7.239MB
+  server: cdnjs.com
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.24.177.7-240 | 7.239MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: Dusseldorf.kotick.site
-- name: RELAY-172.67.81.238-003 | 5.51MB
+- name: RELAY-104.24.177.7-243 | 6.622MB
   server: cdnjs.com
   port: 443
   type: vmess
@@ -41,13 +56,13 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-172.67.81.238-003 | 5.51MB
+  servername: RELAY-104.24.177.7-243 | 6.622MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: Lille.kotick.site
-- name: RELAY-172.67.81.238-001 | 2.771MB
+- name: RELAY-104.24.177.7-241 | 4.043MB
   server: cdnjs.com
   port: 443
   type: vmess
@@ -56,7 +71,7 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-172.67.81.238-001 | 2.771MB
+  servername: RELAY-104.24.177.7-241 | 4.043MB
   network: ws
   ws-opts:
     path: /
@@ -117,27 +132,28 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-104.24.177.7-242 | 7.331MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-104.24.177.7-240 | 7.239MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-104.24.177.7-243 | 6.622MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-104.24.177.7-000 | 7.641MB
-  - RELAY-172.67.81.238-003 | 5.51MB
-  - RELAY-172.67.81.238-001 | 2.771MB
+  - RELAY-104.24.177.7-241 | 4.043MB
 rules:
 - MATCH,Global ©️
