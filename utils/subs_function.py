@@ -158,10 +158,10 @@ class subs_function:
             corresponding_proxies[index]["c_clash"] = proxy
             
             # add exclude list
-            if country_code in exclude_list_of_countries:
+            if country_code in exclude_list_of_countries or name_emoji == emoji['NOWHERE']:
                 excluded_proxies.append(c_proxy)
 
-        return list(filter(lambda c: c not in excluded_proxies, corresponding_proxies))
+        return list(filter(lambda c: c["c_clash"] not in excluded_proxies, corresponding_proxies))
 
     def fix_proxies_duplication(corresponding_proxies: []):
         print("\nBefore was " + str(corresponding_proxies.__len__()) + "\n")
