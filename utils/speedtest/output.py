@@ -3,7 +3,7 @@ import base64
 import os
 import time
 
-out_json = './out.json'
+out_json = './output.json'
 
 sub_all_base64 = "./sub/sub_merge_base64.txt"
 sub_all = "./sub/sub_merge.txt"
