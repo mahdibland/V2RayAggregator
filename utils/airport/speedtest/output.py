@@ -3,7 +3,7 @@ import base64
 import os
 import time
 
-out_json = './out.json'
+out_json = './output.json'
 
 Eternity_Air = "./EternityAir"
 airport_all_base64 = "./sub/airport_merge_base64.txt"
@@ -11,12 +11,12 @@ sub_all = "./sub/airport_sub_merge.txt"
 Eternity_Air_file = "./EternityAir.txt"
 
 
-def read_json(file):  # 将 out.json 内容读取为列表
+def read_json(file):  # 将 output.json 内容读取为列表
     while os.path.isfile(file) == False:
         print('Awaiting speedtest complete')
         time.sleep(30)
     with open(file, 'r', encoding='utf-8') as f:
-        print('Reading out.json')
+        print('Reading output.json')
         proxies_all = json.load(f)["nodes"]
         f.close()
     return proxies_all
