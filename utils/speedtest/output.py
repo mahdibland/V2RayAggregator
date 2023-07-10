@@ -3,7 +3,7 @@ import base64
 import os
 import time
 
-out_json = './output.json'
+out_json = './out.json'
 
 sub_all_base64 = "./sub/sub_merge_base64.txt"
 sub_all = "./sub/sub_merge.txt"
@@ -17,8 +17,8 @@ splitted_output = "./sub/splitted/"
 def read_json(file):  # 将 out.json 内容读取为列表
     while os.path.isfile(file) == False:
         # log
-        file_list = os.listdir("./")
-        print(file_list)
+        #file_list = os.listdir("./")
+        #print(file_list)
         print('Awaiting speedtest complete')
         time.sleep(30)
     with open(file, 'r', encoding='utf-8') as f:
