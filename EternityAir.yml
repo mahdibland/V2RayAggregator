@@ -17,34 +17,66 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: NOWHERE-0.0.0.0-000 | 8.03MB
-  server: 2233Cloud
+- name: RELAY-172.67.197.17-177 | 7.902MB
+  server: 172.67.197.17
   port: 443
-  type: trojan
-  password: eef47135-356c-347b-8f97-c40beb426ad0
-  sni: 2233Cloud
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
-- name: 🇨🇳CN-121.31.49.139-002 | 7.967MB
-  server: scloud15.jafiyun.world
-  port: 22015
-  type: trojan
-  password: 44faffca-c6d3-3334-b5de-15d1b95dae31
-  sni: scloud15.jafiyun.world
+  servername: RELAY-172.67.197.17-177 | 7.902MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Amsterdam.kotick.site
+- name: RELAY-172.67.197.17-178 | 7.745MB
+  server: 172.67.197.17
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
-- name: 🇨🇳CN-121.31.49.139-003 | 7.964MB
-  server: scloud16.jafiyun.world
-  port: 22016
-  type: trojan
-  password: 44faffca-c6d3-3334-b5de-15d1b95dae31
-  sni: scloud16.jafiyun.world
+  servername: RELAY-172.67.197.17-178 | 7.745MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Kansas.kotick.site
+- name: RELAY-172.67.197.17-179 | 7.366MB
+  server: 172.67.197.17
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
-- name: 🇨🇳CN-183.232.112.21-004 | 6.967MB
-  server: scloud41.jafiyun.world
-  port: 22041
-  type: trojan
-  password: 44faffca-c6d3-3334-b5de-15d1b95dae31
-  sni: scloud41.jafiyun.world
+  servername: RELAY-172.67.197.17-179 | 7.366MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Dusseldorf.kotick.site
+- name: RELAY-172.67.197.17-180 | 4.741MB
+  server: 172.67.197.17
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
+  servername: RELAY-172.67.197.17-180 | 4.741MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Lille.kotick.site
 proxy-groups:
 - name: Global ©️
   type: select
@@ -101,27 +133,27 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - NOWHERE-0.0.0.0-000 | 8.03MB
+  - RELAY-172.67.197.17-177 | 7.902MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-121.31.49.139-002 | 7.967MB
+  - RELAY-172.67.197.17-178 | 7.745MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-121.31.49.139-003 | 7.964MB
+  - RELAY-172.67.197.17-179 | 7.366MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-183.232.112.21-004 | 6.967MB
+  - RELAY-172.67.197.17-180 | 4.741MB
 rules:
 - MATCH,Global ©️
