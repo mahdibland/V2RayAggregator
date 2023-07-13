@@ -17,7 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-172.67.197.17-095 | 7.942MB
+- name: RELAY-172.67.197.17-083 | 8.071MB
   server: 172.67.197.17
   port: 443
   type: vmess
@@ -26,13 +26,13 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-172.67.197.17-095 | 7.942MB
+  servername: RELAY-172.67.197.17-083 | 8.071MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: Amsterdam.kotick.site
-- name: RELAY-172.67.197.17-094 | 7.74MB
+- name: RELAY-172.67.197.17-081 | 7.955MB
   server: 172.67.197.17
   port: 443
   type: vmess
@@ -41,13 +41,13 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-172.67.197.17-094 | 7.74MB
+  servername: RELAY-172.67.197.17-081 | 7.955MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: Dusseldorf.kotick.site
-- name: RELAY-172.67.197.17-093 | 7.595MB
+- name: RELAY-172.67.197.17-082 | 7.295MB
   server: 172.67.197.17
   port: 443
   type: vmess
@@ -56,12 +56,19 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-172.67.197.17-093 | 7.595MB
+  servername: RELAY-172.67.197.17-082 | 7.295MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: Lille.kotick.site
+- name: NOWHERE-0.0.0.0-000 | 6.92MB
+  server: 2233Cloud
+  port: 443
+  type: trojan
+  password: 55c2ae64-5621-3499-8ced-4da74ab75a38
+  sni: 2233Cloud
+  skip-cert-verify: false
 proxy-groups:
 - name: Global ©️
   type: select
@@ -117,27 +124,28 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-172.67.197.17-083 | 8.071MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-172.67.197.17-081 | 7.955MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies: []
+  proxies:
+  - RELAY-172.67.197.17-082 | 7.295MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-172.67.197.17-095 | 7.942MB
-  - RELAY-172.67.197.17-094 | 7.74MB
-  - RELAY-172.67.197.17-093 | 7.595MB
+  - NOWHERE-0.0.0.0-000 | 6.92MB
 rules:
 - MATCH,Global ©️
