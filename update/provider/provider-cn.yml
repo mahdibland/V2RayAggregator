@@ -86,38 +86,39 @@ proxy-providers:
       #enable: true
       #interval: 3600
       #lazy: true
-      #url: "https://cdn.jsdelivr.net"
-      ##url: "https://cp.cloudflare.com"
+      #url: "https://cp.cloudflare.com"
+      ##url: "https://cdn.jsdelivr.net"
       ##url: "https://detectportal.firefox.com/success.txt"
 
   airports:
     type: http
-    url: "https://cdn.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/sub/airport_merge_yaml.yml"
+    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_yaml.yml"
     interval: 86400
     path: ./providers/airports.yaml
     health-check:
       enable: true
       interval: 3600
       lazy: true
-      url: "https://cdn.jsdelivr.net"
-      #url: "https://cp.cloudflare.com"
+      url: "https://cp.cloudflare.com"
+      #url: "https://cdn.jsdelivr.net"
       #url: "https://detectportal.firefox.com/success.txt"
 
   aggregator:
     type: http
-    url: "https://cdn.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/sub/sub_merge_yaml.yml"
+    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge_yaml.yml"
     interval: 86400
     path: ./providers/aggregator.yaml
     health-check:
       enable: true
       interval: 3600
       lazy: true
-      url: "https://cdn.jsdelivr.net"
-      #url: "https://cp.cloudflare.com"
+      url: "https://cp.cloudflare.com"
+      #url: "https://cdn.jsdelivr.net"
       #url: "https://detectportal.firefox.com/success.txt"
 
 rules:
   - GEOIP,private,DIRECT ## Loopback and LAN IPs
   - GEOIP,CN,DIRECT ## Check "provider.yml" for Iran's config.
+  - DOMAIN-SUFFIX,cn,DIRECT ## Check "provider.yml" for Iran's config.
   - DOMAIN,yacd.haishan.me,DIRECT ## Yet Another Clash Dashboard
   - MATCH,global
