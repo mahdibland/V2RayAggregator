@@ -55,13 +55,16 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     indexx = 0
     for line in temp_providers:
         if line != 'proxies:':
-            #####
-            server_name = substrings(line, "name:", ",")
-            server_type = substrings(line, "type:", ",")
-            log_lines[indexx] = "name: %s | type: %s | %s" % (
-                server_name, server_type, log_lines[indexx])
-            #####
-            indexx += 1
+            try:
+                #####
+                server_name = substrings(line, "name:", ",")
+                server_type = substrings(line, "type:", ",")
+                log_lines[indexx] = "name: %s | type: %s | %s" % (
+                    server_name, server_type, log_lines[indexx])
+                #####
+                indexx += 1
+            except:
+                print("log lines length != providers length")
 
     log_writer = open(log_file, 'w')
     log_writer.writelines(log_lines)
