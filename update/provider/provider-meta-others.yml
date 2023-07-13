@@ -96,42 +96,42 @@ proxy-providers:
       #enable: true
       #interval: 3600
       #lazy: true
-      #url: "https://cdn.jsdelivr.net"
-      ##url: "https://cp.cloudflare.com"
+      #url: "https://cp.cloudflare.com"
+      ##url: "https://cdn.jsdelivr.net"
       ##url: "https://detectportal.firefox.com/success.txt"
 
   airports:
     type: http
-    url: "https://cdn.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/sub/airport_merge_yaml.yml"
+    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/airport_merge_yaml.yml"
     interval: 86400
     path: ./providers/airports.yaml
     health-check:
       enable: true
       interval: 3600
       lazy: true
-      url: "https://cdn.jsdelivr.net"
-      #url: "https://cp.cloudflare.com"
+      url: "https://cp.cloudflare.com"
+      #url: "https://cdn.jsdelivr.net"
       #url: "https://detectportal.firefox.com/success.txt"
 
   aggregator:
     type: http
-    url: "https://cdn.jsdelivr.net/gh/mahdibland/V2RayAggregator@master/sub/sub_merge_yaml.yml"
-    #url: "https://cdn.jsdelivr.net/gh/Bardiafa/Free-V2ray-Config@main/All_Configs_Sub.txt"
+    url: "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt"
+    #url: "https://raw.githubusercontent.com/Bardiafa/Free-V2ray-Config/main/All_Configs_Sub.txt"
     interval: 86400
     path: ./providers/aggregator.yaml
     health-check:
       enable: true
       interval: 3600
       lazy: true
-      url: "https://cdn.jsdelivr.net"
-      #url: "https://cp.cloudflare.com"
+      url: "https://cp.cloudflare.com"
+      #url: "https://cdn.jsdelivr.net"
       #url: "https://detectportal.firefox.com/success.txt"
 
 rule-providers:
   applications:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    url: "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt"
     path: ./ruleset/applications.yaml
     interval: 604800
 
