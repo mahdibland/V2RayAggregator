@@ -17,48 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇨🇳CN-223.113.141.190-095 | 15.924MB
-  server: gzyd01.jcnode.top
-  port: 61066
-  type: trojan
-  password: 41f60028-4355-4731-8fce-5805b8f3341e
-  sni: rctw02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-223.113.141.190-111 | 13.817MB
-  server: gzyd02.jcnode.top
-  port: 22122
-  type: trojan
-  password: 41f60028-4355-4731-8fce-5805b8f3341e
-  sni: de01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-223.113.141.190-096 | 12.684MB
-  server: gzyd02.jcnode.top
-  port: 61066
-  type: trojan
-  password: 41f60028-4355-4731-8fce-5805b8f3341e
-  sni: rctw02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-223.113.141.190-113 | 9.921MB
-  server: gzyd02.jcnode.top
-  port: 36403
-  type: trojan
-  password: 41f60028-4355-4731-8fce-5805b8f3341e
-  sni: uk01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-223.113.141.190-075 | 2.662MB
-  server: gzyd02.jcnode.top
-  port: 57600
-  type: trojan
-  password: 41f60028-4355-4731-8fce-5805b8f3341e
-  sni: hk02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-223.113.141.190-061 | 1.232MB
-  server: gzyd01.jcnode.top
-  port: 27934
-  type: trojan
-  password: 41f60028-4355-4731-8fce-5805b8f3341e
-  sni: vn01.ckcloud.info
-  skip-cert-verify: false
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -114,30 +73,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-223.113.141.190-095 | 15.924MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-223.113.141.190-111 | 13.817MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-223.113.141.190-096 | 12.684MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-223.113.141.190-113 | 9.921MB
-  - 🇨🇳CN-223.113.141.190-075 | 2.662MB
-  - 🇨🇳CN-223.113.141.190-061 | 1.232MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
