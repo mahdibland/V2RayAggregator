@@ -17,118 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇨🇳CN-14.215.47.121-076 | 15.177MB
-  server: gzdx01.jcnode.top
-  port: 15579
-  type: trojan
-  password: f9f0caab-2a49-4643-be3d-7111b5fb9b3b
-  sni: jp02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-051 | 14.902MB
-  server: gzdx01.jcnode.top
-  port: 39315
-  type: trojan
-  password: f9f0caab-2a49-4643-be3d-7111b5fb9b3b
-  sni: sk01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-065 | 14.145MB
-  server: gzdx01.jcnode.top
-  port: 62525
-  type: trojan
-  password: f9f0caab-2a49-4643-be3d-7111b5fb9b3b
-  sni: hk03.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-093 | 12.753MB
-  server: gzdx01.jcnode.top
-  port: 34472
-  type: trojan
-  password: f9f0caab-2a49-4643-be3d-7111b5fb9b3b
-  sni: sg03.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-010 | 12.048MB
-  server: gzdx01.jcnode.top
-  port: 55823
-  type: vmess
-  uuid: c9c9161f-d430-4a7a-bd7c-d2762ec092b8
-  alterId: 0
-  cipher: auto
-  tls: false
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: gzdx01.jcnode.top
-- name: 🇨🇳CN-14.215.47.121-085 | 9.808MB
-  server: gzdx01.jcnode.top
-  port: 28606
-  type: trojan
-  password: f9f0caab-2a49-4643-be3d-7111b5fb9b3b
-  sni: rctw01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-097 | 9.652MB
-  server: gzdx01.jcnode.top
-  port: 45920
-  type: trojan
-  password: f9f0caab-2a49-4643-be3d-7111b5fb9b3b
-  sni: sg01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-088 | 9.334MB
-  server: gzdx01.jcnode.top
-  port: 28033
-  type: trojan
-  password: f9f0caab-2a49-4643-be3d-7111b5fb9b3b
-  sni: rctw02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-016 | 8.262MB
-  server: gzdx01.jcnode.top
-  port: 57230
-  type: trojan
-  password: c9c9161f-d430-4a7a-bd7c-d2762ec092b8
-  sni: hk04.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-038 | 4.644MB
-  server: gzdx01.jcnode.top
-  port: 15035
-  type: trojan
-  password: c9c9161f-d430-4a7a-bd7c-d2762ec092b8
-  sni: sg01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-036 | 2.474MB
-  server: gzdx01.jcnode.top
-  port: 21760
-  type: trojan
-  password: c9c9161f-d430-4a7a-bd7c-d2762ec092b8
-  sni: vn01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-062 | 1.92MB
-  server: gzdx01.jcnode.top
-  port: 32631
-  type: trojan
-  password: f9f0caab-2a49-4643-be3d-7111b5fb9b3b
-  sni: hk04.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-054 | 0.659MB
-  server: gzdx01.jcnode.top
-  port: 43686
-  type: trojan
-  password: f9f0caab-2a49-4643-be3d-7111b5fb9b3b
-  sni: vn01.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-013 | 0.214MB
-  server: gzdx01.jcnode.top
-  port: 17967
-  type: trojan
-  password: c9c9161f-d430-4a7a-bd7c-d2762ec092b8
-  sni: hk02.ckcloud.info
-  skip-cert-verify: false
-- name: 🇨🇳CN-14.215.47.121-068 | 0.192MB
-  server: gzdx01.jcnode.top
-  port: 40027
-  type: trojan
-  password: f9f0caab-2a49-4643-be3d-7111b5fb9b3b
-  sni: hk02.ckcloud.info
-  skip-cert-verify: false
+- null
 proxy-groups:
 - name: Global ©️
   type: select
@@ -184,39 +73,25 @@ proxy-groups:
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-14.215.47.121-076 | 15.177MB
-  - 🇨🇳CN-14.215.47.121-051 | 14.902MB
-  - 🇨🇳CN-14.215.47.121-065 | 14.145MB
+  proxies: []
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-14.215.47.121-093 | 12.753MB
-  - 🇨🇳CN-14.215.47.121-010 | 12.048MB
-  - 🇨🇳CN-14.215.47.121-085 | 9.808MB
+  proxies: []
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
-  proxies:
-  - 🇨🇳CN-14.215.47.121-097 | 9.652MB
-  - 🇨🇳CN-14.215.47.121-088 | 9.334MB
-  - 🇨🇳CN-14.215.47.121-016 | 8.262MB
+  proxies: []
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-14.215.47.121-038 | 4.644MB
-  - 🇨🇳CN-14.215.47.121-036 | 2.474MB
-  - 🇨🇳CN-14.215.47.121-062 | 1.92MB
-  - 🇨🇳CN-14.215.47.121-054 | 0.659MB
-  - 🇨🇳CN-14.215.47.121-013 | 0.214MB
-  - 🇨🇳CN-14.215.47.121-068 | 0.192MB
+  - DIRECT
 rules:
 - MATCH,Global ©️
