@@ -17,7 +17,7 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: RELAY-172.67.180.138-003 | 7.979MB
+- name: RELAY-104.21.59.157-197 | 7.854MB
   server: bobbykotick.rip
   port: 443
   type: vmess
@@ -26,43 +26,13 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-172.67.180.138-003 | 7.979MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: Amsterdam.bobbykotick.rip
-- name: RELAY-172.67.180.138-002 | 7.914MB
-  server: bobbykotick.rip
-  port: 443
-  type: vmess
-  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-172.67.180.138-002 | 7.914MB
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: Kansas.bobbykotick.rip
-- name: RELAY-172.67.180.138-001 | 7.876MB
-  server: bobbykotick.rip
-  port: 443
-  type: vmess
-  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  servername: RELAY-172.67.180.138-001 | 7.876MB
+  servername: RELAY-104.21.59.157-197 | 7.854MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: Dusseldorf.bobbykotick.rip
-- name: RELAY-104.21.59.157-000 | 6.575MB
+- name: RELAY-172.67.180.138-199 | 7.816MB
   server: bobbykotick.rip
   port: 443
   type: vmess
@@ -71,12 +41,42 @@ proxies:
   cipher: auto
   tls: true
   skip-cert-verify: false
-  servername: RELAY-104.21.59.157-000 | 6.575MB
+  servername: RELAY-172.67.180.138-199 | 7.816MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Amsterdam.bobbykotick.rip
+- name: RELAY-104.21.59.157-198 | 7.759MB
+  server: bobbykotick.rip
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.21.59.157-198 | 7.759MB
   network: ws
   ws-opts:
     path: /
     headers:
       Host: Lille.bobbykotick.rip
+- name: RELAY-104.21.59.157-196 | 7.535MB
+  server: bobbykotick.rip
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  servername: RELAY-104.21.59.157-196 | 7.535MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Kansas.bobbykotick.rip
 proxy-groups:
 - name: Global ©️
   type: select
@@ -133,27 +133,27 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-172.67.180.138-003 | 7.979MB
+  - RELAY-104.21.59.157-197 | 7.854MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-172.67.180.138-002 | 7.914MB
+  - RELAY-172.67.180.138-199 | 7.816MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-172.67.180.138-001 | 7.876MB
+  - RELAY-104.21.59.157-198 | 7.759MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - RELAY-104.21.59.157-000 | 6.575MB
+  - RELAY-104.21.59.157-196 | 7.535MB
 rules:
 - MATCH,Global ©️
