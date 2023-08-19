@@ -55,8 +55,8 @@ dns:
   fallback:
     - "https://1.1.1.1/dns-query"
     - "https://8.8.8.8/dns-query"
-    - "https://kronos.plan9-dns.com/dns-query"
     - "https://sky.rethinkdns.com/dns-query"
+    - "https://kronos.plan9-dns.com/dns-query"
   fallback-filter:
     geoip: true
     geoip-code: IR
@@ -138,7 +138,7 @@ rule-providers:
     type: http
     format: text
     behavior: domain
-    url: "https://github.com/MasterKia/iran-hosted-domains/releases/latest/download/clash_rules_other.txt"
+    url: "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/clash_rules_other.txt"
     path: ./ruleset/iran_other.txt
     interval: 604800
 
@@ -156,7 +156,7 @@ rules:
   - RULE-SET,iran_ads,REJECT ## Rejects Persian ads. [PersianBlocker](https://github.com/MasterKia/PersianBlocker) (License: AGPLv3)
   - GEOSITE,category-ir,DIRECT ## -\
   - DOMAIN-SUFFIX,ir,DIRECT ## -----> Check "provider-meta-cn.yml" for China's config.
-  - RULE-SET,iran_other,DIRECT ## -/
+  - RULE-SET,iran_other,DIRECT ## -/ [Bootmortis/iran-hosted-domains](https://github.com/bootmortis/iran-hosted-domains) (License: MIT)
   - GEOIP,IR,DIRECT ## -----------/
   - GEOSITE,category-games,DIRECT ## Online gaming
   - GEOIP,private,DIRECT ## Loopback and LAN IPs
