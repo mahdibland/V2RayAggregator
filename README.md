@@ -642,3 +642,4 @@ merge nodes w/o dup: `7043`
 ### Credit: 
 - [alanbobs999](https://github.com/alanbobs999)
 - [PersianBlocker](https://github.com/MasterKia/PersianBlocker)
+- [iran-hosted-domains](https://github.com/bootmortis/iran-hosted-domains)
