@@ -17,34 +17,66 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: 🇨🇳CN-183.249.20.192-000 | 7.64MB
-  server: scloud15.jafiyun.world
-  port: 22015
-  type: trojan
-  password: 24b11372-6b93-3d66-9005-ddfe1fdfb809
-  sni: scloud15.jafiyun.world
+- name: RELAY-172.67.180.138-001 | 8.203MB
+  server: bobbykotick.rip
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
-- name: 🇨🇳CN-183.249.20.192-001 | 7.266MB
-  server: scloud16.jafiyun.world
-  port: 22016
-  type: trojan
-  password: 24b11372-6b93-3d66-9005-ddfe1fdfb809
-  sni: scloud16.jafiyun.world
+  servername: RELAY-172.67.180.138-001 | 8.203MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Amsterdam.bobbykotick.rip
+- name: RELAY-104.21.59.157-004 | 6.683MB
+  server: bobbykotick.rip
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
-- name: 🇨🇳CN-120.240.82.60-002 | 7.189MB
-  server: scloud41.jafiyun.world
-  port: 22041
-  type: trojan
-  password: 24b11372-6b93-3d66-9005-ddfe1fdfb809
-  sni: scloud41.jafiyun.world
+  servername: RELAY-104.21.59.157-004 | 6.683MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Lille.bobbykotick.rip
+- name: RELAY-172.67.180.138-002 | 6.267MB
+  server: bobbykotick.rip
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
-- name: 🇨🇳CN-120.240.82.60-003 | 6.415MB
-  server: scloud42.jafiyun.world
-  port: 22042
-  type: trojan
-  password: 24b11372-6b93-3d66-9005-ddfe1fdfb809
-  sni: scloud42.jafiyun.world
+  servername: RELAY-172.67.180.138-002 | 6.267MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Dusseldorf.bobbykotick.rip
+- name: RELAY-172.67.180.138-003 | 3.984MB
+  server: bobbykotick.rip
+  port: 443
+  type: vmess
+  uuid: 2F094845-E2BD-EBF7-DEB7-995992436FAF
+  alterId: 0
+  cipher: auto
+  tls: true
   skip-cert-verify: false
+  servername: RELAY-172.67.180.138-003 | 3.984MB
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: Kansas.bobbykotick.rip
 proxy-groups:
 - name: Global ©️
   type: select
@@ -101,27 +133,27 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-183.249.20.192-000 | 7.64MB
+  - RELAY-172.67.180.138-001 | 8.203MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-183.249.20.192-001 | 7.266MB
+  - RELAY-104.21.59.157-004 | 6.683MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-120.240.82.60-002 | 7.189MB
+  - RELAY-172.67.180.138-002 | 6.267MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
-  - 🇨🇳CN-120.240.82.60-003 | 6.415MB
+  - RELAY-172.67.180.138-003 | 3.984MB
 rules:
 - MATCH,Global ©️
