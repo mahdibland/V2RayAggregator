@@ -112,6 +112,7 @@ jobs:
           git add README.md
           git add ./update/*
           git add LogInfo.txt
+          git clean -f -d
           git commit -m "✔️ $(date '+%Y-%m-%d %H:%M:%S') Filtered"
       - name: Push Change
         uses: ad-m/github-push-action@master
