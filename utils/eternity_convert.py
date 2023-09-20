@@ -96,6 +96,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     #     sg_proxy = []
     #     others_proxy = []
     indexx = 0
+    skip_names_index = []
     for line in lines:
         if line != 'proxies:':
             try:
@@ -114,6 +115,7 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
                 line_parsed.update({"password": str(line_parsed.get("password"))})
                 # interpreted as a floating-point number
                 if re.match(r'^\d+\.?\d*[eE][-+]?\d+$', line_parsed["password"]):
+                    skip_names_index.append(indexx)
                     indexx += 1
                     continue
                 
@@ -185,6 +187,9 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
     for key in provider_dic.keys():
         if not provider_dic[key]['proxies'] is None:
             for proxy in provider_dic[key]['proxies']:
+                if indexx in skip_names_index:
+                    indexx += 1 
+                    continue
                 try:
                     speed = substrings(
                         log_lines_without_bad_char[indexx], "avg_speed:", "|")
