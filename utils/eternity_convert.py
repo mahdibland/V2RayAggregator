@@ -112,6 +112,11 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
             line_parsed = yaml.safe_load(line)
             if "password" in line_parsed:
                 line_parsed.update({"password": str(line_parsed.get("password"))})
+                # interpreted as a floating-point number
+                if re.match(r'^\d+\.?\d*[eE][-+]?\d+$', line_parsed["password"]):
+                    indexx += 1
+                    continue
+                
             linee = line_parsed
             proxy_all.append(linee)
 
