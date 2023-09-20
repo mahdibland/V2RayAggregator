@@ -109,7 +109,10 @@ def eternity_convert(file, config, output, provider_file_enabled=True):
                 pass
             #           line = '  ' + line
             line = line.replace('- ', '')
-            linee = yaml.safe_load(line)
+            line_parsed = yaml.safe_load(line)
+            if "password" in line_parsed:
+                line_parsed.update({"password": str(line_parsed.get("password"))})
+            linee = line_parsed
             proxy_all.append(linee)
 
             indexx += 1
