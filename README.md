@@ -521,7 +521,7 @@ high-speed node quantity: `200`
 - you can import these 200 tested nodes using their subscription link into different clients. refer to `Instructions & Usage` section
 
 ### all nodes
-merge nodes w/o dup: `5726`
+merge nodes w/o dup: `5801`
 - [Node link Mixed (V2ray)](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 - [Node link Yaml (Clash)](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
@@ -545,8 +545,8 @@ merge nodes w/o dup: `5726`
 
 ### node sources
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `38`
-- [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `21`
-- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `246`
+- [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `30`
+- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `237`
 - [FiFier/v2rayShare](https://github.com/FiFier/v2rayShare), number of nodes: `30`
 - [huanongkejizhijia/clashnode](https://github.com/huanongkejizhijia/clashnode), number of nodes: `30`
 - [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), number of nodes: `121`
@@ -558,20 +558,20 @@ merge nodes w/o dup: `5726`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `18`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `34`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
-- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `666`
-- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `41`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `25`
-- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `44`
+- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `675`
+- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `47`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `19`
+- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `45`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `217`
 - [clash.221207.xyz/pubclashyaml](https://clash.221207.xyz/pubclashyaml), number of nodes: `362`
-- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `315`
-- [freefq/free](https://github.com/freefq/free), number of nodes: `21`
+- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `325`
+- [freefq/free](https://github.com/freefq/free), number of nodes: `23`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `156`
 - [YasserDivaR/pr0xy](https://github.com/YasserDivaR/pr0xy), number of nodes: `1385`
-- [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `306`
+- [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `350`
 - [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `2347`
-- [free.jingfu.cf/clash](https://free.jingfu.cf/clash), number of nodes: `94`
-- [proxy.yugogo.xyz/clash](https://proxy.yugogo.xyz/clash), number of nodes: `213`
+- [free.jingfu.cf/clash](https://free.jingfu.cf/clash), number of nodes: `91`
+- [proxy.yugogo.xyz/clash](https://proxy.yugogo.xyz/clash), number of nodes: `212`
 - [jikelonglie/meskell](https://github.com/jikelonglie/meskell), number of nodes: `9`
 - [freebaipiao/freebaipiao](https://github.com/freebaipiao/freebaipiao), number of nodes: `6`
 - [huwo1/proxy_nodes](https://bitbucket.org/huwo1/proxy_nodes/src/main), number of nodes: `183`
@@ -585,7 +585,7 @@ merge nodes w/o dup: `5726`
 - [jiang.netlify.app](https://jiang.netlify.app), number of nodes: `10`
 - [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), number of nodes: `250`
 - [SnapdragonLee/SystemProxy](https://github.com/SnapdragonLee/SystemProxy), number of nodes: `239`
-- [free.iam7.tk/clash](https://free.iam7.tk/clash), number of nodes: `425`
+- [free.iam7.tk/clash](https://free.iam7.tk/clash), number of nodes: `433`
 - [sub.pmsub.me/base64](https://sub.pmsub.me/base64), number of nodes: `2`
 - [hermanb001/ProxyTest](https://github.com/hermanb001/ProxyTest), number of nodes: `1743`
 - [LonUp/NodeList](https://github.com/LonUp/NodeList), number of nodes: `1451`
