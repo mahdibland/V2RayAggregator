@@ -545,9 +545,9 @@ merge nodes w/o dup: `5864`
 
 ### node sources
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `163`
-- [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `22`
-- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `151`
-- [FiFier/v2rayShare](https://github.com/FiFier/v2rayShare), number of nodes: `41`
+- [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `29`
+- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `142`
+- [FiFier/v2rayShare](https://github.com/FiFier/v2rayShare), number of nodes: `28`
 - [huanongkejizhijia/clashnode](https://github.com/huanongkejizhijia/clashnode), number of nodes: `29`
 - [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), number of nodes: `121`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `233`
@@ -558,19 +558,19 @@ merge nodes w/o dup: `5864`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `10`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `35`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
-- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `617`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `48`
-- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `53`
+- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `693`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `40`
+- [Rokate/Proxy-Sub](https://github.com/Rokate/Proxy-Sub), number of nodes: `52`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `217`
 - [clash.221207.xyz/pubclashyaml](https://clash.221207.xyz/pubclashyaml), number of nodes: `253`
-- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `420`
-- [freefq/free](https://github.com/freefq/free), number of nodes: `37`
+- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `413`
+- [freefq/free](https://github.com/freefq/free), number of nodes: `22`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `156`
 - [yaney01/Yaney01](https://github.com/yaney01/Yaney01), number of nodes: `260`
 - [YasserDivaR/pr0xy](https://github.com/YasserDivaR/pr0xy), number of nodes: `1385`
-- [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `279`
+- [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `248`
 - [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `2347`
-- [free.jingfu.cf/clash](https://free.jingfu.cf/clash), number of nodes: `116`
+- [free.jingfu.cf/clash](https://free.jingfu.cf/clash), number of nodes: `102`
 - [jikelonglie/meskell](https://github.com/jikelonglie/meskell), number of nodes: `9`
 - [freebaipiao/freebaipiao](https://github.com/freebaipiao/freebaipiao), number of nodes: `6`
 - [huwo1/proxy_nodes](https://bitbucket.org/huwo1/proxy_nodes/src/main), number of nodes: `183`
@@ -584,7 +584,7 @@ merge nodes w/o dup: `5864`
 - [jiang.netlify.app](https://jiang.netlify.app), number of nodes: `10`
 - [learnhard-cn/free_proxy_ss](https://github.com/learnhard-cn/free_proxy_ss), number of nodes: `250`
 - [SnapdragonLee/SystemProxy](https://github.com/SnapdragonLee/SystemProxy), number of nodes: `239`
-- [free.iam7.tk/clash](https://free.iam7.tk/clash), number of nodes: `376`
+- [free.iam7.tk/clash](https://free.iam7.tk/clash), number of nodes: `375`
 - [sub.pmsub.me/base64](https://sub.pmsub.me/base64), number of nodes: `2`
 - [hermanb001/ProxyTest](https://github.com/hermanb001/ProxyTest), number of nodes: `1743`
 - [LonUp/NodeList](https://github.com/LonUp/NodeList), number of nodes: `1451`
