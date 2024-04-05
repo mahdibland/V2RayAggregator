@@ -521,7 +521,7 @@ high-speed node quantity: `200`
 - you can import these 200 tested nodes using their subscription link into different clients. refer to `Instructions & Usage` section
 
 ### all nodes
-merge nodes w/o dup: `5031`
+merge nodes w/o dup: `5012`
 - [Node link Mixed (V2ray)](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 - [Node link Yaml (Clash)](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
@@ -546,7 +546,7 @@ merge nodes w/o dup: `5031`
 ### node sources
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `58`
 - [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `49`
-- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `156`
+- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `123`
 - [FiFier/v2rayShare](https://github.com/FiFier/v2rayShare), number of nodes: `20`
 - [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), number of nodes: `121`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `261`
@@ -566,8 +566,8 @@ merge nodes w/o dup: `5031`
 - [freefq/free](https://github.com/freefq/free), number of nodes: `14`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `156`
 - [YasserDivaR/pr0xy](https://github.com/YasserDivaR/pr0xy), number of nodes: `1385`
-- [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `172`
-- [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `2337`
+- [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `185`
+- [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `2380`
 - [jikelonglie/meskell](https://github.com/jikelonglie/meskell), number of nodes: `9`
 - [freebaipiao/freebaipiao](https://github.com/freebaipiao/freebaipiao), number of nodes: `6`
 - [huwo1/proxy_nodes](https://bitbucket.org/huwo1/proxy_nodes/src/main), number of nodes: `183`
