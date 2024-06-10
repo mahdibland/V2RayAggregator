@@ -4,7 +4,7 @@
 [![Collect](https://github.com/mahdibland/SSAggregator/actions/workflows/Collector.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/Collector.yml) [![Airport Collect](https://github.com/mahdibland/SSAggregator/actions/workflows/Airport_Collector.yml/badge.svg)](https://github.com/mahdibland/SSAggregator/actions/workflows/Airport_Collector.yml)
 
 ## Quick Note & Updates
-🔴 ~~This project is still under maintance. so don't use it until further announcement cause there is a chance you will get errors while updating the nodes, etc.~~  
+🔴 ~~This project is still under maintenance. so don't use it until further announcement cause there is a chance you will get errors while updating the nodes, etc.~~  
 
 🟢 11/1/2022: from now you can use this project. also readme file updated with the recent changes so you can find out which file to use.
 
