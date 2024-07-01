@@ -521,7 +521,7 @@ high-speed node quantity: `200`
 - you can import these 200 tested nodes using their subscription link into different clients. refer to `Instructions & Usage` section
 
 ### all nodes
-merge nodes w/o dup: `4823`
+merge nodes w/o dup: `4849`
 - [Node link Mixed (V2ray)](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 - [Node link Yaml (Clash)](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
@@ -545,9 +545,9 @@ merge nodes w/o dup: `4823`
 
 ### node sources
 - [pojiezhiyuanjun/freev2](https://github.com/pojiezhiyuanjun/freev2), number of nodes: `111`
-- [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `20`
-- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `244`
-- [FiFier/v2rayShare](https://github.com/FiFier/v2rayShare), number of nodes: `20`
+- [Nodefree.org](https://github.com/Fukki-Z/nodefree), number of nodes: `18`
+- [mianfeifq/share](https://github.com/mianfeifq/share), number of nodes: `264`
+- [FiFier/v2rayShare](https://github.com/FiFier/v2rayShare), number of nodes: `18`
 - [colatiger/v2ray-nodes](https://github.com/colatiger/v2ray-nodes), number of nodes: `121`
 - [ssrsub/ssr](https://github.com/ssrsub/ssr), number of nodes: `551`
 - [mahdibland/ShadowsocksAggregator](https://github.com/mahdibland/ShadowsocksAggregator), number of nodes: `200`
@@ -558,11 +558,10 @@ merge nodes w/o dup: `4823`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `20`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
 - [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `76`
-- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `58`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `41`
+- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `54`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `217`
 - [clash.221207.xyz/pubclashyaml](https://clash.221207.xyz/pubclashyaml), number of nodes: `203`
-- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `352`
+- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `350`
 - [freefq/free](https://github.com/freefq/free), number of nodes: `14`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `156`
 - [yaney01/Yaney01](https://github.com/yaney01/Yaney01), number of nodes: `27`
