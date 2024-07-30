@@ -521,7 +521,7 @@ high-speed node quantity: `200`
 - you can import these 200 tested nodes using their subscription link into different clients. refer to `Instructions & Usage` section
 
 ### all nodes
-merge nodes w/o dup: `4949`
+merge nodes w/o dup: `4923`
 - [Node link Mixed (V2ray)](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 - [Node link Yaml (Clash)](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
@@ -556,12 +556,12 @@ merge nodes w/o dup: `4949`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `1`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `20`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
-- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `72`
-- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `149`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `50`
+- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `70`
+- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `151`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `65`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `217`
 - [clash.221207.xyz/pubclashyaml](https://clash.221207.xyz/pubclashyaml), number of nodes: `203`
-- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `421`
+- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `455`
 - [freefq/free](https://github.com/freefq/free), number of nodes: `14`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `156`
 - [yaney01/Yaney01](https://github.com/yaney01/Yaney01), number of nodes: `27`
