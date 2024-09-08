@@ -521,7 +521,7 @@ high-speed node quantity: `200`
 - you can import these 200 tested nodes using their subscription link into different clients. refer to `Instructions & Usage` section
 
 ### all nodes
-merge nodes w/o dup: `4598`
+merge nodes w/o dup: `4589`
 - [Node link Mixed (V2ray)](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 - [Node link Yaml (Clash)](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
@@ -554,11 +554,11 @@ merge nodes w/o dup: `4598`
 - [DoveBoy/Vmess-Actions](https://github.com/ldir92664/Vmess-Actions), number of nodes: `105`
 - [gooooooooooooogle/Clash-Config](https://github.com/gooooooooooooogle/Clash-Config), number of nodes: `1`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `1`
-- [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `24`
+- [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `29`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
-- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `111`
-- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `118`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `76`
+- [anaer/Sub](https://github.com/anaer/Sub), number of nodes: `113`
+- [aiboboxx/v2rayfree](https://github.com/aiboboxx/v2rayfree), number of nodes: `112`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `4`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `217`
 - [clash.221207.xyz/pubclashyaml](https://clash.221207.xyz/pubclashyaml), number of nodes: `203`
 - [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `425`
@@ -566,7 +566,7 @@ merge nodes w/o dup: `4598`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `156`
 - [yaney01/Yaney01](https://github.com/yaney01/Yaney01), number of nodes: `27`
 - [YasserDivaR/pr0xy](https://github.com/YasserDivaR/pr0xy), number of nodes: `621`
-- [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `112`
+- [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `113`
 - [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `2478`
 - [jikelonglie/meskell](https://github.com/jikelonglie/meskell), number of nodes: `9`
 - [freebaipiao/freebaipiao](https://github.com/freebaipiao/freebaipiao), number of nodes: `6`
