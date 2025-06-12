@@ -30,12 +30,12 @@ jobs:
       - name: Upload log file
         uses: actions/upload-artifact@v4
         with:
-          name: geoip-test-log
-          path: geoip_test.log
+          name: http-test-log
+          path: http_test.log
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add sub/us_only_sub.txt geoip_test.log
-          git commit -m "Update US-only VPN list with GeoIP filter" || echo "No changes to commit"
+          git add sub/us_only_sub.txt http_cache.pkl http_test.log
+          git commit -m "Update US-only VPN list with GeoIP and HTTP test" || echo "No changes to commit"
           git push
