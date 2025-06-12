@@ -6,7 +6,7 @@ import re
 import os
 
 # تنظیمات
-SUB_FILE = "sub/sub_merge.txt"  # مسیر فایل ساب در ریپازیتوری
+SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
 OUTPUT_FILE = "sub/us_only_sub.txt"  # فایل خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
 
@@ -39,12 +39,13 @@ def is_us_ip(ip, reader):
         return False
 
 def main():
-    # خواندن فایل sub_merge.txt
+    # گرفتن لیست کانکشن‌ها از لینک خام
     try:
-        with open(SUB_FILE, "r") as f:
-            connections = f.read().strip().splitlines()
-    except FileNotFoundError:
-        print(f"File {SUB_FILE} not found!")
+        response = requests.get(SUB_URL, timeout=10)
+        response.raise_for_status()
+        connections = response.text.strip().splitlines()
+    except requests.RequestException as e:
+        print(f"Error fetching {SUB_URL}: {e}")
         return
 
     # باز کردن دیتابیس GeoIP
