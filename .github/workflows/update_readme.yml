@@ -1,0 +1,36 @@
+name: Update VPN Links
+
+   on:
+     schedule:
+       - cron: '0 */6 * * *' # هر ۶ ساعت
+     workflow_dispatch:
+
+   jobs:
+     update-vpn-links:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Checkout repository
+           uses: actions/checkout@v4
+
+         - name: Set up Python
+           uses: actions/setup-python@v5
+           with:
+             python-version: '3.x'
+
+         - name: Install dependencies
+           run: |
+             python -m pip install --upgrade pip
+             pip install pytz
+
+         - name: Run generate_readme.py
+           run: python generate_readme.py
+
+         - name: Commit and push changes
+           run: |
+             git config --global user.name 'github-actions[bot]'
+             git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+             git add VPN_LINKS.md
+             git commit -m "به‌روزرسانی خودکار VPN_LINKS.md" || echo "هیچ تغییری برای کامیت وجود ندارد"
+             git push
+           env:
+             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
