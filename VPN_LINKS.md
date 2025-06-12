@@ -2,31 +2,31 @@
 
 این صفحه شامل لینک‌های خام برای فایل‌های کانکشن وی‌پی‌ان است که هر کدام به یک کشور خاص اختصاص دارند. این فایل‌ها هر ۶ ساعت به‌صورت خودکار به‌روزرسانی می‌شوند.
 
-**آخرین به‌روزرسانی**: 2025-06-12 18:45:31 (به وقت تهران)
+**آخرین به‌روزرسانی**: 2025-06-12 21:54:34 (به وقت تهران)
 
 | نام کشور | تعداد کانکشن‌ها | لینک کانکشن |
 |----------|------------------|-------------|
-| ایالات متحده | 1645 | [us_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/us_only_sub.txt) |
+| ایالات متحده | 1478 | [us_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/us_only_sub.txt) |
 | کانادا | 194 | [ca_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ca_only_sub.txt) |
 | بریتانیا | 176 | [gb_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/gb_only_sub.txt) |
-| آلمان | 174 | [de_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/de_only_sub.txt) |
-| سنگاپور | 169 | [sg_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/sg_only_sub.txt) |
-| چین | 160 | [cn_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cn_only_sub.txt) |
+| آلمان | 175 | [de_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/de_only_sub.txt) |
+| سنگاپور | 167 | [sg_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/sg_only_sub.txt) |
+| چین | 159 | [cn_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cn_only_sub.txt) |
 | هلند | 157 | [nl_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/nl_only_sub.txt) |
 | فرانسه | 115 | [fr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/fr_only_sub.txt) |
 | ژاپن | 98 | [jp_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/jp_only_sub.txt) |
-| هنگ‌کنگ | 87 | [hk_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/hk_only_sub.txt) |
-| لهستان | 76 | [pl_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pl_only_sub.txt) |
+| هنگ‌کنگ | 92 | [hk_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/hk_only_sub.txt) |
+| لهستان | 78 | [pl_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pl_only_sub.txt) |
 | قبرس | 72 | [cy_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cy_only_sub.txt) |
-| کره جنوبی | 58 | [kr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/kr_only_sub.txt) |
+| کره جنوبی | 60 | [kr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/kr_only_sub.txt) |
 | ویتنام | 46 | [vn_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/vn_only_sub.txt) |
 | بلیز | 45 | [bz_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/bz_only_sub.txt) |
 | تایوان | 43 | [tw_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/tw_only_sub.txt) |
-| روسیه | 38 | [ru_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ru_only_sub.txt) |
+| روسیه | 39 | [ru_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ru_only_sub.txt) |
 | اسپانیا | 26 | [es_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/es_only_sub.txt) |
-| ترکیه | 24 | [tr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/tr_only_sub.txt) |
+| ترکیه | 25 | [tr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/tr_only_sub.txt) |
 | سوئد | 22 | [se_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/se_only_sub.txt) |
-| هند | 17 | [in_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/in_only_sub.txt) |
+| هند | 16 | [in_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/in_only_sub.txt) |
 | ایرلند | 16 | [ie_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ie_only_sub.txt) |
 | لیتوانی | 15 | [lt_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/lt_only_sub.txt) |
 | بلغارستان | 14 | [bg_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/bg_only_sub.txt) |
@@ -37,7 +37,7 @@
 | ارمنستان | 9 | [am_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/am_only_sub.txt) |
 | مالزی | 9 | [my_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/my_only_sub.txt) |
 | فنلاند | 9 | [fi_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/fi_only_sub.txt) |
-| امارات متحده عربی | 8 | [ae_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ae_only_sub.txt) |
+| امارات متحده عربی | 7 | [ae_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ae_only_sub.txt) |
 | اتریش | 6 | [at_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/at_only_sub.txt) |
 | آفریقای جنوبی | 6 | [za_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/za_only_sub.txt) |
 | ماکائو | 6 | [mo_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mo_only_sub.txt) |
