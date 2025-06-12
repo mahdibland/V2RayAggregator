@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests geoip2 pythonping
+          pip install requests geoip2
       - name: Download GeoLite2 database
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
@@ -30,12 +30,12 @@ jobs:
       - name: Upload log file
         uses: actions/upload-artifact@v4
         with:
-          name: ping-test-log
-          path: ping_test.log
+          name: geoip-test-log
+          path: geoip_test.log
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add sub/us_only_sub.txt ip_cache.pkl ping_test.log
-          git commit -m "Update US-only VPN list with ping test to server IP" || echo "No changes to commit"
+          git add sub/us_only_sub.txt geoip_test.log
+          git commit -m "Update US-only VPN list with GeoIP filter" || echo "No changes to commit"
           git push
