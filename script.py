@@ -119,7 +119,8 @@ def main():
                 if test_service_access(ip):
                     us_connections.append(conn)
                 else:
-                    with open(f"Skipping {ip}: Failed HTTP test\n")
+                    with open(LOG_FILE, "a") as f:
+                        f.write(f"Skipping {ip}: Failed HTTP test\n")
 
     with open(LOG_FILE, "a") as f:
         f.write(f"Processed {domains} domains, Found {us_ips} US IPs, Saved {len(us_connections)} connections\n")
