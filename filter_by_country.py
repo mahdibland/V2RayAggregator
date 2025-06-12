@@ -11,6 +11,14 @@ SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/
 OUTPUT_DIR = "sub"  # پوشه خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
 LOG_FILE = "geoip_test.log"  # فایل لاگ برای عیب‌یابی
+US_TEST_URL = "https://labs.google/"  # URL تست برای US
+OTHER_TEST_URL = "https://google.com"  # URL تست برای بقیه کشورها
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Referer": "https://www.google.com/"
+}
 
 # تابع برای گرفتن آی‌پی یا دامنه از لینک کانکشن
 def extract_ip_from_connection(connection):
@@ -53,10 +61,24 @@ def get_country_code(ip, reader):
             f.write(f"GeoIP error for IP {ip}\n")
         return None
 
+# تابع برای تست دسترسی به سرویس
+def test_service_access(ip, country_code):
+    test_url = US_TEST_URL if country_code == "US" else OTHER_TEST_URL
+    try:
+        response = requests.head(test_url, headers=HEADERS, timeout=5, allow_redirects=True)
+        result = response.status_code in (200, 301, 302)
+        with open(LOG_FILE, "a") as f:
+            f.write(f"HTTP test {ip} ({test_url}): {'Success' if result else 'Failed'} (Status: {response.status_code})\n")
+        return result
+    except requests.RequestException as e:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"HTTP error for {ip} ({test_url}): {e}\n")
+        return False
+
 def main():
     # باز کردن فایل لاگ
     with open(LOG_FILE, "w") as f:
-        f.write(f"Starting GeoIP test log at {os.popen('date').read()}\n")
+        f.write(f"Starting GeoIP and HTTP test log at {os.popen('date').read()}\n")
 
     # گرفتن لیست کانکشن‌ها از لینک خام
     try:
@@ -82,7 +104,7 @@ def main():
     country_connections = {}
     domains = 0
 
-    # فیلتر کردن کانکشن‌ها بر اساس کشور
+    # فیلتر کردن کانکشن‌ها بر اساس کشور و تست HTTP
     for conn in connections:
         host = extract_ip_from_connection(conn)
         if host:
@@ -97,9 +119,13 @@ def main():
 
             country_code = get_country_code(ip, reader)
             if country_code:  # فقط اگه کد کشور معتبر باشه
-                if country_code not in country_connections:
-                    country_connections[country_code] = []
-                country_connections[country_code].append(conn)
+                if test_service_access(ip, country_code):
+                    if country_code not in country_connections:
+                        country_connections[country_code] = []
+                    country_connections[country_code].append(conn)
+                else:
+                    with open(LOG_FILE, "a") as f:
+                        f.write(f"Skipping {ip}: Failed HTTP test\n")
 
     # ذخیره کانکشن‌ها در فایل‌های جداگانه
     os.makedirs(OUTPUT_DIR, exist_ok=True)
