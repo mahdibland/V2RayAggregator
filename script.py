@@ -11,12 +11,9 @@ from pythonping import ping
 SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
 OUTPUT_FILE = "sub/us_only_sub.txt"  # فایل خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
-TEST_URL = "https://labs.google/fx/tools/image-fx"
 PING_URL = "cp.cloudflare.com"
 CACHE_FILE = "ip_cache.pkl"  # فایل کش برای نتایج تست
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/91.0.4472.124"
-}
+LOG_FILE = "ping_test.log"  # فایل لاگ برای عیب‌یابی
 
 # تابع برای گرفتن آی‌پی از لینک کانکشن
 def extract_ip_from_connection(connection):
@@ -33,7 +30,8 @@ def extract_ip_from_connection(connection):
             return server.group(1) if server else None
         return None
     except Exception as e:
-        print(f"Error parsing connection: {e}")
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Error parsing connection: {e}\n")
         return None
 
 # تابع برای چک کردن موقعیت آی‌پی
@@ -42,6 +40,8 @@ def is_us_ip(ip, reader):
         response = reader.city(ip)
         return response.country.iso_code == "US"
     except Exception:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"GeoIP error for IP {ip}\n")
         return False
 
 # تابع برای تست پینگ
@@ -53,16 +53,20 @@ def test_ping(ip):
         cache = {}
 
     if f"{ip}_ping" in cache:
-        print(f"Using cached ping result for {ip}: {cache[f'{ip}_ping']}")
-        return cache[f"{ip}_ping"]
+        result = cache[f"{ip}_ping"]
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Cached ping result for {ip}: {'Success' if result else 'Failed'}\n")
+        return result
 
     try:
         response = ping(ip, count=2, timeout=2)  # 2 پینگ با تایم‌اوت 2 ثانیه
         result = response.success()
         cache[f"{ip}_ping"] = result
-        print(f"Ping {ip}: {'Success' if result else 'Failed'}")
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Ping {ip}: {'Success' if result else 'Failed'}\n")
     except Exception as e:
-        print(f"Ping error for {ip}: {e}")
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Ping error for {ip}: {e}\n")
         cache[f"{ip}_ping"] = False
         result = False
 
@@ -71,67 +75,54 @@ def test_ping(ip):
 
     return result
 
-# تابع برای تست دسترسی به سرویس
-def test_service_access(ip):
-    try:
-        with open(CACHE_FILE, "rb") as f:
-            cache = pickle.load(f)
-    except FileNotFoundError:
-        cache = {}
-
-    if f"{ip}_http" in cache:
-        print(f"Using cached HTTP result for {ip}: {cache[f'{ip}_http']}")
-        return cache[f"{ip}_http"]
-
-    try:
-        response = requests.head(TEST_URL, headers=HEADERS, timeout=5, allow_redirects=True)
-        result = response.status_code in (200, 301, 302)
-        cache[f"{ip}_http"] = result
-        print(f"HTTP test {ip}: {'Success' if result else 'Failed'} (Status: {response.status_code})")
-    except requests.RequestException as e:
-        print(f"HTTP error for {ip}: {e}")
-        cache[f"{ip}_http"] = False
-        result = False
-
-    with open(CACHE_FILE, "wb") as f:
-        pickle.dump(cache, f)
-
-    return result
-
 def main():
+    # باز کردن فایل لاگ
+    with open(LOG_FILE, "w") as f:
+        f.write("Starting ping test log\n")
+
     # گرفتن لیست کانکشن‌ها از لینک خام
     try:
         response = requests.get(SUB_URL, timeout=10)
         response.raise_for_status()
         connections = response.text.strip().splitlines()
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Fetched {len(connections)} connections from {SUB_URL}\n")
     except requests.RequestException as e:
-        print(f"Error fetching {SUB_URL}: {e}")
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Error fetching {SUB_URL}: {e}\n")
         return
 
     # باز کردن دیتابیس GeoIP
-    reader = geoip2.database.Reader(GEOIP_DB)
+    try:
+        reader = geoip2.database.Reader(GEOIP_DB)
+    except Exception as e:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Error opening GeoIP database: {e}\n")
+        return
 
     # فیلتر کردن کانکشن‌های مربوط به آمریکا
     us_connections = []
+    us_ips = 0
     for conn in connections:
         ip = extract_ip_from_connection(conn)
         if ip and is_us_ip(ip, reader):
-            # مرحله 1: تست پینگ
-            if not test_ping(ip):
-                print(f"Skipping {ip}: Failed ping test")
-                continue
-            # مرحله 2: تست سرویس
-            if test_service_access(ip):
+            us_ips += 1
+            if test_ping(ip):
                 us_connections.append(conn)
             else:
-                print(f"Skipping {ip}: Failed service test")
+                with open(LOG_FILE, "a") as f:
+                    f.write(f"Skipping {ip}: Failed ping test\n")
+
+    with open(LOG_FILE, "a") as f:
+        f.write(f"Found {us_ips} US IPs, {len(us_connections)} passed ping test\n")
 
     # ذخیره کانکشن‌ها در فایل
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     with open(OUTPUT_FILE, "w") as f:
         f.write("\n".join(us_connections))
 
-    print(f"Saved {len(us_connections)} US connections to {OUTPUT_FILE}")
+    with open(LOG_FILE, "a") as f:
+        f.write(f"Saved {len(us_connections)} US connections to {OUTPUT_FILE}\n")
 
     # بستن دیتابیس GeoIP
     reader.close()
