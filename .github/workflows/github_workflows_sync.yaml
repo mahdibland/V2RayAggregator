@@ -1,0 +1,18 @@
+name: Sync Fork
+on:
+  schedule:
+    - cron: "0 */6 * * *"  # هر ۶ ساعت
+  workflow_dispatch:  # امکان اجرای دستی
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Sync with upstream
+        run: |
+          git remote add upstream https://github.com/mahdibland/SSAggregator.git
+          git fetch upstream
+          git checkout main
+          git merge upstream/main --allow-unrelated-histories || echo "Merge conflicts, resolving automatically"
+          git push origin main
