@@ -10,7 +10,7 @@ import socket
 SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
 OUTPUT_FILE = "sub/us_only_sub.txt"  # فایل خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
-TEST_URL = "https://labs.google.com/fx/tools/image-fx"
+TEST_URL = "https://labs.google/"  # URL جدید برای تست HTTP
 LOG_FILE = "http_test.log"  # فایل لاگ برای عیب‌یابی
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
