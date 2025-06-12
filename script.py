@@ -5,13 +5,13 @@ import geoip2.database
 import re
 import os
 import pickle
+import socket
 from pythonping import ping
 
 # تنظیمات
 SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
 OUTPUT_FILE = "sub/us_only_sub.txt"  # فایل خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
-PING_URL = "8.8.8.8"  # پینگ به سرور DNS گوگل
 CACHE_FILE = "ip_cache.pkl"  # فایل کش برای نتایج تست
 LOG_FILE = "ping_test.log"  # فایل لاگ برای عیب‌یابی
 
@@ -32,6 +32,18 @@ def extract_ip_from_connection(connection):
     except Exception as e:
         with open(LOG_FILE, "a") as f:
             f.write(f"Error parsing connection: {e}\n")
+        return None
+
+# تابع برای تبدیل دامنه به آی‌پی
+def resolve_to_ip(host):
+    try:
+        ip = socket.gethostbyname(host)
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Resolved {host} to {ip}\n")
+        return ip
+    except socket.gaierror as e:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"DNS resolution error for {host}: {e}\n")
         return None
 
 # تابع برای چک کردن موقعیت آی‌پی
@@ -59,14 +71,14 @@ def test_ping(ip):
         return result
 
     try:
-        response = ping(PING_URL, count=2, timeout=2)  # 2 پینگ به 8.8.8.8 با تایم‌اوت 2 ثانیه
+        response = ping(ip, count=2, timeout=4)  # 2 پینگ با تایم‌اوت 4 ثانیه
         result = response.success()
         cache[f"{ip}_ping"] = result
         with open(LOG_FILE, "a") as f:
-            f.write(f"Ping {ip} to {PING_URL}: {'Success' if result else 'Failed'}\n")
+            f.write(f"Ping {ip}: {'Success' if result else 'Failed'}\n")
     except Exception as e:
         with open(LOG_FILE, "a") as f:
-            f.write(f"Ping error for {ip} to {PING_URL}: {e}\n")
+            f.write(f"Ping error for {ip}: {e}\n")
         cache[f"{ip}_ping"] = False
         result = False
 
@@ -76,6 +88,12 @@ def test_ping(ip):
     return result
 
 def main():
+    # پاک کردن کش قدیمی
+    if os.path.exists(CACHE_FILE):
+        os.remove(CACHE_FILE)
+        with open(LOG_FILE, "a") as f:
+            f.write("Cleared old cache file\n")
+
     # باز کردن فایل لاگ
     with open(LOG_FILE, "w") as f:
         f.write(f"Starting ping test log at {os.popen('date').read()}\n")
@@ -103,18 +121,29 @@ def main():
     # فیلتر کردن کانکشن‌های مربوط به آمریکا
     us_connections = []
     us_ips = 0
+    domains = 0
     for conn in connections:
-        ip = extract_ip_from_connection(conn)
-        if ip and is_us_ip(ip, reader):
-            us_ips += 1
-            if test_ping(ip):
-                us_connections.append(conn)
+        host = extract_ip_from_connection(conn)
+        if host:
+            # چک کردن اینکه ورودی آی‌پی است یا دامنه
+            if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", host):
+                ip = host
             else:
-                with open(LOG_FILE, "a") as f:
-                    f.write(f"Skipping {ip}: Failed ping test to {PING_URL}\n")
+                domains += 1
+                ip = resolve_to_ip(host)
+                if not ip:
+                    continue
+
+            if is_us_ip(ip, reader):
+                us_ips += 1
+                if test_ping(ip):
+                    us_connections.append(conn)
+                else:
+                    with open(LOG_FILE, "a") as f:
+                        f.write(f"Skipping {ip}: Failed ping test\n")
 
     with open(LOG_FILE, "a") as f:
-        f.write(f"Found {us_ips} US IPs, {len(us_connections)} passed ping test\n")
+        f.write(f"Processed {domains} domains, Found {us_ips} US IPs, {len(us_connections)} passed ping test\n")
 
     # ذخیره کانکشن‌ها در فایل
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
