@@ -4,18 +4,15 @@ import json
 import geoip2.database
 import re
 import os
-import pickle
 import socket
-from pythonping import ping
 
 # تنظیمات
 SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
 OUTPUT_FILE = "sub/us_only_sub.txt"  # فایل خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
-CACHE_FILE = "ip_cache.pkl"  # فایل کش برای نتایج تست
-LOG_FILE = "ping_test.log"  # فایل لاگ برای عیب‌یابی
+LOG_FILE = "geoip_test.log"  # فایل لاگ برای عیب‌یابی
 
-# تابع برای گرفتن آی‌پی از لینک کانکشن
+# تابع برای گرفتن آی‌پی یا دامنه از لینک کانکشن
 def extract_ip_from_connection(connection):
     try:
         if connection.startswith("vmess://"):
@@ -56,47 +53,10 @@ def is_us_ip(ip, reader):
             f.write(f"GeoIP error for IP {ip}\n")
         return False
 
-# تابع برای تست پینگ
-def test_ping(ip):
-    try:
-        with open(CACHE_FILE, "rb") as f:
-            cache = pickle.load(f)
-    except FileNotFoundError:
-        cache = {}
-
-    if f"{ip}_ping" in cache:
-        result = cache[f"{ip}_ping"]
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Cached ping result for {ip}: {'Success' if result else 'Failed'}\n")
-        return result
-
-    try:
-        response = ping(ip, count=2, timeout=4)  # 2 پینگ با تایم‌اوت 4 ثانیه
-        result = response.success()
-        cache[f"{ip}_ping"] = result
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Ping {ip}: {'Success' if result else 'Failed'}\n")
-    except Exception as e:
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Ping error for {ip}: {e}\n")
-        cache[f"{ip}_ping"] = False
-        result = False
-
-    with open(CACHE_FILE, "wb") as f:
-        pickle.dump(cache, f)
-
-    return result
-
 def main():
-    # پاک کردن کش قدیمی
-    if os.path.exists(CACHE_FILE):
-        os.remove(CACHE_FILE)
-        with open(LOG_FILE, "a") as f:
-            f.write("Cleared old cache file\n")
-
     # باز کردن فایل لاگ
     with open(LOG_FILE, "w") as f:
-        f.write(f"Starting ping test log at {os.popen('date').read()}\n")
+        f.write(f"Starting GeoIP test log at {os.popen('date').read()}\n")
 
     # گرفتن لیست کانکشن‌ها از لینک خام
     try:
@@ -136,14 +96,10 @@ def main():
 
             if is_us_ip(ip, reader):
                 us_ips += 1
-                if test_ping(ip):
-                    us_connections.append(conn)
-                else:
-                    with open(LOG_FILE, "a") as f:
-                        f.write(f"Skipping {ip}: Failed ping test\n")
+                us_connections.append(conn)
 
     with open(LOG_FILE, "a") as f:
-        f.write(f"Processed {domains} domains, Found {us_ips} US IPs, {len(us_connections)} passed ping test\n")
+        f.write(f"Processed {domains} domains, Found {us_ips} US IPs, Saved {len(us_connections)} connections\n")
 
     # ذخیره کانکشن‌ها در فایل
     os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
