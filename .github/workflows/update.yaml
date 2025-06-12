@@ -36,6 +36,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add sub/us_only_sub.txt http_cache.pkl http_test.log
-          git commit -m "Update US-only VPN list with GeoIP and HTTP test" || echo "No changes to commit"
+          git add sub/us_only_sub.txt http_test.log
+          git commit -m "Update US-only VPN list with GeoIP and HTTP test (no cache)" || echo "No changes to commit"
           git push
