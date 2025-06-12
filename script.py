@@ -4,13 +4,19 @@ import json
 import geoip2.database
 import re
 import os
+import pickle
 import socket
 
 # تنظیمات
 SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
 OUTPUT_FILE = "sub/us_only_sub.txt"  # فایل خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
-LOG_FILE = "geoip_test.log"  # فایل لاگ برای عیب‌یابی
+TEST_URL = "https://labs.google.com/fx/tools/image-fx"
+CACHE_FILE = "http_cache.pkl"  # فایل کش برای نتایج تست HTTP
+LOG_FILE = "http_test.log"  # فایل لاگ برای عیب‌یابی
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/91.0.4472.124"
+}
 
 # تابع برای گرفتن آی‌پی یا دامنه از لینک کانکشن
 def extract_ip_from_connection(connection):
@@ -53,10 +59,41 @@ def is_us_ip(ip, reader):
             f.write(f"GeoIP error for IP {ip}\n")
         return False
 
+# تابع برای تست دسترسی به سرویس
+def test_service_access(ip):
+    try:
+        with open(CACHE_FILE, "rb") as f:
+            cache = pickle.load(f)
+    except FileNotFoundError:
+        cache = {}
+
+    if ip in cache:
+        result = cache[ip]
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Cached HTTP result for {ip}: {'Success' if result else 'Failed'}\n")
+        return result
+
+    try:
+        response = requests.head(TEST_URL, headers=HEADERS, timeout=5, allow_redirects=True)
+        result = response.status_code in (200, 301, 302)
+        cache[ip] = result
+        with open(LOG_FILE, "a") as f:
+            f.write(f"HTTP test {ip}: {'Success' if result else 'Failed'} (Status: {response.status_code})\n")
+    except requests.RequestException as e:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"HTTP error for {ip}: {e}\n")
+        cache[ip] = False
+        result = False
+
+    with open(CACHE_FILE, "wb") as f:
+        pickle.dump(cache, f)
+
+    return result
+
 def main():
     # باز کردن فایل لاگ
     with open(LOG_FILE, "w") as f:
-        f.write(f"Starting GeoIP test log at {os.popen('date').read()}\n")
+        f.write(f"Starting HTTP test log at {os.popen('date').read()}\n")
 
     # گرفتن لیست کانکشن‌ها از لینک خام
     try:
@@ -96,7 +133,11 @@ def main():
 
             if is_us_ip(ip, reader):
                 us_ips += 1
-                us_connections.append(conn)
+                if test_service_access(ip):
+                    us_connections.append(conn)
+                else:
+                    with open(LOG_FILE, "a") as f:
+                        f.write(f"Skipping {ip}: Failed HTTP test\n")
 
     with open(LOG_FILE, "a") as f:
         f.write(f"Processed {domains} domains, Found {us_ips} US IPs, Saved {len(us_connections)} connections\n")
