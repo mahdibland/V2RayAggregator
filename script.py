@@ -11,7 +11,7 @@ from pythonping import ping
 SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
 OUTPUT_FILE = "sub/us_only_sub.txt"  # فایل خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
-PING_URL = "cp.cloudflare.com"
+PING_URL = "8.8.8.8"  # پینگ به سرور DNS گوگل
 CACHE_FILE = "ip_cache.pkl"  # فایل کش برای نتایج تست
 LOG_FILE = "ping_test.log"  # فایل لاگ برای عیب‌یابی
 
@@ -59,14 +59,14 @@ def test_ping(ip):
         return result
 
     try:
-        response = ping(ip, count=2, timeout=2)  # 2 پینگ با تایم‌اوت 2 ثانیه
+        response = ping(PING_URL, count=2, timeout=2)  # 2 پینگ به 8.8.8.8 با تایم‌اوت 2 ثانیه
         result = response.success()
         cache[f"{ip}_ping"] = result
         with open(LOG_FILE, "a") as f:
-            f.write(f"Ping {ip}: {'Success' if result else 'Failed'}\n")
+            f.write(f"Ping {ip} to {PING_URL}: {'Success' if result else 'Failed'}\n")
     except Exception as e:
         with open(LOG_FILE, "a") as f:
-            f.write(f"Ping error for {ip}: {e}\n")
+            f.write(f"Ping error for {ip} to {PING_URL}: {e}\n")
         cache[f"{ip}_ping"] = False
         result = False
 
@@ -78,7 +78,7 @@ def test_ping(ip):
 def main():
     # باز کردن فایل لاگ
     with open(LOG_FILE, "w") as f:
-        f.write("Starting ping test log\n")
+        f.write(f"Starting ping test log at {os.popen('date').read()}\n")
 
     # گرفتن لیست کانکشن‌ها از لینک خام
     try:
@@ -111,7 +111,7 @@ def main():
                 us_connections.append(conn)
             else:
                 with open(LOG_FILE, "a") as f:
-                    f.write(f"Skipping {ip}: Failed ping test\n")
+                    f.write(f"Skipping {ip}: Failed ping test to {PING_URL}\n")
 
     with open(LOG_FILE, "a") as f:
         f.write(f"Found {us_ips} US IPs, {len(us_connections)} passed ping test\n")
