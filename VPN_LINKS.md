@@ -2,11 +2,11 @@
 
 این صفحه شامل لینک‌های خام برای فایل‌های کانکشن وی‌پی‌ان است که هر کدام به یک کشور خاص اختصاص دارند. این فایل‌ها هر ۶ ساعت به‌صورت خودکار به‌روزرسانی می‌شوند.
 
-**آخرین به‌روزرسانی**: 2025-06-12 16:06:07 (به وقت تهران)
+**آخرین به‌روزرسانی**: 2025-06-12 17:09:40 (به وقت تهران)
 
 | نام کشور | تعداد کانکشن‌ها | لینک کانکشن |
 |----------|------------------|-------------|
-| ایالات متحده | 1475 | [us_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/us_only_sub.txt) |
+| ایالات متحده | 0 | [us_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/us_only_sub.txt) |
 | کانادا | 194 | [ca_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ca_only_sub.txt) |
 | بریتانیا | 176 | [gb_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/gb_only_sub.txt) |
 | آلمان | 174 | [de_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/de_only_sub.txt) |
