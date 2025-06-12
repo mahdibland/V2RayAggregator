@@ -4,7 +4,6 @@ import json
 import geoip2.database
 import re
 import os
-import pickle
 import socket
 
 # تنظیمات
@@ -12,10 +11,12 @@ SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/
 OUTPUT_FILE = "sub/us_only_sub.txt"  # فایل خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
 TEST_URL = "https://labs.google.com/fx/tools/image-fx"
-CACHE_FILE = "http_cache.pkl"  # فایل کش برای نتایج تست HTTP
 LOG_FILE = "http_test.log"  # فایل لاگ برای عیب‌یابی
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/91.0.4472.124"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5",
+    "Referer": "https://www.google.com/"
 }
 
 # تابع برای گرفتن آی‌پی یا دامنه از لینک کانکشن
@@ -62,33 +63,15 @@ def is_us_ip(ip, reader):
 # تابع برای تست دسترسی به سرویس
 def test_service_access(ip):
     try:
-        with open(CACHE_FILE, "rb") as f:
-            cache = pickle.load(f)
-    except FileNotFoundError:
-        cache = {}
-
-    if ip in cache:
-        result = cache[ip]
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Cached HTTP result for {ip}: {'Success' if result else 'Failed'}\n")
-        return result
-
-    try:
         response = requests.head(TEST_URL, headers=HEADERS, timeout=5, allow_redirects=True)
         result = response.status_code in (200, 301, 302)
-        cache[ip] = result
         with open(LOG_FILE, "a") as f:
             f.write(f"HTTP test {ip}: {'Success' if result else 'Failed'} (Status: {response.status_code})\n")
+        return result
     except requests.RequestException as e:
         with open(LOG_FILE, "a") as f:
             f.write(f"HTTP error for {ip}: {e}\n")
-        cache[ip] = False
-        result = False
-
-    with open(CACHE_FILE, "wb") as f:
-        pickle.dump(cache, f)
-
-    return result
+        return False
 
 def main():
     # باز کردن فایل لاگ
@@ -136,8 +119,7 @@ def main():
                 if test_service_access(ip):
                     us_connections.append(conn)
                 else:
-                    with open(LOG_FILE, "a") as f:
-                        f.write(f"Skipping {ip}: Failed HTTP test\n")
+                    with open(f"Skipping {ip}: Failed HTTP test\n")
 
     with open(LOG_FILE, "a") as f:
         f.write(f"Processed {domains} domains, Found {us_ips} US IPs, Saved {len(us_connections)} connections\n")
