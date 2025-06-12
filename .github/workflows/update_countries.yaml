@@ -1,16 +1,17 @@
 name: Update Country-Specific VPN Lists
+
 on:
   schedule:
-    - cron: "0 */6 * * *"  # هر ۶ ساعت
-  workflow_dispatch:  # امکان اجرای دستی
+    - cron: "0 */6 * * *"  # هر 6 ساعت
+  workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.x"
       - name: Install dependencies
@@ -21,15 +22,20 @@ jobs:
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: |
-          wget -O GeoLite2-City.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=$MAXMIND_LICENSE_KEY&suffix=tar.gz"
+          wget -q -O GeoLite2-City.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=$MAXMIND_LICENSE_KEY&suffix=tar.gz"
           tar -xzf GeoLite2-City.tar.gz
           mv GeoLite2-City_*/GeoLite2-City.mmdb .
       - name: Run script
         run: python filter_by_country.py
+      - name: Upload log file
+        uses: actions/upload-artifact@v4
+        with:
+          name: geoip-test-log
+          path: geoip_test.log
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add sub/*.txt
-          git commit -m "Update country-specific VPN lists" || echo "No changes to commit"
+          git add sub/*.txt geoip_test.log
+          git commit -m "Update country-specific VPN lists with domain resolution" || echo "No changes to commit"
           git push
