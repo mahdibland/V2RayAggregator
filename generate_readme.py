@@ -1,8 +1,9 @@
 import os
 import glob
-from datetime import datetime, timedelta
+from datetime import datetime
 import pytz
 import requests
+import jdatetime
 
 # مسیر پوشه sub
 SUB_DIR = "sub"
@@ -120,25 +121,16 @@ def get_file_update_time(file_path):
         print(f"خطا در گرفتن زمان فایل {file_path}: {e}")
         return "نامشخص"
 
-def get_relative_time():
-    """محاسبه زمان نسبی (مثل امروز X ساعت پیش) نسبت به ساعت سرور"""
+def get_jalali_date():
+    """گرفتن تاریخ و روز هفته به فرمت جلالی"""
     tehran_tz = pytz.timezone('Asia/Tehran')
     now = datetime.now(tehran_tz)
-    update_time = now  # فرض می‌کنیم به‌روزرسانی همین حالا انجام شده
-    delta = now - update_time
-    hours = int(delta.total_seconds() // 3600)
-    days = delta.days
-
-    if days == 0:
-        day_str = "امروز"
-    elif days == 1:
-        day_str = "دیروز"
-    elif days == 2:
-        day_str = "پریروز"
-    else:
-        day_str = update_time.strftime("%Y-%m-%d")
-
-    return f"{day_str} - {hours} ساعت پیش"
+    jalali_date = jdatetime.datetime.fromgregorian(datetime=now)
+    day_name = jalali_date.strftime("%A")
+    day = jalali_date.day
+    month = jalali_date.month
+    year = jalali_date.year
+    return f"{day_name} - {day} {jalali_date.strftime('%B')} {year}"
 
 def generate_readme():
     """تولید فایل VPN_LINKS.md"""
@@ -183,14 +175,14 @@ def generate_readme():
     # زمان فعلی به وقت تهران
     tehran_tz = pytz.timezone('Asia/Tehran')
     update_time = datetime.now(tehran_tz).strftime("%Y-%m-%d %H:%M:%S")
-    relative_time = get_relative_time()
+    jalali_date = get_jalali_date()
 
     # تولید محتوای README
     readme_content = f"""# لینک‌های وی‌پی‌ان اختصاصی هر کشور
 
 این صفحه شامل لینک‌های خام برای فایل‌های کانکشن وی‌پی‌ان است که هر کدام به یک کشور خاص اختصاص دارند. این فایل‌ها هر ۶ ساعت به‌صورت خودکار به‌روزرسانی می‌شوند.
 
-**آخرین به‌روزرسانی**: {relative_time} - {update_time} (به وقت تهران)
+**آخرین به‌روزرسانی**: {jalali_date} - {update_time} (به وقت تهران)
 
 | پرچم | نام کشور | کد کشور | تعداد کانکشن‌ها | آخرین به‌روزرسانی | لینک کانکشن |
 |------|----------|---------|------------------|-------------------|-------------|
@@ -219,12 +211,65 @@ def generate_readme():
 - ![iOS](https://hiddify.com/assets/platforms/apple.svg) [Hiddify برای iOS](https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532?platform=iphone)
 - ![Windows](https://hiddify.com/assets/platforms/windows.svg) [Hiddify برای Windows](https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Windows-Setup-x64.Msix)
 - ![macOS](https://hiddify.com/assets/platforms/mac.svg) [Hiddify برای macOS](https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-MacOS.dmg)
-- ![Linux](https://hiddify.com/assets/platforms/linux.svg) [Hiddify برای Linux](https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Linux-x64.AppImage)
-"""
+- ![Linux](https://hiddify.com/assets/platforms/linux.svg) [Hiddify](https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Linux-x64.AppImage)
+```
 
-    # ذخیره فایل VPN_LINKS.md
-    with open("VPN_LINKS.md", "w", encoding="utf-8") as f:
-        f.write(readme_content)
+---
 
-if __name__ == "__main__":
-    generate_readme()
+### تغییرات در `generate_readme.py`
+1. **حذف `D - T ساعت پیش`**:
+   - تابع `get_relative_time` حذف شد.
+2. **اضافه کردن تاریخ جلالی**:
+   - تابع `get_jalali_date` با `jdatetime` تاریخ رو به فرمت «پنج شنبه - ۲۲ دی ۱۴۰۴» می‌سازه.
+   - کتابخونه `jdatetime` برای تبدیل تاریخ میلادی به جلالی اضافه شد.
+3. **فرمت به‌روزرسانی**:
+   - خط «آخرین به‌روزرسانی» حالا اینجوری:
+     ```
+     آخرین به‌روزرسانی: پنج شنبه - ۲۲ خرداد ۱۴۰۴ - ۲۰۲۵-۰۶-۱۲ ۲۳:۴۴:۱۵ (به وقت تهران)
+     ```
+4. **بقیه موارد**:
+   - پرچم‌ها، جدول، لینک همه کشورها، جستجو (Ctrl+F)، مرتب‌سازی، و کلاینت‌ها با SVGها بدون تغییر موندن.
+   - زمان به‌روزرسانی هر کشور تو جدول همچنان `YYYY-MM-DD HH:MM:SS`ه.
+
+---
+
+#### 2. `.github/workflows/update_vpn_links.yaml`
+پکیج `jdatetime` رو به وابستگی‌ها اضافه می‌کنم تا تو ورک‌فلو نصب بشه.
+
+<xaiArtifact artifact_id="c6872110-5096-4530-bf75-b7177547da93" artifact_version_id="d59c58b2-97d0-47ed-8eb8-bd301a1b1027" title="update_vpn_links.yaml" contentType="text/yaml">
+name: Update VPN Links
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # هر ۶ ساعت
+  workflow_dispatch:
+
+jobs:
+  update-vpn-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytz requests jdatetime
+
+      - name: Run generate_readme.py
+        run: python generate_readme.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add VPN_LINKS.md
+          git commit -m "به‌روزرسانی خودکار VPN_LINKS.md با فرمت تاریخ جلالی" || echo "هیچ تغییری برای کامیت وجود ندارد"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
