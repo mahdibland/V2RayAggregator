@@ -2,87 +2,87 @@
 
 این صفحه شامل لینک‌های خام برای فایل‌های کانکشن وی‌پی‌ان است که هر کدام به یک کشور خاص اختصاص دارند. این فایل‌ها هر ۶ ساعت به‌صورت خودکار به‌روزرسانی می‌شوند.
 
-**آخرین به‌روزرسانی**: Sunday - 8 Tir 1404 - 2025-06-29 16:03:43 (به وقت تهران)
+**آخرین به‌روزرسانی**: Sunday - 8 Tir 1404 - 2025-06-29 21:53:07 (به وقت تهران)
 
 | پرچم | نام کشور | کد کشور | تعداد کانکشن‌ها | آخرین به‌روزرسانی | لینک کانکشن |
 |------|----------|---------|------------------|-------------------|-------------|
-| 🌍 | همه کشورها | ALL | 4947 | 2025-06-29 16:03:43 | [sub_merge.txt](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt) |
-| 🇺🇸 | ایالات متحده | US | 1599 | 2025-06-29 16:03:36 | [us_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/us_only_sub.txt) |
-| 🇨🇳 | چین | CN | 244 | 2025-06-29 16:03:36 | [cn_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cn_only_sub.txt) |
-| 🇨🇦 | کانادا | CA | 220 | 2025-06-29 16:03:36 | [ca_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ca_only_sub.txt) |
-| 🇬🇧 | بریتانیا | GB | 202 | 2025-06-29 16:03:36 | [gb_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/gb_only_sub.txt) |
-| 🇸🇬 | سنگاپور | SG | 173 | 2025-06-29 16:03:36 | [sg_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/sg_only_sub.txt) |
-| 🇳🇱 | هلند | NL | 172 | 2025-06-29 16:03:36 | [nl_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/nl_only_sub.txt) |
-| 🇩🇪 | آلمان | DE | 163 | 2025-06-29 16:03:36 | [de_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/de_only_sub.txt) |
-| 🇭🇰 | هنگ‌کنگ | HK | 141 | 2025-06-29 16:03:36 | [hk_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/hk_only_sub.txt) |
-| 🇯🇵 | ژاپن | JP | 131 | 2025-06-29 16:03:36 | [jp_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/jp_only_sub.txt) |
-| 🇫🇷 | فرانسه | FR | 121 | 2025-06-29 16:03:36 | [fr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/fr_only_sub.txt) |
-| 🇵🇱 | لهستان | PL | 79 | 2025-06-29 16:03:36 | [pl_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pl_only_sub.txt) |
-| 🇨🇾 | قبرس | CY | 72 | 2025-06-29 16:03:36 | [cy_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cy_only_sub.txt) |
-| 🇹🇼 | تایوان | TW | 65 | 2025-06-29 16:03:36 | [tw_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/tw_only_sub.txt) |
-| 🇰🇷 | کره جنوبی | KR | 61 | 2025-06-29 16:03:36 | [kr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/kr_only_sub.txt) |
-| 🇦🇺 | استرالیا | AU | 52 | 2025-06-29 16:03:36 | [au_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/au_only_sub.txt) |
-| 🇻🇳 | ویتنام | VN | 50 | 2025-06-29 16:03:36 | [vn_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/vn_only_sub.txt) |
-| 🇧🇿 | بلیز | BZ | 45 | 2025-06-29 16:03:36 | [bz_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/bz_only_sub.txt) |
-| 🇷🇺 | روسیه | RU | 37 | 2025-06-29 16:03:36 | [ru_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ru_only_sub.txt) |
-| 🇸🇪 | سوئد | SE | 22 | 2025-06-29 16:03:36 | [se_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/se_only_sub.txt) |
-| 🇹🇷 | ترکیه | TR | 20 | 2025-06-29 16:03:36 | [tr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/tr_only_sub.txt) |
-| 🇱🇹 | لیتوانی | LT | 18 | 2025-06-29 16:03:36 | [lt_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/lt_only_sub.txt) |
-| 🇮🇳 | هند | IN | 17 | 2025-06-29 16:03:36 | [in_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/in_only_sub.txt) |
-| 🇮🇪 | ایرلند | IE | 17 | 2025-06-29 16:03:36 | [ie_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ie_only_sub.txt) |
-| 🇪🇸 | اسپانیا | ES | 15 | 2025-06-29 16:03:36 | [es_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/es_only_sub.txt) |
-| 🇧🇬 | بلغارستان | BG | 14 | 2025-06-29 16:03:36 | [bg_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/bg_only_sub.txt) |
-| 🇱🇻 | لتونی | LV | 14 | 2025-06-29 16:03:36 | [lv_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/lv_only_sub.txt) |
-| 🇨🇭 | سوئیس | CH | 14 | 2025-06-29 16:03:36 | [ch_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ch_only_sub.txt) |
-| 🇫🇮 | فنلاند | FI | 11 | 2025-06-29 16:03:36 | [fi_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/fi_only_sub.txt) |
-| 🇮🇷 | ایران | IR | 10 | 2025-06-29 16:03:36 | [ir_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ir_only_sub.txt) |
-| 🇦🇲 | ارمنستان | AM | 9 | 2025-06-29 16:03:36 | [am_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/am_only_sub.txt) |
-| 🇲🇾 | مالزی | MY | 8 | 2025-06-29 16:03:36 | [my_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/my_only_sub.txt) |
-| 🇦🇪 | امارات متحده عربی | AE | 7 | 2025-06-29 16:03:36 | [ae_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ae_only_sub.txt) |
-| 🇦🇹 | اتریش | AT | 6 | 2025-06-29 16:03:36 | [at_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/at_only_sub.txt) |
-| 🇲🇴 | ماکائو | MO | 6 | 2025-06-29 16:03:36 | [mo_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mo_only_sub.txt) |
-| 🇨🇿 | جمهوری چک | CZ | 6 | 2025-06-29 16:03:36 | [cz_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cz_only_sub.txt) |
-| 🇮🇩 | اندونزی | ID | 6 | 2025-06-29 16:03:36 | [id_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/id_only_sub.txt) |
-| 🇱🇺 | لوکزامبورگ | LU | 5 | 2025-06-29 16:03:36 | [lu_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/lu_only_sub.txt) |
-| 🇻🇬 | جزایر ویرجین بریتانیا | VG | 5 | 2025-06-29 16:03:36 | [vg_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/vg_only_sub.txt) |
-| 🇿🇦 | آفریقای جنوبی | ZA | 5 | 2025-06-29 16:03:36 | [za_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/za_only_sub.txt) |
-| 🇺🇦 | اوکراین | UA | 4 | 2025-06-29 16:03:36 | [ua_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ua_only_sub.txt) |
-| 🇧🇷 | برزیل | BR | 4 | 2025-06-29 16:03:36 | [br_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/br_only_sub.txt) |
-| 🇵🇹 | پرتغال | PT | 4 | 2025-06-29 16:03:36 | [pt_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pt_only_sub.txt) |
-| 🇪🇪 | استونی | EE | 4 | 2025-06-29 16:03:36 | [ee_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ee_only_sub.txt) |
-| 🇵🇭 | فیلیپین | PH | 4 | 2025-06-29 16:03:36 | [ph_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ph_only_sub.txt) |
-| 🇮🇹 | ایتالیا | IT | 4 | 2025-06-29 16:03:36 | [it_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/it_only_sub.txt) |
-| 🇳🇴 | نروژ | NO | 3 | 2025-06-29 16:03:36 | [no_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/no_only_sub.txt) |
-| 🇸🇮 | اسلوونی | SI | 3 | 2025-06-29 16:03:36 | [si_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/si_only_sub.txt) |
-| 🇷🇴 | رومانی | RO | 3 | 2025-06-29 16:03:36 | [ro_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ro_only_sub.txt) |
-| 🇰🇿 | قزاقستان | KZ | 3 | 2025-06-29 16:03:36 | [kz_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/kz_only_sub.txt) |
-| 🇭🇷 | کرواسی | HR | 3 | 2025-06-29 16:03:36 | [hr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/hr_only_sub.txt) |
-| 🇨🇴 | کلمبیا | CO | 3 | 2025-06-29 16:03:36 | [co_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/co_only_sub.txt) |
-| 🇵🇾 | پاراگوئه | PY | 2 | 2025-06-29 16:03:36 | [py_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/py_only_sub.txt) |
-| 🇦🇿 | آذربایجان | AZ | 2 | 2025-06-29 16:03:36 | [az_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/az_only_sub.txt) |
-| 🇩🇰 | دانمارک | DK | 2 | 2025-06-29 16:03:36 | [dk_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/dk_only_sub.txt) |
-| 🇵🇷 | پورتوریکو | PR | 2 | 2025-06-29 16:03:36 | [pr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pr_only_sub.txt) |
-| 🇲🇰 | مقدونیه شمالی | MK | 2 | 2025-06-29 16:03:36 | [mk_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mk_only_sub.txt) |
-| 🇲🇩 | مولداوی | MD | 2 | 2025-06-29 16:03:36 | [md_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/md_only_sub.txt) |
-| 🇮🇸 | ایسلند | IS | 1 | 2025-06-29 16:03:36 | [is_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/is_only_sub.txt) |
-| 🇦🇱 | آلبانی | AL | 1 | 2025-06-29 16:03:36 | [al_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/al_only_sub.txt) |
-| 🇵🇦 | پاناما | PA | 1 | 2025-06-29 16:03:36 | [pa_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pa_only_sub.txt) |
-| 🇳🇬 | نیجریه | NG | 1 | 2025-06-29 16:03:36 | [ng_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ng_only_sub.txt) |
-| 🇲🇽 | مکزیک | MX | 1 | 2025-06-29 16:03:36 | [mx_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mx_only_sub.txt) |
-| 🇧🇪 | بلژیک | BE | 1 | 2025-06-29 16:03:36 | [be_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/be_only_sub.txt) |
-| 🇨🇷 | کاستاریکا | CR | 1 | 2025-06-29 16:03:36 | [cr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cr_only_sub.txt) |
-| 🇵🇪 | پرو | PE | 1 | 2025-06-29 16:03:36 | [pe_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pe_only_sub.txt) |
-| 🇷🇸 | صربستان | RS | 1 | 2025-06-29 16:03:36 | [rs_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/rs_only_sub.txt) |
-| 🇧🇦 | بوسنی و هرزگوین | BA | 1 | 2025-06-29 16:03:36 | [ba_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ba_only_sub.txt) |
-| 🇸🇰 | اسلواکی | SK | 1 | 2025-06-29 16:03:36 | [sk_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/sk_only_sub.txt) |
-| 🇬🇷 | یونان | GR | 1 | 2025-06-29 16:03:36 | [gr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/gr_only_sub.txt) |
-| 🇪🇨 | اکوادور | EC | 1 | 2025-06-29 16:03:36 | [ec_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ec_only_sub.txt) |
-| 🇹🇭 | تایلند | TH | 1 | 2025-06-29 16:03:36 | [th_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/th_only_sub.txt) |
-| 🇲🇺 | موریس | MU | 1 | 2025-06-29 16:03:36 | [mu_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mu_only_sub.txt) |
-| 🇲🇳 | مغولستان | MN | 1 | 2025-06-29 16:03:36 | [mn_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mn_only_sub.txt) |
-| 🇸🇨 | سیشل | SC | 1 | 2025-06-29 16:03:36 | [sc_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/sc_only_sub.txt) |
-| 🇧🇴 | بولیوی | BO | 1 | 2025-06-29 16:03:36 | [bo_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/bo_only_sub.txt) |
-| 🇲🇹 | مالت | MT | 1 | 2025-06-29 16:03:36 | [mt_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mt_only_sub.txt) |
+| 🌍 | همه کشورها | ALL | 4884 | 2025-06-29 21:53:07 | [sub_merge.txt](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt) |
+| 🇺🇸 | ایالات متحده | US | 1596 | 2025-06-29 21:53:04 | [us_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/us_only_sub.txt) |
+| 🇨🇳 | چین | CN | 237 | 2025-06-29 21:53:04 | [cn_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cn_only_sub.txt) |
+| 🇨🇦 | کانادا | CA | 206 | 2025-06-29 21:53:04 | [ca_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ca_only_sub.txt) |
+| 🇬🇧 | بریتانیا | GB | 201 | 2025-06-29 21:53:04 | [gb_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/gb_only_sub.txt) |
+| 🇸🇬 | سنگاپور | SG | 174 | 2025-06-29 21:53:04 | [sg_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/sg_only_sub.txt) |
+| 🇳🇱 | هلند | NL | 172 | 2025-06-29 21:53:04 | [nl_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/nl_only_sub.txt) |
+| 🇩🇪 | آلمان | DE | 161 | 2025-06-29 21:53:04 | [de_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/de_only_sub.txt) |
+| 🇭🇰 | هنگ‌کنگ | HK | 139 | 2025-06-29 21:53:04 | [hk_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/hk_only_sub.txt) |
+| 🇯🇵 | ژاپن | JP | 131 | 2025-06-29 21:53:04 | [jp_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/jp_only_sub.txt) |
+| 🇫🇷 | فرانسه | FR | 119 | 2025-06-29 21:53:04 | [fr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/fr_only_sub.txt) |
+| 🇵🇱 | لهستان | PL | 77 | 2025-06-29 21:53:04 | [pl_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pl_only_sub.txt) |
+| 🇨🇾 | قبرس | CY | 72 | 2025-06-29 21:53:04 | [cy_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cy_only_sub.txt) |
+| 🇹🇼 | تایوان | TW | 67 | 2025-06-29 21:53:04 | [tw_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/tw_only_sub.txt) |
+| 🇰🇷 | کره جنوبی | KR | 63 | 2025-06-29 21:53:04 | [kr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/kr_only_sub.txt) |
+| 🇦🇺 | استرالیا | AU | 52 | 2025-06-29 21:53:04 | [au_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/au_only_sub.txt) |
+| 🇻🇳 | ویتنام | VN | 50 | 2025-06-29 21:53:04 | [vn_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/vn_only_sub.txt) |
+| 🇧🇿 | بلیز | BZ | 45 | 2025-06-29 21:53:04 | [bz_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/bz_only_sub.txt) |
+| 🇷🇺 | روسیه | RU | 38 | 2025-06-29 21:53:04 | [ru_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ru_only_sub.txt) |
+| 🇸🇪 | سوئد | SE | 23 | 2025-06-29 21:53:04 | [se_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/se_only_sub.txt) |
+| 🇱🇹 | لیتوانی | LT | 19 | 2025-06-29 21:53:04 | [lt_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/lt_only_sub.txt) |
+| 🇹🇷 | ترکیه | TR | 18 | 2025-06-29 21:53:04 | [tr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/tr_only_sub.txt) |
+| 🇮🇳 | هند | IN | 17 | 2025-06-29 21:53:04 | [in_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/in_only_sub.txt) |
+| 🇮🇪 | ایرلند | IE | 17 | 2025-06-29 21:53:04 | [ie_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ie_only_sub.txt) |
+| 🇧🇬 | بلغارستان | BG | 14 | 2025-06-29 21:53:04 | [bg_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/bg_only_sub.txt) |
+| 🇱🇻 | لتونی | LV | 14 | 2025-06-29 21:53:04 | [lv_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/lv_only_sub.txt) |
+| 🇨🇭 | سوئیس | CH | 14 | 2025-06-29 21:53:04 | [ch_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ch_only_sub.txt) |
+| 🇪🇸 | اسپانیا | ES | 13 | 2025-06-29 21:53:04 | [es_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/es_only_sub.txt) |
+| 🇮🇷 | ایران | IR | 10 | 2025-06-29 21:53:04 | [ir_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ir_only_sub.txt) |
+| 🇦🇲 | ارمنستان | AM | 9 | 2025-06-29 21:53:04 | [am_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/am_only_sub.txt) |
+| 🇫🇮 | فنلاند | FI | 9 | 2025-06-29 21:53:04 | [fi_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/fi_only_sub.txt) |
+| 🇲🇾 | مالزی | MY | 8 | 2025-06-29 21:53:04 | [my_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/my_only_sub.txt) |
+| 🇦🇪 | امارات متحده عربی | AE | 7 | 2025-06-29 21:53:04 | [ae_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ae_only_sub.txt) |
+| 🇦🇹 | اتریش | AT | 6 | 2025-06-29 21:53:04 | [at_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/at_only_sub.txt) |
+| 🇲🇴 | ماکائو | MO | 6 | 2025-06-29 21:53:04 | [mo_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mo_only_sub.txt) |
+| 🇨🇿 | جمهوری چک | CZ | 6 | 2025-06-29 21:53:04 | [cz_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cz_only_sub.txt) |
+| 🇮🇩 | اندونزی | ID | 6 | 2025-06-29 21:53:04 | [id_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/id_only_sub.txt) |
+| 🇱🇺 | لوکزامبورگ | LU | 5 | 2025-06-29 21:53:04 | [lu_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/lu_only_sub.txt) |
+| 🇻🇬 | جزایر ویرجین بریتانیا | VG | 5 | 2025-06-29 21:53:04 | [vg_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/vg_only_sub.txt) |
+| 🇿🇦 | آفریقای جنوبی | ZA | 5 | 2025-06-29 21:53:04 | [za_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/za_only_sub.txt) |
+| 🇺🇦 | اوکراین | UA | 4 | 2025-06-29 21:53:04 | [ua_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ua_only_sub.txt) |
+| 🇧🇷 | برزیل | BR | 4 | 2025-06-29 21:53:04 | [br_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/br_only_sub.txt) |
+| 🇵🇹 | پرتغال | PT | 4 | 2025-06-29 21:53:04 | [pt_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pt_only_sub.txt) |
+| 🇪🇪 | استونی | EE | 4 | 2025-06-29 21:53:04 | [ee_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ee_only_sub.txt) |
+| 🇵🇭 | فیلیپین | PH | 4 | 2025-06-29 21:53:04 | [ph_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ph_only_sub.txt) |
+| 🇮🇹 | ایتالیا | IT | 4 | 2025-06-29 21:53:04 | [it_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/it_only_sub.txt) |
+| 🇳🇴 | نروژ | NO | 3 | 2025-06-29 21:53:04 | [no_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/no_only_sub.txt) |
+| 🇷🇴 | رومانی | RO | 3 | 2025-06-29 21:53:04 | [ro_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ro_only_sub.txt) |
+| 🇰🇿 | قزاقستان | KZ | 3 | 2025-06-29 21:53:04 | [kz_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/kz_only_sub.txt) |
+| 🇭🇷 | کرواسی | HR | 3 | 2025-06-29 21:53:04 | [hr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/hr_only_sub.txt) |
+| 🇨🇴 | کلمبیا | CO | 3 | 2025-06-29 21:53:04 | [co_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/co_only_sub.txt) |
+| 🇵🇾 | پاراگوئه | PY | 2 | 2025-06-29 21:53:04 | [py_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/py_only_sub.txt) |
+| 🇦🇿 | آذربایجان | AZ | 2 | 2025-06-29 21:53:04 | [az_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/az_only_sub.txt) |
+| 🇩🇰 | دانمارک | DK | 2 | 2025-06-29 21:53:04 | [dk_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/dk_only_sub.txt) |
+| 🇸🇮 | اسلوونی | SI | 2 | 2025-06-29 21:53:04 | [si_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/si_only_sub.txt) |
+| 🇵🇷 | پورتوریکو | PR | 2 | 2025-06-29 21:53:04 | [pr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pr_only_sub.txt) |
+| 🇲🇰 | مقدونیه شمالی | MK | 2 | 2025-06-29 21:53:04 | [mk_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mk_only_sub.txt) |
+| 🇲🇩 | مولداوی | MD | 2 | 2025-06-29 21:53:04 | [md_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/md_only_sub.txt) |
+| 🇮🇸 | ایسلند | IS | 1 | 2025-06-29 21:53:04 | [is_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/is_only_sub.txt) |
+| 🇦🇱 | آلبانی | AL | 1 | 2025-06-29 21:53:04 | [al_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/al_only_sub.txt) |
+| 🇵🇦 | پاناما | PA | 1 | 2025-06-29 21:53:04 | [pa_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pa_only_sub.txt) |
+| 🇳🇬 | نیجریه | NG | 1 | 2025-06-29 21:53:04 | [ng_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ng_only_sub.txt) |
+| 🇲🇽 | مکزیک | MX | 1 | 2025-06-29 21:53:04 | [mx_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mx_only_sub.txt) |
+| 🇧🇪 | بلژیک | BE | 1 | 2025-06-29 21:53:04 | [be_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/be_only_sub.txt) |
+| 🇨🇷 | کاستاریکا | CR | 1 | 2025-06-29 21:53:04 | [cr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/cr_only_sub.txt) |
+| 🇵🇪 | پرو | PE | 1 | 2025-06-29 21:53:04 | [pe_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/pe_only_sub.txt) |
+| 🇷🇸 | صربستان | RS | 1 | 2025-06-29 21:53:04 | [rs_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/rs_only_sub.txt) |
+| 🇧🇦 | بوسنی و هرزگوین | BA | 1 | 2025-06-29 21:53:04 | [ba_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ba_only_sub.txt) |
+| 🇸🇰 | اسلواکی | SK | 1 | 2025-06-29 21:53:04 | [sk_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/sk_only_sub.txt) |
+| 🇬🇷 | یونان | GR | 1 | 2025-06-29 21:53:04 | [gr_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/gr_only_sub.txt) |
+| 🇪🇨 | اکوادور | EC | 1 | 2025-06-29 21:53:04 | [ec_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/ec_only_sub.txt) |
+| 🇹🇭 | تایلند | TH | 1 | 2025-06-29 21:53:04 | [th_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/th_only_sub.txt) |
+| 🇲🇺 | موریس | MU | 1 | 2025-06-29 21:53:04 | [mu_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mu_only_sub.txt) |
+| 🇲🇳 | مغولستان | MN | 1 | 2025-06-29 21:53:04 | [mn_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mn_only_sub.txt) |
+| 🇸🇨 | سیشل | SC | 1 | 2025-06-29 21:53:04 | [sc_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/sc_only_sub.txt) |
+| 🇧🇴 | بولیوی | BO | 1 | 2025-06-29 21:53:04 | [bo_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/bo_only_sub.txt) |
+| 🇲🇹 | مالت | MT | 1 | 2025-06-29 21:53:04 | [mt_only_sub.txt](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub/mt_only_sub.txt) |
 
 ## نکات
 - **همه کشورها** شامل تمام کانکشن‌های منبع است و در ابتدای لیست قرار دارد.
