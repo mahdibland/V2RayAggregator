@@ -7,7 +7,11 @@ import os
 import socket
 
 # تنظیمات
-SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
+SUB_URLS = [
+    "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt",
+    "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/all_configs.txt",
+    "https://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/All_Configs_Sub.txt"
+]
 OUTPUT_DIR = "sub"  # پوشه خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
 LOG_FILE = "geoip_test.log"  # فایل لاگ برای عیب‌یابی
@@ -80,17 +84,24 @@ def main():
     with open(LOG_FILE, "w") as f:
         f.write(f"Starting GeoIP and HTTP test log at {os.popen('date').read()}\n")
 
-    # گرفتن لیست کانکشن‌ها از لینک خام
-    try:
-        response = requests.get(SUB_URL, timeout=10)
-        response.raise_for_status()
-        connections = response.text.strip().splitlines()
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Fetched {len(connections)} connections from {SUB_URL}\n")
-    except requests.RequestException as e:
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Error fetching {SUB_URL}: {e}\n")
-        return
+    # گرفتن لیست کانکشن‌ها از همه منابع
+    connections = set()  # استفاده از set برای حذف موارد تکراری
+    for url in SUB_URLS:
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+            url_connections = response.text.strip().splitlines()
+            connections.update(url_connections)
+            with open(LOG_FILE, "a") as f:
+                f.write(f"Fetched {len(url_connections)} connections from {url}\n")
+        except requests.RequestException as e:
+            with open(LOG_FILE, "a") as f:
+                f.write(f"Error fetching {url}: {e}\n")
+                continue
+
+    connections = list(connections)  # تبدیل به لیست برای پردازش
+    with open(LOG_FILE, "a") as f:
+        f.write(f"Total unique connections after merging: {len(connections)}\n")
 
     # باز کردن دیتابیس GeoIP
     try:
