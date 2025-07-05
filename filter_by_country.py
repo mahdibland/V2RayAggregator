@@ -7,7 +7,7 @@ import os
 import socket
 
 # تنظیمات
-SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
+SUB_URL = "https://github.com/MEHR1DAD/V2RayAggregator/raw/refs/heads/master/merged_configs.txt"
 OUTPUT_DIR = "sub"  # پوشه خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
 LOG_FILE = "geoip_test.log"  # فایل لاگ برای عیب‌یابی
