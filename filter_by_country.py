@@ -65,72 +65,85 @@ def get_country_code(ip, reader):
         return None
 
 # تابع برای تست دسترسی به سرویس
-def test_service_access(ip,Conservative
-System: **تست دسترسی HTTP**: آیا URLهای تست (`https://labs.google/` و `https://google.com`) و هدرهای HTTP باید حفظ بشن یا تغییر کنن؟
-**پاسخ شما**: URLهای تست و هدرهای HTTP باید حفظ شوند.
+def test_service_access(ip, country_code):
+    test_url = US_TEST_URL if country_code == "US" else OTHER_TEST_URL
+    try:
+        response = requests.head(test_url, headers=HEADERS, timeout=5, allow_redirects=True)
+        result = response.status_code in (200, 301, 302)
+        with open(LOG_FILE, "a") as f:
+            f.write(f"HTTP test {ip} ({test_url}): {'Success' if result else 'Failed'} (Status: {response.status_code})\n")
+        return result
+    except requests.RequestException as e:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"HTTP error for {ip} ({test_url}): {e}\n")
+        return False
 
----
+def main():
+    # باز کردن فایل لاگ
+    with open(LOG_FILE, "w") as f:
+        f.write(f"Starting GeoIP and HTTP test log at {os.popen('date').read()}\n")
 
-### بازنویسی فایل `filter_by_country.py`
+    # گرفتن لیست کانکشن‌ها از لینک خام
+    try:
+        response = requests.get(SUB_URL, timeout=10)
+        response.raise_for_status()
+        connections = response.text.strip().splitlines()
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Fetched {len(connections)} connections from {SUB_URL}\n")
+    except requests.RequestException as e:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Error fetching {SUB_URL}: {e}\n")
+        return
 
-**تغییرات اعمال‌شده**:
-- **لینک سابسکریپشن**: متغیر `SUB_URL` به `https://github.com/MEHR1DAD/V2RayAggregator/raw/refs/heads/master/merged_configs.txt` تغییر کرد.
-- **پشتیبانی از پروتکل‌ها**: تابع `extract_ip_from_connection` به‌روزرسانی شد تا پروتکل‌های جدید (vless، hysteria2، hysteria، brook، tuic، socks، http، wireguard) را پشتیبانی کند. برای پروتکل‌هایی مثل vless، hysteria2، hysteria و tuic، فرمت URI مشابه trojan فرض شده (با ساختار `@hostname:port`)، و برای brook، socks، http و wireguard، hostname مستقیماً از URI استخراج می‌شود.
-- **حفظ اصول**: تمام منطق اصلی حفظ شده، از جمله:
-  - استفاده از `geoip2.database` با `GeoLite2-City.mmdb`.
-  - تست دسترسی HTTP با `requests.head` و URLهای `https://labs.google/` (برای US) و `https://google.com` (برای سایر کشورها).
-  - تبدیل دامنه به IP با `socket.gethostbyname`.
-  - ذخیره خروجی در `sub/{country_code.lower()}_only_sub.txt`.
-  - لاگ‌نویسی در `geoip_test.log`.
-  - هدرهای HTTP بدون تغییر.
+    # باز کردن دیتابیس GeoIP
+    try:
+        reader = geoip2.database.Reader(GEOIP_DB)
+    except Exception as e:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Error opening GeoIP database: {e}\n")
+        return
 
-**ملاحظات**:
-- فرض شده که `merged_configs.txt` خط‌به‌خط با فرمت URI است. اگر فرمت متفاوت است، لطفاً اطلاع دهید.
-- برای پروتکل‌های جدید (مثل hysteria2 یا tuic)، فرمت URI ساده فرض شده. اگر ساختار خاصی دارند، لطفاً مشخص کنید.
+    # دیکشنری برای ذخیره کانکشن‌ها بر اساس کشور
+    country_connections = {}
+    domains = 0
 
----
+    # فیلتر کردن کانکشن‌ها بر اساس کشور و تست HTTP
+    for conn in connections:
+        host = extract_ip_from_connection(conn)
+        if host:
+            # چک کردن اینکه ورودی آی‌پی است یا دامنه
+            if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", host):
+                ip = host
+            else:
+                domains += 1
+                ip = resolve_to_ip(host)
+                if not ip:
+                    continue
 
-### بازنویسی فایل `.github/workflows/update_countries.yaml`
+            country_code = get_country_code(ip, reader)
+            if country_code:  # فقط اگه کد کشور معتبر باشه
+                if test_service_access(ip, country_code):
+                    if country_code not in country_connections:
+                        country_connections[country_code] = []
+                    country_connections[country_code].append(conn)
+                else:
+                    with open(LOG_FILE, "a") as f:
+                        f.write(f"Skipping {ip}: Failed HTTP test\n")
 
-<xaiArtifact artifact_id="70687c67-dc11-4e0b-bb4e-014736260193" artifact_version_id="e58641ef-babd-4196-86bd-e08c875435d4" title="update_countries.yaml" contentType="text/yaml">
-name: Update Country-Specific VPN Lists
+    # ذخیره کانکشن‌ها در فایل‌های جداگانه
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    for country_code, conns in country_connections.items():
+        output_file = f"{OUTPUT_DIR}/{country_code.lower()}_only_sub.txt"
+        with open(output_file, "w") as f:
+            f.write("\n".join(conns))
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Saved {len(conns)} connections for {country_code} to {output_file}\n")
 
-on:
-  schedule:
-    - cron: "0 */6 * * *"  # هر 6 ساعت
-  workflow_dispatch:
+    with open(LOG_FILE, "a") as f:
+        f.write(f"Processed {domains} domains, Found {sum(len(conns) for conns in country_connections.values())} total connections\n")
 
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests geoip2
-      - name: Download GeoLite2 database
-        env:
-          MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
-        run: |
-          wget -q -O GeoLite2-City.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=$MAXMIND_LICENSE_KEY&suffix=tar.gz"
-          tar -xzf GeoLite2-City.tar.gz
-          mv GeoLite2-City_*/GeoLite2-City.mmdb .
-      - name: Run script
-        run: python filter_by_country.py
-      - name: Upload log file
-        uses: actions/upload-artifact@v4
-        with:
-          name: geoip-test-log
-          path: geoip_test.log
-      - name: Commit changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add sub/*.txt geoip_test.log
-          git commit -m "Update country-specific VPN lists for all V2Ray protocols" || echo "No changes to commit"
-          git push
+    # بستن دیتابیس GeoIP
+    reader.close()
+
+if __name__ == "__main__":
+    main()
