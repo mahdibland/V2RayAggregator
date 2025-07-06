@@ -23,28 +23,40 @@ HEADERS = {
 # تابع برای گرفتن آی‌پی یا دامنه از لینک کانکشن
 def extract_ip_from_connection(connection):
     try:
+        # اعتبارسنجی اولیه: بررسی خالی نبودن کانفیگ
+        if not connection or not isinstance(connection, str):
+            with open(LOG_FILE, "a") as f:
+                f.write(f"Error: Empty or invalid connection string\n")
+            return None
+
         if connection.startswith("vmess://"):
             decoded = base64.b64decode(connection.split("vmess://")[1]).decode("utf-8")
             config = json.loads(decoded)
-            return config.get("add")
+            host = config.get("add")
+            return host if host and re.match(r"^[\w\.\-]+$", host) else None
         elif connection.startswith(("vless://", "trojan://", "hysteria2://", "hysteria://", "tuic://")):
             server = connection.split("@")[1].split("?")[0].split(":")[0]
-            return server
+            return server if server and re.match(r"^[\w\.\-]+$", server) else None
         elif connection.startswith(("ss://", "ssr://")):
             server = re.search(r"@([\w\.\-]+):", connection)
-            return server.group(1) if server else None
+            return server.group(1) if server and re.match(r"^[\w\.\-]+$", server.group(1)) else None
         elif connection.startswith(("brook://", "socks://", "http://", "wireguard://")):
             server = connection.split("//")[1].split("?")[0].split(":")[0]
-            return server
+            return server if server and re.match(r"^[\w\.\-]+$", server) else None
         return None
     except Exception as e:
         with open(LOG_FILE, "a") as f:
-            f.write(f"Error parsing connection: {e}\n")
+            f.write(f"Error parsing connection: {connection[:50]}... - {e}\n")
         return None
 
 # تابع برای تبدیل دامنه به آی‌پی
 def resolve_to_ip(host):
     try:
+        # اعتبارسنجی hostname
+        if not host or not re.match(r"^[\w\.\-]+$", host):
+            with open(LOG_FILE, "a") as f:
+                f.write(f"Invalid hostname: {host}\n")
+            return None
         ip = socket.gethostbyname(host)
         with open(LOG_FILE, "a") as f:
             f.write(f"Resolved {host} to {ip}\n")
@@ -52,6 +64,10 @@ def resolve_to_ip(host):
     except socket.gaierror as e:
         with open(LOG_FILE, "a") as f:
             f.write(f"DNS resolution error for {host}: {e}\n")
+        return None
+    except Exception as e:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Unexpected error resolving {host}: {e}\n")
         return None
 
 # تابع برای گرفتن کد کشور از آی‌پی
