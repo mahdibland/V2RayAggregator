@@ -2,21 +2,26 @@ import requests
 import json
 import base64
 import os
+import geoip2.database
 from urllib.parse import urlparse
 
 # URL of the subscription to filter
 SUBSCRIPTION_URL = "https://github.com/MEHR1DAD/V2RayAggregator/raw/refs/heads/master/merged_configs.txt"
 
+# Path to GeoIP database (update with your GeoIP database path)
+GEOIP_DB_PATH = "GeoLite2-Country.mmdb"
+
 def get_country(ip):
-    """Get country of an IP address using ip-api.com"""
+    """Get country of an IP address using geoip2.database"""
     try:
-        response = requests.get(f"http://ip-api.com/json/{ip}?fields=countryCode", timeout=5)
-        response.raise_for_status()
-        data = response.json()
-        return data.get("countryCode", "UNKNOWN")
+        reader = geoip2.database.Reader(GEOIP_DB_PATH)
+        response = reader.country(ip)
+        return response.country.iso_code or "UNKNOWN"
     except Exception as e:
         print(f"Error getting country for {ip}: {e}")
         return "UNKNOWN"
+    finally:
+        reader.close()
 
 def decode_config(config):
     """Decode and extract hostname/IP from config"""
@@ -27,7 +32,7 @@ def decode_config(config):
                 # Decode vmess config
                 config_data = base64.b64decode(config[8:]).decode("utf-8")
                 return json.loads(config_data).get("add", None)
-            elif config.startswith("vless://") or config.startswith("trojan://") or config.startswith("hysteria2://") or config.startswith("hysteria://") or config.startswith("tuic://"):
+            elif config.startswith(("vless://", "trojan://", "hysteria2://", "hysteria://", "tuic://")):
                 # Extract hostname/IP from URI
                 parsed = urlparse(config)
                 return parsed.hostname
