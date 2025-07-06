@@ -1,146 +1,86 @@
 import requests
-import base64
 import json
-import geoip2.database
-import re
+import base64
 import os
-import socket
+from urllib.parse import urlparse
 
-# تنظیمات
-SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
-OUTPUT_DIR = "sub"  # پوشه خروجی
-GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
-LOG_FILE = "geoip_test.log"  # فایل لاگ برای عیب‌یابی
-US_TEST_URL = "https://labs.google/"  # URL تست برای US
-OTHER_TEST_URL = "https://google.com"  # URL تست برای بقیه کشورها
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.5",
-    "Referer": "https://www.google.com/"
-}
+# URL of the subscription to filter
+SUBSCRIPTION_URL = "https://github.com/MEHR1DAD/V2RayAggregator/raw/refs/heads/master/merged_configs.txt"
 
-# تابع برای گرفتن آی‌پی یا دامنه از لینک کانکشن
-def extract_ip_from_connection(connection):
+def get_country(ip):
+    """Get country of an IP address using ip-api.com"""
     try:
-        if connection.startswith("vmess://"):
-            decoded = base64.b64decode(connection.split("vmess://")[1]).decode("utf-8")
-            config = json.loads(decoded)
-            return config.get("add")
-        elif connection.startswith("trojan://"):
-            server = connection.split("@")[1].split("?")[0].split(":")[0]
-            return server
-        elif connection.startswith("ss://") or connection.startswith("ssr://"):
-            server = re.search(r"@([\w\.\-]+):", connection)
-            return server.group(1) if server else None
+        response = requests.get(f"http://ip-api.com/json/{ip}?fields=countryCode", timeout=5)
+        response.raise_for_status()
+        data = response.json()
+        return data.get("countryCode", "UNKNOWN")
+    except Exception as e:
+        print(f"Error getting country for {ip}: {e}")
+        return "UNKNOWN"
+
+def decode_config(config):
+    """Decode and extract hostname/IP from config"""
+    try:
+        # Handle different protocols
+        if config.startswith(("vmess://", "vless://", "trojan://", "ss://", "ssr://", "hysteria2://", "hysteria://", "brook://", "tuic://", "socks://", "http://", "wireguard://")):
+            if config.startswith("vmess://"):
+                # Decode vmess config
+                config_data = base64.b64decode(config[8:]).decode("utf-8")
+                return json.loads(config_data).get("add", None)
+            elif config.startswith("vless://") or config.startswith("trojan://") or config.startswith("hysteria2://") or config.startswith("hysteria://") or config.startswith("tuic://"):
+                # Extract hostname/IP from URI
+                parsed = urlparse(config)
+                return parsed.hostname
+            elif config.startswith("ss://"):
+                # Shadowsocks: decode base64 or extract hostname
+                if "@" in config:
+                    hostname = config.split("@")[1].split(":")[0]
+                    return hostname
+                else:
+                    decoded = base64.b64decode(config[5:].split("#")[0]).decode("utf-8")
+                    return decoded.split("@")[1].split(":")[0]
+            elif config.startswith("ssr://"):
+                # ShadowsocksR: decode base64
+                decoded = base64.b64decode(config[6:].split("#")[0]).decode("utf-8")
+                return decoded.split(":")[3]
+            elif config.startswith(("brook://", "socks://", "http://", "wireguard://")):
+                parsed = urlparse(config)
+                return parsed.hostname
         return None
     except Exception as e:
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Error parsing connection: {e}\n")
+        print(f"Error decoding config: {e}")
         return None
-
-# تابع برای تبدیل دامنه به آی‌پی
-def resolve_to_ip(host):
-    try:
-        ip = socket.gethostbyname(host)
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Resolved {host} to {ip}\n")
-        return ip
-    except socket.gaierror as e:
-        with open(LOG_FILE, "a") as f:
-            f.write(f"DNS resolution error for {host}: {e}\n")
-        return None
-
-# تابع برای گرفتن کد کشور از آی‌پی
-def get_country_code(ip, reader):
-    try:
-        response = reader.city(ip)
-        return response.country.iso_code
-    except Exception:
-        with open(LOG_FILE, "a") as f:
-            f.write(f"GeoIP error for IP {ip}\n")
-        return None
-
-# تابع برای تست دسترسی به سرویس
-def test_service_access(ip, country_code):
-    test_url = US_TEST_URL if country_code == "US" else OTHER_TEST_URL
-    try:
-        response = requests.head(test_url, headers=HEADERS, timeout=5, allow_redirects=True)
-        result = response.status_code in (200, 301, 302)
-        with open(LOG_FILE, "a") as f:
-            f.write(f"HTTP test {ip} ({test_url}): {'Success' if result else 'Failed'} (Status: {response.status_code})\n")
-        return result
-    except requests.RequestException as e:
-        with open(LOG_FILE, "a") as f:
-            f.write(f"HTTP error for {ip} ({test_url}): {e}\n")
-        return False
 
 def main():
-    # باز کردن فایل لاگ
-    with open(LOG_FILE, "w") as f:
-        f.write(f"Starting GeoIP and HTTP test log at {os.popen('date').read()}\n")
+    # Create output directory
+    if not os.path.exists("sub"):
+        os.makedirs("sub")
 
-    # گرفتن لیست کانکشن‌ها از لینک خام
+    # Download subscription
     try:
-        response = requests.get(SUB_URL, timeout=10)
+        response = requests.get(SUBSCRIPTION_URL, timeout=10)
         response.raise_for_status()
-        connections = response.text.strip().splitlines()
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Fetched {len(connections)} connections from {SUB_URL}\n")
-    except requests.RequestException as e:
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Error fetching {SUB_URL}: {e}\n")
-        return
-
-    # باز کردن دیتابیس GeoIP
-    try:
-        reader = geoip2.database.Reader(GEOIP_DB)
+        configs = response.text.strip().split("\n")
     except Exception as e:
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Error opening GeoIP database: {e}\n")
+        print(f"Error downloading subscription: {e}")
         return
 
-    # دیکشنری برای ذخیره کانکشن‌ها بر اساس کشور
-    country_connections = {}
-    domains = 0
+    # Dictionary to store configs by country
+    country_configs = {}
 
-    # فیلتر کردن کانکشن‌ها بر اساس کشور و تست HTTP
-    for conn in connections:
-        host = extract_ip_from_connection(conn)
-        if host:
-            # چک کردن اینکه ورودی آی‌پی است یا دامنه
-            if re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", host):
-                ip = host
-            else:
-                domains += 1
-                ip = resolve_to_ip(host)
-                if not ip:
-                    continue
+    for config in configs:
+        hostname = decode_config(config)
+        if hostname:
+            country = get_country(hostname)
+            if country not in country_configs:
+                country_configs[country] = []
+            country_configs[country].append(config)
 
-            country_code = get_country_code(ip, reader)
-            if country_code:  # فقط اگه کد کشور معتبر باشه
-                if test_service_access(ip, country_code):
-                    if country_code not in country_connections:
-                        country_connections[country_code] = []
-                    country_connections[country_code].append(conn)
-                else:
-                    with open(LOG_FILE, "a") as f:
-                        f.write(f"Skipping {ip}: Failed HTTP test\n")
-
-    # ذخیره کانکشن‌ها در فایل‌های جداگانه
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    for country_code, conns in country_connections.items():
-        output_file = f"{OUTPUT_DIR}/{country_code.lower()}_only_sub.txt"
-        with open(output_file, "w") as f:
-            f.write("\n".join(conns))
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Saved {len(conns)} connections for {country_code} to {output_file}\n")
-
-    with open(LOG_FILE, "a") as f:
-        f.write(f"Processed {domains} domains, Found {sum(len(conns) for conns in country_connections.values())} total connections\n")
-
-    # بستن دیتابیس GeoIP
-    reader.close()
+    # Save configs to files by country
+    for country, configs in country_configs.items():
+        with open(f"sub/{country}.txt", "w", encoding="utf-8") as f:
+            f.write("\n".join(configs))
+        print(f"Saved {len(configs)} configs for {country}")
 
 if __name__ == "__main__":
     main()
