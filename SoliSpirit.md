@@ -2,11 +2,11 @@
 
 این صفحه شامل لینک‌های خام برای فایل‌های کانکشن وی‌پی‌ان است که هر کدام به یک کشور خاص اختصاص دارند. این فایل‌ها هر ۱۵ دقیقه به‌صورت خودکار به‌روزرسانی می‌شوند.
 
-**آخرین به‌روزرسانی**: Wednesday - 18 Tir 1404 - 2025-07-09 03:13:03 (به وقت تهران)
+**آخرین به‌روزرسانی**: Wednesday - 18 Tir 1404 - 2025-07-09 03:25:47 (به وقت تهران)
 
 | پرچم | نام کشور | کد کشور | تعداد کانکشن‌ها | لینک کانکشن |
 |:----:|:--------:|:------:|:---------------:|:-----------:|
-| 🌍 | همه کشورها | ALL | 12444 | [all_configs.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt) |
+| 🌍 | همه کشورها | ALL | 12496 | [all_configs.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt) |
 | 🇺🇸 | ایالات متحده | US | 966 | [United_States.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/United_States.txt) |
 | 🇺🇸 | ایالات متحده | US | 585 | [Us.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Us.txt) |
 |  | Germany | GE | 506 | [Germany.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Germany.txt) |
