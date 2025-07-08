@@ -10,7 +10,7 @@ SUB_DIR = "sub"
 # آدرس پایه برای لینک‌های خام
 BASE_URL = "https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub"
 # لینک منبع همه کشورها
-ALL_COUNTRIES_URL = "https://github.com/MEHR1DAD/V2RayAggregator/raw/refs/heads/master/merged_configs.txt"
+ALL_COUNTRIES_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
 # نام کشور و پرچم برای کدهای ISO 3166-1 alpha-2
 COUNTRY_NAMES = {
     "us": ("ایالات متحده", "🇺🇸"),
