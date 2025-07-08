@@ -130,31 +130,47 @@ def generate_readme():
     # جمع‌آوری اطلاعات کشورها
     country_data = []
     for file_name in COUNTRY_FILES:
-        # استخراج کد کشور از نام فایل
+        # استخراج کد کشور
         country_code = file_name.lower().replace('.txt', '').replace('_', '')
         if file_name == "Hong_Kong.txt":
             country_code = "hk"
+            name = COUNTRY_NAMES.get("hk", (file_name.replace('.txt', '').replace('_', ' '), ""))[0]
+            flag = COUNTRY_NAMES.get("hk", ("", ""))[1]
         elif file_name == "Au.txt":
             country_code = "au"
+            name = COUNTRY_NAMES.get("au", (file_name.replace('.txt', '').replace('_', ' '), ""))[0]
+            flag = COUNTRY_NAMES.get("au", ("", ""))[1]
         elif file_name == "Cr.txt":
             country_code = "cr"
+            name = COUNTRY_NAMES.get("cr", (file_name.replace('.txt', '').replace('_', ' '), ""))[0]
+            flag = COUNTRY_NAMES.get("cr", ("", ""))[1]
         elif file_name == "De.txt":
             country_code = "de"
-        elif file_name == "United_States.txt" or file_name == "Us.txt":
+            name = COUNTRY_NAMES.get("de", (file_name.replace('.txt', '').replace('_', ' '), ""))[0]
+            flag = COUNTRY_NAMES.get("de", ("", ""))[1]
+        elif file_name in ["United_States.txt", "Us.txt"]:
             country_code = "us"
-        elif file_name == "Vietnam.txt" or file_name == "Vn.txt":
+            name = COUNTRY_NAMES.get("us", (file_name.replace('.txt', '').replace('_', ' '), ""))[0]
+            flag = COUNTRY_NAMES.get("us", ("", ""))[1]
+        elif file_name in ["Vietnam.txt", "Vn.txt"]:
             country_code = "vn"
+            name = COUNTRY_NAMES.get("vn", (file_name.replace('.txt', '').replace('_', ' '), ""))[0]
+            flag = COUNTRY_NAMES.get("vn", ("", ""))[1]
         elif file_name == "Unknown.txt":
             country_code = "un"
+            name = COUNTRY_NAMES.get("un", (file_name.replace('.txt', '').replace('_', ' '), ""))[0]
+            flag = COUNTRY_NAMES.get("un", ("", ""))[1]
         else:
             country_code = country_code[:2]  # دو حرف اول برای کد کشور
+            name = COUNTRY_NAMES.get(country_code, (file_name.replace('.txt', '').replace('_', ' '), ""))[0]
+            flag = COUNTRY_NAMES.get(country_code, ("", ""))[1]
 
         url = f"{BASE_URL}/{file_name}"
         connections = count_connections(url)
         country_data.append({
             'code': country_code,
-            'name': COUNTRY_NAMES.get(country_code, (file_name.replace('.txt', '').replace('_', ' '), ""))[0],
-            'flag': COUNTRY_NAMES.get(country_code, ("", ""))[1],
+            'name': name,
+            'flag': flag,
             'connections': connections,
             'file': file_name,
             'link': url
@@ -163,12 +179,7 @@ def generate_readme():
     # گرفتن تعداد کانکشن‌های همه کشورها
     all_connections = count_connections(ALL_COUNTRIES_URL)
 
-    # جدا کردن آمریکا و مرتب‌سازی بقیه بر اساس تعداد کانکشن‌ها
-    us_data = next((item for item in country_data if item['code'] == 'us'), None)
-    other_countries = [item for item in country_data if item['code'] != 'us']
-    other_countries.sort(key=lambda x: x['connections'], reverse=True)
-
-    # ترکیب لیست: همه کشورها، آمریکا، بقیه
+    # مرتب‌سازی بر اساس تعداد کانکشن‌ها
     sorted_data = [
         {
             'code': 'all',
@@ -179,7 +190,7 @@ def generate_readme():
             'file': 'all_configs.txt',
             'link': ALL_COUNTRIES_URL
         }
-    ] + ([us_data] if us_data else []) + other_countries
+    ] + sorted(country_data, key=lambda x: x['connections'], reverse=True)
 
     # زمان فعلی به وقت تهران
     tehran_tz = pytz.timezone('Asia/Tehran')
@@ -194,7 +205,7 @@ def generate_readme():
 **آخرین به‌روزرسانی**: {jalali_date} - {update_time} (به وقت تهران)
 
 | پرچم | نام کشور | کد کشور | تعداد کانکشن‌ها | لینک کانکشن |
-|------|----------|---------|------------------|-------------|
+|:----:|:--------:|:------:|:---------------:|:-----------:|
 """
     for country in sorted_data:
         readme_content += f"| {country['flag']} | {country['name']} | {country['code'].upper()} | {country['connections']} | [{country['file']}]({country['link']}) |\n"
@@ -202,7 +213,7 @@ def generate_readme():
     readme_content += """
 ## نکات
 - **همه کشورها** شامل تمام کانکشن‌های منبع است و در ابتدای لیست قرار دارد.
-- **ایالات متحده** پس از همه کشورها و سایر کشورها بر اساس تعداد کانکشن‌ها (از بیشترین به کمترین) مرتب شده‌اند.
+- **ایالات متحده** به‌صورت جداگانه با فایل‌های `United_States.txt` و `Us.txt` نمایش داده شده است.
 - برای **جستجوی کشور**، از Ctrl+F استفاده کنید و نام کشور (مثل «ایران») یا کد کشور (مثل «IR») را جستجو کنید.
 - برای **مرتب‌سازی الفبایی**، جدول را کپی کرده و در یک ویرایشگر (مثل Excel یا Notepad) بر اساس نام کشور مرتب کنید.
 - هر فایل شامل کانکشن‌های اختصاصی برای کشور مربوطه است که با کلاینت‌هایی مثل Hiddify سازگارند.
