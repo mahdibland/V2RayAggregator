@@ -2,12 +2,11 @@
 
 این صفحه شامل لینک‌های خام برای فایل‌های کانکشن وی‌پی‌ان است که هر کدام به یک کشور خاص اختصاص دارند. این فایل‌ها هر ۱۵ دقیقه به‌صورت خودکار به‌روزرسانی می‌شوند.
 
-**آخرین به‌روزرسانی**: Tuesday - 17 Tir 1404 - 2025-07-08 22:01:54 (به وقت تهران)
+**آخرین به‌روزرسانی**: Tuesday - 17 Tir 1404 - 2025-07-08 22:08:31 (به وقت تهران)
 
 | پرچم | نام کشور | کد کشور | تعداد کانکشن‌ها | لینک کانکشن |
 |:----:|:--------:|:------:|:---------------:|:-----------:|
-| 🌍 | همه کشورها | ALL | 12333 | [all_configs.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt) |
-| 🌐 | نامشخص | UN | 1639 | [Unknown.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Unknown.txt) |
+| 🌍 | همه کشورها | ALL | 12464 | [all_configs.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt) |
 | 🇺🇸 | ایالات متحده | US | 876 | [United_States.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/United_States.txt) |
 | 🇺🇸 | ایالات متحده | US | 503 | [Us.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Us.txt) |
 |  | Germany | GE | 501 | [Germany.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Germany.txt) |
@@ -89,10 +88,13 @@
 |  | Mauritius | MA | 1 | [Mauritius.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Mauritius.txt) |
 |  | Mexico | ME | 1 | [Mexico.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Mexico.txt) |
 | 🇸🇦 | عربستان سعودی | SA | 1 | [Saudi_Arabia.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Saudi_Arabia.txt) |
+| 🌐 | نامشخص | UN | 1639 | [Unknown.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Unknown.txt) |
 
 ## نکات
 - **همه کشورها** شامل تمام کانکشن‌های منبع است و در ابتدای لیست قرار دارد.
 - **ایالات متحده** به‌صورت جداگانه با فایل‌های `United_States.txt` و `Us.txt` نمایش داده شده است.
+- **ویتنام** به‌صورت جداگانه با فایل‌های `Vietnam.txt` و `Vn.txt` نمایش داده شده است.
+- فایل `Unknown.txt` در انتهای لیست قرار دارد و به سرورهای بدون مکان مشخص اشاره دارد.
 - برای **جستجوی کشور**، از Ctrl+F استفاده کنید و نام کشور (مثل «ایران») یا کد کشور (مثل «IR») را جستجو کنید.
 - برای **مرتب‌سازی الفبایی**، جدول را کپی کرده و در یک ویرایشگر (مثل Excel یا Notepad) بر اساس نام کشور مرتب کنید.
 - هر فایل شامل کانکشن‌های اختصاصی برای کشور مربوطه است که با کلاینت‌هایی مثل Hiddify سازگارند.
