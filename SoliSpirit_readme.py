@@ -7,36 +7,68 @@ import jdatetime
 BASE_URL = "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries"
 ALL_COUNTRIES_URL = "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt"
 COUNTRY_NAMES = {
+    "al": ("آلبانی", "🇦🇱"),
     "ar": ("آرژانتین", "🇦🇷"),
+    "am": ("ارمنستان", "🇦🇲"),
     "au": ("استرالیا", "🇦🇺"),
     "at": ("اتریش", "🇦🇹"),
+    "az": ("آذربایجان", "🇦🇿"),
+    "bh": ("بحرین", "🇧🇭"),
     "be": ("بلژیک", "🇧🇪"),
+    "bo": ("بولیوی", "🇧🇴"),
+    "ba": ("بوسنی و هرزگوین", "🇧🇦"),
     "br": ("برزیل", "🇧🇷"),
+    "bg": ("بلغارستان", "🇧🇬"),
     "ca": ("کانادا", "🇨🇦"),
     "cl": ("شیلی", "🇨🇱"),
     "cn": ("چین", "🇨🇳"),
     "co": ("کلمبیا", "🇨🇴"),
+    "cr": ("کاستاریکا", "🇨🇷"),
+    "hr": ("کرواسی", "🇭🇷"),
+    "cy": ("قبرس", "🇨🇾"),
     "cz": ("جمهوری چک", "🇨🇿"),
+    "de": ("آلمان", "🇩🇪"),
     "dk": ("دانمارک", "🇩🇰"),
+    "ec": ("اکوادور", "🇪🇨"),
+    "ee": ("استونی", "🇪🇪"),
     "fi": ("فنلاند", "🇫🇮"),
     "fr": ("فرانسه", "🇫🇷"),
-    "de": ("آلمان", "🇩🇪"),
+    "gi": ("جبل‌الطارق", "🇬🇮"),
+    "gr": ("یونان", "🇬🇷"),
     "hk": ("هنگ‌کنگ", "🇭🇰"),
+    "hu": ("مجارستان", "🇭🇺"),
+    "is": ("ایسلند", "🇮🇸"),
     "in": ("هند", "🇮🇳"),
     "id": ("اندونزی", "🇮🇩"),
+    "ir": ("ایران", "🇮🇷"),
     "ie": ("ایرلند", "🇮🇪"),
+    "il": ("اسرائیل", "🇮🇱"),
     "it": ("ایتالیا", "🇮🇹"),
     "jp": ("ژاپن", "🇯🇵"),
+    "jo": ("اردن", "🇯🇴"),
+    "kz": ("قزاقستان", "🇰🇿"),
+    "lv": ("لتونی", "🇱🇻"),
+    "lt": ("لیتوانی", "🇱🇹"),
+    "lu": ("لوکزامبورگ", "🇱🇺"),
     "my": ("مالزی", "🇲🇾"),
+    "mt": ("مالت", "🇲🇹"),
+    "mu": ("موریس", "🇲🇺"),
     "mx": ("مکزیک", "🇲🇽"),
-    "nl": ("هلند", "🇳🇱"),
+    "md": ("مولداوی", "🇲🇩"),
     "nz": ("نیوزیلند", "🇳🇿"),
+    "mk": ("مقدونیه شمالی", "🇲🇰"),
     "no": ("نروژ", "🇳🇴"),
-    "ph": ("فیلیپین", "🇵🇭"),
+    "py": ("پاراگوئه", "🇵🇾"),
     "pl": ("لهستان", "🇵🇱"),
     "pt": ("پرتغال", "🇵🇹"),
+    "ro": ("رومانی", "🇷🇴"),
     "ru": ("روسیه", "🇷🇺"),
+    "sa": ("عربستان سعودی", "🇸🇦"),
+    "rs": ("صربستان", "🇷🇸"),
+    "sc": ("سیشل", "🇸🇨"),
     "sg": ("سنگاپور", "🇸🇬"),
+    "sk": ("اسلواکی", "🇸🇰"),
+    "si": ("اسلوونی", "🇸🇮"),
     "za": ("آفریقای جنوبی", "🇿🇦"),
     "kr": ("کره جنوبی", "🇰🇷"),
     "es": ("اسپانیا", "🇪🇸"),
@@ -46,8 +78,10 @@ COUNTRY_NAMES = {
     "th": ("تایلند", "🇹🇭"),
     "tr": ("ترکیه", "🇹🇷"),
     "ua": ("اوکراین", "🇺🇦"),
+    "ae": ("امارات متحده عربی", "🇦🇪"),
     "gb": ("بریتانیا", "🇬🇧"),
     "us": ("ایالات متحده", "🇺🇸"),
+    "un": ("نامشخص", "🌐"),
     "vn": ("ویتنام", "🇻🇳")
 }
 
@@ -74,16 +108,53 @@ def get_jalali_date():
 
 def generate_readme():
     """تولید فایل SoliSpirit.md برای مخزن SoliSpirit"""
+    # لیست فایل‌های کشورها
+    COUNTRY_FILES = [
+        "Albania.txt", "Argentina.txt", "Armenia.txt", "Au.txt", "Australia.txt", "Austria.txt",
+        "Azerbaijan.txt", "Bahrain.txt", "Belgium.txt", "Bolivia.txt", "Bosnia_And_Herzegovina.txt",
+        "Brazil.txt", "Bulgaria.txt", "Canada.txt", "Chile.txt", "China.txt", "Colombia.txt",
+        "Costa_Rica.txt", "Cr.txt", "Croatia.txt", "Cyprus.txt", "Czechia.txt", "De.txt",
+        "Denmark.txt", "Ecuador.txt", "Estonia.txt", "Finland.txt", "France.txt", "Germany.txt",
+        "Gibraltar.txt", "Greece.txt", "Hong_Kong.txt", "Hungary.txt", "Iceland.txt", "India.txt",
+        "Indonesia.txt", "Iran.txt", "Ireland.txt", "Israel.txt", "Italy.txt", "Japan.txt",
+        "Jordan.txt", "Kazakhstan.txt", "Latvia.txt", "Lithuania.txt", "Luxembourg.txt",
+        "Malaysia.txt", "Malta.txt", "Mauritius.txt", "Mexico.txt", "Moldova.txt", "New_Zealand.txt",
+        "North_Macedonia.txt", "Norway.txt", "Paraguay.txt", "Poland.txt", "Portugal.txt",
+        "Romania.txt", "Russia.txt", "Saudi_Arabia.txt", "Serbia.txt", "Seychelles.txt",
+        "Singapore.txt", "Slovakia.txt", "Slovenia.txt", "South_Africa.txt", "South_Korea.txt",
+        "Spain.txt", "Sweden.txt", "Switzerland.txt", "Taiwan.txt", "Thailand.txt",
+        "The_Netherlands.txt", "Türkiye.txt", "Ukraine.txt", "United_Arab_Emirates.txt",
+        "United_Kingdom.txt", "United_States.txt", "Unknown.txt", "Us.txt", "Vietnam.txt", "Vn.txt"
+    ]
+
     # جمع‌آوری اطلاعات کشورها
     country_data = []
-    for country_code, (country_name, flag) in COUNTRY_NAMES.items():
-        file_name = f"{country_code.capitalize()}.txt" if country_code != "hk" else "HongKong.txt"
+    for file_name in COUNTRY_FILES:
+        # استخراج کد کشور از نام فایل
+        country_code = file_name.lower().replace('.txt', '').replace('_', '')
+        if file_name == "Hong_Kong.txt":
+            country_code = "hk"
+        elif file_name == "Au.txt":
+            country_code = "au"
+        elif file_name == "Cr.txt":
+            country_code = "cr"
+        elif file_name == "De.txt":
+            country_code = "de"
+        elif file_name == "United_States.txt" or file_name == "Us.txt":
+            country_code = "us"
+        elif file_name == "Vietnam.txt" or file_name == "Vn.txt":
+            country_code = "vn"
+        elif file_name == "Unknown.txt":
+            country_code = "un"
+        else:
+            country_code = country_code[:2]  # دو حرف اول برای کد کشور
+
         url = f"{BASE_URL}/{file_name}"
         connections = count_connections(url)
         country_data.append({
             'code': country_code,
-            'name': country_name,
-            'flag': flag,
+            'name': COUNTRY_NAMES.get(country_code, (file_name.replace('.txt', '').replace('_', ' '), ""))[0],
+            'flag': COUNTRY_NAMES.get(country_code, ("", ""))[1],
             'connections': connections,
             'file': file_name,
             'link': url
