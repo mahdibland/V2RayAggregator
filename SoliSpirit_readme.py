@@ -78,8 +78,8 @@ COUNTRY_NAMES = {
     "th": ("تایلند", "🇹🇭"),
     "tr": ("ترکیه", "🇹🇷"),
     "ua": ("اوکراین", "🇺🇦"),
-    "ae": ("امارات متحده عربی", "🇦🇪"),
-    "gb": ("بریتانیا", "🇬🇧"),
+    "ae": ("امارات متحده غربی", "🇦🇪"),
+    "gb": ("انگلستان", "🇬🇧"),
     "us": ("ایالات متحده", "🇺🇸"),
     "un": ("نامشخص", "🌐"),
     "vn": ("ویتنام", "🇻🇳")
@@ -124,7 +124,8 @@ def generate_readme():
         "Singapore.txt", "Slovakia.txt", "Slovenia.txt", "South_Africa.txt", "South_Korea.txt",
         "Spain.txt", "Sweden.txt", "Switzerland.txt", "Taiwan.txt", "Thailand.txt",
         "The_Netherlands.txt", "Türkiye.txt", "Ukraine.txt", "United_Arab_Emirates.txt",
-        "United_Kingdom.txt", "United_States.txt", "Unknown.txt", "Us.txt", "Vietnam.txt", "Vn.txt"
+        "United_Kingdom.txt", "United_States.txt", "Us.txt", "Vietnam.txt", "Vn.txt",
+        "Unknown.txt"  # Unknown.txt به آخر لیست منتقل شده
     ]
 
     # جمع‌آوری اطلاعات کشورها
@@ -192,6 +193,12 @@ def generate_readme():
         }
     ] + sorted(country_data, key=lambda x: x['connections'], reverse=True)
 
+    # جابجایی Unknown.txt به آخر لیست
+    unknown_data = next((item for item in sorted_data if item['file'] == 'Unknown.txt'), None)
+    if unknown_data:
+        sorted_data.remove(unknown_data)
+        sorted_data.append(unknown_data)
+
     # زمان فعلی به وقت تهران
     tehran_tz = pytz.timezone('Asia/Tehran')
     update_time = datetime.now(tehran_tz).strftime("%Y-%m-%d %H:%M:%S")
@@ -214,6 +221,8 @@ def generate_readme():
 ## نکات
 - **همه کشورها** شامل تمام کانکشن‌های منبع است و در ابتدای لیست قرار دارد.
 - **ایالات متحده** به‌صورت جداگانه با فایل‌های `United_States.txt` و `Us.txt` نمایش داده شده است.
+- **ویتنام** به‌صورت جداگانه با فایل‌های `Vietnam.txt` و `Vn.txt` نمایش داده شده است.
+- فایل `Unknown.txt` در انتهای لیست قرار دارد و به سرورهای بدون مکان مشخص اشاره دارد.
 - برای **جستجوی کشور**، از Ctrl+F استفاده کنید و نام کشور (مثل «ایران») یا کد کشور (مثل «IR») را جستجو کنید.
 - برای **مرتب‌سازی الفبایی**، جدول را کپی کرده و در یک ویرایشگر (مثل Excel یا Notepad) بر اساس نام کشور مرتب کنید.
 - هر فایل شامل کانکشن‌های اختصاصی برای کشور مربوطه است که با کلاینت‌هایی مثل Hiddify سازگارند.
