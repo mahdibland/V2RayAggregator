@@ -7,7 +7,7 @@ import os
 import socket
 
 # تنظیمات
-SUB_URL = "https://github.com/MEHR1DAD/V2RayAggregator/raw/refs/heads/master/merged_configs.txt"
+SUB_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
 OUTPUT_DIR = "sub"  # پوشه خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
 LOG_FILE = "geoip_test.log"  # فایل لاگ برای عیب‌یابی
@@ -23,40 +23,25 @@ HEADERS = {
 # تابع برای گرفتن آی‌پی یا دامنه از لینک کانکشن
 def extract_ip_from_connection(connection):
     try:
-        # اعتبارسنجی اولیه: بررسی خالی نبودن کانفیگ
-        if not connection or not isinstance(connection, str):
-            with open(LOG_FILE, "a") as f:
-                f.write(f"Error: Empty or invalid connection string\n")
-            return None
-
         if connection.startswith("vmess://"):
             decoded = base64.b64decode(connection.split("vmess://")[1]).decode("utf-8")
             config = json.loads(decoded)
-            host = config.get("add")
-            return host if host and re.match(r"^[\w\.\-]+$", host) else None
-        elif connection.startswith(("vless://", "trojan://", "hysteria2://", "hysteria://", "tuic://")):
+            return config.get("add")
+        elif connection.startswith("trojan://"):
             server = connection.split("@")[1].split("?")[0].split(":")[0]
-            return server if server and re.match(r"^[\w\.\-]+$", server) else None
-        elif connection.startswith(("ss://", "ssr://")):
+            return server
+        elif connection.startswith("ss://") or connection.startswith("ssr://"):
             server = re.search(r"@([\w\.\-]+):", connection)
-            return server.group(1) if server and re.match(r"^[\w\.\-]+$", server.group(1)) else None
-        elif connection.startswith(("brook://", "socks://", "http://", "wireguard://")):
-            server = connection.split("//")[1].split("?")[0].split(":")[0]
-            return server if server and re.match(r"^[\w\.\-]+$", server) else None
+            return server.group(1) if server else None
         return None
     except Exception as e:
         with open(LOG_FILE, "a") as f:
-            f.write(f"Error parsing connection: {connection[:50]}... - {e}\n")
+            f.write(f"Error parsing connection: {e}\n")
         return None
 
 # تابع برای تبدیل دامنه به آی‌پی
 def resolve_to_ip(host):
     try:
-        # اعتبارسنجی hostname
-        if not host or not re.match(r"^[\w\.\-]+$", host):
-            with open(LOG_FILE, "a") as f:
-                f.write(f"Invalid hostname: {host}\n")
-            return None
         ip = socket.gethostbyname(host)
         with open(LOG_FILE, "a") as f:
             f.write(f"Resolved {host} to {ip}\n")
@@ -64,10 +49,6 @@ def resolve_to_ip(host):
     except socket.gaierror as e:
         with open(LOG_FILE, "a") as f:
             f.write(f"DNS resolution error for {host}: {e}\n")
-        return None
-    except Exception as e:
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Unexpected error resolving {host}: {e}\n")
         return None
 
 # تابع برای گرفتن کد کشور از آی‌پی
