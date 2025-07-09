@@ -2,16 +2,16 @@
 
 این صفحه شامل لینک‌های خام برای فایل‌های کانکشن وی‌پی‌ان است که هر کدام به یک کشور خاص اختصاص دارند. این فایل‌ها هر ۱۵ دقیقه به‌صورت خودکار به‌روزرسانی می‌شوند.
 
-**آخرین به‌روزرسانی**: Wednesday - 18 Tir 1404 - 2025-07-09 22:53:59 (به وقت تهران)
+**آخرین به‌روزرسانی**: Wednesday - 18 Tir 1404 - 2025-07-09 23:10:56 (به وقت تهران)
 
 | پرچم | نام کشور | کد کشور | تعداد کانکشن‌ها | لینک کانکشن |
 |:----:|:--------:|:------:|:---------------:|:-----------:|
-| 🌍 | همه کشورها | ALL | 12749 | [all_configs.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt) |
+| 🌍 | همه کشورها | ALL | 12740 | [all_configs.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt) |
 | 🇺🇸 | ایالات متحده | US | 966 | [United_States.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/United_States.txt) |
-| 🇺🇸 | ایالات متحده | US | 574 | [Us.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Us.txt) |
-|  | Germany | GE | 531 | [Germany.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Germany.txt) |
-| 🇨🇦 | کانادا | CA | 134 | [Canada.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Canada.txt) |
-| 🇹🇭 | تایلند | TH | 133 | [The_Netherlands.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/The_Netherlands.txt) |
+| 🇺🇸 | ایالات متحده | US | 572 | [Us.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Us.txt) |
+|  | Germany | GE | 526 | [Germany.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Germany.txt) |
+| 🇨🇦 | کانادا | CA | 133 | [Canada.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Canada.txt) |
+| 🇹🇭 | تایلند | TH | 132 | [The_Netherlands.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/The_Netherlands.txt) |
 | 🇫🇷 | فرانسه | FR | 122 | [France.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/France.txt) |
 | 🇮🇷 | ایران | IR | 102 | [Iran.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Iran.txt) |
 | 🌐 | نامشخص | UN | 101 | [United_Kingdom.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/United_Kingdom.txt) |
@@ -88,7 +88,7 @@
 | 🇯🇴 | اردن | JO | 0 | [Jordan.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Jordan.txt) |
 |  | Mauritius | MA | 0 | [Mauritius.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Mauritius.txt) |
 | 🇸🇦 | عربستان سعودی | SA | 0 | [Saudi_Arabia.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Saudi_Arabia.txt) |
-| 🌐 | نامشخص | UN | 1669 | [Unknown.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Unknown.txt) |
+| 🌐 | نامشخص | UN | 1656 | [Unknown.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Unknown.txt) |
 
 ## نکات
 - **همه کشورها** شامل تمام کانکشن‌های منبع است و در ابتدای لیست قرار دارد.
