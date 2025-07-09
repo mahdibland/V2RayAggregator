@@ -2,57 +2,57 @@
 
 این صفحه شامل لینک‌های خام برای فایل‌های کانکشن وی‌پی‌ان است که هر کدام به یک کشور خاص اختصاص دارند. این فایل‌ها هر ۱۵ دقیقه به‌صورت خودکار به‌روزرسانی می‌شوند.
 
-**آخرین به‌روزرسانی**: Wednesday - 18 Tir 1404 - 2025-07-09 21:00:01 (به وقت تهران)
+**آخرین به‌روزرسانی**: Wednesday - 18 Tir 1404 - 2025-07-09 21:18:09 (به وقت تهران)
 
 | پرچم | نام کشور | کد کشور | تعداد کانکشن‌ها | لینک کانکشن |
 |:----:|:--------:|:------:|:---------------:|:-----------:|
-| 🌍 | همه کشورها | ALL | 12648 | [all_configs.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt) |
-| 🇺🇸 | ایالات متحده | US | 889 | [United_States.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/United_States.txt) |
-| 🇺🇸 | ایالات متحده | US | 548 | [Us.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Us.txt) |
-|  | Germany | GE | 525 | [Germany.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Germany.txt) |
-| 🇹🇭 | تایلند | TH | 130 | [The_Netherlands.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/The_Netherlands.txt) |
-| 🇨🇦 | کانادا | CA | 129 | [Canada.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Canada.txt) |
-| 🇫🇷 | فرانسه | FR | 120 | [France.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/France.txt) |
+| 🌍 | همه کشورها | ALL | 12706 | [all_configs.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt) |
+| 🇺🇸 | ایالات متحده | US | 936 | [United_States.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/United_States.txt) |
+| 🇺🇸 | ایالات متحده | US | 566 | [Us.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Us.txt) |
+|  | Germany | GE | 532 | [Germany.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Germany.txt) |
+| 🇨🇦 | کانادا | CA | 132 | [Canada.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Canada.txt) |
+| 🇹🇭 | تایلند | TH | 132 | [The_Netherlands.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/The_Netherlands.txt) |
+| 🇫🇷 | فرانسه | FR | 119 | [France.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/France.txt) |
 | 🌐 | نامشخص | UN | 101 | [United_Kingdom.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/United_Kingdom.txt) |
 | 🇨🇿 | جمهوری چک | CZ | 99 | [Czechia.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Czechia.txt) |
 | 🇮🇷 | ایران | IR | 98 | [Iran.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Iran.txt) |
 | 🇷🇺 | روسیه | RU | 79 | [Russia.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Russia.txt) |
-| 🇸🇮 | اسلوونی | SI | 67 | [Singapore.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Singapore.txt) |
-| 🇫🇮 | فنلاند | FI | 54 | [Finland.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Finland.txt) |
+| 🇸🇮 | اسلوونی | SI | 69 | [Singapore.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Singapore.txt) |
+| 🇫🇮 | فنلاند | FI | 55 | [Finland.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Finland.txt) |
 | 🇨🇭 | سوئیس | CH | 51 | [China.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/China.txt) |
 |  | Lithuania | LI | 48 | [Lithuania.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Lithuania.txt) |
 |  | Sweden | SW | 47 | [Sweden.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Sweden.txt) |
 | 🇨🇾 | قبرس | CY | 42 | [Cyprus.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Cyprus.txt) |
 |  | Türkiye | TÜ | 33 | [Türkiye.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Türkiye.txt) |
 |  | Japan | JA | 31 | [Japan.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Japan.txt) |
-| 🇭🇰 | هنگ‌کنگ | HK | 29 | [Hong_Kong.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Hong_Kong.txt) |
+| 🇭🇰 | هنگ‌کنگ | HK | 30 | [Hong_Kong.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Hong_Kong.txt) |
 |  | Kazakhstan | KA | 21 | [Kazakhstan.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Kazakhstan.txt) |
 |  | Switzerland | SW | 21 | [Switzerland.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Switzerland.txt) |
 | 🇦🇺 | استرالیا | AU | 18 | [Austria.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Austria.txt) |
+|  | South Korea | SO | 17 | [South_Korea.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/South_Korea.txt) |
 | 🇻🇳 | ویتنام | VN | 17 | [Vietnam.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Vietnam.txt) |
 | 🇱🇺 | لوکزامبورگ | LU | 16 | [Luxembourg.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Luxembourg.txt) |
 | 🌐 | نامشخص | UN | 16 | [United_Arab_Emirates.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/United_Arab_Emirates.txt) |
 | 🇩🇪 | آلمان | DE | 15 | [De.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/De.txt) |
-|  | South Korea | SO | 15 | [South_Korea.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/South_Korea.txt) |
+| 🇸🇪 | سوئد | SE | 15 | [Seychelles.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Seychelles.txt) |
 | 🇦🇷 | آرژانتین | AR | 14 | [Armenia.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Armenia.txt) |
 | 🇧🇪 | بلژیک | BE | 14 | [Belgium.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Belgium.txt) |
 |  | Poland | PO | 14 | [Poland.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Poland.txt) |
-| 🇸🇪 | سوئد | SE | 14 | [Seychelles.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Seychelles.txt) |
 |  | Spain | SP | 14 | [Spain.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Spain.txt) |
 | 🇦🇺 | استرالیا | AU | 13 | [Australia.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Australia.txt) |
 |  | Moldova | MO | 11 | [Moldova.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Moldova.txt) |
+|  | Taiwan | TA | 10 | [Taiwan.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Taiwan.txt) |
 | 🇷🇴 | رومانی | RO | 9 | [Romania.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Romania.txt) |
 |  | South Africa | SO | 9 | [South_Africa.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/South_Africa.txt) |
-|  | Taiwan | TA | 9 | [Taiwan.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Taiwan.txt) |
 | 🇦🇿 | آذربایجان | AZ | 8 | [Azerbaijan.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Azerbaijan.txt) |
 |  | Bulgaria | BU | 8 | [Bulgaria.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Bulgaria.txt) |
 | 🇮🇹 | ایتالیا | IT | 8 | [Italy.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Italy.txt) |
 | 🇨🇷 | کاستاریکا | CR | 7 | [Cr.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Cr.txt) |
+| 🇮🇷 | ایران | IR | 7 | [Ireland.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Ireland.txt) |
 | 🇩🇪 | آلمان | DE | 6 | [Denmark.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Denmark.txt) |
 | 🇮🇳 | هند | IN | 6 | [India.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/India.txt) |
 |  | Latvia | LA | 6 | [Latvia.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Latvia.txt) |
 | 🇧🇷 | برزیل | BR | 5 | [Brazil.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Brazil.txt) |
-| 🇮🇷 | ایران | IR | 5 | [Ireland.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Ireland.txt) |
 |  | Slovakia | SL | 5 | [Slovakia.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Slovakia.txt) |
 |  | Slovenia | SL | 5 | [Slovenia.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Slovenia.txt) |
 |  | Ukraine | UK | 5 | [Ukraine.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Ukraine.txt) |
@@ -88,7 +88,7 @@
 | 🇯🇴 | اردن | JO | 0 | [Jordan.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Jordan.txt) |
 |  | Mauritius | MA | 0 | [Mauritius.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Mauritius.txt) |
 | 🇸🇦 | عربستان سعودی | SA | 0 | [Saudi_Arabia.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Saudi_Arabia.txt) |
-| 🌐 | نامشخص | UN | 1641 | [Unknown.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Unknown.txt) |
+| 🌐 | نامشخص | UN | 1660 | [Unknown.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Unknown.txt) |
 
 ## نکات
 - **همه کشورها** شامل تمام کانکشن‌های منبع است و در ابتدای لیست قرار دارد.
