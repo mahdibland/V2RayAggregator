@@ -2,13 +2,13 @@
 
 این صفحه شامل لینک‌های خام برای فایل‌های کانکشن وی‌پی‌ان است که هر کدام به یک کشور خاص اختصاص دارند. این فایل‌ها هر ۱۵ دقیقه به‌صورت خودکار به‌روزرسانی می‌شوند.
 
-**آخرین به‌روزرسانی**: Wednesday - 18 Tir 1404 - 2025-07-09 20:30:01 (به وقت تهران)
+**آخرین به‌روزرسانی**: Wednesday - 18 Tir 1404 - 2025-07-09 21:00:01 (به وقت تهران)
 
 | پرچم | نام کشور | کد کشور | تعداد کانکشن‌ها | لینک کانکشن |
 |:----:|:--------:|:------:|:---------------:|:-----------:|
-| 🌍 | همه کشورها | ALL | 12606 | [all_configs.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt) |
+| 🌍 | همه کشورها | ALL | 12648 | [all_configs.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/all_configs.txt) |
 | 🇺🇸 | ایالات متحده | US | 889 | [United_States.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/United_States.txt) |
-| 🇺🇸 | ایالات متحده | US | 549 | [Us.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Us.txt) |
+| 🇺🇸 | ایالات متحده | US | 548 | [Us.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Us.txt) |
 |  | Germany | GE | 525 | [Germany.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Germany.txt) |
 | 🇹🇭 | تایلند | TH | 130 | [The_Netherlands.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/The_Netherlands.txt) |
 | 🇨🇦 | کانادا | CA | 129 | [Canada.txt](https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/main/Countries/Canada.txt) |
