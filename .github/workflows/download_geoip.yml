@@ -25,7 +25,7 @@ name: Download GeoIP Database
            - name: Download GeoIP database
              run: |
                echo "Downloading GeoLite2-City.mmdb..."
-               curl -L -o GeoLite2-City.mmdb "https://file.gofile.io/download/Th3RKo/GeoLite2-City.mmdb" || echo "Failed to download GeoLite2-City.mmdb"
+               curl -4 -L -o GeoLite2-City.mmdb "https://file.gofile.io/download/Th3RKo/GeoLite2-City.mmdb" || echo "Failed to download GeoLite2-City.mmdb"
                ls -lh GeoLite2-City.mmdb || echo "GeoLite2-City.mmdb not found"
                echo "Checking GeoIP database:"
                ls GeoLite2-City.mmdb || echo "GeoLite2-City.mmdb not found"
