@@ -5,19 +5,53 @@ import geoip2.database
 import re
 import os
 import socket
+import tarfile
+import time
+from datetime import datetime, timedelta
 
 # تنظیمات
 SUB_URL = "https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/merged_configs.txt"
 OUTPUT_FILE = "sub/us_only_sub.txt"  # فایل خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
+GEOIP_URL = "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key={}&suffix=tar.gz"
+MAXMIND_LICENSE_KEY = os.getenv("MAXMIND_LICENSE_KEY")  # کلید لایسنس از متغیر محیطی
 TEST_URL = "https://labs.google/"  # URL جدید برای تست HTTP
 LOG_FILE = "http_test.log"  # فایل لاگ برای عیب‌یابی
+CACHE_DURATION = 24 * 60 * 60  # مدت کش: 24 ساعت (به ثانیه)
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.5",
     "Referer": "https://www.google.com/"
 }
+
+# تابع برای دانلود دیتابیس GeoIP
+def download_geoip_database():
+    if not MAXMIND_LICENSE_KEY:
+        with open(LOG_FILE, "a") as f:
+            f.write("Error: MAXMIND_LICENSE_KEY not set\n")
+        print("Error: MAXMIND_LICENSE_KEY not set")
+        return False
+
+    try:
+        url = GEOIP_URL.format(MAXMIND_LICENSE_KEY)
+        response = requests.get(url, stream=True, timeout=10)
+        response.raise_for_status()
+        with open("GeoLite2-City.tar.gz", "wb") as f:
+            f.write(response.content)
+        with tarfile.open("GeoLite2-City.tar.gz", "r:gz") as tar:
+            for member in tar.getmembers():
+                if member.name.endswith("GeoLite2-City.mmdb"):
+                    tar.extract(member, path=".")
+                    os.rename(member.name, GEOIP_DB)
+        os.remove("GeoLite2-City.tar.gz")
+        with open(LOG_FILE, "a") as f:
+            f.write(f"GeoIP database downloaded and extracted to {GEOIP_DB}\n")
+        return True
+    except Exception as e:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Error downloading GeoIP database: {e}\n")
+        return False
 
 # تابع برای گرفتن آی‌پی یا دامنه از لینک کانکشن
 def extract_ip_from_connection(connection):
@@ -71,7 +105,7 @@ def extract_ip_from_connection(connection):
             server = connection.split("@")[1].split(":")[0]
             if not server or server.strip() == ".":
                 with open(LOG_FILE, "a") as f:
-                    f.write(f"Invalid server in wireguard://: {server}\ grano")
+                    f.write(f"Invalid server in wireguard://: {server}\n")
                 return None
             return server
         return None
@@ -124,6 +158,31 @@ def main():
     with open(LOG_FILE, "w") as f:
         f.write(f"Starting HTTP test log at {os.popen('date').read()}\n")
 
+    # چک کردن و دانلود دیتابیس GeoIP
+    if not os.path.exists(GEOIP_DB) or (os.path.exists(GEOIP_DB) and time.time() - os.path.getmtime(GEOIP_DB) > CACHE_DURATION):
+        with open(LOG_FILE, "a") as f:
+            f.write(f"GeoIP database missing or older than {CACHE_DURATION/3600} hours, downloading...\n")
+        if not download_geoip_database():
+            with open(LOG_FILE, "a") as f:
+                f.write(f"Failed to download GeoIP database, exiting\n")
+            print("Error: Failed to download GeoIP database")
+            return
+
+    # چک کردن وجود فایل GeoIP
+    if not os.path.exists(GEOIP_DB):
+        with open(LOG_FILE, "a") as f:
+            f.write(f"GeoIP database {GEOIP_DB} not found\n")
+        print(f"Error: GeoIP database {GEOIP_DB} not found")
+        return
+
+    # باز کردن دیتابیس GeoIP
+    try:
+        reader = geoip2.database.Reader(GEOIP_DB)
+    except Exception as e:
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Error opening GeoIP database: {e}\n")
+        return
+
     # گرفتن لیست کانکشن‌ها از لینک خام
     try:
         response = requests.get(SUB_URL, timeout=10)
@@ -134,14 +193,6 @@ def main():
     except requests.RequestException as e:
         with open(LOG_FILE, "a") as f:
             f.write(f"Error fetching {SUB_URL}: {e}\n")
-        return
-
-    # باز کردن دیتابیس GeoIP
-    try:
-        reader = geoip2.database.Reader(GEOIP_DB)
-    except Exception as e:
-        with open(LOG_FILE, "a") as f:
-            f.write(f"Error opening GeoIP database: {e}\n")
         return
 
     # فیلتر کردن کانکشن‌های مربوط به آمریکا
