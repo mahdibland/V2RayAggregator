@@ -1,35 +1,42 @@
 name: Download GeoIP Database
 
-on:
-  workflow_dispatch: # Allow manual trigger
-  schedule:
-    - cron: '0 0 * * 0' # Run weekly on Sunday at midnight UTC
+     on:
+       workflow_dispatch: # Allow manual trigger
+       schedule:
+         - cron: '0 0 * * 0' # Run weekly on Sunday at midnight UTC
 
-jobs:
-  download-geoip:
-    runs-on: ubuntu-latest
+     jobs:
+       download-geoip:
+         runs-on: ubuntu-latest
 
-    steps:
-      # Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v4
+         steps:
+           # Checkout the repository
+           - name: Checkout repository
+             uses: actions/checkout@v4
 
-      # Download GeoIP database
-      - name: Download GeoIP database
-        run: |
-          echo "Downloading GeoLite2-City.mmdb..."
-          curl -L -o GeoLite2-City.mmdb "https://file.gofile.io/download/Th3RKo/GeoLite2-City.mmdb"
-          ls -lh GeoLite2-City.mmdb || echo "Failed to download GeoLite2-City.mmdb"
-          echo "Checking GeoIP database:"
-          ls GeoLite2-City.mmdb || echo "GeoLite2-City.mmdb not found"
+           # Configure DNS
+           - name: Configure DNS
+             run: |
+               echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
+               echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
+               cat /etc/resolv.conf
 
-      # Commit and push the downloaded file
-      - name: Commit GeoIP database
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add GeoLite2-City.mmdb
-          git commit -m "Add GeoLite2-City.mmdb to repository" || echo "No changes to commit"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           # Download GeoIP database
+           - name: Download GeoIP database
+             run: |
+               echo "Downloading GeoLite2-City.mmdb..."
+               curl -L -o GeoLite2-City.mmdb "https://file.gofile.io/download/Th3RKo/GeoLite2-City.mmdb" || echo "Failed to download GeoLite2-City.mmdb"
+               ls -lh GeoLite2-City.mmdb || echo "GeoLite2-City.mmdb not found"
+               echo "Checking GeoIP database:"
+               ls GeoLite2-City.mmdb || echo "GeoLite2-City.mmdb not found"
+
+           # Commit and push the downloaded file
+           - name: Commit GeoIP database
+             run: |
+               git config --local user.email "action@github.com"
+               git config --local user.name "GitHub Action"
+               git add GeoLite2-City.mmdb
+               git commit -m "Add GeoLite2-City.mmdb to repository" || echo "No changes to commit"
+               git push
+             env:
+               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
