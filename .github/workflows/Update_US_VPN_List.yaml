@@ -43,3 +43,15 @@ jobs:
           path: |
             sub/us_only_sub.txt
             http_test.log
+
+      # Commit و push فایل خروجی به مخزن
+      - name: Commit output file
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add sub/us_only_sub.txt
+          git commit -m "Update us_only_sub.txt" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: always()
