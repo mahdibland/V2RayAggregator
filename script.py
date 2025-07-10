@@ -26,16 +26,31 @@ def extract_ip_from_connection(connection):
             decoded = base64.b64decode(connection.split("vmess://")[1]).decode("utf-8")
             config = json.loads(decoded)
             return config.get("add")
-        elif connection.startswith("trojan://"):
+        elif connection.startswith("vless://") or connection.startswith("trojan://"):
             server = connection.split("@")[1].split("?")[0].split(":")[0]
             return server
         elif connection.startswith("ss://") or connection.startswith("ssr://"):
             server = re.search(r"@([\w\.\-]+):", connection)
             return server.group(1) if server else None
+        elif connection.startswith("hysteria://") or connection.startswith("hysteria2://"):
+            server = connection.split("@")[1].split("?")[0].split(":")[0]
+            return server
+        elif connection.startswith("brook://"):
+            server = connection.split("@")[1].split(":")[0]
+            return server
+        elif connection.startswith("tuic://"):
+            server = connection.split("@")[1].split("?")[0].split(":")[0]
+            return server
+        elif connection.startswith("socks://") or connection.startswith("http://"):
+            server = connection.split("://")[1].split(":")[0]
+            return server
+        elif connection.startswith("wireguard://"):
+            server = connection.split("@")[1].split(":")[0]
+            return server
         return None
     except Exception as e:
         with open(LOG_FILE, "a") as f:
-            f.write(f"Error parsing connection: {e}\n")
+            f.write(f"Error parsing connection {connection}: {e}\n")
         return None
 
 # تابع برای تبدیل دامنه به آی‌پی
