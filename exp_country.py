@@ -25,8 +25,9 @@ HEADERS = {
 }
 COUNTRIES = {
     "US": "US_sub.txt", "NL": "NL_sub.txt", "DE": "DE_sub.txt",
-    "GB": "UK_sub.txt", "FR": "FR_sub.txt", "CA": "CA_sub.txt",
-    "TR": "TR_sub.txt", "AE": "UE_sub.txt", "SE": "SE_sub.txt"
+    "GB": "GB_sub.txt", "FR": "FR_sub.txt", "CA": "CA_sub.txt",
+    "TR": "TR_sub.txt", "AE": "AE_sub.txt", "SE": "SE_sub.txt",
+    "IR": "IR_sub.txt"
 }
 # =================================================================================
 
