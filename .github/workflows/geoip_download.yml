@@ -31,7 +31,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: GeoLite2-City.mmdb
-          key: geoip2-city-${{ runner.os }}-${{ secrets.MAXMIND_LICENSE_KEY }}-${{ format('{0:yyyyMMdd}', github.event.schedule || github.event.push.created_at || github.event.workflow_dispatch.created_at) }}
+          key: geoip2-city-${{ runner.os }}-${{ secrets.MAXMIND_LICENSE_KEY }}-${{ format('{0:yyyyMMdd}', github.event.push.head_commit.timestamp || github.event.schedule || github.event.workflow_dispatch || github.event.repository.updated_at) }}
           restore-keys: |
             geoip2-city-${{ runner.os }}-${{ secrets.MAXMIND_LICENSE_KEY }}-
 
@@ -41,7 +41,7 @@ jobs:
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: |
-          wget -q -O GeoLite2-City.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=$MAXMIND_LICENSE_KEY&suffix=tar.gz"
+          wget -q -O GeoLite2-City.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=$MAXMIND_LICENSE_KEY&suffix=tar.gz" || { echo "Failed to download GeoLite2 database"; exit 1; }
           tar -xzf GeoLite2-City.tar.gz
           mv GeoLite2-City_*/GeoLite2-City.mmdb .
           rm -rf GeoLite2-City_* GeoLite2-City.tar.gz
