@@ -116,7 +116,8 @@ urls = [
     "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Unknown.txt",
     "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Us.txt",
     "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Vietnam.txt",
-    "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Vn.txt"
+    "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Vn.txt",
+    "https://github.com/Epodonios/v2ray-configs/raw/refs/heads/main/All_Configs_Sub.txt"
 ]
 
 # List of allowed protocols
