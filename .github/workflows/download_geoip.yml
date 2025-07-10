@@ -22,7 +22,7 @@ jobs:
 
       - name: Download GeoIP database
         run: |
-          echo "Downloading GeoLite2-City.mmdb..."
+          echo "Starting GeoLite2-City.mmdb download at $(date)..."
           fileid="1tMj5VDSYrdKb0l9h_pEmGyYKT-60cbFY"
           filename="GeoLite2-City.mmdb"
           curl -c ./cookie.txt -s -L "https://drive.google.com/uc?export=download&id=${fileid}" > /dev/null
@@ -30,6 +30,7 @@ jobs:
           echo "Confirm code: $confirm_code"
           curl -Lb ./cookie.txt "https://drive.google.com/uc?export=download&confirm=${confirm_code}&id=${fileid}" -o ${filename} || echo "Failed to download GeoLite2-City.mmdb"
           ls -lh GeoLite2-City.mmdb || echo "GeoLite2-City.mmdb not found"
+          echo "Download status: $(if [ -f GeoLite2-City.mmdb ]; then echo 'Success'; else echo 'Failed'; fi) at $(date)"
           echo "Current directory:"
           pwd
           echo "Listing directory contents:"
