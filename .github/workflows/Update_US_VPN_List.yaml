@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '0 * * * *' # Run every hour
+    - cron: '0 * * * *'  # هر ساعت اجرا بشه
   workflow_dispatch:
 
 jobs:
@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout کردن مخزن
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       # نصب پایتون
       - name: Set up Python
         uses: actions/setup-python@v5
