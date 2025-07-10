@@ -7,7 +7,7 @@ import os
 import socket
 
 # تنظیمات
-SUB_URL = "https://github.com/MEHR1DAD/V2RayAggregator/raw/refs/heads/master/merged_configs.txt"
+SUB_URL = "https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/merged_configs.txt"
 OUTPUT_FILE = "sub/us_only_sub.txt"  # فایل خروجی
 GEOIP_DB = "GeoLite2-City.mmdb"  # مسیر دیتابیس GeoLite2
 TEST_URL = "https://labs.google/"  # URL جدید برای تست HTTP
@@ -22,30 +22,57 @@ HEADERS = {
 # تابع برای گرفتن آی‌پی یا دامنه از لینک کانکشن
 def extract_ip_from_connection(connection):
     try:
+        if not connection or not isinstance(connection, str):
+            with open(LOG_FILE, "a") as f:
+                f.write(f"Invalid connection: {connection}\n")
+            return None
+
         if connection.startswith("vmess://"):
             decoded = base64.b64decode(connection.split("vmess://")[1]).decode("utf-8")
             config = json.loads(decoded)
-            return config.get("add")
-        elif connection.startswith("vless://") or connection.startswith("trojan://"):
+            host = config.get("add")
+            if not host or host.strip() == ".":
+                with open(LOG_FILE, "a") as f:
+                    f.write(f"Invalid host in vmess://: {host}\n")
+                return None
+            return host
+        elif connection.startswith(("vless://", "trojan://", "hysteria://", "hysteria2://", "tuic://")):
             server = connection.split("@")[1].split("?")[0].split(":")[0]
+            if not server or server.strip() == ".":
+                with open(LOG_FILE, "a") as f:
+                    f.write(f"Invalid server in {connection.split('://')[0]}://: {server}\n")
+                return None
             return server
-        elif connection.startswith("ss://") or connection.startswith("ssr://"):
+        elif connection.startswith(("ss://", "ssr://")):
             server = re.search(r"@([\w\.\-]+):", connection)
-            return server.group(1) if server else None
-        elif connection.startswith("hysteria://") or connection.startswith("hysteria2://"):
-            server = connection.split("@")[1].split("?")[0].split(":")[0]
-            return server
+            if server:
+                host = server.group(1)
+                if not host or host.strip() == ".":
+                    with open(LOG_FILE, "a") as f:
+                        f.write(f"Invalid server in {connection.split('://')[0]}://: {host}\n")
+                    return None
+                return host
+            return None
         elif connection.startswith("brook://"):
             server = connection.split("@")[1].split(":")[0]
+            if not server or server.strip() == ".":
+                with open(LOG_FILE, "a") as f:
+                    f.write(f"Invalid server in brook://: {server}\n")
+                return None
             return server
-        elif connection.startswith("tuic://"):
-            server = connection.split("@")[1].split("?")[0].split(":")[0]
-            return server
-        elif connection.startswith("socks://") or connection.startswith("http://"):
+        elif connection.startswith(("socks://", "http://")):
             server = connection.split("://")[1].split(":")[0]
+            if not server or server.strip() == ".":
+                with open(LOG_FILE, "a") as f:
+                    f.write(f"Invalid server in {connection.split('://')[0]}://: {server}\n")
+                return None
             return server
         elif connection.startswith("wireguard://"):
             server = connection.split("@")[1].split(":")[0]
+            if not server or server.strip() == ".":
+                with open(LOG_FILE, "a") as f:
+                    f.write(f"Invalid server in wireguard://: {server}\ grano")
+                return None
             return server
         return None
     except Exception as e:
@@ -55,6 +82,10 @@ def extract_ip_from_connection(connection):
 
 # تابع برای تبدیل دامنه به آی‌پی
 def resolve_to_ip(host):
+    if not host or not isinstance(host, str) or host.strip() == ".":
+        with open(LOG_FILE, "a") as f:
+            f.write(f"Invalid host for DNS resolution: {host}\n")
+        return None
     try:
         ip = socket.gethostbyname(host)
         with open(LOG_FILE, "a") as f:
