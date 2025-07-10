@@ -10,55 +10,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      # Set up Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
-      # Install required Python packages
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests geoip2
 
-      # Run merge_configs.py to generate merged_configs.txt
+      - name: Configure DNS
+        run: |
+          echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
+          echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
+          echo "nameserver 1.1.1.1" | sudo tee -a /etc/resolv.conf
+
       - name: Run merge_configs.py
         run: |
-          python merge_configs.py || (echo "Failed to run merge_configs.py" && exit 1)
-          echo "Checking merged_configs.txt:"
-          cat merged_configs.txt || echo "merged_configs.txt is empty or not found"
+          python merge_configs.py
+          echo "Total configs:"
+          wc -l merged_configs.txt || echo "merged_configs.txt is empty"
+          git add merged_configs.txt || echo "Failed to add merged_configs.txt"
 
-      # Run exp_country.py to extract country-specific configs
       - name: Run exp_country.py
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: |
-          python exp_country.py || (cat http_test.log && exit 1)
-
-      # Debug: Check directory contents and logs
-      - name: Debug directory contents
-        run: |
-          echo "Listing directory contents:"
-          ls -R
-          echo "Checking merged_configs.txt:"
-          cat merged_configs.txt || echo "merged_configs.txt is empty or not found"
-          echo "Checking http_test.log:"
+          python exp_country.py
           cat http_test.log || echo "No http_test.log found"
-          echo "Checking subscription directory:"
           ls subscription || echo "No files in subscription directory"
+          git add subscription/*.txt http_test.log || echo "Failed to add subscription files or http_test.log"
 
-      # Commit and push the extracted files
-      - name: Commit extracted files
+      - name: Commit and push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add merged_configs.txt subscription/*.txt http_test.log || echo "No files to add"
-          git commit -m "Update merged and country-specific proxy configs and log" || echo "No changes to commit"
+          git status
+          git commit -m "Update merged_configs.txt, subscription files, and http_test.log" || echo "Nothing to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
