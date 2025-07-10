@@ -18,6 +18,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # کل تاریخچه رو checkout کن
 
       # نصب پایتون
       - name: Set up Python
@@ -46,9 +47,10 @@ jobs:
             sub/us_only_sub.txt
             http_test.log
 
-      # Commit و push فایل خروجی به مخزن
+      # Commit و push فایل خروجی
       - name: Commit and push output file
         run: |
+          ls -la sub/ || echo "Directory sub/ not found"
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add sub/us_only_sub.txt
