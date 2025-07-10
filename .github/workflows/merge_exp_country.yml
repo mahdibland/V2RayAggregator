@@ -48,10 +48,22 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add merged_configs.txt subscription/ http_test.log
+          
+          # اضافه کردن فایل‌هایی که توسط این workflow ساخته شده‌اند
+          git add merged_configs.txt http_test.log subscription/*_sub.txt
+          
+          # فقط در صورتی که تغییری وجود داشته باشد، ادامه بده
           if git diff --staged --quiet; then
-            echo "✅ No changes detected."
+            echo "✅ No new proxy configurations generated. Skipping commit."
           else
-            git commit -m "Update proxy configurations"
+            # ۱. تغییرات محلی را کامیت کن
+            git commit -m "Update hourly proxy configurations"
+            
+            # ۲. آخرین تغییرات از سرور را بکش و تغییرات خود را روی آن بگذار
+            echo "🔄 Pulling remote changes with rebase..."
+            git pull --rebase
+            
+            # ۳. حالا تغییرات نهایی را پوش کن
+            echo "🚀 Pushing changes to repository..."
             git push
           fi
