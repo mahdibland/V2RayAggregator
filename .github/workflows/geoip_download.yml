@@ -1,0 +1,53 @@
+name: GeoIP Database Download
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 * * *'  # هر 24 ساعت اجرا بشه
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # نصب پایتون
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      # نصب وابستگی‌ها
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests geoip2
+
+      # کش کردن دیتابیس GeoIP
+      - name: Cache GeoLite2 Database
+        id: cache-geoip
+        uses: actions/cache@v4
+        with:
+          path: GeoLite2-City.mmdb
+          key: geoip2-city-${{ runner.os }}-${{ secrets.MAXMIND_LICENSE_KEY }}-${{ format('{0:yyyyMMdd}', github.event.schedule || github.event.push.created_at || github.event.workflow_dispatch.created_at) }}
+          restore-keys: |
+            geoip2-city-${{ runner.os }}-${{ secrets.MAXMIND_LICENSE_KEY }}-
+
+      # دانلود دیتابیس فقط اگه توی کش نیست یا قدیمی شده
+      - name: Download GeoLite2 Database
+        if: steps.cache-geoip.outputs.cache-hit != 'true'
+        env:
+          MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
+        run: |
+          wget -q -O GeoLite2-City.tar.gz "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=$MAXMIND_LICENSE_KEY&suffix=tar.gz"
+          tar -xzf GeoLite2-City.tar.gz
+          mv GeoLite2-City_*/GeoLite2-City.mmdb .
+          rm -rf GeoLite2-City_* GeoLite2-City.tar.gz
+
+      # اجرای اسکریپت پایتون
+      - name: Run Python Script
+        run: python script.py
+        env:
+          MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
