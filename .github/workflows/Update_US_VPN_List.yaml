@@ -34,3 +34,12 @@ jobs:
         run: python script.py
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
+
+      # آپلود فایل‌های خروجی به عنوان artifact
+      - name: Upload output files
+        uses: actions/upload-artifact@v4
+        with:
+          name: output-files
+          path: |
+            sub/us_only_sub.txt
+            http_test.log
