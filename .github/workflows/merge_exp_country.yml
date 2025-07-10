@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # Allow manual trigger
 
 jobs:
-  extract-country-configs:
+  merge-and-extract:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,19 +26,39 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests geoip2
 
-      # Run Python script to extract country-specific configs
-      - name: Extract country-specific configs
+      # Run merge_configs.py to generate merged_configs.txt
+      - name: Run merge_configs.py
+        run: |
+          python merge_configs.py || (echo "Failed to run merge_configs.py" && exit 1)
+          echo "Checking merged_configs.txt:"
+          cat merged_configs.txt || echo "merged_configs.txt is empty or not found"
+
+      # Run exp_country.py to extract country-specific configs
+      - name: Run exp_country.py
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
-        run: python exp_country.py
+        run: |
+          python exp_country.py || (cat http_test.log && exit 1)
+
+      # Debug: Check directory contents and logs
+      - name: Debug directory contents
+        run: |
+          echo "Listing directory contents:"
+          ls -R
+          echo "Checking merged_configs.txt:"
+          cat merged_configs.txt || echo "merged_configs.txt is empty or not found"
+          echo "Checking http_test.log:"
+          cat http_test.log || echo "No http_test.log found"
+          echo "Checking subscription directory:"
+          ls subscription || echo "No files in subscription directory"
 
       # Commit and push the extracted files
       - name: Commit extracted files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add subscription/*.txt http_test.log
-          git commit -m "Update country-specific proxy configs and log" || echo "No changes to commit"
+          git add merged_configs.txt subscription/*.txt http_test.log || echo "No files to add"
+          git commit -m "Update merged and country-specific proxy configs and log" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
