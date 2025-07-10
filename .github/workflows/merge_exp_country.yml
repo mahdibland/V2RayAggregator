@@ -18,52 +18,40 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Get current date for cache key
+        id: date
+        run: echo "TODAY=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Cache GeoIP Database
+        id: cache-geoip
+        uses: actions/cache@v4
+        with:
+          path: GeoLite2-City.mmdb
+          key: ${{ runner.os }}-geoip-${{ steps.date.outputs.TODAY }}
+          restore-keys: |
+            ${{ runner.os }}-geoip-
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests geoip2
 
-      - name: Configure DNS for reliability
-        run: |
-          echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
-          echo "nameserver 1.1.1.1" | sudo tee -a /etc/resolv.conf
-
       - name: Run merge_configs.py to gather proxies
-        id: merge_step
-        run: |
-          python merge_configs.py
-          # Verify that the output file was created and is not empty
-          if [ -s merged_configs.txt ]; then
-            echo "✅ Successfully created merged_configs.txt"
-            echo "TOTAL_CONFIGS=$(wc -l < merged_configs.txt)" >> $GITHUB_OUTPUT
-          else
-            echo "❌ ERROR: merge_configs.txt is empty or was not created."
-            exit 1
-          fi
+        run: python merge_configs.py
 
-      - name: Run exp_country.py to sort and test proxies
+      - name: Run exp_country.py (uses cached GeoIP DB)
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
-        run: |
-          python exp_country.py
-          echo "--- HTTP Test Log ---"
-          cat http_test.log
-          echo "--- Generated Subscription Files ---"
-          ls -l subscription/
-
+        run: python exp_country.py
+      
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
-          # Add all generated files to be tracked by Git
           git add merged_configs.txt subscription/ http_test.log
-          
-          # Check if there are any changes to commit
           if git diff --staged --quiet; then
-            echo "✅ No changes detected. Working tree is clean."
+            echo "✅ No changes detected."
           else
-            echo "🚀 Changes detected. Committing and pushing to the repository."
-            git commit -m "Updated proxy configurations (${{ steps.merge_step.outputs.TOTAL_CONFIGS }} total)"
+            git commit -m "Update proxy configurations"
             git push
           fi
