@@ -17,7 +17,7 @@ GEOIP_URL = "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2
 MAXMIND_LICENSE_KEY = os.getenv("MAXMIND_LICENSE_KEY")  # کلید لایسنس از متغیر محیطی
 TEST_URL = "https://labs.google/"  # URL جدید برای تست HTTP
 LOG_FILE = "http_test.log"  # فایل لاگ برای عیب‌یابی
-CACHE_DURATION = 24 * 60 * 60  # مدت کش: 24 ساعت (به ثانیه)
+CACHE_DURATION = 7 * 24 * 60 * 60  # مدت کش: 7 روز (به ثانیه)
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -39,7 +39,7 @@ def download_geoip_database():
         response.raise_for_status()
         with open("GeoLite2-City.tar.gz", "wb") as f:
             f.write(response.content)
-        with tarfile.open("GeoLite2-City.tar.gz", "r:gz") as tar:
+        with tarfile.open("GeoLite2-City.tar.gz", "r:gz", filter="data") as tar:
             for member in tar.getmembers():
                 if member.name.endswith("GeoLite2-City.mmdb"):
                     tar.extract(member, path=".")
@@ -61,51 +61,59 @@ def extract_ip_from_connection(connection):
                 f.write(f"Invalid connection: {connection}\n")
             return None
 
+        # چک کردن فرمت کلی کانکشن
+        if not re.match(r"^(vmess|vless|trojan|hysteria|hysteria2|tuic|ss|ssr|brook|socks|http|wireguard)://", connection):
+            with open(LOG_FILE, "a") as f:
+                f.write(f"Unsupported protocol in connection: {connection}\n")
+            return None
+
         if connection.startswith("vmess://"):
             decoded = base64.b64decode(connection.split("vmess://")[1]).decode("utf-8")
             config = json.loads(decoded)
             host = config.get("add")
-            if not host or host.strip() == ".":
+            if not host or not re.match(r"^[\w\.\-]+$", host):
                 with open(LOG_FILE, "a") as f:
-                    f.write(f"Invalid host in vmess://: {host}\n")
+                    f.write(f"Invalid or empty host in vmess://: {host} (connection: {connection})\n")
                 return None
             return host
         elif connection.startswith(("vless://", "trojan://", "hysteria://", "hysteria2://", "tuic://")):
             server = connection.split("@")[1].split("?")[0].split(":")[0]
-            if not server or server.strip() == ".":
+            if not server or not re.match(r"^[\w\.\-]+$", server):
                 with open(LOG_FILE, "a") as f:
-                    f.write(f"Invalid server in {connection.split('://')[0]}://: {server}\n")
+                    f.write(f"Invalid or empty server in {connection.split('://')[0]}://: {server} (connection: {connection})\n")
                 return None
             return server
         elif connection.startswith(("ss://", "ssr://")):
             server = re.search(r"@([\w\.\-]+):", connection)
             if server:
                 host = server.group(1)
-                if not host or host.strip() == ".":
+                if not host or not re.match(r"^[\w\.\-]+$", host):
                     with open(LOG_FILE, "a") as f:
-                        f.write(f"Invalid server in {connection.split('://')[0]}://: {host}\n")
+                        f.write(f"Invalid or empty server in {connection.split('://')[0]}://: {host} (connection: {connection})\n")
                     return None
                 return host
+            with open(LOG_FILE, "a") as f:
+                f.write(f"No server found in {connection.split('://')[0]}://: {connection}\n")
             return None
         elif connection.startswith("brook://"):
             server = connection.split("@")[1].split(":")[0]
-            if not server or server.strip() == ".":
+            if not server or not re.match(r"^[\w\.\-]+$", server):
                 with open(LOG_FILE, "a") as f:
-                    f.write(f"Invalid server in brook://: {server}\n")
+                    f.write(f"Invalid or empty server in brook://: {server} (connection: {connection})\n")
                 return None
             return server
         elif connection.startswith(("socks://", "http://")):
             server = connection.split("://")[1].split(":")[0]
-            if not server or server.strip() == ".":
+            if not server or not re.match(r"^[\w\.\-]+$", server):
                 with open(LOG_FILE, "a") as f:
-                    f.write(f"Invalid server in {connection.split('://')[0]}://: {server}\n")
+                    f.write(f"Invalid or empty server in {connection.split('://')[0]}://: {server} (connection: {connection})\n")
                 return None
             return server
         elif connection.startswith("wireguard://"):
             server = connection.split("@")[1].split(":")[0]
-            if not server or server.strip() == ".":
+            if not server or not re.match(r"^[\w\.\-]+$", server):
                 with open(LOG_FILE, "a") as f:
-                    f.write(f"Invalid server in wireguard://: {server}\n")
+                    f.write(f"Invalid or empty server in wireguard://: {server} (connection: {connection})\n")
                 return None
             return server
         return None
@@ -116,7 +124,7 @@ def extract_ip_from_connection(connection):
 
 # تابع برای تبدیل دامنه به آی‌پی
 def resolve_to_ip(host):
-    if not host or not isinstance(host, str) or host.strip() == ".":
+    if not host or not isinstance(host, str) or not re.match(r"^[\w\.\-]+$", host):
         with open(LOG_FILE, "a") as f:
             f.write(f"Invalid host for DNS resolution: {host}\n")
         return None
