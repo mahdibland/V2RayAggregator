@@ -13,9 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout کردن مخزن
+      # Checkout کردن مخزن با توکن
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # نصب پایتون
       - name: Set up Python
@@ -45,13 +47,13 @@ jobs:
             http_test.log
 
       # Commit و push فایل خروجی به مخزن
-      - name: Commit output file
+      - name: Commit and push output file
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add sub/us_only_sub.txt
           git commit -m "Update us_only_sub.txt" || echo "No changes to commit"
-          git push
+          git push origin master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: always()
