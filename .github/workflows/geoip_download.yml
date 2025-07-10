@@ -25,13 +25,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests geoip2
 
+      # تولید تاریخ روز برای کلید کش
+      - name: Get Current Date
+        id: date
+        run: echo "current_date=$(date +%Y%m%d)" >> $GITHUB_OUTPUT
+
       # کش کردن دیتابیس GeoIP
       - name: Cache GeoLite2 Database
         id: cache-geoip
         uses: actions/cache@v4
         with:
           path: GeoLite2-City.mmdb
-          key: geoip2-city-${{ runner.os }}-${{ secrets.MAXMIND_LICENSE_KEY }}-${{ format('{0:yyyyMMdd}', github.event.push.head_commit.timestamp || github.event.schedule || github.event.workflow_dispatch || github.event.repository.updated_at) }}
+          key: geoip2-city-${{ runner.os }}-${{ secrets.MAXMIND_LICENSE_KEY }}-${{ steps.date.outputs.current_date }}
           restore-keys: |
             geoip2-city-${{ runner.os }}-${{ secrets.MAXMIND_LICENSE_KEY }}-
 
