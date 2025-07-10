@@ -12,8 +12,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -25,34 +23,47 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests geoip2
 
-      - name: Configure DNS
+      - name: Configure DNS for reliability
         run: |
           echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
-          echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
           echo "nameserver 1.1.1.1" | sudo tee -a /etc/resolv.conf
 
-      - name: Run merge_configs.py
+      - name: Run merge_configs.py to gather proxies
+        id: merge_step
         run: |
           python merge_configs.py
-          echo "Total configs:"
-          wc -l merged_configs.txt || echo "merged_configs.txt is empty"
-          git add merged_configs.txt || echo "Failed to add merged_configs.txt"
+          # Verify that the output file was created and is not empty
+          if [ -s merged_configs.txt ]; then
+            echo "✅ Successfully created merged_configs.txt"
+            echo "TOTAL_CONFIGS=$(wc -l < merged_configs.txt)" >> $GITHUB_OUTPUT
+          else
+            echo "❌ ERROR: merge_configs.txt is empty or was not created."
+            exit 1
+          fi
 
-      - name: Run exp_country.py
+      - name: Run exp_country.py to sort and test proxies
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: |
           python exp_country.py
-          cat http_test.log || echo "No http_test.log found"
-          ls subscription || echo "No files in subscription directory"
-          git add subscription/*.txt http_test.log || echo "Failed to add subscription files or http_test.log"
+          echo "--- HTTP Test Log ---"
+          cat http_test.log
+          echo "--- Generated Subscription Files ---"
+          ls -l subscription/
 
-      - name: Commit and push
+      - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git status
-          git commit -m "Update merged_configs.txt, subscription files, and http_test.log" || echo "Nothing to commit"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+          # Add all generated files to be tracked by Git
+          git add merged_configs.txt subscription/ http_test.log
+          
+          # Check if there are any changes to commit
+          if git diff --staged --quiet; then
+            echo "✅ No changes detected. Working tree is clean."
+          else
+            echo "🚀 Changes detected. Committing and pushing to the repository."
+            git commit -m "Updated proxy configurations (${{ steps.merge_step.outputs.TOTAL_CONFIGS }} total)"
+            git push
+          fi
