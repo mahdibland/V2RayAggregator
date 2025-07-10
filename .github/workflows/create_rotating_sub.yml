@@ -29,9 +29,18 @@ jobs:
           # اضافه کردن تمام فایل‌های مرتبط با این قابلیت برای همه کشورها
           git add subscription/*_100.txt subscription/*_shuffled.txt subscription/*_index.txt
           
+          # فقط در صورتی که تغییری وجود داشته باشد، ادامه بده
           if git diff --staged --quiet; then
             echo "✅ No new rotating subs generated. Skipping commit."
           else
+            # ۱. تغییرات محلی را کامیت کن
             git commit -m "Update rotating 100-config subscriptions for all countries"
+            
+            # ۲. آخرین تغییرات از سرور را بکش و تغییرات خود را روی آن بگذار
+            echo "🔄 Pulling remote changes with rebase..."
+            git pull --rebase
+            
+            # ۳. حالا تغییرات نهایی را پوش کن
+            echo "🚀 Pushing changes to repository..."
             git push
           fi
