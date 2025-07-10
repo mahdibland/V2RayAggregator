@@ -17,22 +17,36 @@ jobs:
         run: |
           echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
           echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
+          echo "nameserver 1.1.1.1" | sudo tee -a /etc/resolv.conf
           cat /etc/resolv.conf
 
       - name: Download GeoIP database
         run: |
           echo "Downloading GeoLite2-City.mmdb..."
-          curl -4 -L -o GeoLite2-City.mmdb "https://file.gofile.io/download/Th3RKo/GeoLite2-City.mmdb" || echo "Failed to download GeoLite2-City.mmdb"
+          fileid="1tMj5VDSYrdKb0l9h_pEmGyYKT-60cbFY"
+          filename="GeoLite2-City.mmdb"
+          curl -c ./cookie.txt -s -L "https://drive.google.com/uc?export=download&id=${fileid}" > /dev/null
+          confirm_code=$(awk '/download/ {print $NF}' ./cookie.txt)
+          echo "Confirm code: $confirm_code"
+          curl -Lb ./cookie.txt "https://drive.google.com/uc?export=download&confirm=${confirm_code}&id=${fileid}" -o ${filename} || echo "Failed to download GeoLite2-City.mmdb"
           ls -lh GeoLite2-City.mmdb || echo "GeoLite2-City.mmdb not found"
-          echo "Checking GeoIP database:"
-          ls GeoLite2-City.mmdb || echo "GeoLite2-City.mmdb not found"
+          echo "Current directory:"
+          pwd
+          echo "Listing directory contents:"
+          ls -R
+          rm -f ./cookie.txt
 
       - name: Commit GeoIP database
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add GeoLite2-City.mmdb
-          git commit -m "Add GeoLite2-City.mmdb to repository" || echo "No changes to commit"
-          git push
+          if [ -f GeoLite2-City.mmdb ]; then
+            git add GeoLite2-City.mmdb
+            git commit -m "Add GeoLite2-City.mmdb to repository" || echo "No changes to commit"
+            git push
+          else
+            echo "GeoLite2-City.mmdb not found, skipping commit"
+            exit 1
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
