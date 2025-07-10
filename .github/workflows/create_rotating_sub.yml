@@ -1,0 +1,37 @@
+name: Create Rotating 100-Config Subscription
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # Run every 15 minutes
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  create-chunk:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run script to create rotating subscription
+        run: python create_rotating_sub.py
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # فایل‌های جدید را برای کامیت آماده کن
+          git add subscription/US_sub_100.txt subscription/US_sub_shuffled.txt subscription/US_sub_index.txt
+          
+          if git diff --staged --quiet; then
+            echo "✅ No new rotating sub generated. Skipping commit."
+          else
+            git commit -m "Update rotating 100-config subscription for US"
+            git push
+          fi
