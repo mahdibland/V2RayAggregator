@@ -73,7 +73,14 @@ jobs:
 
       - name: Run 5-Minute Task (always)
         run: python create_rotating_sub.py
-
+        
+      # ====================================================================
+      # مرحله جدید که اضافه شده است
+      # ====================================================================
+      - name: Generate README file
+        run: python generate_readme.py
+      # ====================================================================
+      
       - name: Commit and push all changes
         run: |
           git config --local user.email "action@github.com"
