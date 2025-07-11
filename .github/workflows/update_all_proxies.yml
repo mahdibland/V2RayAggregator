@@ -1,5 +1,13 @@
 name: Update All Proxy Subscriptions
 
+# ====================================================================
+# کنترل همزمانی برای جلوگیری از اجرای همزمان چند نمونه
+# ====================================================================
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+# ====================================================================
+
 on:
   schedule:
     - cron: '*/5 * * * *' # هر ۵ دقیقه اجرا شود
@@ -25,9 +33,6 @@ jobs:
           echo "TODAY=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
           echo "HOUR=$(date -u +'%Y-%m-%d-%H')" >> $GITHUB_OUTPUT
 
-      # ====================================================================
-      # کش کردن دیتابیس GeoIP به صورت روزانه
-      # ====================================================================
       - name: Cache GeoIP Database
         id: cache-geoip
         uses: actions/cache@v4
@@ -36,7 +41,6 @@ jobs:
           key: ${{ runner.os }}-geoip-${{ steps.date.outputs.TODAY }}
           restore-keys: |
             ${{ runner.os }}-geoip-
-      # ====================================================================
 
       - name: Cache hourly run marker
         id: cache-hourly-marker
