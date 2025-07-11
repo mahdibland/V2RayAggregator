@@ -1,12 +1,8 @@
 name: Update All Proxy Subscriptions
 
-# ====================================================================
-# کنترل همزمانی برای جلوگیری از اجرای همزمان چند نمونه
-# ====================================================================
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
-# ====================================================================
 
 on:
   schedule:
@@ -26,7 +22,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      # گرفتن تاریخ و ساعت فعلی برای کلیدهای کش
       - name: Get current date and hour
         id: date
         run: |
@@ -52,19 +47,16 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests geoip2
+          pip install requests geoip2 jdatetime pytz
 
       - name: Run Hourly Tasks (if needed)
         if: steps.cache-hourly-marker.outputs.cache-hit != 'true'
         run: |
           echo "✅ Cache miss for hour ${{ steps.date.outputs.HOUR }}. Running hourly tasks..."
-          
-          # دانلود GeoIP DB فقط در صورتی که در کش روزانه وجود نداشته باشد
           if [ ! -f GeoLite2-City.mmdb ]; then
             echo "GeoIP DB not found, downloading..."
             python -c "from exp_country import download_geoip_database; download_geoip_database()"
           fi
-
           python merge_configs.py
           python exp_country.py
           touch .hourly_run_marker
@@ -73,14 +65,14 @@ jobs:
 
       - name: Run 5-Minute Task (always)
         run: python create_rotating_sub.py
-        
+
       # ====================================================================
       # مرحله جدید که اضافه شده است
       # ====================================================================
       - name: Generate README file
         run: python generate_readme.py
       # ====================================================================
-      
+
       - name: Commit and push all changes
         run: |
           git config --local user.email "action@github.com"
@@ -89,6 +81,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "✅ No changes detected. Skipping commit."
           else
-            git commit -m "Update all proxy subscriptions"
+            git commit -m "Update all proxy subscriptions and README"
             git push
           fi
