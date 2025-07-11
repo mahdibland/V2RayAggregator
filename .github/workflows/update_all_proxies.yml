@@ -1,0 +1,76 @@
+name: Update All Proxy Subscriptions
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # هر ۵ دقیقه اجرا شود
+  workflow_dispatch:
+
+jobs:
+  update-all:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      # این مرحله یک فایل نشانگر را برای کنترل اجرای ساعتی کش می‌کند
+      - name: Cache hourly run marker
+        id: cache-hourly-marker
+        uses: actions/cache@v4
+        with:
+          path: .hourly_run_marker
+          # کلید کش بر اساس تاریخ و ساعت تغییر می‌کند
+          key: ${{ runner.os }}-hourly-run-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-hourly-run-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests geoip2
+
+      # ====================================================================
+      # مراحل سنگین که فقط یک بار در ساعت اجرا می‌شوند
+      # ====================================================================
+      - name: STEP 1: Run merge_configs.py (if needed)
+        # این شرط چک می‌کند که آیا فایل نشانگر از اجرای قبلی وجود دارد یا نه
+        if: steps.cache-hourly-marker.outputs.cache-hit != 'true'
+        run: python merge_configs.py
+
+      - name: STEP 2: Run exp_country.py (if needed)
+        if: steps.cache-hourly-marker.outputs.cache-hit != 'true'
+        env:
+          MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
+        run: |
+          # دانلود دیتابیس GeoIP فقط در صورت نیاز
+          if [ ! -f GeoLite2-City.mmdb ]; then
+            python -c "from exp_country import download_geoip_database; download_geoip_database()"
+          fi
+          python exp_country.py
+      
+      # این مرحله فایل نشانگر را برای اجراهای بعدی در همین ساعت ایجاد می‌کند
+      - name: Create hourly run marker
+        if: steps.cache-hourly-marker.outputs.cache-hit != 'true'
+        run: touch .hourly_run_marker
+      # ====================================================================
+
+      - name: STEP 3: Run create_rotating_sub.py (always runs)
+        run: python create_rotating_sub.py
+
+      - name: Commit and push all changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          
+          if git diff --staged --quiet; then
+            echo "✅ No changes detected. Skipping commit."
+          else
+            git commit -m "Update all proxy subscriptions"
+            git push
+          fi
