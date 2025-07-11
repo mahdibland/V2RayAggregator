@@ -1,0 +1,42 @@
+name: Find New Proxy Sources Daily
+
+on:
+  schedule:
+    # هر روز در ساعت 00:00 UTC اجرا می‌شود
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  find-sources:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run script to find new sources
+        run: python find_sources.py
+        env:
+          # نام Secret به GH_PAT تغییر کرد
+          GH_PAT: ${{ secrets.GH_PAT }}
+
+      - name: Commit and push discovered sources
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add discovered_sources.txt
+          
+          if git diff --staged --quiet; then
+            echo "✅ No new sources found. Skipping commit."
+          else
+            git commit -m "Discover and add new potential sources"
+            git push
+          fi
