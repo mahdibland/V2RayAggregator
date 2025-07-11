@@ -18,18 +18,31 @@ jobs:
         with:
           python-version: '3.11'
 
-      # گرفتن ساعت فعلی برای استفاده در کلید کش (مثال: 2025-07-11-06)
-      - name: Get current hour for cache key
+      # گرفتن تاریخ و ساعت فعلی برای کلیدهای کش
+      - name: Get current date and hour
         id: date
-        run: echo "HOUR=$(date -u +'%Y-%m-%d-%H')" >> $GITHUB_OUTPUT
+        run: |
+          echo "TODAY=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+          echo "HOUR=$(date -u +'%Y-%m-%d-%H')" >> $GITHUB_OUTPUT
 
-      # این مرحله یک فایل نشانگر را برای کنترل اجرای ساعتی کش می‌کند
+      # ====================================================================
+      # کش کردن دیتابیس GeoIP به صورت روزانه
+      # ====================================================================
+      - name: Cache GeoIP Database
+        id: cache-geoip
+        uses: actions/cache@v4
+        with:
+          path: GeoLite2-City.mmdb
+          key: ${{ runner.os }}-geoip-${{ steps.date.outputs.TODAY }}
+          restore-keys: |
+            ${{ runner.os }}-geoip-
+      # ====================================================================
+
       - name: Cache hourly run marker
         id: cache-hourly-marker
         uses: actions/cache@v4
         with:
           path: .hourly_run_marker
-          # کلید کش بر اساس ساعت فعلی است تا فقط یک بار در ساعت اجرا شود
           key: ${{ runner.os }}-hourly-run-${{ steps.date.outputs.HOUR }}
 
       - name: Install dependencies
@@ -37,35 +50,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests geoip2
 
-      # ====================================================================
-      # مراحل سنگین که فقط یک بار در ساعت اجرا می‌شوند
-      # ====================================================================
-      - name: Run Hourly Tasks (if cache miss)
-        # این شرط چک می‌کند که آیا برای ساعت فعلی کش وجود دارد یا نه
+      - name: Run Hourly Tasks (if needed)
         if: steps.cache-hourly-marker.outputs.cache-hit != 'true'
         run: |
           echo "✅ Cache miss for hour ${{ steps.date.outputs.HOUR }}. Running hourly tasks..."
           
-          # STEP 1: Run merge_configs.py
-          python merge_configs.py
-          
-          # STEP 2: Run exp_country.py
-          # ابتدا مطمئن شو دیتابیس GeoIP وجود دارد
+          # دانلود GeoIP DB فقط در صورتی که در کش روزانه وجود نداشته باشد
           if [ ! -f GeoLite2-City.mmdb ]; then
             echo "GeoIP DB not found, downloading..."
             python -c "from exp_country import download_geoip_database; download_geoip_database()"
           fi
-          python exp_country.py
 
-          # STEP 3: فایل نشانگر را بساز تا برای اجراهای بعدی در این ساعت کش شود
-          echo "Creating marker file for caching..."
+          python merge_configs.py
+          python exp_country.py
           touch .hourly_run_marker
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
 
-      # ====================================================================
-      
-      - name: Run 5-Minute Task (always runs)
+      - name: Run 5-Minute Task (always)
         run: python create_rotating_sub.py
 
       - name: Commit and push all changes
@@ -73,7 +75,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          
           if git diff --staged --quiet; then
             echo "✅ No changes detected. Skipping commit."
           else
