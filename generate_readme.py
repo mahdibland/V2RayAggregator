@@ -2,221 +2,142 @@ import os
 import glob
 from datetime import datetime
 import pytz
-import requests
 import jdatetime
 
-# مسیر پوشه sub
-SUB_DIR = "sub"
-# آدرس پایه برای لینک‌های خام
-BASE_URL = "https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/refs/heads/master/sub"
-# لینک منبع همه کشورها
-ALL_COUNTRIES_URL = "https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt"
+# ====================================================================
+# تنظیمات اسکریپت
+# ====================================================================
+SUB_DIR = "subscription"
+BASE_URL = "https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription"
+ALL_CONFIGS_FILE = "merged_configs.txt"
+
 # نام کشور و پرچم برای کدهای ISO 3166-1 alpha-2
 COUNTRY_NAMES = {
-    "us": ("ایالات متحده", "🇺🇸"),
-    "ae": ("امارات متحده عربی", "🇦🇪"),
-    "al": ("آلبانی", "🇦🇱"),
-    "am": ("ارمنستان", "🇦🇲"),
-    "at": ("اتریش", "🇦🇹"),
-    "au": ("استرالیا", "🇦🇺"),
-    "az": ("آذربایجان", "🇦🇿"),
-    "ba": ("بوسنی و هرزگوین", "🇧🇦"),
-    "be": ("بلژیک", "🇧🇪"),
-    "bg": ("بلغارستان", "🇧🇬"),
-    "bo": ("بولیوی", "🇧🇴"),
-    "br": ("برزیل", "🇧🇷"),
-    "bz": ("بلیز", "🇧🇿"),
-    "ca": ("کانادا", "🇨🇦"),
-    "ch": ("سوئیس", "🇨🇭"),
-    "cn": ("چین", "🇨🇳"),
-    "co": ("کلمبیا", "🇨🇴"),
-    "cr": ("کاستاریکا", "🇨🇷"),
-    "cy": ("قبرس", "🇨🇾"),
-    "cz": ("جمهوری چک", "🇨🇿"),
-    "de": ("آلمان", "🇩🇪"),
-    "dk": ("دانمارک", "🇩🇰"),
-    "ec": ("اکوادور", "🇪🇨"),
-    "ee": ("استونی", "🇪🇪"),
-    "es": ("اسپانیا", "🇪🇸"),
-    "fi": ("فنلاند", "🇫🇮"),
-    "fr": ("فرانسه", "🇫🇷"),
-    "gb": ("بریتانیا", "🇬🇧"),
-    "gr": ("یونان", "🇬🇷"),
-    "hk": ("هنگ‌کنگ", "🇭🇰"),
-    "hr": ("کرواسی", "🇭🇷"),
-    "id": ("اندونزی", "🇮🇩"),
-    "ie": ("ایرلند", "🇮🇪"),
-    "in": ("هند", "🇮🇳"),
-    "ir": ("ایران", "🇮🇷"),
-    "is": ("ایسلند", "🇮🇸"),
-    "it": ("ایتالیا", "🇮🇹"),
-    "jp": ("ژاپن", "🇯🇵"),
-    "kr": ("کره جنوبی", "🇰🇷"),
-    "kz": ("قزاقستان", "🇰🇿"),
-    "lt": ("لیتوانی", "🇱🇹"),
-    "lu": ("لوکزامبورگ", "🇱🇺"),
-    "lv": ("لتونی", "🇱🇻"),
-    "md": ("مولداوی", "🇲🇩"),
-    "mk": ("مقدونیه شمالی", "🇲🇰"),
-    "mn": ("مغولستان", "🇲🇳"),
-    "mo": ("ماکائو", "🇲🇴"),
-    "mt": ("مالت", "🇲🇹"),
-    "mu": ("موریس", "🇲🇺"),
-    "mx": ("مکزیک", "🇲🇽"),
-    "my": ("مالزی", "🇲🇾"),
-    "ng": ("نیجریه", "🇳🇬"),
-    "nl": ("هلند", "🇳🇱"),
-    "no": ("نروژ", "🇳🇴"),
-    "pa": ("پاناما", "🇵🇦"),
-    "pe": ("پرو", "🇵🇪"),
-    "ph": ("فیلیپین", "🇵🇭"),
-    "pl": ("لهستان", "🇵🇱"),
-    "pr": ("پورتوریکو", "🇵🇷"),
-    "pt": ("پرتغال", "🇵🇹"),
-    "py": ("پاراگوئه", "🇵🇾"),
-    "ro": ("رومانی", "🇷🇴"),
-    "rs": ("صربستان", "🇷🇸"),
-    "ru": ("روسیه", "🇷🇺"),
-    "sc": ("سیشل", "🇸🇨"),
-    "se": ("سوئد", "🇸🇪"),
-    "sg": ("سنگاپور", "🇸🇬"),
-    "si": ("اسلوونی", "🇸🇮"),
-    "sk": ("اسلواکی", "🇸🇰"),
-    "th": ("تایلند", "🇹🇭"),
-    "tr": ("ترکیه", "🇹🇷"),
-    "tw": ("تایوان", "🇹🇼"),
-    "ua": ("اوکراین", "🇺🇦"),
-    "vg": ("جزایر ویرجین بریتانیا", "🇻🇬"),
-    "vn": ("ویتنام", "🇻🇳"),
-    "za": ("آفریقای جنوبی", "🇿🇦")
+    "us": ("ایالات متحده", "🇺🇸"), "ae": ("امارات", "🇦🇪"), "ca": ("کانادا", "🇨🇦"),
+    "de": ("آلمان", "🇩🇪"), "fr": ("فرانسه", "🇫🇷"), "gb": ("بریتانیا", "🇬🇧"),
+    "ir": ("ایران", "🇮🇷"), "nl": ("هلند", "🇳🇱"), "se": ("سوئد", "🇸🇪"),
+    "tr": ("ترکیه", "🇹🇷")
+    # در صورت اضافه شدن کشور جدید، کافیست اینجا اضافه کنید
 }
 
+# ====================================================================
+
 def count_connections(file_path):
-    """شمردن تعداد خطوط (کانکشن‌ها) در یک فایل"""
+    """تعداد کانکشن‌ها (خطوط غیرخالی) در یک فایل را می‌شمارد"""
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             return sum(1 for line in f if line.strip())
+    except FileNotFoundError:
+        return 0
     except Exception as e:
-        print(f"خطا در خواندن فایل {file_path}: {e}")
+        print(f"Error reading file {file_path}: {e}")
         return 0
 
-def count_all_connections():
-    """شمردن تعداد کانکشن‌ها در فایل منبع همه کشورها"""
-    try:
-        response = requests.get(ALL_COUNTRIES_URL, timeout=10)
-        response.raise_for_status()
-        return len([line for line in response.text.splitlines() if line.strip()])
-    except requests.RequestException as e:
-        print(f"خطا در گرفتن {ALL_COUNTRIES_URL}: {e}")
-        return 0
-
-def get_file_update_time(file_path):
-    """گرفتن زمان آخرین به‌روزرسانی فایل به وقت تهران"""
-    try:
-        mtime = os.path.getmtime(file_path)
-        tehran_tz = pytz.timezone('Asia/Tehran')
-        update_time = datetime.fromtimestamp(mtime, tehran_tz)
-        return update_time.strftime("%Y-%m-%d %H:%M:%S")
-    except Exception as e:
-        print(f"خطا در گرفتن زمان فایل {file_path}: {e}")
-        return "نامشخص"
-
-def get_jalali_date():
-    """گرفتن تاریخ و روز هفته به فرمت جلالی"""
+def get_jalali_update_time():
+    """زمان فعلی را به فرمت جلالی و خوانا برمی‌گرداند"""
     tehran_tz = pytz.timezone('Asia/Tehran')
-    now = datetime.now(tehran_tz)
-    jalali_date = jdatetime.datetime.fromgregorian(datetime=now)
+    now_utc = datetime.utcnow().replace(tzinfo=pytz.utc)
+    now_tehran = now_utc.astimezone(tehran_tz)
+    
+    jalali_date = jdatetime.datetime.fromgregorian(datetime=now_tehran)
+    
     day_name = jalali_date.strftime("%A")
     day = jalali_date.day
-    month = jalali_date.strftime('%B')
+    month_name = jalali_date.strftime('%B')
     year = jalali_date.year
-    return f"{day_name} - {day} {month} {year}"
+    time_str = now_tehran.strftime("%H:%M")
+    
+    return f"{day_name} {day} {month_name} {year} - ساعت {time_str}"
 
 def generate_readme():
-    """تولید فایل VPN_LINKS.md"""
-    # جمع‌آوری اطلاعات فایل‌ها
+    """فایل README.md اصلی را تولید می‌کند"""
     country_data = []
-    for file_path in glob.glob(os.path.join(SUB_DIR, "*_only_sub.txt")):
+    
+    # پیدا کردن تمام فایل‌های اصلی کشورها
+    for file_path in glob.glob(os.path.join(SUB_DIR, "*_sub.txt")):
         file_name = os.path.basename(file_path)
-        country_code = file_name.split('_')[0].lower()
+        country_code = file_name.replace('_sub.txt', '').lower()
+        
         if country_code in COUNTRY_NAMES:
-            connections = count_connections(file_path)
-            update_time = get_file_update_time(file_path)
+            full_sub_count = count_connections(file_path)
+            
+            # پیدا کردن فایل ۱۰۰تایی متناظر
+            sub_100_path = file_path.replace('_sub.txt', '_sub_100.txt')
+            sub_100_count = count_connections(sub_100_path)
+            
             country_data.append({
                 'code': country_code,
                 'name': COUNTRY_NAMES[country_code][0],
                 'flag': COUNTRY_NAMES[country_code][1],
-                'connections': connections,
-                'update_time': update_time,
-                'file': file_name
+                'full_count': full_sub_count,
+                '100_count': sub_100_count,
+                'full_link': f"{BASE_URL}/{file_name}",
+                '100_link': f"{BASE_URL}/{os.path.basename(sub_100_path)}"
             })
 
-    # گرفتن تعداد کانکشن‌های همه کشورها
-    all_connections = count_all_connections()
+    # مرتب‌سازی کشورها بر اساس نام فارسی
+    country_data.sort(key=lambda x: x['name'])
 
-    # جدا کردن آمریکا و مرتب‌سازی بقیه بر اساس تعداد کانکشن‌ها
-    us_data = next((item for item in country_data if item['code'] == 'us'), None)
-    other_countries = [item for item in country_data if item['code'] != 'us']
-    other_countries.sort(key=lambda x: x['connections'], reverse=True)
+    # شمارش تعداد کل کانکشن‌ها
+    all_connections_count = count_connections(ALL_CONFIGS_FILE)
 
-    # ترکیب لیست: همه کشورها، آمریکا، بقیه
-    sorted_data = [
-        {
-            'code': 'all',
-            'name': 'همه کشورها',
-            'flag': '🌍',
-            'connections': all_connections,
-            'update_time': datetime.now(pytz.timezone('Asia/Tehran')).strftime("%Y-%m-%d %H:%M:%S"),
-            'file': ALL_COUNTRIES_URL.split('/')[-1],
-            'link': ALL_COUNTRIES_URL
-        }
-    ] + ([us_data] if us_data else []) + other_countries
+    # زمان به‌روزرسانی
+    update_time_str = get_jalali_update_time()
 
-    # زمان فعلی به وقت تهران
-    tehran_tz = pytz.timezone('Asia/Tehran')
-    update_time = datetime.now(tehran_tz).strftime("%Y-%m-%d %H:%M:%S")
-    jalali_date = get_jalali_date()
+    # --- شروع ساخت محتوای README ---
+    readme_content = f"""
+<div dir="rtl" align="center">
 
-    # تولید محتوای README
-    readme_content = f"""# لینک‌های وی‌پی‌ان اختصاصی هر کشور
+# V2RayAggregator | تجمیع‌کننده کانفیگ‌های V2Ray
 
-این صفحه شامل لینک‌های خام برای فایل‌های کانکشن وی‌پی‌ان است که هر کدام به یک کشور خاص اختصاص دارند. این فایل‌ها هر ۶ ساعت به‌صورت خودکار به‌روزرسانی می‌شوند.
+این پروژه به صورت خودکار کانفیگ‌های فعال V2Ray (شامل Vless, Vmess, Trojan, etc.) را از منابع عمومی مختلف جمع‌آوری، تست و دسته‌بندی می‌کند.
 
-**آخرین به‌روزرسانی**: {jalali_date} - {update_time} (به وقت تهران)
+**آخرین به‌روزرسانی:** {update_time_str} (به وقت تهران)
 
-| پرچم | نام کشور | کد کشور | تعداد کانکشن‌ها | آخرین به‌روزرسانی | لینک کانکشن |
-|------|----------|---------|------------------|-------------------|-------------|
+[![Update Subscriptions](https://github.com/MEHR1DAD/V2RayAggregator/actions/workflows/update_all_proxies.yml/badge.svg)](https://github.com/MEHR1DAD/V2RayAggregator/actions/workflows/update_all_proxies.yml)
+
+---
+
+## 订阅链接 | Subscription Links
+
+برای استفاده، یکی از لینک‌های زیر را کپی کرده و در کلاینت خود (مانند V2RayNG, Nekoray, Hiddify) وارد کنید.
+
+### 综合订阅 | All-in-One Subscription
+
+این لینک شامل **{all_connections_count:,}** کانفیگ از تمام کشورها است. (ممکن است برای برخی کلاینت‌ها سنگین باشد)
+
+```
+{BASE_URL}/../{ALL_CONFIGS_FILE}
+```
+
+---
+
+### 按国家/地区分类的订阅 | Country-Specific Subscriptions
+
+- **لینک کامل:** شامل تمام کانفیگ‌های موجود برای آن کشور.
+- **لینک ۱۰۰تایی:** یک لیست چرخشی شامل ۱۰۰ کانفیگ رندوم که هر ۵ دقیقه به‌روز می‌شود. (**پیشنهاد شده برای استفاده روزمره**)
+
+| پرچم | کشور | تعداد کل | لینک کامل | لینک ۱۰۰تایی |
+|:---:|:---:|:---:|:---:|:---:|
 """
 
-    for country in sorted_data:
-        link = country.get('link', f"{BASE_URL}/{country['file']}")
-        readme_content += f"| {country['flag']} | {country['name']} | {country['code'].upper()} | {country['connections']} | {country['update_time']} | [{country['file']}]({link}) |\n"
+    for country in country_data:
+        readme_content += (
+            f"| {country['flag']} | **{country['name']}** | `{country['full_count']:,}` "
+            f"| [Full]({country['full_link']}) "
+            f"| [100 Configs]({country['100_link']}) |\n"
+        )
 
     readme_content += """
-## نکات
-- **همه کشورها** شامل تمام کانکشن‌های منبع است و در ابتدای لیست قرار دارد.
-- **ایالات متحده** پس از همه کشورها و سایر کشورها بر اساس تعداد کانکشن‌ها (از بیشترین به کمترین) مرتب شده‌اند.
-- برای **جستجوی کشور**، از Ctrl+F استفاده کنید و نام کشور (مثل «ایران») یا کد کشور (مثل «IR») را جستجو کنید.
-- برای **مرتب‌سازی الفبایی**، جدول را کپی کرده و در یک ویرایشگر (مثل Excel یا Notepad) بر اساس نام کشور مرتب کنید.
-- هر فایل شامل کانکشن‌های اختصاصی برای کشور مربوطه است که با کلاینت‌هایی مثل Hiddify سازگارند.
-- اگر کشور جدیدی به منبع داده اضافه شود، به‌طور خودکار در این لیست ظاهر خواهد شد.
-
-## منبع داده
-- داده‌ها از [SSAggregator](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge.txt) استخراج شده‌اند.
-
-## استفاده از کانکشن‌ها
-این کانکشن‌ها را می‌توانید به تناسب سیستم‌عامل خود در برنامه **Hiddify** استفاده کنید:
-
-- ![Android](https://hiddify.com/assets/platforms/android.svg) [Hiddify برای Android](https://play.google.com/store/apps/details?id=app.hiddify.com)
-- ![iOS](https://hiddify.com/assets/platforms/apple.svg) [Hiddify برای iOS](https://apps.apple.com/us/app/hiddify-proxy-vpn/id6596777532?platform=iphone)
-- ![Windows](https://hiddify.com/assets/platforms/windows.svg) [Hiddify برای Windows](https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Windows-Setup-x64.Msix)
-- ![macOS](https://hiddify.com/assets/platforms/mac.svg) [Hiddify برای macOS](https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-MacOS.dmg)
-- ![Linux](https://hiddify.com/assets/platforms/linux.svg) [Hiddify برای Linux](https://github.com/hiddify/hiddify-app/releases/latest/download/Hiddify-Linux-x64.AppImage)
+</div>
 """
+    # --- پایان ساخت محتوای README ---
 
-    # ذخیره فایل VPN_LINKS.md
-    with open("VPN_LINKS.md", "w", encoding="utf-8") as f:
+    # ذخیره فایل README.md
+    with open("README.md", "w", encoding="utf-8") as f:
         f.write(readme_content)
+    
+    print("✅ README.md generated successfully.")
 
 if __name__ == "__main__":
     generate_readme()
