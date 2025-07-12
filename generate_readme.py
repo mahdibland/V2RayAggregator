@@ -66,10 +66,13 @@ def generate_readme():
                 '100_link': f"https://raw.githubusercontent.com/{REPO_OWNER}/{REPO_NAME}/master/subscription/{file_name.replace('_sub.txt', '_sub_100.txt')}"
             })
 
-    country_data.sort(key=lambda x: x['name'])
+    # مرتب‌سازی کشورها بر اساس تعداد کانکشن (بیشترین به کمترین)
+    country_data.sort(key=lambda x: x['full_count'], reverse=True)
+
     all_connections_count = count_connections(ALL_CONFIGS_FILE)
     jalali_date_str = get_jalali_update_time()
     
+    # URL انکود کردن متن فارسی برای بج‌ها
     encoded_label_configs = quote("تعداد کانفیگ‌ها")
     encoded_label_update = quote("آخرین آپدیت")
     encoded_date = quote(jalali_date_str)
@@ -78,7 +81,7 @@ def generate_readme():
     readme_content = f"""
 <div dir="rtl" align="center">
 
-# V2RayAggregator | تجمیع‌کننده کانفیگ‌های V2Ray
+# تجمیع‌کننده کانفیگ‌های V2Ray
 
 این پروژه به صورت خودکار کانفیگ‌های فعال V2Ray را از منابع عمومی مختلف جمع‌آوری، تست و دسته‌بندی می‌کند.
 
@@ -89,7 +92,6 @@ def generate_readme():
 [![Update-Subscription](https://img.shields.io/github/actions/workflow/status/{REPO_OWNER}/{REPO_NAME}/update_all_proxies.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=وضعیت%20آپدیت)](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/update_all_proxies.yml)
 [![Configs-Count](https://img.shields.io/badge/{encoded_label_configs}-{all_connections_count:,}-blueviolet?style=for-the-badge&logo=server&logoColor=white)](https://github.com/{REPO_OWNER}/{REPO_NAME}/releases/latest/download/{ALL_CONFIGS_FILE})
 [![Last-Update](https://img.shields.io/badge/{encoded_label_update}-{encoded_date}-informational?style=for-the-badge&logo=clock&logoColor=white)](https://github.com/{REPO_OWNER}/{REPO_NAME}/commits/master)
-[![LICENSE](https://img.shields.io/github/license/{REPO_OWNER}/{REPO_NAME}?style=for-the-badge&color=lightgrey)](https://github.com/{REPO_OWNER}/{REPO_NAME}/blob/master/LICENSE)
 
 </div>
 
@@ -102,8 +104,8 @@ def generate_readme():
 - **تجمیع خودکار:** جمع‌آوری روزانه کانفیگ از ده‌ها منبع عمومی.
 - **پاک‌سازی هوشمند:** حذف خودکار منابع از کار افتاده و جایگزینی با منابع جدید.
 - **تفکیک جغرافیایی:** دسته‌بندی کانفیگ‌ها بر اساس کشور برای دسترسی آسان.
-- **لینک‌های چرخشی:** ارائه لیست‌های ۱۰۰تایی که **هر ۵ دقیقه** یک مجموعه جدید ارائه می‌دهد.
-- **آپدیت مداوم:** کل فرآیند به صورت خودکار توسط GitHub Actions اجرا می‌شود.
+- **لینک‌های چرخشی:** ارائه لیست‌های ۱۰۰تایی که **هر ساعت** به‌روز می‌شوند تا همیشه کانفیگ تازه در دسترس باشد.
+- **آپدیت مداوم:** کل فرآیند به صورت خودکار و ساعتی توسط GitHub Actions اجرا می‌شود.
 
 ---
 
@@ -112,7 +114,7 @@ def generate_readme():
 <div align="center">
 
 ### 🌐 لینک جامع (همه کانفیگ‌ها)
-این لینک شامل **{all_connections_count:,}** کانفیگ از تمام کشورها است. **(ممکن است برای برخی کلاینت‌ها سنگین باشد)**
+<p dir="rtl">این لینک شامل **{all_connections_count:,}** کانفیگ از تمام کشورها است. **(ممکن است برای برخی کلاینت‌ها سنگین باشد)**</p>
 
 ```
 {ALL_CONFIGS_URL}
@@ -121,18 +123,20 @@ def generate_readme():
 ---
 
 ### 🌍 لینک‌های تفکیک شده بر اساس کشور
-- **لینک کامل:** شامل تمام کانفیگ‌های موجود برای آن کشور.
-- **لینک ۱۰۰تایی:** یک لیست چرخشی شامل ۱۰۰ کانفیگ رندوم که هر ۵ دقیقه به‌روز می‌شود. (**پیشنهاد شده**)
+<p dir="rtl">
+- **لینک کامل:** شامل تمام کانفیگ‌های موجود برای آن کشور.<br>
+- **لینک ۱۰۰تایی:** یک لیست چرخشی شامل ۱۰۰ کانفیگ رندوم که هر ساعت به‌روز می‌شود. (**پیشنهاد شده**)
+</p>
 
-| پرچم | کشور | تعداد کل | لینک کامل | لینک ۱۰۰تایی |
-|:---:|:---|:---:|:---:|:---:|
+| پرچم | کشور | تعداد کل | لینک کامل (برای کپی کلیک کنید) | لینک ۱۰۰تایی (برای کپی کلیک کنید) |
+|:---:|:---:|:---:|:---:|:---:|
 """
 
     for country in country_data:
         readme_content += (
             f"| {country['flag']} | **{country['name']}** | `{country['full_count']:,}` "
-            f"| [Full]({country['full_link']}) "
-            f"| [100 Configs]({country['100_link']}) |\n"
+            f"| `{country['full_link']}` "
+            f"| `{country['100_link']}` |\n"
         )
 
     readme_content += """
@@ -144,35 +148,26 @@ def generate_readme():
 
 <div align="center">
 
-### راهنمای تصویری کلاینت‌ها
-
-| [**Hiddify**](https://hiddify.com/next) | [**v2rayNG**](https://github.com/2dust/v2rayNG/releases) | [**Nekoray**](https://github.com/MatsuriDayo/nekoray/releases) |
-| :---: | :---: | :---: |
-| <img src="https://raw.githubusercontent.com/hiddify/hiddify-next/main/assets/images/logo_128.png" width="80"> | <img src="https://raw.githubusercontent.com/2dust/v2rayNG/master/app/src/main/ic_launcher-playstore.png" width="80"> | <img src="https://raw.githubusercontent.com/MatsuriDayo/nekoray/master/res/logo/nekoray.png" width="80"> |
-| **چند پلتفرمی (پیشنهاد اصلی)** | **اندروید (محبوب)** | **دسکتاپ (قدرتمند)** |
-
-</div>
-
-<br>
-
-### لیست کلاینت‌های موبایل
+### لیست کلاینت‌های موبایل (Mobile Clients)
 
 | iOS/iPadOS | Android | توضیحات مختصر |
-| :--- | :--- | :--- |
-| **[Hiddify](https://apps.apple.com/us/app/hiddify-next/id6476113229)** | **[Hiddify](https://play.google.com/store/apps/details?id=app.hiddify.com)** | رایگان، چند پلتفرمی و با پشتیبانی از تمام پروتکل‌ها. |
-| [V2Box](https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690) | [v2rayNG](https://github.com/2dust/v2rayNG/releases) | کلاینت‌های محبوب و قدرتمند برای هر پلتفرم. |
-| [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118) | [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) | پشتیبانی از پروتکل‌های متنوع، نیازمند خرید یا تنظیمات پیشرفته. |
-| [Streisand](https://apps.apple.com/us/app/streisand/id6450534064) | [Clash For Android](https://github.com/Kr328/ClashForAndroid/releases) | بر پایه Clash با قابلیت‌های مدیریت پروکسی حرفه‌ای. |
+| :---: | :---: | :--- |
+| **[Hiddify](https://apps.apple.com/us/app/hiddify-next/id6476113229)** | **[Hiddify](https://play.google.com/store/apps/details?id=app.hiddify.com)** | <p dir="rtl">رایگان، چند پلتفرمی و با پشتیبانی از تمام پروتکل‌ها.</p> |
+| [V2Box](https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690) | [v2rayNG](https://github.com/2dust/v2rayNG/releases) | <p dir="rtl">کلاینت‌های محبوب و قدرتمند برای هر پلتفرم.</p> |
+| [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118) | [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) | <p dir="rtl">پشتیبانی از پروتکل‌های متنوع، نیازمند خرید یا تنظیمات پیشرفته.</p> |
+| [Streisand](https://apps.apple.com/us/app/streisand/id6450534064) | [Clash For Android](https://github.com/Kr328/ClashForAndroid/releases) | <p dir="rtl">بر پایه Clash با قابلیت‌های مدیریت پروکسی حرفه‌ای.</p> |
 
 <br>
 
-### لیست کلاینت‌های دسکتاپ
+### لیست کلاینت‌های دسکتاپ (Desktop Clients)
 
 | Windows | macOS | Linux | توضیحات مختصر |
-| :--- | :--- | :--- | :--- |
-| **[Hiddify](https://github.com/hiddify/hiddify-next/releases)** | **[Hiddify](https://github.com/hiddify/hiddify-next/releases)** | **[Hiddify](https://github.com/hiddify/hiddify-next/releases)** | رایگان، چند پلتفرمی و با کاربری آسان. (پیشنهاد اصلی) |
-| [Nekoray](https://github.com/MatsuriDayo/nekoray/releases) | [V2Box](https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690) | [Nekoray](https://github.com/MatsuriDayo/nekoray/releases) | ابزارهای قدرتمند با قابلیت‌های پیشرفته برای مدیریت پروکسی. |
-| [v2rayN](https://github.com/2dust/v2rayN/releases) | [FoXray](https://github.com/Fndroid/Foxray/releases) | [Clash Verge](https://github.com/zzzgydi/clash-verge/releases) | کلاینت‌های محبوب با جامعه کاربری بزرگ و پشتیبانی گسترده. |
+| :---: | :---: | :---: | :--- |
+| **[Hiddify](https://github.com/hiddify/hiddify-next/releases)** | **[Hiddify](https://github.com/hiddify/hiddify-next/releases)** | **[Hiddify](https://github.com/hiddify/hiddify-next/releases)** | <p dir="rtl">رایگان، چند پلتفرمی و با کاربری آسان. (پیشنهاد اصلی)</p> |
+| [Nekoray](https://github.com/MatsuriDayo/nekoray/releases) | [V2Box](https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690) | [Nekoray](https://github.com/MatsuriDayo/nekoray/releases) | <p dir="rtl">ابزارهای قدرتمند با قابلیت‌های پیشرفته برای مدیریت پروکسی.</p> |
+| [v2rayN](https://github.com/2dust/v2rayN/releases) | [FoXray](https://github.com/Fndroid/Foxray/releases) | [Clash Verge](https://github.com/zzzgydi/clash-verge/releases) | <p dir="rtl">کلاینت‌های محبوب با جامعه کاربری بزرگ و پشتیبانی گسترده.</p> |
+
+</div>
 
 ---
 
