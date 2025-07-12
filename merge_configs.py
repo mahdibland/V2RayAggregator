@@ -86,6 +86,7 @@ urls = [
     "https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/Splitted-By-Protocol/vmess.txt",
     "https://raw.githubusercontent.com/Esmaeli/conf/41861c1e983eaf98a5abc31eab4944d77dd6cf31/url.txt",
     "https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/refs/heads/main/subscription/main.txt",
+    "https://raw.githubusercontent.com/FereydoonEisapour/Config-tester/f17a742588552483f4aff3b9bd254ca7b6cb23c1/Servers/Channels/v2ryng01.txt",
     "https://raw.githubusercontent.com/Fly961219/GG/a64e74f3fc9d1fd4e8294047cfc1f103e4b14f5e/ss.txt",
     "https://raw.githubusercontent.com/HDYOU/porxy/refs/heads/main/combine.txt",
     "https://raw.githubusercontent.com/HakurouKen/free-node/main/public",
