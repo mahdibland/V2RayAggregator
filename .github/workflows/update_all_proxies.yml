@@ -6,13 +6,12 @@ concurrency:
 
 on:
   schedule:
-    - cron: '0 * * * *' # هر ساعت اجرا شود
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
   update-all:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -40,21 +39,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests geoip2 jdatetime pytz
 
-      # ====================================================================
-      # مراحل اصلی به ترتیب اجرا می‌شوند
-      # ====================================================================
-      - name: STEP 1: Find new sources
+      - name: STEP 1 - Find new sources
         run: python find_sources.py
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
 
-      - name: STEP 2: Manage and prune source list
+      - name: STEP 2 - Manage and prune source list
         run: python manage_sources.py
 
-      - name: STEP 3: Merge configs from active sources
+      - name: STEP 3 - Merge configs from active sources
         run: python merge_configs.py
 
-      - name: STEP 4: Extract configs by country
+      - name: STEP 4 - Extract configs by country
         run: |
           if [ ! -f GeoLite2-City.mmdb ]; then
             echo "GeoIP DB not found, downloading..."
@@ -64,20 +60,19 @@ jobs:
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
 
-      - name: STEP 5: Create rotating 100-config chunks
+      - name: STEP 5 - Create rotating 100-config chunks
         run: python create_rotating_sub.py
 
-      - name: STEP 6: Generate README file
+      - name: STEP 6 - Generate README file
         run: python generate_readme.py
-      # ====================================================================
 
-      - name: Commit and push all changes
+      - name: STEP 7 - Commit and push all changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           if git diff --staged --quiet; then
-            echo "✅ No changes detected. Skipping commit."
+            echo "No changes detected. Skipping commit."
           else
             git commit -m "Update all proxy subscriptions and sources"
             git push
