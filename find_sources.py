@@ -7,14 +7,8 @@ import time
 # ====================================================================
 # تنظیمات اسکریپت
 # ====================================================================
-# بازگشت به لیست کلیدواژه‌های گسترده‌تر برای نتایج بهتر
-SEARCH_KEYWORDS = [
-    "vless subscription", "vmess subscription", "trojan subscription",
-    "ss subscription", "ssr subscription", "hysteria subscription",
-    "sub_merge.txt", "all_configs.txt", "v2ray-configs", "proxies.txt",
-    "sub.txt", "*.txt", "subscription.txt", "conection.txt",
-    "connection.txt"
-]
+# استفاده از حروف الفبا و اعداد به عنوان کلیدواژه برای جستجوی جامع
+SEARCH_CHARACTERS = 'abcdefghijklmnopqrstuvwxyz0123456789'
 
 EXISTING_SOURCES_FILE = "merge_configs.py"
 OUTPUT_FILE = "discovered_sources.txt"
@@ -90,7 +84,8 @@ def search_github_paginated(query, token):
     for page in range(1, 11): # حداکثر ۱۰ صفحه (۱۰۰۰ نتیجه) برای هر کوئری
         if is_timeout(): break
         
-        params = {"q": f'"{query}" extension:txt', "per_page": 100, "page": page}
+        # کوئری جستجو برای پیدا کردن فایل‌های .txt که حاوی کاراکتر مورد نظر هستند
+        params = {"q": f'"{query}" in:file extension:txt', "per_page": 100, "page": page}
         
         try:
             response = requests.get("https://api.github.com/search/code", headers=headers, params=params, timeout=30)
@@ -151,25 +146,25 @@ def main():
         visited_urls = existing_urls_in_config.union(crawled_urls)
         print(f"Loaded {len(crawled_urls)} previously crawled URLs.")
 
-        print("\n2. Searching GitHub for initial seed URLs using multiple keywords...")
+        print("\n2. Searching GitHub for initial seed URLs using alphabet and numbers...")
         initial_seed_urls = set()
-        for keyword in SEARCH_KEYWORDS:
+        for char in SEARCH_CHARACTERS:
             if is_timeout(): break
-            print(f"\n--- Searching for keyword: '{keyword}' ---")
+            print(f"\n--- Searching for files containing character: '{char}' ---")
             
-            search_results = search_github_paginated(keyword, GITHUB_TOKEN)
+            search_results = search_github_paginated(char, GITHUB_TOKEN)
             
             for item in search_results:
                 raw_url = item.get("html_url").replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
                 cleaned_url = clean_url(unquote(raw_url))
                 initial_seed_urls.add(cleaned_url)
             
-            print(f"Found {len(search_results)} items for this keyword.")
-            # وقفه ۲ ثانیه‌ای بین هر کلیدواژه برای جلوگیری از محدودیت نرخ
+            print(f"Found {len(search_results)} items for this character.")
+            # وقفه ۲ ثانیه‌ای بین هر کاراکتر برای جلوگیری از محدودیت نرخ
             time.sleep(2)
         
         print(f"\n3. Starting deep crawl from a total of {len(initial_seed_urls)} unique seed URLs...")
-        for url in list(initial_seed_urls): # تبدیل به لیست برای جلوگیری از تغییر در حین پیمایش
+        for url in list(initial_seed_urls):
             if is_timeout(): break
             process_url_recursively(url, final_sources, visited_urls, depth=1)
 
