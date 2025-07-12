@@ -38,9 +38,7 @@ def clean_url(url):
         return url
 
 def extract_urls_from_script(file_path):
-    """
-    URLها را فقط از داخل لیست urls = [...] در یک فایل پایتون استخراج می‌کند.
-    """
+    """URLها را فقط از داخل لیست urls در فایل پایتون استخراج می‌کند."""
     urls = set()
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -77,16 +75,39 @@ def save_state(urls, file_path):
             for url in sorted(list(urls)):
                 f.write(url + "\n")
 
-def search_github(query, token):
-    """در API گیت‌هاب برای پیدا کردن فایل‌های .txt جستجو می‌کند"""
+def search_github_paginated(query, token):
+    """
+    در API گیت‌هاب جستجو کرده و با استفاده از صفحه‌بندی، تمام نتایج ممکن را برمی‌گرداند.
+    """
     headers = {"Accept": "application/vnd.github.v3+json"}
     if token: headers["Authorization"] = f"token {token}"
-    params = {"q": f'"{query}" extension:txt', "per_page": 100}
-    try:
-        response = requests.get("https://api.github.com/search/code", headers=headers, params=params, timeout=20)
-        response.raise_for_status()
-        return response.json().get("items", [])
-    except requests.RequestException: return []
+    
+    all_items = []
+    # API گیت‌هاب برای هر جستجو حداکثر ۱۰۰۰ نتیجه (۱۰ صفحه) برمی‌گرداند
+    for page in range(1, 11):
+        if is_timeout(): break
+        
+        params = {"q": f'{query} extension:txt', "per_page": 100, "page": page}
+        print(f"   - Searching GitHub (Page {page})...")
+        
+        try:
+            response = requests.get("https://api.github.com/search/code", headers=headers, params=params, timeout=30)
+            response.raise_for_status()
+            items = response.json().get("items", [])
+            
+            if not items:
+                print("   -> No more results found.")
+                break # اگر صفحه‌ای خالی بود، یعنی نتایج تمام شده است
+            
+            all_items.extend(items)
+            # یک وقفه کوتاه برای احترام به محدودیت نرخ API
+            time.sleep(2)
+
+        except requests.RequestException as e:
+            print(f"   -> Error during GitHub API request: {e}")
+            break
+            
+    return all_items
 
 def process_url_recursively(url, final_sources, visited_urls, depth):
     """یک URL را به صورت بازگشتی بررسی می‌کند"""
@@ -126,21 +147,22 @@ def main():
     visited_urls = set()
     try:
         print("1. Loading previous state...")
-        # استفاده از تابع جدید و صحیح برای خواندن از اسکریپت پایتون
         existing_urls_in_config = extract_urls_from_script(EXISTING_SOURCES_FILE)
         crawled_urls = load_state(CRAWLED_URLS_STATE_FILE)
         visited_urls = existing_urls_in_config.union(crawled_urls)
         print(f"Loaded {len(crawled_urls)} previously crawled URLs.")
 
-        print("\n2. Searching GitHub for initial seed URLs...")
+        print("\n2. Performing a single, comprehensive search on GitHub...")
+        # ساخت یک کوئری جامع به جای چندین کوئری
+        comprehensive_query = " OR ".join(f'"{p}"' for p in SEARCH_PROTOCOLS)
+        
+        all_search_results = search_github_paginated(comprehensive_query, GITHUB_TOKEN)
+        
         initial_seed_urls = set()
-        for protocol in SEARCH_PROTOCOLS:
-            if is_timeout(): break
-            print(f"   - Searching for files containing: '{protocol}'")
-            for item in search_github(protocol, GITHUB_TOKEN):
-                raw_url = item.get("html_url").replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
-                cleaned_url = clean_url(unquote(raw_url))
-                initial_seed_urls.add(cleaned_url)
+        for item in all_search_results:
+            raw_url = item.get("html_url").replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+            cleaned_url = clean_url(unquote(raw_url))
+            initial_seed_urls.add(cleaned_url)
         
         print(f"\n3. Starting deep crawl from {len(initial_seed_urls)} seed URLs...")
         for url in initial_seed_urls:
