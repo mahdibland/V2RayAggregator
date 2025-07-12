@@ -7,7 +7,6 @@ import time
 # ====================================================================
 # تنظیمات اسکریپت
 # ====================================================================
-# به جای کلیدواژه، مستقیماً از نام پروتکل‌ها برای جستجو استفاده می‌کنیم
 SEARCH_PROTOCOLS = [
     'vmess', 'vless', 'ss', 'ssr', 'trojan', 'hysteria', 
     'hysteria2', 'tuic', 'brook', 'socks', 'wireguard'
@@ -29,6 +28,19 @@ URL_REGEX = re.compile(r'https?://raw\.githubusercontent\.com/[^\s"\'`<>]+')
 PROXY_PROTOCOL_REGEX = re.compile(r'^(vmess|vless|ss|ssr|trojan|hysteria|hysteria2|tuic|brook|socks|wireguard)://')
 
 # ====================================================================
+
+def clean_url(url):
+    """
+    URL را با حذف کاراکترهای اضافی بعد از .txt پاک‌سازی می‌کند.
+    """
+    try:
+        # موقعیت .txt را پیدا کن
+        txt_position = url.index('.txt')
+        # رشته را تا انتهای .txt برش بزن
+        return url[:txt_position + 4]
+    except ValueError:
+        # اگر .txt در URL نبود، خود آن را برگردان
+        return url
 
 def is_timeout():
     """چک می‌کند که آیا زمان کلی اسکریپت تمام شده است یا نه"""
@@ -87,10 +99,12 @@ def process_url_recursively(url, final_sources, visited_urls, depth):
         final_sources.add(url)
         return
 
-    nested_urls = URL_REGEX.findall(content)
-    if nested_urls:
-        print(f"{indent}  -> 📄 No direct configs. Found {len(nested_urls)} nested GitHub Raw links to crawl.")
-        for new_url in set(nested_urls):
+    # پیدا کردن و پاک‌سازی لینک‌های تودرتو
+    nested_urls_raw = URL_REGEX.findall(content)
+    if nested_urls_raw:
+        cleaned_nested_urls = {clean_url(u) for u in nested_urls_raw}
+        print(f"{indent}  -> 📄 No direct configs. Found {len(cleaned_nested_urls)} nested GitHub Raw links to crawl.")
+        for new_url in cleaned_nested_urls:
             process_url_recursively(new_url, final_sources, visited_urls, depth + 1)
     else:
         print(f"{indent}  -> 🟡 No direct configs and no nested links found.")
@@ -116,7 +130,9 @@ def main():
             print(f"   - Searching for files containing: '{protocol}'")
             for item in search_github(protocol, GITHUB_TOKEN):
                 raw_url = item.get("html_url").replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
-                initial_seed_urls.add(unquote(raw_url))
+                # پاک‌سازی URLهای اولیه
+                cleaned_url = clean_url(unquote(raw_url))
+                initial_seed_urls.add(cleaned_url)
         
         print(f"\n3. Starting deep crawl from {len(initial_seed_urls)} seed URLs...")
         for url in initial_seed_urls:
