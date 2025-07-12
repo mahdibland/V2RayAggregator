@@ -2,6 +2,7 @@ name: Find New Proxy Sources Daily
 
 on:
   schedule:
+    # هر روز در ساعت 00:00 UTC اجرا می‌شود
     - cron: '0 0 * * *'
   workflow_dispatch:
 
@@ -12,6 +13,7 @@ concurrency:
 jobs:
   find-sources:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,30 +31,23 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
 
-      - name: Verify script output
-        id: verify_output
-        run: |
-          echo "--- Verifying created files ---"
-          ls -l
-          # این دستور یک خروجی برای مرحله بعدی می‌سازد
-          # اگر هر کدام از فایل‌ها وجود داشته باشند یا تغییر کرده باشند، مقدار 'true' برمی‌گرداند
-          if [ -n "$(git status --porcelain discovered_sources.txt crawled_urls.txt)" ]; then
-            echo "changes_found=true" >> $GITHUB_OUTPUT
-          else
-            echo "changes_found=false" >> $GITHUB_OUTPUT
-          fi
-
       - name: Commit and push discovered sources
-        # این مرحله فقط در صورتی اجرا می‌شود که مرحله قبل تغییراتی را پیدا کرده باشد
-        if: steps.verify_output.outputs.changes_found == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          
           git add discovered_sources.txt crawled_urls.txt
-          git commit -m "Update discovered sources and crawl state"
-          git push
-      
-      - name: No changes detected
-        if: steps.verify_output.outputs.changes_found == 'false'
-        run: echo "✅ No new sources or state changes detected. Skipping commit."
-
+          
+          # اگر فایلی برای کامیت وجود داشت، ادامه بده
+          if ! git diff --staged --quiet; then
+            echo "Changes detected. Committing and pushing..."
+            git commit -m "Update discovered sources and crawl state"
+            
+            # ۱. آخرین تغییرات را از سرور بکش
+            git pull --rebase
+            
+            # ۲. حالا تغییرات خود را پوش کن
+            git push
+          else
+            echo "✅ No new sources or state changes. Skipping commit."
+          fi
