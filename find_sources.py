@@ -37,6 +37,23 @@ def clean_url(url):
     except ValueError:
         return url
 
+def extract_urls_from_script(file_path):
+    """
+    URLها را فقط از داخل لیست urls = [...] در یک فایل پایتون استخراج می‌کند.
+    """
+    urls = set()
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        match = re.search(r'urls\s*=\s*\[(.*?)\]', content, re.DOTALL)
+        if match:
+            urls_str = match.group(1)
+            found_urls = re.findall(r'https?://[^\s",]+', urls_str)
+            urls.update(found_urls)
+    except FileNotFoundError:
+        print(f"Warning: {file_path} not found.")
+    return urls
+
 def is_timeout():
     """چک می‌کند که آیا زمان کلی اسکریپت تمام شده است یا نه"""
     if time.time() - START_TIME > TOTAL_TIMEOUT_SECONDS:
@@ -45,7 +62,7 @@ def is_timeout():
     return False
 
 def load_state(file_path):
-    """مجموعه‌ای از URLها را از یک فایل مشخص بارگذاری می‌کند"""
+    """مجموعه‌ای از URLها را از یک فایل متنی ساده بارگذاری می‌کند"""
     urls = set()
     if os.path.exists(file_path):
         with open(file_path, "r", encoding="utf-8") as f:
@@ -55,7 +72,6 @@ def load_state(file_path):
 
 def save_state(urls, file_path):
     """مجموعه‌ای از URLها را در یک فایل مشخص ذخیره می‌کند"""
-    # تضمین می‌کند که فایل همیشه ساخته شود، حتی اگر خالی باشد
     with open(file_path, "w", encoding="utf-8") as f:
         if urls:
             for url in sorted(list(urls)):
@@ -110,7 +126,8 @@ def main():
     visited_urls = set()
     try:
         print("1. Loading previous state...")
-        existing_urls_in_config = load_state(EXISTING_SOURCES_FILE)
+        # استفاده از تابع جدید و صحیح برای خواندن از اسکریپت پایتون
+        existing_urls_in_config = extract_urls_from_script(EXISTING_SOURCES_FILE)
         crawled_urls = load_state(CRAWLED_URLS_STATE_FILE)
         visited_urls = existing_urls_in_config.union(crawled_urls)
         print(f"Loaded {len(crawled_urls)} previously crawled URLs.")
@@ -137,7 +154,6 @@ def main():
 
         new_final_sources = final_sources - existing_urls_in_config
         
-        # تضمین می‌کند که فایل خروجی همیشه ساخته شود
         all_discovered = load_state(OUTPUT_FILE).union(new_final_sources)
         save_state(all_discovered, OUTPUT_FILE)
         
