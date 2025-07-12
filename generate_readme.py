@@ -33,7 +33,7 @@ def count_connections(file_path):
             return sum(1 for line in f if line.strip())
     except FileNotFoundError:
         return 0
-    return 0
+    # این تابع نباید در صورت موفقیت، مقدار صفر برگرداند. خطای قبلی اینجا بود.
 
 def get_jalali_update_time():
     """زمان فعلی را به فرمت جلالی و خوانا برمی‌گرداند"""
