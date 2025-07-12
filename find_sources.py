@@ -30,16 +30,11 @@ PROXY_PROTOCOL_REGEX = re.compile(r'^(vmess|vless|ss|ssr|trojan|hysteria|hysteri
 # ====================================================================
 
 def clean_url(url):
-    """
-    URL را با حذف کاراکترهای اضافی بعد از .txt پاک‌سازی می‌کند.
-    """
+    """URL را با حذف کاراکترهای اضافی بعد از .txt پاک‌سازی می‌کند."""
     try:
-        # موقعیت .txt را پیدا کن
         txt_position = url.index('.txt')
-        # رشته را تا انتهای .txt برش بزن
         return url[:txt_position + 4]
     except ValueError:
-        # اگر .txt در URL نبود، خود آن را برگردان
         return url
 
 def is_timeout():
@@ -60,9 +55,11 @@ def load_state(file_path):
 
 def save_state(urls, file_path):
     """مجموعه‌ای از URLها را در یک فایل مشخص ذخیره می‌کند"""
+    # تضمین می‌کند که فایل همیشه ساخته شود، حتی اگر خالی باشد
     with open(file_path, "w", encoding="utf-8") as f:
-        for url in sorted(list(urls)):
-            f.write(url + "\n")
+        if urls:
+            for url in sorted(list(urls)):
+                f.write(url + "\n")
 
 def search_github(query, token):
     """در API گیت‌هاب برای پیدا کردن فایل‌های .txt جستجو می‌کند"""
@@ -77,9 +74,7 @@ def search_github(query, token):
 
 def process_url_recursively(url, final_sources, visited_urls, depth):
     """یک URL را به صورت بازگشتی بررسی می‌کند"""
-    if (depth > MAX_DEPTH or
-            url in visited_urls or
-            is_timeout() or
+    if (depth > MAX_DEPTH or url in visited_urls or is_timeout() or
             not url.startswith("https://raw.githubusercontent.com/")):
         return
 
@@ -99,15 +94,12 @@ def process_url_recursively(url, final_sources, visited_urls, depth):
         final_sources.add(url)
         return
 
-    # پیدا کردن و پاک‌سازی لینک‌های تودرتو
     nested_urls_raw = URL_REGEX.findall(content)
     if nested_urls_raw:
         cleaned_nested_urls = {clean_url(u) for u in nested_urls_raw}
-        print(f"{indent}  -> 📄 No direct configs. Found {len(cleaned_nested_urls)} nested GitHub Raw links to crawl.")
+        print(f"{indent}  -> 📄 Found {len(cleaned_nested_urls)} nested links to crawl.")
         for new_url in cleaned_nested_urls:
             process_url_recursively(new_url, final_sources, visited_urls, depth + 1)
-    else:
-        print(f"{indent}  -> 🟡 No direct configs and no nested links found.")
 
 def main():
     """تابع اصلی برای اجرای کل فرآیند"""
@@ -123,14 +115,13 @@ def main():
         visited_urls = existing_urls_in_config.union(crawled_urls)
         print(f"Loaded {len(crawled_urls)} previously crawled URLs.")
 
-        print("\n2. Searching GitHub for initial seed URLs based on protocols...")
+        print("\n2. Searching GitHub for initial seed URLs...")
         initial_seed_urls = set()
         for protocol in SEARCH_PROTOCOLS:
             if is_timeout(): break
             print(f"   - Searching for files containing: '{protocol}'")
             for item in search_github(protocol, GITHUB_TOKEN):
                 raw_url = item.get("html_url").replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
-                # پاک‌سازی URLهای اولیه
                 cleaned_url = clean_url(unquote(raw_url))
                 initial_seed_urls.add(cleaned_url)
         
@@ -145,10 +136,13 @@ def main():
         print(f"Saved {len(visited_urls)} total crawled URLs to '{CRAWLED_URLS_STATE_FILE}'.")
 
         new_final_sources = final_sources - existing_urls_in_config
+        
+        # تضمین می‌کند که فایل خروجی همیشه ساخته شود
+        all_discovered = load_state(OUTPUT_FILE).union(new_final_sources)
+        save_state(all_discovered, OUTPUT_FILE)
+        
         if new_final_sources:
             print(f"\nDiscovered {len(new_final_sources)} new final source URLs in this run!")
-            all_discovered = load_state(OUTPUT_FILE).union(new_final_sources)
-            save_state(all_discovered, OUTPUT_FILE)
             print(f"✅ Successfully updated '{OUTPUT_FILE}'.")
         else:
             print("\n✅ No new sources found in this run.")
