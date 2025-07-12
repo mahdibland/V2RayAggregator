@@ -39,41 +39,44 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests geoip2 jdatetime pytz
 
-      - name: STEP 1 - Find new sources
-        run: python find_sources.py
+      - name: STEP 1 - Find, Manage, and Merge Sources
+        run: |
+          python find_sources.py
+          python manage_sources.py
+          python merge_configs.py
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
 
-      - name: STEP 2 - Manage and prune source list
-        run: python manage_sources.py
-
-      - name: STEP 3 - Merge configs from active sources
-        run: python merge_configs.py
-
-      - name: STEP 4 - Extract configs by country
+      - name: STEP 2 - Process and Generate Subscriptions
         run: |
           if [ ! -f GeoLite2-City.mmdb ]; then
-            echo "GeoIP DB not found, downloading..."
             python -c "from exp_country import download_geoip_database; download_geoip_database()"
           fi
           python exp_country.py
+          python create_rotating_sub.py
+          python generate_readme.py
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
 
-      - name: STEP 5 - Create rotating 100-config chunks
-        run: python create_rotating_sub.py
-
-      - name: STEP 6 - Generate README file
-        run: python generate_readme.py
-
-      - name: STEP 7 - Commit and push all changes
+      - name: STEP 3 - Commit repository changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add .
+          # فایل merged_configs.txt دیگر کامیت نمی‌شود
+          git add . --ignore-removal
           if git diff --staged --quiet; then
-            echo "No changes detected. Skipping commit."
+            echo "No repository changes to commit."
           else
-            git commit -m "Update all proxy subscriptions and sources"
+            git commit -m "Update subscriptions and project files"
             git push
           fi
+      
+      - name: STEP 4 - Upload Merged Configs to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          files: merged_configs.txt
+          body: "آخرین لیست تجمیع‌شده کانفیگ‌ها. این فایل به صورت خودکار هر ساعت به‌روز می‌شود."
+          # این گزینه باعث می‌شود هر بار روی همین تگ latest بازنویسی شود
+          prerelease: false
+          make_latest: true
