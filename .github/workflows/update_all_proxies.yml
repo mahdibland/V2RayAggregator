@@ -39,31 +39,38 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests geoip2 jdatetime pytz
 
-      - name: STEP 1 - Find, Manage, and Merge Sources
+      - name: STEP 1 - Run All Python Scripts
         run: |
+          # اطمینان حاصل شود که فایل .gitignore وجود دارد و قانون در آن هست
+          echo "merged_configs.txt" >> .gitignore
+          
           python find_sources.py
           python manage_sources.py
           python merge_configs.py
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-
-      - name: STEP 2 - Process and Generate Subscriptions
-        run: |
+          
           if [ ! -f GeoLite2-City.mmdb ]; then
             python -c "from exp_country import download_geoip_database; download_geoip_database()"
           fi
           python exp_country.py
+          
           python create_rotating_sub.py
           python generate_readme.py
         env:
+          GH_PAT: ${{ secrets.GH_PAT }}
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
 
-      - name: STEP 3 - Commit repository changes
+      - name: STEP 2 - Commit repository changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          # فایل merged_configs.txt دیگر کامیت نمی‌شود
-          git add . --ignore-removal
+
+          # --- دستور کلیدی و مهم ---
+          # فایل حجیم را از ردیابی گیت حذف کن (اما خود فایل را نگه دار)
+          git rm --cached merged_configs.txt || true
+
+          # حالا بقیه تغییرات را اضافه کن
+          git add .
+          
           if git diff --staged --quiet; then
             echo "No repository changes to commit."
           else
@@ -71,12 +78,11 @@ jobs:
             git push
           fi
       
-      - name: STEP 4 - Upload Merged Configs to Release
+      - name: STEP 3 - Upload Merged Configs to Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
           files: merged_configs.txt
           body: "آخرین لیست تجمیع‌شده کانفیگ‌ها. این فایل به صورت خودکار هر ساعت به‌روز می‌شود."
-          # این گزینه باعث می‌شود هر بار روی همین تگ latest بازنویسی شود
           prerelease: false
           make_latest: true
