@@ -72,9 +72,7 @@ def generate_readme():
     all_connections_count = count_connections(ALL_CONFIGS_FILE)
     jalali_date_str = get_jalali_update_time()
     
-    # URL انکود کردن متن فارسی برای بج‌ها
-    encoded_label_configs = quote("تعداد کانفیگ‌ها")
-    encoded_label_update = quote("آخرین آپدیت")
+    # URL انکود کردن تاریخ برای بج
     encoded_date = quote(jalali_date_str)
 
     # --- شروع ساخت محتوای README ---
@@ -83,15 +81,15 @@ def generate_readme():
 
 # تجمیع‌کننده کانفیگ‌های V2Ray
 
-این پروژه به صورت خودکار کانفیگ‌های فعال V2Ray را از منابع عمومی مختلف جمع‌آوری، تست و دسته‌بندی می‌کند.
+<p>این پروژه به صورت خودکار کانفیگ‌های فعال V2Ray را از منابع عمومی مختلف جمع‌آوری، تست و دسته‌بندی می‌کند.</p>
 
 </div>
 
 <div align="center">
 
-[![Update-Subscription](https://img.shields.io/github/actions/workflow/status/{REPO_OWNER}/{REPO_NAME}/update_all_proxies.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=وضعیت%20آپدیت)](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/update_all_proxies.yml)
-[![Configs-Count](https://img.shields.io/badge/{encoded_label_configs}-{all_connections_count:,}-blueviolet?style=for-the-badge&logo=server&logoColor=white)](https://github.com/{REPO_OWNER}/{REPO_NAME}/releases/latest/download/{ALL_CONFIGS_FILE})
-[![Last-Update](https://img.shields.io/badge/{encoded_label_update}-{encoded_date}-informational?style=for-the-badge&logo=clock&logoColor=white)](https://github.com/{REPO_OWNER}/{REPO_NAME}/commits/master)
+[![Update-Status](https://img.shields.io/github/actions/workflow/status/{REPO_OWNER}/{REPO_NAME}/update_all_proxies.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=Update%20Status)](https://github.com/{REPO_OWNER}/{REPO_NAME}/actions/workflows/update_all_proxies.yml)
+[![Configs-Count](https://img.shields.io/badge/Configs-{all_connections_count:,}-blueviolet?style=for-the-badge&logo=server&logoColor=white)](https://github.com/{REPO_OWNER}/{REPO_NAME}/releases/latest/download/{ALL_CONFIGS_FILE})
+[![Last-Update](https://img.shields.io/badge/Last%20Update-{encoded_date}-informational?style=for-the-badge&logo=clock&logoColor=white)](https://github.com/{REPO_OWNER}/{REPO_NAME}/commits/master)
 
 </div>
 
@@ -101,11 +99,11 @@ def generate_readme():
 
 ### 💡 ویژگی‌ها
 
-- **تجمیع خودکار:** جمع‌آوری روزانه کانفیگ از ده‌ها منبع عمومی.
-- **پاک‌سازی هوشمند:** حذف خودکار منابع از کار افتاده و جایگزینی با منابع جدید.
-- **تفکیک جغرافیایی:** دسته‌بندی کانفیگ‌ها بر اساس کشور برای دسترسی آسان.
-- **لینک‌های چرخشی:** ارائه لیست‌های ۱۰۰تایی که **هر ساعت** به‌روز می‌شوند تا همیشه کانفیگ تازه در دسترس باشد.
-- **آپدیت مداوم:** کل فرآیند به صورت خودکار و ساعتی توسط GitHub Actions اجرا می‌شود.
+- <b>تجمیع خودکار:</b> جمع‌آوری روزانه کانفیگ از ده‌ها منبع عمومی.
+- <b>پاک‌سازی هوشمند:</b> حذف خودکار منابع از کار افتاده و جایگزینی با منابع جدید.
+- <b>تفکیک جغرافیایی:</b> دسته‌بندی کانفیگ‌ها بر اساس کشور برای دسترسی آسان.
+- <b>لینک‌های چرخشی:</b> ارائه لیست‌های ۱۰۰تایی که <b>هر ساعت</b> به‌روز می‌شوند تا همیشه کانفیگ تازه در دسترس باشد.
+- <b>آپدیت مداوم:</b> کل فرآیند به صورت خودکار و ساعتی توسط GitHub Actions اجرا می‌شود.
 
 ---
 
@@ -114,7 +112,7 @@ def generate_readme():
 <div align="center">
 
 ### 🌐 لینک جامع (همه کانفیگ‌ها)
-<p dir="rtl">این لینک شامل **{all_connections_count:,}** کانفیگ از تمام کشورها است. **(ممکن است برای برخی کلاینت‌ها سنگین باشد)**</p>
+<p dir="rtl">این لینک شامل <b>{all_connections_count:,}</b> کانفیگ از تمام کشورها است. (<b>ممکن است برای برخی کلاینت‌ها سنگین باشد</b>)</p>
 
 ```
 {ALL_CONFIGS_URL}
@@ -124,23 +122,51 @@ def generate_readme():
 
 ### 🌍 لینک‌های تفکیک شده بر اساس کشور
 <p dir="rtl">
-- **لینک کامل:** شامل تمام کانفیگ‌های موجود برای آن کشور.<br>
-- **لینک ۱۰۰تایی:** یک لیست چرخشی شامل ۱۰۰ کانفیگ رندوم که هر ساعت به‌روز می‌شود. (**پیشنهاد شده**)
+برای مشاهده لینک‌ها، روی نام هر کشور کلیک کنید.
 </p>
+</div>
 
-| پرچم | کشور | تعداد کل | لینک کامل (برای کپی کلیک کنید) | لینک ۱۰۰تایی (برای کپی کلیک کنید) |
-|:---:|:---:|:---:|:---:|:---:|
 """
 
     for country in country_data:
-        readme_content += (
-            f"| {country['flag']} | **{country['name']}** | `{country['full_count']:,}` "
-            f"| `{country['full_link']}` "
-            f"| `{country['100_link']}` |\n"
-        )
+        readme_content += f"""
+<details>
+<summary>
+  <div dir="rtl" align="right">
+    <b>{country['flag']} {country['name']}</b> (تعداد کل: {country['full_count']:,})
+  </div>
+</summary>
+
+<div dir="rtl">
+<br>
+
+<p>
+- <b>لینک کامل:</b> شامل تمام کانفیگ‌های موجود برای این کشور.<br>
+- <b>لینک ۱۰۰تایی:</b> یک لیست چرخشی شامل ۱۰۰ کانفیگ رندوم که هر ساعت به‌روز می‌شود. (<b>پیشنهاد شده</b>)
+</p>
+
+<p><b>لینک کامل:</b></p>
+<div align="center">
+
+```
+{country['full_link']}
+```
+</div>
+
+<p><b>لینک ۱۰۰تایی:</b></p>
+<div align="center">
+
+```
+{country['100_link']}
+```
+</div>
+
+</div>
+</details>
+"""
 
     readme_content += """
-</div>
+<div dir="rtl">
 
 ---
 
@@ -151,8 +177,8 @@ def generate_readme():
 ### لیست کلاینت‌های موبایل (Mobile Clients)
 
 | iOS/iPadOS | Android | توضیحات مختصر |
-| :---: | :---: | :--- |
-| **[Hiddify](https://apps.apple.com/us/app/hiddify-next/id6476113229)** | **[Hiddify](https://play.google.com/store/apps/details?id=app.hiddify.com)** | <p dir="rtl">رایگان، چند پلتفرمی و با پشتیبانی از تمام پروتکل‌ها.</p> |
+| :---: | :---: | :---: |
+| <b>[Hiddify](https://apps.apple.com/us/app/hiddify-next/id6476113229)</b> | <b>[Hiddify](https://play.google.com/store/apps/details?id=app.hiddify.com)</b> | <p dir="rtl">رایگان، چند پلتفرمی و با پشتیبانی از تمام پروتکل‌ها.</p> |
 | [V2Box](https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690) | [v2rayNG](https://github.com/2dust/v2rayNG/releases) | <p dir="rtl">کلاینت‌های محبوب و قدرتمند برای هر پلتفرم.</p> |
 | [Shadowrocket](https://apps.apple.com/us/app/shadowrocket/id932747118) | [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) | <p dir="rtl">پشتیبانی از پروتکل‌های متنوع، نیازمند خرید یا تنظیمات پیشرفته.</p> |
 | [Streisand](https://apps.apple.com/us/app/streisand/id6450534064) | [Clash For Android](https://github.com/Kr328/ClashForAndroid/releases) | <p dir="rtl">بر پایه Clash با قابلیت‌های مدیریت پروکسی حرفه‌ای.</p> |
@@ -162,8 +188,8 @@ def generate_readme():
 ### لیست کلاینت‌های دسکتاپ (Desktop Clients)
 
 | Windows | macOS | Linux | توضیحات مختصر |
-| :---: | :---: | :---: | :--- |
-| **[Hiddify](https://github.com/hiddify/hiddify-next/releases)** | **[Hiddify](https://github.com/hiddify/hiddify-next/releases)** | **[Hiddify](https://github.com/hiddify/hiddify-next/releases)** | <p dir="rtl">رایگان، چند پلتفرمی و با کاربری آسان. (پیشنهاد اصلی)</p> |
+| :---: | :---: | :---: | :---: |
+| <b>[Hiddify](https://github.com/hiddify/hiddify-next/releases)</b> | <b>[Hiddify](https://github.com/hiddify/hiddify-next/releases)</b> | <b>[Hiddify](https://github.com/hiddify/hiddify-next/releases)</b> | <p dir="rtl">رایگان، چند پلتفرمی و با کاربری آسان. (پیشنهاد اصلی)</p> |
 | [Nekoray](https://github.com/MatsuriDayo/nekoray/releases) | [V2Box](https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690) | [Nekoray](https://github.com/MatsuriDayo/nekoray/releases) | <p dir="rtl">ابزارهای قدرتمند با قابلیت‌های پیشرفته برای مدیریت پروکسی.</p> |
 | [v2rayN](https://github.com/2dust/v2rayN/releases) | [FoXray](https://github.com/Fndroid/Foxray/releases) | [Clash Verge](https://github.com/zzzgydi/clash-verge/releases) | <p dir="rtl">کلاینت‌های محبوب با جامعه کاربری بزرگ و پشتیبانی گسترده.</p> |
 
