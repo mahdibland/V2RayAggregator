@@ -544,6 +544,7 @@ urls = [
     "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.txt",
     "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt",
     "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/sub/sub_merge.txt",
+    "https://raw.githubusercontent.com/mehrdadmb2/V2ray_Sub/334f03f58596d624872c88759773b213317105d7/Mci.txt",
     "https://raw.githubusercontent.com/mehrdadmb2/V2ray_Sub/b8ba77ce9ded5476ab10556c07300afa04e0f6c1/Irancell.txt",
     "https://raw.githubusercontent.com/mehrdadmb2/V2ray_Sub/b8ba77ce9ded5476ab10556c07300afa04e0f6c1/Mci.txt",
     "https://raw.githubusercontent.com/mehrdadmb2/V2ray_Sub/d1fe2f10e7189642b3fe38002c6dd8873a835303/Mci.txt",
