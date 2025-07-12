@@ -6,7 +6,7 @@ concurrency:
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # هر ۵ دقیقه اجرا شود
+    - cron: '0 * * * *' # هر ساعت اجرا شود
   workflow_dispatch:
 
 jobs:
@@ -22,11 +22,9 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Get current date and hour
+      - name: Get current date
         id: date
-        run: |
-          echo "TODAY=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-          echo "HOUR=$(date -u +'%Y-%m-%d-%H')" >> $GITHUB_OUTPUT
+        run: echo "TODAY=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
       - name: Cache GeoIP Database
         id: cache-geoip
@@ -37,39 +35,41 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-geoip-
 
-      - name: Cache hourly run marker
-        id: cache-hourly-marker
-        uses: actions/cache@v4
-        with:
-          path: .hourly_run_marker
-          key: ${{ runner.os }}-hourly-run-${{ steps.date.outputs.HOUR }}
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests geoip2 jdatetime pytz
 
-      - name: Run Hourly Tasks (if needed)
-        if: steps.cache-hourly-marker.outputs.cache-hit != 'true'
+      # ====================================================================
+      # مراحل اصلی به ترتیب اجرا می‌شوند
+      # ====================================================================
+      - name: STEP 1: Find new sources (runs daily)
+        # این مرحله را می‌توان به صورت روزانه اجرا کرد
+        # if: github.event_name == 'schedule' && startsWith(github.run_number, '1')
+        run: python find_sources.py
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+
+      - name: STEP 2: Manage and prune source list
+        run: python manage_sources.py
+
+      - name: STEP 3: Merge configs from active sources
+        run: python merge_configs.py
+
+      - name: STEP 4: Extract configs by country
         run: |
-          echo "✅ Cache miss for hour ${{ steps.date.outputs.HOUR }}. Running hourly tasks..."
           if [ ! -f GeoLite2-City.mmdb ]; then
             echo "GeoIP DB not found, downloading..."
             python -c "from exp_country import download_geoip_database; download_geoip_database()"
           fi
-          python merge_configs.py
           python exp_country.py
-          touch .hourly_run_marker
         env:
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
 
-      - name: Run 5-Minute Task (always)
+      - name: STEP 5: Create rotating 100-config chunks
         run: python create_rotating_sub.py
 
-      # ====================================================================
-      # مرحله جدید که اضافه شده است
-      # ====================================================================
-      - name: Generate README file
+      - name: STEP 6: Generate README file
         run: python generate_readme.py
       # ====================================================================
 
@@ -81,6 +81,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "✅ No changes detected. Skipping commit."
           else
-            git commit -m "Update all proxy subscriptions and README"
+            git commit -m "Update all proxy subscriptions and sources"
             git push
           fi
