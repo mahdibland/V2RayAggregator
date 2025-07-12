@@ -7,10 +7,12 @@ import time
 # ====================================================================
 # تنظیمات اسکریپت
 # ====================================================================
-SEARCH_KEYWORDS = [
-    "v2ray config", "vless sub", "vmess subscription", "ss sub",
-    "trojan subscription", "all_configs.txt", "sub_merge.txt"
+# به جای کلیدواژه، مستقیماً از نام پروتکل‌ها برای جستجو استفاده می‌کنیم
+SEARCH_PROTOCOLS = [
+    'vmess', 'vless', 'ss', 'ssr', 'trojan', 'hysteria', 
+    'hysteria2', 'tuic', 'brook', 'socks', 'wireguard'
 ]
+
 EXISTING_SOURCES_FILE = "merge_configs.py"
 OUTPUT_FILE = "discovered_sources.txt"
 CRAWLED_URLS_STATE_FILE = "crawled_urls.txt"
@@ -23,10 +25,8 @@ TOTAL_TIMEOUT_SECONDS = 5 * 60 * 60
 
 # --- متغیرهای سراسری ---
 START_TIME = time.time()
-# عبارت منظم جدید برای پیدا کردن لینک‌های خام گیت‌هاب
 URL_REGEX = re.compile(r'https?://raw\.githubusercontent\.com/[^\s"\'`<>]+')
-# پروتکل‌هایی که نشان‌دهنده یک منبع نهایی هستند
-PROXY_PROTOCOLS = ('vmess://', 'vless://', 'ss://', 'ssr://', 'trojan://', 'hysteria://', 'hysteria2://', 'tuic://', 'brook://', 'socks://', 'wireguard://')
+PROXY_PROTOCOL_REGEX = re.compile(r'^(vmess|vless|ss|ssr|trojan|hysteria|hysteria2|tuic|brook|socks|wireguard)://')
 
 # ====================================================================
 
@@ -56,7 +56,7 @@ def search_github(query, token):
     """در API گیت‌هاب برای پیدا کردن فایل‌های .txt جستجو می‌کند"""
     headers = {"Accept": "application/vnd.github.v3+json"}
     if token: headers["Authorization"] = f"token {token}"
-    params = {"q": f'{query} extension:txt', "per_page": 100}
+    params = {"q": f'"{query}" extension:txt', "per_page": 100}
     try:
         response = requests.get("https://api.github.com/search/code", headers=headers, params=params, timeout=20)
         response.raise_for_status()
@@ -65,7 +65,6 @@ def search_github(query, token):
 
 def process_url_recursively(url, final_sources, visited_urls, depth):
     """یک URL را به صورت بازگشتی بررسی می‌کند"""
-    # شرط‌های توقف: عمق زیاد، URL تکراری، تایم‌اوت، یا لینک غیر از گیت‌هاب
     if (depth > MAX_DEPTH or
             url in visited_urls or
             is_timeout() or
@@ -83,13 +82,11 @@ def process_url_recursively(url, final_sources, visited_urls, depth):
     except requests.RequestException:
         return
 
-    # بررسی اینکه آیا فایل حاوی کانفیگ مستقیم است یا نه
-    if any(proto in content for proto in PROXY_PROTOCOLS):
+    if any(line.strip().startswith(tuple(p + '://' for p in SEARCH_PROTOCOLS)) for line in content.splitlines()):
         print(f"{indent}  -> ✅ Found direct configs. Adding to final list.")
         final_sources.add(url)
-        return  # اگر کانفیگ مستقیم داشت، دیگر لینک‌های داخلش را دنبال نکن
+        return
 
-    # اگر کانفیگ مستقیم نداشت، به دنبال لینک‌های خام گیت‌هاب در داخل آن بگرد
     nested_urls = URL_REGEX.findall(content)
     if nested_urls:
         print(f"{indent}  -> 📄 No direct configs. Found {len(nested_urls)} nested GitHub Raw links to crawl.")
@@ -97,7 +94,6 @@ def process_url_recursively(url, final_sources, visited_urls, depth):
             process_url_recursively(new_url, final_sources, visited_urls, depth + 1)
     else:
         print(f"{indent}  -> 🟡 No direct configs and no nested links found.")
-
 
 def main():
     """تابع اصلی برای اجرای کل فرآیند"""
@@ -113,12 +109,12 @@ def main():
         visited_urls = existing_urls_in_config.union(crawled_urls)
         print(f"Loaded {len(crawled_urls)} previously crawled URLs.")
 
-        print("\n2. Searching GitHub for initial seed URLs...")
+        print("\n2. Searching GitHub for initial seed URLs based on protocols...")
         initial_seed_urls = set()
-        for keyword in SEARCH_KEYWORDS:
+        for protocol in SEARCH_PROTOCOLS:
             if is_timeout(): break
-            print(f"   - Searching for: '{keyword}'")
-            for item in search_github(keyword, GITHUB_TOKEN):
+            print(f"   - Searching for files containing: '{protocol}'")
+            for item in search_github(protocol, GITHUB_TOKEN):
                 raw_url = item.get("html_url").replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
                 initial_seed_urls.add(unquote(raw_url))
         
