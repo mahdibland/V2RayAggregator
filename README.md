@@ -10,7 +10,7 @@
 <div align="center">
 
 [![Update-Subscription](https://img.shields.io/github/actions/workflow/status/MEHR1DAD/V2RayAggregator/update_all_proxies.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=وضعیت%20آپدیت)](https://github.com/MEHR1DAD/V2RayAggregator/actions/workflows/update_all_proxies.yml)
-[![Configs-Count](https://img.shields.io/badge/تعداد%20کانفیگ‌ها-445,866-blueviolet?style=for-the-badge&logo=server&logoColor=white)](https://github.com/MEHR1DAD/V2RayAggregator/releases/latest/download/merged_configs.txt)
+[![Configs-Count](https://img.shields.io/badge/تعداد%20کانفیگ‌ها-445,929-blueviolet?style=for-the-badge&logo=server&logoColor=white)](https://github.com/MEHR1DAD/V2RayAggregator/releases/latest/download/merged_configs.txt)
 [![Last-Update](https://img.shields.io/badge/آخرین%20آپدیت-Saturday 21 Tir 1404-informational?style=for-the-badge&logo=clock&logoColor=white)](https://github.com/MEHR1DAD/V2RayAggregator/commits/master)
 [![LICENSE](https://img.shields.io/github/license/MEHR1DAD/V2RayAggregator?style=for-the-badge&color=lightgrey)](https://github.com/MEHR1DAD/V2RayAggregator/blob/master/LICENSE)
 
@@ -36,7 +36,7 @@
 
 ### 🌐 لینک جامع (همه کانفیگ‌ها)
 
-این لینک شامل **445,866** کانفیگ از تمام کشورها است. **(ممکن است برای برخی کلاینت‌ها سنگین باشد)**
+این لینک شامل **445,929** کانفیگ از تمام کشورها است. **(ممکن است برای برخی کلاینت‌ها سنگین باشد)**
 
 <div align="center">
 
