@@ -6,7 +6,8 @@ concurrency:
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    # هر ۵ دقیقه اجرا شود
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -21,9 +22,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Get current date
+      - name: Get current date and hour
         id: date
-        run: echo "TODAY=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        run: |
+          echo "TODAY=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+          echo "HOUR=$(date -u +'%Y-%m-%d-%H')" >> $GITHUB_OUTPUT
 
       - name: Cache GeoIP Database
         id: cache-geoip
@@ -34,51 +37,53 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-geoip-
 
+      - name: Cache hourly run marker
+        id: cache-hourly-marker
+        uses: actions/cache@v4
+        with:
+          path: .hourly_run_marker
+          key: ${{ runner.os }}-hourly-run-${{ steps.date.outputs.HOUR }}
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests geoip2 jdatetime pytz
 
-      - name: STEP 1 - Run All Python Scripts
+      - name: Run Hourly Tasks (if cache miss)
+        if: steps.cache-hourly-marker.outputs.cache-hit != 'true'
         run: |
-          # اطمینان حاصل شود که فایل .gitignore وجود دارد و قانون در آن هست
-          echo "merged_configs.txt" >> .gitignore
-          
-          python find_sources.py
-          python manage_sources.py
-          python merge_configs.py
-          
+          echo "✅ Cache miss for hour ${{ steps.date.outputs.HOUR }}. Running hourly tasks..."
           if [ ! -f GeoLite2-City.mmdb ]; then
             python -c "from exp_country import download_geoip_database; download_geoip_database()"
           fi
+          python find_sources.py
+          python manage_sources.py
+          python merge_configs.py
           python exp_country.py
-          
-          python create_rotating_sub.py
-          python generate_readme.py
+          touch .hourly_run_marker
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
 
-      - name: STEP 2 - Commit repository changes
+      - name: Run 5-Minute Tasks (always)
+        run: |
+          python create_rotating_sub.py
+          python generate_readme.py
+
+      - name: Commit and push all changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-
-          # --- دستور کلیدی و مهم ---
-          # فایل حجیم را از ردیابی گیت حذف کن (اما خود فایل را نگه دار)
           git rm --cached merged_configs.txt || true
-
-          # حالا بقیه تغییرات را اضافه کن
           git add .
-          
           if git diff --staged --quiet; then
-            echo "No repository changes to commit."
+            echo "No changes detected. Skipping commit."
           else
             git commit -m "Update subscriptions and project files"
             git push
           fi
       
-      - name: STEP 3 - Upload Merged Configs to Release
+      - name: Upload Merged Configs to Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
