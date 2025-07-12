@@ -10,7 +10,7 @@
 <div align="center">
 
 [![Update-Subscription](https://img.shields.io/github/actions/workflow/status/MEHR1DAD/V2RayAggregator/update_all_proxies.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=وضعیت%20آپدیت)](https://github.com/MEHR1DAD/V2RayAggregator/actions/workflows/update_all_proxies.yml)
-[![Configs-Count](https://img.shields.io/badge/%D8%AA%D8%B9%D8%AF%D8%A7%D8%AF%20%DA%A9%D8%A7%D9%86%D9%81%DB%8C%DA%AF%E2%80%8C%D9%87%D8%A7-446,352-blueviolet?style=for-the-badge&logo=server&logoColor=white)](https://github.com/MEHR1DAD/V2RayAggregator/releases/latest/download/merged_configs.txt)
+[![Configs-Count](https://img.shields.io/badge/%D8%AA%D8%B9%D8%AF%D8%A7%D8%AF%20%DA%A9%D8%A7%D9%86%D9%81%DB%8C%DA%AF%E2%80%8C%D9%87%D8%A7-0-blueviolet?style=for-the-badge&logo=server&logoColor=white)](https://github.com/MEHR1DAD/V2RayAggregator/releases/latest/download/merged_configs.txt)
 [![Last-Update](https://img.shields.io/badge/%D8%A2%D8%AE%D8%B1%DB%8C%D9%86%20%D8%A2%D9%BE%D8%AF%DB%8C%D8%AA-Saturday%2021%20Tir%201404-informational?style=for-the-badge&logo=clock&logoColor=white)](https://github.com/MEHR1DAD/V2RayAggregator/commits/master)
 
 </div>
@@ -34,7 +34,7 @@
 <div align="center">
 
 ### 🌐 لینک جامع (همه کانفیگ‌ها)
-<p dir="rtl">این لینک شامل **446,352** کانفیگ از تمام کشورها است. **(ممکن است برای برخی کلاینت‌ها سنگین باشد)**</p>
+<p dir="rtl">این لینک شامل **0** کانفیگ از تمام کشورها است. **(ممکن است برای برخی کلاینت‌ها سنگین باشد)**</p>
 
 ```
 https://github.com/MEHR1DAD/V2RayAggregator/releases/latest/download/merged_configs.txt
