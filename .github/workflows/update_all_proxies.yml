@@ -43,9 +43,7 @@ jobs:
       # ====================================================================
       # مراحل اصلی به ترتیب اجرا می‌شوند
       # ====================================================================
-      - name: STEP 1: Find new sources (runs daily)
-        # این مرحله را می‌توان به صورت روزانه اجرا کرد
-        # if: github.event_name == 'schedule' && startsWith(github.run_number, '1')
+      - name: STEP 1: Find new sources
         run: python find_sources.py
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
