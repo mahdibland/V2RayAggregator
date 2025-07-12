@@ -32,8 +32,9 @@ def count_connections(file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             return sum(1 for line in f if line.strip())
     except FileNotFoundError:
+        # اگر فایل پیدا نشد، صفر برگردان
         return 0
-    return 0
+    # خط return 0 اضافی از اینجا حذف شد
 
 def get_jalali_update_time():
     """زمان فعلی را به فرمت جلالی و خوانا برمی‌گرداند"""
