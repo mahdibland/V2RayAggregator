@@ -746,7 +746,7 @@ urls = [
 ALLOWED_PROTOCOLS = {
     "vmess://", "vless://", "ss://", "ssr://", "trojan://", 
     "hysteria://", "hysteria2://", "brook://", "tuic://", 
-    "socks://", "http://", "wireguard://"
+    "socks://", "wireguard://"
 }
 
 def fetch_configs():
