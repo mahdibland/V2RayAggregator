@@ -5,7 +5,7 @@ from urllib.parse import unquote
 import time
 
 # ====================================================================
-# Script Settings
+# تنظیمات اسکریپت
 # ====================================================================
 SEARCH_KEYWORDS = [
     "v2ray config", "vless sub", "vmess subscription", "ss sub",
@@ -16,27 +16,29 @@ OUTPUT_FILE = "discovered_sources.txt"
 CRAWLED_URLS_STATE_FILE = "crawled_urls.txt"
 GITHUB_TOKEN = os.getenv("GH_PAT")
 
-# --- Optimization Settings ---
+# --- تنظیمات بهینه‌سازی ---
 MAX_DEPTH = 10
 REQUEST_TIMEOUT = 15
 TOTAL_TIMEOUT_SECONDS = 5 * 60 * 60
 
-# --- Global Variables ---
+# --- متغیرهای سراسری ---
 START_TIME = time.time()
-URL_REGEX = re.compile(r'https?://[^\s"\'`<>]+')
-PROXY_PROTOCOL_REGEX = re.compile(r'^(vmess|vless|ss|ssr|trojan|hysteria|hysteria2|tuic|brook)://')
+# عبارت منظم جدید برای پیدا کردن لینک‌های خام گیت‌هاب
+URL_REGEX = re.compile(r'https?://raw\.githubusercontent\.com/[^\s"\'`<>]+')
+# پروتکل‌هایی که نشان‌دهنده یک منبع نهایی هستند
+PROXY_PROTOCOLS = ('vmess://', 'vless://', 'ss://', 'ssr://', 'trojan://', 'hysteria://', 'hysteria2://', 'tuic://', 'brook://', 'socks://', 'wireguard://')
 
 # ====================================================================
 
 def is_timeout():
-    """Checks if the total script runtime has exceeded the timeout."""
+    """چک می‌کند که آیا زمان کلی اسکریپت تمام شده است یا نه"""
     if time.time() - START_TIME > TOTAL_TIMEOUT_SECONDS:
         print("⏰ Global timeout reached. Finalizing the process...")
         return True
     return False
 
 def load_state(file_path):
-    """Loads a set of URLs from a given file."""
+    """مجموعه‌ای از URLها را از یک فایل مشخص بارگذاری می‌کند"""
     urls = set()
     if os.path.exists(file_path):
         with open(file_path, "r", encoding="utf-8") as f:
@@ -45,31 +47,33 @@ def load_state(file_path):
     return urls
 
 def save_state(urls, file_path):
-    """Saves a set of URLs to a given file."""
+    """مجموعه‌ای از URLها را در یک فایل مشخص ذخیره می‌کند"""
     with open(file_path, "w", encoding="utf-8") as f:
         for url in sorted(list(urls)):
             f.write(url + "\n")
 
 def search_github(query, token):
-    """Performs a code search on GitHub API."""
+    """در API گیت‌هاب برای پیدا کردن فایل‌های .txt جستجو می‌کند"""
     headers = {"Accept": "application/vnd.github.v3+json"}
-    if token:
-        headers["Authorization"] = f"token {token}"
+    if token: headers["Authorization"] = f"token {token}"
     params = {"q": f'{query} extension:txt', "per_page": 100}
     try:
         response = requests.get("https://api.github.com/search/code", headers=headers, params=params, timeout=20)
         response.raise_for_status()
         return response.json().get("items", [])
-    except requests.RequestException:
-        return []
+    except requests.RequestException: return []
 
 def process_url_recursively(url, final_sources, visited_urls, depth):
-    """Recursively crawls a URL to find final subscription sources."""
-    if depth > MAX_DEPTH or url in visited_urls or is_timeout():
+    """یک URL را به صورت بازگشتی بررسی می‌کند"""
+    # شرط‌های توقف: عمق زیاد، URL تکراری، تایم‌اوت، یا لینک غیر از گیت‌هاب
+    if (depth > MAX_DEPTH or
+            url in visited_urls or
+            is_timeout() or
+            not url.startswith("https://raw.githubusercontent.com/")):
         return
 
     indent = "  " * depth
-    print(f"{indent}Processing (Depth {depth}): {url[:80]}...")
+    print(f"{indent}Processing (Depth {depth}): {url[:90]}...")
     visited_urls.add(url)
 
     try:
@@ -79,30 +83,26 @@ def process_url_recursively(url, final_sources, visited_urls, depth):
     except requests.RequestException:
         return
 
-    lines = content.splitlines()
-    is_direct_config = False
-    potential_urls = []
-
-    for line in lines:
-        if PROXY_PROTOCOL_REGEX.match(line.strip()):
-            is_direct_config = True
-            break
-        for found_url in URL_REGEX.findall(line):
-            path = os.path.basename(unquote(found_url.split('?')[0]))
-            if path.endswith('.txt') or '.' not in path:
-                potential_urls.append(found_url)
-
-    if is_direct_config:
+    # بررسی اینکه آیا فایل حاوی کانفیگ مستقیم است یا نه
+    if any(proto in content for proto in PROXY_PROTOCOLS):
+        print(f"{indent}  -> ✅ Found direct configs. Adding to final list.")
         final_sources.add(url)
-    else:
-        for new_url in set(potential_urls):
+        return  # اگر کانفیگ مستقیم داشت، دیگر لینک‌های داخلش را دنبال نکن
+
+    # اگر کانفیگ مستقیم نداشت، به دنبال لینک‌های خام گیت‌هاب در داخل آن بگرد
+    nested_urls = URL_REGEX.findall(content)
+    if nested_urls:
+        print(f"{indent}  -> 📄 No direct configs. Found {len(nested_urls)} nested GitHub Raw links to crawl.")
+        for new_url in set(nested_urls):
             process_url_recursively(new_url, final_sources, visited_urls, depth + 1)
+    else:
+        print(f"{indent}  -> 🟡 No direct configs and no nested links found.")
+
 
 def main():
-    """Main function to run the entire discovery process."""
+    """تابع اصلی برای اجرای کل فرآیند"""
     if not GITHUB_TOKEN:
-        print("❌ ERROR: GH_PAT environment variable is not set.")
-        return
+        print("❌ ERROR: GH_PAT environment variable is not set."); return
 
     final_sources = set()
     visited_urls = set()
@@ -122,7 +122,7 @@ def main():
                 raw_url = item.get("html_url").replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
                 initial_seed_urls.add(unquote(raw_url))
         
-        print(f"\n3. Starting deep crawl from {len(initial_seed_urls)} new seed URLs...")
+        print(f"\n3. Starting deep crawl from {len(initial_seed_urls)} seed URLs...")
         for url in initial_seed_urls:
             if is_timeout(): break
             process_url_recursively(url, final_sources, visited_urls, depth=1)
