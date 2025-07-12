@@ -7,9 +7,13 @@ import time
 # ====================================================================
 # تنظیمات اسکریپت
 # ====================================================================
-SEARCH_PROTOCOLS = [
-    'vmess', 'vless', 'ss', 'ssr', 'trojan', 'hysteria', 
-    'hysteria2', 'tuic', 'brook', 'socks', 'wireguard'
+# بازگشت به لیست کلیدواژه‌های گسترده‌تر برای نتایج بهتر
+SEARCH_KEYWORDS = [
+    "vless subscription", "vmess subscription", "trojan subscription",
+    "ss subscription", "ssr subscription", "hysteria subscription",
+    "sub_merge.txt", "all_configs.txt", "v2ray-configs", "proxies.txt",
+    "sub.txt", "*.txt", "subscription.txt", "conection.txt",
+    "connection.txt"
 ]
 
 EXISTING_SOURCES_FILE = "merge_configs.py"
@@ -20,7 +24,7 @@ GITHUB_TOKEN = os.getenv("GH_PAT")
 # --- تنظیمات بهینه‌سازی ---
 MAX_DEPTH = 10
 REQUEST_TIMEOUT = 15
-TOTAL_TIMEOUT_SECONDS = 5 * 60 * 60
+TOTAL_TIMEOUT_SECONDS = 5 * 60 * 60  # تایم‌اوت کلی ۵ ساعت
 
 # --- متغیرهای سراسری ---
 START_TIME = time.time()
@@ -83,25 +87,20 @@ def search_github_paginated(query, token):
     if token: headers["Authorization"] = f"token {token}"
     
     all_items = []
-    # API گیت‌هاب برای هر جستجو حداکثر ۱۰۰۰ نتیجه (۱۰ صفحه) برمی‌گرداند
-    for page in range(1, 11):
+    for page in range(1, 11): # حداکثر ۱۰ صفحه (۱۰۰۰ نتیجه) برای هر کوئری
         if is_timeout(): break
         
-        params = {"q": f'{query} extension:txt', "per_page": 100, "page": page}
-        print(f"   - Searching GitHub (Page {page})...")
+        params = {"q": f'"{query}" extension:txt', "per_page": 100, "page": page}
         
         try:
             response = requests.get("https://api.github.com/search/code", headers=headers, params=params, timeout=30)
             response.raise_for_status()
             items = response.json().get("items", [])
             
-            if not items:
-                print("   -> No more results found.")
-                break # اگر صفحه‌ای خالی بود، یعنی نتایج تمام شده است
+            if not items: break
             
             all_items.extend(items)
-            # یک وقفه کوتاه برای احترام به محدودیت نرخ API
-            time.sleep(2)
+            time.sleep(1) # وقفه کوتاه بین هر صفحه
 
         except requests.RequestException as e:
             print(f"   -> Error during GitHub API request: {e}")
@@ -126,7 +125,7 @@ def process_url_recursively(url, final_sources, visited_urls, depth):
     except requests.RequestException:
         return
 
-    if any(line.strip().startswith(tuple(p + '://' for p in SEARCH_PROTOCOLS)) for line in content.splitlines()):
+    if any(line.strip().startswith(tuple(p + '://' for p in PROXY_PROTOCOL_REGEX.pattern.strip('^()$').split('|'))) for line in content.splitlines()):
         print(f"{indent}  -> ✅ Found direct configs. Adding to final list.")
         final_sources.add(url)
         return
@@ -152,20 +151,25 @@ def main():
         visited_urls = existing_urls_in_config.union(crawled_urls)
         print(f"Loaded {len(crawled_urls)} previously crawled URLs.")
 
-        print("\n2. Performing a single, comprehensive search on GitHub...")
-        # ساخت یک کوئری جامع به جای چندین کوئری
-        comprehensive_query = " OR ".join(f'"{p}"' for p in SEARCH_PROTOCOLS)
-        
-        all_search_results = search_github_paginated(comprehensive_query, GITHUB_TOKEN)
-        
+        print("\n2. Searching GitHub for initial seed URLs using multiple keywords...")
         initial_seed_urls = set()
-        for item in all_search_results:
-            raw_url = item.get("html_url").replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
-            cleaned_url = clean_url(unquote(raw_url))
-            initial_seed_urls.add(cleaned_url)
+        for keyword in SEARCH_KEYWORDS:
+            if is_timeout(): break
+            print(f"\n--- Searching for keyword: '{keyword}' ---")
+            
+            search_results = search_github_paginated(keyword, GITHUB_TOKEN)
+            
+            for item in search_results:
+                raw_url = item.get("html_url").replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+                cleaned_url = clean_url(unquote(raw_url))
+                initial_seed_urls.add(cleaned_url)
+            
+            print(f"Found {len(search_results)} items for this keyword.")
+            # وقفه ۲ ثانیه‌ای بین هر کلیدواژه برای جلوگیری از محدودیت نرخ
+            time.sleep(2)
         
-        print(f"\n3. Starting deep crawl from {len(initial_seed_urls)} seed URLs...")
-        for url in initial_seed_urls:
+        print(f"\n3. Starting deep crawl from a total of {len(initial_seed_urls)} unique seed URLs...")
+        for url in list(initial_seed_urls): # تبدیل به لیست برای جلوگیری از تغییر در حین پیمایش
             if is_timeout(): break
             process_url_recursively(url, final_sources, visited_urls, depth=1)
 
