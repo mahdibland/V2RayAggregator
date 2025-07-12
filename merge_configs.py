@@ -648,6 +648,7 @@ urls = [
     "https://raw.githubusercontent.com/qjlxg/aggregator/323c9c5b0ab1ef351a89558b3610f5dfc430f9ef/base.txt",
     "https://raw.githubusercontent.com/qjlxg/aggregator/6785e1daf35f4ed0b77eea58d937369b30761e7b/base.txt",
     "https://raw.githubusercontent.com/qjlxg/aggregator/b20460a87fcb91e61fa3194b1589131e16a1bfb5/base.txt",
+    "https://raw.githubusercontent.com/qjlxg/aggregator/c79ae3de2a671345174fdb964a072a96035d881c/base.txt",
     "https://raw.githubusercontent.com/qwer1234159357/Sub/96315ef39d7cf9755dc734ca01f5ed7700ed7753/Sub.txt",
     "https://raw.githubusercontent.com/rasajati/provider/728d9042eaac8a6009de745d63bb14a47830601d/tsel.txt",
     "https://raw.githubusercontent.com/rb360full/V2Ray-Configs/refs/heads/main/Reza-2",
