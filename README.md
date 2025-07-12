@@ -3,13 +3,13 @@
 
 # V2RayAggregator | تجمیع‌کننده کانفیگ‌های V2Ray
 این پروژه به صورت خودکار کانفیگ‌های فعال V2Ray را از منابع عمومی مختلف جمع‌آوری، تست و دسته‌بندی می‌کند.
-**آخرین به‌روزرسانی:** Saturday 21 Tir 1404 - ساعت 12:09 (به وقت تهران)
+**آخرین به‌روزرسانی:** Saturday 21 Tir 1404 - ساعت 12:44 (به وقت تهران)
 [![Update Subscriptions](https://github.com/MEHR1DAD/V2RayAggregator/actions/workflows/update_all_proxies.yml/badge.svg)](https://github.com/MEHR1DAD/V2RayAggregator/actions/workflows/update_all_proxies.yml)
 ---
 ## 订阅链接 | Subscription Links
 برای استفاده، یکی از لینک‌های زیر را کپی کرده و در کلاینت خود (مانند V2RayNG, Nekoray, Hiddify) وارد کنید.
 ### 综合订阅 | All-in-One Subscription
-این لینک شامل **445,733** کانفیگ از تمام کشورها است.
+این لینک شامل **445,395** کانفیگ از تمام کشورها است.
 ```
 https://github.com/MEHR1DAD/V2RayAggregator/releases/latest/download/merged_configs.txt
 ```
