@@ -5,7 +5,7 @@
 
 این پروژه به صورت خودکار کانفیگ‌های فعال V2Ray (شامل Vless, Vmess, Trojan, etc.) را از منابع عمومی مختلف جمع‌آوری، تست و دسته‌بندی می‌کند.
 
-**آخرین به‌روزرسانی:** Saturday 21 Tir 1404 - ساعت 02:52 (به وقت تهران)
+**آخرین به‌روزرسانی:** Saturday 21 Tir 1404 - ساعت 03:50 (به وقت تهران)
 
 [![Update Subscriptions](https://github.com/MEHR1DAD/V2RayAggregator/actions/workflows/update_all_proxies.yml/badge.svg)](https://github.com/MEHR1DAD/V2RayAggregator/actions/workflows/update_all_proxies.yml)
 
@@ -17,7 +17,7 @@
 
 ### 综合订阅 | All-in-One Subscription
 
-این لینک شامل **26,727** کانفیگ از تمام کشورها است. (ممکن است برای برخی کلاینت‌ها سنگین باشد)
+این لینک شامل **26,870** کانفیگ از تمام کشورها است. (ممکن است برای برخی کلاینت‌ها سنگین باشد)
 
 ```
 https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/../merged_configs.txt
@@ -32,15 +32,15 @@ https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/.
 
 | پرچم | کشور | تعداد کل | لینک کامل | لینک ۱۰۰تایی |
 |:---:|:---:|:---:|:---:|:---:|
-| 🇩🇪 | **آلمان** | `2,879` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/DE_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/DE_sub_100.txt) |
-| 🇦🇪 | **امارات** | `106` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/AE_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/AE_sub_100.txt) |
-| 🇺🇸 | **ایالات متحده** | `5,671` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/US_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/US_sub_100.txt) |
-| 🇮🇷 | **ایران** | `1,535` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/IR_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/IR_sub_100.txt) |
-| 🇬🇧 | **بریتانیا** | `829` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/GB_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/GB_sub_100.txt) |
+| 🇩🇪 | **آلمان** | `2,856` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/DE_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/DE_sub_100.txt) |
+| 🇦🇪 | **امارات** | `102` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/AE_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/AE_sub_100.txt) |
+| 🇺🇸 | **ایالات متحده** | `5,650` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/US_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/US_sub_100.txt) |
+| 🇮🇷 | **ایران** | `1,536` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/IR_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/IR_sub_100.txt) |
+| 🇬🇧 | **بریتانیا** | `833` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/GB_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/GB_sub_100.txt) |
 | 🇹🇷 | **ترکیه** | `193` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/TR_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/TR_sub_100.txt) |
-| 🇸🇪 | **سوئد** | `243` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/SE_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/SE_sub_100.txt) |
-| 🇫🇷 | **فرانسه** | `771` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/FR_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/FR_sub_100.txt) |
-| 🇳🇱 | **هلند** | `1,065` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/NL_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/NL_sub_100.txt) |
-| 🇨🇦 | **کانادا** | `439` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/CA_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/CA_sub_100.txt) |
+| 🇸🇪 | **سوئد** | `252` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/SE_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/SE_sub_100.txt) |
+| 🇫🇷 | **فرانسه** | `783` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/FR_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/FR_sub_100.txt) |
+| 🇳🇱 | **هلند** | `1,077` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/NL_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/NL_sub_100.txt) |
+| 🇨🇦 | **کانادا** | `453` | [Full](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/CA_sub.txt) | [100 Configs](https://raw.githubusercontent.com/MEHR1DAD/V2RayAggregator/master/subscription/CA_sub_100.txt) |
 
 </div>
