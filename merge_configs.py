@@ -186,6 +186,7 @@ urls = [
     "https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/SSTime",
     "https://raw.githubusercontent.com/Pasimand/v2ray-config-agg/main/config.txt",
     "https://raw.githubusercontent.com/Pintosalazar/Sapinto/f28bcc26e8d53ee8cd81dc9127fca0ad54426dbb/v2rayMCI.txt",
+    "https://raw.githubusercontent.com/PlanAsli/configs-collector-v2ray/0156dc2ab5b02c2006e70685aa649b5d9ea6967e/sub/datacenters/Maxserver_Company_Limited.txt",
     "https://raw.githubusercontent.com/Rayan-Config/HUB/refs/heads/main/H-I",
     "https://raw.githubusercontent.com/Rayan-Config/HUB/refs/heads/main/H-IV",
     "https://raw.githubusercontent.com/Rayan-Config/HUB/refs/heads/main/H-V",
