@@ -217,7 +217,6 @@ urls = [
     "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Azerbaijan.txt",
     "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Bahrain.txt",
     "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Belgium.txt",
-    "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Bolivia.txt",
     "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Bosnia_And_Herzegovina.txt",
     "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Brazil.txt",
     "https://raw.githubusercontent.com/SoliSpirit/v2ray-configs/refs/heads/main/Countries/Bulgaria.txt",
