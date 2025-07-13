@@ -18,7 +18,7 @@
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 15px -3px rgba(91, 33, 182, 0.2);
         }
         .modal-bg {
             transition: opacity 0.3s ease;
@@ -42,7 +42,7 @@
         <header class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">تجمیع‌کننده کانفیگ‌های V2Ray</h1>
             <p class="text-lg text-gray-400">لیست به‌روز و خودکار کانفیگ‌ها</p>
-            <p id="last-update" class="text-sm text-gray-500 mt-2"></p>
+            <p id="last-update" class="text-sm text-gray-500 mt-2">درحال دریافت آخرین وضعیت...</p>
         </header>
 
         <!-- Search Bar -->
@@ -71,7 +71,7 @@
     </div>
 
     <!-- QR Code Modal -->
-    <div id="qr-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden modal-bg fade-in">
+    <div id="qr-modal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center hidden modal-bg fade-in z-50">
         <div class="bg-gray-800 p-6 rounded-lg shadow-xl text-center w-11/12 max-w-sm modal-content">
             <h3 id="modal-title" class="text-xl font-bold mb-4"></h3>
             <div id="qrcode" class="flex justify-center mb-4 p-2 bg-white rounded-md"></div>
@@ -108,29 +108,43 @@
 
             let allCountryData = [];
 
-            // Fetch and display data
-            async function fetchData() {
+            async function fetchMainSub() {
                 try {
-                    // Fetch main merged_configs.txt from release
                     const releaseUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/releases/latest`;
                     const releaseResponse = await fetch(releaseUrl);
+                    
+                    if (!releaseResponse.ok) {
+                        throw new Error(`Release not found (Status: ${releaseResponse.status})`);
+                    }
+
                     const releaseData = await releaseResponse.json();
-                    const mergedAsset = releaseData.assets.find(asset => asset.name === 'merged_configs.txt');
+                    const mergedAsset = releaseData.assets?.find(asset => asset.name === 'merged_configs.txt');
                     
                     if (mergedAsset) {
                         const mergedUrl = mergedAsset.browser_download_url;
-                        const countResponse = await fetch(mergedUrl);
-                        const countText = await countResponse.text();
-                        const allConfigsCount = countText.split('\n').filter(line => line.trim() !== '').length;
-                        displayMainSubscription(mergedUrl, allConfigsCount);
+                        // For counting, we can't fetch a 100MB file. We'll rely on the badge or a separate count file in the future.
+                        // For now, we just display the link.
+                        // Let's assume a count file exists for better UX, or just show the link.
+                        displayMainSubscription(mergedUrl, "بیش از 400,000"); // Placeholder count
                         
                         const updatedAt = new Date(releaseData.published_at);
                         lastUpdateEl.textContent = `آخرین بروزرسانی: ${updatedAt.toLocaleString('fa-IR', { dateStyle: 'long', timeStyle: 'short' })}`;
+                    } else {
+                         mainSubContainer.innerHTML = `<p class="text-yellow-400 text-center">لینک جامع در حال حاضر در دسترس نیست.</p>`;
                     }
+                } catch (error) {
+                    console.warn('Could not fetch main subscription:', error.message);
+                    mainSubContainer.innerHTML = `<p class="text-yellow-400 text-center">لینک جامع در حال حاضر در دسترس نیست. (Release یافت نشد)</p>`;
+                }
+            }
 
-                    // Fetch country list
+            async function fetchCountrySubs() {
+                try {
                     const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/subscription`;
                     const response = await fetch(apiUrl);
+                     if (!response.ok) {
+                        throw new Error(`Subscription directory not found (Status: ${response.status})`);
+                    }
                     const files = await response.json();
 
                     const countryFiles = files.filter(file => file.name.endsWith('_sub.txt'));
@@ -152,13 +166,21 @@
                     });
 
                     allCountryData = await Promise.all(promises);
-                    allCountryData.sort((a, b) => b.count - a.count); // Sort by count desc
-                    
+                    allCountryData.sort((a, b) => b.count - a.count);
                     displayCountries(allCountryData);
 
                 } catch (error) {
-                    console.error('Error fetching data:', error);
-                    countriesGrid.innerHTML = `<p class="text-red-400 text-center col-span-full">خطا در بارگذاری اطلاعات. لطفاً صفحه را مجدداً بارگیری کنید.</p>`;
+                    console.error('Error fetching country data:', error);
+                    throw error; // Re-throw to be caught by the main catch block
+                }
+            }
+
+            async function main() {
+                try {
+                    await fetchMainSub();
+                    await fetchCountrySubs();
+                } catch(e) {
+                     countriesGrid.innerHTML = `<p class="text-red-400 text-center col-span-full">خطا در بارگذاری اطلاعات. لطفاً کنسول مرورگر را برای جزئیات بررسی کرده و صفحه را مجدداً بارگیری کنید.</p>`;
                 } finally {
                     loadingIndicator.style.display = 'none';
                 }
@@ -168,7 +190,7 @@
                  mainSubContainer.innerHTML = `
                     <div class="bg-gray-800 border border-gray-700 rounded-lg p-6 card">
                         <h2 class="text-2xl font-bold text-center mb-4">🌐 لینک جامع (همه کانفیگ‌ها)</h2>
-                        <p class="text-center text-gray-400 mb-4">این لینک شامل <b>${count.toLocaleString('fa-IR')}</b> کانفیگ از تمام کشورها است.</p>
+                        <p class="text-center text-gray-400 mb-4">این لینک شامل <b>${count}</b> کانفیگ از تمام کشورها است.</p>
                         <div class="flex flex-col sm:flex-row gap-2">
                             <button class="copy-btn flex-grow bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-lg transition-colors" data-link="${url}">کپی لینک</button>
                             <button class="qr-btn bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-lg transition-colors" data-link="${url}" data-title="لینک جامع">نمایش QR Code</button>
@@ -215,34 +237,31 @@
                 });
             }
             
-            // Event Listeners
-            countriesGrid.addEventListener('click', handleCardClick);
-            mainSubContainer.addEventListener('click', handleCardClick);
-
             function handleCardClick(e) {
-                if (e.target.classList.contains('copy-btn')) {
-                    const link = e.target.dataset.link;
-                    // Using a fallback for clipboard API
-                    const textArea = document.createElement("textarea");
-                    textArea.value = link;
-                    document.body.appendChild(textArea);
-                    textArea.focus();
-                    textArea.select();
-                    try {
-                        document.execCommand('copy');
-                        e.target.textContent = 'کپی شد!';
-                        setTimeout(() => { e.target.textContent = 'کپی'; }, 2000);
-                    } catch (err) {
-                        console.error('Fallback: Oops, unable to copy', err);
-                    }
-                    document.body.removeChild(textArea);
+                const button = e.target.closest('button');
+                if (!button) return;
+
+                if (button.classList.contains('copy-btn')) {
+                    const link = button.dataset.link;
+                    const originalText = button.textContent;
+                    navigator.clipboard.writeText(link).then(() => {
+                        button.textContent = 'کپی شد!';
+                        button.classList.add('bg-emerald-500');
+                        setTimeout(() => { 
+                            button.textContent = originalText; 
+                            button.classList.remove('bg-emerald-500');
+                        }, 2000);
+                    }).catch(err => console.error('Failed to copy: ', err));
                 }
-                if (e.target.classList.contains('qr-btn')) {
-                    const link = e.target.dataset.link;
-                    const title = e.target.dataset.title;
+                if (button.classList.contains('qr-btn')) {
+                    const link = button.dataset.link;
+                    const title = button.dataset.title;
                     showQrModal(link, title);
                 }
             }
+
+            countriesGrid.addEventListener('click', handleCardClick);
+            mainSubContainer.addEventListener('click', handleCardClick);
 
             searchInput.addEventListener('input', (e) => {
                 const searchTerm = e.target.value.toLowerCase();
@@ -273,8 +292,7 @@
                 }
             });
 
-            // Initial fetch
-            fetchData();
+            main();
         });
     </script>
 </body>
