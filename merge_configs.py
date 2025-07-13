@@ -16,7 +16,6 @@ urls = [
     "https://github.com/itsyebekhe/PSG/raw/refs/heads/main/subscriptions/location/normal/GB",
     "https://github.com/itsyebekhe/PSG/raw/refs/heads/main/subscriptions/location/normal/HK",
     "https://github.com/itsyebekhe/PSG/raw/refs/heads/main/subscriptions/location/normal/IE",
-    "https://github.com/itsyebekhe/PSG/raw/refs/heads/main/subscriptions/location/normal/IN",
     "https://github.com/itsyebekhe/PSG/raw/refs/heads/main/subscriptions/location/normal/IR",
     "https://github.com/itsyebekhe/PSG/raw/refs/heads/main/subscriptions/location/normal/IT",
     "https://github.com/itsyebekhe/PSG/raw/refs/heads/main/subscriptions/location/normal/JP",
