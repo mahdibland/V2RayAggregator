@@ -8,6 +8,7 @@ import socket
 import tarfile
 import time
 from datetime import datetime
+from utils import extract_ip_from_connection, resolve_to_ip
 
 # =================================================================================
 # بخش تعریف متغیرهای سراسری (Constants)
@@ -30,43 +31,6 @@ COUNTRIES = {
     "IR": "IR_sub.txt"
 }
 # =================================================================================
-
-
-def extract_ip_from_connection(connection: str) -> str | None:
-    if not connection or not isinstance(connection, str): return None
-    host = None
-    try:
-        if connection.startswith("vmess://"):
-            encoded_part = connection.split("vmess://")[1]; padding = len(encoded_part) % 4
-            if padding: encoded_part += "=" * (4 - padding)
-            host = json.loads(base64.b64decode(encoded_part).decode("utf-8")).get("add")
-        elif connection.startswith(("vless://", "trojan://", "tuic://", "hysteria2://", "wireguard://")):
-            host = connection.split("@")[1].split("?")[0].split("#")[0].split(":")[0]
-        elif connection.startswith(("ss://", "brook://")):
-            if "@" in connection:
-                match = re.search(r"@([\w\.\-]+):", connection)
-                if match: host = match.group(1)
-            else:
-                encoded_part = connection.split("://")[1].split("#")[0]; padding = len(encoded_part) % 4
-                if padding: encoded_part += "=" * (4 - padding)
-                decoded_part = base64.b64decode(encoded_part).decode("utf-8")
-                host = decoded_part.split("@")[1].split(":")[0]
-        elif connection.startswith("ssr://"):
-            encoded_part = connection.split("ssr://")[1]; padding = len(encoded_part) % 4
-            if padding: encoded_part += "=" * (4 - padding)
-            decoded_part = base64.b64decode(encoded_part).decode("utf-8")
-            host = decoded_part.split(":")[0]
-        elif connection.startswith(("hysteria://", "socks://", "http://")):
-            address_part = connection.split("://")[1]
-            if "@" in address_part: address_part = address_part.split("@")[1]
-            host = address_part.split(":")[0]
-    except Exception: return None
-    return host if host else None
-
-def resolve_to_ip(host: str) -> str | None:
-    if not host or not isinstance(host, str): return None
-    try: return socket.gethostbyname(host)
-    except (socket.gaierror, UnicodeError): return None
 
 def download_geoip_database():
     if not MAXMIND_LICENSE_KEY: print("Error: MAXMIND_LICENSE_KEY not set."); return False
