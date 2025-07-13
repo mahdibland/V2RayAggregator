@@ -1,0 +1,47 @@
+# ================================================= #
+#     Central Configuration for V2RayAggregator     #
+# ================================================= #
+
+# 1. Project-wide settings
+project:
+  repo_owner: "MEHR1DAD"
+  repo_name: "V2RayAggregator"
+
+# 2. File and Directory Paths
+paths:
+  output_dir: "subscription"
+  merged_configs: "merged_configs.txt"
+  geoip_database: "GeoLite2-City.mmdb"
+  active_sources: "active_sources.json"
+  discovered_sources: "discovered_sources.txt"
+  dead_sources: "dead_sources.txt"
+  http_log: "http_test.log"
+  utils_module: "utils.py"
+  crawled_urls_state: "crawled_urls.txt"
+
+# 3. URLs and API endpoints
+urls:
+  geoip_download: "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key={}&suffix=tar.gz"
+  http_test: "https://labs.google.com/"
+
+# 4. Script-specific settings
+settings:
+  request_timeout: 10
+  find_sources:
+    max_depth: 10
+    total_timeout_hours: 5
+  create_rotating_sub:
+    chunk_size: 100
+
+# 5. Country Definitions
+countries:
+  US: { name: "ایالات متحده", flag: "🇺🇸", sub_file: "US_sub.txt" }
+  NL: { name: "هلند", flag: "🇳🇱", sub_file: "NL_sub.txt" }
+  DE: { name: "آلمان", flag: "🇩🇪", sub_file: "DE_sub.txt" }
+  GB: { name: "بریتانیا", flag: "🇬🇧", sub_file: "GB_sub.txt" }
+  FR: { name: "فرانسه", flag: "🇫🇷", sub_file: "FR_sub.txt" }
+  CA: { name: "کانادا", flag: "🇨🇦", sub_file: "CA_sub.txt" }
+  TR: { name: "ترکیه", flag: "🇹🇷", sub_file: "TR_sub.txt" }
+  AE: { name: "امارات", flag: "🇦🇪", sub_file: "AE_sub.txt" }
+  SE: { name: "سوئد", flag: "🇸🇪", sub_file: "SE_sub.txt" }
+  IR: { name: "ایران", flag: "🇮🇷", sub_file: "IR_sub.txt" }
