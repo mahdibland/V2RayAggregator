@@ -6,8 +6,8 @@ concurrency:
 
 on:
   schedule:
-    # هر ۵ دقیقه اجرا شود
-    - cron: '*/5 * * * *'
+    # هر ساعت اجرا شود
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -22,11 +22,9 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Get current date and hour
+      - name: Get current date for caching
         id: date
-        run: |
-          echo "TODAY=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
-          echo "HOUR=$(date -u +'%Y-%m-%d-%H')" >> $GITHUB_OUTPUT
+        run: echo "TODAY=$(date -u +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
       - name: Cache GeoIP Database
         id: cache-geoip
@@ -34,60 +32,64 @@ jobs:
         with:
           path: GeoLite2-City.mmdb
           key: ${{ runner.os }}-geoip-${{ steps.date.outputs.TODAY }}
-          restore-keys: |
-            ${{ runner.os }}-geoip-
-
-      - name: Cache hourly run marker
-        id: cache-hourly-marker
-        uses: actions/cache@v4
-        with:
-          path: .hourly_run_marker
-          key: ${{ runner.os }}-hourly-run-${{ steps.date.outputs.HOUR }}
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests geoip2 jdatetime pytz pyyaml httpx
 
-      - name: Run Hourly Tasks (if cache miss)
-        if: steps.cache-hourly-marker.outputs.cache-hit != 'true'
+      - name: Download Xray-core for testing
         run: |
-          echo "✅ Cache miss for hour ${{ steps.date.outputs.HOUR }}. Running hourly tasks..."
-          if [ ! -f GeoLite2-City.mmdb ]; then
-            python -c "from exp_country import download_geoip_database; download_geoip_database()"
-          fi
-          python find_sources.py
+          wget -q -O xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
+          unzip -q xray.zip xray
+          chmod +x xray
+
+      - name: Run Main Pipeline
+        run: |
+          echo "--- Running Main Data Pipeline ---"
+          # ۱. مقداردهی اولیه دیتابیس
+          python -c "from database import initialize_db; initialize_db()"
+          
+          # ۲. مدیریت و پاک‌سازی منابع
           python manage_sources.py
+          
+          # ۳. تجمیع کانفیگ‌ها از منابع فعال
           python merge_configs.py
+          
+          # ۴. تست و ذخیره کانفیگ‌های سالم در دیتابیس
           python exp_country.py
-          touch .hourly_run_marker
+          
+          # ۵. ساخت فایل‌های اشتراک نهایی از دیتابیس
+          python create_rotating_sub.py
+          
+          # ۶. ساخت فایل‌های README و summary.json
+          python generate_readme.py
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
           MAXMIND_LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
-
-      - name: Run 5-Minute Tasks (always)
-        run: |
-          python create_rotating_sub.py
-          python generate_readme.py
 
       - name: Commit and push all changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git rm --cached merged_configs.txt || true
+          # فایل‌های بزرگ و موقت را به گیت اضافه نمی‌کنیم
+          git rm --cached -r aggregator_data.db merged_configs.txt || true
           git add .
           if git diff --staged --quiet; then
             echo "No changes detected. Skipping commit."
           else
-            git commit -m "Update subscriptions and project files"
+            git commit -m " hourly update"
             git push
           fi
       
-      - name: Upload Merged Configs to Release
+      - name: Upload Artifacts to Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
-          files: merged_configs.txt
-          body: "آخرین لیست تجمیع‌شده کانفیگ‌ها. این فایل به صورت خودکار هر ساعت به‌روز می‌شود."
-          prerelease: false
+          # فایل‌های خروجی نهایی را آپلود می‌کنیم
+          files: |
+            summary.json
+            aggregator_data.db
+            merged_configs.txt
+          body: "آخرین خروجی‌های پروژه. این فایل‌ها به صورت خودکار به‌روز می‌شوند."
           make_latest: true
