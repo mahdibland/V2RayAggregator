@@ -1,87 +1,61 @@
 import os
 import random
+import yaml
+# تابع جدید برای خواندن کانفیگ‌ها از دیتابیس
+from database import get_configs_by_country
 
-# --- لیست کشورها ---
-# این لیست باید با لیست فایل exp_country.py شما هماهنگ باشد
-COUNTRIES = {
-    "US": "US_sub.txt", "NL": "NL_sub.txt", "DE": "DE_sub.txt",
-    "GB": "GB_sub.txt", "FR": "FR_sub.txt", "CA": "CA_sub.txt",
-    "TR": "TR_sub.txt", "AE": "AE_sub.txt", "SE": "SE_sub.txt",
-    "IR": "IR_sub.txt"
-}
+# --- Load Configuration ---
+with open("config.yml", "r") as f:
+    config = yaml.safe_load(f)
 
-CHUNK_SIZE = 100
+# --- Constants from Config File ---
+OUTPUT_DIR = config['paths']['output_dir']
+COUNTRIES = config['countries']
+CHUNK_SIZE = config['settings']['create_rotating_sub']['chunk_size'] # خواندن اندازه از کانفیگ
+# --- End of Constants ---
 
-def process_country(country_code: str):
-    """این تابع عملیات را برای یک کشور مشخص انجام می‌دهد"""
-    print(f"\n--- Processing country: {country_code} ---")
-    
-    # تعریف نام فایل‌ها به صورت داینامیک برای هر کشور
-    source_file = f"subscription/{country_code}_sub.txt"
-    shuffled_file = f"subscription/{country_code}_sub_shuffled.txt"
-    index_file = f"subscription/{country_code}_sub_index.txt"
-    output_file = f"subscription/{country_code}_sub_100.txt"
+def create_subscription_files():
+    """
+    Fetches configs from the database and creates final subscription files
+    for both the full list and a rotating random chunk.
+    """
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    print("--- Creating Final Subscription Files ---")
 
-    # ۱. خواندن کانفیگ‌های اصلی
-    try:
-        with open(source_file, "r", encoding="utf-8") as f:
-            all_configs = [line.strip() for line in f if line.strip()]
-    except FileNotFoundError:
-        print(f"🟡 Source file for {country_code} not found, skipping.")
-        return
+    for country_code, country_info in COUNTRIES.items():
+        print(f"\nProcessing country: {country_code}")
 
-    if not all_configs:
-        print(f"🟡 Source file for {country_code} is empty, skipping.")
-        return
+        # ۱. خواندن تمام کانفیگ‌های سالم و مرتب‌شده بر اساس سرعت از دیتابیس
+        # ما تعداد بیشتری از ۱۰۰ تا می‌خوانیم تا بتوانیم لیست چرخشی بسازیم
+        all_configs = get_configs_by_country(country_code, limit=500)
 
-    # ۲. خواندن لیست بُر خورده قبلی
-    shuffled_configs = []
-    if os.path.exists(shuffled_file):
-        with open(shuffled_file, "r", encoding="utf-8") as f:
-            shuffled_configs = [line.strip() for line in f if line.strip()]
+        if not all_configs:
+            print(f"🟡 No configs found in database for {country_code}. Skipping.")
+            continue
 
-    # ۳. خواندن ایندکس
-    current_index = 0
-    if os.path.exists(index_file):
-        try:
-            with open(index_file, "r") as f:
-                current_index = int(f.read().strip())
-        except (ValueError, FileNotFoundError):
-            current_index = 0
-            
-    # ۴. بررسی برای بُر زدن مجدد
-    if current_index >= len(shuffled_configs) or not shuffled_configs:
-        print(f"🌀 Re-shuffling configs for {country_code}...")
-        random.shuffle(all_configs)
-        shuffled_configs = all_configs
-        current_index = 0
-        with open(shuffled_file, "w", encoding="utf-8") as f:
-            f.write("\n".join(shuffled_configs))
+        # ۲. ذخیره فایل اشتراک کامل (شامل تمام کانفیگ‌های سالم)
+        full_sub_filename = country_info['sub_file']
+        full_sub_path = os.path.join(OUTPUT_DIR, full_sub_filename)
+        with open(full_sub_path, 'w', encoding='utf-8') as f:
+            f.write("\n".join(all_configs))
+        print(f"✅ Saved {len(all_configs)} configs to {full_sub_filename}")
 
-    # ۵. جدا کردن ۱۰۰ کانفیگ بعدی
-    start_index = current_index
-    end_index = start_index + CHUNK_SIZE
-    new_chunk = shuffled_configs[start_index:end_index]
+        # ۳. ساخت و ذخیره فایل چرخشی ۱۰۰تایی
+        # از لیست کامل، به صورت رندوم ۱۰۰ تا انتخاب می‌کنیم
+        if len(all_configs) > CHUNK_SIZE:
+            rotating_chunk = random.sample(all_configs, CHUNK_SIZE)
+        else:
+            rotating_chunk = all_configs
 
-    # ۶. ذخیره کردن خروجی
-    with open(output_file, "w", encoding="utf-8") as f:
-        f.write("\n".join(new_chunk))
-    print(f"✅ Saved {len(new_chunk)} configs to {output_file}")
-
-    # ۷. آپدیت کردن ایندکس
-    next_index = end_index
-    with open(index_file, "w") as f:
-        f.write(str(next_index))
-    print(f"➡️ Next run for {country_code} will start from index: {next_index}")
-
+        rotating_sub_filename = full_sub_filename.replace('_sub.txt', '_sub_100.txt')
+        rotating_sub_path = os.path.join(OUTPUT_DIR, rotating_sub_filename)
+        with open(rotating_sub_path, 'w', encoding='utf-8') as f:
+            f.write("\n".join(rotating_chunk))
+        print(f"✅ Saved {len(rotating_chunk)} random configs to {rotating_sub_filename}")
 
 if __name__ == "__main__":
-    # ایجاد پوشه subscription در صورت عدم وجود
-    if not os.path.exists("subscription"):
-        os.makedirs("subscription")
-        
-    # اجرای عملیات برای تمام کشورها در لیست
-    for code in COUNTRIES.keys():
-        process_country(code)
-    
-    print("\nAll countries processed successfully.")
+    if not os.path.exists('config.yml'):
+        print("FATAL: config.yml not found.")
+    else:
+        create_subscription_files()
+        print("\nAll subscription files created successfully.")
