@@ -521,7 +521,7 @@ high-speed node quantity: `200`
 - you can import these 200 tested nodes using their subscription link into different clients. refer to `Instructions & Usage` section
 
 ### all nodes
-merge nodes w/o dup: `5188`
+merge nodes w/o dup: `5177`
 - [Node link Mixed (V2ray)](https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/sub/sub_merge.txt)
 - [Node link Yaml (Clash)](https://raw.githubusercontent.com/mahdibland/SSAggregator/master/sub/sub_merge_yaml.yml)
 
@@ -553,9 +553,9 @@ merge nodes w/o dup: `5188`
 - [Jsnzkpg/Jsnzkpg](https://github.com/Jsnzkpg/Jsnzkpg), number of nodes: `7`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `3`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `9`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `7`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `217`
-- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `329`
+- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `414`
 - [freefq/free](https://github.com/freefq/free), number of nodes: `14`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `156`
 - [YasserDivaR/pr0xy](https://github.com/YasserDivaR/pr0xy), number of nodes: `621`
