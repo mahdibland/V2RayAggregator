@@ -17,7 +17,21 @@ dns:
   - https://dns.google/dns-query
   - tls://dns.google:853
 proxies:
-- name: MO-45.64.22.22-0000 | 12.718MB
+- name: ZA-4.253.33.155-0868 | 0.0MB
+  server: boogeyman.chomba.tech
+  port: 443
+  type: vmess
+  uuid: 9b6a87ed-9949-49f6-ab6f-cf9ab15177d7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: boogeyman.chomba.tech
+- name: MO-45.64.22.22-0000 | 0.0MB
   server: 45.64.22.22
   port: 443
   type: vmess
@@ -2091,20 +2105,6 @@ proxies:
     path: /
     headers:
       Host: us-lb.sshkit.org
-- name: RELAY-203.30.188.189-0239 | 0.0MB
-  server: 203.30.188.189
-  port: 443
-  type: vmess
-  uuid: 56a2188b-2ab7-402c-b9b8-34847fdf0958
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: oplg1.zhujicn2.com
 proxy-groups:
 - name: Global ©️
   type: select
@@ -2161,7 +2161,8 @@ proxy-groups:
   interval: 300
   tolerance: 100
   proxies:
-  - MO-45.64.22.22-0000 | 12.718MB
+  - ZA-4.253.33.155-0868 | 0.0MB
+  - MO-45.64.22.22-0000 | 0.0MB
   - 🇭🇰HK-156.253.107.236-0002 | 0.0MB
   - 🇸🇬SG-146.190.202.9-0003 | 0.0MB
   - 🇺🇸US-145.223.124.238-0008 | 0.0MB
@@ -2210,13 +2211,13 @@ proxy-groups:
   - RELAY-141.193.213.20-0065 | 0.0MB
   - RELAY-141.101.115.32-0066 | 0.0MB
   - RELAY-198.41.203.5-0067 | 0.0MB
-  - RELAY-141.193.213.20-0068 | 0.0MB
 - name: Tier 2 ⚡️
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
+  - RELAY-141.193.213.20-0068 | 0.0MB
   - RELAY-172.67.199.34-0069 | 0.0MB
   - RELAY-162.159.128.7-0070 | 0.0MB
   - RELAY-172.66.2.5-0074 | 0.0MB
@@ -2266,13 +2267,13 @@ proxy-groups:
   - 🇬🇧GB-45.66.134.176-0127 | 0.0MB
   - 🇯🇵JP-89.31.126.150-0128 | 0.0MB
   - 🇯🇵JP-185.160.24.217-0129 | 0.0MB
-  - 🇯🇵JP-185.160.24.217-0130 | 0.0MB
 - name: Tier 3 💎
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
+  - 🇯🇵JP-185.160.24.217-0130 | 0.0MB
   - 🇬🇧GB-45.66.134.176-0131 | 0.0MB
   - 🇯🇵JP-185.160.24.217-0132 | 0.0MB
   - 🇬🇧GB-45.66.134.176-0133 | 0.0MB
@@ -2322,13 +2323,13 @@ proxy-groups:
   - 🇸🇬SG-81.90.189.18-0177 | 0.0MB
   - 🇸🇬SG-217.197.161.166-0178 | 0.0MB
   - 🇸🇬SG-217.197.161.138-0179 | 0.0MB
-  - 🇸🇬SG-217.197.161.166-0180 | 0.0MB
 - name: Tier 4 🗿
   type: url-test
   url: http://clients3.google.com/generate_204
   interval: 300
   tolerance: 100
   proxies:
+  - 🇸🇬SG-217.197.161.166-0180 | 0.0MB
   - 🇸🇬SG-217.197.161.166-0181 | 0.0MB
   - 🇸🇬SG-217.197.161.136-0182 | 0.0MB
   - 🇸🇬SG-217.197.161.166-0183 | 0.0MB
@@ -2379,6 +2380,5 @@ proxy-groups:
   - RELAY-141.193.213.20-0236 | 0.0MB
   - RELAY-172.67.199.34-0237 | 0.0MB
   - RELAY-172.67.199.34-0238 | 0.0MB
-  - RELAY-203.30.188.189-0239 | 0.0MB
 rules:
 - MATCH,Global ©️
