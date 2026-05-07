@@ -552,13 +552,13 @@ merge nodes w/o dup: `5122`
 - [gooooooooooooogle/Clash-Config](https://github.com/gooooooooooooogle/Clash-Config), number of nodes: `1`
 - [ermaozi/get_subscribe](https://github.com/ermaozi/get_subscribe), number of nodes: `3`
 - [wrfree/free](https://github.com/wrfree/free), number of nodes: `51`
-- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `10`
+- [Pawdroid/Free-servers](https://github.com/Pawdroid/Free-servers), number of nodes: `8`
 - [misersun/config003-002](https://github.com/misersun/config003), number of nodes: `217`
-- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `297`
+- [mfuu/v2ray](https://github.com/mfuu/v2ray), number of nodes: `285`
 - [freefq/free](https://github.com/freefq/free), number of nodes: `14`
 - [xiyaowong/freeFQ](https://github.com/xiyaowong/freeFQ), number of nodes: `156`
 - [YasserDivaR/pr0xy](https://github.com/YasserDivaR/pr0xy), number of nodes: `621`
-- [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `111`
+- [peasoft/NoMoreWalls](https://github.com/peasoft/NoMoreWalls), number of nodes: `119`
 - [mahdibland/get_v2](https://github.com/mahdibland/get_v2), number of nodes: `2353`
 - [jikelonglie/meskell](https://github.com/jikelonglie/meskell), number of nodes: `9`
 - [freebaipiao/freebaipiao](https://github.com/freebaipiao/freebaipiao), number of nodes: `6`
