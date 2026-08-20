@@ -613,6 +613,7 @@ merge nodes w/o dup: `4650`
 |                                    ×                                    | [Shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases) | SS protocol support, Android-specific SS client.                                                                                                                         |
 |                                    ×                                    | [ShadowsocksR-android](https://github.com/HMBSbige/ShadowsocksR-Android/releases)  | SSR protocol support, Android-specific SSR client.                                                                                                                       |
 |                                    ×                                    |                [V2rayNG](https://github.com/2dust/v2rayNG/releases)                | SS, Trojan, Vmess, VLESS protocol support, v2ray kernel.                                                                                                           |
+|                                    ×                                    |                [SKIPI](https://github.com/ZloyRadetski/skipi-box)                  | Fast modern Android client, VLESS (XTLS Reality, Vision), Hysteria 2, Trojan, SS, smart routing, no ads.                                                           |
 
 ### Credit: 
 - [alanbobs999](https://github.com/alanbobs999)
