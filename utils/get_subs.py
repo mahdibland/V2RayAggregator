@@ -102,7 +102,7 @@ class subs:
         temp = list(filter(lambda x: re.search(ipv6, x) ==
                     None or re.search(ipv4, x) != None, yaml_proxies))
         temp = list(filter(lambda x: re.search(
-            "path: /(.*?)\?(.*?)=(.*?)}", x) == None, temp))
+            "path: /(.*?)\\?(.*?)=(.*?)}", x) == None, temp))
 
         temp2 = temp
         temp = []
@@ -223,7 +223,7 @@ class subs:
                                 for (index, cl) in enumerate(clash_content):
                                     try:
                                         if re.search(ipv6, str(cl)) == None or re.search(ipv4, str(cl)) != None:
-                                            if re.search("path: /(.*?)\?(.*?)=(.*?)}", str(cl)) == None:
+                                            if re.search("path: /(.*?)\\?(.*?)=(.*?)}", str(cl)) == None:
                                                 # todo first trying without it
                                                 # # fix name issues and replacing the illegal character with empty string
                                                 # try:
@@ -461,7 +461,7 @@ class subs:
                             for (index, cl) in enumerate(clash_content):
                                 try:
                                     if re.search(ipv6, str(cl)) == None or re.search(ipv4, str(cl)) != None:
-                                        if re.search("path: /(.*?)\?(.*?)=(.*?)}", str(cl)) == None:
+                                        if re.search("path: /(.*?)\\?(.*?)=(.*?)}", str(cl)) == None:
                                             # todo first trying without it
                                             # # fix name issues and replacing the illegal character with empty string
                                             # try:
