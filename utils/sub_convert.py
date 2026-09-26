@@ -521,15 +521,15 @@ class sub_convert():
                                 print('SSR 格式错误: %s' % ssr_content)
                             password_and_params = parts[5]
                             password_and_params = re.split(
-                                '/\?', password_and_params)
+                                '/\\?', password_and_params)
                             password_encode_str = password_and_params[0]
                             params = password_and_params[1]
 
-                            param_parts = re.split('\&', params)
+                            param_parts = re.split('\\&', params)
                             param_dic = {'remarks': 'U1NSIE5vZGU=',
                                          'obfsparam': '', 'protoparam': '', 'group': ''}
                             for part in param_parts:
-                                key_and_value = re.split('\=', part)
+                                key_and_value = re.split('\\=', part)
                                 param_dic.update(
                                     {key_and_value[0]: key_and_value[1]})
                             yaml_url.setdefault(
@@ -565,7 +565,7 @@ class sub_convert():
                             server_part = part_list[0].replace('trojan://', '')
                             # 使用多个分隔符 https://blog.csdn.net/shidamowang/article/details/80254476 https://zhuanlan.zhihu.com/p/92287240
                             server_part_list = re.split(
-                                ':|@|\?|&', server_part)
+                                ':|@|\\?|&', server_part)
                             yaml_url.setdefault('server', server_part_list[1])
                             yaml_url.setdefault('port', server_part_list[2])
                             yaml_url.setdefault('type', 'trojan')
