@@ -13,13 +13,13 @@ jobs:
     name: Collect & SpeedTest & Filter
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.11"
           cache: "pip"
       # setup actions has built-in caching function
-      # - uses: actions/cache@v3
+      # - uses: actions/cache@v6
       #   with:
       #     path: ~/.cache/pip
       #     key: ${{ runner.os }}-pip-${{ hashFiles('**/run_in_Actions/requirements.txt') }}
