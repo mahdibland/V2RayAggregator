@@ -25,7 +25,7 @@ class sub_merge():
         for index in range(len(raw_list)):
             if raw_list[index]['enabled']:
                 if remote == False:
-                    urls = re.split('\|', raw_list[index]['url'])
+                    urls = re.split('\\|', raw_list[index]['url'])
                 else:
                     urls = raw_list[index]['url']
                 raw_list[index]['url'] = urls
